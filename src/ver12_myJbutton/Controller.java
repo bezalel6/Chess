@@ -27,7 +27,7 @@ public class Controller {
     private boolean showPositionDialog = true;
     private boolean isFirstClick = true;
     private boolean aiGame = false;
-    private boolean aiPlaysBlack = true;
+    private boolean aiPlaysBlack = false;
 
 
     Controller() {
@@ -93,7 +93,7 @@ public class Controller {
         } else {
             ArrayList<Move> movesList = model.getMoves(currentPiece, model.getBoard());
             Move move = findMove(movesList, currentPiece, loc);
-            if (move != null && currentPiece != null && !currentPiece.getLoc().isEqual(loc)) {
+            if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
                 if (move instanceof PromotionMove) {
                     ((PromotionMove) move).setPromotingTo(types.values()[promote()]);
                 }
@@ -142,7 +142,7 @@ public class Controller {
 
     private Move findMove(ArrayList<Move> movesList, Piece currentPiece, Location loc) {
         for (Move move : movesList) {
-            if (move.getMovingTo().isEqual(loc) && model.getBoard().getPiece(move.getMovingFrom()).getLoc().isEqual(currentPiece.getLoc())) {
+            if (move.getMovingTo().equals(loc) && model.getBoard().getPiece(move.getMovingFrom()).getLoc().equals(currentPiece.getLoc())) {
                 return move;
             }
         }

@@ -15,6 +15,7 @@ public abstract class Piece {
     private types pieceType;
     private String annotation = "";
     private boolean hasMoved;
+    private Move lastMove;
 
     //Starting from position
     public Piece(int worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
@@ -70,7 +71,12 @@ public abstract class Piece {
     }
 
     public void setMoved(Move move) {
-        hasMoved = true;
+        if (lastMove != null && move.equals(lastMove)) {
+            hasMoved = lastMove.getMovingFromPiece().hasMoved;
+        } else {
+            hasMoved = true;
+        }
+        lastMove = move;
     }
 
     public String getAnnotation() {

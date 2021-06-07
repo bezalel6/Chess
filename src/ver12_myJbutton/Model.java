@@ -47,7 +47,7 @@ public class Model {
         Piece piece = board.getPiece(move.getMovingFrom());
         String moveAnnotation = move.getAnnotation();
         board.applyMove(move);
-        piece.setMoved(move);
+        //piece.setMoved(move);
         return moveAnnotation;
     }
 
@@ -67,7 +67,7 @@ public class Model {
 
     private boolean isLocInMoveList(ArrayList<Move> list, Location loc) {
         for (Move move : list) {
-            if (move.getMovingFrom().isEqual(loc))
+            if (move.getMovingFrom().equals(loc))
                 return true;
         }
         return false;

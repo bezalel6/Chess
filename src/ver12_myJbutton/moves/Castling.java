@@ -8,7 +8,7 @@ public class Castling extends SpecialMove {
     private Rook rook;
     private Location kingMiddleMove, kingFinalLoc, rookFinalLoc, rookMiddleLoc, rookStartingLoc;
 
-    public Castling(Move move, Rook rook, Location kingMiddleMove, Location kingFinalLoc, Location rookFinalLoc, Location rookMiddleLoc, Board board) {
+    public Castling(Move move, Rook rook, Location kingMiddleMove, Location kingFinalLoc, Location rookFinalLoc, Location rookMiddleLoc) {
         super(move, SpecialMoveType.LONG_CASTLE);
         this.rook = rook;
         this.kingMiddleMove = kingMiddleMove;
@@ -18,7 +18,7 @@ public class Castling extends SpecialMove {
         this.rookStartingLoc = new Location(rook.getLoc());
     }
 
-    public Castling(Move move, Rook rook, Location kingMiddleMove, Location kingFinalLoc, Location rookFinalLoc, Board board) {
+    public Castling(Move move, Rook rook, Location kingMiddleMove, Location kingFinalLoc, Location rookFinalLoc) {
         super(move, SpecialMoveType.SHORT_CASTLE);
         this.rook = rook;
         this.kingMiddleMove = kingMiddleMove;

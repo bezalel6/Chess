@@ -47,6 +47,10 @@ public class Move {
         }
     }
 
+    public boolean equals(Move move) {
+        return movingFrom.equals(move.movingFrom) && movingTo.equals(move.movingTo);
+    }
+
     public Piece getMovingFromPiece() {
         return movingFromPiece;
     }

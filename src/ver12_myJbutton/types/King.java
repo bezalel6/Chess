@@ -41,11 +41,11 @@ public class King extends Piece {
                         Location kingMiddleMove = new Location(myR, myC - 1), kingFinalLoc = new Location(myR, myC - 2), rookFinalLoc = new Location(myR, myC - 1), rookMiddleLoc = new Location(myR, myC - 3);
                         if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc) && isInBounds(rookMiddleLoc))
                             //if (!board.isInCheck(getPieceColor()) && !board.isSquareThreatened(kingMiddleMove, getOtherColor()) && !board.isSquareThreatened(kingFinalLoc, getOtherColor()))
-                            add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc, rookMiddleLoc, board), board);
+                            add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc, rookMiddleLoc), board);
                     } else {
                         Location kingMiddleMove = new Location(myR, myC + 1), kingFinalLoc = new Location(myR, myC + 2), rookFinalLoc = new Location(myR, myC + 1);
                         if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc))
-                            add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc, board), board);
+                            add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc), board);
                     }
 
 

@@ -157,7 +157,7 @@ public class Board implements Iterable<Piece[]> {
                     ArrayList<Move> canMoveTo = p.canMoveTo(this);
                     if (canMoveTo != null)
                         for (Move move : canMoveTo) {
-                            if (move.getMovingTo().isEqual(piece.getLoc()))
+                            if (move.getMovingTo().equals(piece.getLoc()))
                                 return true;
                         }
 
@@ -257,7 +257,7 @@ public class Board implements Iterable<Piece[]> {
                     ArrayList<Move> canMoveTo = p.canMoveTo(this);
                     if (canMoveTo != null)
                         for (Move move : canMoveTo) {
-                            if (move.getMovingFrom().isEqual(square))
+                            if (move.getMovingFrom().equals(square))
                                 return true;
                         }
 
@@ -281,6 +281,7 @@ public class Board implements Iterable<Piece[]> {
         Location movingTo = move.getMovingTo();
         setPiece(movingTo, piece);
         setPiece(prev, null);
+        piece.setMoved(move);
         piece.setLoc(movingTo);
     }
 
@@ -299,6 +300,7 @@ public class Board implements Iterable<Piece[]> {
         Piece otherPiece = move.getMovingToPiece();
         setPiece(originalPieceLocation, piece);
         setPiece(currentPieceLocation, otherPiece);
+        piece.setMoved(move);
         piece.setLoc(originalPieceLocation);
     }
 

@@ -75,7 +75,7 @@ public class Pawn extends Piece {
 
     @Override
     public void setMoved(Move move) {
-        if (!getHasMoved() && enPassantCaptured != null && move.getMovingTo().isEqual(enPassantCaptured.getPieceLoc())) {
+        if (!getHasMoved() && enPassantCaptured != null && move.getMovingTo().equals(enPassantCaptured.getPieceLoc())) {
             canGetEnPassant = true;
         }
         for (Piece piece : move.getBoard().getPlayersPieces(getOtherColor())) {
@@ -125,7 +125,7 @@ public class Pawn extends Piece {
                 Pawn pawn = (Pawn) piece;
                 if (!pawn.isOnMyTeam(this))
                     if (pawn.canGetEnPassant)
-                        if (pawn.enPassantCaptured.getCaptureLoc().isEqual(rightCapture)) {
+                        if (pawn.enPassantCaptured.getCaptureLoc().equals(rightCapture)) {
                             EnPassant epsn = new EnPassant(pieceLoc, rightCapture, SpecialMoveType.CAPTURING_EN_PASSANT, checkEnPassantRightCapture, board);
                             ret.add(epsn);
                         }
@@ -135,7 +135,7 @@ public class Pawn extends Piece {
             Piece piece = board.getPiece(checkEnPassantLeftCapture);
             if (piece != null && piece instanceof Pawn) {
                 Pawn pawn = (Pawn) piece;
-                if (!pawn.isOnMyTeam(this) && pawn.canGetEnPassant && pawn.enPassantCaptured.getCaptureLoc().isEqual(leftCapture)) {
+                if (!pawn.isOnMyTeam(this) && pawn.canGetEnPassant && pawn.enPassantCaptured.getCaptureLoc().equals(leftCapture)) {
                     EnPassant epsn = new EnPassant(pieceLoc, leftCapture, SpecialMoveType.CAPTURING_EN_PASSANT, checkEnPassantLeftCapture, board);
                     ret.add(epsn);
                 }

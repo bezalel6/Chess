@@ -29,7 +29,7 @@ public class Location {
         }
     }
 
-    public boolean isEqual(Location compareTo) {
+    public boolean equals(Location compareTo) {
         return compareTo == null ? null : row == compareTo.getRow() && col == compareTo.getCol();
     }
 
