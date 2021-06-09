@@ -78,11 +78,11 @@ public class Pawn extends Piece {
         if (!getHasMoved() && enPassantCaptured != null && move.getMovingTo().equals(enPassantCaptured.getPieceLoc())) {
             canGetEnPassant = true;
         }
-        for (Piece piece : move.getBoard().getPlayersPieces(getOtherColor())) {
-            if (piece != null && piece instanceof Pawn) {
-                ((Pawn) piece).disableEnPassant();
-            }
-        }
+//        for (Piece piece : move.getBoard().getPlayersPieces(getOtherColor())) {
+//            if (piece != null && piece instanceof Pawn) {
+//                ((Pawn) piece).disableEnPassant();
+//            }
+//        }
         super.setMoved(move);
     }
 

@@ -44,10 +44,8 @@ public class Model {
     }
 
     public String makeMove(Move move, Board board) {
-        Piece piece = board.getPiece(move.getMovingFrom());
         String moveAnnotation = move.getAnnotation();
-        board.applyMove(move);
-        //piece.setMoved(move);
+        board.makeMove(move);
         return moveAnnotation;
     }
 
@@ -176,9 +174,9 @@ public class Model {
             MinimaxMove val = minimax(board, !isMax, depth + 1, a, b, bestMove);
             val.setMove(move);
             board.undoMove(move);
-            if (depth == 0) {
-                System.out.println("Move#" + (i + 1) + ": " + val);
-            }
+//            if (depth == 0) {
+//                System.out.println("Move#" + (i + 1) + ": " + val);
+//            }
             double bestMoveEval = bestMove.getMoveValue().getEval(), valMoveValue = val.getMoveValue().getEval();
             int bestMoveDepth = bestMove.getMoveDepth(), valMoveDepth = val.getMoveDepth();
             if (isMax) {

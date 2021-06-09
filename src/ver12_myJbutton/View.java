@@ -183,10 +183,25 @@ public class View {
                 "White Move",
                 "Black Move"};
         Object[][] data = {};
-        table = new JTable(new DefaultTableModel(data, columnNames));
+        table = new JTable(new DefaultTableModel(data, columnNames) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
         table.setFont(logFont);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setFillsViewportHeight(true);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = table.rowAtPoint(evt.getPoint()) - 1;
+                int col = table.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) {
+                    controller.gotToMove(row);
+                }
+            }
+        });
         resetTable();
     }
 
@@ -286,51 +301,33 @@ public class View {
         JButton printBoardBtn = new JButton("Print Board");
         printBoardBtn.setFont(new Font(null, 1, 30));
         printBoardBtn.setFocusable(false);
-        printBoardBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.printBoard();
-            }
-        });
+        printBoardBtn.addActionListener(e -> controller.printBoard());
         topPnl.add(printBoardBtn);
 
         JButton evalBtn = new JButton("EVAL");
         evalBtn.setFont(new Font(null, 1, 30));
         evalBtn.setFocusable(false);
-        evalBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.evalBtnPressed();
-            }
-        });
+        evalBtn.addActionListener(e -> controller.evalBtnPressed());
         topPnl.add(evalBtn);
 
         JButton aiMoveBtn = new JButton("ai move");
         aiMoveBtn.setFont(new Font(null, 1, 30));
         aiMoveBtn.setFocusable(false);
-        aiMoveBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.aiMoveButtonPressed();
-            }
-        });
+        aiMoveBtn.addActionListener(e -> controller.aiMoveButtonPressed());
         topPnl.add(aiMoveBtn);
 
         moveTextField = new JFormattedTextField();
         moveTextField.setFont(messagesFont);
-        moveTextField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JTextField textField = (JTextField) e.getSource();
-                if (controller.enteredMoveText(textField.getText())) {
-                    textField.setBackground(moveTextFieldBackgroundColor);
+        moveTextField.addActionListener(e -> {
+            JTextField textField = (JTextField) e.getSource();
+            if (controller.enteredMoveText(textField.getText())) {
+                textField.setBackground(moveTextFieldBackgroundColor);
 
-                } else {
-                    textField.setBackground(moveTextFieldWrongMoveBackgroundColor);
+            } else {
+                textField.setBackground(moveTextFieldWrongMoveBackgroundColor);
 
-                }
-                textField.setText("");
             }
+            textField.setText("");
         });
         btnMat = new BoardButton[ROWS][COLS];
         boardPnl.setLayout(new GridLayout(ROWS, COLS));
@@ -375,7 +372,6 @@ public class View {
         gbc.weightx = 5;
         gbc.fill = GridBagConstraints.BOTH;
         win.add(table, gbc);
-        //win.add(table, gbc);
 
         //לוח המשחק
         boardContainerSetup();

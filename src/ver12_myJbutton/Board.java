@@ -23,28 +23,17 @@ public class Board implements Iterable<Piece[]> {
     private Player currentPlayer;
     private Model model;
     private String knight = "♘", bishop = "♗", pawn = "♙", king = "♔", queen = "♕", rook = "♖";
+    private ArrayList<Move> moves;
+    private int currentMoveIndex;
 
     public Board(int rows, int cols, Model model) {
         this.rows = rows;
         this.cols = cols;
         logicMat = new Piece[rows][cols];
-        genericConstructor(model);
-    }
-
-//    public Board(Board board, Model model) {
-//        rows = board.rows;
-//        cols = board.cols;
-//        logicMat = new Piece[rows][cols];
-//        Piece[] tmp = Positions.posToPieces(Positions.piecesToPos(getPiecesArr(board)));
-//        for (Piece piece : tmp) {
-//            logicMat[piece.getLoc().getRow()][piece.getLoc().getCol()] = piece;
-//        }
-//        genericConstructor(model);
-//    }
-
-    private void genericConstructor(Model model) {
         this.model = model;
         boardEval = new Eval(this);
+        moves = new ArrayList<>();
+        currentMoveIndex = 0;
     }
 
     public BoardEval getBoardEval(Player player) {
@@ -124,22 +113,6 @@ public class Board implements Iterable<Piece[]> {
             if (!canPlayerMate(currentPlayer) && !canPlayerMate(Player.getOtherColor(currentPlayer))) {
                 return new BoardEval(GameStatus.INSUFFICIENT_MATERIAL);
             }
-//            String[] pos1 = null, pos2 = null, pos3 = null;
-//            int i = posLog.size() - 1;
-//            if (i >= 8) {
-//                pos1 = posLog.get(i);
-//                pos2 = posLog.get(i - 4);
-//                pos3 = posLog.get(i - 8);
-////                System.out.println("pos 1 ");
-////                printArr(pos1);
-////                System.out.println("pos 2 ");
-////                printArr(pos2);
-////                System.out.println("pos 3 ");
-////                printArr(pos3);
-//                if (Arrays.equals(pos1, pos2) && Arrays.equals(pos1, pos3)) {
-//                    return new EvalValue(GameStatus.REPETITION);
-//                }
-//            }
 
         }
 
@@ -268,6 +241,10 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public void applyMove(Move move) {
+        applyMove(move, true);
+    }
+
+    private void applyMove(Move move, boolean setMoved) {
         if (move instanceof Castling) {
             castle((Castling) move);
         } else if (move instanceof EnPassant) {
@@ -281,16 +258,23 @@ public class Board implements Iterable<Piece[]> {
         Location movingTo = move.getMovingTo();
         setPiece(movingTo, piece);
         setPiece(prev, null);
-        piece.setMoved(move);
+        if (setMoved)
+            piece.setMoved(move);
+        else
+            piece.deleteMove();
         piece.setLoc(movingTo);
     }
 
     public void undoMove(Move move) {
+        undoMove(move, true);
+    }
+
+    private void undoMove(Move move, boolean setMoved) {
         if (move instanceof Castling) {
             undoCastle((Castling) move);
         } else if (move instanceof EnPassant) {
             EnPassant epsn = (EnPassant) move;
-            undoMove(epsn.getCapturedMoveToBeCaptured());
+            undoMove(epsn.getCapturedMoveToBeCaptured(), false);
         } else if (move instanceof PromotionMove) {
             move.setMovingFromPiece(new Pawn(move.getMovingFrom(), move.getMovingFromPiece().getPieceColor(), true));
         }
@@ -300,12 +284,15 @@ public class Board implements Iterable<Piece[]> {
         Piece otherPiece = move.getMovingToPiece();
         setPiece(originalPieceLocation, piece);
         setPiece(currentPieceLocation, otherPiece);
-        piece.setMoved(move);
+        if (setMoved)
+            piece.setMoved(move);
+        else
+            piece.deleteMove();
         piece.setLoc(originalPieceLocation);
     }
 
     private void undoCastle(Castling castling) {
-        applyMove(new Move(castling.getRookFinalLoc(), castling.getRookStartingLoc(), false, this));
+        applyMove(new Move(castling.getRookFinalLoc(), castling.getRookStartingLoc(), false, this), false);
     }
 
     private void castle(Castling castling) {
@@ -347,7 +334,6 @@ public class Board implements Iterable<Piece[]> {
                             break;
                         }
                     }
-
                 }
                 System.out.print(prt + ANSI_RESET + "|");
             }
@@ -357,5 +343,30 @@ public class Board implements Iterable<Piece[]> {
 
     public Model getModel() {
         return model;
+    }
+
+    public boolean isSquareEmpty(Location loc) {
+        return getPiece(loc) == null;
+    }
+
+    public void makeMove(Move move) {
+        moves.add(new Move(move));
+        currentMoveIndex++;
+        applyMove(move);
+    }
+
+    public void goToMove(int index) {
+        index *= 2;
+        if (currentMoveIndex < index) {
+            for (int i = 0; i < index; i++) {
+                Move move = moves.get(moves.size() - i - 1);
+                applyMove(move);
+            }
+        } else
+            for (int i = 0; i < index; i++) {
+                Move move = moves.get(moves.size() - i - 1);
+                undoMove(move);
+            }
+        currentMoveIndex = index;
     }
 }

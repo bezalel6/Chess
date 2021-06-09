@@ -15,7 +15,7 @@ public abstract class Piece {
     private types pieceType;
     private String annotation = "";
     private boolean hasMoved;
-    private Move lastMove;
+    private ArrayList<Move> movesList;
 
     //Starting from position
     public Piece(int worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
@@ -34,6 +34,11 @@ public abstract class Piece {
         this.pieceType = other.pieceType;
         this.annotation = other.annotation;
         this.hasMoved = other.hasMoved;
+        movesList = new ArrayList<>();
+        if (hasMoved)
+            for (Move move : other.movesList) {
+                movesList.add(new Move(move, false));
+            }
     }
 
     public static Piece copyPiece(Piece other) {
@@ -71,12 +76,15 @@ public abstract class Piece {
     }
 
     public void setMoved(Move move) {
-        if (lastMove != null && move.equals(lastMove)) {
-            hasMoved = lastMove.getMovingFromPiece().hasMoved;
-        } else {
+        if (movesList == null || movesList.isEmpty()) {
+            movesList = new ArrayList<>();
+            movesList.add(move);
             hasMoved = true;
+        } else if (movesList.contains(move)) {
+            movesList.remove(move);
+            hasMoved = !movesList.isEmpty();
         }
-        lastMove = move;
+
     }
 
     public String getAnnotation() {
@@ -200,6 +208,11 @@ public abstract class Piece {
                 ", pieceType=" + pieceType +
                 ", annotation='" + annotation + '\'' +
                 '}';
+    }
+
+    public void deleteMove() {
+        movesList.remove(movesList.size() - 1);
+        hasMoved = false;
     }
 
     public enum types {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}

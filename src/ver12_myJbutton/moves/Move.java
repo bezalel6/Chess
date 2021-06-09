@@ -45,6 +45,16 @@ public class Move {
                 return;
             }
         }
+        System.out.println("DIDNT FIND MOVE FROM TEXT");
+    }
+
+    public Move(Move other, boolean b) {
+        this.board = other.board;
+        movingTo = new Location(other.movingTo);
+        movingFrom = new Location(other.movingFrom);
+        isCapturing = other.isCapturing;
+        this.movingFromPiece = other.movingFromPiece;
+        this.movingToPiece = other.movingToPiece;
     }
 
     public boolean equals(Move move) {

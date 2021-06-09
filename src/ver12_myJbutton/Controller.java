@@ -12,7 +12,7 @@ import ver12_myJbutton.types.*;
 import java.util.ArrayList;
 
 public class Controller {
-    public static int MIN_SCAN_DEPTH = 1, MAX_SCAN_DEPTH = 10, SCAN_INIT_VALUE = 3;
+    public static int MIN_SCAN_DEPTH = 1, MAX_SCAN_DEPTH = 10, SCAN_INIT_VALUE = 5;
     private final int DEFAULT_BOARD_SIZE = 8;
     public int numOfMoves;
     private View view;
@@ -23,9 +23,8 @@ public class Controller {
     private Piece currentPiece;
     private Dialogs promotingDialog;
 
-
-    private boolean showPositionDialog = true;
     private boolean isFirstClick = true;
+    private boolean showPositionDialog = false;
     private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
 
@@ -237,5 +236,9 @@ public class Controller {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void gotToMove(int row) {
+        //model.getBoard().goToMove(row);
     }
 }

@@ -8,7 +8,7 @@ import ver12_myJbutton.moves.Move;
 import java.util.ArrayList;
 
 public class King extends Piece {
-    public static int worth = 3;
+    public static int worth = 200;
 
     public King(Location loc, Player pieceColor, boolean hasMoved) {
         super(worth, loc, pieceColor, types.KING, "K", hasMoved);
@@ -37,14 +37,15 @@ public class King extends Piece {
                 if (!getHasMoved() && p != null && p.isOnMyTeam(this) && p instanceof Rook && !p.getHasMoved()) {
                     Location rookLoc = p.getLoc();
 
-                    if (myC > rookLoc.getCol() && myC - 1 > -1 && myC - 2 > -1) {
+                    if (myC > rookLoc.getCol() && myC - 1 > -1 && myC - 2 > -1) {//O-O-O
                         Location kingMiddleMove = new Location(myR, myC - 1), kingFinalLoc = new Location(myR, myC - 2), rookFinalLoc = new Location(myR, myC - 1), rookMiddleLoc = new Location(myR, myC - 3);
-                        if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc) && isInBounds(rookMiddleLoc))
-                            //if (!board.isInCheck(getPieceColor()) && !board.isSquareThreatened(kingMiddleMove, getOtherColor()) && !board.isSquareThreatened(kingFinalLoc, getOtherColor()))
+                        if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc) && isInBounds(rookMiddleLoc)
+                                && board.isSquareEmpty(kingMiddleMove) && board.isSquareEmpty(kingFinalLoc) && board.isSquareEmpty(rookMiddleLoc))
                             add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc, rookMiddleLoc), board);
-                    } else {
+                    } else {//O-O
                         Location kingMiddleMove = new Location(myR, myC + 1), kingFinalLoc = new Location(myR, myC + 2), rookFinalLoc = new Location(myR, myC + 1);
-                        if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc))
+                        if (isInBounds(kingMiddleMove) && isInBounds(kingFinalLoc) && isInBounds(rookFinalLoc)
+                                && board.isSquareEmpty(kingMiddleMove) && board.isSquareEmpty(kingFinalLoc))
                             add(ret, new Castling(new Move(pieceLoc, kingFinalLoc, false, board), (Rook) p, kingMiddleMove, kingFinalLoc, rookFinalLoc), board);
                     }
 
