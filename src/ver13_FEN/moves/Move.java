@@ -1,10 +1,10 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.GameStatus;
-import ver12_myJbutton.Location;
-import ver12_myJbutton.types.Pawn;
-import ver12_myJbutton.types.Piece;
+import ver13_FEN.Board;
+import ver13_FEN.GameStatus;
+import ver13_FEN.Location;
+import ver13_FEN.types.Pawn;
+import ver13_FEN.types.Piece;
 
 
 public class Move {
@@ -14,6 +14,7 @@ public class Move {
     private boolean isCapturing;
     private String annotation = "";
     private Board board;
+    private String moveFEN = "";
     private boolean isReversible;
 
     public Move(Location movingFrom, Location movingTo, boolean isCapturing, Board board) {
@@ -59,16 +60,19 @@ public class Move {
         isCapturing = other.isCapturing;
         this.movingFromPiece = other.movingFromPiece;
         this.movingToPiece = other.movingToPiece;
-        isReversible = other.isReversible;
-    }
-
-
-    private void setReversible() {
-        isReversible = movingFromPiece instanceof Pawn || isCapturing;
+        setReversible();
     }
 
     public boolean isReversible() {
         return isReversible;
+    }
+
+    public Piece.Player movingPlayer() {
+        return movingFromPiece.getPieceColor();
+    }
+
+    private void setReversible() {
+        isReversible = !(isCapturing || movingFromPiece instanceof Pawn || this instanceof Castling);
     }
 
     public boolean equals(Move move) {
@@ -143,5 +147,13 @@ public class Move {
                 ", movingFrom=" + movingFrom +
                 ", isCapturing=" + isCapturing +
                 '}';
+    }
+
+    public void setFEN() {
+        moveFEN = board.getFen();
+    }
+
+    public String getMoveFEN() {
+        return moveFEN;
     }
 }

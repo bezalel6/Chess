@@ -1,7 +1,7 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.Location;
+import ver13_FEN.Board;
+import ver13_FEN.Location;
 
 public class EnPassant extends SpecialMove {
     private Location capturingPieceActualLocation;

@@ -1,11 +1,11 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.types.Piece.types;
-import ver14_correct_piece_location.moves.Move;
-import ver14_correct_piece_location.moves.PromotionMove;
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.types.Piece.PieceTypes;
+import ver15_new_piece_tables.moves.Move;
+import ver15_new_piece_tables.moves.PromotionMove;
+import ver15_new_piece_tables.types.Piece;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
@@ -98,23 +98,23 @@ public class View {
                 if (piece != null) {
                     Location loc = piece.getLoc();
                     int r = loc.getRow(), c = loc.getCol();
-                    if (piece.getPieceType() == types.KNIGHT) {
+                    if (piece.getPieceType() == PieceTypes.KNIGHT) {
                         if (piece.isWhite())
                             btnMat[r][c].setIcon(wn);
                         else btnMat[r][c].setIcon(bn);
-                    } else if (piece.getPieceType() == types.BISHOP) {
+                    } else if (piece.getPieceType() == PieceTypes.BISHOP) {
                         if (piece.isWhite())
                             btnMat[r][c].setIcon(wb);
                         else btnMat[r][c].setIcon(bb);
-                    } else if (piece.getPieceType() == types.ROOK) {
+                    } else if (piece.getPieceType() == PieceTypes.ROOK) {
                         if (piece.isWhite())
                             btnMat[r][c].setIcon(wr);
                         else btnMat[r][c].setIcon(br);
-                    } else if (piece.getPieceType() == types.KING) {
+                    } else if (piece.getPieceType() == PieceTypes.KING) {
                         if (piece.isWhite())
                             btnMat[r][c].setIcon(wk);
                         else btnMat[r][c].setIcon(bk);
-                    } else if (piece.getPieceType() == types.QUEEN) {
+                    } else if (piece.getPieceType() == PieceTypes.QUEEN) {
                         if (piece.isWhite())
                             btnMat[r][c].setIcon(wq);
                         else btnMat[r][c].setIcon(bq);
@@ -318,7 +318,7 @@ public class View {
         resetBackground();
         layoutSetup();
 
-        //showOnScreen(0, win);
+//        showOnScreen(1, win);
         win.setVisible(true);
 
     }
@@ -382,6 +382,12 @@ public class View {
         printAllPossibleMoves.setFocusable(false);
         printAllPossibleMoves.addActionListener(e -> controller.printAllPossibleMoves());
         debugMenu.add(printAllPossibleMoves);
+
+        JButton highlightEnPassantTargetSquare = new JButton("Highlight En Passant Target Square");
+        highlightEnPassantTargetSquare.setFont(debugItemsFont);
+        highlightEnPassantTargetSquare.setFocusable(false);
+        highlightEnPassantTargetSquare.addActionListener(e -> controller.highlightEnPassantTargetSquare());
+        debugMenu.add(highlightEnPassantTargetSquare);
 
         settingsMenu.add(debugMenu);
 
@@ -606,6 +612,10 @@ public class View {
         }
     }
 
+    public Dimension getBtnDimension() {
+        return btnDimension;
+    }
+
     public void highlightSquare(Location p, Color color) {
         getBtn(p).setBackground(color);
     }
@@ -723,4 +733,7 @@ public class View {
     }
 
 
+    public JButton getBtn() {
+        return btnMat[0][0];
+    }
 }

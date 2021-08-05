@@ -1,6 +1,6 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.BoardEval;
+import ver15_new_piece_tables.BoardEval;
 
 public class MinimaxMove {
     private Move move;

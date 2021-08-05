@@ -1,9 +1,9 @@
-package ver13_FEN.types;
+package ver14_correct_piece_location.types;
 
-import ver13_FEN.Board;
-import ver13_FEN.Location;
-import ver13_FEN.moves.Castling;
-import ver13_FEN.moves.Move;
+import ver14_correct_piece_location.Board;
+import ver14_correct_piece_location.Location;
+import ver14_correct_piece_location.moves.Castling;
+import ver14_correct_piece_location.moves.Move;
 
 import java.util.ArrayList;
 

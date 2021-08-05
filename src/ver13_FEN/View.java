@@ -1,11 +1,11 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
 
-import ver12_myJbutton.types.Piece.Player;
-import ver12_myJbutton.types.Piece.types;
-import ver12_myJbutton.moves.Move;
-import ver12_myJbutton.moves.PromotionMove;
-import ver12_myJbutton.types.Piece;
+import ver13_FEN.types.Piece.Player;
+import ver13_FEN.types.Piece.types;
+import ver13_FEN.moves.Move;
+import ver13_FEN.moves.PromotionMove;
+import ver13_FEN.types.Piece;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
@@ -31,7 +31,6 @@ public class View {
     private JMenuBar menuBar;
     private Dimension winSize;
     private JPanel boardContainerPnl, topPnl, leftPnl, bottomPnl;
-    private JPanel moveLogPnl;
     private JTextField moveTextField;
     private ImageIcon whiteWonIcon, blackWonIcon, tieIcon;
     private JLabel scanDepthSliderLabel;
@@ -96,7 +95,7 @@ public class View {
         for (Piece[] row : board) {
             for (Piece piece : row) {
                 if (piece != null) {
-                    Location loc = piece.getLoc().getViewLocation();
+                    Location loc = piece.getLoc();
                     int r = loc.getRow(), c = loc.getCol();
                     if (piece.getPieceType() == types.KNIGHT) {
                         if (piece.isWhite())
@@ -169,12 +168,6 @@ public class View {
         }
         colsCoordinatesPnl.setPreferredSize(new Dimension(btnDimension.width * 8, btnDimension.height * 8));
         rowsCoordinatesPnl.setPreferredSize(new Dimension(btnDimension.width * 8, btnDimension.height * 8));
-//        for (Component comp : colsCoordinatesPnl.getComponents()) {
-//            comp.setSize(btnDimension);
-//        }
-//        for (Component comp : rowsCoordinatesPnl.getComponents()) {
-//            comp.setSize(btnDimension);
-//        }
 
     }
 
@@ -224,23 +217,15 @@ public class View {
         win.setLocationRelativeTo(null);
         win.setLayout(new GridBagLayout());
 
-        boardPnl = new JPanel();
-        boardContainerPnl = new JPanel(new GridBagLayout());
-
+        boardPnl = new BoardPanel();
+        boardContainerPnl = new BoardPanel();
+        boardContainerPnl.setLayout(new GridBagLayout());
         setCoordinates();
 
         topPnl = new JPanel();
         leftPnl = new JPanel();
         bottomPnl = new JPanel();
         menuBar = new JMenuBar();
-//        moveLogPnl = new JPanel();
-//        moveLogPnl.setPreferredSize(new Dimension(500, 500));
-//        moveLogPnl.add(table, BorderLayout.NORTH);
-//
-//        JButton prevMoveButton = new MyJButton("PREV");
-//        JButton nextMoveButton = new MyJButton("NEXT");
-//        moveLogPnl.add(prevMoveButton);
-//        moveLogPnl.add(nextMoveButton);
 
         JMenu settingsMenu = new JMenu("Menu");
         settingsMenu.setFont(menuItemsFont);
@@ -267,29 +252,18 @@ public class View {
         });
         settingsMenu.add(toggleBoardOrientation);
 
-        JSlider scanDepthSlider = new JSlider(JSlider.HORIZONTAL, controller.MIN_SCAN_DEPTH, controller.MAX_SCAN_DEPTH, controller.SCAN_INIT_VALUE);
-        scanDepthSliderLabel = new JLabel(controller.SCAN_INIT_VALUE + "", JLabel.CENTER);
-        scanDepthSliderLabel.setFont(menuItemsFont);
-        ChangeListener cl = e -> {
-            JSlider x = (JSlider) e.getSource();
-            scanDepthSliderLabel.setText(x.getValue() + "");
-            controller.setScanDepth(x.getValue());
-        };
-        scanDepthSlider.setFont(menuItemsFont);
-        scanDepthSlider.addChangeListener(cl);
-        scanDepthSlider.setMajorTickSpacing(1);
-        scanDepthSlider.setPaintLabels(true);
-        scanDepthSlider.setPaintTicks(true);
-        settingsMenu.add(scanDepthSliderLabel);
-        settingsMenu.add(scanDepthSlider);
+        Font uiBtnsFont = new Font(null, 1, 30);
+        //create a debug menu and add it to the settings menu
+        createDebugMenu(settingsMenu);
+
         menuBar.add(settingsMenu);
 
-        statusLbl = new JLabel("White to move");
+        statusLbl = new JLabel();
         statusLbl.setFont(messagesFont);
         bottomPnl.add(statusLbl);
 
         JButton newGameBtn = new JButton("New Game");
-        newGameBtn.setFont(new Font(null, 1, 30));
+        newGameBtn.setFont(uiBtnsFont);
         newGameBtn.setFocusable(false);
         newGameBtn.addActionListener(new ActionListener() {
             @Override
@@ -298,20 +272,15 @@ public class View {
             }
         });
         topPnl.add(newGameBtn);
-        JButton printBoardBtn = new JButton("Print Board");
-        printBoardBtn.setFont(new Font(null, 1, 30));
-        printBoardBtn.setFocusable(false);
-        printBoardBtn.addActionListener(e -> controller.printBoard());
-        topPnl.add(printBoardBtn);
 
         JButton evalBtn = new JButton("EVAL");
-        evalBtn.setFont(new Font(null, 1, 30));
+        evalBtn.setFont(uiBtnsFont);
         evalBtn.setFocusable(false);
         evalBtn.addActionListener(e -> controller.evalBtnPressed());
         topPnl.add(evalBtn);
 
         JButton aiMoveBtn = new JButton("ai move");
-        aiMoveBtn.setFont(new Font(null, 1, 30));
+        aiMoveBtn.setFont(uiBtnsFont);
         aiMoveBtn.setFocusable(false);
         aiMoveBtn.addActionListener(e -> controller.aiMoveButtonPressed());
         topPnl.add(aiMoveBtn);
@@ -334,7 +303,7 @@ public class View {
         boolean isBlack = true;
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
-                btnMat[i][j] = new BoardButton(new Location(i, j).getViewLocation(), isBlack ? brown : white);
+                btnMat[i][j] = new BoardButton(new Location(i, j), isBlack ? brown : white);
                 JButton btn = btnMat[i][j];
 
                 btn.setFont(new Font(null, 1, 50));
@@ -350,6 +319,48 @@ public class View {
 
         //showOnScreen(0, win);
         win.setVisible(true);
+
+    }
+
+    private void createDebugMenu(JMenu settingsMenu) {
+        JMenu debugMenu = new JMenu("Debug");
+        Font debugItemsFont = new Font(null, 1, 10);
+        JSlider scanDepthSlider = new JSlider(JSlider.HORIZONTAL, controller.MIN_SCAN_DEPTH, controller.MAX_SCAN_DEPTH, controller.SCAN_INIT_VALUE);
+        scanDepthSliderLabel = new JLabel(controller.SCAN_INIT_VALUE + "", JLabel.CENTER);
+        scanDepthSliderLabel.setFont(debugItemsFont);
+        ChangeListener cl = e -> {
+            JSlider x = (JSlider) e.getSource();
+            scanDepthSliderLabel.setText(x.getValue() + "");
+            controller.setScanDepth(x.getValue());
+        };
+        scanDepthSlider.setFont(debugItemsFont);
+        scanDepthSlider.addChangeListener(cl);
+        scanDepthSlider.setMajorTickSpacing(1);
+        scanDepthSlider.setPaintLabels(true);
+        scanDepthSlider.setPaintTicks(true);
+        debugMenu.add(new JLabel("Scan Depth:"));
+        debugMenu.add(scanDepthSliderLabel);
+        debugMenu.add(scanDepthSlider);
+
+        JButton printBoardBtn = new JButton("Print Board");
+        printBoardBtn.setFont(debugItemsFont);
+        printBoardBtn.setFocusable(false);
+        printBoardBtn.addActionListener(e -> controller.printBoard());
+        debugMenu.add(printBoardBtn);
+
+        JButton printFEN = new JButton("Print Current Board FEN");
+        printFEN.setFont(debugItemsFont);
+        printFEN.setFocusable(false);
+        printFEN.addActionListener(e -> controller.printFEN());
+        debugMenu.add(printFEN);
+
+        JButton printAllPieces = new JButton("Print All Pieces");
+        printAllPieces.setFont(debugItemsFont);
+        printAllPieces.setFocusable(false);
+        printAllPieces.addActionListener(e -> controller.printAllPieces());
+        debugMenu.add(printAllPieces);
+
+        settingsMenu.add(debugMenu);
 
     }
 
@@ -589,7 +600,7 @@ public class View {
     }
 
     public JButton getBtn(Location loc) {
-        return btnMat[loc.getViewRow()][loc.getCol()];
+        return btnMat[loc.getRow()][loc.getCol()];
     }
 
     public void updateBoardButton(Location prevLoc, Location newLoc) {
@@ -687,4 +698,6 @@ public class View {
             }
         }
     }
+
+
 }

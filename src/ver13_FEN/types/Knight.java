@@ -1,8 +1,8 @@
-package ver12_myJbutton.types;
+package ver13_FEN.types;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.Location;
-import ver12_myJbutton.moves.Move;
+import ver13_FEN.Board;
+import ver13_FEN.Location;
+import ver13_FEN.moves.Move;
 
 import java.util.ArrayList;
 

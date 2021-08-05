@@ -1,4 +1,4 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
 import javax.swing.*;
 

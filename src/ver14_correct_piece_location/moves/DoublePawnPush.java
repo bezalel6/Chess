@@ -1,6 +1,6 @@
-package ver13_FEN.moves;
+package ver14_correct_piece_location.moves;
 
-import ver13_FEN.Location;
+import ver14_correct_piece_location.Location;
 
 public class DoublePawnPush extends Move {
     private Location enPassantTargetSquare;

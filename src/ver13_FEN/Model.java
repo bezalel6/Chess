@@ -1,11 +1,8 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
-import ver12_myJbutton.moves.EnPassant;
-import ver12_myJbutton.types.Piece.Player;
-import ver12_myJbutton.moves.Castling;
-import ver12_myJbutton.moves.MinimaxMove;
-import ver12_myJbutton.moves.Move;
-import ver12_myJbutton.types.Piece;
+import ver13_FEN.moves.*;
+import ver13_FEN.types.Piece.Player;
+import ver13_FEN.types.Piece;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -29,18 +26,8 @@ public class Model {
     }
 
     public void initGame(int startingPosition) {
-        logicBoard = loadPos(Positions.posToPieces(Positions.getAllPositions[startingPosition]));
+        logicBoard = new Board(Positions.getAllPositions().get(startingPosition).getFen(), this);
         eval = new Eval(logicBoard);
-    }
-
-    public Board loadPos(Piece[] pos) {
-        Board ret = new Board(ROWS, COLS, this);
-        ret.setCurrentPlayer(Player.WHITE);
-        for (Piece piece : pos) {
-            if (piece != null)
-                ret.setPiece(piece.getLoc(), piece);
-        }
-        return ret;
     }
 
     public String makeMove(Move move, Board board) {
@@ -90,7 +77,7 @@ public class Model {
             }
             if (move instanceof Castling) {
                 Castling castling = (Castling) move;
-                if (board.isInCheck(currentPiece.getPieceColor()) || board.isSquareThreatened(castling.getKingMiddleMove(), currentPiece.getOtherColor()) || board.isSquareThreatened(castling.getKingFinalLoc(), currentPiece.getOtherColor())) {
+                if (board.isInCheck() || board.isSquareThreatened(castling.getKingMiddleMove(), currentPiece.getOtherColor()) || board.isSquareThreatened(castling.getKingFinalLoc(), currentPiece.getOtherColor())) {
                     delete.add(move);
                     continue;
                 }
@@ -98,6 +85,7 @@ public class Model {
                 //TODO smn
             }
             board.applyMove(move);
+            move.setFEN();
             if (board.isInCheck(currentPiece.getPieceColor())) {
                 delete.add(move);
             }

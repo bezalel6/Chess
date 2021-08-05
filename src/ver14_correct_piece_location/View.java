@@ -1,11 +1,11 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
 
-import ver13_FEN.types.Piece.Player;
-import ver13_FEN.types.Piece.types;
-import ver13_FEN.moves.Move;
-import ver13_FEN.moves.PromotionMove;
-import ver13_FEN.types.Piece;
+import ver14_correct_piece_location.types.Piece.Player;
+import ver14_correct_piece_location.types.Piece.types;
+import ver14_correct_piece_location.moves.Move;
+import ver14_correct_piece_location.moves.PromotionMove;
+import ver14_correct_piece_location.types.Piece;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
@@ -34,6 +34,7 @@ public class View {
     private JTextField moveTextField;
     private ImageIcon whiteWonIcon, blackWonIcon, tieIcon;
     private JLabel scanDepthSliderLabel;
+    private JLabel scanTimeSliderLabel;
     private JLabel statusLbl;
     private Color checkColor = new Color(186, 11, 11, 255);
     private Color brown = new Color(79, 60, 33, 255);
@@ -342,6 +343,22 @@ public class View {
         debugMenu.add(scanDepthSliderLabel);
         debugMenu.add(scanDepthSlider);
 
+        JSlider scanTimeSlider = new JSlider(JSlider.HORIZONTAL, controller.MIN_SCAN_TIME, controller.MAX_SCAN_TIME, controller.SCAN_TIME_INIT_VALUE);
+        scanTimeSliderLabel = new JLabel(controller.SCAN_INIT_VALUE + "", JLabel.CENTER);
+        scanTimeSliderLabel.setFont(debugItemsFont);
+        ChangeListener cl_t = e -> {
+            JSlider x = (JSlider) e.getSource();
+            scanDepthSliderLabel.setText(x.getValue() + "");
+            controller.setScanTime(x.getValue());
+        };
+        scanTimeSlider.setFont(debugItemsFont);
+        scanTimeSlider.addChangeListener(cl_t);
+        scanTimeSlider.setMajorTickSpacing(1);
+        scanTimeSlider.setPaintLabels(true);
+        scanTimeSlider.setPaintTicks(true);
+        debugMenu.add(new JLabel("Scan Time:"));
+        debugMenu.add(scanTimeSliderLabel);
+        debugMenu.add(scanTimeSlider);
         JButton printBoardBtn = new JButton("Print Board");
         printBoardBtn.setFont(debugItemsFont);
         printBoardBtn.setFocusable(false);
@@ -359,6 +376,12 @@ public class View {
         printAllPieces.setFocusable(false);
         printAllPieces.addActionListener(e -> controller.printAllPieces());
         debugMenu.add(printAllPieces);
+
+        JButton printAllPossibleMoves = new JButton("Print All Possible Moves");
+        printAllPossibleMoves.setFont(debugItemsFont);
+        printAllPossibleMoves.setFocusable(false);
+        printAllPossibleMoves.addActionListener(e -> controller.printAllPossibleMoves());
+        debugMenu.add(printAllPossibleMoves);
 
         settingsMenu.add(debugMenu);
 

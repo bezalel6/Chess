@@ -1,10 +1,7 @@
-package ver14_pieceLocation;
+package OLD_ver14_pieceLocation;
 
-import ver14_pieceLocation.types.Piece.Player;
-import ver14_pieceLocation.types.Pawn;
-import ver14_pieceLocation.types.Piece;
-import ver14_pieceLocation.types.Queen;
-import ver14_pieceLocation.types.Rook;
+import OLD_ver14_pieceLocation.types.Piece.Player;
+import OLD_ver14_pieceLocation.types.Piece;
 
 import java.util.ArrayList;
 

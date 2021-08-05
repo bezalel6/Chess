@@ -1,10 +1,10 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
-import ver12_myJbutton.types.Piece.Player;
-import ver12_myJbutton.types.Pawn;
-import ver12_myJbutton.types.Piece;
-import ver12_myJbutton.types.Queen;
-import ver12_myJbutton.types.Rook;
+import ver13_FEN.types.Piece.Player;
+import ver13_FEN.types.Pawn;
+import ver13_FEN.types.Piece;
+import ver13_FEN.types.Queen;
+import ver13_FEN.types.Rook;
 
 import java.util.ArrayList;
 

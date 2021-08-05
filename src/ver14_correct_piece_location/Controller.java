@@ -1,30 +1,32 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
 
-import ver13_FEN.types.Piece.Player;
-import ver13_FEN.types.Piece.types;
-import ver13_FEN.moves.Castling;
-import ver13_FEN.moves.EnPassant;
-import ver13_FEN.moves.Move;
-import ver13_FEN.moves.PromotionMove;
-import ver13_FEN.types.Piece;
+import ver14_correct_piece_location.types.Piece.Player;
+import ver14_correct_piece_location.types.Piece.types;
+import ver14_correct_piece_location.moves.Castling;
+import ver14_correct_piece_location.moves.EnPassant;
+import ver14_correct_piece_location.moves.Move;
+import ver14_correct_piece_location.moves.PromotionMove;
+import ver14_correct_piece_location.types.Piece;
 
 import java.util.ArrayList;
 
 public class Controller {
-    public static int MIN_SCAN_DEPTH = 1, MAX_SCAN_DEPTH = 10, SCAN_INIT_VALUE = 5;
+    public static int MIN_SCAN_DEPTH = 1, MAX_SCAN_DEPTH = 10, SCAN_INIT_VALUE = 8;
+    public static int MIN_SCAN_TIME = 1, MAX_SCAN_TIME = 60, SCAN_TIME_INIT_VALUE = 20;
     private final int DEFAULT_BOARD_SIZE = 8;
     public int numOfMoves;
     private View view;
     private Model model;
     private int scanDepth = SCAN_INIT_VALUE;
+    private int scanTime = SCAN_TIME_INIT_VALUE;
 
     private Player currentPlayer;
     private Piece currentPiece;
     private Dialogs promotingDialog;
 
     private boolean isFirstClick = true;
-    private boolean showPositionDialog = false;
+    private boolean showPositionDialog = true;
     private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
 
@@ -111,10 +113,11 @@ public class Controller {
             updateView(castling.getRook().getLoc(), castling.getRookFinalLoc());
         } else if (move instanceof EnPassant) {
             EnPassant epsn = (EnPassant) move;
-            updateView(epsn.getCapturingPieceActualLocation(), epsn.getMovingTo());
+            updateView(model.getBoard().getEnPassantActualSquare(), epsn.getMovingTo());
         }
         updateView(move.getMovingFrom(), move.getMovingTo());
-        view.updateMoveLog(model.makeMove(move, model.getBoard()), numOfMoves);
+        String moveAnnotation = model.makeMove(move, model.getBoard());
+        view.updateMoveLog(moveAnnotation, numOfMoves);
         Board board = model.getBoard();
         BoardEval gameStatus = board.getBoardEval();
         if (gameStatus.isGameOver()) {
@@ -216,6 +219,14 @@ public class Controller {
         System.out.println(model.getBoard().getBoardEval());
     }
 
+    public int getScanTime() {
+        return scanTime;
+    }
+
+    public void setScanTime(int scanTime) {
+        this.scanTime = scanTime;
+    }
+
     public void aiMoveButtonPressed() {
         view.deleteAllDrawings();
         Move move = model.getAiMove();
@@ -254,5 +265,9 @@ public class Controller {
                     System.out.println(piece);
             }
         }
+    }
+
+    public void printAllPossibleMoves() {
+        model.printAllPossibleMoves();
     }
 }

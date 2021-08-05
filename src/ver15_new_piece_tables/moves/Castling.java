@@ -1,7 +1,7 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.types.Rook;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.types.Rook;
 
 public class Castling extends SpecialMove {
     private Rook rook;

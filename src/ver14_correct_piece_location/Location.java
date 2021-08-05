@@ -1,4 +1,4 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
 public class Location {
 
@@ -32,6 +32,7 @@ public class Location {
     }
 
     public boolean equals(Location compareTo) {
+
         return compareTo == null ? null : row == compareTo.getRow() && col == compareTo.getCol();
     }
 

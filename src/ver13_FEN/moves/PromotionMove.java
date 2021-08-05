@@ -1,6 +1,6 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
-import ver12_myJbutton.types.Piece;
+import ver13_FEN.types.Piece;
 
 public class PromotionMove extends SpecialMove {
     private Piece.types promotingTo;

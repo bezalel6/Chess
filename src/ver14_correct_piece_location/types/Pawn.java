@@ -1,11 +1,9 @@
-package ver13_FEN.types;
+package ver14_correct_piece_location.types;
 
-import ver13_FEN.Board;
-import ver13_FEN.Location;
-import ver13_FEN.moves.EnPassant;
-import ver13_FEN.moves.Move;
-import ver13_FEN.moves.PromotionMove;
-import ver13_FEN.moves.SpecialMoveType;
+import ver14_correct_piece_location.Board;
+import ver14_correct_piece_location.Location;
+import ver14_correct_piece_location.moves.Move;
+import ver14_correct_piece_location.moves.PromotionMove;
 
 import java.util.ArrayList;
 
@@ -48,7 +46,7 @@ public class Pawn extends Piece {
 
     public Pawn(Location loc, Player pieceColor, boolean hasMoved) {
         super(worth, loc, pieceColor, types.PAWN, loc.getColString() + "", hasMoved);
-        if (isWhite()) {
+        if (!isWhite()) {
             diff--;
         } else {
             diff++;
@@ -95,14 +93,14 @@ public class Pawn extends Piece {
             if (isInBounds(myR + (diff * 2), myC) && !getHasMoved() && board.getPiece(myR + (diff * 2), myC) == null) {
                 Location loc = new Location(myR + (diff * 2), myC);
 //                enPassantCaptured = new EnPassantCaptured(enPassantCapturingLoc, loc);
-                board.setEnPassantTargetLoc(enPassantCapturingLoc);
+//                board.setEnPassantTargetLoc(enPassantCapturingLoc);
                 Move move = add(ret, loc, board);
 
             }
         }
         Location leftCapture = new Location(myR + diff, myC - 1), rightCapture = new Location(myR + diff, myC + 1);
-//        Location checkEnPassantLeftCapture = new Location(myR, myC - 1), checkEnPassantRightCapture = new Location(myR, myC + 1);
-        if (isInBounds(rightCapture) && board.getPiece(rightCapture) != null && !board.getPiece(rightCapture).isOnMyTeam(this)) {
+
+        if (isInBounds(rightCapture) && ((board.getPiece(rightCapture) != null && !board.getPiece(rightCapture).isOnMyTeam(this)) || board.getEnPassantTargetSquare() != null && board.getEnPassantTargetSquare().equals(rightCapture))) {
             add(ret, myR + diff, myC + 1, board);
         }
         if (isInBounds(leftCapture) && (board.getPiece(leftCapture) != null && !board.getPiece(leftCapture).isOnMyTeam(this))) {

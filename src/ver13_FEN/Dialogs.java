@@ -1,4 +1,4 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
 import javax.swing.*;
 import java.awt.*;

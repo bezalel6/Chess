@@ -1,9 +1,9 @@
-package ver14_pieceLocation.types;
+package OLD_ver14_pieceLocation.types;
 
-import ver14_pieceLocation.Board;
-import ver14_pieceLocation.Location;
-import ver14_pieceLocation.moves.DoublePawnPush;
-import ver14_pieceLocation.moves.Move;
+import OLD_ver14_pieceLocation.Board;
+import OLD_ver14_pieceLocation.Location;
+import OLD_ver14_pieceLocation.moves.DoublePawnPush;
+import OLD_ver14_pieceLocation.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Objects;

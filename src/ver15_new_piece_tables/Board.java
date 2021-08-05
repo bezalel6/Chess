@@ -1,21 +1,58 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.types.Piece.types;
-import ver14_correct_piece_location.moves.*;
-import ver14_correct_piece_location.types.*;
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.types.Piece.PieceTypes;
+import ver15_new_piece_tables.moves.*;
+import ver15_new_piece_tables.types.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import static ver14_correct_piece_location.Model.ANSI_BLACK;
-import static ver14_correct_piece_location.Model.ANSI_WHITE;
+import static ver15_new_piece_tables.Model.ANSI_BLACK;
+import static ver15_new_piece_tables.Model.ANSI_WHITE;
 
+class SquaresControl {
+    private ArrayList<Square> white;
+    private ArrayList<Square> black;
+    private Board board;
+
+    public SquaresControl(Board board) {
+        this.board = board;
+    }
+
+    public ArrayList<Square> getWhite() {
+        return white;
+    }
+
+    public void setWhite() {
+
+    }
+
+    public ArrayList<Square> getBlack() {
+        return black;
+    }
+
+    public void setBlack() {
+
+    }
+
+    class Square {
+        private PieceTypes controllingPiece;
+        private Location loc;
+
+        public Square(PieceTypes controllingPiece, Location loc) {
+            this.controllingPiece = controllingPiece;
+            this.loc = loc;
+        }
+    }
+}
 
 public class Board implements Iterable<Piece[]> {
     public static final String ANSI_RESET = "\u001B[0m";
     private Piece[][] logicMat;
+    private ArrayList<Piece> whitePieces;
+    private ArrayList<Piece> blackPieces;
     private int rows, cols;
     private Eval boardEval;
     private Player currentPlayer;
@@ -34,6 +71,37 @@ public class Board implements Iterable<Piece[]> {
         this.model = model;
         boardEval = new Eval(this);
         movesList = new ArrayList<>();
+    }
+
+    public Board(Board other) {
+        logicMat = copyMat(other.logicMat);
+        rows = cols = 8;
+        boardEval = new Eval(this);
+        currentPlayer = (other.currentPlayer);
+        model = other.model;
+        movesList = new ArrayList<>(other.movesList);
+        halfMoveCounter = other.halfMoveCounter;
+        fullMoveCounter = other.fullMoveCounter;
+        enPassantActualSquare = new Location(other.enPassantActualSquare);
+        enPassantTargetSquare = new Location(other.enPassantTargetSquare);
+        fen = new FEN(other.fen.generateFEN(), this);
+    }
+
+    private void initPiecesLists() {
+        whitePieces = new ArrayList<>();
+        blackPieces = new ArrayList<>();
+    }
+
+    private Piece[][] copyMat(Piece[][] source) {
+        Piece[][] ret = new Piece[8][8];
+        for (int i = 0, sourceLength = source.length; i < sourceLength; i++) {
+            Piece[] row = source[i];
+            for (int j = 0, rowLength = row.length; j < rowLength; j++) {
+                Piece piece = row[j];
+                ret[i][j] = Piece.copyPiece(piece);
+            }
+        }
+        return ret;
     }
 
     public Location getEnPassantTargetSquare() {
@@ -57,6 +125,7 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public void setEnPassantActualSquare(Location enPassantActualSquare) {
+
         this.enPassantActualSquare = enPassantActualSquare;
     }
 
@@ -129,9 +198,9 @@ public class Board implements Iterable<Piece[]> {
     public BoardEval isGameOver() {
         BoardEval tie = checkTie();
         BoardEval win = checkWin();
-//        BoardEval loss = checkLoss();
-//
-//        return win.isGameOver() ? win : loss.isGameOver() ? loss : tie;
+        //        BoardEval loss = checkLoss();
+        //
+        //        return win.isGameOver() ? win : loss.isGameOver() ? loss : tie;
         return win.isGameOver() ? win : tie;
     }
 
@@ -158,7 +227,7 @@ public class Board implements Iterable<Piece[]> {
 
     public BoardEval checkTie() {
         if (!isInCheck(currentPlayer)) {
-            if (getAllMoves(Player.getOtherColor(currentPlayer)).isEmpty()) {
+            if (getAllMoves(currentPlayer).isEmpty()) {
                 return new BoardEval(GameStatus.STALEMATE);
             }
             if (!canPlayerMate(currentPlayer) && !canPlayerMate(Player.getOtherColor(currentPlayer))) {
@@ -173,18 +242,18 @@ public class Board implements Iterable<Piece[]> {
     }
 
     private boolean checkRepetition() {
-//        if (movesList.size() > 4) {
-//            int lastMoveIndex = movesList.size() - 1;
-//            String lastMove = movesList.get(lastMoveIndex);
-//            String secondMove = movesList.get(lastMoveIndex);
-//            String thirdMove = movesList.get(lastMoveIndex - 4);
-//            System.out.println(lastMove);
-//            System.out.println(secondMove);
-//            System.out.println(thirdMove);
-//            boolean res = lastMove == secondMove && lastMove == thirdMove;
-//            System.out.println(res);
-//            return res;
-//        }
+        //        if (movesList.size() > 4) {
+        //            int lastMoveIndex = movesList.size() - 1;
+        //            String lastMove = movesList.get(lastMoveIndex);
+        //            String secondMove = movesList.get(lastMoveIndex);
+        //            String thirdMove = movesList.get(lastMoveIndex - 4);
+        //            System.out.println(lastMove);
+        //            System.out.println(secondMove);
+        //            System.out.println(thirdMove);
+        //            boolean res = lastMove == secondMove && lastMove == thirdMove;
+        //            System.out.println(res);
+        //            return res;
+        //        }
         return false;
     }
 
@@ -260,8 +329,9 @@ public class Board implements Iterable<Piece[]> {
             for (Piece piece : row) {
                 if (piece != null)
                     if (piece.isOnMyTeam(currentPlayer)) {
-                        ArrayList<Move> movingTo = piece.canMoveTo(this);
-                        model.checkLegal(movingTo, this);
+                        Board copy = new Board(this);
+                        ArrayList<Move> movingTo = piece.canMoveTo(copy);
+                        model.checkLegal(movingTo, copy);
                         ret.addAll(movingTo);
                     }
             }
@@ -314,26 +384,23 @@ public class Board implements Iterable<Piece[]> {
         return false;
     }
 
-    public void applyMove(Move move) {
-        applyMove(move, true);
-    }
 
-    private void applyMove(Move move, boolean setMoved) {
+    void applyMove(Move move) {
         if (move instanceof Castling) {
             castle((Castling) move);
         } else if (move instanceof EnPassant) {
             Location actualSquare = getEnPassantActualSquare();
             Location targetSquare = getEnPassantTargetSquare();
-            if (actualSquare == null || targetSquare == null) {
-//                System.out.println("actual square = " + actualSquare + " target square = " + targetSquare);
-            } else
+            if (actualSquare != null && targetSquare != null) {
                 applyMove(new Move(actualSquare, targetSquare, false, this));
+                move.setCapturing(true);
+            }
         } else if (move instanceof PromotionMove) {
             move.setMovingFromPiece(Piece.promotePiece(move.getMovingFromPiece(), ((PromotionMove) move).getPromotingTo()));
-        } else if (move instanceof DoublePawnPush && currentPlayer == move.movingPlayer()) {
+        } else if (move instanceof DoublePawnPush) {
             setEnPassantTargetSquare(((DoublePawnPush) move).getEnPassantTargetSquare());
             setEnPassantActualSquare(move.getMovingTo());
-//            System.out.println("Set En passant square " + ((DoublePawnPush) move).getEnPassantTargetSquare());
+            System.out.println("Setting En passant target square " + ((DoublePawnPush) move).getEnPassantTargetSquare());
         }
         if (!move.isReversible())
             halfMoveCounter++;
@@ -342,59 +409,51 @@ public class Board implements Iterable<Piece[]> {
         if (move.getBoard().currentPlayer == Player.BLACK)
             fullMoveCounter++;
 
-        Piece piece = move.getMovingFromPiece();
         Location prev = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
+        Piece piece = getPiece(prev);
         setPiece(movingTo, piece);
-        setPiece(prev, null);
-        if (setMoved)
-            piece.setMoved(move);
-        else
-            piece.deleteMove();
+        piece.setMoved(move);
         piece.setLoc(movingTo);
+        setPiece(prev, null);
+        if (!(move instanceof DoublePawnPush))
+            setEnPassantTargetSquare((Location) null);
     }
 
     public void undoMove(Move move) {
-        undoMove(move, true);
-    }
-
-    private void undoMove(Move move, boolean setMoved) {
         if (move instanceof Castling) {
             undoCastle((Castling) move);
         } else if (move instanceof EnPassant) {
             Location actualSquare = getEnPassantActualSquare();
             Location targetSquare = getEnPassantTargetSquare();
             if (actualSquare == null || targetSquare == null) {
-//                System.out.println("actual square = " + actualSquare + " target square = " + targetSquare);
+                System.out.println("actual square = " + actualSquare + " target square = " + targetSquare);
             } else
                 undoMove(new Move(targetSquare, actualSquare, false, this));
         } else if (move instanceof PromotionMove) {
             move.setMovingFromPiece(new Pawn(move.getMovingFrom(), move.getMovingFromPiece().getPieceColor(), true));
         } else if (move instanceof DoublePawnPush) {
             setEnPassantTargetSquare((Location) null);
+            System.out.println("deleted en passant target square " + ((DoublePawnPush) move).getEnPassantTargetSquare());
         }
         Location currentPieceLocation = move.getMovingTo();
         Location originalPieceLocation = move.getMovingFrom();
-        Piece piece = move.getMovingFromPiece();
-        Piece otherPiece = move.getMovingToPiece();
+        Piece piece = getPiece(currentPieceLocation);
         setPiece(originalPieceLocation, piece);
-        setPiece(currentPieceLocation, otherPiece);
+        setPiece(currentPieceLocation, null);
 
         if (!move.isReversible())
             halfMoveCounter--;
 
         if (move.getBoard().currentPlayer == Player.BLACK)
             fullMoveCounter--;
-
-        if (setMoved)
-            piece.setMoved(move);
-        else
-            piece.deleteMove();
+        piece.setMoved(move);
+        piece.deleteMove();
         piece.setLoc(originalPieceLocation);
     }
 
     private void undoCastle(Castling castling) {
-        applyMove(new Move(castling.getRookFinalLoc(), castling.getRookStartingLoc(), false, this), false);
+        applyMove(new Move(castling.getRookFinalLoc(), castling.getRookStartingLoc(), false, this));
     }
 
     private void castle(Castling castling) {
@@ -409,7 +468,7 @@ public class Board implements Iterable<Piece[]> {
                 System.out.print("|");
                 if (piece != null) {
                     System.out.print(piece.isWhite() ? ANSI_WHITE : ANSI_BLACK);
-                    types type = piece.getType();
+                    PieceTypes type = piece.getType();
                     switch (type) {
                         case PAWN: {
                             prt = pawn;
@@ -454,6 +513,8 @@ public class Board implements Iterable<Piece[]> {
     public void makeMove(Move move) {
         movesList.add(move.getMoveFEN());
         applyMove(move);
+        //todo delete en passant target square
+//        setEnPassantTargetSquare((Location) null);
     }
 
     public boolean isInCheck() {
@@ -462,6 +523,10 @@ public class Board implements Iterable<Piece[]> {
 
     public void setEnPassantTargetLoc(Location loc) {
         enPassantTargetSquare = new Location(loc);
+    }
+
+    public Piece[][] getLogicMat() {
+        return logicMat;
     }
 
     enum GamePhase {OPENING, MIDDLE_GAME, END_GAME}

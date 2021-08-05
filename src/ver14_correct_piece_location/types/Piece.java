@@ -1,25 +1,18 @@
-package ver13_FEN.types;
+package ver14_correct_piece_location.types;
 
-import ver13_FEN.Board;
-import ver13_FEN.Location;
-import ver13_FEN.moves.DoublePawnPush;
-import ver13_FEN.moves.Move;
+import ver14_correct_piece_location.Board;
+import ver14_correct_piece_location.Location;
+import ver14_correct_piece_location.moves.DoublePawnPush;
+import ver14_correct_piece_location.moves.EnPassant;
+import ver14_correct_piece_location.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-class PieceLocation {
-    private Location loc;
-    private Location matLoc;
-
-    public PieceLocation(Location loc) {
-
-    }
-}
 
 public abstract class Piece {
     public static final int COLS = 8, ROWS = 8;
-    private int worth;
+    private double worth;
     private Location pieceLoc;
     private Location actualMatLoc;
     private Player pieceColor;
@@ -29,7 +22,7 @@ public abstract class Piece {
     private ArrayList<Move> movesList;
 
     //Starting from position
-    public Piece(int worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
+    public Piece(double worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
         this.worth = worth;
 //        this.pieceLoc = Location.convertToMatLoc(loc);
         this.pieceLoc = loc;
@@ -72,10 +65,9 @@ public abstract class Piece {
         }
     }
 
-    public static Piece createPieceFromFen(char c, int row, int col) {
+    public static Piece createPieceFromFen(char c, Location pieceLocation) {
         if (!Character.isLetter(c)) return null;
         Player pieceColor = Character.isUpperCase(c) ? Player.WHITE : Player.BLACK;
-        Location pieceLocation = new Location(row, col);
         switch (Character.toLowerCase(c)) {
             case 'p':
                 return new Pawn(pieceLocation, pieceColor, false);
@@ -176,9 +168,13 @@ public abstract class Piece {
                 isCapturing = true;
 
             Move newMove = new Move(pieceLoc, loc, isCapturing, board);
-            if (this instanceof Pawn && Math.abs(row - getLoc().getRow()) == 2) {
-                Location enPassantTargetSquare = new Location(isWhite() ? row - 1 : row + 1, col);
-                newMove = new DoublePawnPush(newMove, enPassantTargetSquare);
+            if (this instanceof Pawn) {
+                if (Math.abs(row - getLoc().getRow()) == 2) {
+                    Location enPassantTargetSquare = new Location(!isWhite() ? row - 2 : row + 2, col);
+                    newMove = new DoublePawnPush(newMove, enPassantTargetSquare);
+                } else if ((getLoc().getCol() - 1 == col || getLoc().getCol() + 1 == col) && board.getPiece(loc) == null) {
+                    newMove = new EnPassant(getLoc(), loc, board);
+                }
             }
             list.add(newMove);
             return newMove;
@@ -221,7 +217,7 @@ public abstract class Piece {
         return worth == piece.worth && pieceColor == piece.pieceColor && pieceType == piece.pieceType && hasMoved == piece.hasMoved && pieceLoc.equals(piece.pieceLoc) && Objects.equals(annotation, piece.annotation);
     }
 
-    public int getWorth() {
+    public double getWorth() {
         return worth;
     }
 

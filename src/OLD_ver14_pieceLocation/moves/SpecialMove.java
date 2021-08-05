@@ -1,4 +1,4 @@
-package ver14_pieceLocation.moves;
+package OLD_ver14_pieceLocation.moves;
 
 abstract class SpecialMove extends Move {
     private SpecialMoveType moveType;

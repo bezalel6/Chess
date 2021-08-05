@@ -1,8 +1,7 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.Location;
-import ver12_myJbutton.types.Rook;
+import ver13_FEN.Location;
+import ver13_FEN.types.Rook;
 
 public class Castling extends SpecialMove {
     private Rook rook;
@@ -51,8 +50,12 @@ public class Castling extends SpecialMove {
         return rookFinalLoc;
     }
 
+    public boolean isKingSide() {
+        return rookMiddleLoc == null;
+    }
+
     public String getAnnotation() {
-        return rookMiddleLoc == null ? "O-O" : "O-O-O";
+        return isKingSide() ? "O-O" : "O-O-O";
     }
 
     @Override

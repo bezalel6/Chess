@@ -1,6 +1,6 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
-import ver14_correct_piece_location.moves.Move;
+import ver15_new_piece_tables.moves.Move;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
@@ -230,8 +230,9 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     private Point centerPoint(Point point) {
         Point newPoint = new Point(point);
+
         newPoint = view.getBtn(newPoint).getLocation();
-        JButton btn = view.getBtn(mouseCoordinates);
+        JButton btn = view.getBtn();
         newPoint.x += btn.getWidth() / 2;
         newPoint.y += btn.getHeight() / 2;
         return newPoint;

@@ -1,12 +1,11 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.moves.Castling;
-import ver14_correct_piece_location.moves.EnPassant;
-import ver14_correct_piece_location.moves.MinimaxMove;
-import ver14_correct_piece_location.moves.Move;
-import ver14_correct_piece_location.types.Piece;
-
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.moves.Castling;
+import ver15_new_piece_tables.moves.EnPassant;
+import ver15_new_piece_tables.moves.MinimaxMove;
+import ver15_new_piece_tables.moves.Move;
+import ver15_new_piece_tables.types.Piece;
 
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
@@ -37,9 +36,9 @@ public class Model {
     }
 
     public String makeMove(Move move, Board board) {
-        String moveAnnotation = move.getAnnotation();
+//        String moveAnnotation = move.getAnnotation();
         board.makeMove(move);
-        return moveAnnotation;
+        return "moveAnnotation";
     }
 
     public ArrayList<Location> getPiecesLocations(Player currentPlayer) {
@@ -54,50 +53,42 @@ public class Model {
         return ret;
     }
 
-    private boolean isLocInMoveList(ArrayList<Move> list, Location loc) {
-        for (Move move : list) {
-            if (move.getMovingFrom().equals(loc))
-                return true;
-        }
-        return false;
-    }
-
     public void checkLegal(ArrayList<Move> movesList, Board board) {
-        if (movesList.isEmpty())
-            return;
-        ListIterator iter = movesList.listIterator();
-        ArrayList<Move> delete = new ArrayList<>();
-        while (iter.hasNext()) {
-            Piece currentPiece = board.getPiece(movesList.get(0).getMovingFrom());
-            Move move = (Move) iter.next();
-            Location movingTo = move.getMovingTo();
-            if (!isInBounds(movingTo)) {
-                delete.add(move);
-            }
-            Piece destination = board.getPiece(movingTo);
-
-            if (destination != null && currentPiece.isOnMyTeam(destination)) {
-                delete.add(move);
-            }
-            if (move instanceof Castling) {
-                Castling castling = (Castling) move;
-                if (board.isInCheck() || board.isSquareThreatened(castling.getKingMiddleMove(), currentPiece.getOtherColor()) || board.isSquareThreatened(castling.getKingFinalLoc(), currentPiece.getOtherColor())) {
-                    delete.add(move);
-                    continue;
-                }
-            } else if (move instanceof EnPassant) {
-                //TODO smn
-            }
-            board.applyMove(move);
-            move.setFEN();
-            if (board.isInCheck(currentPiece.getPieceColor())) {
-                delete.add(move);
-            }
-            board.undoMove(move);
-        }
-        for (Move move : delete) {
-            movesList.remove(move);
-        }
+//        if (movesList.isEmpty())
+//            return;
+//        ListIterator iter = movesList.listIterator();
+//        ArrayList<Move> delete = new ArrayList<>();
+//        while (iter.hasNext()) {
+//            Piece currentPiece = board.getPiece(movesList.get(0).getMovingFrom());
+//            Move move = (Move) iter.next();
+//            Location movingTo = move.getMovingTo();
+//            if (!isInBounds(movingTo)) {
+//                delete.add(move);
+//            }
+//            Piece destination = board.getPiece(movingTo);
+//
+//            if (destination != null && currentPiece.isOnMyTeam(destination)) {
+//                delete.add(move);
+//            }
+//            if (move instanceof Castling) {
+//                Castling castling = (Castling) move;
+//                if (board.isInCheck() || board.isSquareThreatened(castling.getKingMiddleMove(), currentPiece.getOtherColor()) || board.isSquareThreatened(castling.getKingFinalLoc(), currentPiece.getOtherColor())) {
+//                    delete.add(move);
+//                    continue;
+//                }
+//            } else if (move instanceof EnPassant) {
+//                //TODO smn
+//            }
+//            board.applyMove(move);
+//            move.setFEN();
+//            if (board.isInCheck(currentPiece.getPieceColor())) {
+//                delete.add(move);
+//            }
+//            board.undoMove(move);
+//        }
+//        for (Move move : delete) {
+//            movesList.remove(move);
+//        }
     }
 
     public boolean isInBounds(Location loc) {

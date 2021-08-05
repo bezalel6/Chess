@@ -1,13 +1,13 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
 
-import ver12_myJbutton.moves.Castling;
-import ver12_myJbutton.moves.EnPassant;
-import ver12_myJbutton.moves.PromotionMove;
-import ver12_myJbutton.types.Piece.Player;
-import ver12_myJbutton.types.Piece.types;
-import ver12_myJbutton.moves.Move;
-import ver12_myJbutton.types.*;
+import ver13_FEN.types.Piece.Player;
+import ver13_FEN.types.Piece.types;
+import ver13_FEN.moves.Castling;
+import ver13_FEN.moves.EnPassant;
+import ver13_FEN.moves.Move;
+import ver13_FEN.moves.PromotionMove;
+import ver13_FEN.types.Piece;
 
 import java.util.ArrayList;
 
@@ -47,19 +47,20 @@ public class Controller {
         int startingPosition = 0;
         if (showPositionDialog) {
             Dialogs positionsDialog = new Dialogs(DialogTypes.VERTICAL_LIST, "Starting Position");
-            ArrayList<String[]> positions = Positions.getAllPositionsNamesAndIndexes();
+            ArrayList<Position> positions = Positions.getAllPositions();
             ArrayList<DialogObject> objects = new ArrayList<>();
-            for (String[] position : positions) {
-                objects.add(new DialogObject(position[0], Integer.parseInt(position[1])));
+            for (int i = 0; i < positions.size(); i++) {
+                objects.add(new DialogObject(positions.get(i).getName(), i));
             }
             startingPosition = positionsDialog.run(objects);
         }
-        currentPlayer = Player.WHITE;
         currentPiece = null;
-        numOfMoves = 1;
         isFirstClick = true;
         model.initGame(startingPosition);
+        numOfMoves = model.getBoard().getHalfMoveCounter();
         view.initGame(model.getBoard());
+        currentPlayer = model.getBoard().getCurrentPlayer();
+        view.setLbl(currentPlayer + " To Move");
         view.enableSquares(model.getPiecesLocations(currentPlayer));
 
     }
@@ -240,5 +241,18 @@ public class Controller {
 
     public void gotToMove(int row) {
         //model.getBoard().goToMove(row);
+    }
+
+    public void printFEN() {
+        System.out.println(model.getBoard().getFen());
+    }
+
+    public void printAllPieces() {
+        for (Piece[] row : model.getBoard()) {
+            for (Piece piece : row) {
+                if (piece != null)
+                    System.out.println(piece);
+            }
+        }
     }
 }

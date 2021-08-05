@@ -14,6 +14,7 @@ public class Move {
     private boolean isCapturing;
     private String annotation = "";
     private Board board;
+    private boolean isReversible;
 
     public Move(Location movingFrom, Location movingTo, boolean isCapturing, Board board) {
         this.board = board;
@@ -22,6 +23,7 @@ public class Move {
         this.isCapturing = isCapturing;
         this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
         this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
+        setReversible();
     }
 
     public Move(Move other) {
@@ -31,6 +33,7 @@ public class Move {
         isCapturing = other.isCapturing;
         this.movingFromPiece = Piece.copyPiece(other.movingFromPiece);
         this.movingToPiece = Piece.copyPiece(other.movingToPiece);
+        setReversible();
     }
 
     public Move(String text, Board board) {
@@ -42,6 +45,7 @@ public class Move {
                 isCapturing = move.isCapturing;
                 this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
                 this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
+                setReversible();
                 return;
             }
         }
@@ -55,6 +59,16 @@ public class Move {
         isCapturing = other.isCapturing;
         this.movingFromPiece = other.movingFromPiece;
         this.movingToPiece = other.movingToPiece;
+        isReversible = other.isReversible;
+    }
+
+
+    private void setReversible() {
+        isReversible = movingFromPiece instanceof Pawn || isCapturing;
+    }
+
+    public boolean isReversible() {
+        return isReversible;
     }
 
     public boolean equals(Move move) {

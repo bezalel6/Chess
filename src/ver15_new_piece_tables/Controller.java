@@ -1,14 +1,15 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.types.Piece.types;
-import ver14_correct_piece_location.moves.Castling;
-import ver14_correct_piece_location.moves.EnPassant;
-import ver14_correct_piece_location.moves.Move;
-import ver14_correct_piece_location.moves.PromotionMove;
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.types.Piece.PieceTypes;
+import ver15_new_piece_tables.moves.Castling;
+import ver15_new_piece_tables.moves.EnPassant;
+import ver15_new_piece_tables.moves.Move;
+import ver15_new_piece_tables.moves.PromotionMove;
+import ver15_new_piece_tables.types.Piece;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Controller {
@@ -26,7 +27,7 @@ public class Controller {
     private Dialogs promotingDialog;
 
     private boolean isFirstClick = true;
-    private boolean showPositionDialog = true;
+    private boolean showPositionDialog = false;
     private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
 
@@ -97,7 +98,7 @@ public class Controller {
             Move move = findMove(movesList, currentPiece, loc);
             if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
                 if (move instanceof PromotionMove) {
-                    ((PromotionMove) move).setPromotingTo(types.values()[promote()]);
+                    ((PromotionMove) move).setPromotingTo(PieceTypes.values()[promote()]);
                 }
                 makeMove(move);
             } else buttonPressedLaterActions();
@@ -116,9 +117,9 @@ public class Controller {
             updateView(model.getBoard().getEnPassantActualSquare(), epsn.getMovingTo());
         }
         updateView(move.getMovingFrom(), move.getMovingTo());
-        String moveAnnotation = model.makeMove(move, model.getBoard());
-        view.updateMoveLog(moveAnnotation, numOfMoves);
         Board board = model.getBoard();
+        String moveAnnotation = model.makeMove(move, board);
+        view.updateMoveLog(moveAnnotation, numOfMoves);
         BoardEval gameStatus = board.getBoardEval();
         if (gameStatus.isGameOver()) {
             gameOver(gameStatus);
@@ -191,15 +192,15 @@ public class Controller {
     private ArrayList<DialogObject> getPromotionObjects(Player player) {
         ArrayList<DialogObject> ret = new ArrayList<>();
         if (player == Player.WHITE) {
-            ret.add(new DialogObject(view.wn, types.KNIGHT.ordinal()));
-            ret.add(new DialogObject(view.wb, types.BISHOP.ordinal()));
-            ret.add(new DialogObject(view.wq, types.QUEEN.ordinal()));
-            ret.add(new DialogObject(view.wr, types.ROOK.ordinal()));
+            ret.add(new DialogObject(view.wn, PieceTypes.KNIGHT.ordinal()));
+            ret.add(new DialogObject(view.wb, PieceTypes.BISHOP.ordinal()));
+            ret.add(new DialogObject(view.wq, PieceTypes.QUEEN.ordinal()));
+            ret.add(new DialogObject(view.wr, PieceTypes.ROOK.ordinal()));
         } else {
-            ret.add(new DialogObject(view.bn, types.KNIGHT.ordinal()));
-            ret.add(new DialogObject(view.bb, types.BISHOP.ordinal()));
-            ret.add(new DialogObject(view.bq, types.QUEEN.ordinal()));
-            ret.add(new DialogObject(view.br, types.ROOK.ordinal()));
+            ret.add(new DialogObject(view.bn, PieceTypes.KNIGHT.ordinal()));
+            ret.add(new DialogObject(view.bb, PieceTypes.BISHOP.ordinal()));
+            ret.add(new DialogObject(view.bq, PieceTypes.QUEEN.ordinal()));
+            ret.add(new DialogObject(view.br, PieceTypes.ROOK.ordinal()));
         }
         return ret;
     }
@@ -269,5 +270,18 @@ public class Controller {
 
     public void printAllPossibleMoves() {
         model.printAllPossibleMoves();
+        System.out.println("getting moves");
+        ArrayList moves = model.getBoard().getAllMovesForCurrentPlayer();
+        System.out.println("drawing arrows");
+        moves.forEach(move -> view.drawMove((Move) move));
+        System.out.println("finished drawing arrows");
+    }
+
+    public void highlightEnPassantTargetSquare() {
+        Location loc = model.getBoard().getEnPassantTargetSquare();
+        if (loc != null)
+            view.highlightSquare(loc, Color.BLUE);
+        else
+            System.out.println("no en passant target square");
     }
 }

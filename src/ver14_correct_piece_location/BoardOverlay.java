@@ -1,6 +1,6 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
-import ver13_FEN.moves.Move;
+import ver14_correct_piece_location.moves.Move;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;

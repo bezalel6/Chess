@@ -1,6 +1,6 @@
-package ver14_pieceLocation.moves;
+package OLD_ver14_pieceLocation.moves;
 
-import ver14_pieceLocation.types.Piece;
+import OLD_ver14_pieceLocation.types.Piece;
 
 public class PromotionMove extends SpecialMove {
     private Piece.types promotingTo;

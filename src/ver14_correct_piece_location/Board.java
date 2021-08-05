@@ -1,17 +1,16 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
-import ver13_FEN.moves.*;
-import ver13_FEN.types.Piece.Player;
-import ver13_FEN.types.Piece.types;
-import ver13_FEN.types.*;
+import ver14_correct_piece_location.types.Piece.Player;
+import ver14_correct_piece_location.types.Piece.types;
+import ver14_correct_piece_location.moves.*;
+import ver14_correct_piece_location.types.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.Locale;
 
-import static ver13_FEN.Model.ANSI_BLACK;
-import static ver13_FEN.Model.ANSI_WHITE;
+import static ver14_correct_piece_location.Model.ANSI_BLACK;
+import static ver14_correct_piece_location.Model.ANSI_WHITE;
 
 
 public class Board implements Iterable<Piece[]> {
@@ -25,6 +24,7 @@ public class Board implements Iterable<Piece[]> {
     private ArrayList<String> movesList;
     private int halfMoveCounter, fullMoveCounter;
     private Location enPassantTargetSquare;
+    private Location enPassantActualSquare;
     private FEN fen;
 
     public Board(String fenStr, Model model) {
@@ -37,7 +37,6 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public Location getEnPassantTargetSquare() {
-        System.out.println(enPassantTargetSquare);
         return enPassantTargetSquare;
     }
 
@@ -51,6 +50,14 @@ public class Board implements Iterable<Piece[]> {
         if (enPassantTargetSquare.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
             this.enPassantTargetSquare = null;
         } else this.enPassantTargetSquare = new Location(enPassantTargetSquare);
+    }
+
+    public Location getEnPassantActualSquare() {
+        return enPassantActualSquare;
+    }
+
+    public void setEnPassantActualSquare(Location enPassantActualSquare) {
+        this.enPassantActualSquare = enPassantActualSquare;
     }
 
     public int getHalfMoveCounter() {
@@ -203,6 +210,11 @@ public class Board implements Iterable<Piece[]> {
         return false;
     }
 
+    public GamePhase getGameStage() {
+
+        return GamePhase.MIDDLE_GAME;
+    }
+
     private boolean canPlayerMate(Player player) {
         ArrayList<Piece> currentPlayerPieces = getPlayersPieces(player);
         if (currentPlayerPieces.size() <= 1)
@@ -310,13 +322,18 @@ public class Board implements Iterable<Piece[]> {
         if (move instanceof Castling) {
             castle((Castling) move);
         } else if (move instanceof EnPassant) {
-            EnPassant epsn = (EnPassant) move;
-            applyMove(epsn.getCapturedMoveToBeCaptured());
+            Location actualSquare = getEnPassantActualSquare();
+            Location targetSquare = getEnPassantTargetSquare();
+            if (actualSquare == null || targetSquare == null) {
+//                System.out.println("actual square = " + actualSquare + " target square = " + targetSquare);
+            } else
+                applyMove(new Move(actualSquare, targetSquare, false, this));
         } else if (move instanceof PromotionMove) {
             move.setMovingFromPiece(Piece.promotePiece(move.getMovingFromPiece(), ((PromotionMove) move).getPromotingTo()));
         } else if (move instanceof DoublePawnPush && currentPlayer == move.movingPlayer()) {
             setEnPassantTargetSquare(((DoublePawnPush) move).getEnPassantTargetSquare());
-            System.out.println("Set En passant square " + ((DoublePawnPush) move).getEnPassantTargetSquare());
+            setEnPassantActualSquare(move.getMovingTo());
+//            System.out.println("Set En passant square " + ((DoublePawnPush) move).getEnPassantTargetSquare());
         }
         if (!move.isReversible())
             halfMoveCounter++;
@@ -345,8 +362,12 @@ public class Board implements Iterable<Piece[]> {
         if (move instanceof Castling) {
             undoCastle((Castling) move);
         } else if (move instanceof EnPassant) {
-            EnPassant epsn = (EnPassant) move;
-            undoMove(epsn.getCapturedMoveToBeCaptured(), false);
+            Location actualSquare = getEnPassantActualSquare();
+            Location targetSquare = getEnPassantTargetSquare();
+            if (actualSquare == null || targetSquare == null) {
+//                System.out.println("actual square = " + actualSquare + " target square = " + targetSquare);
+            } else
+                undoMove(new Move(targetSquare, actualSquare, false, this));
         } else if (move instanceof PromotionMove) {
             move.setMovingFromPiece(new Pawn(move.getMovingFrom(), move.getMovingFromPiece().getPieceColor(), true));
         } else if (move instanceof DoublePawnPush) {
@@ -442,4 +463,6 @@ public class Board implements Iterable<Piece[]> {
     public void setEnPassantTargetLoc(Location loc) {
         enPassantTargetSquare = new Location(loc);
     }
+
+    enum GamePhase {OPENING, MIDDLE_GAME, END_GAME}
 }

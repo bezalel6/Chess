@@ -1,9 +1,6 @@
-package ver13_FEN;
-
-import ver13_FEN.types.*;
+package ver14_correct_piece_location;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 class Position {
     private String name, FEN;
@@ -25,11 +22,14 @@ class Position {
 public class Positions {
 
     private static Position startingPosition = new Position("Starting Position", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-
+    private static Position aboutToPromote = new Position("About to Promote", "8/8/4k3/8/8/4K3/p7/8 w - - 0 1");
+    private static Position underpromotion = new Position("Underpromotion", "4Q3/Pq4pk/5p1p/5P1K/6PP/8/8/8 w - - 2 2");
 
     public static ArrayList<Position> getAllPositions() {
         ArrayList ret = new ArrayList();
         ret.add(startingPosition);
+        ret.add(aboutToPromote);
+        ret.add(underpromotion);
         return ret;
     }
 }

@@ -1,9 +1,7 @@
-package ver12_myJbutton;
-
+package ver13_FEN;
 
 public class Location {
 
-    boolean isWhiteRespective = true;
     private int row;
     private int col;
 
@@ -14,7 +12,7 @@ public class Location {
 
     public Location(int r, int c, boolean view) {
         col = c;
-        row = getViewRow(r);
+        row = r;
     }
 
     public Location(String str) {
@@ -29,24 +27,12 @@ public class Location {
         }
     }
 
+    public static Location convertToMatLoc(Location loc) {
+        return new Location(Math.abs(loc.row - 7), loc.col);
+    }
+
     public boolean equals(Location compareTo) {
         return compareTo == null ? null : row == compareTo.getRow() && col == compareTo.getCol();
-    }
-
-    public Location getViewLocation() {
-        return new Location(getViewRow(row), col);
-    }
-
-    public void convertToModelLoc() {
-        row = getViewRow(row);
-    }
-
-    public int getViewRow(int otherRow) {
-        return Math.abs(otherRow - 7);
-    }
-
-    public int getViewRow() {
-        return isWhiteRespective ? Math.abs(row - 7) : row;
     }
 
     // פעולה מאחזרת את ערך השורה
@@ -68,6 +54,10 @@ public class Location {
 
     public void setCol(char num) {
         col = num;
+    }
+
+    public String getNumValues() {
+        return "[" + row + "]" + "[" + col + "]";
     }
 
     @Override

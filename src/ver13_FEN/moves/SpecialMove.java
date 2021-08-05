@@ -1,4 +1,4 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
 abstract class SpecialMove extends Move {
     private SpecialMoveType moveType;

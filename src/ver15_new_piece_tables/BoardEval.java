@@ -1,11 +1,11 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.types.Piece;
 
 import java.util.ArrayList;
 
-import static ver14_correct_piece_location.Board.*;
+import static ver15_new_piece_tables.Board.GamePhase;
 
 
 public class BoardEval {
@@ -218,7 +218,7 @@ class Tables {
             }
     );
 
-    public int[][] getTable(Piece.types type, GamePhase phase) {
+    public int[][] getTable(Piece.PieceTypes type, GamePhase phase) {
         switch (type) {
             case KNIGHT:
                 return knight.getByIndex(phase);

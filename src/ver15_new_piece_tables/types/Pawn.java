@@ -1,51 +1,22 @@
-package ver14_correct_piece_location.types;
+package ver15_new_piece_tables.types;
 
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.moves.Move;
-import ver14_correct_piece_location.moves.PromotionMove;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.moves.DoublePawnPush;
+import ver15_new_piece_tables.moves.EnPassant;
+import ver15_new_piece_tables.moves.Move;
+import ver15_new_piece_tables.moves.PromotionMove;
 
 import java.util.ArrayList;
 
-class EnPassantCaptured {
-    private Location captureLoc, pieceLoc;
-
-    public EnPassantCaptured(Location captureLoc, Location pieceLoc) {
-        this.captureLoc = captureLoc;
-        this.pieceLoc = pieceLoc;
-    }
-
-    public EnPassantCaptured(EnPassantCaptured other) {
-        captureLoc = new Location(other.captureLoc);
-        pieceLoc = new Location(other.pieceLoc);
-    }
-
-    public Location getCaptureLoc() {
-        return captureLoc;
-    }
-
-    public void setCaptureLoc(Location captureLoc) {
-        this.captureLoc = captureLoc;
-    }
-
-    public Location getPieceLoc() {
-        return pieceLoc;
-    }
-
-    public void setPieceLoc(Location pieceLoc) {
-        this.pieceLoc = pieceLoc;
-    }
-}
 
 public class Pawn extends Piece {
     public static int worth = 1;
     private int diff = 0;
     private int promotingRow = 0;
-    private EnPassantCaptured enPassantCaptured;
-    private boolean canGetEnPassant = false;
 
     public Pawn(Location loc, Player pieceColor, boolean hasMoved) {
-        super(worth, loc, pieceColor, types.PAWN, loc.getColString() + "", hasMoved);
+        super(worth, loc, pieceColor, PieceTypes.PAWN, loc.getColString() + "", hasMoved);
         if (!isWhite()) {
             diff--;
         } else {
@@ -61,22 +32,10 @@ public class Pawn extends Piece {
         Pawn pawn = (Pawn) other;
         diff = pawn.diff;
         promotingRow = pawn.promotingRow;
-        if (pawn.enPassantCaptured != null)
-            enPassantCaptured = new EnPassantCaptured(pawn.enPassantCaptured);
-        canGetEnPassant = pawn.canGetEnPassant;
     }
 
     public String getAnnotation() {
         return getLoc().getColString() + "";
-    }
-
-
-    @Override
-    public void setMoved(Move move) {
-        if (!getHasMoved() && enPassantCaptured != null && move.getMovingTo().equals(enPassantCaptured.getPieceLoc())) {
-            canGetEnPassant = true;
-        }
-        super.setMoved(move);
     }
 
     @Override
@@ -89,25 +48,45 @@ public class Pawn extends Piece {
         if (isInBounds(myR + diff, myC) && board.getPiece(myR + diff, myC) == null) {
             Location enPassantCapturingLoc = new Location(myR + diff, myC);
             add(ret, enPassantCapturingLoc, board);
-
             if (isInBounds(myR + (diff * 2), myC) && !getHasMoved() && board.getPiece(myR + (diff * 2), myC) == null) {
                 Location loc = new Location(myR + (diff * 2), myC);
-//                enPassantCaptured = new EnPassantCaptured(enPassantCapturingLoc, loc);
-//                board.setEnPassantTargetLoc(enPassantCapturingLoc);
-                Move move = add(ret, loc, board);
+                Move newMove = new DoublePawnPush(new Move(getLoc(), loc, false, board), enPassantCapturingLoc);
+                add(ret, newMove, board);
 
             }
         }
-        Location leftCapture = new Location(myR + diff, myC - 1), rightCapture = new Location(myR + diff, myC + 1);
 
-        if (isInBounds(rightCapture) && ((board.getPiece(rightCapture) != null && !board.getPiece(rightCapture).isOnMyTeam(this)) || board.getEnPassantTargetSquare() != null && board.getEnPassantTargetSquare().equals(rightCapture))) {
-            add(ret, myR + diff, myC + 1, board);
-        }
-        if (isInBounds(leftCapture) && (board.getPiece(leftCapture) != null && !board.getPiece(leftCapture).isOnMyTeam(this))) {
-            add(ret, myR + diff, myC - 1, board);
-        }
+        addCaptureMoves(board, ret);
         checkPromoting(ret, board);
         return ret;
+    }
+
+    private void addCaptureMoves(Board board, ArrayList list) {
+        Location pieceLoc = getLoc();
+        int myR = pieceLoc.getRow();
+        int myC = pieceLoc.getCol();
+        Location leftCapture = new Location(myR + diff, myC - 1), rightCapture = new Location(myR + diff, myC + 1);
+        if (checkCapture(rightCapture, board)) {
+            Move move = new Move(pieceLoc, rightCapture, true, board);
+            if (checkEnPassant(rightCapture, board))
+                move = new EnPassant(move);
+            add(list, move, board);
+        }
+        if (checkCapture(leftCapture, board)) {
+            Move move = new Move(pieceLoc, leftCapture, true, board);
+            if (checkEnPassant(leftCapture, board))
+                move = new EnPassant(move);
+            add(list, move, board);
+        }
+    }
+
+    private boolean checkCapture(Location loc, Board board) {
+        return isInBounds(loc) && ((board.getPiece(loc) != null && !board.getPiece(loc).isOnMyTeam(this)) || checkEnPassant(loc, board));
+    }
+
+    private boolean checkEnPassant(Location capturingLoc, Board board) {
+        Location epsn = board.getEnPassantTargetSquare();
+        return epsn != null && epsn.equals(capturingLoc);
     }
 
     private void checkPromoting(ArrayList<Move> list, Board board) {
@@ -115,10 +94,10 @@ public class Pawn extends Piece {
         for (int i = 0; i < list.size(); i++) {
             Move move = list.get(i);
             if (move.getMovingTo().getRow() == promotingRow) {
-                list.set(i, new PromotionMove(types.QUEEN, move));
-                add.add(new PromotionMove(types.BISHOP, move));
-                add.add(new PromotionMove(types.KNIGHT, move));
-                add.add(new PromotionMove(types.ROOK, move));
+                list.set(i, new PromotionMove(PieceTypes.QUEEN, move));
+                add.add(new PromotionMove(PieceTypes.BISHOP, move));
+                add.add(new PromotionMove(PieceTypes.KNIGHT, move));
+                add.add(new PromotionMove(PieceTypes.ROOK, move));
             }
         }
         list.addAll(add);

@@ -1,10 +1,10 @@
-package ver13_FEN.moves;
+package ver14_correct_piece_location.moves;
 
-import ver13_FEN.Board;
-import ver13_FEN.GameStatus;
-import ver13_FEN.Location;
-import ver13_FEN.types.Pawn;
-import ver13_FEN.types.Piece;
+import ver14_correct_piece_location.Board;
+import ver14_correct_piece_location.GameStatus;
+import ver14_correct_piece_location.Location;
+import ver14_correct_piece_location.types.Pawn;
+import ver14_correct_piece_location.types.Piece;
 
 
 public class Move {

@@ -1,7 +1,7 @@
-package ver14_pieceLocation.moves;
+package OLD_ver14_pieceLocation.moves;
 
-import ver14_pieceLocation.Board;
-import ver14_pieceLocation.Location;
+import OLD_ver14_pieceLocation.Board;
+import OLD_ver14_pieceLocation.Location;
 
 public class EnPassant extends SpecialMove {
     private Location capturingPieceActualLocation;

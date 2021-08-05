@@ -1,6 +1,6 @@
-package ver12_myJbutton;
+package ver13_FEN;
 
-import ver12_myJbutton.moves.Move;
+import ver13_FEN.moves.Move;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;

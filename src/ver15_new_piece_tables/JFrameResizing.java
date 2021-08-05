@@ -1,4 +1,4 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
 import javax.swing.*;
 import java.awt.event.ComponentEvent;

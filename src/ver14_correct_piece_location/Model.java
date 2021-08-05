@@ -1,9 +1,15 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
-import ver13_FEN.moves.*;
-import ver13_FEN.types.Piece.Player;
-import ver13_FEN.types.Piece;
+import ver14_correct_piece_location.types.Piece.Player;
+import ver14_correct_piece_location.moves.Castling;
+import ver14_correct_piece_location.moves.EnPassant;
+import ver14_correct_piece_location.moves.MinimaxMove;
+import ver14_correct_piece_location.moves.Move;
+import ver14_correct_piece_location.types.Piece;
 
+
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
@@ -16,9 +22,9 @@ public class Model {
     public Eval eval;
     private Board logicBoard;
     private Controller controller;
-    private String additions = "";
     private int scanDepth;
-    private String knight = "♘", bishop = "♗", pawn = "♙", king = "♔", queen = "♕", rook = "♖";
+    private int scanTime;
+    private ZonedDateTime minimaxStartedTime;
 
     public Model(int boardSize, Controller controller) {
         this.controller = controller;
@@ -36,7 +42,6 @@ public class Model {
         return moveAnnotation;
     }
 
-
     public ArrayList<Location> getPiecesLocations(Player currentPlayer) {
         ArrayList<Location> ret = new ArrayList<>();
         for (Piece[] row : logicBoard) {
@@ -48,7 +53,6 @@ public class Model {
         }
         return ret;
     }
-
 
     private boolean isLocInMoveList(ArrayList<Move> list, Location loc) {
         for (Move move : list) {
@@ -96,7 +100,6 @@ public class Model {
         }
     }
 
-
     public boolean isInBounds(Location loc) {
         return loc.getRow() >= 0 && loc.getRow() < ROWS && loc.getCol() >= 0 && loc.getCol() < COLS;
     }
@@ -130,11 +133,13 @@ public class Model {
     public Move getAiMove() {
         System.out.println("Model getAiMove() using MINIMAX");
         scanDepth = controller.getScanDepth();
+        scanTime = controller.getScanTime();
         return getBestMoveUsingMinimax().getMove();
     }
 
     // ============================ for minimax ===========================
     private MinimaxMove getBestMoveUsingMinimax() {
+        minimaxStartedTime = ZonedDateTime.now();
         MinimaxMove ret = minimax(logicBoard, true, 0, Double.MIN_VALUE, Double.MAX_VALUE, null);
         System.out.println("minimax move = " + ret);
         return ret;
@@ -146,7 +151,8 @@ public class Model {
         Player player = isMax ? actualPlayer : Player.getOtherColor(actualPlayer);
         ArrayList<Move> possibleMoves = board.getAllMoves(player);
         BoardEval value = board.getBoardEval();
-        if (value.isGameOver() || depth == scanDepth) {
+        long seconds = minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.SECONDS);
+        if (value.isGameOver() || seconds >= scanTime || depth == scanDepth) {
             return new MinimaxMove(null, value, depth);
         }
 //        if (found != null && found.getMove() != null) {
@@ -186,6 +192,12 @@ public class Model {
 
         }
         return bestMove;
+    }
+
+    public void printAllPossibleMoves() {
+        for (Move move : logicBoard.getAllMovesForCurrentPlayer()) {
+            System.out.println(move);
+        }
     }
 }
 

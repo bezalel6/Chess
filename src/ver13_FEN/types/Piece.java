@@ -1,16 +1,27 @@
-package ver12_myJbutton.types;
+package ver13_FEN.types;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.Location;
-import ver12_myJbutton.moves.Move;
+import ver13_FEN.Board;
+import ver13_FEN.Location;
+import ver13_FEN.moves.DoublePawnPush;
+import ver13_FEN.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+class PieceLocation {
+    private Location loc;
+    private Location matLoc;
+
+    public PieceLocation(Location loc) {
+
+    }
+}
 
 public abstract class Piece {
     public static final int COLS = 8, ROWS = 8;
     private int worth;
     private Location pieceLoc;
+    private Location actualMatLoc;
     private Player pieceColor;
     private types pieceType;
     private String annotation = "";
@@ -20,16 +31,19 @@ public abstract class Piece {
     //Starting from position
     public Piece(int worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
         this.worth = worth;
+//        this.pieceLoc = Location.convertToMatLoc(loc);
         this.pieceLoc = loc;
         this.pieceColor = pieceColor;
         this.pieceType = pieceType;
         this.annotation = annotation;
         this.hasMoved = hasMoved;
+        this.actualMatLoc = loc;
     }
 
     public Piece(Piece other) {
         this.worth = other.worth;
         this.pieceLoc = new Location(other.pieceLoc);
+        this.actualMatLoc = new Location(other.actualMatLoc);
         this.pieceColor = other.pieceColor;
         this.pieceType = other.pieceType;
         this.annotation = other.annotation;
@@ -56,6 +70,27 @@ public abstract class Piece {
         } else {
             return new Pawn(other);
         }
+    }
+
+    public static Piece createPieceFromFen(char c, int row, int col) {
+        if (!Character.isLetter(c)) return null;
+        Player pieceColor = Character.isUpperCase(c) ? Player.WHITE : Player.BLACK;
+        Location pieceLocation = new Location(row, col);
+        switch (Character.toLowerCase(c)) {
+            case 'p':
+                return new Pawn(pieceLocation, pieceColor, false);
+            case 'r':
+                return new Rook(pieceLocation, pieceColor, false);
+            case 'n':
+                return new Knight(pieceLocation, pieceColor, false);
+            case 'b':
+                return new Bishop(pieceLocation, pieceColor, false);
+            case 'q':
+                return new Queen(pieceLocation, pieceColor, false);
+            case 'k':
+                return new King(pieceLocation, pieceColor, false);
+        }
+        return null;
     }
 
     public static Piece promotePiece(Piece piece, types promotingTo) {
@@ -99,7 +134,7 @@ public abstract class Piece {
         return hasMoved;
     }
 
-    public abstract ArrayList canMoveTo(Board board);
+    public abstract ArrayList<Move> canMoveTo(Board board);
 
     public boolean isOnMyTeam(Piece m) {
         return pieceColor == m.pieceColor;
@@ -114,6 +149,7 @@ public abstract class Piece {
     }
 
     public void setLoc(Location loc) {
+        this.actualMatLoc = Location.convertToMatLoc(loc);
         this.pieceLoc = loc;
     }
 
@@ -138,7 +174,12 @@ public abstract class Piece {
                 return null;
             if (piece != null && !isOnMyTeam(piece))
                 isCapturing = true;
+
             Move newMove = new Move(pieceLoc, loc, isCapturing, board);
+            if (this instanceof Pawn && Math.abs(row - getLoc().getRow()) == 2) {
+                Location enPassantTargetSquare = new Location(isWhite() ? row - 1 : row + 1, col);
+                newMove = new DoublePawnPush(newMove, enPassantTargetSquare);
+            }
             list.add(newMove);
             return newMove;
 
@@ -203,10 +244,11 @@ public abstract class Piece {
     @Override
     public String toString() {
         return "Piece{" +
-                "loc=" + pieceLoc +
+                "pieceLoc=" + pieceLoc +
+                ", actualMatLoc=" + actualMatLoc.getNumValues() +
                 ", pieceColor=" + pieceColor +
                 ", pieceType=" + pieceType +
-                ", annotation='" + annotation + '\'' +
+                ", movesList=" + movesList +
                 '}';
     }
 

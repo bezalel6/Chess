@@ -1,6 +1,6 @@
-package ver12_myJbutton.moves;
+package ver13_FEN.moves;
 
-import ver12_myJbutton.BoardEval;
+import ver13_FEN.BoardEval;
 
 public class MinimaxMove {
     private Move move;

@@ -1,8 +1,7 @@
-package ver13_FEN;
+package ver14_correct_piece_location;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class BoardPanel extends JPanel {
 

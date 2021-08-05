@@ -1,10 +1,10 @@
-package ver13_FEN.moves;
+package ver14_correct_piece_location.moves;
 
-import ver13_FEN.Board;
-import ver13_FEN.Location;
-import ver13_FEN.types.Pawn;
-import ver13_FEN.types.Piece;
-import ver13_FEN.types.Piece.Player;
+import ver14_correct_piece_location.types.Piece.Player;
+import ver14_correct_piece_location.Board;
+import ver14_correct_piece_location.Location;
+import ver14_correct_piece_location.types.Pawn;
+import ver14_correct_piece_location.types.Piece;
 
 import java.util.Locale;
 
@@ -158,7 +158,9 @@ public class FEN {
         for (char c : arr) {
             if (c != '/' && c != ' ') {
                 if (Character.isLetter(c)) {
-                    ret[row][col] = Piece.createPieceFromFen(c, row, col++);
+                    Location loc = new Location(row, col++);
+                    loc = Location.convertToMatLoc(loc);
+                    ret[loc.getRow()][loc.getCol()] = Piece.createPieceFromFen(c, loc);
                 } else col += Integer.parseInt(c + "");
             } else if (c == '/') {
                 row++;
@@ -170,11 +172,14 @@ public class FEN {
         String str = fen.substring(index);
         str = str.substring(0, str.indexOf(' '));
         castlingAbility = new CastlingAbility(str);
-        index += 4;
+        index += castlingAbility.toString().length();
         //en passant location
         if (arr[index] != '-') {
             board.setEnPassantTargetSquare(fen.substring(index, ++index + 1));
-        } else board.setEnPassantTargetLoc(null);
+        } else {
+            index += 2;
+            board.setEnPassantTargetLoc(null);
+        }
         index += 2;
         board.setHalfMoveCounter(Integer.parseInt(arr[index] + ""));
         index += 2;

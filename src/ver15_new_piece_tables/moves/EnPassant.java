@@ -1,10 +1,14 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.Location;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.Location;
 
 public class EnPassant extends SpecialMove {
     public EnPassant(Location from, Location to, Board board) {
         super(new Move(from, to, true, board), SpecialMoveType.CAPTURING_EN_PASSANT);
+    }
+
+    public EnPassant(Move move) {
+        super(move, SpecialMoveType.CAPTURING_EN_PASSANT);
     }
 }

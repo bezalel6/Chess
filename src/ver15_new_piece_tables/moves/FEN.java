@@ -1,10 +1,10 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.types.Piece.Player;
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.types.Pawn;
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.types.Piece.Player;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.types.Pawn;
+import ver15_new_piece_tables.types.Piece;
 
 import java.util.Locale;
 
@@ -100,9 +100,32 @@ public class FEN {
 
     public String generateFEN() {
         String ret = "";
-        for (Piece[] row : board) {
+//        for (Piece[] row : board) {
+//            int emptySquares = 0;
+//            for (Piece piece : row) {
+//                if (piece == null) {
+//                    emptySquares++;
+//                    continue;
+//                } else if (emptySquares != 0) {
+//                    ret += emptySquares;
+//                    emptySquares = 0;
+//                }
+//                if (piece instanceof Pawn)
+//                    ret += piece.isWhite() ? 'P' : 'p';
+//                else {
+//
+//                    ret += piece.isWhite() ? piece.getAnnotation().toUpperCase(Locale.ROOT) : piece.getAnnotation().toLowerCase(Locale.ROOT);
+//                }
+//            }
+//            if (emptySquares != 0)
+//                ret += emptySquares;
+//            ret += "/";
+//        }
+
+        int i = board.getLogicMat().length - 1;
+        for (; i >= 0; i--) {
             int emptySquares = 0;
-            for (Piece piece : row) {
+            for (Piece piece : board.getLogicMat()[i]) {
                 if (piece == null) {
                     emptySquares++;
                     continue;
@@ -113,13 +136,13 @@ public class FEN {
                 if (piece instanceof Pawn)
                     ret += piece.isWhite() ? 'P' : 'p';
                 else {
-
                     ret += piece.isWhite() ? piece.getAnnotation().toUpperCase(Locale.ROOT) : piece.getAnnotation().toLowerCase(Locale.ROOT);
                 }
             }
             if (emptySquares != 0)
                 ret += emptySquares;
             ret += "/";
+
         }
         ret = ret.substring(0, ret.length() - 1);
         ret += " ";

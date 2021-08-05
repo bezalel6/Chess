@@ -1,8 +1,8 @@
-package ver14_correct_piece_location.types;
+package ver15_new_piece_tables.types;
 
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.moves.Move;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.moves.Move;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class Bishop extends Piece {
     public static double worth = 3.2;
 
     public Bishop(Location loc, Player pieceColor, boolean hasMoved) {
-        super(worth, loc, pieceColor, types.BISHOP, "B", hasMoved);
+        super(worth, loc, pieceColor, PieceTypes.BISHOP, "B", hasMoved);
     }
 
     public Bishop(Piece other) {

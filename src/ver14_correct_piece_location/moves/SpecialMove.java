@@ -1,4 +1,4 @@
-package ver13_FEN.moves;
+package ver14_correct_piece_location.moves;
 
 abstract class SpecialMove extends Move {
     private SpecialMoveType moveType;

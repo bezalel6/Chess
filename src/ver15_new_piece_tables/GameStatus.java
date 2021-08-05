@@ -1,4 +1,4 @@
-package ver14_correct_piece_location;
+package ver15_new_piece_tables;
 
 public enum GameStatus {
     CHECKMATE, INSUFFICIENT_MATERIAL, OPPONENT_TIMED_OUT, TIME_OUT_VS_INSUFFICIENT_MATERIAL, STALEMATE, REPETITION, GAME_GOES_ON, LOSS;

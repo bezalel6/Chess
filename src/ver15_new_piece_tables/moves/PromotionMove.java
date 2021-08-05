@@ -1,11 +1,11 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.types.Piece;
 
 public class PromotionMove extends SpecialMove {
-    private Piece.types promotingTo;
+    private Piece.PieceTypes promotingTo;
 
-    public PromotionMove(Piece.types promotingTo, Move move) {
+    public PromotionMove(Piece.PieceTypes promotingTo, Move move) {
         super(move, SpecialMoveType.PROMOTION);
         this.promotingTo = promotingTo;
     }
@@ -14,11 +14,11 @@ public class PromotionMove extends SpecialMove {
         return super.getAnnotation() + "=" + promotingTo;
     }
 
-    public Piece.types getPromotingTo() {
+    public Piece.PieceTypes getPromotingTo() {
         return promotingTo;
     }
 
-    public void setPromotingTo(Piece.types promotingTo) {
+    public void setPromotingTo(Piece.PieceTypes promotingTo) {
         this.promotingTo = promotingTo;
     }
 }

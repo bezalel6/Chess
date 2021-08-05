@@ -1,10 +1,10 @@
-package ver14_correct_piece_location.moves;
+package ver15_new_piece_tables.moves;
 
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.GameStatus;
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.types.Pawn;
-import ver14_correct_piece_location.types.Piece;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.GameStatus;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.types.Pawn;
+import ver15_new_piece_tables.types.Piece;
 
 
 public class Move {
@@ -22,8 +22,8 @@ public class Move {
         this.movingFrom = new Location(movingFrom);
         this.movingTo = new Location(movingTo);
         this.isCapturing = isCapturing;
-        this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
-        this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
+//        this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
+//        this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
         setReversible();
     }
 
@@ -32,8 +32,8 @@ public class Move {
         movingTo = new Location(other.movingTo);
         movingFrom = new Location(other.movingFrom);
         isCapturing = other.isCapturing;
-        this.movingFromPiece = Piece.copyPiece(other.movingFromPiece);
-        this.movingToPiece = Piece.copyPiece(other.movingToPiece);
+//        this.movingFromPiece = Piece.copyPiece(other.movingFromPiece);
+//        this.movingToPiece = Piece.copyPiece(other.movingToPiece);
         setReversible();
     }
 
@@ -44,8 +44,8 @@ public class Move {
                 movingTo = new Location(move.movingTo);
                 movingFrom = new Location(move.movingFrom);
                 isCapturing = move.isCapturing;
-                this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
-                this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
+//                this.movingFromPiece = Piece.copyPiece(board.getPiece(movingFrom));
+//                this.movingToPiece = Piece.copyPiece(board.getPiece(movingTo));
                 setReversible();
                 return;
             }

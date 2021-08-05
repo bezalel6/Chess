@@ -1,11 +1,11 @@
-package ver12_myJbutton.types;
+package ver13_FEN.types;
 
-import ver12_myJbutton.Board;
-import ver12_myJbutton.Location;
-import ver12_myJbutton.moves.EnPassant;
-import ver12_myJbutton.moves.Move;
-import ver12_myJbutton.moves.PromotionMove;
-import ver12_myJbutton.moves.SpecialMoveType;
+import ver13_FEN.Board;
+import ver13_FEN.Location;
+import ver13_FEN.moves.EnPassant;
+import ver13_FEN.moves.Move;
+import ver13_FEN.moves.PromotionMove;
+import ver13_FEN.moves.SpecialMoveType;
 
 import java.util.ArrayList;
 
@@ -48,7 +48,7 @@ public class Pawn extends Piece {
 
     public Pawn(Location loc, Player pieceColor, boolean hasMoved) {
         super(worth, loc, pieceColor, types.PAWN, loc.getColString() + "", hasMoved);
-        if (!isWhite()) {
+        if (isWhite()) {
             diff--;
         } else {
             diff++;
@@ -78,24 +78,13 @@ public class Pawn extends Piece {
         if (!getHasMoved() && enPassantCaptured != null && move.getMovingTo().equals(enPassantCaptured.getPieceLoc())) {
             canGetEnPassant = true;
         }
-//        for (Piece piece : move.getBoard().getPlayersPieces(getOtherColor())) {
-//            if (piece != null && piece instanceof Pawn) {
-//                ((Pawn) piece).disableEnPassant();
-//            }
-//        }
         super.setMoved(move);
-    }
-
-    private void disableEnPassant() {
-        enPassantCaptured = null;
-        canGetEnPassant = false;
     }
 
     @Override
     public ArrayList<Move> canMoveTo(Board board) {
         ArrayList<Move> ret = new ArrayList();
         Location pieceLoc = getLoc();
-
         int myR = pieceLoc.getRow();
         int myC = pieceLoc.getCol();
 
@@ -105,41 +94,19 @@ public class Pawn extends Piece {
 
             if (isInBounds(myR + (diff * 2), myC) && !getHasMoved() && board.getPiece(myR + (diff * 2), myC) == null) {
                 Location loc = new Location(myR + (diff * 2), myC);
-                enPassantCaptured = new EnPassantCaptured(enPassantCapturingLoc, loc);
-                add(ret, loc, board);
+//                enPassantCaptured = new EnPassantCaptured(enPassantCapturingLoc, loc);
+                board.setEnPassantTargetLoc(enPassantCapturingLoc);
+                Move move = add(ret, loc, board);
+
             }
         }
         Location leftCapture = new Location(myR + diff, myC - 1), rightCapture = new Location(myR + diff, myC + 1);
-        Location checkEnPassantLeftCapture = new Location(myR, myC - 1), checkEnPassantRightCapture = new Location(myR, myC + 1);
+//        Location checkEnPassantLeftCapture = new Location(myR, myC - 1), checkEnPassantRightCapture = new Location(myR, myC + 1);
         if (isInBounds(rightCapture) && board.getPiece(rightCapture) != null && !board.getPiece(rightCapture).isOnMyTeam(this)) {
             add(ret, myR + diff, myC + 1, board);
         }
         if (isInBounds(leftCapture) && (board.getPiece(leftCapture) != null && !board.getPiece(leftCapture).isOnMyTeam(this))) {
             add(ret, myR + diff, myC - 1, board);
-        }
-//        add(ret, leftCapture, board);
-//        add(ret, rightCapture, board);
-        if (isInBounds(checkEnPassantRightCapture) && getHasMoved()) {
-            Piece piece = board.getPiece(checkEnPassantRightCapture);
-            if (piece != null && piece instanceof Pawn) {
-                Pawn pawn = (Pawn) piece;
-                if (!pawn.isOnMyTeam(this))
-                    if (pawn.canGetEnPassant)
-                        if (pawn.enPassantCaptured.getCaptureLoc().equals(rightCapture)) {
-                            EnPassant epsn = new EnPassant(pieceLoc, rightCapture, SpecialMoveType.CAPTURING_EN_PASSANT, checkEnPassantRightCapture, board);
-                            ret.add(epsn);
-                        }
-            }
-        }
-        if (isInBounds(checkEnPassantLeftCapture)) {
-            Piece piece = board.getPiece(checkEnPassantLeftCapture);
-            if (piece != null && piece instanceof Pawn) {
-                Pawn pawn = (Pawn) piece;
-                if (!pawn.isOnMyTeam(this) && pawn.canGetEnPassant && pawn.enPassantCaptured.getCaptureLoc().equals(leftCapture)) {
-                    EnPassant epsn = new EnPassant(pieceLoc, leftCapture, SpecialMoveType.CAPTURING_EN_PASSANT, checkEnPassantLeftCapture, board);
-                    ret.add(epsn);
-                }
-            }
         }
         checkPromoting(ret, board);
         return ret;

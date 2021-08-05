@@ -1,10 +1,8 @@
-package ver14_correct_piece_location.types;
+package ver15_new_piece_tables.types;
 
-import ver14_correct_piece_location.Board;
-import ver14_correct_piece_location.Location;
-import ver14_correct_piece_location.moves.DoublePawnPush;
-import ver14_correct_piece_location.moves.EnPassant;
-import ver14_correct_piece_location.moves.Move;
+import ver15_new_piece_tables.Board;
+import ver15_new_piece_tables.Location;
+import ver15_new_piece_tables.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,13 +14,13 @@ public abstract class Piece {
     private Location pieceLoc;
     private Location actualMatLoc;
     private Player pieceColor;
-    private types pieceType;
+    private PieceTypes pieceType;
     private String annotation = "";
     private boolean hasMoved;
     private ArrayList<Move> movesList;
 
     //Starting from position
-    public Piece(double worth, Location loc, Player pieceColor, types pieceType, String annotation, boolean hasMoved) {
+    public Piece(double worth, Location loc, Player pieceColor, PieceTypes pieceType, String annotation, boolean hasMoved) {
         this.worth = worth;
 //        this.pieceLoc = Location.convertToMatLoc(loc);
         this.pieceLoc = loc;
@@ -85,7 +83,7 @@ public abstract class Piece {
         return null;
     }
 
-    public static Piece promotePiece(Piece piece, types promotingTo) {
+    public static Piece promotePiece(Piece piece, PieceTypes promotingTo) {
         if (piece == null) return null;
 
         switch (promotingTo) {
@@ -145,7 +143,7 @@ public abstract class Piece {
         this.pieceLoc = loc;
     }
 
-    public types getType() {
+    public PieceTypes getType() {
         return pieceType;
     }
 
@@ -168,14 +166,6 @@ public abstract class Piece {
                 isCapturing = true;
 
             Move newMove = new Move(pieceLoc, loc, isCapturing, board);
-            if (this instanceof Pawn) {
-                if (Math.abs(row - getLoc().getRow()) == 2) {
-                    Location enPassantTargetSquare = new Location(!isWhite() ? row - 2 : row + 2, col);
-                    newMove = new DoublePawnPush(newMove, enPassantTargetSquare);
-                } else if ((getLoc().getCol() - 1 == col || getLoc().getCol() + 1 == col) && board.getPiece(loc) == null) {
-                    newMove = new EnPassant(getLoc(), loc, board);
-                }
-            }
             list.add(newMove);
             return newMove;
 
@@ -184,16 +174,18 @@ public abstract class Piece {
     }
 
     public Move add(ArrayList<Move> list, Move move, Board board) {
-        boolean isCapturing = false;
-        Location loc = move.getMovingTo();
+        boolean isCapturing = move.isCapturing();
+        Location loc = new Location(move.getMovingTo());
         if (isInBounds(loc)) {
             Piece piece = board.getPiece(loc);
             if (piece != null && isOnMyTeam(piece))
                 return null;
             if (piece != null && !isOnMyTeam(piece))
                 isCapturing = true;
+
+            move.setCapturing(isCapturing);
             list.add(move);
-            return list.get(list.size() - 1);
+            return move;
 
         }
         return null;
@@ -221,7 +213,7 @@ public abstract class Piece {
         return worth;
     }
 
-    public types getPieceType() {
+    public PieceTypes getPieceType() {
         return pieceType;
     }
 
@@ -249,11 +241,12 @@ public abstract class Piece {
     }
 
     public void deleteMove() {
-        movesList.remove(movesList.size() - 1);
-        hasMoved = false;
+        if (movesList != null && !movesList.isEmpty())
+            movesList.remove(movesList.size() - 1);
+        hasMoved = !movesList.isEmpty();
     }
 
-    public enum types {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}
+    public enum PieceTypes {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}
 
     public enum Player {
         WHITE, BLACK;

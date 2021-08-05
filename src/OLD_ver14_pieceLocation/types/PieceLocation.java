@@ -1,6 +1,6 @@
-package ver14_pieceLocation.types;
+package OLD_ver14_pieceLocation.types;
 
-import ver14_pieceLocation.Location;
+import OLD_ver14_pieceLocation.Location;
 
 public class PieceLocation extends Location {
     private Location loc;

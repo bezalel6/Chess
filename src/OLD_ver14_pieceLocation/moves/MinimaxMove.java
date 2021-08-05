@@ -1,6 +1,6 @@
-package ver14_pieceLocation.moves;
+package OLD_ver14_pieceLocation.moves;
 
-import ver14_pieceLocation.BoardEval;
+import OLD_ver14_pieceLocation.BoardEval;
 
 public class MinimaxMove {
     private Move move;

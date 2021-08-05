@@ -1,6 +1,6 @@
-package ver14_pieceLocation;
+package OLD_ver14_pieceLocation;
 
-import ver14_pieceLocation.moves.Move;
+import OLD_ver14_pieceLocation.moves.Move;
 
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;

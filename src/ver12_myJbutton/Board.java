@@ -23,7 +23,7 @@ public class Board implements Iterable<Piece[]> {
     private Player currentPlayer;
     private Model model;
     private String knight = "♘", bishop = "♗", pawn = "♙", king = "♔", queen = "♕", rook = "♖";
-    private ArrayList<Move> moves;
+    private ArrayList<Move> movesList;
     private int currentMoveIndex;
 
     public Board(int rows, int cols, Model model) {
@@ -32,7 +32,7 @@ public class Board implements Iterable<Piece[]> {
         logicMat = new Piece[rows][cols];
         this.model = model;
         boardEval = new Eval(this);
-        moves = new ArrayList<>();
+        movesList = new ArrayList<>();
         currentMoveIndex = 0;
     }
 
@@ -113,10 +113,17 @@ public class Board implements Iterable<Piece[]> {
             if (!canPlayerMate(currentPlayer) && !canPlayerMate(Player.getOtherColor(currentPlayer))) {
                 return new BoardEval(GameStatus.INSUFFICIENT_MATERIAL);
             }
-
+            if (checkRepetition()) {
+                return new BoardEval(GameStatus.REPETITION);
+            }
         }
 
         return new BoardEval();
+    }
+
+    private boolean checkRepetition() {
+
+        return false;
     }
 
     public boolean isInCheck(Player player) {
@@ -350,7 +357,7 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public void makeMove(Move move) {
-        moves.add(new Move(move));
+        movesList.add(new Move(move));
         currentMoveIndex++;
         applyMove(move);
     }
@@ -359,12 +366,12 @@ public class Board implements Iterable<Piece[]> {
         index *= 2;
         if (currentMoveIndex < index) {
             for (int i = 0; i < index; i++) {
-                Move move = moves.get(moves.size() - i - 1);
+                Move move = movesList.get(movesList.size() - i - 1);
                 applyMove(move);
             }
         } else
             for (int i = 0; i < index; i++) {
-                Move move = moves.get(moves.size() - i - 1);
+                Move move = movesList.get(movesList.size() - i - 1);
                 undoMove(move);
             }
         currentMoveIndex = index;

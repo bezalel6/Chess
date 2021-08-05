@@ -1,6 +1,6 @@
-package ver13_FEN.moves;
+package ver14_correct_piece_location.moves;
 
-import ver13_FEN.types.Piece;
+import ver14_correct_piece_location.types.Piece;
 
 public class PromotionMove extends SpecialMove {
     private Piece.types promotingTo;
