@@ -1,0 +1,133 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller",
+            "request": "launch",
+            "mainClass": "OLD_ver14_pieceLocation.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(1)",
+            "request": "launch",
+            "mainClass": "ver1.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(2)",
+            "request": "launch",
+            "mainClass": "ver10_eval_class.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(3)",
+            "request": "launch",
+            "mainClass": "ver11_board_class.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(4)",
+            "request": "launch",
+            "mainClass": "ver12_myJbutton.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(5)",
+            "request": "launch",
+            "mainClass": "ver13_FEN.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(6)",
+            "request": "launch",
+            "mainClass": "ver14_correct_piece_location.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(7)",
+            "request": "launch",
+            "mainClass": "ver15_new_piece_tables.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(8)",
+            "request": "launch",
+            "mainClass": "ver2.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "ver2.types.test",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(9)",
+            "request": "launch",
+            "mainClass": "ver3.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(10)",
+            "request": "launch",
+            "mainClass": "ver4.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(11)",
+            "request": "launch",
+            "mainClass": "ver5.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(12)",
+            "request": "launch",
+            "mainClass": "ver6.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(13)",
+            "request": "launch",
+            "mainClass": "ver7_without_path.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(14)",
+            "request": "launch",
+            "mainClass": "ver8_pruning.Controller",
+            "projectName": "Chess_6ff40bdc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Controller(15)",
+            "request": "launch",
+            "mainClass": "ver9_Dialogs.Controller",
+            "projectName": "Chess_6ff40bdc"
+        }
+    ]
+}

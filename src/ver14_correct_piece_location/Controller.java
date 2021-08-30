@@ -26,7 +26,7 @@ public class Controller {
     private Dialogs promotingDialog;
 
     private boolean isFirstClick = true;
-    private boolean showPositionDialog = true;
+    private boolean showPositionDialog = false;
     private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
 
@@ -268,6 +268,9 @@ public class Controller {
     }
 
     public void printAllPossibleMoves() {
+        long start2 = System.currentTimeMillis();
         model.printAllPossibleMoves();
+        long end2 = System.currentTimeMillis();
+        System.out.println("Elapsed Time in milli seconds: "+ (end2-start2));
     }
 }

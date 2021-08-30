@@ -4,6 +4,7 @@ import ver15_new_piece_tables.types.Piece.Player;
 import ver15_new_piece_tables.types.Piece.PieceTypes;
 import ver15_new_piece_tables.moves.*;
 import ver15_new_piece_tables.types.*;
+import ver15_new_piece_tables.SquaresControl.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,36 +14,90 @@ import static ver15_new_piece_tables.Model.ANSI_BLACK;
 import static ver15_new_piece_tables.Model.ANSI_WHITE;
 
 class SquaresControl {
-    private ArrayList<Square> white;
-    private ArrayList<Square> black;
+    private ArrayList<Square> whitePlayerSquaresControl;
+    private ArrayList<Square> blackPlayerSquaresControl;
     private Board board;
 
-    public SquaresControl(Board board) {
+    public SquaresControl(Board board, ArrayList<Piece> whitePieces, ArrayList<Piece> blackPieces) {
         this.board = board;
-    }
-
-    public ArrayList<Square> getWhite() {
-        return white;
-    }
-
-    public void setWhite() {
+        init(whitePieces, blackPieces);
 
     }
 
-    public ArrayList<Square> getBlack() {
-        return black;
+    public ArrayList<Square> getWhitePlayerSquaresControl() {
+        return whitePlayerSquaresControl;
     }
 
-    public void setBlack() {
+    private void init(ArrayList<Piece> whitePieces, ArrayList<Piece> blackPieces) {
+        whitePlayerSquaresControl = generateSquaresFromPieces(whitePieces);
+        blackPlayerSquaresControl = generateSquaresFromPieces(blackPieces);
+    }
 
+    private ArrayList<Square> generateSquaresFromPieces(ArrayList<Piece> pieces) {
+        ArrayList<Square> ret = new ArrayList<>();
+        pieces.forEach(piece -> {
+            ArrayList<Move> moves = piece.canMoveTo(board);
+            moves.forEach(move -> ret.add(new Square(piece, move.getMovingTo())));
+        });
+        return ret;
+    }
+
+    public void madeMove(Piece piece, Piece otherPiece) {
+        ArrayList<Square> list = getSquaresControl(piece.getPieceColor());
+        if (otherPiece != null) {
+            removeSquares(otherPiece);
+        }
+        removeSquares(piece);
+        ArrayList<Move> moves = piece.canMoveTo(board);
+        moves.forEach(newMove -> list.add(new Square(piece, newMove.getMovingTo())));
+
+    }
+
+    /**
+     * removes all squares controlled by a certain piece
+     *
+     * @param piece
+     */
+    private void removeSquares(Piece piece) {
+        ArrayList<Square> list = getSquaresControl(piece.getPieceColor());
+        ArrayList<Square> delete = new ArrayList<>();
+        list.forEach(square -> {
+            if (square.controllingPiece.equals(piece))
+                delete.add(square);
+        });
+        list.removeAll(delete);
+    }
+
+    public ArrayList<Square> getBlackPlayerSquaresControl() {
+        return blackPlayerSquaresControl;
+    }
+
+    public ArrayList<Square> getSquaresControl(Player player) {
+        return player == Player.WHITE ? whitePlayerSquaresControl : blackPlayerSquaresControl;
     }
 
     class Square {
-        private PieceTypes controllingPiece;
+        private Piece controllingPiece;
         private Location loc;
 
-        public Square(PieceTypes controllingPiece, Location loc) {
+        public Square(Piece controllingPiece, Location loc) {
             this.controllingPiece = controllingPiece;
+            this.loc = loc;
+        }
+
+        public Piece getControllingPiece() {
+            return controllingPiece;
+        }
+
+        public void setControllingPiece(Piece controllingPiece) {
+            this.controllingPiece = controllingPiece;
+        }
+
+        public Location getLoc() {
+            return loc;
+        }
+
+        public void setLoc(Location loc) {
             this.loc = loc;
         }
     }
@@ -53,6 +108,7 @@ public class Board implements Iterable<Piece[]> {
     private Piece[][] logicMat;
     private ArrayList<Piece> whitePieces;
     private ArrayList<Piece> blackPieces;
+    private SquaresControl squaresControl;
     private int rows, cols;
     private Eval boardEval;
     private Player currentPlayer;
@@ -71,25 +127,46 @@ public class Board implements Iterable<Piece[]> {
         this.model = model;
         boardEval = new Eval(this);
         movesList = new ArrayList<>();
+        initPiecesLists();
+        squaresControl = new SquaresControl(this, whitePieces, blackPieces);
     }
 
-    public Board(Board other) {
-        logicMat = copyMat(other.logicMat);
-        rows = cols = 8;
-        boardEval = new Eval(this);
-        currentPlayer = (other.currentPlayer);
-        model = other.model;
-        movesList = new ArrayList<>(other.movesList);
-        halfMoveCounter = other.halfMoveCounter;
-        fullMoveCounter = other.fullMoveCounter;
-        enPassantActualSquare = new Location(other.enPassantActualSquare);
-        enPassantTargetSquare = new Location(other.enPassantTargetSquare);
-        fen = new FEN(other.fen.generateFEN(), this);
+    public ArrayList<Piece> getWhitePieces() {
+        return whitePieces;
     }
+
+    public ArrayList<Piece> getBlackPieces() {
+        return blackPieces;
+    }
+
+    public SquaresControl getSquaresControl() {
+        return squaresControl;
+    }
+
+//    public Board(Board other) {
+//        logicMat = copyMat(other.logicMat);
+//        rows = cols = 8;
+//        boardEval = new Eval(this);
+//        currentPlayer = (other.currentPlayer);
+//        model = other.model;
+//        movesList = new ArrayList<>(other.movesList);
+//        halfMoveCounter = other.halfMoveCounter;
+//        fullMoveCounter = other.fullMoveCounter;
+//        enPassantActualSquare = new Location(other.enPassantActualSquare);
+//        enPassantTargetSquare = new Location(other.enPassantTargetSquare);
+//        fen = new FEN(other.fen.generateFEN(), this);
+//        initPiecesLists();
+//    }
 
     private void initPiecesLists() {
         whitePieces = new ArrayList<>();
         blackPieces = new ArrayList<>();
+        for (Piece[] row : logicMat)
+            for (Piece piece : row)
+                if (piece != null)
+                    if (piece.isWhite())
+                        whitePieces.add(piece);
+                    else blackPieces.add(piece);
     }
 
     private Piece[][] copyMat(Piece[][] source) {
@@ -180,7 +257,7 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public Piece getPiece(Location loc) {
-        return logicMat[loc.getRow()][loc.getCol()];
+        return getPiece(loc.getRow(), loc.getCol());
     }
 
     private Piece[] getPiecesArr(Board board) {
@@ -262,20 +339,11 @@ public class Board implements Iterable<Piece[]> {
     }
 
     public boolean isThreatened(Piece piece) {
-        for (Piece[] row : logicMat) {
-            for (Piece p : row) {
-                if (p != null && piece != null && !piece.isOnMyTeam(p)) {
-                    ArrayList<Move> canMoveTo = p.canMoveTo(this);
-                    if (canMoveTo != null)
-                        for (Move move : canMoveTo) {
-                            if (move.getMovingTo().equals(piece.getLoc()))
-                                return true;
-                        }
-
-                }
-            }
+        ArrayList<Square> opponentControlledSquares = squaresControl.getSquaresControl(piece.getOtherColor());
+        Location pieceLoc = piece.getLoc();
+        for (Square square : opponentControlledSquares) {
+            if (square.getLoc().equals(pieceLoc)) return true;
         }
-
         return false;
     }
 
@@ -329,9 +397,8 @@ public class Board implements Iterable<Piece[]> {
             for (Piece piece : row) {
                 if (piece != null)
                     if (piece.isOnMyTeam(currentPlayer)) {
-                        Board copy = new Board(this);
-                        ArrayList<Move> movingTo = piece.canMoveTo(copy);
-                        model.checkLegal(movingTo, copy);
+                        ArrayList<Move> movingTo = piece.canMoveTo(this);
+                        model.checkLegal(movingTo, this);
                         ret.addAll(movingTo);
                     }
             }
@@ -411,13 +478,21 @@ public class Board implements Iterable<Piece[]> {
 
         Location prev = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
+        Piece otherPiece = getPiece(movingTo);
         Piece piece = getPiece(prev);
+        if (move.isCapturing()) {
+            if (piece.isWhite())
+                whitePieces.remove(otherPiece);
+            else
+                blackPieces.remove(otherPiece);
+        }
         setPiece(movingTo, piece);
         piece.setMoved(move);
         piece.setLoc(movingTo);
         setPiece(prev, null);
         if (!(move instanceof DoublePawnPush))
             setEnPassantTargetSquare((Location) null);
+        squaresControl.madeMove(piece, otherPiece);
     }
 
     public void undoMove(Move move) {
