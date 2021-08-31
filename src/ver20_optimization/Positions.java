@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Positions {
 
     private static Position startingPosition = new Position("Starting Position", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    private static Position endgamePos = new Position("Endgame Position", "8/K7/8/8/8/Q7/1Q6/5k2 w - - 0 1");
     private static Position aboutToPromote = new Position("About to Promote", "8/8/4k3/8/8/4K3/p7/1P6 b - - 0 1");
     private static Position castling = new Position("Castling", "r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQkq - 0 1");
     private static Position underpromotion = new Position("Underpromotion", "4Q3/Pq4pk/5p1p/5P1K/6PP/8/8/8 w - - 2 2");
@@ -20,7 +21,7 @@ public class Positions {
 
 
     public static ArrayList<Position> getAllPositions() {
-        ArrayList ret = new ArrayList(Arrays.asList(startingPosition, aboutToPromote, castling, underpromotion, rook, bishop, king, rooks, knight, pins, testPosition, testBug));
+        ArrayList ret = new ArrayList(Arrays.asList(startingPosition, aboutToPromote, castling, underpromotion, rook, bishop, king, rooks, knight, pins, testPosition, testBug, endgamePos));
 
         return ret;
     }

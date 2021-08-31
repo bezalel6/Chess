@@ -18,6 +18,7 @@ import java.util.Iterator;
 import static ver21_square_class.types.Piece.*;
 
 public class Board implements Iterable<Square[]> {
+
     private final Model model;
     private final ArrayList<String> movesList;
     private final FEN fen;
@@ -175,11 +176,11 @@ public class Board implements Iterable<Square[]> {
         return fen.generateFEN();
     }
 
-    private void replacePiece(Piece piece) {
-        if (piece != null) {
-            Location pieceLoc = piece.getLoc();
+    private void replacePiece(Piece newPiece) {
+        if (newPiece != null) {
+            Location pieceLoc = newPiece.getLoc();
             int index = -1;
-            ArrayList<Piece> pieceArrayList = pieces[piece.getPieceColor()];
+            ArrayList<Piece> pieceArrayList = pieces[newPiece.getPieceColor()];
             for (int i = 0; i < pieceArrayList.size(); i++) {
                 Piece p = pieceArrayList.get(i);
                 if (p.getLoc().equals(pieceLoc)) {
@@ -188,13 +189,13 @@ public class Board implements Iterable<Square[]> {
                 }
             }
             if (index != -1)
-                pieceArrayList.set(index, piece);
+                pieceArrayList.set(index, newPiece);
             else {
                 Error.error("didnt find piece in pieces array list");
 
             }
-            piece.setLoc(pieceLoc);
-            setPiece(pieceLoc, piece);
+            newPiece.setLoc(pieceLoc);
+            setPiece(pieceLoc, newPiece);
         } else {
             Error.error("replacing piece: piece was null");
         }
@@ -315,7 +316,6 @@ public class Board implements Iterable<Square[]> {
             setEnPassantTargetLoc(((DoublePawnPush) move).getEnPassantTargetSquare());
             setEnPassantActualLoc(move.getMovingTo());
         } else if (move instanceof PromotionMove) {
-            movePiece(movingFrom, movingTo);
             Piece newPiece = Piece.promotePiece(piece, ((PromotionMove) move).getPromotingTo());
             replacePiece(newPiece);
             piece = newPiece;
@@ -373,9 +373,9 @@ public class Board implements Iterable<Square[]> {
         Piece piece = getPieceNotNull(movingFrom);
 
         if (move instanceof PromotionMove) {
-            movePiece(movingFrom, movingTo);
+//            movePiece(movingFrom, movingTo);
             Pawn oldPiece = new Pawn(piece.getStartingLoc(), piece.getPieceColor());
-            oldPiece.setLoc(movingTo);
+            oldPiece.setLoc(movingFrom);
             replacePiece(oldPiece);
 //            piece.setLoc(movingTo);
             piece = oldPiece;

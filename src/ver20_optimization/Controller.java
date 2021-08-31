@@ -36,7 +36,7 @@ public class Controller {
     private IconManager iconManager;
     private boolean isFirstClick = true;
     private boolean showPositionDialog = false;
-    private boolean aiGame = true;
+    private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
 
     Controller() {

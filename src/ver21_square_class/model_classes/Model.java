@@ -126,6 +126,7 @@ public class Model {
 
         if (depth == 0 && possibleMoves.size() > 0) {
             initMinimaxTime(possibleMoves.size());
+            scanTime /= possibleMoves.size();
         }
 
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
