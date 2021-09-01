@@ -176,25 +176,17 @@ public class Board implements Iterable<Square[]> {
         return fen.generateFEN();
     }
 
-    private void replacePiece(Piece newPiece) {
+    private void replacePiece(Piece newPiece, Piece oldPiece) {
         if (newPiece != null) {
             Location pieceLoc = newPiece.getLoc();
-            int index = -1;
-            ArrayList<Piece> pieceArrayList = pieces[newPiece.getPieceColor()];
-            for (int i = 0; i < pieceArrayList.size(); i++) {
-                Piece p = pieceArrayList.get(i);
-                if (p.getLoc().equals(pieceLoc)) {
-                    index = i;
-                    break;
-                }
-            }
+            ArrayList<Piece> pieceArrayList = pieces[oldPiece.getPieceColor()];
+            int index = pieceArrayList.indexOf(oldPiece);
             if (index != -1)
                 pieceArrayList.set(index, newPiece);
             else {
                 Error.error("didnt find piece in pieces array list");
 
             }
-            newPiece.setLoc(pieceLoc);
             setPiece(pieceLoc, newPiece);
         } else {
             Error.error("replacing piece: piece was null");
@@ -317,18 +309,10 @@ public class Board implements Iterable<Square[]> {
             setEnPassantActualLoc(move.getMovingTo());
         } else if (move instanceof PromotionMove) {
             Piece newPiece = Piece.promotePiece(piece, ((PromotionMove) move).getPromotingTo());
-            replacePiece(newPiece);
+            replacePiece(newPiece, piece);
             piece = newPiece;
         } else if (move instanceof Castling) {
             castle((Castling) move);
-        } else if (move instanceof EnPassant) {
-            Location actualLoc = new Location(getEnPassantActualLoc());
-            Location targetLoc = new Location(getEnPassantTargetLoc());
-            Piece oP = getPiece(actualLoc);
-            setPiece(targetLoc, oP);
-            oP.setLoc(targetLoc);
-            setSquareEmpty(actualLoc);
-            move.setCapturing(oP.hashCode());
         }
         //endregion
 
@@ -342,15 +326,24 @@ public class Board implements Iterable<Square[]> {
         } else if (piece instanceof Rook) {
             disableCastling((Rook) piece);
         }
+
+        piece.setLoc(movingTo);
+
         if (move.isCapturing()) {
             if (otherPiece instanceof Rook) {
                 disableCastling((Rook) otherPiece);
+            } else if (move instanceof EnPassant) {
+                Location actualLoc = new Location(getEnPassantActualLoc());
+                Location targetLoc = new Location(getEnPassantTargetLoc());
+                Piece oP = getPieceNotNull(actualLoc);
+                movePiece(actualLoc, targetLoc);
+                move.setCapturing(oP.hashCode());
             }
-            getSquare(movingTo).capturePiece(piece);
-        }
-        piece.setLoc(movingTo);
-        setPiece(movingTo, piece);
+            movingToSquare.capturePiece(piece);
+        } else setPiece(movingTo, piece);
+
         setSquareEmpty(movingFrom);
+
         if (!(move instanceof DoublePawnPush)) {
             setEnPassantTargetLoc((Location) null);
             setEnPassantActualLoc(null);
@@ -373,11 +366,8 @@ public class Board implements Iterable<Square[]> {
         Piece piece = getPieceNotNull(movingFrom);
 
         if (move instanceof PromotionMove) {
-//            movePiece(movingFrom, movingTo);
-            Pawn oldPiece = new Pawn(piece.getStartingLoc(), piece.getPieceColor());
-            oldPiece.setLoc(movingFrom);
-            replacePiece(oldPiece);
-//            piece.setLoc(movingTo);
+            Pawn oldPiece = new Pawn(piece);
+            replacePiece(oldPiece, piece);
             piece = oldPiece;
         } else if (move instanceof Castling) {
             undoCastle((Castling) move);
@@ -386,6 +376,7 @@ public class Board implements Iterable<Square[]> {
         piece.setLoc(movingTo);
         setPiece(movingTo, piece);
         if (move.isCapturing()) {
+            getSquare(movingFrom).revivePiece(move.getCapturingPieceHash());
             if (move instanceof EnPassant) {
                 Location actualLoc = getEnPassantActualLoc();
                 Location targetLoc = getEnPassantTargetLoc();
@@ -395,7 +386,7 @@ public class Board implements Iterable<Square[]> {
                     Error.error("undoing epsn move - one of the squares is null");
                 }
             }
-            getSquare(movingFrom).revivePiece(move.getCapturingPieceHash());
+
         } else {
             setSquareEmpty(movingFrom);
         }

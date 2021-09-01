@@ -17,7 +17,6 @@ public class Pawn extends Piece {
 
     public Pawn(Piece other) {
         super(other);
-        super.difference = other.difference;
     }
 
     public static ArrayList<ArrayList<Move>> createPawnMoves(Piece piece, Board board) {

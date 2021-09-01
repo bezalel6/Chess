@@ -37,7 +37,7 @@ public class Controller {
     private IconManager iconManager;
     private boolean isFirstClick = true;
     private boolean showPositionDialog = false;
-    private boolean aiGame = false;
+    private boolean aiGame = true;
     private boolean aiPlaysBlack = false;
 
     Controller() {
@@ -113,7 +113,6 @@ public class Controller {
             view.enableSquare(loc, true);
             view.colorCurrentPiece(loc);
         } else {
-//            Move move = new Move(currentPiece.getLoc(), loc, model.getBoard());
             Move move = findMove(model.getMoves(currentPiece, model.getBoard()), currentPiece, loc);
             if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
                 if (move instanceof PromotionMove) {
@@ -141,6 +140,7 @@ public class Controller {
         String moveAnnotation = model.makeMove(move, board);
         if (currentPlayer == Player.WHITE)
             moveAnnotation = model.getBoard().getFullMoveClock() + ". " + moveAnnotation;
+
         view.updateMoveLog(moveAnnotation);
         BoardEval gameStatus = board.getBoardEval();
         if (gameStatus.isGameOver()) {
@@ -156,9 +156,8 @@ public class Controller {
         switchPlayer();
         buttonPressedLaterActions();
         if (aiPlaysBlack && currentPlayer == Player.BLACK) {
-            aiMoveButtonPressed();
+            new Thread(() -> aiMoveButtonPressed()).start();
         }
-
     }
 
     private void buttonPressedLaterActions() {

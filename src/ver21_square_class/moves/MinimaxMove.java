@@ -33,7 +33,6 @@ public class MinimaxMove {
     }
 
     public void setMove(Move move) {
-        //todo 🤮
         this.move = Move.copyMove(move);
     }
 

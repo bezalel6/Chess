@@ -15,14 +15,14 @@ import java.util.ArrayList;
 
 public class Model {
 
-    private static final int MAX_SCAN_DEPTH = 99;
+    private static final int MAX_SCAN_DEPTH = 10;
     private static int ROWS;
     private static int COLS;
     private final Controller controller;
     public Eval eval;
     private Board logicBoard;
     private double scanTime;
-    private ZonedDateTime[] minimaxStartedTime;
+    private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
 
     public Model(int boardSize, Controller controller) {
@@ -86,76 +86,73 @@ public class Model {
 
     // ============================ for minimax ===========================
     private MinimaxMove getBestMoveUsingMinimax() {
-//        minimaxStartedTime = ZonedDateTime.now();
+        minimaxStartedTime = ZonedDateTime.now();
         positionsReached = 0;
-        MinimaxMove ret = minimax(logicBoard, true, 0, -1, Double.MIN_VALUE, Double.MAX_VALUE, null);
+        MinimaxMove ret = minimax(logicBoard, true, 0, Double.MIN_VALUE, Double.MAX_VALUE, null);
         System.out.println("minimax move = " + ret);
         System.out.println("num of positions reached = " + positionsReached);
         return ret;
     }
 
-    private double getElapsedTime(int i) {
-        if (i == -1)
-            return 0;
-        return ((minimaxStartedTime[i].until(ZonedDateTime.now(), ChronoUnit.MILLIS)) / 1000);
+    private double getElapsedTime() {
+        return ((minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS)) / 1000);
     }
 
-    private void initMinimaxTime(int possibleMoves) {
-        minimaxStartedTime = new ZonedDateTime[possibleMoves];
+    private void initMinimaxTime() {
+        minimaxStartedTime = ZonedDateTime.now();
     }
 
-    private void startTime(int index) {
-        minimaxStartedTime[index] = ZonedDateTime.now();
-    }
-
-    public MinimaxMove minimax(Board board, boolean isMax, int depth, int initialMoveIndex, double a, double b, Move m) {
-
+    public MinimaxMove minimax(Board board, boolean isMax, int depth, double a, double b, Move m) {
+        positionsReached++;
         MinimaxMove bestMove = new MinimaxMove(new BoardEval(isMax ? Integer.MIN_VALUE : Integer.MAX_VALUE));
 
         BoardEval value = board.getBoardEval();//מחזיר את ההערכה עבור השחקן שתורו לשחק
 
-        double elapsedTime = getElapsedTime(initialMoveIndex);
+        double elapsedTime = getElapsedTime();
 
         if (elapsedTime >= scanTime || depth >= MAX_SCAN_DEPTH || value.isGameOver()) {
-            scanTime -= elapsedTime;
-            positionsReached++;
-            return new MinimaxMove(Move.copyMove(m), value, depth);
+            return new MinimaxMove(m, value, depth);
         }
 
         ArrayList<Move> possibleMoves = board.getAllMoves(isMax ? board.getCurrentPlayer() : board.getOpponent());
 
         if (depth == 0 && possibleMoves.size() > 0) {
-            initMinimaxTime(possibleMoves.size());
-            scanTime /= possibleMoves.size();
+            initMinimaxTime();
+//            scanTime /= possibleMoves.size();
+//            scanTime /= 1000;
         }
 
-        for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
+        for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize && getElapsedTime() <= scanTime; i++) {
             Move move = possibleMoves.get(i);
-
-            board.applyMove(move);
             if (depth == 0) {
-                m = Move.copyMove(move);
-                initialMoveIndex = i;
-                startTime(i);
+                m = move;
             }
-            MinimaxMove minimaxMove = minimax(board, !isMax, depth + 1, initialMoveIndex, a, b, m);
+            board.applyMove(move);
+            MinimaxMove minimaxMove = minimax(board, !isMax, depth + 1, a, b, m);
             board.undoMove(move);
 
-            double bestMoveEval = bestMove.getMoveValue().getEval(), minimaxMoveValue = minimaxMove.getMoveValue().getEval();
+            double bestMoveEval = bestMove.getMoveValue().getEval(),
+                    minimaxMoveValue = minimaxMove.getMoveValue().getEval();
+            double bestMoveDepth = bestMove.getMoveDepth(),
+                    minimaxMoveDepth = minimaxMove.getMoveDepth();
             if (isMax) {
-                if (bestMoveEval < minimaxMoveValue) {
+                if (bestMoveEval < minimaxMoveValue
+                        || (bestMoveEval == minimaxMoveValue && bestMoveDepth > minimaxMoveDepth)) {
                     bestMove = new MinimaxMove(minimaxMove);
                     a = Math.max(a, minimaxMoveValue);
                 } else
                     a = Math.max(a, bestMoveEval);
             } else {
-                if (bestMoveEval > minimaxMoveValue) {
+                if (bestMoveEval > minimaxMoveValue
+                        || (bestMoveEval == minimaxMoveValue && bestMoveDepth < minimaxMoveDepth)) {
                     bestMove = new MinimaxMove(minimaxMove);
                     b = Math.min(b, minimaxMoveValue);
                 } else
                     b = Math.min(b, bestMoveEval);
             }
-            if (b <= a) break;
+            if (b <= a) {
+                break;
+            }
 
         }
         return bestMove;
