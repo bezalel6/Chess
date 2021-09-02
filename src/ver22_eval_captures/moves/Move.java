@@ -10,14 +10,18 @@ import ver22_eval_captures.types.Piece;
 public class Move {
     public static final int NOT_CAPTURING_HASH = 999999;
     public static final int TEMP_CAPTURING_HASH = -999999;
+
     private Location movingFrom;
     private Location movingTo;
+
     private String annotation = "";
-    private Board board;
     private String moveFEN = "";
+
+    private Board board;
     private Piece movingPiece;
     private int capturingPieceHash = NOT_CAPTURING_HASH;
     private boolean check;
+
     //region for undo move
     private Location prevEnPassantTargetLoc;
     private Location prevEnPassantActualLoc;
@@ -223,6 +227,11 @@ public class Move {
         return moveFEN;
     }
 
+    public boolean isCheck() {
+        return check;
+    }
+
     public void setCheck(boolean b) {
+        check = b;
     }
 }

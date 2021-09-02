@@ -1,9 +1,8 @@
 package ver22_eval_captures.model_classes;
 
-import ver22_eval_captures.Controller;
 import ver22_eval_captures.Error;
 import ver22_eval_captures.Location;
-import ver22_eval_captures.model_classes.eval_classes.BoardEval;
+import ver22_eval_captures.model_classes.eval_classes.Evaluation;
 import ver22_eval_captures.model_classes.eval_classes.Eval;
 import ver22_eval_captures.moves.*;
 import ver22_eval_captures.types.*;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import static ver22_eval_captures.moves.Castling.*;
 import static ver22_eval_captures.types.Piece.*;
 
 public class Board implements Iterable<Square[]> {
@@ -146,7 +146,7 @@ public class Board implements Iterable<Square[]> {
         this.fullMoveClock = fullMoveClock;
     }
 
-    public BoardEval getBoardEval(int player) {
+    public Evaluation getBoardEval(int player) {
         return boardEval.getEvaluation(player);
     }
 
@@ -154,7 +154,7 @@ public class Board implements Iterable<Square[]> {
         return boardEval;
     }
 
-    public BoardEval getBoardEval() {
+    public Evaluation getBoardEval() {
         return getBoardEval(currentPlayer);
     }
 
@@ -212,23 +212,23 @@ public class Board implements Iterable<Square[]> {
         return getPiece(loc.getRow(), loc.getCol());
     }
 
-    public BoardEval isGameOver(int player) {
+    public Evaluation isGameOver(int player) {
         int otherPlayer = Player.getOtherColor(player);
         if (getAllMoves(otherPlayer).isEmpty()) {
             if (isInCheck(otherPlayer))
-                return new BoardEval(GameStatus.CHECKMATE, GameStatus.WINNING_SIDE);
+                return new Evaluation(GameStatus.CHECKMATE, GameStatus.WINNING_SIDE);
             if (getAllMoves(player).isEmpty())
-                return new BoardEval(GameStatus.STALEMATE);
+                return new Evaluation(GameStatus.STALEMATE);
         } else if (getAllMoves(player).isEmpty()) {
             if (isInCheck(player))
-                return new BoardEval(GameStatus.CHECKMATE, GameStatus.LOSING_SIDE);
+                return new Evaluation(GameStatus.CHECKMATE, GameStatus.LOSING_SIDE);
         } else if (halfMoveClock >= 100)
-            return new BoardEval(GameStatus.FIFTY_MOVE_RULE);
+            return new Evaluation(GameStatus.FIFTY_MOVE_RULE);
         if (checkRepetition())
-            return new BoardEval(GameStatus.THREE_FOLD_REPETITION);
+            return new Evaluation(GameStatus.THREE_FOLD_REPETITION);
         if (checkForInsufficientMaterial())
-            return new BoardEval(GameStatus.INSUFFICIENT_MATERIAL);
-        return new BoardEval();
+            return new Evaluation(GameStatus.INSUFFICIENT_MATERIAL);
+        return new Evaluation();
     }
 
     private boolean checkForInsufficientMaterial() {
@@ -342,7 +342,7 @@ public class Board implements Iterable<Square[]> {
         } else if (move instanceof PromotionMove) {
             int promotingTo = ((PromotionMove) move).getPromotingTo();
             piecesCount[pieceColor][promotingTo]++;
-            piecesCount[pieceColor][PAWN]--;
+            piecesCount[pieceColor][piece.getPieceType()]--;
             Piece newPiece = Piece.promotePiece(piece, promotingTo);
             replacePiece(newPiece, piece);
             piece = newPiece;
@@ -461,7 +461,7 @@ public class Board implements Iterable<Square[]> {
         Piece piece = getPieceNotNull(movingFrom);
         if (otherPiece != null) {
 //            otherPiece.setCaptured(true);
-            Error.error("this shouldnt be a capture, so it isnt handled with the square");
+            Error.error("this shouldnt be a capture, and it isnt handled with the square");
         }
         setPiece(movingTo, piece);
         piece.setLoc(movingTo);

@@ -1,23 +1,25 @@
 package ver22_eval_captures.model_classes.eval_classes;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.model_classes.GameStatus;
 
-public class BoardEval {
-    private static final double winEval = 1000, tieEval = 0;
+public class Evaluation {
+    private static final double winEval = Integer.MAX_VALUE, tieEval = 0;
+
     private double eval;
     private GameStatus gameStatus;
 
-    public BoardEval(double eval, GameStatus gameStatus) {
+    public Evaluation(double eval, GameStatus gameStatus) {
         this.eval = eval;
         this.gameStatus = gameStatus;
     }
 
-    public BoardEval(double eval) {
+    public Evaluation(double eval) {
         this.eval = eval;
         gameStatus = GameStatus.GAME_GOES_ON;
     }
 
-    public BoardEval(GameStatus gameStatus, int side) {
+    public Evaluation(GameStatus gameStatus, int side) {
         this.gameStatus = gameStatus;
         gameStatus.setSide(side);
         double res;
@@ -30,19 +32,22 @@ public class BoardEval {
             case THREE_FOLD_REPETITION:
             case INSUFFICIENT_MATERIAL:
             case TIME_OUT_VS_INSUFFICIENT_MATERIAL:
+            case FIFTY_MOVE_RULE:
                 res = tieEval;
                 break;
             default:
+                Error.error("game status not supported");
                 res = 0;
+                break;
         }
         eval = res;
     }
 
-    public BoardEval() {
+    public Evaluation() {
         this.gameStatus = GameStatus.GAME_GOES_ON;
     }
 
-    public BoardEval(BoardEval other) {
+    public Evaluation(Evaluation other) {
         eval = other.eval;
         gameStatus = other.gameStatus;
     }
@@ -52,8 +57,12 @@ public class BoardEval {
      *
      * @param gameStatus
      */
-    public BoardEval(GameStatus gameStatus) {
+    public Evaluation(GameStatus gameStatus) {
         this(gameStatus, GameStatus.SIDE_NOT_RELEVANT);
+    }
+
+    public boolean isGreaterThan(Evaluation other) {
+        return other.eval < this.eval;
     }
 
     public double getEval() {
@@ -80,7 +89,7 @@ public class BoardEval {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BoardEval boardEval = (BoardEval) o;
+        Evaluation boardEval = (Evaluation) o;
         return Double.compare(boardEval.eval, eval) == 0 && gameStatus == boardEval.gameStatus;
     }
 

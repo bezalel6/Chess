@@ -4,7 +4,7 @@ package ver22_eval_captures;
 import ver22_eval_captures.model_classes.Board;
 import ver22_eval_captures.model_classes.Model;
 import ver22_eval_captures.model_classes.Square;
-import ver22_eval_captures.model_classes.eval_classes.BoardEval;
+import ver22_eval_captures.model_classes.eval_classes.Evaluation;
 import ver22_eval_captures.moves.Castling;
 import ver22_eval_captures.moves.EnPassant;
 import ver22_eval_captures.moves.Move;
@@ -39,6 +39,7 @@ public class Controller {
     private boolean showPositionDialog = false;
     private boolean aiGame = false;
     private boolean aiPlaysBlack = false;
+    private Location checkLoc;
 
     Controller() {
         model = new Model(DEFAULT_BOARD_SIZE, this);
@@ -115,7 +116,7 @@ public class Controller {
             Move move = findMove(model.getMoves(currentPiece, model.getBoard()), currentPiece, loc);
             if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
                 if (move instanceof PromotionMove) {
-                    ((PromotionMove) move).setPromotingTo(promote());
+                    ((PromotionMove) move).setPromotingTo(showPromotionDialog());
                 }
                 makeMove(move);
             } else buttonPressedLaterActions();
@@ -136,14 +137,16 @@ public class Controller {
         updateView(move.getMovingFrom(), move.getMovingTo());
         Board board = model.getBoard();
 
+        checkLoc = move.isCheck() ? new Location(board.getKing(currentPlayer).getLoc()) : null;
+
         String moveAnnotation = model.makeMove(move, board);
         if (currentPlayer == Player.WHITE)
             moveAnnotation = model.getBoard().getFullMoveClock() + ". " + moveAnnotation;
 
         view.updateMoveLog(moveAnnotation);
-        BoardEval gameStatus = board.getBoardEval();
-        if (gameStatus.isGameOver()) {
-            gameOver(gameStatus);
+        Evaluation gameOverStatus = model.getBoard().isGameOver(currentPlayer);
+        if (gameOverStatus.isGameOver()) {
+            gameOver(gameOverStatus);
             return;
         }
         if (move instanceof PromotionMove) {
@@ -163,8 +166,8 @@ public class Controller {
         Board board = model.getBoard();
         view.setStatusLbl(currentPlayer + " to move");
         view.enableSquares(model.getPiecesLocations(currentPlayer));
-        if (board.isInCheck(currentPlayer))
-            view.inCheck(board.getKing(currentPlayer).getLoc());
+        if (checkLoc != null)
+            view.inCheck(checkLoc);
     }
 
     private Move findMove(ArrayList<Move> movesList, Piece currentPiece, Location loc) {
@@ -185,7 +188,7 @@ public class Controller {
         view.updateBoardButton(prevLoc, newLoc);
     }
 
-    private void gameOver(BoardEval gameStatus) {
+    private void gameOver(Evaluation gameStatus) {
         aiGame = false;
         view.gameOver();
         //todo change currentPlayer to this player (only relevant to online game)
@@ -217,7 +220,7 @@ public class Controller {
         return ret;
     }
 
-    public int promote() {
+    public int showPromotionDialog() {
         promotingDialog = new Dialogs(DialogTypes.HORIZONTAL_LIST, "Promote");
         return promotingDialog.run(getPromotionObjects(currentPlayer));
     }

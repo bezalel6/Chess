@@ -8,6 +8,8 @@ import ver22_eval_captures.moves.Move;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static ver22_eval_captures.moves.Castling.*;
+
 public class King extends Piece {
     private static final int[] combinations = new int[]{
             1, 0,

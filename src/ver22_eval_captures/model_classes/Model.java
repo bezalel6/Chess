@@ -3,7 +3,7 @@ package ver22_eval_captures.model_classes;
 import ver22_eval_captures.Controller;
 import ver22_eval_captures.Location;
 import ver22_eval_captures.Positions;
-import ver22_eval_captures.model_classes.eval_classes.BoardEval;
+import ver22_eval_captures.model_classes.eval_classes.Evaluation;
 import ver22_eval_captures.model_classes.eval_classes.Eval;
 import ver22_eval_captures.moves.MinimaxMove;
 import ver22_eval_captures.moves.Move;
@@ -104,13 +104,14 @@ public class Model {
 
     public MinimaxMove minimax(Board board, boolean isMax, int depth, double a, double b, Move m) {
         positionsReached++;
-        MinimaxMove bestMove = new MinimaxMove(new BoardEval(isMax ? Integer.MIN_VALUE : Integer.MAX_VALUE));
+        MinimaxMove bestMove = new MinimaxMove(new Evaluation(isMax ? Integer.MIN_VALUE : Integer.MAX_VALUE));
 
-        BoardEval value = board.getBoardEval();//מחזיר את ההערכה עבור השחקן שתורו לשחק
+        Evaluation value = board.getBoardEval();//מחזיר את ההערכה עבור השחקן שתורו לשחק
 
         double elapsedTime = getElapsedTime();
 
         if (elapsedTime >= scanTime || depth >= MAX_SCAN_DEPTH || value.isGameOver()) {
+            scanTime += scanTime - elapsedTime;
             return new MinimaxMove(m, value, depth);
         }
 
@@ -118,7 +119,7 @@ public class Model {
 
         if (depth == 0 && possibleMoves.size() > 0) {
             initMinimaxTime();
-//            scanTime /= possibleMoves.size();
+            scanTime /= possibleMoves.size();
 //            scanTime /= 1000;
         }
 

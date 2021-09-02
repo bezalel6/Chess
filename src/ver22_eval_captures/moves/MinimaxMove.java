@@ -1,26 +1,26 @@
 package ver22_eval_captures.moves;
 
-import ver22_eval_captures.model_classes.eval_classes.BoardEval;
+import ver22_eval_captures.model_classes.eval_classes.Evaluation;
 
 public class MinimaxMove {
     private Move move;
-    private BoardEval moveValue;
+    private Evaluation moveValue;
     private int moveDepth;
 
-    public MinimaxMove(Move move, BoardEval moveValue, int moveDepth) {
+    public MinimaxMove(Move move, Evaluation moveValue, int moveDepth) {
         this.move = Move.copyMove(move);
         this.moveDepth = moveDepth;
         this.moveValue = moveValue;
     }
 
 
-    public MinimaxMove(BoardEval moveValue) {
+    public MinimaxMove(Evaluation moveValue) {
         this.moveValue = moveValue;
     }
 
     public MinimaxMove(MinimaxMove other) {
         move = Move.copyMove(other.move);
-        moveValue = new BoardEval(other.moveValue);
+        moveValue = new Evaluation(other.moveValue);
         moveDepth = other.moveDepth;
     }
 
@@ -36,11 +36,11 @@ public class MinimaxMove {
         this.move = Move.copyMove(move);
     }
 
-    public BoardEval getMoveValue() {
+    public Evaluation getMoveValue() {
         return moveValue;
     }
 
-    public void setMoveValue(BoardEval moveValue) {
+    public void setMoveValue(Evaluation moveValue) {
         this.moveValue = moveValue;
     }
 

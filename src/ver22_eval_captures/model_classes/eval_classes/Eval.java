@@ -19,12 +19,13 @@ public class Eval {
         this.board = board;
     }
 
-    public BoardEval getEvaluation(int player) {
-        return getEvaluation(player, true);
+
+    public Evaluation getEvaluation(int player) {
+        return getEvaluation(player, true, true);
     }
 
-    public BoardEval getEvaluation(int player, boolean isMax) {
-        BoardEval checkGameOver = board.isGameOver(player);
+    public Evaluation getEvaluation(int player, boolean search, boolean isMax) {
+        Evaluation checkGameOver = board.isGameOver(player);
         if (checkGameOver.isGameOver()) return checkGameOver;
 
         double ret = 0;
@@ -37,24 +38,59 @@ public class Eval {
 
         ret += compareKingSafetyTables(player);
 
-        BoardEval retEval = new BoardEval(ret, GameStatus.GAME_GOES_ON);
+        Evaluation retEval = new Evaluation(ret, GameStatus.GAME_GOES_ON);
 
-        BoardEval captureMovesEval = null;
-//
-//        ArrayList<Move> allMoves = board.getAllMoves(isMax&&board.getCurrentPlayer()==player ? player : Player.getOtherColor(player));
-//
-//        for (Move move : allMoves) {
-//            if (move.isCapturing()) {
-//                board.applyMove(move);
-//                BoardEval eval = board.getBoardEval(player);
-//                if(captureMovesEval==null){
-//                    if
-//                }
-//                board.undoMove(move);
-//            }
-//        }
+        if (search) {
+            double initValue = isMax ? Double.MIN_VALUE : Double.MAX_VALUE;
+            Evaluation capturingMovesEval = new Evaluation(initValue);
+            Evaluation normalMovesEval = new Evaluation(initValue);
 
-//        return captureMovesEval == null ? retEval : captureMovesEval;
+            int movingPlayer = isMax ? player : Player.getOtherColor(player);
+            ArrayList<Move> allMoves = board.getAllMoves(movingPlayer);
+
+            boolean foundCapture = false;
+            for (Move move : allMoves) {
+                if (move.isCapturing()) {
+                    foundCapture = true;
+                    break;
+                }
+            }
+
+            if (foundCapture) {
+                for (Move move : allMoves) {
+                    board.applyMove(move);
+                    boolean isCapturing = move.isCapturing();
+                    Eval e = board.getEval();
+                    Evaluation tempEval = e.getEvaluation(player, isCapturing, !isMax);
+                    if (isMax) {
+                        if (isCapturing) {
+                            if (tempEval.isGreaterThan(capturingMovesEval)) {
+                                capturingMovesEval = new Evaluation(tempEval);
+                            }
+                        } else {
+                            if (tempEval.isGreaterThan(normalMovesEval)) {
+                                normalMovesEval = new Evaluation(tempEval);
+                            }
+                        }
+                    } else {
+                        if (isCapturing) {
+                            if (capturingMovesEval.isGreaterThan(tempEval)) {
+                                capturingMovesEval = new Evaluation(tempEval);
+                            }
+                        } else {
+                            if (normalMovesEval.isGreaterThan(tempEval)) {
+                                normalMovesEval = new Evaluation(tempEval);
+                            }
+                        }
+                    }
+                    board.undoMove(move);
+                }
+                if (isMax) {
+                    return capturingMovesEval.isGreaterThan(normalMovesEval) ? capturingMovesEval : normalMovesEval;
+                }
+                return capturingMovesEval.isGreaterThan(normalMovesEval) ? normalMovesEval : capturingMovesEval;
+            }
+        }
         return retEval;
     }
 

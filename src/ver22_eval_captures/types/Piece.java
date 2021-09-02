@@ -14,7 +14,6 @@ public abstract class Piece {
     public static final int COLS = 8, ROWS = 8;
     public static final int NUM_OF_PLAYERS = 2, NUM_OF_PIECE_TYPES = 6;
     public static final int PAWN = 0, ROOK = 1, KNIGHT = 2, BISHOP = 3, QUEEN = 4, KING = 5;
-    public static final int KING_SIDE = 0, QUEEN_SIDE = 1;
 
     public static final String[] PLAYER_NAMES = {"White", "Black"};
     public static final String[] PIECES_NAMES = {"Pawn", "Rook", "Knight", "Bishop", "Queen", "King"};
@@ -201,6 +200,7 @@ public abstract class Piece {
             list.add(move);
             return true;
         } else if (!empty && otherPiece != null && !otherPiece.isOnMyTeam(player)) {
+//            the problem is the check move is the actual kings capture. and not the move before it
             if (otherPiece instanceof King)
                 move.setCheck(true);
             move.setCapturing(otherPiece.hashCode());
