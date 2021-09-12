@@ -15,12 +15,13 @@ public abstract class Piece {
     public static final int NUM_OF_PLAYERS = 2, NUM_OF_PIECE_TYPES = 6;
     public static final int PAWN = 0, ROOK = 1, KNIGHT = 2, BISHOP = 3, QUEEN = 4, KING = 5;
 
-    public static final String[] PLAYER_NAMES = {"White", "Black"};
     public static final String[] PIECES_NAMES = {"Pawn", "Rook", "Knight", "Bishop", "Queen", "King"};
 
 
     public static final double[] WORTH = initWorthArr();
 
+    public static final int[] MINOR_PIECES = {BISHOP, KNIGHT};
+    public static final int[] MAJOR_PIECES = {QUEEN, ROOK};
     public static final int[] STARTING_ROW = {0, 7};
     public static final int[] CAN_PROMOTE_TO = {ROOK, KNIGHT, BISHOP, QUEEN};
     public static final int[] PIECES_TYPES = {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING};
@@ -41,6 +42,9 @@ public abstract class Piece {
     private boolean captured;
 
     public Piece(Location loc, int pieceColor, int pieceType, String annotation) {
+        if (pieceType == PAWN && this instanceof Rook) {
+            Error.error("eeeer");
+        }
         this.difference = getDifference(pieceColor);
         this.pieceLoc = new Location(loc);
         this.pieceColor = pieceColor;
@@ -49,15 +53,15 @@ public abstract class Piece {
         this.startingLoc = new Location(loc);
     }
 
-    public Piece(Piece other) {
-        this.difference = other.difference;
-        this.pieceLoc = new Location(other.pieceLoc);
-        this.startingLoc = new Location(other.startingLoc);
-        this.pieceColor = other.pieceColor;
-        this.pieceType = other.pieceType;
-        this.annotation = other.annotation;
-        this.captured = other.captured;
-    }
+//    public Piece(Piece other) {
+//        this.difference = other.difference;
+//        this.pieceLoc = new Location(other.pieceLoc);
+//        this.startingLoc = new Location(other.startingLoc);
+//        this.pieceColor = other.pieceColor;
+//        this.pieceType = other.pieceType;
+//        this.annotation = other.annotation;
+//        this.captured = other.captured;
+//    }
 
     private static String[][] createPiecesFens() {
         String[][] ret = new String[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES];
@@ -99,18 +103,22 @@ public abstract class Piece {
     public static Piece copyPiece(Piece other) {
         if (other == null) return null;
 
-        if (other instanceof Knight) {
-            return new Knight(other);
-        } else if (other instanceof Bishop) {
-            return new Bishop(other);
-        } else if (other instanceof Rook) {
-            return new Rook(other);
-        } else if (other instanceof Queen) {
-            return new Queen(other);
-        } else if (other instanceof King) {
-            return new King(other);
-        } else {
-            return new Pawn(other);
+        switch (other.pieceType) {
+            case PAWN:
+                return new Pawn(other);
+            case BISHOP:
+                return new Bishop(other);
+            case KNIGHT:
+                return new Knight(other);
+            case ROOK:
+                return new Rook(other);
+            case QUEEN:
+                return new Queen(other);
+            case KING:
+                return new King(other);
+            default:
+                Error.error("wrong piece type");
+                return null;
         }
     }
 
@@ -176,8 +184,6 @@ public abstract class Piece {
             return true;
         }
         if (!otherPiece.isOnMyTeam(player)) {
-            if (otherPiece instanceof King)
-                move.setCheck(true);
             move.setCapturing(otherPiece.hashCode());
             list.add(move);
         }
@@ -200,9 +206,6 @@ public abstract class Piece {
             list.add(move);
             return true;
         } else if (!empty && otherPiece != null && !otherPiece.isOnMyTeam(player)) {
-//            the problem is the check move is the actual kings capture. and not the move before it
-            if (otherPiece instanceof King)
-                move.setCheck(true);
             move.setCapturing(otherPiece.hashCode());
             list.add(move);
         }
@@ -276,7 +279,19 @@ public abstract class Piece {
     }
 
     public static boolean checkValidPieceType(int pieceType) {
-        return Arrays.stream(PIECES_TYPES).anyMatch(i -> i == pieceType);
+        return existsInArr(PIECES_TYPES, pieceType);
+    }
+
+    public static boolean isMinorPiece(int pieceType) {
+        return existsInArr(MINOR_PIECES, pieceType);
+    }
+
+    public static boolean isMajorPiece(int pieceType) {
+        return existsInArr(MAJOR_PIECES, pieceType);
+    }
+
+    private static boolean existsInArr(int[] arr, int num) {
+        return Arrays.stream(arr).anyMatch(i -> i == num);
     }
 
     public String getPieceFen() {
@@ -366,6 +381,7 @@ public abstract class Piece {
 
     abstract ArrayList<ArrayList<Move>> generatePseudoMoves(Board board);
 
+
     void checkLegal(ArrayList<Move> addTo, ArrayList<Move> currentlyAdding, Board board) {
         for (Move move : currentlyAdding) {
             addIfLegalMove(addTo, move, board);
@@ -388,8 +404,7 @@ public abstract class Piece {
     public int hashCode() {
         //todo
         int locHash = startingLoc.hashCode();
-        locHash = Integer.parseInt((pieceType + 1) + "" + locHash);
-        return locHash;
+        return Integer.parseInt((pieceType + 1) + "" + locHash);
     }
 
     @Override
@@ -424,6 +439,7 @@ public abstract class Piece {
 
     public static class Player {
         public static final int WHITE = 0, BLACK = 1;
+        public static final String[] PLAYER_NAMES = {"White", "Black"};
 
         public static int getOtherColor(int currentPlayer) {
             return Math.abs((currentPlayer - 1) * -1);

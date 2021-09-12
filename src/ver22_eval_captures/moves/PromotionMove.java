@@ -1,5 +1,6 @@
 package ver22_eval_captures.moves;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.types.Piece;
 
 public class PromotionMove extends Move {
@@ -27,8 +28,11 @@ public class PromotionMove extends Move {
         this.promotingTo = promotingTo;
     }
 
-    void copyConstructor(Move move) {
-        super.copyConstructor(move);
-    }
+//    void copyConstructor(Move move) {
+//        super.copyConstructor(move);
+//        if (move instanceof PromotionMove)
+//            promotingTo = ((PromotionMove) move).promotingTo;
+//        else Error.error("");
+//    }
 
 }

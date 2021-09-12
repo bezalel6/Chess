@@ -1,10 +1,14 @@
 package ver22_eval_captures.moves;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.Location;
 import ver22_eval_captures.model_classes.Board;
 import ver22_eval_captures.model_classes.CastlingAbility;
 import ver22_eval_captures.types.Pawn;
 import ver22_eval_captures.types.Piece;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Move {
@@ -20,12 +24,12 @@ public class Move {
     private Board board;
     private Piece movingPiece;
     private int capturingPieceHash = NOT_CAPTURING_HASH;
-    private boolean check;
 
     //region for undo move
     private Location prevEnPassantTargetLoc;
     private Location prevEnPassantActualLoc;
     private CastlingAbility prevCastlingAbility;
+    private ArrayList<String> prevRepetitionFenList;
     private int prevHalfMoveClock;
     //endregion
 
@@ -46,8 +50,7 @@ public class Move {
             this.prevEnPassantTargetLoc = new Location(targetLoc);
         }
 
-        this.check = false;
-
+        this.prevRepetitionFenList = new ArrayList<>(board.getRepetitionFenList());
         this.prevCastlingAbility = new CastlingAbility(board.getCastlingAbility());
     }
 
@@ -59,6 +62,7 @@ public class Move {
         this(movingFrom, new Location(r, c), NOT_CAPTURING_HASH, board);
     }
 
+    //todo is this ok? should i b do the same thing i did in copy move?
     public Move(Move other) {
         copyConstructor(other);
     }
@@ -70,7 +74,7 @@ public class Move {
                 return;
             }
         }
-        System.out.println("DIDNT FIND MOVE FROM TEXT");
+        Error.error("DIDNT FIND MOVE FROM TEXT");
     }
 
     public Move(Move move, int capturingPieceHash) {
@@ -91,6 +95,10 @@ public class Move {
             return new PromotionMove((PromotionMove) move);
         else
             return new Move(move);
+    }
+
+    public ArrayList<String> getPrevRepetitionFenList() {
+        return prevRepetitionFenList;
     }
 
     public int getPrevHalfMoveClock() {
@@ -122,7 +130,7 @@ public class Move {
     }
 
 
-    void copyConstructor(Move other) {
+    final void copyConstructor(Move other) {
         this.board = other.board;
         this.movingTo = new Location(other.movingTo);
         this.movingFrom = new Location(other.movingFrom);
@@ -130,11 +138,12 @@ public class Move {
             this.prevEnPassantActualLoc = new Location(other.prevEnPassantActualLoc);
             this.prevEnPassantTargetLoc = new Location(other.prevEnPassantTargetLoc);
         }
-        this.check = other.check;
-
+        this.annotation = other.annotation;
+        this.movingPiece = Piece.copyPiece(other.movingPiece);
         this.prevHalfMoveClock = other.prevHalfMoveClock;
         this.capturingPieceHash = other.capturingPieceHash;
 
+        this.prevRepetitionFenList = new ArrayList<>(other.prevRepetitionFenList);
         this.prevCastlingAbility = new CastlingAbility(other.prevCastlingAbility);
     }
 
@@ -153,7 +162,7 @@ public class Move {
 
     //todo set reversible
     public boolean isReversible() {
-        return !isCapturing() && !(movingPiece instanceof Pawn);
+        return !isCapturing() && !(getMovingPiece() instanceof Pawn);
     }
 
     @Override
@@ -173,7 +182,7 @@ public class Move {
     }
 
     public String getAnnotation() {
-        if (annotation != "")
+        if (!Objects.equals(annotation, ""))
             return annotation;
         if (movingPiece == null)
             return getBasicMoveAnnotation();
@@ -225,13 +234,5 @@ public class Move {
 
     public String getMoveFEN() {
         return moveFEN;
-    }
-
-    public boolean isCheck() {
-        return check;
-    }
-
-    public void setCheck(boolean b) {
-        check = b;
     }
 }

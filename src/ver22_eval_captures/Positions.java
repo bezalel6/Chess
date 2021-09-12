@@ -16,14 +16,12 @@ public class Positions {
     private static Position rooks = new Position("2 Rooks", "8/2k5/8/2q5/8/2R5/2R4K/8 w - - 0 1");
     private static Position pins = new Position("Pins", "r3k3/1p3p2/p2q2p1/bn3P2/1N2PQP1/PB6/3K1R1r/3R4 w - - 0 1");
     private static Position testPosition = new Position("Mate with 2 rooks", "5k2/8/8/1R6/1R6/4K3/8/8 w - - 0 1");
-    private static Position testBug = new Position("BUGG", "r1bqkb1r/ppp1pppp/2n5/3n4/3P4/5N2/PPP1PPPP/R1BQKB1R w KQkq - 0 5");
+    private static Position testBug = new Position("M3", "1k5r/pP3ppp/3p2b1/1BN1n3/1Q2P3/P1B5/KP3P1P/7q w - - 1 0");
     private static Position endgamePos = new Position("Endgame Position", "8/K7/8/8/8/Q7/1Q6/5k2 w - - 0 1");
     private static Position mateIn4 = new Position("M4", "7R/r1p1q1pp/3k4/1p1n1Q2/3N4/8/1PP2PPP/2B3K1 w - - 1 0");
 
 
     public static ArrayList<Position> getAllPositions() {
-        ArrayList ret = new ArrayList(Arrays.asList(startingPosition, aboutToPromote, castling, underpromotion, rook, bishop, king, rooks, knight, pins, testPosition, testBug, endgamePos, mateIn4));
-
-        return ret;
+        return new ArrayList(Arrays.asList(startingPosition, aboutToPromote, castling, underpromotion, rook, bishop, king, rooks, knight, pins, testPosition, testBug, endgamePos, mateIn4));
     }
 }

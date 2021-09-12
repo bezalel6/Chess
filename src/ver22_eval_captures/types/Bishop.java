@@ -20,7 +20,8 @@ public class Bishop extends Piece {
     }
 
     public Bishop(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
     }
 
     public static ArrayList<ArrayList<Move>> createBishopMoves(Location movingFrom, int player, Board board) {

@@ -33,7 +33,7 @@ public class View {
     private final Color moveTextFieldBackgroundColor = Color.WHITE;
     private final Color moveTextFieldWrongMoveBackgroundColor = new Color(255, 0, 0, 50);
     private final Controller controller;
-    private final Dimension btnDimension = new Dimension(100, 100);
+    private final Dimension btnDimension = new Dimension(90, 100);
     //private double btnToScreenResolutionRatio =
     private final double winToScreenResolutionRatio = 0.8;
     private JPanel boardPnl, colsCoordinatesPnl, rowsCoordinatesPnl;
@@ -49,10 +49,12 @@ public class View {
     private BoardButton[][] btnMat;
     private JFrameResizing win;
     private LayerUI<JPanel> layerUI;
+    private boolean processRunning;
 
-    public View(Controller controller, int boardSize) {
+    public View(int boardSize, Controller controller) {
         ROWS = COLS = boardSize;
         this.controller = controller;
+        processRunning = false;
         createGui();
     }
 
@@ -111,7 +113,6 @@ public class View {
         btnMat[loc.getRow()][loc.getCol()].setIcon(icon);
         btnMat[loc.getRow()][loc.getCol()].setDisabledIcon(icon);
     }
-
 
     private void setCoordinates() {
         colsCoordinatesPnl = new JPanel();
@@ -180,7 +181,7 @@ public class View {
 
         menuBar.add(settingsMenu);
 
-        statusLbl = new JLabel();
+        statusLbl = new JLabel("STATUS LBL");
         statusLbl.setFont(messagesFont);
         bottomPnl.add(statusLbl);
 
@@ -216,6 +217,7 @@ public class View {
             }
             textField.setText("");
         });
+
         btnMat = new BoardButton[ROWS][COLS];
         boardPnl.setLayout(new GridLayout(ROWS, COLS));
         boolean isBlack = true;
@@ -305,7 +307,6 @@ public class View {
 
     }
 
-
     private void createDebugBtn(String text, Function callback) {
         JButton btn = new JButton(text);
         btn.setFont(debugItemsFont);
@@ -341,23 +342,25 @@ public class View {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         win.add(scroll, gbc);
 
-        //לוח המשחק
+//        //לוח המשחק
         boardContainerSetup();
         gbc = new GridBagConstraints();
         gbc.weightx = 20;
         gbc.weighty = 20;
-        gbc.gridheight = GridBagConstraints.REMAINDER;
+        gbc.gridheight = 15;
+        gbc.gridwidth = 10;
+//        gbc.gridheight = GridBagConstraints.REMAINDER;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.fill = GridBagConstraints.BOTH;
-
         win.add(boardContainerPnl, gbc);
 
         //שורה תחתונה
 
         gbc = new GridBagConstraints();
-//        gbc.weighty = 2;
-//        gbc.weightx = 12;
-        //gbc.gridheight = 2;
+        gbc.gridy = 100;
+        gbc.weighty = 2;
+        gbc.weightx = 12;
+        gbc.gridheight = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.fill = GridBagConstraints.BOTH;
         win.add(bottomPnl, gbc);
@@ -417,16 +420,13 @@ public class View {
         movesLog.setVisible(bool);
     }
 
-
     public void boardButtonPressed(Location to) {
         controller.boardButtonPressed(to);
     }
 
-
     public void setStatusLbl(String str) {
         statusLbl.setText(str);
     }
-
 
     public void updateMoveLog(String move) {
         movesLog.setText(movesLog.getText() + " " + move);
@@ -455,10 +455,6 @@ public class View {
         }
         return null;
     }
-
-    public Location getBtnLoc(JButton source) {
-        return ((BoardButton) source).getBtnLoc();
-    }
 //
 //    public void refreshIconSizes() {
 //        for (int i = 0; i < ROWS; i++) {
@@ -475,6 +471,10 @@ public class View {
 //        }
 //        setCoordinates();
 //    }
+
+    public Location getBtnLoc(JButton source) {
+        return ((BoardButton) source).getBtnLoc();
+    }
 
     public void resetBackground() {
         for (BoardButton[] row : btnMat) {
@@ -568,7 +568,6 @@ public class View {
         }
     }
 
-
     public JButton getBtn() {
         return btnMat[0][0];
     }
@@ -579,5 +578,9 @@ public class View {
 
     public void drawArrow(Location from, Location to, Color clr) {
         ((BoardOverlay) layerUI).drawArrow(from, to, clr);
+    }
+
+    public void setProcessRunning(boolean b) {
+        processRunning = b;
     }
 }

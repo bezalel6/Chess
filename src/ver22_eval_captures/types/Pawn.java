@@ -1,5 +1,6 @@
 package ver22_eval_captures.types;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.Location;
 import ver22_eval_captures.model_classes.Board;
 import ver22_eval_captures.moves.DoublePawnPush;
@@ -16,7 +17,9 @@ public class Pawn extends Piece {
     }
 
     public Pawn(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
+//        super(other);
     }
 
     public static ArrayList<ArrayList<Move>> createPawnMoves(Location movingFrom, int player, Board board) {
@@ -29,9 +32,7 @@ public class Pawn extends Piece {
 
     private static void checkPromoting(ArrayList<ArrayList<Move>> list, int player) {
         int promotionRow = STARTING_ROW[Player.getOtherColor(player)];
-        for (int i = 0; i < list.size(); i++) {
-            ArrayList<Move> list2 = list.get(i);
-
+        for (ArrayList<Move> list2 : list) {
             ArrayList<Move> add = new ArrayList<>();
 
             for (int j = 0, list2Size = list2.size(); j < list2Size; j++) {
@@ -81,9 +82,7 @@ public class Pawn extends Piece {
         if (enPassantTargetLoc != null && enPassantTargetLoc.equals(capturingLoc)) {
             Location enPassantActualLoc = board.getEnPassantActualLoc();
             Piece piece = board.getPiece(enPassantActualLoc);
-            boolean b =
-                    enPassantActualLoc != null && piece != null && !piece.isOnMyTeam(getPieceColor());
-            return b;
+            return piece != null && !piece.isOnMyTeam(getPieceColor());
         }
         return false;
     }

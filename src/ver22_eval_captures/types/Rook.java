@@ -12,7 +12,8 @@ public class Rook extends Piece {
     }
 
     public Rook(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
     }
 
     public static ArrayList<ArrayList<Move>> createRookMoves(Location movingFrom, int player, Board board) {

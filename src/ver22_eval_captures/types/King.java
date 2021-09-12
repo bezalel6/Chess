@@ -28,7 +28,8 @@ public class King extends Piece {
     }
 
     public King(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
     }
 
     public static Location getRookHomeLoc(int player, int side) {

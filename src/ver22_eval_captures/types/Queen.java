@@ -14,7 +14,8 @@ public class Queen extends Piece {
     }
 
     public Queen(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
     }
 
     public static ArrayList<ArrayList<Move>> createQueenMoves(Location movingFrom, int player, Board board) {

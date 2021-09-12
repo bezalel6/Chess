@@ -1,5 +1,6 @@
 package ver22_eval_captures.moves;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.Location;
 
 import java.util.ArrayList;
@@ -27,6 +28,14 @@ public class Castling extends Move {
         locs = move.locs;
         side = move.side;
     }
+
+//    void copyConstructor(Move move) {
+//        super.copyConstructor(move);
+//        if (move instanceof Castling) {
+//            locs = ((Castling) move).locs;
+//            side = ((Castling) move).side;
+//        } else Error.error("");
+//    }
 
     public int getSide() {
         return side;

@@ -17,8 +17,8 @@ import static ver22_eval_captures.types.Piece.*;
 public class Board implements Iterable<Square[]> {
 
     private final Model model;
-    private final ArrayList<String> movesList;
     private final FEN fen;
+    private ArrayList<String> repetitionFenList;
     private Square[][] logicMat;
     private ArrayList<Piece>[] piecesLists;
     private Piece[] kingsArr;
@@ -36,7 +36,7 @@ public class Board implements Iterable<Square[]> {
         setMat(fen);
         this.model = model;
         boardEval = new Eval(this);
-        movesList = new ArrayList<>();
+        repetitionFenList = new ArrayList<>();
         initPiecesArrays();
     }
 
@@ -232,12 +232,41 @@ public class Board implements Iterable<Square[]> {
     }
 
     private boolean checkForInsufficientMaterial() {
+        return insufficientMaterial(Player.WHITE) &&
+                insufficientMaterial(Player.BLACK);
+    }
 
-        return false;
+    private boolean insufficientMaterial(int player) {
+        return piecesCount[player][KING] < 1 ||
+                (piecesCount[player][PAWN] == 0 &&
+                        getNumOfPieces(player, MINOR_PIECES) <= 1 &&
+                        getNumOfPieces(player, MAJOR_PIECES) == 0);
+    }
+
+
+    private int getNumOfPieces(int player, int[] arr) {
+        int ret = 0;
+        for (int pieceType : arr) {
+            ret += piecesCount[player][pieceType];
+        }
+        return ret;
     }
 
     private boolean checkRepetition() {
-
+//        if (repetitionFenList.size() >= 4) {
+//            //todo im assuming the last str in the list is the current fen
+//            String currentFen = fen.generateFEN(false);
+////            String currentFen = repetitionFenList.get(repetitionFenList.size() - 1);
+//            int numOfMatches = 0;
+//            for (int i = repetitionFenList.size() - 1; i >= 0; i--) {
+//                if (i % 2 == 0) {
+//                    String str = repetitionFenList.get(i);
+//                    if (str.equals(currentFen))
+//                        numOfMatches++;
+//                }
+//            }
+//            return numOfMatches >= 4;
+//        }
         return false;
     }
 
@@ -251,7 +280,7 @@ public class Board implements Iterable<Square[]> {
 
     public boolean isThreatened(Location loc, int threateningPlayer) {
         for (int type : PIECES_TYPES) {
-            if (checkThreatening(loc, threateningPlayer, type))
+            if (type != KING && type != QUEEN && checkThreatening(loc, threateningPlayer, type))
                 return true;
         }
         return false;
@@ -260,7 +289,7 @@ public class Board implements Iterable<Square[]> {
     private boolean checkThreatening(Location loc, int threateningPlayer, int pieceType) {
         if (!Piece.checkValidPieceType(pieceType))
             Error.error("Piece type is incorrect");
-        ArrayList<ArrayList<Move>> lists;
+        ArrayList<ArrayList<Move>> lists = null;
         switch (pieceType) {
             case BISHOP:
                 lists = Bishop.createBishopMoves(loc, Player.getOtherColor(threateningPlayer), this);
@@ -271,11 +300,12 @@ public class Board implements Iterable<Square[]> {
             case KNIGHT:
                 lists = Knight.createKnightMoves(loc, Player.getOtherColor(threateningPlayer), this);
                 break;
-            case KING:
-                lists = King.createKingMoves(loc, Player.getOtherColor(threateningPlayer), this);
+            case PAWN:
+                lists = Pawn.createPawnMoves(loc, Player.getOtherColor(threateningPlayer), this, true);
                 break;
             default:
-                lists = Pawn.createPawnMoves(loc, Player.getOtherColor(threateningPlayer), this, true);
+                Error.error("Wrong Piece Type");
+                lists = new ArrayList<>();
                 break;
         }
         ArrayList<Move> moves = convertListOfLists(lists);
@@ -351,8 +381,6 @@ public class Board implements Iterable<Square[]> {
         }
         //endregion
 
-        setHalfMoveClock(move.isReversible() ? move.getPrevHalfMoveClock() + 1 : 0);
-
         if (move.getMovingPlayer() == Player.BLACK)
             fullMoveClock++;
 
@@ -382,17 +410,28 @@ public class Board implements Iterable<Square[]> {
 
         setSquareEmpty(movingFrom);
 
-        if (!(move instanceof DoublePawnPush)) {
-            setEnPassantTargetLoc((Location) null);
-            setEnPassantActualLoc(null);
+        if (move.isReversible()) {
+            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
+            repetitionFenList.add(fen.generateFEN(false));
+        } else {
+            if (!(move instanceof DoublePawnPush)) {
+                setEnPassantTargetLoc((Location) null);
+                setEnPassantActualLoc(null);
+            }
+            setHalfMoveClock(0);
+            repetitionFenList.clear();
         }
+
     }
+
 
     public void undoMove(Move move) {
 
         if (move.getMovingPlayer() == Player.BLACK)
             fullMoveClock--;
         setHalfMoveClock(move.getPrevHalfMoveClock());
+
+        repetitionFenList = new ArrayList<>(move.getPrevRepetitionFenList());
 
         setEnPassantTargetLoc(move.getPrevEnPassantTargetLoc());
         setEnPassantActualLoc(move.getPrevEnPassantActualLoc());
@@ -433,6 +472,10 @@ public class Board implements Iterable<Square[]> {
             setSquareEmpty(movingFrom);
         }
 
+    }
+
+    public ArrayList<String> getRepetitionFenList() {
+        return repetitionFenList;
     }
 
     public int[] getPiecesCount(int player) {

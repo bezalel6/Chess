@@ -10,7 +10,7 @@ public class MinimaxMove {
     public MinimaxMove(Move move, Evaluation moveValue, int moveDepth) {
         this.move = Move.copyMove(move);
         this.moveDepth = moveDepth;
-        this.moveValue = moveValue;
+        this.moveValue = new Evaluation(moveValue);
     }
 
 

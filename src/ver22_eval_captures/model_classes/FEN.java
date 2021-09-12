@@ -18,28 +18,11 @@ public class FEN {
     }
 
     public String generateFEN() {
+        return generateFEN(true);
+    }
+
+    public String generateFEN(boolean addCounters) {
         StringBuilder ret = new StringBuilder();
-//        for (Piece[] row : board) {
-//            int emptySquares = 0;
-//            for (Piece piece : row) {
-//                if (piece == null) {
-//                    emptySquares++;
-//                    continue;
-//                } else if (emptySquares != 0) {
-//                    ret += emptySquares;
-//                    emptySquares = 0;
-//                }
-//                if (piece instanceof Pawn)
-//                    ret += piece.isWhite() ? 'P' : 'p';
-//                else {
-//
-//                    ret += piece.isWhite() ? piece.getAnnotation().toUpperCase(Locale.ROOT) : piece.getAnnotation().toLowerCase(Locale.ROOT);
-//                }
-//            }
-//            if (emptySquares != 0)
-//                ret += emptySquares;
-//            ret += "/";
-//        }
 
         int i = board.getLogicMat().length - 1;
         for (; i >= 0; i--) {
@@ -65,7 +48,8 @@ public class FEN {
         ret.append(" ").append(board.getCastlingAbility());
         Location enPassantTargetSquare = board.getEnPassantTargetLoc();
         ret.append(" ").append(enPassantTargetSquare == null ? "-" : enPassantTargetSquare);
-        ret.append(" ").append(board.getHalfMoveClock()).append(" ").append(board.getFullMoveClock());
+        if (addCounters)
+            ret.append(" ").append(board.getHalfMoveClock()).append(" ").append(board.getFullMoveClock());
         return ret.toString();
     }
 

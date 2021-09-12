@@ -1,11 +1,14 @@
 package ver22_eval_captures.view_classes;
 
+import ver22_eval_captures.Error;
 import ver22_eval_captures.model_classes.GameStatus;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 import static ver22_eval_captures.types.Piece.*;
+import static ver22_eval_captures.types.Piece.Player.PLAYER_NAMES;
 
 public class IconManager {
     private ImageIcon[][] piecesIcons;
@@ -46,14 +49,15 @@ public class IconManager {
     }
 
     private ImageIcon loadImage(String relativePath) {
-        try {
-            ImageIcon ret = new ImageIcon(View.class.getResource("/Assets/" + relativePath + ".png"));
+        URL path = View.class.getResource("/Assets/" + relativePath + ".png");
+        if (path == null)
+            Error.error("couldnt load icon " + relativePath);
+        else {
+            ImageIcon ret = new ImageIcon(path);
             ret = scaleImage(ret);
             return ret;
-        } catch (Exception e) {
-            System.out.println("Couldnt load icon " + e);
-            return null;
         }
+        return null;
     }
 
     public ImageIcon scaleImage(ImageIcon img) {

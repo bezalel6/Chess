@@ -29,12 +29,14 @@ public class Controller {
     private final int DEFAULT_BOARD_SIZE = 8;
     private final View view;
     private final Model model;
+    long totalSeconds = 0;
     private int startingPosition = DEFAULT_STARTING_POSITION;
     private int scanTime = DEFAULT_SCAN_TIME;
     private int currentPlayer;
     private Piece currentPiece;
     private Dialogs promotingDialog;
     private IconManager iconManager;
+    private String runningProcessStr;
     private boolean isFirstClick;
     private boolean showPositionDialog = false;
     private boolean aiGame = false;
@@ -43,19 +45,14 @@ public class Controller {
 
     Controller() {
         model = new Model(DEFAULT_BOARD_SIZE, this);
-        view = new View(this, DEFAULT_BOARD_SIZE);
+        view = new View(DEFAULT_BOARD_SIZE, this);
     }
 
     public static void main(String[] args) {
         Controller game = new Controller();
 
         game.startNewGame();
-        new Thread(() -> {
-            {
-                while (game.aiGame)
-                    game.aiMoveButtonPressed();
-            }
-        }).start();
+
     }
 
     private static void testFiftyMoveRule(Controller game) {
@@ -85,18 +82,44 @@ public class Controller {
         iconManager = new IconManager();
         iconManager.loadAllIcons();
 
+        runningProcessStr = "";
+
         if (showPositionDialog) {
             showStartingPositionDialog();
         }
         currentPiece = null;
         isFirstClick = true;
+        checkLoc = null;
+
         model.initGame(startingPosition);
         view.initGame();
         setBoardButtonsIcons();
         currentPlayer = model.getBoard().getCurrentPlayer();
-        view.setStatusLbl(currentPlayer + " To Move");
-        view.enableSquares(model.getPiecesLocations(currentPlayer));
+        if (aiGame) {
+            view.setProcessRunning(true);
+            runningProcessStr = "AI GAME";
+        }
+        setStsLbl();
 
+        new Thread(() -> {
+            {
+                while (aiGame)
+                    aiMoveButtonPressed();
+            }
+        }).start();
+
+        enableBoardButtons();
+
+    }
+
+    private void enableBoardButtons() {
+        if (runningProcessStr.equals(""))
+            view.enableSquares(model.getPiecesLocations(currentPlayer));
+        else view.enableAllSquares(false);
+    }
+
+    private void setStsLbl() {
+        view.setStatusLbl(runningProcessStr + " " + Player.PLAYER_NAMES[currentPlayer] + " To Move");
     }
 
     public int getCurrentPlayer() {
@@ -105,6 +128,7 @@ public class Controller {
 
     public void boardButtonPressed(Location loc) {
         view.resetBackground();
+        viewCheck();
         if (isFirstClick) {
             Board board = model.getBoard();
             currentPiece = model.getPiece(loc, board);
@@ -137,11 +161,14 @@ public class Controller {
         updateView(move.getMovingFrom(), move.getMovingTo());
         Board board = model.getBoard();
 
-        checkLoc = move.isCheck() ? new Location(board.getKing(currentPlayer).getLoc()) : null;
+//        checkLoc = move.isCheck() ? new Location(board.getKing(currentPlayer).getLoc()) : null;
 
         String moveAnnotation = model.makeMove(move, board);
         if (currentPlayer == Player.WHITE)
             moveAnnotation = model.getBoard().getFullMoveClock() + ". " + moveAnnotation;
+
+        int otherPlayer = Player.getOtherColor(currentPlayer);
+        checkLoc = board.isInCheck(otherPlayer) ? new Location(board.getKing(otherPlayer).getLoc()) : null;
 
         view.updateMoveLog(moveAnnotation);
         Evaluation gameOverStatus = model.getBoard().isGameOver(currentPlayer);
@@ -156,16 +183,28 @@ public class Controller {
         }
 
         switchPlayer();
-        buttonPressedLaterActions();
-        if (aiPlaysBlack && currentPlayer == Player.BLACK) {
-            new Thread(() -> aiMoveButtonPressed()).start();
+        if (aiPlaysBlack) {
+            if (currentPlayer == Player.BLACK) {
+                view.setProcessRunning(true);
+                runningProcessStr = "AI PLAYS BLACK";
+                new Thread(this::aiMoveButtonPressed).start();
+            } else {
+                view.setProcessRunning(false);
+                runningProcessStr = "";
+            }
+            setStsLbl();
         }
+        buttonPressedLaterActions();
+
     }
 
     private void buttonPressedLaterActions() {
-        Board board = model.getBoard();
-        view.setStatusLbl(currentPlayer + " to move");
-        view.enableSquares(model.getPiecesLocations(currentPlayer));
+        setStsLbl();
+        enableBoardButtons();
+        viewCheck();
+    }
+
+    private void viewCheck() {
         if (checkLoc != null)
             view.inCheck(checkLoc);
     }
@@ -258,13 +297,18 @@ public class Controller {
         ZonedDateTime t = ZonedDateTime.now();
         new Thread(() -> {
             int prev = -1;
+            int num = 0;
             while (b.get()) {
-                int num = (int) t.until(ZonedDateTime.now(), ChronoUnit.SECONDS);
+                num = (int) t.until(ZonedDateTime.now(), ChronoUnit.SECONDS);
                 if (num != prev && num % 1000 != 0) {
-                    System.out.println(num);
+                    System.out.print(num + " ");
+                    if (num % 60 == 0)
+                        System.out.println();
                     prev = num;
                 }
             }
+            totalSeconds += num;
+            System.out.println("total minutes until now: " + (totalSeconds / 60));
         }).start();
     }
 

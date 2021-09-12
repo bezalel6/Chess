@@ -4,7 +4,7 @@ import ver22_eval_captures.Error;
 import ver22_eval_captures.model_classes.GameStatus;
 
 public class Evaluation {
-    private static final double winEval = Integer.MAX_VALUE, tieEval = 0;
+    private static final double winEval = Double.MAX_VALUE, tieEval = 0;
 
     private double eval;
     private GameStatus gameStatus;

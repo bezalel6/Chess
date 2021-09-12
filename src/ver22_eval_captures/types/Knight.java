@@ -23,7 +23,8 @@ public class Knight extends Piece {
     }
 
     public Knight(Piece other) {
-        super(other);
+        this(other.getStartingLoc(), other.getPieceColor());
+        setLoc(other.getLoc());
     }
 
     public static ArrayList<ArrayList<Move>> createKnightMoves(Location movingFrom, int player, Board board) {
