@@ -3,6 +3,7 @@ package tools;
 import ver19_square_control.Location;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 class dad {
@@ -28,7 +29,7 @@ class child extends dad {
 }
 
 public class Main {
-    //region STFU
+    //region a
     static String myResults =
             "b1d2: 1\n" +
                     "b1c3: 1\n" +
@@ -121,10 +122,18 @@ public class Main {
 
     //endregion
     public static void main(String[] args) {
-        child c = new child();
-        System.out.println(c instanceof child);
-        dad d = new dad(c);
-        System.out.println(d instanceof child);
+        String str = "sunshineyellowteslagaming";
+
+    }
+
+    private static String convertToAwfulStr(String str) {
+        StringBuilder s = new StringBuilder();
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char c = Character.toLowerCase(charArray[i]);
+            s.append(i % 2 == 0 ? c : Character.toUpperCase(c));
+        }
+        return s.toString();
     }
 
     private static ArrayList<String> strToList(String str) {
