@@ -19,7 +19,7 @@ public class Board implements Iterable<Square[]> {
     private ArrayList<Long> repetitionHashList;
     private Square[][] logicMat;
     private ConcurrentHashMap<Location, Piece>[] pieces;
-    private Piece[] kingsArr;
+    private King[] kingsArr;
     private Eval boardEval;
     private int[][] piecesCount;
     private int currentPlayer;
@@ -28,6 +28,7 @@ public class Board implements Iterable<Square[]> {
     private Location enPassantActualLoc;
     private CastlingAbility castlingAbility;
     private Controller controller;
+    private long boardHash;
 
     public Board(String fenStr, Controller controller) {
         boardEval = new Eval(this);
@@ -37,7 +38,7 @@ public class Board implements Iterable<Square[]> {
         repetitionHashList = new ArrayList<>();
         initPiecesArrays();
         this.controller = controller;
-//        boardHash = hashBoard();
+        setBoardHash();
     }
 
     public Board(Board other) {
@@ -47,7 +48,16 @@ public class Board implements Iterable<Square[]> {
         boardEval = new Eval(this);
         repetitionHashList = new ArrayList<>(other.repetitionHashList);
         initPiecesArrays();
-//        boardHash = other.boardHash;
+        setBoardHash();
+    }
+
+    private void setBoardHash() {
+        boardHash = hashBoard();
+
+    }
+
+    private long hashBoard() {
+        return hashBoard(currentPlayer);
     }
 
     public CastlingAbility getCastlingAbility() {
@@ -55,7 +65,7 @@ public class Board implements Iterable<Square[]> {
     }
 
     private void initPiecesArrays() {
-        kingsArr = new Piece[NUM_OF_PLAYERS];
+        kingsArr = new King[NUM_OF_PLAYERS];
         pieces = new ConcurrentHashMap[NUM_OF_PLAYERS];
         piecesCount = new int[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES];
         for (int i = 0; i < NUM_OF_PLAYERS; i++) {
@@ -68,7 +78,7 @@ public class Board implements Iterable<Square[]> {
                     Piece piece = square.getPiece();
                     pieces[piece.getPieceColor()].put(new Location(piece.getStartingLoc()), piece);
                     if (piece instanceof King) {
-                        kingsArr[piece.getPieceColor()] = piece;
+                        kingsArr[piece.getPieceColor()] = (King) piece;
                     }
 
                     piecesCount[piece.getPieceColor()][piece.getPieceType()]++;
@@ -96,10 +106,16 @@ public class Board implements Iterable<Square[]> {
             this.enPassantTargetLoc = new Location(enPassantTargetLoc);
     }
 
-    public void setEnPassantTargetLoc(String enPassantTargetLoc) {
-        if (enPassantTargetLoc.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
+    public void setEnPassantTargetLoc(String enPassantTargetLocStr) {
+        if (enPassantTargetLocStr.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
             this.enPassantTargetLoc = null;
-        } else this.enPassantTargetLoc = new Location(enPassantTargetLoc);
+        } else {
+            this.enPassantTargetLoc = new Location(enPassantTargetLocStr);
+            int row = enPassantTargetLoc.getRow();
+            int diff = (row == (STARTING_ROW[Player.WHITE] + 3)) ? Piece.getDifference(Player.WHITE) : Piece.getDifference(Player.BLACK);
+            row -= diff;
+            this.enPassantActualLoc = new Location(row, enPassantTargetLoc.getCol());
+        }
     }
 
     public Location getEnPassantActualLoc() {
@@ -155,7 +171,7 @@ public class Board implements Iterable<Square[]> {
     private void replacePiece(Piece newPiece, Piece oldPiece) {
         assert newPiece != null && oldPiece != null;
         Location pieceLoc = oldPiece.getLoc();
-        int oldPlayer = newPiece.getPieceColor();
+        int oldPlayer = oldPiece.getPieceColor();
         int newPlayer = newPiece.getPieceColor();
         pieces[oldPlayer].remove(oldPiece.getStartingLoc());
         pieces[newPlayer].put(newPiece.getStartingLoc(), newPiece);
@@ -277,7 +293,7 @@ public class Board implements Iterable<Square[]> {
         return false;
     }
 
-    public Piece getKing(int player) {
+    public King getKing(int player) {
         return kingsArr[player];
     }
 
@@ -324,14 +340,13 @@ public class Board implements Iterable<Square[]> {
     }
 
     public void applyMove(Move move) {
+        move.setPrevBoardHash(boardHash);
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
 
         Piece piece = getPiece(movingFrom, true);
         int pieceColor = piece.getPieceColor();
 
-//        if (!move.isBoardHashSet())
-//            move.setPrevBoardHash(hashBoard(pieceColor));
         //region move instances
         if (move instanceof DoublePawnPush) {
             setEnPassantTargetLoc(((DoublePawnPush) move).getEnPassantTargetSquare());
@@ -382,22 +397,22 @@ public class Board implements Iterable<Square[]> {
         if (move.isReversible()) {
             setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
 //            todo check if needs to give the moving player
-            repetitionHashList.add(hashBoard());
+//            repetitionHashList.add(hashBoard());
         } else {
             setHalfMoveClock(0);
-            repetitionHashList.clear();
+//            repetitionHashList.clear();
         }
         if (!(move instanceof DoublePawnPush)) {
             setEnPassantTargetLoc((Location) null);
             setEnPassantActualLoc(null);
         }
         switchTurn();
-        //        boardHash = hashBoard();
+        setBoardHash();
     }
 
 
     public void undoMove(Move move) {
-//        boardHash = move.getPrevBoardHash();
+        boardHash = move.getPrevBoardHash();
         if (move.getMovingPlayer() == Player.BLACK)
             fullMoveClock--;
         setHalfMoveClock(move.getPrevHalfMoveClock());
@@ -449,7 +464,7 @@ public class Board implements Iterable<Square[]> {
         return getPieces(player).get(startingLoc);
     }
 
-    private void switchTurn() {
+    public void switchTurn() {
         currentPlayer = Player.getOpponent(currentPlayer);
     }
 
@@ -552,11 +567,18 @@ public class Board implements Iterable<Square[]> {
         return pieces;
     }
 
-    private long hashBoard() {
-        return hashBoard(currentPlayer);
+    public long getBoardHash() {
+        return getBoardHash(currentPlayer);
     }
 
-    public long hashBoard(int player) {
+    public long getBoardHash(int player) {
+        if (player == currentPlayer) {
+            return boardHash;
+        }
+        return hashBoard(player);
+    }
+
+    private long hashBoard(int player) {
         return Zobrist.hash(this, player);
     }
 

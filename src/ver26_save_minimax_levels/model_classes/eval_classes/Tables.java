@@ -159,8 +159,8 @@ public class Tables {
         return pieceTables[pieceType];
     }
 
-    public static double getValueForPhase(PieceTable pieceTable, GamePhase phase, int player, Location loc) {
-        return pieceTable.getValue(phase, player, loc);
+    public static double getValueForPhase(PieceTable pieceTable, double egWeight, int player, Location loc) {
+        return pieceTable.getValue(egWeight, player, loc);
     }
 
     static class PieceTable {
@@ -187,10 +187,10 @@ public class Tables {
             return ret;
         }
 
-        public double getValue(GamePhase phase, int player, Location loc) {
+        public double getValue(double egWeight, int player, Location loc) {
             double mg = convertFromCentiPawns(GamePhase.MIDDLE_GAME, player, loc);
             double eg = convertFromCentiPawns(GamePhase.ENDGAME, player, loc);
-            return mg * phase.getMg() + eg * phase.getEg();
+            return mg + eg * egWeight;
         }
 
         public double convertFromCentiPawns(int phase, int player, Location loc) {

@@ -60,7 +60,7 @@ public class Controller {
     private boolean isFirstClick;
     private boolean showPositionDialog = false;
     private boolean fancyLoading = false;
-    private int runningProcess = NO_RUNNING_PROCESS;
+    private int runningProcess = AI_GAME;
     private Location checkLoc;
 
 

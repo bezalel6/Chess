@@ -110,9 +110,10 @@ public class Move implements Comparable<Move> {
         }
         if (move instanceof PromotionMove) {
             ret += 5 * Piece.getPieceWorth(((PromotionMove) move).getPromotingTo());
-        }
-        if (move instanceof EnPassant) {
+        } else if (move instanceof EnPassant) {
             ret += 0.00001;
+        } else if (move instanceof Castling) {
+            ret += 10;
         }
         if (move.getMoveEvaluation() != null && move.getMoveEvaluation().isCheck()) {
             ret += 10;

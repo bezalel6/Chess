@@ -8,7 +8,7 @@ import ver26_save_minimax_levels.moves.MoveAnnotation;
 import java.util.ArrayList;
 
 public class Evaluation {
-    private static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
+    public static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
     private static final int SENSITIVITY = 100000000;
     private double[] detailedEval;
     private ArrayList<Integer> initializedIndexes;

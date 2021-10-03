@@ -4,19 +4,24 @@ import ver26_save_minimax_levels.Location;
 import ver26_save_minimax_levels.model_classes.Board;
 import ver26_save_minimax_levels.model_classes.GameStatus;
 import ver26_save_minimax_levels.model_classes.Square;
+import ver26_save_minimax_levels.model_classes.pieces.King;
 import ver26_save_minimax_levels.model_classes.pieces.Piece;
 import ver26_save_minimax_levels.moves.Move;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static ver26_save_minimax_levels.model_classes.pieces.Piece.*;
 
 
 public class Eval {
-    public static final int NUM_OF_EVAL_PARAMETERS = 6;
-    public static final int MATERIAL = 0, PIECE_TABLES = 1, KING_SAFETY = 2, HANGING_PIECES = 3, SQUARE_CONTROL = 4, MOVEMENT_ABILITY = 5;
+    public static final int NUM_OF_EVAL_PARAMETERS = 7;
+    public static final int MATERIAL = 0, PIECE_TABLES = 1, KING_SAFETY = 2, HANGING_PIECES = 3, SQUARE_CONTROL = 4, MOVEMENT_ABILITY = 5, FORCE_KING_TO_CORNER = 6;
     public static final String[] EVAL_PARAMETERS_NAMES = initEvalParametersArr();
+    private static final HashMap<Long, Evaluation> evaluationHashMap = new HashMap<>();
+    private static final HashMap<Long, Evaluation> gameOverHashMap = new HashMap<>();
     private final Board board;
+    private double egWeight;
 
     public Eval(Board board) {
         this.board = board;
@@ -30,15 +35,10 @@ public class Eval {
         ret[HANGING_PIECES] = "Hanging Pieces";
         ret[SQUARE_CONTROL] = "Square Control";
         ret[MOVEMENT_ABILITY] = "Movement Ability";
+        ret[FORCE_KING_TO_CORNER] = "Force King To Corner Endgame Eval";
         return ret;
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i + " got " + calcClose(i));
-        }
-
-    }
 
     private static double calcClose(int distance) {
         double num = Math.exp(distance);
@@ -49,13 +49,21 @@ public class Eval {
         return num + "".length();
     }
 
+    static double materialSumWithoutPawns(Board board, int player) {
+
+    }
 
     public Evaluation getEvaluation() {
         return getEvaluation(board.getCurrentPlayer());
     }
 
     public Evaluation getEvaluation(int player) {
+        long hash = board.getBoardHash(player);
+        if (evaluationHashMap.containsKey(hash)) {
+            return evaluationHashMap.get(hash);
+        }
         Evaluation evaluation = getEvaluation_(player);
+        evaluationHashMap.put(hash, new Evaluation(evaluation));
         return evaluation;
     }
 
@@ -71,8 +79,6 @@ public class Eval {
         Evaluation currentEval = getEvaluation(player);
         ArrayList<Move> allCaptureMoves = board.getAllCaptureMoves();
         for (Move move : allCaptureMoves) {
-//            board.getController().drawMove(move);
-//            System.out.println(move);
             board.applyMove(move);
             Evaluation captures = getCapturesEvaluation_(player, !isMax);
             board.undoMove(move);
@@ -89,7 +95,7 @@ public class Eval {
         if (checkGameOver.isGameOver()) return checkGameOver;
 
         Evaluation retEval = new Evaluation();
-
+        egWeight = GamePhase.endgameWeight(board, player);
 //        Check
         if (board.isInCheck(player)) {
             retEval.setGameStatus(GameStatus.CHECK);
@@ -100,6 +106,8 @@ public class Eval {
         //Piece Tables
         retEval.addDetail(PIECE_TABLES, comparePieceTables(player));
 
+//        force king to corner
+        retEval.addDetail(FORCE_KING_TO_CORNER, forceKingToCornerEndgameEval(player));
         //Hanging Pieces
 //        retEval.addDetail(HANGING_PIECES, calcHangingPieces(player));
 
@@ -113,6 +121,29 @@ public class Eval {
 //        retEval.addDetail(KING_SAFETY, compareKingSafety(player));
 
         return retEval;
+    }
+
+    private double forceKingToCornerEndgameEval(int player) {
+        double ret = 0;
+        King opK = board.getKing(Player.getOpponent(player));
+
+        int opRow = opK.getLoc().getRow(), opCol = opK.getLoc().getCol();
+
+        int opDstToCenterCol = Math.max(3 - opCol, opCol - 4);
+        int opDstToCenterRow = Math.max(3 - opRow, opRow - 4);
+        int opKDstFromCenter = opDstToCenterCol + opDstToCenterRow;
+        ret += opKDstFromCenter;
+
+        King myK = board.getKing(player);
+
+        int myRow = myK.getLoc().getRow(), myCol = myK.getLoc().getCol();
+
+        int kingsColDst = Math.abs(myCol - opCol);
+        int kingsRowDst = Math.abs(myRow - opRow);
+        int kingsDst = kingsColDst + kingsRowDst;
+        ret += 14 - kingsDst;
+
+        return ret * 0.10 * new GamePhase().endgameWeight();
     }
 
     private double compareMovementAbility(int player) {
@@ -180,8 +211,6 @@ public class Eval {
 
     private double comparePieceTables(int player) {
         double ret = 0;
-        GamePhase phase = new GamePhase();
-
         for (var playersPieces : board.getPieces()) {
             for (Piece piece : playersPieces.values()) {
                 int currentPieceColor = piece.getPieceColor();
@@ -195,7 +224,7 @@ public class Eval {
 
     private double getTableData(Piece piece, GamePhase phase, Location loc) {
         Tables.PieceTable table = Tables.getPieceTable(piece.getPieceType());
-        double ret = Tables.getValueForPhase(table, phase, piece.getPieceColor(), loc);
+        double ret = Tables.getValueForPhase(table, , piece.getPieceColor(), loc);
         return ret;
     }
 
@@ -230,19 +259,29 @@ public class Eval {
 
     public Evaluation isGameOver() {
         int player = board.getCurrentPlayer();
+        long hash = board.getBoardHash(player);
+        if (gameOverHashMap.containsKey(hash)) {
+            return gameOverHashMap.get(hash);
+        }
+        Evaluation ret;
         int side = player == board.getCurrentPlayer() ? GameStatus.LOSING_SIDE : GameStatus.WINNING_SIDE;
         if (board.getAllMoves(player).isEmpty()) {
             if (board.isInCheck(player)) {
-                return new Evaluation(GameStatus.CHECKMATE, side);
+                ret = new Evaluation(GameStatus.CHECKMATE, side);
+            } else {
+                ret = new Evaluation(GameStatus.STALEMATE);
             }
-            return new Evaluation(GameStatus.STALEMATE);
-        } else if (board.getHalfMoveClock() >= 100)
-            return new Evaluation(GameStatus.FIFTY_MOVE_RULE);
-        if (checkRepetition(player))
-            return new Evaluation(GameStatus.THREE_FOLD_REPETITION);
-        if (checkForInsufficientMaterial())
-            return new Evaluation(GameStatus.INSUFFICIENT_MATERIAL);
-        return new Evaluation();
+        } else if (board.getHalfMoveClock() >= 100) {
+            ret = new Evaluation(GameStatus.FIFTY_MOVE_RULE);
+        } else if (checkRepetition(player)) {
+            ret = new Evaluation(GameStatus.THREE_FOLD_REPETITION);
+        } else if (checkForInsufficientMaterial()) {
+            ret = new Evaluation(GameStatus.INSUFFICIENT_MATERIAL);
+        } else {
+            ret = new Evaluation();
+        }
+        gameOverHashMap.put(hash, ret);
+        return ret;
     }
 
     private boolean checkForInsufficientMaterial() {
@@ -275,50 +314,14 @@ public class Eval {
         return false;
     }
 
-    public class GamePhase {
+    public static class GamePhase {
         public static final int MIDDLE_GAME = 0, ENDGAME = 1, OPENING = 2;
-        private double mg;
-        private double eg;
+        private static final double endgameMaterialStart = Piece.getPieceWorth(ROOK) * 2 + Piece.getPieceWorth(BISHOP) + Piece.getPieceWorth(KNIGHT);
 
-        public GamePhase() {
-            mg = 1;
-            eg = egScaleFactor();
-            mg -= eg > 1 ? eg - 1 : 0;
-        }
-
-        public double egScaleFactor() {
+        public static double endgameWeight(Board board, int player) {
             double sf = 0;
-            int queens = board.bothPlayersNumOfPieces(QUEEN);
-            int rooks = board.bothPlayersNumOfPieces(ROOK);
-            int bishops = board.bothPlayersNumOfPieces(BISHOP);
-            int knights = board.bothPlayersNumOfPieces(KNIGHT);
-            int pawns = board.bothPlayersNumOfPieces(PAWN);
-            if (queens <= 1) {
-                sf += queens == 0 ?
-                        0.7 : 0.3;
-            }
-            if (bishops + knights <= 4) {
-                sf += bishops + knights <= 2 ?
-                        0.32 : bishops + knights == 3 ?
-                        0.27 : 0.22;
-            }
-            if (rooks <= 2) {
-                sf += queens + rooks <= 2 ?
-                        0.85 : rooks <= 1 ?
-                        rooks == 0 ?
-                                0.7 : 0.65 : 0.5;
-            }
-            if (sf > 0)
-                sf -= (0.1 / 8) * pawns;
+            int materialWithoutPawns = board.getNumOfPieces(player, )
             return sf;
-        }
-
-        public double getMg() {
-            return mg;
-        }
-
-        public double getEg() {
-            return eg;
         }
     }
 

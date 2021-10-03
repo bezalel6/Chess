@@ -25,7 +25,8 @@ public abstract class Piece {
     public static final int[] STARTING_ROW = {0, 7};
     public static final int[] CAN_PROMOTE_TO = {ROOK, KNIGHT, BISHOP, QUEEN, KING};
     public static final int[] PIECES_TYPES = {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING};
-    public static final int[] UNIQUE_MOVES_PIECE_TYPES = {ROOK, KNIGHT, BISHOP};
+    public static final int[] UNIQUE_MOVES_PIECE_TYPES = {ROOK, KNIGHT, BISHOP, PAWN};
+    public static final int[] EVERY_PIECE_BUT_PAWN = {ROOK, KNIGHT, BISHOP, QUEEN, KING};
     public static final int[] MOST_LIKELY_TO_CHECK = {1, 2, 3, 4, 5, -1};
 
 
@@ -241,7 +242,6 @@ public abstract class Piece {
         return pieceType == BISHOP || pieceType == QUEEN;
     }
 
-    //endregion
 
     public static boolean isLinePiece(int pieceType) {
         return pieceType == ROOK || pieceType == QUEEN;

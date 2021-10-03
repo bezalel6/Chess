@@ -92,7 +92,7 @@ public class Model {
     }
 
     private double[] alphaBetaInit() {
-        return new double[]{Double.MIN_VALUE, Double.MAX_VALUE};
+        return new double[]{-Evaluation.WIN_EVAL, Evaluation.WIN_EVAL};
     }
 
     // מהלך מינימקס
@@ -117,7 +117,6 @@ public class Model {
 
             String s = "-------------";
             System.out.println("\n" + s + "Starting search on depth " + i + s);
-//            todo remember to update the logicBoard whenever theres a new board i want to start using
             MinimaxMove minimaxMove = minimax(i);
             System.out.println("depth " + i + " move: " + minimaxMove);
             i++;
@@ -127,7 +126,6 @@ public class Model {
             assert bestMoveSoFar != null && bestMoveSoFar.getMove() != null;
             controller.clearAllDrawings();
             controller.drawMove(bestMoveSoFar.getMove(), Controller.MINIMAX_BEST_MOVE);
-
         }
         System.out.println("\nminimax move: " + bestMoveSoFar);
         System.out.println("max depth reached: " + i);
@@ -139,30 +137,31 @@ public class Model {
 
 
     public MinimaxMove minimax(int maxDepth) {
+        //fixme copying board resetting starting locs
         return minimax(logicBoard, logicBoard.getCurrentPlayer(), true, 0, maxDepth, alphaBetaInit()[0], alphaBetaInit()[1], null);
     }
 
-    public MinimaxMove minimax(Board board, int currentPlayer, boolean isMax, int depth, int maxDepth, double alpha, double beta, Move m) {
+    public MinimaxMove minimax(Board board, int currentPlayer, boolean isMax, int depth, int maxDepth, double alpha, double beta, Move rootMove) {
         positionsReached++;
 
         if (depth >= maxDepth || board.getEval().isGameOver().isGameOver()) {
             leavesReached++;
-            MinimaxMove ret = new MinimaxMove(m, board.getEval().getEvaluation(currentPlayer), depth, board);
+            MinimaxMove ret = new MinimaxMove(rootMove, board.getEval().getEvaluation(currentPlayer), depth, board);
             return ret;
         }
+        boolean isRoot = depth == 0;
         MinimaxMove bestMove = new MinimaxMove(new Evaluation(isMax ? Integer.MIN_VALUE : Integer.MAX_VALUE));
         ArrayList<Move> possibleMoves = board.getAllMoves();
+
         sortMoves(possibleMoves);
-//        sortMoves(possibleMoves, isMax);
-        boolean isRoot = depth == 0;
 
         for (Move move : possibleMoves) {
             if (isRoot) {
-                m = move;
+                rootMove = move;
             }
             board.applyMove(move);
 
-            MinimaxMove minimaxMove = minimax(board, currentPlayer, !isMax, depth + 1, maxDepth, alpha, beta, m);
+            MinimaxMove minimaxMove = minimax(board, currentPlayer, !isMax, depth + 1, maxDepth, alpha, beta, rootMove);
 
             board.undoMove(move);
             if (minimaxMove != null && minimaxMove.isBetterThan(bestMove) == isMax) {

@@ -14,6 +14,7 @@ public class Zobrist {
     private static final long[][] zEnPassant = initEnPassant();
     private static final long[][] zLocations = initLocations();
     private static final long[] zCastling = createRandomArr(4);
+    private static final long[] zPlayer = createRandomArr(2);
     private static final long zBlack2Move = random64();
 
     private static long[][] initLocations() {
@@ -94,7 +95,9 @@ public class Zobrist {
             }
         Location enPassant = board.getEnPassantTargetLoc();
         if (enPassant != null) {
-            ret ^= zEnPassant[player][enPassant.getCol()];
+            Piece piece = board.getPiece(board.getEnPassantActualLoc());
+            if (piece != null && !piece.isOnMyTeam(player))
+                ret ^= zEnPassant[player][enPassant.getCol()];
         }
         boolean[] castlingAbility = board.getCastlingAbility().getCastlingAbility();
         for (int i = 0, castlingAbilityLength = castlingAbility.length; i < castlingAbilityLength; i++) {
@@ -103,8 +106,9 @@ public class Zobrist {
                 ret ^= zCastling[i];
             }
         }
-        if (player == Player.BLACK)
+        if (board.getCurrentPlayer() == Player.BLACK)
             ret ^= zBlack2Move;
+        ret ^= zPlayer[player];
         return ret;
     }
 

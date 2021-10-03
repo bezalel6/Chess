@@ -41,6 +41,11 @@ public class MinimaxMove implements Comparable {
     }
 
 
+    public MinimaxMove(MinimaxMove other, Board board) {
+        this(other);
+        this.board = board;
+    }
+
     public MinimaxMove(MinimaxMove other) {
         move = Move.copyMove(other.move);
         moveEvaluation = new Evaluation(other.moveEvaluation);
