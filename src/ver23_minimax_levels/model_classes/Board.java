@@ -550,7 +550,7 @@ public class Board implements Iterable<Square[]> {
 
         ret.append(" ");
         for (int j = 0; j < logicMat.length; j++) {
-            ret.append(" ").append(Character.toString('ａ' + j)).append(" ");
+            ret.append(" ").append(Character.toString((char) ('ａ' + j))).append(" ");
         }
         ret.append(Controller.HIDE_PRINT).append("\n");
 

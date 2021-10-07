@@ -451,7 +451,7 @@ public class Board implements Iterable<Piece[]> {
 
         ret.append(" ");
         for (int j = 0; j < logicMat.length; j++) {
-            ret.append(" ").append(Character.toString('ａ' + j)).append(" ");
+            ret.append(" ").append(Character.toString((char) ('ａ' + j))).append(" ");
         }
         ret.append("\n");
 

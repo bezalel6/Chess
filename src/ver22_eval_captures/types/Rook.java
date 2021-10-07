@@ -21,35 +21,35 @@ public class Rook extends Piece {
         int myR = movingFrom.getRow();
         int myC = movingFrom.getCol();
 
-        ArrayList<Move> temp = new ArrayList<>();
+        ArrayList<Move> temp = new ArrayList<Move>();
         for (int i = 1; i < ROWS; i++) {
             if (!addMove(new Move(movingFrom, myR + i, myC, board), player, temp, board))
                 break;
         }
         ArrayList<Move> finalTemp = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList<Move>() {{
             addAll(finalTemp);
         }});
-        temp = new ArrayList<>();
+        temp = new ArrayList<Move>();
         for (int i = 1; i < ROWS; i++) {
             if (!addMove(new Move(movingFrom, myR, myC + i, board), player, temp, board))
                 break;
         }
 
         ArrayList<Move> finalTemp1 = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList<Move>() {{
             addAll(finalTemp1);
         }});
-        temp = new ArrayList<>();
+        temp = new ArrayList<Move>();
         for (int i = 1; i < ROWS; i++) {
             if (!addMove(new Move(movingFrom, myR - i, myC, board), player, temp, board))
                 break;
         }
         ArrayList<Move> finalTemp2 = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList<Move>() {{
             addAll(finalTemp2);
         }});
-        temp = new ArrayList<>();
+        temp = new ArrayList<Move>();
         for (int i = 1; i < ROWS; i++) {
             if (!addMove(new Move(movingFrom, myR, myC - i, board), player, temp, board))
                 break;

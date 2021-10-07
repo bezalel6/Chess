@@ -55,12 +55,12 @@ public class Pawn extends Piece {
         Location leftCapture = new Location(myR + difference, myC - 1), rightCapture = new Location(myR + difference, myC + 1);
 
         if (isInBounds(rightCapture))
-            ret.add(new ArrayList<>() {{
+            ret.add(new ArrayList<Move>() {{
                 add(new Move(pieceLoc, rightCapture, true, board));
             }});
 
         if (isInBounds(leftCapture))
-            ret.add(new ArrayList<>() {{
+            ret.add(new ArrayList<Move>() {{
                 add(new Move(pieceLoc, leftCapture, true, board));
             }});
         checkPromoting(ret);

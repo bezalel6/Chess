@@ -36,7 +36,7 @@ public class Knight extends Piece {
         for (int i = 0; i < combinations.length; i += 2) {
             Location loc = new Location(myR + combinations[i], myC + combinations[i + 1]);
             if (!isInBounds(loc)) continue;
-            ret.add(new ArrayList<>() {{
+            ret.add(new ArrayList<Move>() {{
                 add(new Move(pieceLoc, loc, false, board));
             }});
         }

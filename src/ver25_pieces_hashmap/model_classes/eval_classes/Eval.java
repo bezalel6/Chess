@@ -8,6 +8,7 @@ import ver25_pieces_hashmap.model_classes.pieces.Piece;
 import ver25_pieces_hashmap.moves.Move;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import static ver25_pieces_hashmap.model_classes.pieces.Piece.*;
 
@@ -174,7 +175,7 @@ public class Eval {
         double ret = 0;
         GamePhase phase = new GamePhase();
 
-        for (var playersPieces : board.getPieces()) {
+        for (Map<Location,Piece> playersPieces : board.getPieces()) {
             for (Piece piece : playersPieces.values()) {
                 int currentPieceColor = piece.getPieceColor();
                 int mult = currentPieceColor == player ? 1 : -1;

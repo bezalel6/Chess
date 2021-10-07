@@ -442,7 +442,7 @@ public class Board implements Iterable<Piece[]> {
 
         ret += " ";
         for (int j = 0; j < logicMat.length; j++) {
-            ret += " " + Character.toString('ａ' + j) + " ";
+            ret += " " + Character.toString((char) ('ａ' + j)) + " ";
         }
         ret += "\n";
 

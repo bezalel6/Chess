@@ -5,6 +5,7 @@ import ver25_pieces_hashmap.Location;
 import ver25_pieces_hashmap.model_classes.pieces.Piece;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 import static ver25_pieces_hashmap.model_classes.pieces.Piece.*;
@@ -89,7 +90,7 @@ public class Zobrist {
 
     public static long hash(Board board, int player) {
         long ret = 0;
-        for (var playersPieces : board.getPieces())
+        for (Map<Location,Piece> playersPieces : board.getPieces())
             for (Piece piece : playersPieces.values()) {
                 ret ^= hash(piece);
             }

@@ -44,7 +44,7 @@ public class King extends Piece {
         for (int i = 0; i < combinations.length; i += 2) {
             Location loc = new Location(myR + combinations[i], myC + combinations[i + 1]);
             if (isInBounds(loc)) {
-                ret.add(new ArrayList<>() {{
+                ret.add(new ArrayList<Move>() {{
                     add(new Move(pieceLoc, loc, false, board));
                 }});
             }
@@ -64,7 +64,7 @@ public class King extends Piece {
                 if (side == QUEEN_SIDE)
                     params.add(new Location(myR, myC - (num * 3)));//rook middle loc
                 int finalSide = side;
-                ret.add(new ArrayList<>() {{
+                ret.add(new ArrayList<Move>() {{
                     add(new Castling(new Move(pieceLoc, kingFinalLoc, false, board), finalSide, params));
                 }});
             }

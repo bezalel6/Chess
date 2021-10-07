@@ -28,7 +28,7 @@ public class Rook extends Piece {
                 break;
         }
         ArrayList<Move> finalTemp = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList() {{
             addAll(finalTemp);
         }});
         temp = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Rook extends Piece {
         }
 
         ArrayList<Move> finalTemp1 = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList() {{
             addAll(finalTemp1);
         }});
         temp = new ArrayList<>();
@@ -47,7 +47,7 @@ public class Rook extends Piece {
                 break;
         }
         ArrayList<Move> finalTemp2 = temp;
-        ret.add(new ArrayList<>() {{
+        ret.add(new ArrayList() {{
             addAll(finalTemp2);
         }});
         temp = new ArrayList<>();

@@ -2,7 +2,7 @@ package ver25_pieces_hashmap.model_classes;
 
 import ver25_pieces_hashmap.Controller;
 import ver25_pieces_hashmap.Location;
-import Global_Packagaes.Positions;
+import Global_Classes.Positions;
 import ver25_pieces_hashmap.model_classes.eval_classes.Eval;
 import ver25_pieces_hashmap.model_classes.eval_classes.Evaluation;
 import ver25_pieces_hashmap.model_classes.pieces.Piece;

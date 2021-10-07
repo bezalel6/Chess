@@ -124,7 +124,7 @@ public class View {
         rowsCoordinatesPnl.setLayout(new GridLayout(8, 1));
 
         for (int i = 0; i < 8; i++) {
-            JLabel col = new JLabel(Character.toString(i + 'a') + "");
+            JLabel col = new JLabel(Character.toString((char) (i + 'a')) + "");
             JLabel row = new JLabel((i + 1) + "");
             col.setPreferredSize(btnDimension);
             row.setPreferredSize(btnDimension);

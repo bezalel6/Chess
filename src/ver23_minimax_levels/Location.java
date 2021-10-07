@@ -48,7 +48,7 @@ public class Location {
     }
 
     public String getColString() {
-        return Character.toString(col + 'a');
+        return Character.toString((char) (col + 'a'));
     }
 
     public int getCol() {

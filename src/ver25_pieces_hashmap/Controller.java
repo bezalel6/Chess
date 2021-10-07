@@ -1,7 +1,7 @@
 package ver25_pieces_hashmap;
 
 
-import Global_Packagaes.Positions;
+import Global_Classes.Positions;
 import ver25_pieces_hashmap.model_classes.Board;
 import ver25_pieces_hashmap.model_classes.GameStatus;
 import ver25_pieces_hashmap.model_classes.Model;
