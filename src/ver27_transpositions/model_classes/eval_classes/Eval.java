@@ -29,6 +29,7 @@ public class Eval {
     public static final String[] EVAL_PARAMETERS_NAMES = initEvalParametersArr();
     public static final int MIDDLE_GAME = 0, ENDGAME = 1, OPENING = 2;
     private static final HashMap<Long, Evaluation> evaluationHashMap = new HashMap<>();
+    private static final HashMap<Long, Evaluation> capturesEvaluationHashMap = new HashMap<>();
     private static final HashMap<Long, Evaluation> gameOverHashMap = new HashMap<>();
     private static final double endgameMaterialStart = Piece.getPieceWorth(ROOK) * 2 + Piece.getPieceWorth(BISHOP) + Piece.getPieceWorth(KNIGHT);
     private final Board board;
@@ -133,7 +134,13 @@ public class Eval {
     }
 
     public Evaluation getCapturesEvaluation(int player) {
-        return getCapturesEvaluation_(player, true);
+        long hash = board.getBoardHash(player);
+        if (capturesEvaluationHashMap.containsKey(hash)) {
+            return capturesEvaluationHashMap.get(hash);
+        }
+        Evaluation evaluation = getCapturesEvaluation_(player, true);
+        capturesEvaluationHashMap.put(hash, evaluation);
+        return evaluation;
     }
 
     private Evaluation getCapturesEvaluation_(int player, boolean isMax) {
@@ -338,19 +345,19 @@ public class Eval {
     }
 
     private boolean checkRepetition(int player) {
-//        if (board.getRepetitionHashList().size() >= 8) {
-//            long currentHash = board.hashBoard(player);
-//            int numOfMatches = 0;
-////            int minMatch = currentPlayer == player ? 3 : 2;
-//            int minMatch = 3;
-//            for (long hash : board.getRepetitionHashList()) {
-//                if (currentHash == hash) {
-//                    numOfMatches++;
-//                    if (numOfMatches >= minMatch)
-//                        return true;
-//                }
-//            }
-//        }
+        if (board.getRepetitionHashList().size() >= 8) {
+            long currentHash = board.getBoardHash(player);
+            int numOfMatches = 0;
+//            int minMatch = currentPlayer == player ? 3 : 2;
+            int minMatch = 3;
+            for (long hash : board.getRepetitionHashList()) {
+                if (currentHash == hash) {
+                    numOfMatches++;
+                    if (numOfMatches >= minMatch)
+                        return true;
+                }
+            }
+        }
         return false;
     }
 

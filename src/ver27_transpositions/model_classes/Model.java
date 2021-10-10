@@ -162,13 +162,15 @@ public class Model {
             return ret;
         }
         boolean isRoot = depth == 0;
+        boolean putNewTransposition = true;
         MinimaxMove bestMove = new MinimaxMove(new Evaluation(isMax));
         Transposition transposition;
         ArrayList<Move> possibleMoves;
         if (transpositionsHashMap.containsKey(board.getBoardHash())) {
             transposition = transpositionsHashMap.get(board.getBoardHash());
-            possibleMoves = new ArrayList<>(transposition.getPossibleMoves());
+            possibleMoves = transposition.getPossibleMoves();
             transpositionHits++;
+            putNewTransposition = false;
         } else {
             possibleMoves = board.getAllMoves();
             sortMoves(possibleMoves, isMax);
@@ -198,8 +200,9 @@ public class Model {
 
         }
         assert bestMove.getMove() != null;
-        sortMoves(possibleMoves, isMax);
-        transpositionsHashMap.put(board.getBoardHash(), new Transposition(transposition));
+//        sortMoves(possibleMoves, isMax);
+        if (putNewTransposition)
+            transpositionsHashMap.put(board.getBoardHash(), transposition);
         return bestMove;
     }
 

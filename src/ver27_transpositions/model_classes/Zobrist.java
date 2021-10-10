@@ -134,4 +134,7 @@ public class Zobrist {
         return hash(loc) + zPlayer[player];
     }
 
+    public static long combineHashes(long h1, long h2) {
+        return h1 ^ h2;
+    }
 }

@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 public class Transposition {
     private ArrayList<Move> possibleMoves;
+    private int depth;
 
     public Transposition(Transposition other) {
-        setPossibleMoves(other.getPossibleMoves());
+        this.possibleMoves = other.getPossibleMoves();
+        this.depth = other.depth;
     }
 
     public Transposition(ArrayList<Move> possibleMoves) {
@@ -20,7 +22,7 @@ public class Transposition {
     }
 
     public void setPossibleMoves(ArrayList<Move> possibleMoves) {
-        this.possibleMoves = new ArrayList<>(possibleMoves);
+        this.possibleMoves = possibleMoves;
     }
 
 }

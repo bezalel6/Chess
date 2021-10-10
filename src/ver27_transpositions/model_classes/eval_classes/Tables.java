@@ -159,7 +159,7 @@ public class Tables {
         return pieceTables[pieceType];
     }
 
-    static class PieceTable {
+    public static class PieceTable {
         private final int[][][][] tables;
 
         public PieceTable(int[][] middleGame, int[][] endGame) {
@@ -179,6 +179,10 @@ public class Tables {
             int[][] ret = new int[arr.length][arr[0].length];
             for (int i = 0, j = arr.length - 1; i < arr.length; i++, j--) {
                 ret[i] = Arrays.copyOf(arr[j], arr[j].length);
+//                ret[i] = new int[arr[j].length];
+//                for (int k = 0, index = arr[j].length - 1; k < arr[j].length; k++, index--) {
+//                    ret[i][index] = arr[j][k];
+//                }
             }
             return ret;
         }

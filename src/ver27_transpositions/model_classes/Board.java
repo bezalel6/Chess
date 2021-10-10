@@ -17,6 +17,7 @@ import static ver27_transpositions.model_classes.pieces.Piece.*;
 public class Board implements Iterable<Square[]> {
 
     private static final ConcurrentHashMap<Long, Boolean> threatenedHashMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Long, ArrayList<Move>> movesGenerationHashMap = new ConcurrentHashMap<>();
     private final FEN fen;
     private ArrayList<Long> repetitionHashList;
     private Square[][] logicMat;
@@ -232,7 +233,7 @@ public class Board implements Iterable<Square[]> {
 
     public boolean isThreatened(Location loc, int threateningPlayer) {
         long tHash = getBoardHash();
-        tHash ^= Zobrist.hash(loc, threateningPlayer);
+        tHash = Zobrist.combineHashes(tHash, Zobrist.hash(loc, threateningPlayer));
         if (threatenedHashMap.containsKey(tHash)) {
             return threatenedHashMap.get(tHash);
         }
@@ -268,6 +269,7 @@ public class Board implements Iterable<Square[]> {
 
     public ArrayList<Move> getPieceMovesFrom(Location from, int type, int player) {
         assert Piece.isValidPieceType(type);
+
         ArrayList<ArrayList<Move>> lists;
         switch (type) {
             case BISHOP:
@@ -333,17 +335,16 @@ public class Board implements Iterable<Square[]> {
     }
 
     public ArrayList<Move> getAllMoves(int player) {
-//        long hash = boardHash;
-//        long hash = hashBoard(player);
-//        if (moveGenerationHashMap.containsKey(hash)) {
-//            return moveGenerationHashMap.get(hash);
-//        }
+        long hash = getBoardHash(player);
+        if (movesGenerationHashMap.containsKey(hash)) {
+            return movesGenerationHashMap.get(hash);
+        }
         ArrayList<Move> ret = new ArrayList<>();
         for (Piece piece : getPlayersPieces(player)) {
             if (!piece.isCaptured())
                 ret.addAll(piece.canMoveTo(this));
         }
-//        moveGenerationHashMap.put(hash, ret);
+        movesGenerationHashMap.put(hash, ret);
         return ret;
     }
 
@@ -414,21 +415,22 @@ public class Board implements Iterable<Square[]> {
         setPiece(movingTo, piece);
 
         setSquareEmpty(movingFrom);
-
-        if (move.isReversible()) {
-            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
-//            todo check if needs to give the moving player
-//            repetitionHashList.add(hashBoard());
-        } else {
-            setHalfMoveClock(0);
-//            repetitionHashList.clear();
-        }
         if (!(move instanceof DoublePawnPush)) {
             setEnPassantTargetLoc((Location) null);
             setEnPassantActualLoc(null);
         }
+        if (!move.isReversible()) {
+            setHalfMoveClock(0);
+            repetitionHashList.clear();
+        }
         switchTurn();
         setBoardHash();
+        if (move.isReversible()) {
+            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
+            repetitionHashList.add(getBoardHash());
+        }
+
+
     }
 
 

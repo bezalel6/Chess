@@ -1,6 +1,11 @@
 package tools;
 
-import ver19_square_control.Location;
+import org.w3c.dom.ranges.Range;
+import ver27_transpositions.Controller;
+import ver27_transpositions.Location;
+import ver27_transpositions.Player;
+import ver27_transpositions.model_classes.eval_classes.Tables;
+import ver27_transpositions.model_classes.pieces.Piece;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -122,7 +127,23 @@ public class Main {
 
     //endregion
     public static void main(String[] args) {
-        String str = "sunshineyellowteslagaming";
+        for (int type : Piece.PIECES_TYPES) {
+            double[][] mat = new double[8][8];
+            Tables.PieceTable table = Tables.getPieceTable(type);
+            for (int player : Player.PLAYERS) {
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        Location loc = new Location(i, j);
+                        double val = table.getValue(1, player, loc);
+                        if (player == 0) {
+                            mat[i][j] = val;
+                        } else {
+                            assert mat[i][j] == val;
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
