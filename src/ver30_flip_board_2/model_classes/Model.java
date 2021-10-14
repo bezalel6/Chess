@@ -145,7 +145,6 @@ public class Model {
 
 
     public MinimaxMove minimax(int maxDepth) {
-        //fixme copying board resetting starting locs
         return minimax(new Board(logicBoard), logicBoard.getCurrentPlayer(), true, 0, maxDepth, new AlphaBeta(), null);
     }
 
@@ -156,7 +155,9 @@ public class Model {
             leavesReached++;
             Evaluation moveEval = boardEval.getEvaluation(currentPlayer);
             rootMove.setMoveEvaluation(moveEval);
-            MinimaxMove ret = new MinimaxMove(rootMove, moveEval, depth, new Board(board), isMax);
+//            if (false)
+            board = new Board(board);
+            MinimaxMove ret = new MinimaxMove(rootMove, moveEval, depth, board, isMax);
 
             if (isOvertimeWithFlex()) {
                 ret.setCompleteSearch(false);
@@ -168,7 +169,7 @@ public class Model {
 //            transpositionHits++;
 //            Transposition transposition = transpositionsHashMap.get(hash);
 //            bestMove = transpositionMinimax(transposition, currentPlayer, isMax, maxDepth, isRoot);
-        if (false) {
+        if (depth == 0) {
             bestMove = parallelMinimax(board, isMax, currentPlayer, depth, maxDepth, alphaBeta);
         } else {
             bestMove = normalMinimax(board, isMax, currentPlayer, depth, maxDepth, alphaBeta, rootMove);

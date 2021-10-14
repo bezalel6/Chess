@@ -18,7 +18,6 @@ public class Board implements Iterable<Square[]> {
 
     private static final ConcurrentHashMap<Long, Boolean> threatenedHashMap = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<Long, ArrayList<Move>> movesGenerationHashMap = new ConcurrentHashMap<>();
-    private static final ConcurrentHashMap<Long, ArrayList<Move>> pieceMovesFromHashMap = new ConcurrentHashMap<>();
     private final FEN fen;
     private final Eval boardEval;
     private ArrayList<Long> repetitionHashList;
@@ -598,13 +597,6 @@ public class Board implements Iterable<Square[]> {
         return boardHash;
     }
 
-    //
-//    public long getBoardHash(int player) {
-////        if (player == currentPlayer) {
-//        return boardHash;
-////        }
-////        return hashBoard(player);
-//    }
     private void setBoardHash() {
         boardHash.setAll(this);
     }

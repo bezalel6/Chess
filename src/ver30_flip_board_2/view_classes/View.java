@@ -81,21 +81,15 @@ public class View implements Iterable<BoardButton[]> {
     public void showOnScreen(int screen, JFrame frame) {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] gd = ge.getScreenDevices();
-        if (screen > -1 && screen < gd.length) {
+        if (screen >= gd.length || screen <= -1)
+            screen = 0;
 //            frame.setAlwaysOnTop(true);
-            Dimension d = new Dimension(gd[screen].getDefaultConfiguration().getBounds().getSize());
-//            d.width = d.height;
-            frame.setSize(d);
-            int x = gd[screen].getDefaultConfiguration().getBounds().getLocation().x;
-            int y = gd[screen].getDefaultConfiguration().getBounds().getLocation().y;
-//            y += d.width;
-            frame.setLocation(x, y);
-            //frame.setLocation(gd[screen].setFullScreenWindow(frame).getBounds().x, frame.getY());
-        } else if (gd.length > 0) {
-            frame.setLocation(gd[0].getDefaultConfiguration().getBounds().x, frame.getY());
-        } else {
-            throw new RuntimeException("No Screens Found");
-        }
+        Dimension d = new Dimension(gd[screen].getDefaultConfiguration().getBounds().getSize());
+        frame.setSize(d);
+        int x = gd[screen].getDefaultConfiguration().getBounds().getLocation().x;
+        int y = gd[screen].getDefaultConfiguration().getBounds().getLocation().y;
+        frame.setLocation(x, y);
+
         frame.setVisible(true);
     }
 
@@ -202,18 +196,6 @@ public class View implements Iterable<BoardButton[]> {
         JMenu settingsMenu = new JMenu("Menu");
         settingsMenu.setFont(menuItemsFont);
 
-//        Dimension d = new Dimension(1000, 1000);
-//        movesLog.setMaximumSize(d);
-//        movesLog.setPreferredSize(d);
-//        movesLog.setPreferredSize(d);
-//
-//        JCheckBoxMenuItem toggleMovesLog = new JCheckBoxMenuItem("Moves Log");
-//        toggleMovesLog.setFont(menuItemsFont);
-//        toggleMovesLog.addActionListener(e -> enableMovesLog(toggleMovesLog.isSelected()));
-//        toggleMovesLog.setState(false);
-//        enableMovesLog(toggleMovesLog.isSelected());
-//        settingsMenu.add(toggleMovesLog);
-
         JCheckBoxMenuItem flipBoard = new JCheckBoxMenuItem("Flip Board");
         flipBoard.setFont(menuItemsFont);
         flipBoard.addActionListener(e -> {
@@ -259,21 +241,6 @@ public class View implements Iterable<BoardButton[]> {
         }, runningProcessPnl);
         runningProcessPnl.setVisible(false);
         topPnl.add(runningProcessPnl);
-
-//        moveTextField.addActionListener(e -> {
-//            System.out.println(e);
-//            JTextField textField = (JTextField) e.getSource();
-//            textField.setBackground(null);
-//            textField.setText("");
-//            if (controller.enteredMoveText(textField.getText())) {
-//                textField.setBackground(moveTextFieldBackgroundColor);
-//
-//            } else {
-//                textField.setBackground(moveTextFieldWrongMoveBackgroundColor);
-//
-//            }
-//
-//        });
 
         btnMat = new BoardButton[ROWS][COLS];
         buttonsPnl.setLayout(new GridLayout(ROWS, COLS));
@@ -480,6 +447,8 @@ public class View implements Iterable<BoardButton[]> {
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.fill = GridBagConstraints.BOTH;
         win.add(bottomPnl, gbc);
+
+        win.pack();
     }
 
     private void boardContainerSetup() {
@@ -543,8 +512,8 @@ public class View implements Iterable<BoardButton[]> {
         statusLbl.setText(str);
     }
 
-    public void updateMoveLog(String move) {
-//        movesLog.setText(movesLog.getText() + " " + move);
+    public void updateMoveLog(String move, int moveNum) {
+        sidePanel.addMoveStr(move, moveNum);
     }
 
 

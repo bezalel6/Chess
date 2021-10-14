@@ -169,7 +169,6 @@ public class Controller {
             timer.stop();
         }
         timer = createClock();
-        timer.start();
     }
 
     private void initViewGame() {
@@ -180,7 +179,7 @@ public class Controller {
 
     private Timer createClock() {
         SidePanel sidePanel = view.getSidePanel();
-        int delay = 1;
+        int delay = 100;
         return new Timer(delay, e -> {
             int player = model.getBoard().getCurrentPlayer();
 
@@ -245,6 +244,7 @@ public class Controller {
             view.enableSquare(loc, true);
             view.colorCurrentPiece(loc);
         } else {
+//            timer.start();
             Move move = findMove(model.getMoves(currentPiece, model.getBoard()), currentPiece, loc);
             if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
                 if (move instanceof PromotionMove) {
@@ -271,10 +271,8 @@ public class Controller {
 
         String moveAnnotation = model.makeMove(move, board);
         Evaluation moveEval = move.getMoveEvaluation();
-        if (getCurrentPlayer() == Player.WHITE)
-            moveAnnotation = model.getBoard().getFullMoveClock() + ". " + moveAnnotation;
-        view.updateMoveLog(moveAnnotation);
-        System.out.println(moveAnnotation);
+        int moveNum = getCurrentPlayer() == Player.BLACK ? model.getBoard().getFullMoveClock() : -1;
+        view.updateMoveLog(moveAnnotation, moveNum);
         if (checkGameStatus(moveEval, board))
             return;
         if (move instanceof PromotionMove) {

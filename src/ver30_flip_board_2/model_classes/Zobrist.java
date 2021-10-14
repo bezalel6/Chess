@@ -12,6 +12,7 @@ import static ver30_flip_board_2.model_classes.pieces.Piece.NUM_OF_PIECE_TYPES;
 import static ver30_flip_board_2.model_classes.pieces.Piece.NUM_OF_PLAYERS;
 
 public class Zobrist {
+    public static final Random rnd = new Random();
     private static final long[][][][] zPieces = initPieces();
     private static final long[][][][] zCapturedPieces = initPieces();
     private static final long[][] zEnPassant = initEnPassant();
@@ -75,7 +76,7 @@ public class Zobrist {
     }
 
     public static long random64() {
-        return new Random().nextLong();
+        return rnd.nextLong();
     }
 
     public static long hash(Location loc) {
@@ -89,17 +90,6 @@ public class Zobrist {
     public static long hash(Move move) {
         return combineHashes(hash(move.getMovingFrom()), hash(move.getMovingTo()));
     }
-//    public static BoardHash hashBoard(Board board) {
-//        long ret = 0;
-//        int currentPlayer = board.getCurrentPlayer();
-//
-//        ret ^= piecesHash(board);
-//        ret ^= enPassantHash(board, currentPlayer);
-//        ret ^= castlingAbilityHash(board);
-//        ret ^= player2MoveHash(currentPlayer);
-//
-//        return ret;
-//    }
 
     public static long playerHash(Board board) {
         return playerHash(board.getCurrentPlayer());

@@ -26,14 +26,14 @@ public class BoardHash {
         setPiecesLocsHash(board);
         setCurrentPlayerHash(board);
         setEnPassantHash(board);
-    }
-
-    public void setPiecesLocsHash(Board board) {
-        piecesHash = Zobrist.piecesHash(board);
         setFullHash();
     }
 
-    public void setFullHash() {
+    private void setPiecesLocsHash(Board board) {
+        piecesHash = Zobrist.piecesHash(board);
+    }
+
+    private void setFullHash() {
         fullHash = Zobrist.combineHashes(new long[]{piecesHash, enPassantHash, castlingAbilityHash, currentPlayerHash});
     }
 
@@ -45,9 +45,8 @@ public class BoardHash {
         return enPassantHash;
     }
 
-    public void setEnPassantHash(Board board) {
+    private void setEnPassantHash(Board board) {
         enPassantHash = Zobrist.enPassantHash(board);
-        setFullHash();
     }
 
     public long getCastlingAbilityHash() {
@@ -56,7 +55,6 @@ public class BoardHash {
 
     public void setCastlingAbilityHash(Board board) {
         castlingAbilityHash = Zobrist.castlingAbilityHash(board);
-        setFullHash();
     }
 
     public long getCurrentPlayerHash() {
@@ -65,7 +63,6 @@ public class BoardHash {
 
     public void setCurrentPlayerHash(Board board) {
         currentPlayerHash = Zobrist.playerHash(board);
-        setFullHash();
     }
 
     public long getFullHash() {
