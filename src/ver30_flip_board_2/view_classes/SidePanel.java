@@ -4,6 +4,7 @@ import ver30_flip_board_2.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Dimension2D;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
@@ -12,8 +13,8 @@ public class SidePanel extends JPanel {
     private final JLabel[] timeLbls;
     private final JPanel white, black;
     private final MyJButton resignBtn, offerDrawBtn, addTimeBtn;
-    private final JFrame moveLogWin;
     private JPanel moveLogPnl;
+    private JScrollPane moveLogScroll;
 
     public SidePanel(long millis, boolean isFlipped) {
         String timeControl = createTimeStr(millis);
@@ -33,10 +34,11 @@ public class SidePanel extends JPanel {
         white = createTimerPnl("White", timeLbls[Player.WHITE]);
         black = createTimerPnl("Black", timeLbls[Player.BLACK]);
 
-        moveLogWin = createMoveLogPnl();
-
+        createMoveLogPnl();
         createAndAddLayout(isFlipped);
-//        IntStream.range(1, 10).forEach(i -> addMoveStr("si", i));
+        IntStream.range(1, 10).forEach(i -> addMoveStr("si", i));
+//        test.add(moveLogScroll);
+//        test.setVisible(true);
 
     }
 
@@ -56,17 +58,14 @@ public class SidePanel extends JPanel {
         return hours + minutes + seconds + micros;
     }
 
-    private JFrame createMoveLogPnl() {
-        JFrame ret = new JFrame();
-        moveLogPnl = new JPanel();
-        moveLogPnl.setLayout(new GridLayout(0, 3));
-        JScrollPane scroll = new JScrollPane(moveLogPnl);
-        scroll.createVerticalScrollBar();
-        scroll.setAutoscrolls(true);
+    private void createMoveLogPnl() {
+        moveLogPnl = new JPanel(new GridLayout(0, 3));
+        moveLogPnl.add(new JLabel("test"));
+        moveLogPnl.setPreferredSize(new Dimension(1000, 100));
+
+        moveLogScroll = new JScrollPane(moveLogPnl, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         moveLogPnl.setAutoscrolls(true);
-        scroll.setSize(new Dimension(200, 2900));
-        ret.getContentPane().add(scroll);
-        return ret;
+        moveLogScroll.setPreferredSize(new Dimension(1000, 300));
     }
 
     public void addMoveStr(String str, int moveNum) {
@@ -74,6 +73,7 @@ public class SidePanel extends JPanel {
         if (moveNum != -1)
             moveLogPnl.add(new JLabel(moveNum + ""));
         moveLogPnl.add(move);
+//        moveLogWin.pack();
     }
 
     public void setBothPlayersClocks(long[] clocks) {
@@ -90,7 +90,7 @@ public class SidePanel extends JPanel {
     private void createAndAddLayout(boolean isFlipped) {
         removeAll();
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
 
         int wY, bY;
@@ -122,9 +122,14 @@ public class SidePanel extends JPanel {
         gbc.gridy = 1;
         add(addTimeBtn, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 2;
-        add(moveLogWin.getContentPane(), gbc);
+//        gbc.weighty = 1;
+        gbc.weightx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.gridheight = GridBagConstraints.REMAINDER;
+        add(moveLogScroll, gbc);
+//        add(moveLogScroll);
     }
 
     public void setTimerLabel(int player, long millis) {
