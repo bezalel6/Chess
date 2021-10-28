@@ -61,21 +61,21 @@ public class Eval {
         return num + "".length();
     }
 
-    static double materialSumWithoutPawns(Board board, int player) {
+    static double materialSumWithoutPawnsAndK(Board board, int player) {
         double ret = 0;
 
         int[] pieces = board.getPiecesCount(player);
         for (int type : PIECES_TYPES) {
-            if (type != PAWN)
+            if (type != PAWN && type != KING)
                 ret += pieces[type] * Piece.getPieceWorth(type);
         }
         return ret;
     }
 
     public static double endgameWeight(Board board, int player) {
-        double materialWithoutPawns = materialSumWithoutPawns(board, player);
+        double materialWithoutPawns = materialSumWithoutPawnsAndK(board, player);
         double multiplier = 1 / endgameMaterialStart;
-        endgameMaterialStart *= 100;
+//        double multiplier =1/ endgameMaterialStart;
 //        return 1 - materialWithoutPawns * multiplier;
         return 1 - Math.min(1, materialWithoutPawns * multiplier);
     }
@@ -85,12 +85,12 @@ public class Eval {
     }
 
     public Evaluation getEvaluation(int player) {
-        long hash = board.getBoardHash().getFullHash();
-        if (evaluationHashMap.containsKey(hash)) {
-            return evaluationHashMap.get(hash);
-        }
+//        long hash = board.getBoardHash().getFullHash();
+//        if (evaluationHashMap.containsKey(hash)) {
+//            return evaluationHashMap.get(hash);
+//        }
         Evaluation evaluation = getEvaluation_(player);
-        evaluationHashMap.put(hash, evaluation);
+//        evaluationHashMap.put(hash, evaluation);
         return evaluation;
     }
 

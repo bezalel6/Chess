@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ver31" type="Application" factoryName="Application">
+  <configuration default="false" name="ver32" type="Application" factoryName="Application">
     <option name="ALTERNATIVE_JRE_PATH" value="openjdk-16" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="ver31_fast_minimax.Controller" />
+    <option name="MAIN_CLASS_NAME" value="ver32_negamax.Controller" />
     <module name="Chess" />
     <option name="VM_PARAMETERS" value="-ea" />
     <extension name="coverage">

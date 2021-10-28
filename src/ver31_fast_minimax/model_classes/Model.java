@@ -138,10 +138,7 @@ public class Model {
         System.out.println("num of leaves reached: " + leavesReached);
         System.out.println("num of branches pruned: " + branchesPruned);
         System.out.println("num of transpositions hits: " + transpositionHits);
-//        System.out.println("moves: ");
-//        for (MinimaxMove minimaxMove : minimaxMoves) {
-//            System.out.println(minimaxMove.getShortPrintingStr());
-//        }
+
         return bestMoveSoFar;
     }
 
@@ -167,10 +164,6 @@ public class Model {
             return ret;
         }
         MinimaxMove bestMove;
-//        if (transpositionsHashMap.containsKey(hash) && transpositionsHashMap.get(hash).getMaxDepth() > maxDepth) {
-//            transpositionHits++;
-//            Transposition transposition = transpositionsHashMap.get(hash);
-//            bestMove = transpositionMinimax(transposition, currentPlayer, isMax, maxDepth, isRoot);
         if (false) {
             bestMove = parallelMinimax(board, isMax, currentPlayer, depth, maxDepth, alphaBeta);
         } else {
@@ -295,13 +288,6 @@ public class Model {
             System.out.println(move);
         }
     }
-//
-//    private ArrayList<Move> convertMinimaxMoves(ArrayList<MinimaxMove> minimaxMoves) {
-//        ArrayList<Move> ret = new ArrayList<>();
-//        for (MinimaxMove minimaxMove : minimaxMoves)
-//            ret.add(minimaxMove.getMove());
-//        return ret;
-//    }
 
     public Controller getController() {
         return controller;

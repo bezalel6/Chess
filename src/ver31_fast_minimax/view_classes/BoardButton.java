@@ -24,7 +24,7 @@ public class BoardButton extends MyJButton {
         this.btnLoc = btnLoc;
     }
 
-    public void resetButton() {
+    public void resetBackground() {
         isSelected = false;
         setBackground(startingBackgroundColor);
     }
@@ -109,4 +109,7 @@ public class BoardButton extends MyJButton {
         isSelected = !isSelected;
     }
 
+    public void resetIcon() {
+        setIcon(null);
+    }
 }

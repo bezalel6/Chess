@@ -35,20 +35,16 @@ public class View implements Iterable<BoardButton[]> {
     private final Font coordinatesFont = new Font(null, Font.BOLD, 30);
     private final Font debugItemsFont = new Font(null, Font.BOLD, 20);
     private final Color checkColor = new Color(186, 11, 11, 255);
-    private final Color brown = new Color(79, 60, 33, 255);
-    private final Color white = new Color(222, 213, 187);
+
     private final Color red = Color.red;
     private final Color yellow = Color.yellow;
     private final Color currentBtnColor = Color.BLUE;
     private final Color promotingSquareColor = new Color(151, 109, 3);
-    private final Color moveTextFieldBackgroundColor = Color.WHITE;
-    private final Color moveTextFieldWrongMoveBackgroundColor = new Color(255, 0, 0, 50);
     private final Controller controller;
     private final Dimension btnDimension = new Dimension(90, 100);
     private final double winToScreenResolutionRatio = 0.8;
     private BoardPanel boardPnl;
     private SidePanel sidePanel;
-    private JPanel buttonsPnl;
     private JPanel colsCoordinatesPnl, rowsCoordinatesPnl;
     private JMenuBar menuBar;
     private JMenu debugMenu;
@@ -56,7 +52,6 @@ public class View implements Iterable<BoardButton[]> {
     private JPanel topPnl, runningProcessPnl, bottomPnl;
     private JLabel statusLbl;
     private int boardOrientation;
-    private BoardButton[][] btnMat;
     private MyJframe win;
     private LayerUI<JPanel> layerUI;
     private JLabel runningProcessLbl;
@@ -84,7 +79,7 @@ public class View implements Iterable<BoardButton[]> {
             screen = 0;
 //            frame.setAlwaysOnTop(true);
         Dimension d = new Dimension(gd[screen].getDefaultConfiguration().getBounds().getSize());
-        frame.setSize(d);
+//        frame.setSize(d);
         int x = gd[screen].getDefaultConfiguration().getBounds().getLocation().x;
         int y = gd[screen].getDefaultConfiguration().getBounds().getLocation().y;
         frame.setLocation(x, y);
@@ -98,12 +93,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void resetAllBtns() {
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLS; j++) {
-                btnMat[i][j].setIcon(null);
-            }
-        }
-        resetBackground();
+        boardPnl.resetAllButtons(true);
     }
 
     public BoardOverlay getBoardOverlay() {
@@ -112,10 +102,6 @@ public class View implements Iterable<BoardButton[]> {
 
     public void setBtnIcon(Location loc, ImageIcon icon) {
         getBtn(loc).setIcon(icon);
-    }
-
-    public BoardButton[][] getBtnMat() {
-        return btnMat;
     }
 
     private void setCoordinates() {
@@ -181,10 +167,9 @@ public class View implements Iterable<BoardButton[]> {
         win.setLocationRelativeTo(null);
         win.setLayout(new GridBagLayout());
 
-        boardPnl = new BoardPanel(isBoardFlipped());
+        boardPnl = new BoardPanel(ROWS, COLS, this);
         boardPnl.setLayout(new GridBagLayout());
 
-        buttonsPnl = new JPanel();
         setCoordinates();
 
         topPnl = new JPanel();
@@ -199,7 +184,6 @@ public class View implements Iterable<BoardButton[]> {
         flipBoard.setFont(menuItemsFont);
         flipBoard.addActionListener(e -> {
 //            isBoardFlipped = flipBoard.isSelected();
-            boardPnl.flip();
             controller.flipBoard();
         });
         flipBoard.setState(isBoardFlipped());
@@ -241,9 +225,7 @@ public class View implements Iterable<BoardButton[]> {
         runningProcessPnl.setVisible(false);
         topPnl.add(runningProcessPnl);
 
-        btnMat = new BoardButton[ROWS][COLS];
-        buttonsPnl.setLayout(new GridLayout(ROWS, COLS));
-        resetMat();
+        boardPnl.createMat();
         resetBackground();
         layoutSetup();
         showOnScreen(1, win);
@@ -262,32 +244,10 @@ public class View implements Iterable<BoardButton[]> {
     public void setBoardOrientation(int boardOrientation) {
         this.boardOrientation = boardOrientation;
         setCoordinates(false);
-        resetMat();
+        boardPnl.createMat();
         getBoardOverlay().repaintLayer();
     }
 
-    private void resetMat() {
-        boolean isBlack = false;
-        buttonsPnl.removeAll();
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLS; j++) {
-                Location btnLoc = new Location(i, j, isBoardFlipped());
-                BoardButton currentBtn = new BoardButton(btnLoc, isBlack ? brown : white);
-                currentBtn.setFont(new Font(null, Font.BOLD, 50));
-                currentBtn.addActionListener(e -> {
-                    boardButtonPressed(((BoardButton) e.getSource()).getBtnLoc());
-                });
-                setButton(currentBtn, btnLoc);
-                buttonsPnl.add(currentBtn);
-                isBlack = !isBlack;
-            }
-            isBlack = !isBlack;
-        }
-    }
-
-    private void setButton(BoardButton button, Location loc) {
-        btnMat[loc.getRow()][loc.getCol()] = button;
-    }
 
     private void createDebugMenu(JMenu settingsMenu) {
         debugMenu = new JMenu("Debug");
@@ -343,10 +303,6 @@ public class View implements Iterable<BoardButton[]> {
         });
         createDebugBtn("Captures Eval", (Void) -> {
             controller.printCapturesEval();
-            return null;
-        });
-        createDebugBtn("Load Buttons", (Void) -> {
-            ((BoardOverlay) layerUI).loadButtons();
             return null;
         });
 //        createDebugBtn("Flip Buttons", (Void) -> {
@@ -465,7 +421,7 @@ public class View implements Iterable<BoardButton[]> {
         boardPnl.add(rowsCoordinatesPnl, gbc);
 
         layerUI = new BoardOverlay(this);
-        JLayer<JPanel> jlayer = new JLayer<>(buttonsPnl, layerUI);
+        JLayer<JPanel> jlayer = new JLayer<>(boardPnl.getButtonsPnl(), layerUI);
 
         gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -523,7 +479,7 @@ public class View implements Iterable<BoardButton[]> {
     public void resetBackground() {
         for (BoardButton[] row : this) {
             for (BoardButton btn : row) {
-                btn.resetButton();
+                btn.resetBackground();
             }
         }
     }
@@ -552,7 +508,7 @@ public class View implements Iterable<BoardButton[]> {
 
 
     public BoardButton getBtn(int r, int c) {
-        return btnMat[r][c];
+        return boardPnl.getBtn(r, c);
     }
 //
 //    public void setBtn(int r, int c, BoardButton button) {
@@ -624,10 +580,6 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
-    public BoardButton getBtn() {
-        return btnMat[0][0];
-    }
-
     public void colorCurrentPiece(Location loc) {
         getBtn(loc).setBackground(currentBtnColor);
     }
@@ -647,6 +599,6 @@ public class View implements Iterable<BoardButton[]> {
 
     @Override
     public Iterator<BoardButton[]> iterator() {
-        return Arrays.stream(btnMat).iterator();
+        return Arrays.stream(boardPnl.getBtnMat()).iterator();
     }
 }

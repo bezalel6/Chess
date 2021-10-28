@@ -70,23 +70,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     }
 
-    public void loadButtons() {
-        for (BoardButton[] row : view.getBtnMat()) {
-            for (BoardButton btn : row) {
-                if (btn.getIcon() != null) {
-                    new Thread(() -> {
-//                        animateAndSetIcon(btn, btn.getUnscaledIcon());
-                    }).start();
-                    try {
-                        Thread.sleep(125);
-                    } catch (InterruptedException e) {
-                        MyError.error("");
-                    }
-                }
-            }
-        }
-    }
-
     public void animateAndSetIcon(BoardButton button, ImageIcon icon) {
         animateAndSetIcon(button, icon, 1);
 //        animateAndSetIcon(button, icon, 2);
