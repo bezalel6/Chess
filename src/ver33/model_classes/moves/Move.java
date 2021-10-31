@@ -1,14 +1,14 @@
-package ver32_negamax.model_classes.moves;
+package ver33.model_classes.moves;
 
-import ver32_negamax.Location;
-import ver32_negamax.MyError;
-import ver32_negamax.Player;
-import ver32_negamax.model_classes.Board;
-import ver32_negamax.model_classes.BoardHash;
-import ver32_negamax.model_classes.CastlingAbility;
-import ver32_negamax.model_classes.eval_classes.Evaluation;
-import ver32_negamax.model_classes.pieces.Piece;
-import ver32_negamax.model_classes.pieces.Rook;
+import ver33.Location;
+import ver33.MyError;
+import ver33.Player;
+import ver33.model_classes.Board;
+import ver33.model_classes.BoardHash;
+import ver33.model_classes.CastlingAbility;
+import ver33.model_classes.eval_classes.Evaluation;
+import ver33.model_classes.pieces.Piece;
+import ver33.model_classes.pieces.Rook;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,10 +45,8 @@ public class Move implements Comparable<Move> {
         this.movingPlayer = movingPlayer;
         this.movingPieceType = movingPieceType;
         this.capturingPieceType = capturingPieceType;
-        this.movingFrom = movingFrom;
-        this.movingTo = movingTo;
-//        this.movingFrom = new Location(movingFrom);
-//        this.movingTo = new Location(movingTo);
+        this.movingFrom = new Location(movingFrom);
+        this.movingTo = new Location(movingTo);
         this.moveAnnotation = new MoveAnnotation(this);
         if (board != null)
             fullyInitialize(board);
@@ -117,10 +115,12 @@ public class Move implements Comparable<Move> {
         } else if (move instanceof Castling) {
             ret += 10;
         }
-        if (move.getMoveEvaluation() != null && move.getMoveEvaluation().isCheck()) {
-            ret += 10;
+        if (move.getMoveEvaluation() != null) {
+            if (move.getMoveEvaluation().isCheck())
+                ret += 1000;
+            ret += move.getMoveEvaluation().getEval();
         }
-        ret /= 1000;
+//        ret /= 1000;
         return ret;
     }
 
@@ -278,6 +278,10 @@ public class Move implements Comparable<Move> {
     }
 
 
+    public MoveAnnotation getMoveAnnotation() {
+        return moveAnnotation;
+    }
+
     public String getAnnotation() {
         return moveAnnotation.toString();
     }
@@ -317,9 +321,6 @@ public class Move implements Comparable<Move> {
 
     @Override
     public int compareTo(Move o) {
-        if (moveEvaluation != null && o.moveEvaluation != null) {
-            return Double.compare(moveEvaluation.getEval(), o.moveEvaluation.getEval());
-        }
         return Double.compare(guessEval(this), guessEval(o));
     }
 
