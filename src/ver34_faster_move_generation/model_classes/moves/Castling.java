@@ -28,6 +28,13 @@ public class Castling extends Move {
         side = move.side;
     }
 
+    public ArrayList<Location> getKingPath() {
+        return new ArrayList<>() {{
+            add(locs[KING_MIDDLE_LOC]);
+            add(locs[KING_FINAL_LOC]);
+        }};
+    }
+
     public String getCastlingString() {
         return CASTLING_ANNOTATION[side];
     }

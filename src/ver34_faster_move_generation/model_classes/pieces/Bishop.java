@@ -1,7 +1,6 @@
 package ver34_faster_move_generation.model_classes.pieces;
 
 import ver34_faster_move_generation.Location;
-import ver34_faster_move_generation.model_classes.Board;
 import ver34_faster_move_generation.model_classes.moves.Move;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ public class Bishop extends Piece {
             1, -1,
             -1, 1
     };
+    private static final ArrayList<ArrayList<Move>>[][] preCalculatedMoves = calc();
     public static double worth = 3.2;
 
     public Bishop(Location loc, int pieceColor) {
@@ -24,11 +24,18 @@ public class Bishop extends Piece {
         setLoc(other.getLoc());
     }
 
-    public static ArrayList<ArrayList<Move>> createBishopMoves(Location movingFrom, int player) {
-        return createBishopMoves(movingFrom, player, BISHOP);
+    private static ArrayList<ArrayList<Move>>[][] calc() {
+        ArrayList<ArrayList<Move>>[][] ret = new ArrayList[8][8];
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Location loc = new Location(row, col);
+                ret[row][col] = generateMoves(loc);
+            }
+        }
+        return ret;
     }
 
-    public static ArrayList<ArrayList<Move>> createBishopMoves(Location movingFrom, int player, int pieceType) {
+    private static ArrayList<ArrayList<Move>> generateMoves(Location movingFrom) {
         ArrayList<ArrayList<Move>> ret = new ArrayList<>();
         int myR = movingFrom.getRow();
         int myC = movingFrom.getCol();
@@ -38,16 +45,20 @@ public class Bishop extends Piece {
             for (int i = 1; i < 8; i++) {
                 Location tLoc = new Location(myR + combinations[j + 1] * i, myC + combinations[j] * i);
                 if (tLoc.isInBounds())
-                    temp.add(new Move(movingFrom, tLoc, player, pieceType));
+                    temp.add(new Move(movingFrom, tLoc));
             }
             ret.add(temp);
         }
         return ret;
     }
 
+    public static ArrayList<ArrayList<Move>> getPseudoBishopMoves(Location movingFrom) {
+        return preCalculatedMoves[movingFrom.getRow()][movingFrom.getCol()];
+    }
+
     @Override
     public ArrayList<ArrayList<Move>> generatePseudoMoves() {
-        return createBishopMoves(getLoc(), getPieceColor(), BISHOP);
+        return getPseudoBishopMoves(getLoc());
     }
 }
 

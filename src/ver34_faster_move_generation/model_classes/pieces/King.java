@@ -46,7 +46,7 @@ public class King extends Piece {
             Location loc = new Location(myR + combinations[i], myC + combinations[i + 1]);
             if (loc.isInBounds())
                 ret.add(new ArrayList<>() {{
-                    add(new Move(movingFrom, loc, player, KING));
+                    add(new Move(movingFrom, loc));
                 }});
         }
         for (int side = 0; side < 2; side++) {
@@ -60,7 +60,7 @@ public class King extends Piece {
             ArrayList<Location> params = new ArrayList<>(Arrays.asList(kingMiddleLoc, kingFinalLoc, rookLoc, rookFinalLoc));
             if (side == QUEEN_SIDE)
                 params.add(new Location(myR, myC - (num * 3)));//rook middle loc
-            Castling castling = new Castling(new Move(movingFrom, kingFinalLoc, player, KING), side, params);
+            Castling castling = new Castling(new Move(movingFrom, kingFinalLoc), side, params);
             if (Location.batchCheckBounds(castling.getCastlingLocs()))
                 ret.add(new ArrayList<>() {{
                     add(castling);

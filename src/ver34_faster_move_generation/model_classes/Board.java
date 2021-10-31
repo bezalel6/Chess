@@ -300,19 +300,19 @@ public class Board implements Iterable<Square[]> {
         ArrayList<ArrayList<Move>> lists;
         switch (type) {
             case BISHOP:
-                lists = Bishop.createBishopMoves(from, player);
+                lists = Bishop.getPseudoBishopMoves(from);
                 break;
             case ROOK:
-                lists = Rook.createRookMoves(from, player);
+                lists = Rook.getPseudoRookMoves(from);
                 break;
             case KNIGHT:
-                lists = Knight.createKnightMoves(from, player);
+                lists = Knight.getPseudoKnightMoves(from);
                 break;
             case PAWN:
-                lists = Pawn.createPawnMoves(from, player, true);
+                lists = Pawn.createCaptureMoves(from, player);
                 break;
             case QUEEN:
-                lists = Queen.createQueenMoves(from, player);
+                lists = Queen.createQueenMoves(from);
                 break;
             case KING:
                 lists = King.createKingMoves(from, player);
@@ -322,6 +322,7 @@ public class Board implements Iterable<Square[]> {
                 lists = new ArrayList<>();
                 break;
         }
+        lists = PieceMoves.createPseudoLegalMoves(this, lists, type, player);
         ArrayList<Move> ret = convertListOfLists(lists);
         return ret;
     }
@@ -353,8 +354,6 @@ public class Board implements Iterable<Square[]> {
     }
 
     public Collection<Piece> getPlayersPieces(int player) {
-//        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-//        System.out.println(stackTraceElements[2]);
         return pieces[player].values();
     }
 
@@ -426,7 +425,7 @@ public class Board implements Iterable<Square[]> {
         }
         //endregion
 
-        if (move.getMovingPlayer() == Player.BLACK)
+        if (currentPlayer == Player.BLACK)
             fullMoveClock++;
 
 //        if (move.getDisableCastling() != null)
@@ -469,7 +468,7 @@ public class Board implements Iterable<Square[]> {
         assert _m == move;
 //        boardHash = new BoardHash(move.getPrevBoardHash());
         setBoardHash();
-        if (move.getMovingPlayer() == Player.BLACK)
+        if (currentPlayer != Player.BLACK)
             fullMoveClock--;
 //        setHalfMoveClock(move.getPrevHalfMoveClock());
 

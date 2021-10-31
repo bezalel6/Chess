@@ -27,17 +27,13 @@ public class Rook extends Piece {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 Location loc = new Location(row, col);
-                ret[row][col] = createRookMoves(loc, 0);
+                ret[row][col] = generateMoves(loc);
             }
         }
         return ret;
     }
 
-    public static ArrayList<ArrayList<Move>> createRookMoves(Location movingFrom, int player) {
-        return createRookMoves(movingFrom, player, ROOK);
-    }
-
-    public static ArrayList<ArrayList<Move>> createRookMoves(Location movingFrom, int player, int pieceType) {
+    private static ArrayList<ArrayList<Move>> generateMoves(Location movingFrom) {
         ArrayList<ArrayList<Move>> ret = new ArrayList();
         int myR = movingFrom.getRow();
         int myC = movingFrom.getCol();
@@ -46,7 +42,7 @@ public class Rook extends Piece {
         for (int i = 1; i < Controller.ROWS; i++) {
             Location loc = new Location(myR + i, myC);
             if (loc.isInBounds())
-                temp.add(new Move(movingFrom, loc, player, pieceType));
+                temp.add(new Move(movingFrom, loc));
         }
         ArrayList<Move> finalTemp = temp;
         ret.add(new ArrayList<Move>() {{
@@ -56,7 +52,7 @@ public class Rook extends Piece {
         for (int i = 1; i < Controller.ROWS; i++) {
             Location loc = new Location(myR, myC + i);
             if (loc.isInBounds())
-                temp.add(new Move(movingFrom, loc, player, pieceType));
+                temp.add(new Move(movingFrom, loc));
         }
 
         ArrayList<Move> finalTemp1 = temp;
@@ -67,7 +63,7 @@ public class Rook extends Piece {
         for (int i = 1; i < Controller.ROWS; i++) {
             Location loc = new Location(myR - i, myC);
             if (loc.isInBounds())
-                temp.add(new Move(movingFrom, loc, player, pieceType));
+                temp.add(new Move(movingFrom, loc));
         }
         ArrayList<Move> finalTemp2 = temp;
         ret.add(new ArrayList<Move>() {{
@@ -77,11 +73,15 @@ public class Rook extends Piece {
         for (int i = 1; i < Controller.ROWS; i++) {
             Location loc = new Location(myR, myC - i);
             if (loc.isInBounds())
-                temp.add(new Move(movingFrom, loc, player, pieceType));
+                temp.add(new Move(movingFrom, loc));
         }
         ret.add(temp);
 
         return ret;
+    }
+
+    public static ArrayList<ArrayList<Move>> getPseudoRookMoves(Location movingFrom) {
+        return preCalculatedMoves[movingFrom.getRow()][movingFrom.getCol()];
     }
 
     public int getSideRelativeToKing(Board board) {
@@ -96,6 +96,8 @@ public class Rook extends Piece {
     @Override
     public ArrayList<ArrayList<Move>> generatePseudoMoves() {
 //        return preCalculatedMoves[getLoc().getRow()][getLoc().getCol()];
-        return createRookMoves(getLoc(), getPieceColor());
+        return getPseudoRookMoves(getLoc());
     }
+
+
 }

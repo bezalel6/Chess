@@ -14,22 +14,20 @@ public class MoveAnnotation {
     private String piece, capture, destination, promotion, gameStatus, uniqueStr;
 
     public MoveAnnotation(Move move) {
-        int movingPlayer = move.getMovingPlayer();
-        int movingPieceType = move.getMovingPieceType();
+//        int movingPieceType = move.getMovingPieceType();
         int capturingPieceType = move.getCapturingPieceType();
         piece = "";
-        if (Player.isValidPlayer(movingPlayer))
-            if (movingPieceType == PAWN) {
-                if (move.isCapturing())
-                    piece = move.getMovingFrom().getColString();
-            } else {
-                piece = PIECES_FENS[Player.WHITE][movingPieceType];
-            }
+//        if (movingPieceType == PAWN) {
+//            if (move.isCapturing())
+//                piece = move.getMovingFrom().getColString();
+//        } else {
+//            piece = PIECES_FENS[Player.WHITE][movingPieceType];
+//        }
         capture = "";
         if (move.isCapturing()) {
 //            capture = CAPTURE_ANN;
             if (isValidPieceType(capturingPieceType)) {
-                setCapture(Player.getOpponent(movingPlayer), capturingPieceType);
+                setCapture(capturingPieceType);
             }
         }
         destination = move.getMovingTo().toString();
@@ -61,7 +59,7 @@ public class MoveAnnotation {
         gameStatus = check ? CHECK_ANN : "";
     }
 
-    public void setCapture(int capturingPieceColor, int capturingPieceType) {
+    public void setCapture(int capturingPieceType) {
         capture = CAPTURE_ANN;
     }
 

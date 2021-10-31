@@ -64,8 +64,7 @@ public class Controller {
     private IconManager iconManager;
     private boolean isFirstClick;
     private boolean showPositionDialog = false;
-    private boolean fancyLoading = false;
-    private int runningProcess = AI_PLAYS_BLACK;
+    private int runningProcess = NO_RUNNING_PROCESS;
     private long[] clocks;
     private Location checkLoc;
     private Timer timer;
@@ -162,7 +161,6 @@ public class Controller {
 
         checkGameStatus(model.getBoard());
         afterBtnPress();
-        fancyLoading = false;
         if (timer != null) {
             timer.stop();
         }

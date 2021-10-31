@@ -20,8 +20,6 @@ public class Move extends BasicMove implements Comparable<Move> {
     BasicMove intermediateMove;
     private int capturingPieceType;
     private Location enPassantLoc;
-    private int movingPlayer;
-    private int movingPieceType;
     private int promotingTo;
     //    private ArrayList<Integer[]> disableCastling;
     private boolean isReversible;
@@ -29,27 +27,28 @@ public class Move extends BasicMove implements Comparable<Move> {
     private MoveFlag moveFlag;
 
 
-    public Move(Location movingFrom, Location movingTo, int movingPlayer, int movingPieceType, int capturingPieceType) {
-        super(movingFrom, movingTo);
-        this.movingPlayer = movingPlayer;
-        this.movingPieceType = movingPieceType;
+    public Move(Location movingFrom, Location movingTo, int capturingPieceType) {
+        this(movingFrom, movingTo);
         this.capturingPieceType = capturingPieceType;
-        this.moveAnnotation = new MoveAnnotation(this);
-        this.intermediateMove = null;
-        this.moveFlag = MoveFlag.NormalMove;
     }
 
-    public Move(Location movingFrom, Location movingTo, int movingPlayer, int movingPieceType) {
-        this(movingFrom, movingTo, movingPlayer, movingPieceType, NOT_CAPTURING);
+    public Move(Location movingFrom, Location movingTo) {
+        super(movingFrom, movingTo);
+        this.capturingPieceType = NOT_CAPTURING;
+        this.moveAnnotation = new MoveAnnotation(this);
+        this.intermediateMove = null;
+        this.promotingTo = -1;
+        this.moveFlag = MoveFlag.NormalMove;
     }
 
     //todo is this ok? should i b do the same thing i did in copy move?
     public Move(Move other) {
         super(other);
         this.capturingPieceType = other.capturingPieceType;
-        this.movingPlayer = other.movingPlayer;
-        this.movingPieceType = other.movingPieceType;
-
+        if (other.intermediateMove != null)
+            this.intermediateMove = new BasicMove(other.intermediateMove);
+        this.promotingTo = other.promotingTo;
+        this.moveFlag = other.moveFlag;
         this.moveAnnotation = new MoveAnnotation(other.moveAnnotation);
         this.isReversible = other.isReversible;
         this.enPassantLoc = other.enPassantLoc;
@@ -68,11 +67,11 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     private static double guessEval(Move move) {
         double ret = 0;
-        int capturingPieceType = move.getCapturingPieceType();
-        int movingPieceType = move.getMovingPieceType();
-        if (Piece.isValidPieceType(capturingPieceType)) {
-            ret += 10 * Piece.getPieceWorth(movingPieceType) - Piece.getPieceWorth(capturingPieceType);
-        }
+//        int capturingPieceType = move.getCapturingPieceType();
+//        int movingPieceType = move.getMovingPieceType();
+//        if (Piece.isValidPieceType(capturingPieceType)) {
+//            ret += 10 * Piece.getPieceWorth(movingPieceType) - Piece.getPieceWorth(capturingPieceType);
+//        }
         if (move.moveFlag == MoveFlag.Promotion) {
             ret += 5 * Piece.getPieceWorth(move.promotingTo);
         } else if (move.moveFlag == MoveFlag.EnPassant) {
@@ -126,10 +125,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         return capturingPieceType;
     }
 
-    public int getMovingPlayer() {
-        return movingPlayer;
-    }
-
     //todo set reversible
     public boolean isReversible() {
         return isReversible;
@@ -169,7 +164,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Move move = (Move) o;
-        return capturingPieceType == move.capturingPieceType && movingPlayer == move.movingPlayer && movingPieceType == move.movingPieceType && promotingTo == move.promotingTo && isReversible == move.isReversible && Objects.equals(moveAnnotation, move.moveAnnotation) && Objects.equals(intermediateMove, move.intermediateMove) && Objects.equals(enPassantLoc, move.enPassantLoc) && Objects.equals(moveEvaluation, move.moveEvaluation) && moveFlag == move.moveFlag;
+        return capturingPieceType == move.capturingPieceType && promotingTo == move.promotingTo && isReversible == move.isReversible && Objects.equals(moveAnnotation, move.moveAnnotation) && Objects.equals(intermediateMove, move.intermediateMove) && Objects.equals(enPassantLoc, move.enPassantLoc) && Objects.equals(moveEvaluation, move.moveEvaluation) && moveFlag == move.moveFlag;
     }
 
     public MoveAnnotation getMoveAnnotation() {
@@ -180,10 +175,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         return moveAnnotation.toString();
     }
 
-    public int getMovingPieceType() {
-        return movingPieceType;
-    }
-
     public boolean isCapturing() {
         return capturingPieceType != NOT_CAPTURING;
     }
@@ -191,7 +182,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public void setCapturing(Piece piece, Board board) {
         int capturingPieceColor = piece.getPieceColor();
         this.capturingPieceType = piece.getPieceType();
-        moveAnnotation.setCapture(capturingPieceColor, capturingPieceType);
+        moveAnnotation.setCapture(capturingPieceType);
     }
 
     @Override

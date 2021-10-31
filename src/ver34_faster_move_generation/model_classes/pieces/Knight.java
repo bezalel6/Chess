@@ -1,7 +1,6 @@
 package ver34_faster_move_generation.model_classes.pieces;
 
 import ver34_faster_move_generation.Location;
-import ver34_faster_move_generation.model_classes.Board;
 import ver34_faster_move_generation.model_classes.moves.Move;
 
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ public class Knight extends Piece {
             -2, 1,
             -2, -1
     };
+    private static final ArrayList<ArrayList<Move>>[][] preCalculatedMoves = calc();
 
     public Knight(Location loc, int pieceColor) {
         super(loc, pieceColor, KNIGHT, "N");
@@ -27,7 +27,18 @@ public class Knight extends Piece {
         setLoc(other.getLoc());
     }
 
-    public static ArrayList<ArrayList<Move>> createKnightMoves(Location movingFrom, int player) {
+    private static ArrayList<ArrayList<Move>>[][] calc() {
+        ArrayList<ArrayList<Move>>[][] ret = new ArrayList[8][8];
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Location loc = new Location(row, col);
+                ret[row][col] = generateMoves(loc);
+            }
+        }
+        return ret;
+    }
+
+    private static ArrayList<ArrayList<Move>> generateMoves(Location movingFrom) {
         int myR = movingFrom.getRow();
         int myC = movingFrom.getCol();
         ArrayList<ArrayList<Move>> ret = new ArrayList();
@@ -36,14 +47,18 @@ public class Knight extends Piece {
             Location loc = new Location(myR + combinations[i], myC + combinations[i + 1]);
             if (loc.isInBounds())
                 ret.add(new ArrayList<>() {{
-                    add(new Move(movingFrom, loc, player, KNIGHT));
+                    add(new Move(movingFrom, loc));
                 }});
         }
         return ret;
     }
 
+    public static ArrayList<ArrayList<Move>> getPseudoKnightMoves(Location movingFrom) {
+        return preCalculatedMoves[movingFrom.getRow()][movingFrom.getCol()];
+    }
+
     @Override
     public ArrayList<ArrayList<Move>> generatePseudoMoves() {
-        return createKnightMoves(getLoc(), getPieceColor());
+        return getPseudoKnightMoves(getLoc());
     }
 }
