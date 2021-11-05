@@ -22,16 +22,15 @@ public class Board implements Iterable<Square[]> {
     private final FEN fen;
     private final Eval boardEval;
     private final Stack<Move> moveStack;
-    private ArrayList<Long> repetitionHashList;
     private Square[][] logicMat;
     private ConcurrentHashMap<Location, Piece>[] pieces;
     private King[] kingsArr;
     private int[][] piecesCount;
     private int currentPlayer;
     private int halfMoveClock, fullMoveClock;
+    private int castlingAbility;
     private Location enPassantTargetLoc;
     private Location enPassantActualLoc;
-    private CastlingAbility castlingAbility;
     private BoardHash boardHash;
 
     //create empty board
@@ -42,7 +41,6 @@ public class Board implements Iterable<Square[]> {
     public Board(String fenStr) {
         boardEval = new Eval(this);
         this.fen = new FEN(fenStr, this);
-        repetitionHashList = new ArrayList<>();
         moveStack = new Stack<>();
         createNewLogicBoard(fen);
         initPiecesArrays();
@@ -57,7 +55,6 @@ public class Board implements Iterable<Square[]> {
         for (Move move : other.moveStack) {
             moveStack.push(Move.copyMove(move));
         }
-        this.repetitionHashList = new ArrayList<>(other.repetitionHashList);
         initPiecesArrays();
 
         createNewEmptyLogicBoard();
@@ -66,11 +63,11 @@ public class Board implements Iterable<Square[]> {
         this.currentPlayer = other.currentPlayer;
         this.fullMoveClock = other.fullMoveClock;
         this.halfMoveClock = other.halfMoveClock;
+        this.castlingAbility = other.castlingAbility;
 
         this.enPassantActualLoc = new Location(other.enPassantActualLoc);
         this.enPassantTargetLoc = new Location(other.enPassantTargetLoc);
 
-        this.castlingAbility = new CastlingAbility(other.castlingAbility);
         this.boardHash = new BoardHash(this);
     }
 
@@ -84,8 +81,12 @@ public class Board implements Iterable<Square[]> {
     }
 
 
-    public CastlingAbility getCastlingAbility() {
+    public int getCastlingAbility() {
         return castlingAbility;
+    }
+
+    public void setCastlingAbility(int castlingAbility) {
+        this.castlingAbility = castlingAbility;
     }
 
     private void loadMat() {
@@ -125,8 +126,6 @@ public class Board implements Iterable<Square[]> {
     private void createNewLogicBoard(FEN fen) {
         createNewEmptyLogicBoard();
         fen.loadFEN();
-        castlingAbility = new CastlingAbility(fen.getCastlingAbilityStr());
-        currentPlayer = fen.getInitialPlayerToMove();
     }
 
     public Location getEnPassantTargetLoc() {
@@ -245,13 +244,13 @@ public class Board implements Iterable<Square[]> {
     }
 
     public boolean isInCheck(int player) {
-        long hash = getBoardHash().getFullHash();
-        hash = Zobrist.combineHashes(hash, Zobrist.playerHash(player));
-        if (isInCheckHashMap.containsKey(hash)) {
-            return isInCheckHashMap.get(hash);
-        }
+//        long hash = getBoardHash().getFullHash();
+//        hash = Zobrist.combineHashes(hash, Zobrist.playerHash(player));
+//        if (isInCheckHashMap.containsKey(hash)) {
+//            return isInCheckHashMap.get(hash);
+//        }
         boolean ret = isThreatened(getKing(player));
-        isInCheckHashMap.put(hash, ret);
+//        isInCheckHashMap.put(hash, ret);
         return ret;
     }
 
@@ -398,14 +397,17 @@ public class Board implements Iterable<Square[]> {
     }
 
     public void applyMove(Move move) {
-//        move.setPrevBoardHash(boardHash);
+
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
 
         Piece piece = getPiece(movingFrom, true);
         int pieceColor = piece.getPieceColor();
 
-        makeIntermediateMoveIfExists(move);
+        move.setReversible(piece);
+        move.setPrevCastlingAbility(castlingAbility);
+
+        makeIntermediateMove(move);
 
         //region move instances
         if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
@@ -428,18 +430,18 @@ public class Board implements Iterable<Square[]> {
         if (currentPlayer == Player.BLACK)
             fullMoveClock++;
 
-//        if (move.getDisableCastling() != null)
-//            for (Integer[] disable : move.getDisableCastling()) {
-//                if (disable.length == 2) {
-//                    castlingAbility.disableCastlingAbility(disable[0], disable[1]);
-//                } else {
-//                    castlingAbility.disableCastlingAbility(disable[0]);
-//                }
-//            }
-
+        if (piece instanceof King) {
+            castlingAbility = CastlingAbility.disableCastlingForBothSides(pieceColor, castlingAbility);
+        } else if (piece instanceof Rook) {
+            castlingAbility = CastlingAbility.disableCastling(pieceColor, ((Rook) piece).getSideRelativeToKing(this), castlingAbility);
+        }
         if (move.isCapturing()) {
             Piece otherPiece = getPiece(movingTo);
             assert otherPiece != null;
+            if (otherPiece instanceof Rook) {
+                int side = ((Rook) otherPiece).getSideRelativeToKing(this);
+                castlingAbility = CastlingAbility.disableCastling(otherPiece.getPieceColor(), side, castlingAbility);
+            }
             piecesCount[otherPiece.getPieceColor()][otherPiece.getPieceType()]--;
             otherPiece.setCaptured(true);
         }
@@ -450,14 +452,13 @@ public class Board implements Iterable<Square[]> {
 
         if (!move.isReversible()) {
             setHalfMoveClock(0);
-            repetitionHashList.clear();
         }
         switchTurn();
         setBoardHash();
-//        if (move.isReversible()) {
+        if (move.isReversible()) {
+            setHalfMoveClock(halfMoveClock + 1);
 //            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
-//            repetitionHashList.add(getBoardHash().getFullHash());
-//        }
+        }
 
         moveStack.push(move);
     }
@@ -466,15 +467,16 @@ public class Board implements Iterable<Square[]> {
     public void undoMove(Move _m) {
         Move move = moveStack.pop();
         assert _m == move;
-//        boardHash = new BoardHash(move.getPrevBoardHash());
         setBoardHash();
-        if (currentPlayer != Player.BLACK)
+
+        if (currentPlayer == Player.BLACK)
             fullMoveClock--;
+
 //        setHalfMoveClock(move.getPrevHalfMoveClock());
 
 //        repetitionHashList = new ArrayList<>(move.getPrevRepetitionHashList());
 
-//        castlingAbility = new CastlingAbility(move.getPrevCastlingAbility());
+        castlingAbility = move.getPrevCastlingAbility();
 
         Location movingFrom = move.getMovingTo();
         Location movingTo = move.getMovingFrom();
@@ -488,6 +490,8 @@ public class Board implements Iterable<Square[]> {
             replacePiece(oldPiece, piece);
             piece = oldPiece;
         }
+        setEnPassantTargetLoc((Location) null);
+        setEnPassantActualLoc(null);
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
             if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
@@ -507,7 +511,7 @@ public class Board implements Iterable<Square[]> {
             setPiece(movingFrom, otherPiece);
             piecesCount[otherPiece.getPieceColor()][otherPiece.getPieceType()]++;
         }
-        makeIntermediateMoveIfExists(move, true);
+        makeIntermediateMove(move, true);
 
         switchTurn();
     }
@@ -521,11 +525,11 @@ public class Board implements Iterable<Square[]> {
         return null;
     }
 
-    private void makeIntermediateMoveIfExists(Move move) {
-        makeIntermediateMoveIfExists(move, false);
+    private void makeIntermediateMove(Move move) {
+        makeIntermediateMove(move, false);
     }
 
-    private void makeIntermediateMoveIfExists(Move move, boolean flip) {
+    private void makeIntermediateMove(Move move, boolean flip) {
         BasicMove intermediateMove = move.getIntermediateMove();
         if (intermediateMove != null) {
             if (flip) {
@@ -535,16 +539,8 @@ public class Board implements Iterable<Square[]> {
         }
     }
 
-    private Piece getPiece(Location startingLoc, int player) {
-        return getPieces(player).get(startingLoc);
-    }
-
     public void switchTurn() {
         currentPlayer = Player.getOpponent(currentPlayer);
-    }
-
-    public ArrayList<Long> getRepetitionHashList() {
-        return repetitionHashList;
     }
 
     public int[] getPiecesCount(int player) {
@@ -555,10 +551,6 @@ public class Board implements Iterable<Square[]> {
         Piece ret = getPiece(loc);
         assert !notNull || ret != null;
         return ret;
-    }
-
-    private void disableCastling(Rook rook) {
-        castlingAbility.disableCastlingAbility(rook.getPieceColor(), rook.getSideRelativeToKing(this));
     }
 
     private void movePiece(BasicMove basicMove) {
@@ -575,14 +567,6 @@ public class Board implements Iterable<Square[]> {
 
     private Square getSquare(Location loc) {
         return logicMat[loc.getRow()][loc.getCol()];
-    }
-
-    private void undoCastle(Castling castling) {
-        movePiece(castling.getCastlingLocs()[Castling.ROOK_FINAL_LOC], castling.getCastlingLocs()[Castling.ROOK_STARTING_LOC]);
-    }
-
-    private void castle(Castling castling) {
-        movePiece(castling.getCastlingLocs()[Castling.ROOK_STARTING_LOC], castling.getCastlingLocs()[Castling.ROOK_FINAL_LOC]);
     }
 
     @Override

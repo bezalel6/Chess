@@ -58,16 +58,12 @@ public class FEN {
         ret = new StringBuilder(ret.substring(0, ret.length() - 1));
         ret.append(" ");
         ret.append(PLAYER_NOTATION_LOOKUP[player2Move]);
-        ret.append(" ").append(board.getCastlingAbility());
+        ret.append(" ").append(CastlingAbility.generateCastlingAbilityStr(board.getCastlingAbility()));
         Location enPassantTargetSquare = board.getEnPassantTargetLoc();
         ret.append(" ").append(enPassantTargetSquare == null ? "-" : enPassantTargetSquare);
         if (addCounters)
             ret.append(" ").append(board.getHalfMoveClock()).append(" ").append(board.getFullMoveClock());
         return ret.toString();
-    }
-
-    public int getInitialPlayerToMove() {
-        return initialPlayerToMove;
     }
 
     private void setMoveCounters() {
@@ -106,21 +102,14 @@ public class FEN {
         }
         initialPlayerToMove = arr[index + 1] == 'w' ? Player.WHITE : Player.BLACK;
         board.setCurrentPlayer(initialPlayerToMove);
+
         index += 3;
         String str = fen.substring(index);
         str = str.substring(0, str.indexOf(' '));
         castlingAbilityStr = str;
+        board.setCastlingAbility(CastlingAbility.createFromStr(str));
         index += str.length();
         index++;
         board.setEnPassantTargetLoc(fen.substring(index, index + 2));
-    }
-
-    /**
-     * ONLY USED ON INIT OF THE BOARD
-     *
-     * @return
-     */
-    public String getCastlingAbilityStr() {
-        return castlingAbilityStr;
     }
 }

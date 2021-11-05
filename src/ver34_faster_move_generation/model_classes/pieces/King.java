@@ -2,14 +2,13 @@ package ver34_faster_move_generation.model_classes.pieces;
 
 import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.model_classes.Board;
+import ver34_faster_move_generation.model_classes.CastlingAbility;
 import ver34_faster_move_generation.model_classes.moves.Castling;
 import ver34_faster_move_generation.model_classes.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static ver34_faster_move_generation.model_classes.moves.Castling.KING_SIDE;
-import static ver34_faster_move_generation.model_classes.moves.Castling.QUEEN_SIDE;
 
 public class King extends Piece {
     private static final int[] combinations = new int[]{
@@ -50,7 +49,7 @@ public class King extends Piece {
                 }});
         }
         for (int side = 0; side < 2; side++) {
-            int num = side == KING_SIDE ? -1 : 1;
+            int num = side == CastlingAbility.KING_SIDE ? -1 : 1;
             Location rookLoc = getRookHomeLoc(player, side);
 
             Location kingMiddleLoc = new Location(myR, myC - num);
@@ -58,7 +57,7 @@ public class King extends Piece {
             Location rookFinalLoc = new Location(myR, myC - num);
 
             ArrayList<Location> params = new ArrayList<>(Arrays.asList(kingMiddleLoc, kingFinalLoc, rookLoc, rookFinalLoc));
-            if (side == QUEEN_SIDE)
+            if (side == CastlingAbility.QUEEN_SIDE)
                 params.add(new Location(myR, myC - (num * 3)));//rook middle loc
             Castling castling = new Castling(new Move(movingFrom, kingFinalLoc), side, params);
             if (Location.batchCheckBounds(castling.getCastlingLocs()))

@@ -159,7 +159,7 @@ public class Controller {
         model.initGame(startingPosition);
         initViewGame();
 
-        checkGameStatus(model.getBoard());
+        checkGameOver(model.getBoard());
         afterBtnPress();
         if (timer != null) {
             timer.stop();
@@ -265,7 +265,7 @@ public class Controller {
         Evaluation moveEval = move.getMoveEvaluation();
         int moveNum = getCurrentPlayer() == Player.BLACK ? model.getBoard().getFullMoveClock() : -1;
         view.updateMoveLog(moveAnnotation, moveNum);
-        if (checkGameStatus(moveEval, board))
+        if (checkGameOver(moveEval, board))
             return;
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             //todo ↓
@@ -283,11 +283,11 @@ public class Controller {
     /**
      * @return true if game over
      */
-    private boolean checkGameStatus(Board board) {
-        return checkGameStatus(board.getEvaluation(), board);
+    private boolean checkGameOver(Board board) {
+        return checkGameOver(board.getEvaluation(), board);
     }
 
-    private boolean checkGameStatus(Evaluation evaluation, Board board) {
+    private boolean checkGameOver(Evaluation evaluation, Board board) {
         checkLoc = evaluation.getGameStatus().isCheck() ? new Location(board.getKing(getCurrentPlayer()).getLoc()) : null;
         if (evaluation.isGameOver()) {
             gameOver(evaluation);
@@ -387,7 +387,7 @@ public class Controller {
 
     public void lookForAiMove() {
         clearAllDrawings();
-        if (checkGameStatus(model.getBoard().getEvaluation(), model.getBoard()))
+        if (checkGameOver(model.getBoard().getEvaluation(), model.getBoard()))
             return;
         AtomicLong seconds = new AtomicLong(1);
         Timer t = new Timer(1000, e -> {

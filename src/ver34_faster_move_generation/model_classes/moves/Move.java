@@ -1,15 +1,11 @@
 package ver34_faster_move_generation.model_classes.moves;
 
 import ver34_faster_move_generation.Location;
-import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.Board;
-import ver34_faster_move_generation.model_classes.BoardHash;
-import ver34_faster_move_generation.model_classes.CastlingAbility;
 import ver34_faster_move_generation.model_classes.eval_classes.Evaluation;
+import ver34_faster_move_generation.model_classes.pieces.Pawn;
 import ver34_faster_move_generation.model_classes.pieces.Piece;
-import ver34_faster_move_generation.model_classes.pieces.Rook;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -21,10 +17,10 @@ public class Move extends BasicMove implements Comparable<Move> {
     private int capturingPieceType;
     private Location enPassantLoc;
     private int promotingTo;
-    //    private ArrayList<Integer[]> disableCastling;
     private boolean isReversible;
     private Evaluation moveEvaluation;
     private MoveFlag moveFlag;
+    private int prevCastlingAbility;
 
 
     public Move(Location movingFrom, Location movingTo, int capturingPieceType) {
@@ -41,24 +37,27 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.moveFlag = MoveFlag.NormalMove;
     }
 
-    //todo is this ok? should i b do the same thing i did in copy move?
     public Move(Move other) {
         super(other);
+
         this.capturingPieceType = other.capturingPieceType;
-        if (other.intermediateMove != null)
-            this.intermediateMove = new BasicMove(other.intermediateMove);
+        this.prevCastlingAbility = other.prevCastlingAbility;
         this.promotingTo = other.promotingTo;
         this.moveFlag = other.moveFlag;
-        this.moveAnnotation = new MoveAnnotation(other.moveAnnotation);
         this.isReversible = other.isReversible;
-        this.enPassantLoc = other.enPassantLoc;
+
+        if (other.enPassantLoc != null)
+            this.enPassantLoc = new Location(enPassantLoc);
         if (other.moveEvaluation != null)
             this.moveEvaluation = new Evaluation(other.moveEvaluation);
+        if (other.intermediateMove != null)
+            this.intermediateMove = new BasicMove(other.intermediateMove);
+
+        this.moveAnnotation = new MoveAnnotation(other.moveAnnotation);
+
     }
 
     public static Move copyMove(Move move) {
-        if (move == null)
-            return null;
         if (move instanceof Castling)
             return new Castling((Castling) move);
         else
@@ -125,39 +124,13 @@ public class Move extends BasicMove implements Comparable<Move> {
         return capturingPieceType;
     }
 
-    //todo set reversible
     public boolean isReversible() {
         return isReversible;
     }
 
-//    private void setReversible() {
-//        isReversible = !isCapturing() && movingPieceType != Piece.PAWN && disableCastling.isEmpty();
-//    }
-
-//
-//    private void setDisableCastling(Board board) {
-//        CastlingAbility castlingAbility = board.getCastlingAbility();
-//        int opponent = Player.getOpponent(movingPlayer);
-//        disableCastling = new ArrayList<>();
-//        if (castlingAbility.checkAny(movingPlayer) || castlingAbility.checkAny(opponent)) {
-//            for (int player : Player.PLAYERS) {
-//                int pieceType = player == movingPlayer ? movingPieceType : capturingPieceType;
-//                Location loc = player == movingPlayer ? movingFrom : movingTo;
-//                if (castlingAbility.checkAny(player)) {
-//                    if (pieceType == Piece.KING) {
-//                        disableCastling.add(new Integer[]{player});
-//                    } else if (pieceType == Piece.ROOK) {
-//                        Piece piece = board.getPiece(loc, true);
-//                        if (!piece.getHasMoved() && piece instanceof Rook) {
-//                            Rook rook = (Rook) piece;
-//                            disableCastling.add(new Integer[]{player, rook.getSideRelativeToKing(board)});
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-
+    public void setReversible(Piece movingPiece) {
+        isReversible = !(isCapturing() || movingPiece instanceof Pawn);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -210,6 +183,14 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public void setEnPassantLoc(Location epsnLoc) {
         enPassantLoc = epsnLoc;
+    }
+
+    public int getPrevCastlingAbility() {
+        return prevCastlingAbility;
+    }
+
+    public void setPrevCastlingAbility(int prevCastlingAbility) {
+        this.prevCastlingAbility = prevCastlingAbility;
     }
 
     public enum MoveFlag {NormalMove, EnPassant, DoublePawnPush, Promotion}

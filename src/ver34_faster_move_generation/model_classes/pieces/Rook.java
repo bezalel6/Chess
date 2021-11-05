@@ -3,12 +3,10 @@ package ver34_faster_move_generation.model_classes.pieces;
 import ver34_faster_move_generation.Controller;
 import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.model_classes.Board;
+import ver34_faster_move_generation.model_classes.CastlingAbility;
 import ver34_faster_move_generation.model_classes.moves.Move;
 
 import java.util.ArrayList;
-
-import static ver34_faster_move_generation.model_classes.moves.Castling.KING_SIDE;
-import static ver34_faster_move_generation.model_classes.moves.Castling.QUEEN_SIDE;
 
 public class Rook extends Piece {
     private static final ArrayList<ArrayList<Move>>[][] preCalculatedMoves = calc();
@@ -85,17 +83,16 @@ public class Rook extends Piece {
     }
 
     public int getSideRelativeToKing(Board board) {
-        int ret = QUEEN_SIDE;
+        int ret = CastlingAbility.QUEEN_SIDE;
         Piece king = board.getKing(getPieceColor());
         if (king.getStartingLoc().getCol() < getStartingLoc().getCol() * getDifference()) {
-            ret = KING_SIDE;
+            ret = CastlingAbility.KING_SIDE;
         }
         return ret;
     }
 
     @Override
     public ArrayList<ArrayList<Move>> generatePseudoMoves() {
-//        return preCalculatedMoves[getLoc().getRow()][getLoc().getCol()];
         return getPseudoRookMoves(getLoc());
     }
 

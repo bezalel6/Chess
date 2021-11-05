@@ -16,7 +16,7 @@ public class Zobrist {
     private static final long[][][][] zPieces = initPieces();
     private static final long[][] zEnPassant = initEnPassant();
     private static final long[][] zLocations = initLocations();
-    private static final long[] zCastling = createRandomArr(4);
+    private static final long zCastling = random64();
     private static final long[] zPlayers = createRandomArr(2);
     private static final long[] zPiecesTypes = createRandomArr(NUM_OF_PIECE_TYPES);
 
@@ -99,15 +99,7 @@ public class Zobrist {
     }
 
     public static long castlingAbilityHash(Board board) {
-        long ret = 0;
-        boolean[] castlingAbility = board.getCastlingAbility().getCastlingAbilityArr();
-        for (int i = 0, castlingAbilityLength = castlingAbility.length; i < castlingAbilityLength; i++) {
-            boolean b = castlingAbility[i];
-            if (b) {
-                ret ^= zCastling[i];
-            }
-        }
-        return ret;
+        return board.getCastlingAbility() ^ zCastling;
     }
 
     public static long piecesHash(Board board) {

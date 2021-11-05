@@ -182,7 +182,7 @@ public class Model {
         Evaluation transpositionEval = getTranspositionEval(player, maxDepth, hash);
         if (transpositionEval != null)
             return transpositionEval;
-        if (boardEval.checkGameOver().isGameOver() || isOvertimeWithFlex() || (!board.isInCheck() && depth >= maxDepth)) {
+        if (boardEval.checkGameOver().isGameOver() || isOvertimeWithFlex() || depth >= maxDepth) {
             leavesReached++;
             return boardEval.getEvaluation();
         }

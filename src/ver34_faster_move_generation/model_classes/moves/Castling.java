@@ -1,12 +1,14 @@
 package ver34_faster_move_generation.model_classes.moves;
 
 import ver34_faster_move_generation.Location;
+import ver34_faster_move_generation.model_classes.CastlingAbility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Castling extends Move {
     public static final int KING_MIDDLE_LOC = 0, KING_FINAL_LOC = 1, ROOK_STARTING_LOC = 2, ROOK_FINAL_LOC = 3, ROOK_MIDDLE_LOC = 4;
-    public static final int KING_SIDE = 0, QUEEN_SIDE = 1;
     private static final String[] CASTLING_ANNOTATION = {"O-O", "O-O-O"};
     private final Location[] locs;
     private final int side;
@@ -24,15 +26,16 @@ public class Castling extends Move {
 
     public Castling(Castling move) {
         super(move);
-        locs = move.locs;
+        locs = new Location[move.locs.length];
+        Location[] locations = move.locs;
+        for (int i = 0, locationsLength = locations.length; i < locationsLength; i++) {
+            locs[i] = new Location(locations[i]);
+        }
         side = move.side;
     }
 
-    public ArrayList<Location> getKingPath() {
-        return new ArrayList<>() {{
-            add(locs[KING_MIDDLE_LOC]);
-            add(locs[KING_FINAL_LOC]);
-        }};
+    public List<Location> getKingPath() {
+        return Arrays.asList(locs[KING_MIDDLE_LOC], locs[KING_FINAL_LOC]);
     }
 
     public String getCastlingString() {
@@ -48,7 +51,7 @@ public class Castling extends Move {
     }
 
     public boolean isKingSide() {
-        return side == KING_SIDE;
+        return side == CastlingAbility.KING_SIDE;
     }
 
 }

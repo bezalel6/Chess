@@ -3,6 +3,7 @@ package ver34_faster_move_generation.model_classes.moves;
 import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.Board;
+import ver34_faster_move_generation.model_classes.CastlingAbility;
 import ver34_faster_move_generation.model_classes.pieces.Pawn;
 import ver34_faster_move_generation.model_classes.pieces.Piece;
 import ver34_faster_move_generation.model_classes.pieces.Rook;
@@ -57,7 +58,12 @@ public class PieceMoves {
                     }
                 }
                 if (add && move instanceof Castling) {
-                    add = checkCastlingLocs((Castling) move, pieceColor, board);
+
+                    int side = ((Castling) move).getSide();
+                    int castlingAbility = board.getCastlingAbility();
+                    if (CastlingAbility.checkCastling(pieceColor, side, castlingAbility)) {
+                        add = checkCastlingLocs((Castling) move, pieceColor, board);
+                    } else add = false;
                 }
                 if (add)
                     addingNow.add(move);
@@ -111,7 +117,7 @@ public class PieceMoves {
                     continue;
                 }
                 board.applyMove(move);
-                if (!board.isInCheck()) {
+                if (!board.isInCheck(piece.getPieceColor())) {
                     ret.add(move);
                 }
                 board.undoMove(move);
