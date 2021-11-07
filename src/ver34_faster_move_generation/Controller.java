@@ -26,6 +26,7 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.IntStream;
@@ -237,6 +238,7 @@ public class Controller {
             currentPiece = model.getPiece(loc);
             movesList = model.getMoves(currentPiece);
             view.highlightPath(movesList);
+            view.enablePath(movesList);
             view.enableSquare(loc, true);
             view.colorCurrentPiece(loc);
         } else {
@@ -254,17 +256,13 @@ public class Controller {
 
     private void makeMove(Move move) {
         view.resetBackground();
-        BasicMove intermediateMove = move.getIntermediateMove();
-        if (intermediateMove != null) {
-            updateView(intermediateMove.getMovingFrom(), intermediateMove.getMovingTo());
-        }
-        updateView(move.getMovingFrom(), move.getMovingTo());
+        updateView(move);
         Board board = model.getBoard();
 
         String moveAnnotation = model.makeMove(move, board);
         Evaluation moveEval = move.getMoveEvaluation();
         int moveNum = getCurrentPlayer() == Player.BLACK ? model.getBoard().getFullMoveClock() : -1;
-        view.updateMoveLog(moveAnnotation, moveNum);
+        view.updateMoveLog(moveAnnotation, moveNum, model.getBoard().getMoveStack().size() - 1);
         if (checkGameOver(moveEval, board))
             return;
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
@@ -329,8 +327,11 @@ public class Controller {
         Eval.capturesEvaluationHashMap.clear();
     }
 
-    public void updateView(Location prevLoc, Location newLoc) {
-        view.updateBoardButton(prevLoc, newLoc);
+    public void updateView(BasicMove move) {
+        if (move instanceof Move && ((Move) move).getIntermediateMove() != null) {
+            updateView(((Move) move).getIntermediateMove());
+        }
+        view.updateBoardButton(move.getMovingFrom(), move.getMovingTo());
     }
 
     private void gameOver(Evaluation gameStatus) {
@@ -498,7 +499,7 @@ public class Controller {
         int res = countPositions(depth - 1, board, false);
         if (PRINT_POSITIONS_MOVES && depth == POSITIONS_COUNT_DEPTH)
             System.out.println(move.getMovingFrom().toString() + "" + move.getMovingTo().toString() + ": " + res);
-        board.undoMove(move);
+        board.undoMove();
         return res;
     }
 
@@ -544,5 +545,29 @@ public class Controller {
 
     public void exitButtonPressed() {
         System.exit(0);
+    }
+
+    public void goToMove(int moveIndex, int movingFromIndex) {
+        Stack<Move> moveStack = model.getBoard().getMoveStack();
+        view.enableAllSquares(false);
+        for (int i = moveStack.size() - 1; i >= moveIndex; i--) {
+            Move m = moveStack.get(i);
+            if (moveIndex < movingFromIndex) {
+                m = Move.flipMove(m);
+            }
+            updateView(m);
+        }
+    }
+
+    public void rewind(int i) {
+        Stack<Move> moveStack = model.getBoard().getMoveStack();
+        view.enableAllSquares(false);
+        updateView(Move.flipMove(moveStack.get(i)));
+    }
+
+    public void fastForward(int i) {
+        Stack<Move> moveStack = model.getBoard().getMoveStack();
+        view.enableAllSquares(false);
+        updateView(moveStack.get(i));
     }
 }

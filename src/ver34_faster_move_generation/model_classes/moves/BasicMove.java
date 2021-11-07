@@ -3,8 +3,8 @@ package ver34_faster_move_generation.model_classes.moves;
 import ver34_faster_move_generation.Location;
 
 public class BasicMove {
-    final Location movingFrom;
-    final Location movingTo;
+    Location movingFrom;
+    Location movingTo;
 
     public BasicMove(Location movingFrom, Location movingTo) {
         this.movingFrom = new Location(movingFrom);
@@ -15,6 +15,13 @@ public class BasicMove {
         this(other.movingFrom, other.movingTo);
     }
 
+    public static BasicMove getFlipped(BasicMove basicMove) {
+        BasicMove ret = new BasicMove(basicMove);
+        ret.flip();
+        return ret;
+
+    }
+
     public Location getMovingFrom() {
         return movingFrom;
     }
@@ -23,8 +30,10 @@ public class BasicMove {
         return movingTo;
     }
 
-    public BasicMove flip() {
-        return new BasicMove(movingTo, movingFrom);
+    public void flip() {
+        Location t = new Location(movingFrom);
+        movingFrom = new Location(movingTo);
+        movingTo = t;
     }
 
     @Override

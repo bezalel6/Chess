@@ -404,6 +404,8 @@ public class Board implements Iterable<Square[]> {
         Piece piece = getPiece(movingFrom, true);
         int pieceColor = piece.getPieceColor();
 
+        move.setPrevFullMoveClock(fullMoveClock);
+        move.setPrevHalfMoveClock(halfMoveClock);
         move.setReversible(piece);
         move.setPrevCastlingAbility(castlingAbility);
 
@@ -456,25 +458,20 @@ public class Board implements Iterable<Square[]> {
         switchTurn();
         setBoardHash();
         if (move.isReversible()) {
-            setHalfMoveClock(halfMoveClock + 1);
-//            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
+//            setHalfMoveClock(halfMoveClock + 1);
+            setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
         }
 
         moveStack.push(move);
     }
 
 
-    public void undoMove(Move _m) {
+    public Move undoMove() {
         Move move = moveStack.pop();
-        assert _m == move;
         setBoardHash();
 
-        if (currentPlayer == Player.BLACK)
-            fullMoveClock--;
-
-//        setHalfMoveClock(move.getPrevHalfMoveClock());
-
-//        repetitionHashList = new ArrayList<>(move.getPrevRepetitionHashList());
+        setFullMoveClock(move.getPrevFullMoveClock());
+        setHalfMoveClock(move.getPrevHalfMoveClock());
 
         castlingAbility = move.getPrevCastlingAbility();
 
@@ -514,6 +511,8 @@ public class Board implements Iterable<Square[]> {
         makeIntermediateMove(move, true);
 
         switchTurn();
+
+        return move;
     }
 
     private Piece getCapturedPiece(int capturingPieceType, int player, Location capturedOn) {
@@ -529,11 +528,15 @@ public class Board implements Iterable<Square[]> {
         makeIntermediateMove(move, false);
     }
 
+    public Stack<Move> getMoveStack() {
+        return moveStack;
+    }
+
     private void makeIntermediateMove(Move move, boolean flip) {
         BasicMove intermediateMove = move.getIntermediateMove();
         if (intermediateMove != null) {
             if (flip) {
-                intermediateMove = intermediateMove.flip();
+                intermediateMove = BasicMove.getFlipped(intermediateMove);
             }
             movePiece(intermediateMove);
         }
@@ -606,8 +609,8 @@ public class Board implements Iterable<Square[]> {
         move.setMoveEvaluation(currentEval);
     }
 
-    public void unmakeMove(Move move) {
-        undoMove(move);
+    public void unmakeMove() {
+        undoMove();
     }
 
 

@@ -120,7 +120,7 @@ public class PieceMoves {
                 if (!board.isInCheck(piece.getPieceColor())) {
                     ret.add(move);
                 }
-                board.undoMove(move);
+                board.undoMove();
             }
         }
         return ret;

@@ -1,38 +1,44 @@
 package ver34_faster_move_generation.view_classes;
 
+import ver34_faster_move_generation.Controller;
 import ver34_faster_move_generation.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.util.concurrent.TimeUnit;
 
 public class SidePanel extends JPanel {
     private static final Font font = new Font(null, Font.BOLD, 20);
+    private final Controller controller;
     private final JLabel[] timeLbls;
     private final JPanel white, black;
     private final MyJButton resignBtn, offerDrawBtn, addTimeBtn;
-    private JPanel moveLogPnl;
-    private JScrollPane moveLogScroll;
+    private final MoveLog moveLog;
+    private Dimension d;
+    private int currentMoveIndex;
 
-    public SidePanel(long millis, boolean isFlipped) {
+
+    public SidePanel(long millis, boolean isFlipped, Controller controller) {
+        this.controller = controller;
         String timeControl = createTimeStr(millis);
         timeLbls = new JLabel[2];
         for (int i = 0; i < timeLbls.length; i++) {
             timeLbls[i] = new JLabel(timeControl);
             timeLbls[i].setFont(font);
         }
-        resignBtn = new MyJButton("Resign");
-        resignBtn.setFont(font);
-        offerDrawBtn = new MyJButton("Offer Draw");
-        offerDrawBtn.setFont(font);
-        addTimeBtn = new MyJButton("Add Time");
-        addTimeBtn.setFont(font);
+        resignBtn = new MyJButton("Resign", font);
+        offerDrawBtn = new MyJButton("Offer Draw", font);
+        addTimeBtn = new MyJButton("Add Time", font);
+
         setLayout(new GridBagLayout());
 
         white = createTimerPnl("White", timeLbls[Player.WHITE]);
         black = createTimerPnl("Black", timeLbls[Player.BLACK]);
 
-        createMoveLogPnl();
+        moveLog = new MoveLog();
+
         createAndAddLayout(isFlipped);
 
     }
@@ -53,29 +59,9 @@ public class SidePanel extends JPanel {
         return hours + minutes + seconds + micros;
     }
 
-    private void createMoveLogPnl() {
-        moveLogPnl = new JPanel(new GridLayout(0, 3)) {{
-            setPreferredSize(new Dimension(10, 100));
-            setAutoscrolls(true);
-        }};
-        moveLogScroll = new JScrollPane(moveLogPnl) {{
-            setAutoscrolls(true);
-        }};
-
-    }
-
-    public void addMoveStr(String str, int moveNum) {
-        JLabel move = new JLabel(str);
-        if (moveNum != -1)
-            moveLogPnl.add(new JLabel(moveNum + ""));
-        moveLogPnl.add(move);
-//        moveLogWin.pack();
-    }
-
     public void setBothPlayersClocks(long[] clocks) {
         for (int i = 0; i < clocks.length; i++) {
             setTimerLabel(i, clocks[i]);
-
         }
     }
 
@@ -109,6 +95,7 @@ public class SidePanel extends JPanel {
         gbc.gridx = 1;
         gbc.gridy = 1;
         add(offerDrawBtn, gbc);
+
         gbc.gridx = 2;
         gbc.gridy = 1;
         add(addTimeBtn, gbc);
@@ -116,18 +103,16 @@ public class SidePanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.gridheight = 3;
 //        gbc.gridheight = GridBagConstraints.RELATIVE;
         gbc.weightx = 10;
         gbc.weighty = 5;
-        add(moveLogScroll, gbc);
+        add(moveLog, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = wY;
         gbc.weighty = 3;
         gbc.gridheight = 2;
         add(white, gbc);
-
 
     }
 
@@ -146,4 +131,78 @@ public class SidePanel extends JPanel {
         }};
     }
 
+    public MoveLog getMoveLog() {
+        return moveLog;
+    }
+
+    class MoveLog extends JPanel {
+        private final MyJButton forward, back, start, end;
+        private JPanel moveLogPnl;
+        private JScrollPane moveLogScroll;
+        private boolean justAddedMove = false;
+
+        public MoveLog() {
+            forward = new MyJButton(">", font);
+            back = new MyJButton("<", font);
+            start = new MyJButton("<|", font);
+            end = new MyJButton(">|", font);
+
+            setLayout(new GridBagLayout());
+
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.insets = new Insets(3, 3, 3, 3);
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            gbc.weightx = 1;
+            add(start, gbc);
+
+            add(back, gbc);
+
+            add(forward, gbc);
+
+            add(end, gbc);
+
+            createMoveLogPnl();
+            gbc.gridy = 2;
+            gbc.gridx = 0;
+            gbc.gridheight = GridBagConstraints.REMAINDER;
+            gbc.gridwidth = GridBagConstraints.REMAINDER;
+            gbc.weightx = 10;
+            gbc.weighty = 10;
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            gbc.ipady = 100;
+            add(moveLogScroll, gbc);
+        }
+
+        private void createMoveLogPnl() {
+            moveLogPnl = new JPanel(new GridLayout(0, 3)) {{
+                setAutoscrolls(true);
+
+            }};
+            moveLogScroll = new JScrollPane(moveLogPnl) {{
+                setAutoscrolls(true);
+                setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+                getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+                    public void adjustmentValueChanged(AdjustmentEvent e) {
+                        if (justAddedMove) {
+                            e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+                            justAddedMove = false;
+                        }
+                    }
+                });
+            }};
+        }
+
+        public void addMoveStr(String str, int moveNum, int moveIndex) {
+            MyJButton move = new MyJButton(str);
+            move.setActionCommand(moveIndex + "");
+
+            if (moveNum != -1)
+                moveLogPnl.add(new JLabel(moveNum + ""));
+            moveLogPnl.add(move);
+            currentMoveIndex = moveIndex;
+            justAddedMove = true;
+
+        }
+    }
 }

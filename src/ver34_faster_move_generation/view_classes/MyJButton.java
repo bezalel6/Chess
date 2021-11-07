@@ -10,6 +10,12 @@ public class MyJButton extends JButton {
         setFocusable(false);
     }
 
+    public MyJButton(String text, Font font) {
+        this(text);
+        setFont(font);
+    }
+
+
     public MyJButton() {
         this("");
     }
@@ -20,8 +26,7 @@ public class MyJButton extends JButton {
     }
 
     public MyJButton(String text, Font font, Function<Void, Void> onClick) {
-        this(text);
-        setFont(font);
+        this(text, font);
         addActionListener(e -> onClick.apply(null));
     }
 }

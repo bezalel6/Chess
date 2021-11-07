@@ -48,7 +48,7 @@ public class Model {
     }
 
     public void unmakeMove(Move move, Board board) {
-        board.unmakeMove(move);
+        board.unmakeMove();
     }
 
     public ArrayList<Location> getPiecesLocations(int currentPlayer) {
@@ -113,7 +113,7 @@ public class Model {
 
             String s = "-------------";
             System.out.println("\n" + s + "Starting search on depth " + i + s);
-            MinimaxMove minimaxMove = negaMaxRoot(logicBoard, i);
+            MinimaxMove minimaxMove = minimaxRoot(logicBoard, i);
             System.out.println("depth " + i + " move: " + minimaxMove);
             i++;
 
@@ -140,7 +140,7 @@ public class Model {
     }
 
 
-    private MinimaxMove negaMaxRoot(Board board, int maxDepth) {
+    private MinimaxMove minimaxRoot(Board board, int maxDepth) {
 //        MinimaxMove bestMove = new MinimaxMove(new Evaluation(true));
         MinimaxMove bestMove;
         ArrayList<Move> possibleMoves = board.generateAllMoves();
@@ -155,9 +155,8 @@ public class Model {
                     Evaluation eval;
                     Board board1 = new Board(board);
                     board1.applyMove(move);
-                    eval = negaMax(board1, board.getCurrentPlayer(), 1, maxDepth, new AlphaBeta().alpha, new AlphaBeta().beta);
-                    eval.flipEval();
-                    board1.undoMove(move);
+                    eval = minimax(board1, false, board.getOpponent(), 1, maxDepth, new AlphaBeta().alpha, new AlphaBeta().beta);
+                    board1.undoMove();
 
                     evals[possibleMoves.indexOf(move)] = eval;
                     move.setMoveEvaluation(eval);
@@ -175,42 +174,46 @@ public class Model {
     }
 
 
-    private Evaluation negaMax(Board board, int player, int depth, int maxDepth, double alpha, double beta) {
+    private Evaluation minimax(Board board, boolean isMax, int minimaxPlayer, int depth, int maxDepth, double alpha, double beta) {
         positionsReached++;
         Eval boardEval = board.getEval();
         long hash = board.getBoardHash().getFullHash();
-        Evaluation transpositionEval = getTranspositionEval(player, maxDepth, hash);
+        Evaluation transpositionEval = getTranspositionEval(minimaxPlayer, maxDepth, hash);
         if (transpositionEval != null)
             return transpositionEval;
         if (boardEval.checkGameOver().isGameOver() || isOvertimeWithFlex() || depth >= maxDepth) {
             leavesReached++;
-            return boardEval.getEvaluation();
+            return boardEval.getEvaluation(minimaxPlayer);
         }
-        Evaluation bestEval = new Evaluation(true);
+        Evaluation bestEval = new Evaluation(isMax);
         ArrayList<Move> possibleMoves = board.generateAllMoves();
 //        sortMoves(possibleMoves, true);
         for (Move move : possibleMoves) {
             board.applyMove(move);
 
-            Evaluation eval = negaMax(board, player, depth + 1, maxDepth, -beta, -alpha);
-            eval.flipEval();
+            Evaluation eval = minimax(board, !isMax, minimaxPlayer, depth + 1, maxDepth, alpha, beta);
 
-            board.undoMove(move);
+            board.undoMove();
 
             move.setMoveEvaluation(eval);
 
-            if (eval.isGreaterThan(bestEval)) {
+            if (eval.isGreaterThan(bestEval) == isMax) {
                 bestEval = eval;
             }
 
-            alpha = Math.max(alpha, eval.getEval());
-            if (beta <= alpha || (eval.isGameOver() && eval.getEval() > 0)) {
+            if (isMax) {
+                alpha = Math.max(alpha, bestEval.getEval());
+            } else {
+                beta = Math.min(beta, bestEval.getEval());
+            }
+            if (beta <= alpha) {
+//            if (beta <= alpha || (eval.isGameOver() && eval.getEval() > 0)) {
                 branchesPruned++;
                 break;
             }
 
         }
-        transpositionsHashMap.put(hash, new Transposition(maxDepth, player, bestEval));
+        transpositionsHashMap.put(hash, new Transposition(maxDepth, minimaxPlayer, bestEval));
         return bestEval;
     }
 

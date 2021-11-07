@@ -154,7 +154,7 @@ public class Eval {
         for (Move move : allCaptureMoves) {
             board.applyMove(move);
             Evaluation captures = getCapturesEvaluation_(player, !isMax, a, b);
-            board.undoMove(move);
+            board.undoMove();
             if (isMax == captures.isGreaterThan(currentEval)) {
                 currentEval = new Evaluation(captures);
             }

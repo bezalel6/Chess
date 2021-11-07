@@ -20,8 +20,10 @@ public class Move extends BasicMove implements Comparable<Move> {
     private boolean isReversible;
     private Evaluation moveEvaluation;
     private MoveFlag moveFlag;
-    private int prevCastlingAbility;
 
+    private int prevFullMoveClock;
+    private int prevCastlingAbility;
+    private int prevHalfMoveClock;
 
     public Move(Location movingFrom, Location movingTo, int capturingPieceType) {
         this(movingFrom, movingTo);
@@ -45,6 +47,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.promotingTo = other.promotingTo;
         this.moveFlag = other.moveFlag;
         this.isReversible = other.isReversible;
+        this.prevHalfMoveClock = other.prevHalfMoveClock;
 
         if (other.enPassantLoc != null)
             this.enPassantLoc = new Location(enPassantLoc);
@@ -55,6 +58,15 @@ public class Move extends BasicMove implements Comparable<Move> {
 
         this.moveAnnotation = new MoveAnnotation(other.moveAnnotation);
 
+    }
+
+    public static Move flipMove(Move move) {
+        Move ret = copyMove(move);
+        ret.flip();
+        if (ret.intermediateMove != null) {
+            ret.intermediateMove.flip();
+        }
+        return ret;
     }
 
     public static Move copyMove(Move move) {
@@ -80,6 +92,22 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
         ret -= 100000;
         return ret;
+    }
+
+    public int getPrevFullMoveClock() {
+        return prevFullMoveClock;
+    }
+
+    public void setPrevFullMoveClock(int prevFullMoveClock) {
+        this.prevFullMoveClock = prevFullMoveClock;
+    }
+
+    public int getPrevHalfMoveClock() {
+        return prevHalfMoveClock;
+    }
+
+    public void setPrevHalfMoveClock(int prevHalfMoveClock) {
+        this.prevHalfMoveClock = prevHalfMoveClock;
     }
 
     public int getPromotingTo() {

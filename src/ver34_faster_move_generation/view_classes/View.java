@@ -48,7 +48,7 @@ public class View implements Iterable<BoardButton[]> {
         ROWS = COLS = boardSize;
         this.controller = controller;
         this.boardOrientation = boardOrientation;
-        sidePanel = new SidePanel(millis, isBoardFlipped());
+        sidePanel = new SidePanel(millis, isBoardFlipped(), controller);
         createGui();
     }
 
@@ -359,8 +359,8 @@ public class View implements Iterable<BoardButton[]> {
         statusLbl.setText(str);
     }
 
-    public void updateMoveLog(String move, int moveNum) {
-        sidePanel.addMoveStr(move, moveNum);
+    public void updateMoveLog(String move, int moveNum, int moveIndex) {
+        sidePanel.getMoveLog().addMoveStr(move, moveNum, moveIndex);
     }
 
 
@@ -419,19 +419,23 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void highlightPath(ArrayList<Move> movableSquares) {
-        enableAllSquares(false);
         if (movableSquares != null)
             for (Move move : movableSquares) {
                 Location movingTo = move.getMovingTo();
-//                if (isBoardFlipped)
-//                    movingTo.flipRow();
                 if (move.isCapturing())
                     highlightSquare(movingTo, red);
                 else if (move.getMoveFlag() == Move.MoveFlag.Promotion)
                     highlightSquare(movingTo, promotingSquareColor);
                 else
                     highlightSquare(movingTo, yellow);
+            }
+    }
 
+    public void enablePath(ArrayList<Move> movableSquares) {
+        enableAllSquares(false);
+        if (movableSquares != null)
+            for (Move move : movableSquares) {
+                Location movingTo = move.getMovingTo();
                 enableSquare(movingTo, true);
             }
     }
