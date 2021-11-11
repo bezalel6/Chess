@@ -227,6 +227,10 @@ public class View implements Iterable<BoardButton[]> {
             controller.selectStartingPosition();
             return null;
         });
+        createDebugBtn("Save Current Position", (Void) -> {
+            controller.saveCurrentPosition();
+            return null;
+        });
         createDebugBtn("Draw Controlled Squares", (Void) -> {
             controller.drawControlledSquares();
             return null;

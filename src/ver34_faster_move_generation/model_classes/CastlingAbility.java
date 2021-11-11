@@ -1,9 +1,6 @@
 package ver34_faster_move_generation.model_classes;
 
-import ver34_faster_move_generation.MyError;
 import ver34_faster_move_generation.Player;
-
-import java.util.Arrays;
 
 
 public class CastlingAbility {

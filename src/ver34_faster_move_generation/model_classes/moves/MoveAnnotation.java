@@ -1,9 +1,8 @@
 package ver34_faster_move_generation.model_classes.moves;
 
-import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.GameStatus;
 
-import static ver34_faster_move_generation.model_classes.pieces.Piece.*;
+import static ver34_faster_move_generation.model_classes.pieces.Piece.isValidPieceType;
 
 public class MoveAnnotation {
     public static final int PIECE = 0, CAPTURE = 1, DESTINATION = 2, GAME_OVER = 3;

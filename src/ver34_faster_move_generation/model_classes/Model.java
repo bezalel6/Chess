@@ -141,10 +141,8 @@ public class Model {
 
 
     private MinimaxMove minimaxRoot(Board board, int maxDepth) {
-//        MinimaxMove bestMove = new MinimaxMove(new Evaluation(true));
         MinimaxMove bestMove;
         ArrayList<Move> possibleMoves = board.generateAllMoves();
-        Evaluation[] evals = new Evaluation[possibleMoves.size()];
         AtomicBoolean isCompleteSearch = new AtomicBoolean(true);
 
         if (possibleMoves.size() > 1) {
@@ -158,7 +156,6 @@ public class Model {
                     eval = minimax(board1, false, board.getOpponent(), 1, maxDepth, new AlphaBeta().alpha, new AlphaBeta().beta);
                     board1.undoMove();
 
-                    evals[possibleMoves.indexOf(move)] = eval;
                     move.setMoveEvaluation(eval);
                 } else {
                     isCompleteSearch.set(false);

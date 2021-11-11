@@ -4,7 +4,6 @@ import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.Board;
 import ver34_faster_move_generation.model_classes.CastlingAbility;
-import ver34_faster_move_generation.model_classes.pieces.Pawn;
 import ver34_faster_move_generation.model_classes.pieces.Piece;
 import ver34_faster_move_generation.model_classes.pieces.Rook;
 

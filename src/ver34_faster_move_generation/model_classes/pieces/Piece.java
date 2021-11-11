@@ -5,14 +5,12 @@ import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.MyError;
 import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.Board;
-import ver34_faster_move_generation.model_classes.Zobrist;
 import ver34_faster_move_generation.model_classes.moves.Move;
 import ver34_faster_move_generation.model_classes.moves.PieceMoves;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.concurrent.ConcurrentHashMap;
 
 
 public abstract class Piece {

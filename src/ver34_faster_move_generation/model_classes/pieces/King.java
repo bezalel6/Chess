@@ -1,7 +1,6 @@
 package ver34_faster_move_generation.model_classes.pieces;
 
 import ver34_faster_move_generation.Location;
-import ver34_faster_move_generation.model_classes.Board;
 import ver34_faster_move_generation.model_classes.CastlingAbility;
 import ver34_faster_move_generation.model_classes.moves.Castling;
 import ver34_faster_move_generation.model_classes.moves.Move;

@@ -6,7 +6,9 @@ import ver34_faster_move_generation.MyError;
 import ver34_faster_move_generation.Player;
 import ver34_faster_move_generation.model_classes.eval_classes.Eval;
 import ver34_faster_move_generation.model_classes.eval_classes.Evaluation;
-import ver34_faster_move_generation.model_classes.moves.*;
+import ver34_faster_move_generation.model_classes.moves.BasicMove;
+import ver34_faster_move_generation.model_classes.moves.Move;
+import ver34_faster_move_generation.model_classes.moves.PieceMoves;
 import ver34_faster_move_generation.model_classes.pieces.*;
 
 import java.util.*;

@@ -35,11 +35,13 @@ class Arrow {
         if (start == null || end == null || start.equals(end)) return;
         g2.setStroke(new BasicStroke(10));
         g2.setColor(clr);
-        g2.draw(new Line2D.Double(start.x, start.y, end.x, end.y));
+        g2.draw(new Line2D.Double(start.x, start.y, end.x - 1, end.y - 1));
+        g2.setColor(Color.GREEN);
         double theta = Math.atan2(end.y - start.y, end.x - start.x);
         int x0 = end.x, y0 = end.y;
         double x = x0 - barb * Math.cos(theta + phi);
         double y = y0 - barb * Math.sin(theta + phi);
+
         g2.draw(new Line2D.Double(x0, y0, x, y));
         x = x0 - barb * Math.cos(theta - phi);
         y = y0 - barb * Math.sin(theta - phi);

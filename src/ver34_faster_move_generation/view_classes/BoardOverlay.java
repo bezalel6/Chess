@@ -35,11 +35,13 @@ class Arrow {
         if (start == null || end == null || start.equals(end)) return;
         g2.setStroke(new BasicStroke(10));
         g2.setColor(clr);
-        g2.draw(new Line2D.Double(start.x, start.y, end.x, end.y));
+        g2.draw(new Line2D.Double(start.x, start.y, end.x - 1, end.y - 1));
+        g2.setColor(Color.GREEN);
         double theta = Math.atan2(end.y - start.y, end.x - start.x);
         int x0 = end.x, y0 = end.y;
         double x = x0 - barb * Math.cos(theta + phi);
         double y = y0 - barb * Math.sin(theta + phi);
+
         g2.draw(new Line2D.Double(x0, y0, x, y));
         x = x0 - barb * Math.cos(theta - phi);
         y = y0 - barb * Math.sin(theta - phi);
@@ -53,9 +55,6 @@ class Arrow {
 }
 
 public class BoardOverlay extends LayerUI<JPanel> {
-
-
-    private static final boolean BTN_CLICKS = false;
     public static Point mouseCoordinates, startedAt;
     public boolean isDrawing = false;
     private View view;
@@ -66,77 +65,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
     public BoardOverlay(View view) {
         this.view = view;
         arrows = new ArrayList<>();
-
-    }
-
-    public void animateAndSetIcon(BoardButton button, ImageIcon icon) {
-        animateAndSetIcon(button, icon, 1);
-//        animateAndSetIcon(button, icon, 2);
-    }
-
-    public void animateAndSetIcon(BoardButton button, ImageIcon icon, int duration) {
-        if (icon == null) {
-            return;
-        }
-        int frames = 20 * duration;
-//        int interval = 10 / frames;
-        int interval = 1;
-        int widthMult = icon.getIconWidth() / frames;
-        int heightMult = icon.getIconHeight() / frames;
-        ImageIcon temp = IconManager.copyImage(icon);
-        new Timer(interval, new ActionListener() {
-            int currentFrame = 1;
-
-            public void actionPerformed(ActionEvent e) {
-                ImageIcon scaled = IconManager.scaleImage(temp, widthMult * currentFrame, heightMult * currentFrame);
-                button.setIcon(scaled, false);
-                if (currentFrame <= frames)
-                    currentFrame++;
-                else
-                    ((Timer) e.getSource()).stop();
-            }
-        }).start();
-    }
-
-    public void flipButtons() {
-        JPanel bp = view.getBoardPnl();
-//        LayoutManager lm = bp.getLayout();
-//        bp.setLayout(null);
-//        bp.removeAll();
-//        bp.setLayout(new GridLayout(8, 8));
-        for (BoardButton[] row : view) {
-            for (BoardButton btn : row) {
-                BoardButton opposite = view.getBtn(Location.flipLocation(btn.getBtnLoc()));
-                animate(btn, opposite.getLocation(), 10, 1);
-//                bp.add(opposite);
-            }
-        }
-    }
-
-    public void animate(JComponent component, Point newPoint, int frames, int interval) {
-        Rectangle compBounds = component.getBounds();
-        Point oldPoint = new Point(compBounds.x, compBounds.y),
-                animFrame = new Point((newPoint.x - oldPoint.x) / frames,
-                        (newPoint.y - oldPoint.y) / frames);
-
-        new Timer(interval, new ActionListener() {
-            int currentFrame = 0;
-
-            public void actionPerformed(ActionEvent e) {
-                int x = oldPoint.x + (animFrame.x * currentFrame);
-                int y = oldPoint.y + (animFrame.y * currentFrame);
-                int w = compBounds.width;
-                int h = compBounds.height;
-                component.setBounds(x, y, w, h);
-                component.setLocation(x, y);
-                compBounds.setBounds(x, y, w, h);
-                if (currentFrame != frames)
-                    currentFrame++;
-                else
-                    ((Timer) e.getSource()).stop();
-
-            }
-        }).start();
 
     }
 

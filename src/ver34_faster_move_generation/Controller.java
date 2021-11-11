@@ -3,6 +3,7 @@ package ver34_faster_move_generation;
 
 import Global_Classes.Positions;
 import ver34_faster_move_generation.model_classes.Board;
+
 import ver34_faster_move_generation.model_classes.GameStatus;
 import ver34_faster_move_generation.model_classes.Model;
 import ver34_faster_move_generation.model_classes.Square;
@@ -127,11 +128,7 @@ public class Controller {
         if (!Positions.positionExists(fen)) {
             YesOrNo savePos = new YesOrNo("Save New Pos", "Do You Want To Save The New Position?");
             if (((int) savePos.run()) == YesOrNo.YES) {
-                List namePos = new List("Name New Position", List.VERTICAL);
-                namePos.addItem(new DialogLabel("Enter Name For New Position"));
-                namePos.addItem(new DialogInput());
-                String name = (String) namePos.run();
-                startingPosition = Positions.addNewPosition(name, fen);
+                saveNewPosition(fen);
             } else {
                 positions.add(new Positions.Position("temp position", fen));
                 startingPosition = Positions.getIndexOfFen(fen);
@@ -139,6 +136,14 @@ public class Controller {
         } else {
             startingPosition = Positions.getIndexOfFen(fen);
         }
+    }
+
+    private void saveNewPosition(String fen) {
+        List namePos = new List("Name New Position", List.VERTICAL);
+        namePos.addItem(new DialogLabel("Enter Name For New Position"));
+        namePos.addItem(new DialogInput());
+        String name = (String) namePos.run();
+        startingPosition = Positions.addNewPosition(name, fen);
     }
 
     private void showStopProcessDialog() {
@@ -412,8 +417,13 @@ public class Controller {
         model.getBoard().printBoard();
     }
 
+
+    public String getCurrentFen() {
+        return model.getBoard().getFenStr();
+    }
+
     public void printFEN() {
-        System.out.println(model.getBoard().getFenStr());
+        System.out.println(getCurrentFen());
     }
 
     public void printAllPieces() {
@@ -569,5 +579,9 @@ public class Controller {
         Stack<Move> moveStack = model.getBoard().getMoveStack();
         view.enableAllSquares(false);
         updateView(moveStack.get(i));
+    }
+
+    public void saveCurrentPosition() {
+        saveNewPosition(getCurrentFen());
     }
 }

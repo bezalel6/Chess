@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Positions {
     private static final String storageRoot = "src/Assets/GameInfo/";
     private static final String positionsStoragePath = storageRoot + "Positions/";
-    private static ArrayList<Position> allPositions = readAllPositions();
+    public static ArrayList<Position> allPositions = readAllPositions();
     private static final String positionsExtensions = ".pos";
 
     public static ArrayList<Position> getAllPositions() {
