@@ -48,9 +48,10 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.moveFlag = other.moveFlag;
         this.isReversible = other.isReversible;
         this.prevHalfMoveClock = other.prevHalfMoveClock;
+        this.prevFullMoveClock = other.prevFullMoveClock;
 
         if (other.enPassantLoc != null)
-            this.enPassantLoc = new Location(enPassantLoc);
+            this.enPassantLoc = new Location(other.enPassantLoc);
         if (other.moveEvaluation != null)
             this.moveEvaluation = new Evaluation(other.moveEvaluation);
         if (other.intermediateMove != null)
@@ -116,6 +117,7 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public void setPromotingTo(int promotingTo) {
         this.promotingTo = promotingTo;
+        moveAnnotation.setPromotion(promotingTo);
     }
 
     public MoveFlag getMoveFlag() {
@@ -210,7 +212,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public void setEnPassantLoc(Location epsnLoc) {
-        enPassantLoc = epsnLoc;
+        enPassantLoc = new Location(epsnLoc);
     }
 
     public int getPrevCastlingAbility() {

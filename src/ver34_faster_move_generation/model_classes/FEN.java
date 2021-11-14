@@ -12,7 +12,7 @@ public class FEN {
     private int initialPlayerToMove;
 
     public FEN(String fen, Board board) {
-        this.fen = fen;
+        this.fen = fen.trim();
         this.board = board;
 
     }
@@ -67,17 +67,12 @@ public class FEN {
     }
 
     private void setMoveCounters() {
-        char[] arr = fen.toCharArray();
-        int fullMoveCounterIndex = arr.length;
-        while (arr[--fullMoveCounterIndex] != ' ') {
 
-        }
-        board.setFullMoveClock(Integer.parseInt(fen.substring(fullMoveCounterIndex + 1)));
+        int fullMoveStartIndex = fen.lastIndexOf(' ') + 1;
+        board.setFullMoveClock(Integer.parseInt(fen.substring(fullMoveStartIndex)));
 
-        int halfMoveCounterIndex = fullMoveCounterIndex;
-        while (arr[--halfMoveCounterIndex] != ' ') {
-        }
-        board.setHalfMoveClock(Integer.parseInt(fen.substring(halfMoveCounterIndex + 1, fullMoveCounterIndex)));
+        int halfMoveStartIndex = fen.substring(0, fullMoveStartIndex).length() - 2;
+        board.setHalfMoveClock(Integer.parseInt(fen.substring(halfMoveStartIndex, fullMoveStartIndex).trim()));
 
     }
 

@@ -310,7 +310,7 @@ public class View implements Iterable<BoardButton[]> {
         gbc = new GridBagConstraints();
         gbc.gridy = 0;
         gbc.gridx = 1;
-        win.add(runningProcessPnl, gbc);
+//        win.add(runningProcessPnl, gbc);
 
         gbc = new GridBagConstraints();
         gbc.gridy = 2;

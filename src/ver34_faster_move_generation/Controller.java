@@ -66,7 +66,7 @@ public class Controller {
     private IconManager iconManager;
     private boolean isFirstClick;
     private boolean showPositionDialog = false;
-    private int runningProcess = NO_RUNNING_PROCESS;
+    private int runningProcess = AI_PLAYS_BLACK;
     private long[] clocks;
     private Location checkLoc;
     private Timer timer;
@@ -218,14 +218,6 @@ public class Controller {
         } else {
             view.enableAllSquares(false);
         }
-    }
-
-    private ArrayList<Location> flipLocs(ArrayList<Location> locs) {
-        ArrayList<Location> ret = new ArrayList<>();
-        for (Location loc : locs) {
-            ret.add(Location.flipLocation(loc));
-        }
-        return ret;
     }
 
     private void setStsLbl() {

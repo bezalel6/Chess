@@ -371,18 +371,60 @@ public class Board implements Iterable<Square[]> {
     }
 
     public ArrayList<Move> generateAllMoves() {
-//        long hash = getBoardHash().getFullHash();
-//        if (movesGenerationHashMap.containsKey(hash)) {
-//            return movesGenerationHashMap.get(hash);
-//        }
+        long hash = getBoardHash().getFullHash();
+        if (movesGenerationHashMap.containsKey(hash)) {
+            return movesGenerationHashMap.get(hash);
+        }
+
         ArrayList<Move> ret = new ArrayList<>();
         for (Piece piece : getPlayersPieces(currentPlayer)) {
             if (!piece.isCaptured()) {
                 ret.addAll(piece.canMoveTo(this));
             }
         }
-//        movesGenerationHashMap.put(hash, ret);
+
+        setUniqueStrs(ret);
+        movesGenerationHashMap.put(hash, ret);
         return ret;
+    }
+
+    private void setUniqueStrs(ArrayList<Move> list) {
+        HashMap<Integer, ArrayList<Move>> uniqueMovesNotation = new HashMap<>();
+        for (Move move : list) {
+            String str = move.getAnnotation();
+            int hash = str.hashCode();
+            if (!uniqueMovesNotation.containsKey(hash)) {
+                uniqueMovesNotation.put(hash, new ArrayList<>());
+            }
+            uniqueMovesNotation.get(hash).add(move);
+        }
+        for (ArrayList<Move> moves : uniqueMovesNotation.values()) {
+            if (moves.size() > 1) {
+                for (Move move : moves) {
+                    Location movingFrom = move.getMovingFrom();
+                    String uniqueStr = movingFrom.toString();
+                    boolean uniqueRow = true;
+                    boolean uniqueCol = true;
+                    for (Move other : moves) {
+                        if (!other.equals(move)) {
+                            Location otherMovingFrom = other.getMovingFrom();
+                            if (otherMovingFrom.getRow() == movingFrom.getRow()) {
+                                uniqueRow = false;
+                            }
+                            if (otherMovingFrom.getCol() == movingFrom.getCol()) {
+                                uniqueCol = false;
+                            }
+                        }
+                    }
+                    if (uniqueCol) {
+                        uniqueStr = movingFrom.getColString();
+                    } else if (uniqueRow) {
+                        uniqueStr = movingFrom.getRowString();
+                    }
+                    move.getMoveAnnotation().setUniqueStr(uniqueStr);
+                }
+            }
+        }
     }
 
     @Override
@@ -398,6 +440,17 @@ public class Board implements Iterable<Square[]> {
         this.currentPlayer = currentPlayer;
     }
 
+    public void applyMove(String moveStr) {
+        for (Move move : generateAllMoves()) {
+            if (move.getAnnotation().equals(moveStr)) {
+                applyMove(move);
+                return;
+            }
+        }
+        System.out.println("didnt find move str to play");
+
+    }
+
     public void applyMove(Move move) {
 
         Location movingFrom = move.getMovingFrom();
@@ -406,6 +459,7 @@ public class Board implements Iterable<Square[]> {
         Piece piece = getPiece(movingFrom, true);
         int pieceColor = piece.getPieceColor();
 
+        move.getMoveAnnotation().setDetailedAnnotation(piece.getPieceType());
         move.setPrevFullMoveClock(fullMoveClock);
         move.setPrevHalfMoveClock(halfMoveClock);
         move.setReversible(piece);
@@ -457,20 +511,26 @@ public class Board implements Iterable<Square[]> {
         if (!move.isReversible()) {
             setHalfMoveClock(0);
         }
+
         switchTurn();
-        setBoardHash();
         if (move.isReversible()) {
-//            setHalfMoveClock(halfMoveClock + 1);
             setHalfMoveClock(move.getPrevHalfMoveClock() + 1);
         }
 
+        if (isInCheck()) {
+            Evaluation e = new Evaluation();
+            e.setGameStatusType(GameStatus.GameStatusType.CHECK);
+            move.setMoveEvaluation(e);
+        }
         moveStack.push(move);
+
+        setBoardHash();
+
     }
 
 
     public Move undoMove() {
         Move move = moveStack.pop();
-        setBoardHash();
 
         setFullMoveClock(move.getPrevFullMoveClock());
         setHalfMoveClock(move.getPrevHalfMoveClock());
@@ -514,6 +574,7 @@ public class Board implements Iterable<Square[]> {
 
         switchTurn();
 
+        setBoardHash();
         return move;
     }
 
@@ -607,8 +668,7 @@ public class Board implements Iterable<Square[]> {
 
     public void makeMove(Move move) {
         applyMove(move);
-        Evaluation currentEval = boardEval.getEvaluation();
-        move.setMoveEvaluation(currentEval);
+        move.setMoveEvaluation(boardEval.getEvaluation());
     }
 
     public void unmakeMove() {
@@ -637,7 +697,7 @@ public class Board implements Iterable<Square[]> {
         boardHash.setAll(this);
     }
 
-    private BoardHash hashBoard() {
+    public BoardHash hashBoard() {
         return new BoardHash(this);
     }
 

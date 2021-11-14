@@ -75,7 +75,6 @@ public class GameStatus {
         return gameStatusType == GameStatusType.CHECK || gameStatusType == GameStatusType.WIN_OR_LOSS;
     }
 
-
     @Override
     public String toString() {
         String str = "";

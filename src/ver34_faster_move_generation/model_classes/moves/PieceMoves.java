@@ -57,7 +57,6 @@ public class PieceMoves {
                     }
                 }
                 if (add && move instanceof Castling) {
-
                     int side = ((Castling) move).getSide();
                     int castlingAbility = board.getCastlingAbility();
                     if (CastlingAbility.checkCastling(pieceColor, side, castlingAbility)) {
@@ -151,12 +150,14 @@ public class PieceMoves {
     }
 
     public void verifyMoves(Board board) {
-        long hash = board.getBoardHash().getFullHash();
+        long hash = board.getBoardHash().getPiecesHash();
         if (currentBoardHash != hash) {
             pseudoMoves = null;
             pseudoLegalMoves = null;
             legalMoves = null;
             setPseudoMoves();
+        } else {
+            System.out.println("didnt have to reset moves");
         }
     }
 }

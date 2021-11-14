@@ -97,6 +97,10 @@ public class Location {
         return Character.toString((char) (col + 'a'));
     }
 
+    public String getRowString() {
+        return (getFlipped(row) + 1) + "";
+    }
+
     public int getCol() {
         return col;
     }
@@ -112,7 +116,7 @@ public class Location {
     @Override
     public String toString() {
         String ret = getColString() + "";
-        ret += (getFlipped(row) + 1) + "";
+        ret += getRowString();
         return ret;
     }
 

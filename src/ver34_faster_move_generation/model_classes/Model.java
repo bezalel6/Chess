@@ -1,6 +1,7 @@
 package ver34_faster_move_generation.model_classes;
 
 import Global_Classes.Positions;
+import ver34_faster_move_generation.Book;
 import ver34_faster_move_generation.Controller;
 import ver34_faster_move_generation.Location;
 import ver34_faster_move_generation.model_classes.eval_classes.Eval;
@@ -14,32 +15,35 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Model {
 
     public static final ConcurrentHashMap<Long, Transposition> transpositionsHashMap = new ConcurrentHashMap<>();
     private final Controller controller;
-    public Eval eval;
     private Board logicBoard;
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
     private long leavesReached;
     private long branchesPruned;
     private long transpositionHits;
+    private boolean stillTheory;
+    private ExecutorService pool;
 
     public Model(Controller controller) {
         this.controller = controller;
     }
 
     public void initGame(int startingPosition) {
-        logicBoard = new Board(Positions.getAllPositions().get(startingPosition).getFen());
-        eval = new Eval(logicBoard);
+        initGame(Positions.getAllPositions().get(startingPosition).getFen());
     }
 
     public void initGame(String fen) {
         logicBoard = new Board(fen);
-        eval = new Eval(logicBoard);
+        stillTheory = true;
     }
 
     public String makeMove(Move move, Board board) {
@@ -97,8 +101,26 @@ public class Model {
         return getBestMoveUsingMinimax().getMove();
     }
 
+    private MinimaxMove getBookMove() {
+//        if (stillTheory) {
+//            String bookMove = Book.getBookMove(logicBoard);
+//            if (bookMove != null) {
+//                ArrayList<Move> possibleMoves = logicBoard.generateAllMoves();
+//                for (Move move : possibleMoves) {
+//                    if (move.getAnnotation().equals(bookMove))
+//                        return new MinimaxMove(move, new Evaluation(), 0);
+//                }
+//            }
+//            stillTheory = false;
+//        }
+        return null;
+    }
+
     // ============================ for minimax ===========================
     private MinimaxMove getBestMoveUsingMinimax() {
+        MinimaxMove bookMove = getBookMove();
+        if (bookMove != null)
+            return bookMove;
         System.out.println("Current eval:\n" + logicBoard.getEvaluation() + Controller.HIDE_PRINT);
         MinimaxMove bestMoveSoFar = null;
         positionsReached = -1;
@@ -139,37 +161,42 @@ public class Model {
         return bestMoveSoFar;
     }
 
-
     private MinimaxMove minimaxRoot(Board board, int maxDepth) {
         MinimaxMove bestMove;
         ArrayList<Move> possibleMoves = board.generateAllMoves();
         AtomicBoolean isCompleteSearch = new AtomicBoolean(true);
+        pool = Executors.newFixedThreadPool(50);
 
         if (possibleMoves.size() > 1) {
 //            possibleMoves.stream().parallel().forEach(move -> {
             possibleMoves.forEach(move -> {
+                pool.execute(() -> {
+                    if (!isOvertimeWithFlex()) {
+                        Board board1 = new Board(board);
+                        board1.applyMove(move);
+                        Evaluation eval = minimax(board1, false, board1.getOpponent(), 1, maxDepth, new AlphaBeta().alpha, new AlphaBeta().beta);
+                        board1.undoMove();
 
-                if (!isOvertimeWithFlex()) {
-                    Evaluation eval;
-                    Board board1 = new Board(board);
-                    board1.applyMove(move);
-                    eval = minimax(board1, false, board.getOpponent(), 1, maxDepth, new AlphaBeta().alpha, new AlphaBeta().beta);
-                    board1.undoMove();
-
-                    move.setMoveEvaluation(eval);
-                } else {
-                    isCompleteSearch.set(false);
-                }
-
+                        move.setMoveEvaluation(eval);
+                    } else {
+                        isCompleteSearch.set(false);
+                    }
+                });
             });
         }
+        pool.shutdown();
+        try {
+            pool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         sortMoves(possibleMoves, true);
         bestMove = new MinimaxMove(possibleMoves.get(0), possibleMoves.get(0).getMoveEvaluation(), 0);
         bestMove.setCompleteSearch(isCompleteSearch.get());
 
         return bestMove;
     }
-
 
     private Evaluation minimax(Board board, boolean isMax, int minimaxPlayer, int depth, int maxDepth, double alpha, double beta) {
         positionsReached++;
@@ -184,8 +211,9 @@ public class Model {
         }
         Evaluation bestEval = new Evaluation(isMax);
         ArrayList<Move> possibleMoves = board.generateAllMoves();
-//        sortMoves(possibleMoves, true);
+
         for (Move move : possibleMoves) {
+
             board.applyMove(move);
 
             Evaluation eval = minimax(board, !isMax, minimaxPlayer, depth + 1, maxDepth, alpha, beta);
@@ -204,7 +232,6 @@ public class Model {
                 beta = Math.min(beta, bestEval.getEval());
             }
             if (beta <= alpha) {
-//            if (beta <= alpha || (eval.isGameOver() && eval.getEval() > 0)) {
                 branchesPruned++;
                 break;
             }

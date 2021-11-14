@@ -86,13 +86,13 @@ public class Eval {
     public Evaluation getEvaluation(int player) {
         long hash = board.getBoardHash().getFullHash();
         Evaluation evaluation;
-//        if (evaluationHashMap.containsKey(hash)) {
-//            evaluation = evaluationHashMap.get(hash);
-//        } else {
-//            evaluation = getEvaluationForWhite();
-//            evaluationHashMap.put(hash, evaluation);
-//        }
-        evaluation = getEvaluationForWhite();
+        if (evaluationHashMap.containsKey(hash)) {
+            evaluation = evaluationHashMap.get(hash);
+        } else {
+            evaluation = getEvaluationForWhite();
+            evaluationHashMap.put(hash, evaluation);
+        }
+//        evaluation = getEvaluationForWhite();
 
         return player == Player.WHITE ? evaluation : evaluation.getEvalForBlack();
     }
