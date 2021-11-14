@@ -241,10 +241,10 @@ public class View implements Iterable<BoardButton[]> {
             controller.printCapturesEval();
             return null;
         });
-//        createDebugBtn("Flip Buttons", (Void) -> {
-//            getBoardOverlay().flipButtons();
-//            return null;
-//        });
+        createDebugBtn("Print PGN", (Void) -> {
+            controller.printPGN();
+            return null;
+        });
         settingsMenu.add(debugMenu);
 
     }

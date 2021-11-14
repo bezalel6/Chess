@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Stockfish {
 
-    private static final String PATH = "\"E:\\stockfish_14_win_x64_avx2\\stockfish_14_win_x64_avx2\\stockfish_14_x64_avx2.exe\"";
+    private static final String PATH = "src/Assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_win_x64_avx2.exe";
     private Process engineProcess;
     private BufferedReader processReader;
     private OutputStreamWriter processWriter;

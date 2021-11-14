@@ -35,12 +35,12 @@ import static ver35_thread_pool.model_classes.pieces.Piece.*;
 
 public class Controller {
     public static final int MIN_SCAN_TIME = 1;
-    public static final int MAX_SCAN_TIME = 60;
-    public static final int DEFAULT_SCAN_TIME = 15;
+    public static final int MAX_SCAN_TIME = 360;
+    public static final int DEFAULT_SCAN_TIME = 240;
 
     public static final int MIN_SCAN_TIME_FLEXIBILITY = 0;
-    public static final int MAX_SCAN_TIME_FLEXIBILITY = 60;
-    public static final int DEFAULT_SCAN_TIME_FLEXIBILITY = 5;
+    public static final int MAX_SCAN_TIME_FLEXIBILITY = 120;
+    public static final int DEFAULT_SCAN_TIME_FLEXIBILITY = 60;
 
     public static final Color MINIMAX_BEST_MOVE = Color.blue;
     public static final Color MINIMAX_CURRENT_MOVE = Color.green;
@@ -54,7 +54,7 @@ public class Controller {
 
     public static final int COLS = 8;
     public static final int ROWS = 8;
-    public static final boolean USE_OPENING_BOOK = false;
+    public static final boolean USE_OPENING_BOOK = true;
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final int DEFAULT_STARTING_POSITION = 0;
@@ -79,7 +79,7 @@ public class Controller {
 
     private boolean showPositionDialog = false;
 
-    private int runningProcess = AI_PLAYS_BLACK;
+    private int runningProcess = AI_GAME;
 
     private Timer timer;
     private long[] clocks;
@@ -87,6 +87,7 @@ public class Controller {
     private Location checkLoc;
 
     private ArrayList<Move> movesList;
+    private String gamePgn;
 
     public Controller() {
         model = new Model(this);
@@ -184,6 +185,8 @@ public class Controller {
         Arrays.fill(clocks, DEFAULT_TIME_CONTROL);
         model.initGame(startingPosition);
         initViewGame();
+
+        gamePgn = "";
 
         checkGameOver(model.getBoard());
         afterBtnPress();
@@ -283,6 +286,13 @@ public class Controller {
         String moveAnnotation = model.makeMove(move, board);
         Evaluation moveEval = move.getMoveEvaluation();
         int moveNum = getCurrentPlayer() == Player.BLACK ? model.getBoard().getFullMoveClock() : -1;
+        String currentAnn = moveAnnotation;
+        if (moveNum != -1) {
+            currentAnn = moveNum + ". " + currentAnn + " ";
+        } else {
+            currentAnn = currentAnn + "\n";
+        }
+        gamePgn += currentAnn;
         view.updateMoveLog(moveAnnotation, moveNum, model.getBoard().getMoveStack().size() - 1);
         if (checkGameOver(moveEval, board))
             return;
@@ -601,5 +611,9 @@ public class Controller {
 
     public void saveCurrentPosition() {
         saveNewPosition(getCurrentFen());
+    }
+
+    public void printPGN() {
+        System.out.println(gamePgn);
     }
 }

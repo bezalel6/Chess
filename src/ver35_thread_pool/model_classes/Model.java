@@ -1,6 +1,7 @@
 package ver35_thread_pool.model_classes;
 
 import Global_Classes.Positions;
+import ver35_thread_pool.Player;
 import ver35_thread_pool.model_classes.eval_classes.Book;
 import ver35_thread_pool.Controller;
 import ver35_thread_pool.Location;
@@ -34,7 +35,7 @@ public class Model {
     private long transpositionHits;
     private boolean stillTheory;
     private ExecutorService pool;
-    private int numOfThreads = 4;
+    private int numOfThreads = 2;
 
     public Model(Controller controller) {
         this.controller = controller;
@@ -109,9 +110,9 @@ public class Model {
     public Move getAiMove() {
         System.out.println("Model getAiMove() using MINIMAX");
         initMinimaxTime();
-//        if (logicBoard.getCurrentPlayer() == Player.WHITE)
-        return getBestMoveUsingMinimax().getMove();
-//        return getBestMoveUsingStockfish();
+        if (logicBoard.getCurrentPlayer() == Player.WHITE)
+            return getBestMoveUsingMinimax().getMove();
+        return getBestMoveUsingStockfish();
     }
 
     public Move getBestMoveUsingStockfish() {
