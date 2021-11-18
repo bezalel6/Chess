@@ -26,7 +26,7 @@ public class Eval {
     public static final int MOVEMENT_ABILITY = 5;
     public static final int FORCE_KING_TO_CORNER = 6;
     public static final int EG_WEIGHT = 7;
-    public static final int STOCKFISH_SAYS = 7;
+    public static final int STOCKFISH_SAYS = 8;
     public static final String[] EVAL_PARAMETERS_NAMES = initEvalParametersArr();
     public static final int MIDDLE_GAME = 0, ENDGAME = 1, OPENING = 2;
     public static final HashMap<Long, Evaluation> evaluationHashMap = new HashMap<>();
@@ -87,16 +87,16 @@ public class Eval {
     }
 
     public Evaluation getEvaluation(int player) {
-//        long hash = board.getBoardHash().getFullHash();
+        long hash = board.getBoardHash().getFullHash();
         Evaluation evaluation;
-//        if (evaluationHashMap.containsKey(hash)) {
-//            evaluation = evaluationHashMap.get(hash);
-//        } else {
-//            evaluation = getEvaluationForWhite();
-//            evaluationHashMap.put(hash, evaluation);
-//        }
-        
-        evaluation = getEvaluationForWhite();
+        if (evaluationHashMap.containsKey(hash)) {
+            evaluation = evaluationHashMap.get(hash);
+        } else {
+            evaluation = getEvaluationForWhite();
+            evaluationHashMap.put(hash, evaluation);
+        }
+
+//        evaluation = getEvaluationForWhite();
 
         return player == Player.WHITE ? evaluation : evaluation.getEvalForBlack();
     }
@@ -306,31 +306,45 @@ public class Eval {
 
 
     public Evaluation checkGameOver() {
-//        long hash = board.getBoardHash().getFullHash();
-//        if (gameOverHashMap.containsKey(hash)) {
-//            return gameOverHashMap.get(hash);
-//        }
-        Evaluation ret = isGameOver_(board.getCurrentPlayer());
+        long hash = board.getBoardHash().getFullHash();
+        if (gameOverHashMap.containsKey(hash)) {
+            return gameOverHashMap.get(hash);
+        }
+        Evaluation ret = isGameOver_();
 
-//        gameOverHashMap.put(hash, ret);
+        gameOverHashMap.put(hash, ret);
         return ret;
     }
 
-    private Evaluation isGameOver_(int player) {
+    private Evaluation isGameOver_() {
+        int currentPlayer = board.getCurrentPlayer();
+        Evaluation currentPlayerGameOver = __isGameOver(currentPlayer);
+        if (currentPlayerGameOver != null)
+            return currentPlayerGameOver;
+        Evaluation otherPlayerGameOver = __isGameOver(board.getOpponent());
+        if (otherPlayerGameOver != null)
+            return otherPlayerGameOver;
+        if (board.getHalfMoveClock() >= 100) {
+            return new Evaluation(GameStatus.FIFTY_MOVE_RULE);
+        }
+        if (checkRepetition()) {
+            return new Evaluation(GameStatus.THREE_FOLD_REPETITION);
+        }
+        if (checkForInsufficientMaterial()) {
+            return new Evaluation(GameStatus.INSUFFICIENT_MATERIAL);
+        }
+        return new Evaluation();
+    }
+
+    private Evaluation __isGameOver(int player) {
         if (!board.anyLegalMove(player)) {
             if (board.isInCheck(player)) {
                 return new Evaluation(new GameStatus(GameStatus.CHECKMATE));
             }
             return new Evaluation(GameStatus.STALEMATE);
 
-        } else if (board.getHalfMoveClock() >= 100) {
-            return new Evaluation(GameStatus.FIFTY_MOVE_RULE);
-        } else if (checkRepetition()) {
-            return new Evaluation(GameStatus.THREE_FOLD_REPETITION);
-        } else if (checkForInsufficientMaterial()) {
-            return new Evaluation(GameStatus.INSUFFICIENT_MATERIAL);
         }
-        return new Evaluation();
+        return null;
     }
 
     private boolean checkForInsufficientMaterial() {

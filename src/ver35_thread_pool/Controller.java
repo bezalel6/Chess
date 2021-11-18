@@ -36,11 +36,11 @@ import static ver35_thread_pool.model_classes.pieces.Piece.*;
 public class Controller {
     public static final int MIN_SCAN_TIME = 1;
     public static final int MAX_SCAN_TIME = 360;
-    public static final int DEFAULT_SCAN_TIME = 240;
+    public static final int DEFAULT_SCAN_TIME = 10;
 
     public static final int MIN_SCAN_TIME_FLEXIBILITY = 0;
-    public static final int MAX_SCAN_TIME_FLEXIBILITY = 120;
-    public static final int DEFAULT_SCAN_TIME_FLEXIBILITY = 60;
+    public static final int MAX_SCAN_TIME_FLEXIBILITY = 60;
+    public static final int DEFAULT_SCAN_TIME_FLEXIBILITY = 5;
 
     public static final Color MINIMAX_BEST_MOVE = Color.blue;
     public static final Color MINIMAX_CURRENT_MOVE = Color.green;
@@ -54,7 +54,7 @@ public class Controller {
 
     public static final int COLS = 8;
     public static final int ROWS = 8;
-    public static final boolean USE_OPENING_BOOK = true;
+    public static final boolean USE_OPENING_BOOK = false;
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final int DEFAULT_STARTING_POSITION = 0;
@@ -79,7 +79,7 @@ public class Controller {
 
     private boolean showPositionDialog = false;
 
-    private int runningProcess = AI_GAME;
+    private int runningProcess = NO_RUNNING_PROCESS;
 
     private Timer timer;
     private long[] clocks;
@@ -356,7 +356,7 @@ public class Controller {
         Model.transpositionsHashMap.clear();
         Eval.evaluationHashMap.clear();
         Eval.capturesEvaluationHashMap.clear();
-
+        Eval.evaluationHashMap.clear();
     }
 
     public void updateView(BasicMove move) {

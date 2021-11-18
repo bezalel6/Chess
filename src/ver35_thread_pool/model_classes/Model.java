@@ -110,9 +110,9 @@ public class Model {
     public Move getAiMove() {
         System.out.println("Model getAiMove() using MINIMAX");
         initMinimaxTime();
-        if (logicBoard.getCurrentPlayer() == Player.WHITE)
-            return getBestMoveUsingMinimax().getMove();
-        return getBestMoveUsingStockfish();
+//        if (logicBoard.getCurrentPlayer() == Player.WHITE)
+        return getBestMoveUsingMinimax().getMove();
+//        return getBestMoveUsingStockfish();
     }
 
     public Move getBestMoveUsingStockfish() {

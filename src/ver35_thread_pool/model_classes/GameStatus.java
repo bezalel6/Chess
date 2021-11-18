@@ -2,6 +2,8 @@ package ver35_thread_pool.model_classes;
 
 import ver35_thread_pool.Player;
 
+import java.util.Vector;
+
 import static ver35_thread_pool.model_classes.moves.MoveAnnotation.CHECK_ANN;
 import static ver35_thread_pool.model_classes.moves.MoveAnnotation.GAME_STATUS_ANNOTATIONS;
 
@@ -15,6 +17,7 @@ public class GameStatus {
     public static final int FIFTY_MOVE_RULE = 4;
     public static final int GAME_GOES_ON = 5;
     public static final int CHECK = 6;
+
     private static final String[] GAME_STATUS_STRS = initializeStatusStrs();
     private static final GameStatusType[] GAME_STATUS_TYPES = initializeStatusTypes();
 
