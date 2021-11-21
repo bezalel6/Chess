@@ -16,6 +16,7 @@ public class Positions {
     public static void main(String[] args) {
         writePosition("Starting Position", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
         writePosition("Hanging Pieces test", "rnb1kbnr/pppppppp/8/8/8/3q4/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        writePosition("Castling", "r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQkq - 0 1");
         allPositions = readAllPositions();
         System.out.println(allPositions);
     }

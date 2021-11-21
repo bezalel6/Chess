@@ -1,10 +1,12 @@
 package ver36_no_more_location.model_classes;
 
 
+import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.eval_classes.Evaluation;
 
 public class Transposition {
-    private final int maxDepth, player;
+    private final int maxDepth;
+    private final Player player;
     private Evaluation evaluation;
 
     public Transposition(Model.MinimaxParameters parms, Evaluation evaluation) {
@@ -13,7 +15,7 @@ public class Transposition {
         this.evaluation = new Evaluation(evaluation);
     }
 
-    public int getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 

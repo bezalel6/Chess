@@ -1,14 +1,13 @@
 package ver36_no_more_location.view_classes;
 
+import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.GameStatus;
 import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
-
-import static ver36_no_more_location.Player.PLAYER_NAMES;
-import static ver36_no_more_location.model_classes.pieces.Piece.*;
 
 public class IconManager {
     private ImageIcon[][] piecesIcons;
@@ -52,35 +51,32 @@ public class IconManager {
     }
 
     private void loadGameOverIcons() {
-        gameOverIcons = new ImageIcon[NUM_OF_PLAYERS][3];
-        for (int j = 0; j < NUM_OF_PLAYERS; j++) {
-            String clr = PLAYER_NAMES[j];
-            gameOverIcons[j][0] = loadImage("GameOverIcons/Won/" + clr);
-            gameOverIcons[j][1] = loadImage("GameOverIcons/Lost/" + clr);
-            gameOverIcons[j][2] = loadImage("GameOverIcons/Tie/" + clr);
+        gameOverIcons = new ImageIcon[Player.NUM_OF_PLAYERS][3];
+        for (Player player : Player.PLAYERS) {
+            gameOverIcons[player.asInt()][0] = loadImage("GameOverIcons/Won/" + player.getName());
+            gameOverIcons[player.asInt()][1] = loadImage("GameOverIcons/Lost/" + player.getName());
+            gameOverIcons[player.asInt()][2] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
     }
 
-    public ImageIcon getGameOverIcon(GameStatus gameStatus, int player) {
-//        return gameOverIcons[player][gameStatus.getGameStatusType()];
-        return gameOverIcons[player][0];
+    public ImageIcon getGameOverIcon(GameStatus gameStatus, Player player) {
+//        return gameOverIcons[player.asInt()][gameStatus.getGameStatusType()];
+        return gameOverIcons[player.asInt()][0];
     }
 
     public ImageIcon getPieceIcon(Piece piece) {
-        return getPieceIcon(piece.getPieceColor(), piece.getPieceType());
+        return getPieceIcon(piece.getPlayer(), piece.getPieceType());
     }
 
-    public ImageIcon getPieceIcon(int player, int type) {
-        return piecesIcons[player][type];
+    public ImageIcon getPieceIcon(Player player, PieceType type) {
+        return piecesIcons[player.asInt()][type.asInt()];
     }
 
     private void loadPiecesIcons() {
-        piecesIcons = new ImageIcon[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES];
-        for (int j = 0; j < NUM_OF_PLAYERS; j++) {
-            String clr = PLAYER_NAMES[j];
-            for (int i = 0; i < NUM_OF_PIECE_TYPES; i++) {
-                String name = PIECES_NAMES[i];
-                piecesIcons[j][i] = loadImage(clr + "/" + name);
+        piecesIcons = new ImageIcon[Player.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        for (Player player : Player.PLAYERS) {
+            for (PieceType pieceType : PieceType.PIECE_TYPES) {
+                piecesIcons[player.asInt()][pieceType.asInt()] = loadImage(player.getName() + "/" + pieceType.getPieceName());
             }
         }
     }

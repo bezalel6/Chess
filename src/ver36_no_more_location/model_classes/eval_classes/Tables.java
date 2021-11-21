@@ -2,8 +2,7 @@ package ver36_no_more_location.model_classes.eval_classes;
 
 import ver36_no_more_location.Location;
 import ver36_no_more_location.Player;
-
-import static ver36_no_more_location.model_classes.pieces.Piece.*;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 public class Tables {
     private static final int MIDDLE_GAME = 0, ENDGAME = 1;
@@ -143,13 +142,13 @@ public class Tables {
 
     //endregion
     private static PieceTable[] initPieceTablesArr() {
-        PieceTable[] ret = new PieceTable[6];
-        ret[PAWN] = pawn;
-        ret[KNIGHT] = knight;
-        ret[BISHOP] = bishop;
-        ret[ROOK] = rook;
-        ret[QUEEN] = queen;
-        ret[KING] = king;
+        PieceTable[] ret = new PieceTable[PieceType.NUM_OF_PIECE_TYPES];
+        ret[PieceType.PAWN.asInt()] = pawn;
+        ret[PieceType.KNIGHT.asInt()] = knight;
+        ret[PieceType.BISHOP.asInt()] = bishop;
+        ret[PieceType.ROOK.asInt()] = rook;
+        ret[PieceType.QUEEN.asInt()] = queen;
+        ret[PieceType.KING.asInt()] = king;
         return ret;
     }
 
@@ -161,15 +160,15 @@ public class Tables {
         private final int[][][][] tables;
 
         public PieceTable(int[][] middleGame, int[][] endGame) {
-            tables = new int[2][][][];
+            tables = new int[Player.NUM_OF_PLAYERS][][][];
             tables[MIDDLE_GAME] = init(middleGame);
             tables[ENDGAME] = init(endGame);
         }
 
         private int[][][] init(int[][] table) {
-            int[][][] ret = new int[NUM_OF_PLAYERS][][];
-            ret[Player.WHITE] = table;
-            ret[Player.BLACK] = reverse(table);
+            int[][][] ret = new int[Player.NUM_OF_PLAYERS][][];
+            ret[Player.WHITE.asInt()] = table;
+            ret[Player.BLACK.asInt()] = reverse(table);
             return ret;
         }
 
@@ -179,8 +178,10 @@ public class Tables {
 //                ret[i] = Arrays.copyOf(arr[i], arr[i].length);
                 ret[i] = new int[8];
                 for (int j = 0; j < 8; j++) {
-                    Location loc = new Location(i, j);
-                    Location flipped = Location.flipLocation(loc);
+                    Location loc = Location.getLoc(i, j);
+                    //fixme
+//                    Location flipped = Location.flipLocation(loc);
+                    Location flipped = loc;
                     int fCol = flipped.getCol(), fRow = flipped.getRow();
                     ret[fRow][fCol] = arr[i][j];
                 }

@@ -72,7 +72,6 @@ public class GameStatus {
 
 
     public boolean isCheck() {
-//        todo || is checkmate (always check. it might be mate!)
         return gameStatusType == GameStatusType.CHECK || gameStatusType == GameStatusType.WIN_OR_LOSS;
     }
 
@@ -81,7 +80,7 @@ public class GameStatus {
         String str = "";
         if (gameStatusType == GameStatusType.WIN_OR_LOSS) {
 
-            str += Player.PLAYER_NAMES[Player.WHITE] + " SMN SMN ";
+            str += Player.WHITE.getName() + " SMN SMN ";
 //            str += Player.PLAYER_NAMES[Player.WHITE] + " " + WIN_STR + " ";
         }
         str += GAME_STATUS_STRS[specificGameStatus] + " ";

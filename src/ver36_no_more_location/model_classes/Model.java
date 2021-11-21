@@ -3,6 +3,7 @@ package ver36_no_more_location.model_classes;
 import Global_Classes.Positions;
 import ver36_no_more_location.Controller;
 import ver36_no_more_location.Location;
+import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.eval_classes.Book;
 import ver36_no_more_location.model_classes.eval_classes.Eval;
 import ver36_no_more_location.model_classes.eval_classes.Evaluation;
@@ -15,12 +16,14 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 public class Model {
 
@@ -66,11 +69,10 @@ public class Model {
         board.unmakeMove();
     }
 
-    public ArrayList<Location> getPiecesLocations(int currentPlayer) {
+    public ArrayList<Location> getPiecesLocations(Player player) {
         ArrayList<Location> ret = new ArrayList<>();
-        for (Piece piece : getBoard().getPlayersPieces(currentPlayer))
-            if (!piece.isCaptured())
-                ret.add(piece.getLoc());
+        for (Bitboard bitboard : getBoard().getPlayersPieces(player))
+            ret.addAll(bitboard.getSetLocs());
         return ret;
     }
 
@@ -78,11 +80,10 @@ public class Model {
         return logicBoard.getPiece(loc);
     }
 
-    public ArrayList<Move> getMoves(Piece piece) {
-        if (piece == null) {
-            return null;
-        }
-        return piece.canMoveTo(logicBoard);
+    public ArrayList<Move> getMovesFrom(Location movingFrom) {
+        return logicBoard.generateAllMoves().stream()
+                .filter(m -> m.getMovingFrom().equals(movingFrom))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void setLogicBoard(Board logicBoard) {
@@ -116,7 +117,7 @@ public class Model {
 
     public Move getBestMoveUsingStockfish() {
         String m = new Stockfish().getBestMove(logicBoard.getFenStr(), 1000 + new Random().nextInt(1000));
-        BasicMove basicMove = new BasicMove(new Location(m.substring(0, 2)), new Location(m.substring(2)));
+        BasicMove basicMove = new BasicMove(Location.getLoc(m.substring(0, 2)), Location.getLoc(m.substring(2)));
         return logicBoard.findMove(basicMove);
     }
 
@@ -198,7 +199,7 @@ public class Model {
         return bestMove;
     }
 
-    private void startMultithreadedMinimax(Board board, int minimaxPlayer, int maxDepth) {
+    private void startMultithreadedMinimax(Board board, Player minimaxPlayer, int maxDepth) {
         ArrayList<Move> possibleMoves = board.generateAllMoves();
 
         possibleMoves.forEach(move -> {
@@ -317,16 +318,16 @@ public class Model {
     class MinimaxParameters {
         private final Board board;
         private final boolean isMax;
-        private final int minimaxPlayer;
+        private final Player minimaxPlayer;
         private final int currentDepth, maxDepth;
         private final Move rootMove;
         private double a, b;
 
-        public MinimaxParameters(Board board, boolean isMax, int maxDepth, int minimaxPlayer, Move rootMove) {
+        public MinimaxParameters(Board board, boolean isMax, int maxDepth, Player minimaxPlayer, Move rootMove) {
             this(board, isMax, 1, maxDepth, minimaxPlayer, -Evaluation.WIN_EVAL, Evaluation.WIN_EVAL, rootMove);
         }
 
-        public MinimaxParameters(Board board, boolean isMax, int currentDepth, int maxDepth, int minimaxPlayer, double a, double b, Move rootMove) {
+        public MinimaxParameters(Board board, boolean isMax, int currentDepth, int maxDepth, Player minimaxPlayer, double a, double b, Move rootMove) {
             this.board = board;
             this.isMax = isMax;
             this.maxDepth = maxDepth;
@@ -346,7 +347,7 @@ public class Model {
             return isMax;
         }
 
-        public int getMinimaxPlayer() {
+        public Player getMinimaxPlayer() {
             return minimaxPlayer;
         }
 

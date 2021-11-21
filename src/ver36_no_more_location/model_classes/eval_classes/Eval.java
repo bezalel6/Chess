@@ -5,14 +5,11 @@ import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.Board;
 import ver36_no_more_location.model_classes.GameStatus;
 import ver36_no_more_location.model_classes.moves.Move;
-import ver36_no_more_location.model_classes.pieces.King;
-import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static ver36_no_more_location.model_classes.pieces.Piece.*;
 
 
 public class Eval {
@@ -31,7 +28,7 @@ public class Eval {
     public static final HashMap<Long, Evaluation> evaluationHashMap = new HashMap<>();
     public static final HashMap<Long, Evaluation> capturesEvaluationHashMap = new HashMap<>();
     private static final HashMap<Long, Evaluation> gameOverHashMap = new HashMap<>();
-    private static final double endgameMaterialStart = Piece.getPieceWorth(ROOK) * 2 + Piece.getPieceWorth(BISHOP) + Piece.getPieceWorth(KNIGHT);
+    private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
     private final Board board;
 
 
@@ -62,18 +59,18 @@ public class Eval {
         return num + "".length();
     }
 
-    static double materialSumWithoutPAndK(Board board, int player) {
+    static double materialSumWithoutPAndK(Board board, Player player) {
         double ret = 0;
 
         int[] pieces = board.getPiecesCount(player);
-        for (int type : PIECES_TYPES) {
-            if (type != PAWN && type != KING)
-                ret += pieces[type] * Piece.getPieceWorth(type);
+        for (PieceType type : PieceType.PIECE_TYPES) {
+            if (type != PieceType.PAWN && type != PieceType.KING)
+                ret += pieces[type.asInt()] * type.value;
         }
         return ret;
     }
 
-    public static double endgameWeight(Board board, int player) {
+    public static double endgameWeight(Board board, Player player) {
         double materialWithoutPawns = materialSumWithoutPAndK(board, player);
         double multiplier = 1 / endgameMaterialStart;
 //        double multiplier =1/ endgameMaterialStart;
@@ -85,7 +82,7 @@ public class Eval {
         return getEvaluation(board.getCurrentPlayer());
     }
 
-    public Evaluation getEvaluation(int player) {
+    public Evaluation getEvaluation(Player player) {
         long hash = board.getBoardHash().getFullHash();
         Evaluation evaluation;
         if (evaluationHashMap.containsKey(hash)) {
@@ -142,7 +139,7 @@ public class Eval {
         return getCapturesEvaluation(board.getCurrentPlayer());
     }
 
-    public Evaluation getCapturesEvaluation(int player) {
+    public Evaluation getCapturesEvaluation(Player player) {
         long hash = board.getBoardHash().getFullHash();
         if (capturesEvaluationHashMap.containsKey(hash)) {
             return capturesEvaluationHashMap.get(hash);
@@ -152,7 +149,7 @@ public class Eval {
         return evaluation;
     }
 
-    private Evaluation getCapturesEvaluation_(int player, boolean isMax, double a, double b) {
+    private Evaluation getCapturesEvaluation_(Player player, boolean isMax, double a, double b) {
         Evaluation currentEval = getEvaluation(player);
         ArrayList<Move> allCaptureMoves = board.getAllCaptureMoves();
         for (Move move : allCaptureMoves) {
@@ -174,20 +171,20 @@ public class Eval {
         return currentEval;
     }
 
-    private double forceKingToCorner(double egWeight, int player) {
+    private double forceKingToCorner(double egWeight, Player player) {
         double ret = 0;
-        King opK = board.getKing(Player.getOpponent(player));
+        Location opK = board.getKing(player.getOpponent());
 
-        int opRow = opK.getLoc().getRow(), opCol = opK.getLoc().getCol();
+        int opRow = Location.row(opK), opCol = Location.col(opK);
 
         int opDstToCenterCol = Math.max(3 - opCol, opCol - 4);
         int opDstToCenterRow = Math.max(3 - opRow, opRow - 4);
         int opKDstFromCenter = opDstToCenterCol + opDstToCenterRow;
         ret += opKDstFromCenter;
 
-        King myK = board.getKing(player);
+        Location myK = board.getKing(player);
 
-        int myRow = myK.getLoc().getRow(), myCol = myK.getLoc().getCol();
+        int myRow = Location.row(myK), myCol = Location.col(myK);
 
         int kingsColDst = Math.abs(myCol - opCol);
         int kingsRowDst = Math.abs(myRow - opRow);
@@ -202,102 +199,69 @@ public class Eval {
         return forceKingToCorner(egWeight, Player.WHITE) - forceKingToCorner(egWeight, Player.BLACK);
     }
 
-    private double compareMovementAbility(int player) {
-        return movementAbility(player) - movementAbility(Player.getOpponent(player));
-    }
-
-    private double movementAbility(int player) {
-        double ret = 0;
-        for (Piece piece : board.getPlayersPieces(player))
-            ret += ((double) piece.getPseudoMovesList().size()) / 1000;
-        return ret;
-    }
-
-    private double compareSquareControl(int player) {
-        return squaresControl(player) - squaresControl(Player.getOpponent(player));
-    }
+//
+//    private double compareSquareControl(int player) {
+//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
+//    }
 
     private double squaresControl(int player) {
         double ret = 0;
-        for (Piece piece : board.getPlayersPieces(player)) {
-            ArrayList<Move> moves = piece.getPseudoMovesList();
-            for (Move move : moves) {
-                ret += close2EnemyScore(move.getMovingTo(), player);
-            }
-        }
+//        for (PieceInterface piece : board.getPlayersPieces(player)) {
+//            ArrayList<Move> moves = piece.getPseudoMovesBitboard();
+//            for (Move move : moves) {
+//                ret += close2EnemyScore(move.getMovingTo(), player);
+//            }
+//        }
         return ret;
     }
 
-    private double close2EnemyScore(Location loc, int player) {
-        int opponentStartingRow = Piece.getStartingRow(Player.getOpponent(player));
-        int distance = Math.abs(loc.getRow() - opponentStartingRow);
-        return calcClose(distance);
-    }
-
-    private double compareHangingPieces(int player) {
-        return calcHangingPieces(player) + calcHangingPieces(Player.getOpponent(player));
-    }
-
-    private double calcHangingPieces(int player) {
-        double playerSum = 0;
-        int divByTurn = board.getCurrentPlayer() == player ? 100 : 1;
-        for (Piece piece : board.getPlayersPieces(player)) {
-            int attacking = 0;
-            int protecting = 0;
-            double tSum = 0;
-            for (Piece lookingAtMe : board.piecesLookingAt(piece)) {
-                if (lookingAtMe.isOnMyTeam(player)) {
-                    protecting++;
-                } else {
-                    tSum -= piece.getWorth();
-                    attacking++;
-                }
-            }
-        }
-        return playerSum;
-    }
+//    private double close2EnemyScore(Location loc, Player player) {
+//        int opponentStartingRow = getStartingRow(Player.getOpponent(player));
+//        int distance = Math.abs(Location.row(loc) - opponentStartingRow);
+//        return calcClose(distance);
+//    }
 
     private double compareKingSafety() {
 
         return kingSafety(Player.WHITE) - kingSafety(Player.BLACK);
     }
 
-    private double kingSafety(int player) {
+    private double kingSafety(Player player) {
         double ret;
-        int movesNum = board.getPieceMovesFrom(board.getKing(player).getLoc(), QUEEN, player).size();
+        int movesNum = board.getPieceMovesFrom(board.getKing(player), PieceType.QUEEN, player).size();
         ret = movesNum * -0.01;
         return ret;
     }
 
     private double comparePieceTables(double egWeight) {
         double ret = 0;
-        Map<Location, Piece>[] pieces = board.getPieces();
-        for (int i = 0, piecesLength = pieces.length; i < piecesLength; i++) {
-            int mult = i == Player.WHITE ? 1 : -1;
-            Map<Location, Piece> playersPieces = pieces[i];
-            for (Piece piece : playersPieces.values()) {
-                ret += getTableData(piece, egWeight, piece.getLoc()) * mult;
-            }
-        }
+//        Map<Location, PieceInterface>[] pieces = board.getPieces();
+//        for (int i = 0, piecesLength = pieces.length; i < piecesLength; i++) {
+//            int mult = i == Player.WHITE ? 1 : -1;
+//            Map<Location, PieceInterface> playersPieces = pieces[i];
+//            for (PieceInterface piece : playersPieces.values()) {
+//                ret += getTableData(piece, egWeight, piece.getLoc()) * mult;
+//            }
+//        }
         return ret;
     }
 
-    private double getTableData(Piece piece, double egWeight, Location loc) {
-        Tables.PieceTable table = Tables.getPieceTable(piece.getPieceType());
-        return table.getValue(egWeight, piece.getPieceColor(), loc);
-    }
+//    private double getTableData(PieceInterface piece, double egWeight, Location loc) {
+//        Tables.PieceTable table = Tables.getPieceTable(piece.getPieceType());
+//        return table.getValue(egWeight, piece.getPieceColor(), loc);
+//    }
 
     private double compareMaterial() {
         return materialSum(Player.WHITE) - materialSum(Player.BLACK);
     }
 
 
-    private double materialSum(int player) {
+    private double materialSum(Player player) {
         double ret = 0;
         int[] piecesCount = board.getPiecesCount(player);
         for (int i = 0, piecesCountLength = piecesCount.length; i < piecesCountLength; i++) {
             int count = piecesCount[i];
-            ret += count * Piece.getPieceWorth(i);
+            ret += count * PieceType.getPieceType(i).value;
 
         }
         return ret;
@@ -316,14 +280,14 @@ public class Eval {
     }
 
     private Evaluation isGameOver_() {
-        int currentPlayer = board.getCurrentPlayer();
-        Evaluation currentPlayerGameOver = __isGameOver(currentPlayer);
-        if (currentPlayerGameOver != null)
-            return currentPlayerGameOver;
-        Evaluation otherPlayerGameOver = __isGameOver(board.getOpponent());
-        if (otherPlayerGameOver != null)
-            return otherPlayerGameOver;
-        if (board.getHalfMoveClock() >= 100) {
+        Player currentPlayer = board.getCurrentPlayer();
+        if (!board.anyLegalMove(currentPlayer)) {
+            if (board.isInCheck(currentPlayer)) {
+                return new Evaluation(new GameStatus(GameStatus.CHECKMATE));
+            }
+            return new Evaluation(GameStatus.STALEMATE);
+
+        } else if (board.getHalfMoveClock() >= 100) {
             return new Evaluation(GameStatus.FIFTY_MOVE_RULE);
         }
         if (checkRepetition()) {
@@ -335,27 +299,16 @@ public class Eval {
         return new Evaluation();
     }
 
-    private Evaluation __isGameOver(int player) {
-        if (!board.anyLegalMove(player)) {
-            if (board.isInCheck(player)) {
-                return new Evaluation(new GameStatus(GameStatus.CHECKMATE));
-            }
-            return new Evaluation(GameStatus.STALEMATE);
-
-        }
-        return null;
-    }
-
     private boolean checkForInsufficientMaterial() {
         return insufficientMaterial(Player.WHITE) &&
                 insufficientMaterial(Player.BLACK);
     }
 
-    private boolean insufficientMaterial(int player) {
-        return board.getNumOfPieces(player, KING) < 1 || (
-                board.getNumOfPieces(player, PAWN) == 0 &&
-                        board.getNumOfPieces(player, MINOR_PIECES) <= 1 &&
-                        board.getNumOfPieces(player, MAJOR_PIECES) == 0);
+    private boolean insufficientMaterial(Player player) {
+        return board.getNumOfPieces(player, PieceType.KING) < 1 || (
+                board.getNumOfPieces(player, PieceType.PAWN) == 0 &&
+                        board.getNumOfPieces(player, PieceType.MINOR_PIECES) <= 1 &&
+                        board.getNumOfPieces(player, PieceType.MAJOR_PIECES) == 0);
 
     }
 

@@ -3,7 +3,6 @@ package tools;
 import ver35_thread_pool.Controller;
 import ver35_thread_pool.model_classes.Model;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

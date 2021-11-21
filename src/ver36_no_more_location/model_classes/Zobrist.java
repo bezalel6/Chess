@@ -2,29 +2,30 @@ package ver36_no_more_location.model_classes;
 
 import ver36_no_more_location.Controller;
 import ver36_no_more_location.Location;
+import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.moves.Move;
 import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
-import java.util.Map;
+import java.util.Arrays;
+
 import java.util.Random;
 
-import static ver36_no_more_location.model_classes.pieces.Piece.NUM_OF_PIECE_TYPES;
-import static ver36_no_more_location.model_classes.pieces.Piece.NUM_OF_PLAYERS;
+import static ver36_no_more_location.Player.NUM_OF_PLAYERS;
+
 
 public class Zobrist {
     public static final Random rnd = new Random();
-    private static final long[][][][] zPieces = initPieces();
+    private static final long[][][] zPieces = initPieces();
     private static final long[][] zEnPassant = initEnPassant();
-    private static final long[][] zLocations = initLocations();
+    private static final long[] zLocations = initLocations();
     private static final long zCastling = random64();
-    private static final long[] zPlayers = createRandomArr(2);
-    private static final long[] zPiecesTypes = createRandomArr(NUM_OF_PIECE_TYPES);
+    private static final long[] zPlayers = createRandomArr(NUM_OF_PLAYERS);
+    private static final long[] zPiecesTypes = createRandomArr(PieceType.NUM_OF_PIECE_TYPES);
 
-    private static long[][] initLocations() {
-        long[][] ret = new long[Controller.ROWS][Controller.COLS];
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = createRandomArr(Controller.COLS);
-        }
+    private static long[] initLocations() {
+        long[] ret = new long[Location.NUM_OF_SQUARES];
+        Arrays.setAll(ret, i -> random64());
         return ret;
     }
 
@@ -62,13 +63,11 @@ public class Zobrist {
         return ret;
     }
 
-    private static long[][][][] initPieces() {
-        long[][][][] ret = new long[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES][Controller.ROWS][Controller.COLS];
-        for (long[][][] player : ret) {
-            for (long[][] pieceType : player) {
-                for (int i = 0; i < pieceType.length; i++) {
-                    pieceType[i] = createRandomArr(Controller.COLS);
-                }
+    private static long[][][] initPieces() {
+        long[][][] ret = new long[NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES][Location.NUM_OF_SQUARES];
+        for (long[][] player : ret) {
+            for (int pieceType = 0; pieceType < player.length; pieceType++) {
+                player[pieceType] = createRandomArr(Location.NUM_OF_SQUARES);
             }
         }
         return ret;
@@ -79,11 +78,7 @@ public class Zobrist {
     }
 
     public static long hash(Location loc) {
-        return hash(loc.getRow(), loc.getCol());
-    }
-
-    public static long hash(int row, int col) {
-        return zLocations[row][col];
+        return zLocations[loc.asInt()];
     }
 
     public static long hash(Move move) {
@@ -94,8 +89,8 @@ public class Zobrist {
         return playerHash(board.getCurrentPlayer());
     }
 
-    public static long playerHash(int player) {
-        return zPlayers[player];
+    public static long playerHash(Player player) {
+        return zPlayers[player.asInt()];
     }
 
     public static long castlingAbilityHash(Board board) {
@@ -104,11 +99,18 @@ public class Zobrist {
 
     public static long piecesHash(Board board) {
         long ret = 0;
-        for (Map<Location, Piece> playersPieces : board.getPieces())
-            for (Piece piece : playersPieces.values()) {
-                if (!piece.isCaptured())
-                    ret ^= hash(piece);
+        for (var playersPieces : board.getPieces())
+            for (Bitboard bitboard : playersPieces) {
+                ret ^= hash(bitboard);
             }
+        return ret;
+    }
+
+    private static long hash(Bitboard bitboard) {
+        long ret = 0;
+        for (Location loc : bitboard.getSetLocs()) {
+            ret ^= hash(loc);
+        }
         return ret;
     }
 
@@ -117,27 +119,26 @@ public class Zobrist {
         Location enPassant = board.getEnPassantTargetLoc();
         Location actualLoc = board.getEnPassantActualLoc();
         if (enPassant != null && actualLoc != null) {
-            int currentPlayer = board.getCurrentPlayer();
+            Player currentPlayer = board.getCurrentPlayer();
             Piece piece = board.getPiece(actualLoc);
             if (piece != null && !piece.isOnMyTeam(currentPlayer))
-                ret ^= zEnPassant[currentPlayer][enPassant.getCol()];
+                ret ^= zEnPassant[currentPlayer.asInt()][enPassant.getCol()];
         }
         return ret;
     }
 
-    public static long hash(Piece piece) {
-
-        return hash(piece.getPieceColor(), piece.getPieceType(), piece.getLoc());
+    public static long hash(Piece piece, Location pieceLoc) {
+        return hash(piece.getPlayer(), piece.getPieceType(), pieceLoc);
     }
 
 
-    public static long hash(int pieceColor, int pieceType, Location currentLoc) {
-        long ret = zPieces[pieceColor][pieceType][currentLoc.getRow()][currentLoc.getCol()];
+    public static long hash(Player pieceColor, PieceType pieceType, Location currentLoc) {
+        long ret = zPieces[pieceColor.asInt()][pieceType.asInt()][currentLoc.asInt()];
 
         return ret;
     }
 
-    public static long hash(Location loc, int player) {
+    public static long hash(Location loc, Player player) {
         return combineHashes(hash(loc), playerHash(player));
     }
 

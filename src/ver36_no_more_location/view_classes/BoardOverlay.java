@@ -204,7 +204,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
     }
 
     private Location createPointLoc(Point point) {
-        Location loc = new Location(point, jlayer.getWidth(), jlayer.getHeight(), view);
+        Location loc = Location.getLoc(point, jlayer.getWidth(), jlayer.getHeight(), view);
         return loc;
     }
 

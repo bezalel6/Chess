@@ -3,20 +3,20 @@ package ver36_no_more_location.model_classes.moves;
 import ver36_no_more_location.Location;
 import ver36_no_more_location.model_classes.Board;
 import ver36_no_more_location.model_classes.eval_classes.Evaluation;
-import ver36_no_more_location.model_classes.pieces.Pawn;
 import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 import java.util.Objects;
 
 
 public class Move extends BasicMove implements Comparable<Move> {
-    public static final int NOT_CAPTURING = -1;
+    public static final PieceType NOT_CAPTURING = null;
     public static final int TEMP_CAPTURING = -2;
     MoveAnnotation moveAnnotation;
     BasicMove intermediateMove;
-    private int capturingPieceType;
+    private PieceType capturingPieceType;
     private Location enPassantLoc;
-    private int promotingTo;
+    private PieceType promotingTo;
     private boolean isReversible;
     private Evaluation moveEvaluation;
     private MoveFlag moveFlag;
@@ -25,7 +25,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     private int prevCastlingAbility;
     private int prevHalfMoveClock;
 
-    public Move(Location movingFrom, Location movingTo, int capturingPieceType) {
+    public Move(Location movingFrom, Location movingTo, PieceType capturingPieceType) {
         this(movingFrom, movingTo);
         this.capturingPieceType = capturingPieceType;
     }
@@ -35,7 +35,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.capturingPieceType = NOT_CAPTURING;
         this.moveAnnotation = new MoveAnnotation(this);
         this.intermediateMove = null;
-        this.promotingTo = -1;
+        this.promotingTo = null;
         this.moveFlag = MoveFlag.NormalMove;
     }
 
@@ -51,7 +51,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.prevFullMoveClock = other.prevFullMoveClock;
 
         if (other.enPassantLoc != null)
-            this.enPassantLoc = new Location(other.enPassantLoc);
+            this.enPassantLoc = other.enPassantLoc;
         if (other.moveEvaluation != null)
             this.moveEvaluation = new Evaluation(other.moveEvaluation);
         if (other.intermediateMove != null)
@@ -85,7 +85,7 @@ public class Move extends BasicMove implements Comparable<Move> {
 //            ret += 10 * Piece.getPieceWorth(movingPieceType) - Piece.getPieceWorth(capturingPieceType);
 //        }
         if (move.moveFlag == MoveFlag.Promotion) {
-            ret += 5 * Piece.getPieceWorth(move.promotingTo);
+            ret += 5 * move.promotingTo.value;
         } else if (move.moveFlag == MoveFlag.EnPassant) {
             ret += 0.00001;
         } else if (move instanceof Castling) {
@@ -111,11 +111,12 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.prevHalfMoveClock = prevHalfMoveClock;
     }
 
-    public int getPromotingTo() {
+    public PieceType getPromotingTo() {
         return promotingTo;
     }
 
-    public void setPromotingTo(int promotingTo) {
+    public void setPromotingTo(PieceType promotingTo) {
+        this.moveFlag = MoveFlag.Promotion;
         this.promotingTo = promotingTo;
         moveAnnotation.setPromotion(promotingTo);
     }
@@ -154,7 +155,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
     }
 
-    public int getCapturingPieceType() {
+    public PieceType getCapturingPieceType() {
         return capturingPieceType;
     }
 
@@ -163,7 +164,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public void setReversible(Piece movingPiece) {
-        isReversible = !(isCapturing() || movingPiece instanceof Pawn);
+        isReversible = !(isCapturing() || movingPiece.getPieceType() == PieceType.PAWN);
     }
 
     @Override
@@ -186,9 +187,8 @@ public class Move extends BasicMove implements Comparable<Move> {
         return capturingPieceType != NOT_CAPTURING;
     }
 
-    public void setCapturing(Piece piece, Board board) {
-        int capturingPieceColor = piece.getPieceColor();
-        this.capturingPieceType = piece.getPieceType();
+    public void setCapturing(PieceType pieceType) {
+        this.capturingPieceType = pieceType;
         moveAnnotation.setCapture(capturingPieceType);
     }
 
@@ -216,7 +216,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public void setEnPassantLoc(Location epsnLoc) {
-        enPassantLoc = new Location(epsnLoc);
+        enPassantLoc = epsnLoc;
     }
 
     public int getPrevCastlingAbility() {

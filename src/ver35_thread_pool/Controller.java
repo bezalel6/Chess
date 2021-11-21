@@ -68,28 +68,26 @@ public class Controller {
     private final Model model;
 
     private int startingPosition = DEFAULT_STARTING_POSITION;
-
+    private String startingFen;
     private int scanTime = DEFAULT_SCAN_TIME;
     private int scanTimeFlexibility = DEFAULT_SCAN_TIME_FLEXIBILITY;
-
     private Piece currentPiece;
     private boolean isFirstClick;
-
     private IconManager iconManager;
-
     private boolean showPositionDialog = false;
-
     private int runningProcess = NO_RUNNING_PROCESS;
-
     private Timer timer;
     private long[] clocks;
-
     private Location checkLoc;
-
     private ArrayList<Move> movesList;
     private String gamePgn;
 
     public Controller() {
+        this(null);
+    }
+
+    public Controller(String startingFen) {
+        this.startingFen = startingFen;
         model = new Model(this);
         view = new View(DEFAULT_BOARD_SIZE, this, Player.WHITE, DEFAULT_TIME_CONTROL);
     }
@@ -123,6 +121,10 @@ public class Controller {
                 }
             }
         }
+    }
+
+    public void setStartingFen(String startingFen) {
+        this.startingFen = startingFen;
     }
 
     public Model getModel() {
@@ -183,7 +185,8 @@ public class Controller {
         checkLoc = null;
         clocks = new long[2];
         Arrays.fill(clocks, DEFAULT_TIME_CONTROL);
-        model.initGame(startingPosition);
+
+        initModelGame();
         initViewGame();
 
         gamePgn = "";
@@ -195,6 +198,14 @@ public class Controller {
         }
         timer = createClock();
         handleProcess();
+    }
+
+    private void initModelGame() {
+        if (startingFen == null) {
+            model.initGame(startingPosition);
+        } else {
+            model.initGame(startingFen);
+        }
     }
 
     private void initViewGame() {

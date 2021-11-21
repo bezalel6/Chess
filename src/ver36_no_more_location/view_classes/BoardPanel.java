@@ -41,7 +41,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         buttonsPnl.removeAll();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                Location btnLoc = new Location(i, j, view.isBoardFlipped());
+                Location btnLoc = Location.getLoc(i, j, view.isBoardFlipped());
                 BoardButton currentBtn = new BoardButton(btnLoc, isBlack ? brown : white);
                 currentBtn.setFont(new Font(null, Font.BOLD, 50));
                 currentBtn.addActionListener(e -> {

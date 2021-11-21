@@ -25,7 +25,7 @@ public class Square {
     }
 
     public boolean isEmpty() {
-        return piece == EMPTY_PIECE || piece.isCaptured();
+        return piece == EMPTY_PIECE;
     }
 
     public Piece getPiece() {
@@ -42,7 +42,7 @@ public class Square {
     }
 
     public String getFen() {
-        return piece.getPieceFen();
+        return piece.getFen();
     }
 
     @Override

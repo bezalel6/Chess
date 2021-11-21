@@ -34,8 +34,8 @@ public class SidePanel extends JPanel {
 
         setLayout(new GridBagLayout());
 
-        white = createTimerPnl("White", timeLbls[Player.WHITE]);
-        black = createTimerPnl("Black", timeLbls[Player.BLACK]);
+        white = createTimerPnl("White", timeLbls[Player.WHITE.asInt()]);
+        black = createTimerPnl("Black", timeLbls[Player.BLACK.asInt()]);
 
         moveLog = new MoveLog();
 
@@ -60,8 +60,8 @@ public class SidePanel extends JPanel {
     }
 
     public void setBothPlayersClocks(long[] clocks) {
-        for (int i = 0; i < clocks.length; i++) {
-            setTimerLabel(i, clocks[i]);
+        for (Player player : Player.PLAYERS) {
+            setTimerLabel(player, clocks[player.asInt()]);
         }
     }
 
@@ -116,9 +116,9 @@ public class SidePanel extends JPanel {
 
     }
 
-    public void setTimerLabel(int player, long millis) {
+    public void setTimerLabel(Player player, long millis) {
         String str = createTimeStr(millis);
-        timeLbls[player].setText(str);
+        timeLbls[player.asInt()].setText(str);
     }
 
     public JPanel createTimerPnl(String str, JLabel timerLbl) {

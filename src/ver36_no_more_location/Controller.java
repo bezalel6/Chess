@@ -11,6 +11,7 @@ import ver36_no_more_location.model_classes.eval_classes.Evaluation;
 import ver36_no_more_location.model_classes.moves.BasicMove;
 import ver36_no_more_location.model_classes.moves.Move;
 import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 import ver36_no_more_location.view_classes.IconManager;
 import ver36_no_more_location.view_classes.SidePanel;
 import ver36_no_more_location.view_classes.View;
@@ -30,8 +31,6 @@ import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.IntStream;
-
-import static ver36_no_more_location.model_classes.pieces.Piece.*;
 
 public class Controller {
     public static final int MIN_SCAN_TIME = 1;
@@ -72,7 +71,7 @@ public class Controller {
     private int scanTime = DEFAULT_SCAN_TIME;
     private int scanTimeFlexibility = DEFAULT_SCAN_TIME_FLEXIBILITY;
 
-    private Piece currentPiece;
+    private Location currentLoc;
     private boolean isFirstClick;
 
     private IconManager iconManager;
@@ -88,6 +87,7 @@ public class Controller {
 
     private ArrayList<Move> movesList;
     private String gamePgn;
+
 
     public Controller() {
         model = new Model(this);
@@ -178,7 +178,7 @@ public class Controller {
         if (showPositionDialog) {
             showStartingPositionDialog();
         }
-        currentPiece = null;
+        currentLoc = null;
         isFirstClick = true;
         checkLoc = null;
         clocks = new long[2];
@@ -206,18 +206,18 @@ public class Controller {
         SidePanel sidePanel = view.getSidePanel();
         int delay = 100;
         return new Timer(delay, e -> {
-            int player = model.getBoard().getCurrentPlayer();
+            Player player = model.getBoard().getCurrentPlayer();
 
-            clocks[player] -= delay;
-            sidePanel.setTimerLabel(player, clocks[player]);
-            if (clocks[player] <= 0) {
+            clocks[player.asInt()] -= delay;
+            sidePanel.setTimerLabel(player, clocks[player.asInt()]);
+            if (clocks[player.asInt()] <= 0) {
                 timedOut(player);
             }
         });
 
     }
 
-    private void timedOut(int player) {
+    private void timedOut(Player player) {
         gameOver(new Evaluation(new GameStatus(GameStatus.TIMED_OUT)));
     }
 
@@ -229,8 +229,9 @@ public class Controller {
 
     private boolean isRunningProcessRN() {
         return runningProcess == AI_GAME ||
-                runningProcess == AI_MOVE ||
-                runningProcess == getCurrentPlayer();
+                runningProcess == AI_MOVE;
+//                runningProcess == getCurrentPlayer();
+//        return false;
     }
 
     private void enableBoardButtons() {
@@ -245,10 +246,10 @@ public class Controller {
     }
 
     private void setStsLbl() {
-        view.setStatusLbl(Player.PLAYER_NAMES[getCurrentPlayer()] + " To Move");
+        view.setStatusLbl(getCurrentPlayer().getName() + " To Move");
     }
 
-    public int getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return model.getBoard().getCurrentPlayer();
     }
 
@@ -256,15 +257,15 @@ public class Controller {
         view.resetBackground();
         viewCheck();
         if (isFirstClick) {
-            currentPiece = model.getPiece(loc);
-            movesList = model.getMoves(currentPiece);
+            currentLoc = loc;
+            movesList = model.getMovesFrom(currentLoc);
             view.highlightPath(movesList);
             view.enablePath(movesList);
             view.enableSquare(loc, true);
             view.colorCurrentPiece(loc);
         } else {
-            Move move = findMove(movesList, currentPiece, loc);
-            if (move != null && currentPiece != null && !currentPiece.getLoc().equals(loc)) {
+            Move move = findMove(movesList, currentLoc, loc);
+            if (move != null && currentLoc != null && !currentLoc.equals(loc)) {
                 if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
                     move.setPromotingTo(showPromotionDialog());
                 }
@@ -316,7 +317,7 @@ public class Controller {
     }
 
     private boolean checkGameOver(Evaluation evaluation, Board board) {
-        checkLoc = evaluation.getGameStatus().isCheck() ? board.getKing(getCurrentPlayer()).getLoc() : null;
+        checkLoc = evaluation.getGameStatus().isCheck() ? board.getKing(getCurrentPlayer()) : null;
         if (evaluation.isGameOver()) {
             gameOver(evaluation);
             return true;
@@ -335,11 +336,11 @@ public class Controller {
             view.inCheck(checkLoc);
     }
 
-    private Move findMove(ArrayList<Move> movesList, Piece currentPiece, Location loc) {
+    private Move findMove(ArrayList<Move> movesList, Location movingFrom, Location loc) {
 //        if (currentPiece == null || movesList == null)
 //            return null;
         for (Move move : movesList) {
-            if (currentPiece.getLoc().equals(move.getMovingFrom()) && move.getMovingTo().equals(loc))
+            if (movingFrom.equals(move.getMovingFrom()) && move.getMovingTo().equals(loc))
                 return move;
         }
         return null;
@@ -375,24 +376,22 @@ public class Controller {
     }
 
     private void setBoardButtonsIcons() {
-        for (Square[] row : model.getBoard()) {
-            for (Square square : row) {
-                if (!square.isEmpty()) {
-                    Piece piece = square.getPiece();
-                    ImageIcon icon = iconManager.getPieceIcon(piece);
-                    view.setBtnIcon(square.getLoc(), icon);
-                }
+        for (Square square : model.getBoard()) {
+            if (!square.isEmpty()) {
+                Piece piece = square.getPiece();
+                ImageIcon icon = iconManager.getPieceIcon(piece);
+                view.setBtnIcon(square.getLoc(), icon);
             }
         }
     }
 
-    public int showPromotionDialog() {
+    public PieceType showPromotionDialog() {
         List list = new List("Promote", List.HORIZONTAL);
-        list.setCancelKey(QUEEN);
-        for (int type : CAN_PROMOTE_TO) {
+        list.setCancelKey(PieceType.QUEEN);
+        for (PieceType type : PieceType.CAN_PROMOTE_TO) {
             list.addItem(new DialogButton(type, iconManager.getPieceIcon(getCurrentPlayer(), type)));
         }
-        return (int) list.run();
+        return (PieceType) list.run();
     }
 
     public void newGameBtnPressed() {
@@ -455,17 +454,6 @@ public class Controller {
     }
 
     public void printAllPieces() {
-//        for (Piece[] row : model.getBoard()) {
-//            for (Piece piece : row) {
-//                if (piece != null)
-//                    System.out.println(piece);
-//            }
-//        }
-        for (int j = 0; j < NUM_OF_PLAYERS; j++) {
-            for (Piece piece : model.getBoard().getPlayersPieces(j)) {
-                System.out.println(piece);
-            }
-        }
     }
 
     public void printAllPossibleMoves() {
@@ -511,9 +499,8 @@ public class Controller {
     }
 
     private int[] testPositions(int depth) {
-
         ZonedDateTime minimaxStartedTime = ZonedDateTime.now();
-        int res = countPositions(depth, model.getBoard(), true);
+        int res = countPositions(depth, model.getBoard(), false);
         int time = (int) minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
         return new int[]{res, time};
     }
@@ -547,9 +534,11 @@ public class Controller {
     }
 
     public void drawControlledSquares() {
-        System.out.println("Queen moves from center: ");
-        for (Move move : model.getBoard().getPieceMovesFrom(model.getBoard().getKing(0).getLoc(), QUEEN, 0)) {
-            model.getController().drawMove(move, Color.BLUE);
+        for (Player p : Player.PLAYERS) {
+            for (Location loc : model.getBoard().getAttackedSquares(p).getSetLocs()) {
+                Color clr = p == getCurrentPlayer() ? Color.GREEN : Color.RED;
+                view.highlightSquare(loc, clr);
+            }
         }
     }
 

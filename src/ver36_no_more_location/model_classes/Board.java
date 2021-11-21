@@ -2,22 +2,20 @@ package ver36_no_more_location.model_classes;
 
 import ver36_no_more_location.Controller;
 import ver36_no_more_location.Location;
-import ver36_no_more_location.MyError;
 import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.eval_classes.Eval;
 import ver36_no_more_location.model_classes.eval_classes.Evaluation;
 import ver36_no_more_location.model_classes.moves.BasicMove;
 import ver36_no_more_location.model_classes.moves.Move;
-import ver36_no_more_location.model_classes.moves.PieceMoves;
-import ver36_no_more_location.model_classes.pieces.*;
+import ver36_no_more_location.model_classes.pieces.MoveGenerator;
+import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-import static ver36_no_more_location.model_classes.pieces.Piece.*;
-
-public class Board implements Iterable<Square[]> {
+public class Board implements Iterable<Square> {
 
     public static final ConcurrentHashMap<Long, ArrayList<Move>> movesGenerationHashMap = new ConcurrentHashMap<>();
     public static final ConcurrentHashMap<Long, Boolean> isInCheckHashMap = new ConcurrentHashMap<>();
@@ -26,8 +24,10 @@ public class Board implements Iterable<Square[]> {
     private final Stack<Move> moveStack;
     private Square[] logicMat;
     private Bitboard[][] pieces;
+    private Bitboard[] allPlayersPieces;
+    private Bitboard[] attackedSquares;
     private int[][] piecesCount;
-    private int currentPlayer;
+    private Player currentPlayer;
     private int halfMoveClock, fullMoveClock;
     private int castlingAbility;
     private Location enPassantTargetLoc;
@@ -44,8 +44,7 @@ public class Board implements Iterable<Square[]> {
         this.fen = new FEN(fenStr, this);
         moveStack = new Stack<>();
         createNewLogicBoard(fen);
-        initPiecesArrays();
-        loadMat();
+        setPieces(logicMat);
         this.boardHash = new BoardHash(this);
     }
 
@@ -56,10 +55,8 @@ public class Board implements Iterable<Square[]> {
         for (Move move : other.moveStack) {
             moveStack.push(Move.copyMove(move));
         }
-        initPiecesArrays();
-
         createNewEmptyLogicBoard();
-        loadMat(other.logicMat, true);
+        setPieces(other.logicMat);
 
         this.currentPlayer = other.currentPlayer;
         this.fullMoveClock = other.fullMoveClock;
@@ -72,13 +69,50 @@ public class Board implements Iterable<Square[]> {
         this.boardHash = new BoardHash(this);
     }
 
-    private void createNewEmptyLogicBoard() {
-        logicMat = new Square[Location.NUM_OF_SQUARES.ordinal()];
-        for (int i = 0; i < logicMat.length; i++) {
-
+    private void setAttackedSquares() {
+        for (Player player : Player.PLAYERS) {
+            Bitboard currentBB = getAttackedSquares(player);
+            currentBB.reset();
+            Bitboard[] playersPieces = getPlayersPieces(player);
+            for (int type = 0; type < playersPieces.length; type++) {
+                Bitboard pieceBB = playersPieces[type];
+                PieceType pieceType = PieceType.getPieceType(type);
+                currentBB.orEqual(pieceType.getAttackingSquares(pieceBB, player, this));
+            }
         }
     }
 
+
+    public Bitboard getAttackedSquares(Player attackingPlayer) {
+        return attackedSquares[attackingPlayer.asInt()];
+    }
+
+    private void createNewEmptyLogicBoard() {
+        logicMat = new Square[Location.NUM_OF_SQUARES];
+        for (int i = 0; i < logicMat.length; i++) {
+            Location loc = Location.getLoc(i);
+            assert loc != null;
+            logicMat[i] = new Square(loc);
+        }
+        pieces = new Bitboard[Player.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        allPlayersPieces = new Bitboard[Player.NUM_OF_PLAYERS];
+        attackedSquares = new Bitboard[Player.NUM_OF_PLAYERS];
+
+        piecesCount = new int[Player.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        for (Player player : Player.PLAYERS) {
+            Arrays.fill(piecesCount[player.asInt()], 0);
+            pieces[player.asInt()] = new Bitboard[PieceType.NUM_OF_PIECE_TYPES];
+            allPlayersPieces[player.asInt()] = new Bitboard();
+            attackedSquares[player.asInt()] = new Bitboard();
+            for (PieceType pieceType : PieceType.PIECE_TYPES) {
+                pieces[player.asInt()][pieceType.asInt()] = new Bitboard();
+            }
+        }
+    }
+
+    public Bitboard getAllPlayersPieces(Player player) {
+        return allPlayersPieces[player.asInt()];
+    }
 
     public int getCastlingAbility() {
         return castlingAbility;
@@ -88,38 +122,6 @@ public class Board implements Iterable<Square[]> {
         this.castlingAbility = castlingAbility;
     }
 
-    private void loadMat() {
-        loadMat(logicMat, false);
-    }
-
-    private void loadMat(Square[] board, boolean copyPiece) {
-        for (Square square : board) {
-            if (!square.isEmpty()) {
-                Piece piece = square.getPiece();
-                Location startingLoc = piece.getStartingLoc();
-                if (copyPiece) {
-                    piece = Piece.copyPiece(piece);
-                }
-                setPiece(piece.getLoc(), piece);
-                pieces[piece.getPieceColor()][piece.getPieceType()].set(startingLoc, true);
-
-                piecesCount[piece.getPieceColor()][piece.getPieceType()]++;
-
-            }
-        }
-    }
-
-    private void initPiecesArrays() {
-        pieces = new Bitboard[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES];
-        piecesCount = new int[NUM_OF_PLAYERS][NUM_OF_PIECE_TYPES];
-        for (int player = 0; player < NUM_OF_PLAYERS; player++) {
-            Arrays.fill(piecesCount[player], 0);
-            pieces[player] = new Bitboard[NUM_OF_PIECE_TYPES];
-            for (int pieceType : PIECES_TYPES) {
-                pieces[player][pieceType] = new Bitboard();
-            }
-        }
-    }
 
     private void createNewLogicBoard(FEN fen) {
         createNewEmptyLogicBoard();
@@ -138,11 +140,11 @@ public class Board implements Iterable<Square[]> {
         if (enPassantTargetLocStr.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
             this.enPassantTargetLoc = null;
         } else {
-            this.enPassantTargetLoc = Location.getLocFromStr(enPassantTargetLocStr);
-            int row = Location.getRow(enPassantTargetLoc);
-            int diff = (row == (STARTING_ROW[Player.WHITE] + 3)) ? Piece.getDifference(Player.WHITE) : Piece.getDifference(Player.BLACK);
+            this.enPassantTargetLoc = Location.getLoc(enPassantTargetLocStr);
+            int row = enPassantTargetLoc.getRow();
+            int diff = (row == (Piece.getStartingRow(Player.WHITE) + 3)) ? Piece.getDifference(Player.WHITE) : Piece.getDifference(Player.BLACK);
             row -= diff;
-            this.enPassantActualLoc = Location.getLoc(row, Location.getCol(enPassantTargetLoc));
+            this.enPassantActualLoc = Location.getLoc(row, Location.col(enPassantTargetLoc));
         }
     }
 
@@ -178,7 +180,7 @@ public class Board implements Iterable<Square[]> {
         return getEvaluation(currentPlayer);
     }
 
-    public Evaluation getEvaluation(int player) {
+    public Evaluation getEvaluation(Player player) {
         return boardEval.getEvaluation(player);
     }
 
@@ -188,17 +190,6 @@ public class Board implements Iterable<Square[]> {
 
     public String getFenStr() {
         return fen.generateFEN();
-    }
-
-    private void replacePiece(Piece newPiece, Piece oldPiece) {
-        assert newPiece != null && oldPiece != null;
-        Location pieceLoc = oldPiece.getLoc();
-        int oldPlayer = oldPiece.getPieceColor();
-        int newPlayer = newPiece.getPieceColor();
-        pieces[oldPlayer][oldPiece.getPieceType()].set(pieceLoc, false);
-        pieces[newPlayer][newPiece.getPieceType()].set(newPiece.getLoc(), true);
-
-        setPiece(pieceLoc, newPiece);
     }
 
     public Move findMove(BasicMove basicMove) {
@@ -211,80 +202,69 @@ public class Board implements Iterable<Square[]> {
     }
 
     public void setPiece(Location loc, Piece piece) {
-        logicMat[loc.ordinal()].setPiece(piece);
+        logicMat[loc.asInt()].setPiece(piece);
     }
 
     public void setSquareEmpty(Location loc) {
-        logicMat[loc.ordinal()].setEmpty();
+        logicMat[loc.asInt()].setEmpty();
     }
 
     public Piece getPiece(Location loc) {
-        return logicMat[loc.ordinal()].getPiece();
+        return logicMat[loc.asInt()].getPiece();
     }
 
-    public int bothPlayersNumOfPieces(int[] arr) {
+    public int bothPlayersNumOfPieces(PieceType[] arr) {
         return getNumOfPieces(Player.WHITE, arr) + getNumOfPieces(Player.BLACK, arr);
     }
 
-    public int getNumOfPieces(int player, int[] arr) {
+    public int getNumOfPieces(Player player, PieceType[] arr) {
         int ret = 0;
-        for (int pieceType : arr) {
-            ret += piecesCount[player][pieceType];
+        for (PieceType pieceType : arr) {
+            ret += getNumOfPieces(player, pieceType);
         }
         return ret;
     }
 
-    public int bothPlayersNumOfPieces(int pieceType) {
+    public int bothPlayersNumOfPieces(PieceType pieceType) {
         return getNumOfPieces(Player.WHITE, pieceType) + getNumOfPieces(Player.BLACK, pieceType);
     }
 
-    public int getNumOfPieces(int player, int pieceType) {
-        return piecesCount[player][pieceType];
+    public int getNumOfPieces(Player player, PieceType pieceType) {
+        return piecesCount[player.asInt()][pieceType.asInt()];
     }
 
     public boolean isInCheck() {
         return isInCheck(currentPlayer);
     }
 
-    public boolean isInCheck(int player) {
-        long hash = getBoardHash().getFullHash();
-        hash = Zobrist.combineHashes(hash, Zobrist.playerHash(player));
-        if (isInCheckHashMap.containsKey(hash)) {
-            return isInCheckHashMap.get(hash);
-        }
-        boolean ret = isThreatened(getKing(player));
-        isInCheckHashMap.put(hash, ret);
+    public boolean isInCheck(Player player) {
+//        long hash = getBoardHash().getFullHash();
+//        hash = Zobrist.combineHashes(hash, Zobrist.playerHash(player));
+//        if (isInCheckHashMap.containsKey(hash)) {
+//            return isInCheckHashMap.get(hash);
+//        }
+        boolean ret = isThreatened(getKing(player), Player.getOpponent(player));
+//        isInCheckHashMap.put(hash, ret);
         return ret;
     }
 
-    public boolean isThreatened(Piece piece) {
-        return isThreatened(piece.getLoc(), piece.getOpponent());
-    }
-
-    public boolean isThreatened(Location loc, int threateningPlayer) {
+    public boolean isThreatened(Location loc, Player threateningPlayer) {
 //        long tHash = getBoardHash().getPiecesHash();
 //        tHash = Zobrist.combineHashes(tHash, Zobrist.hash(loc, threateningPlayer));
 //        if (threatenedHashMap.containsKey(tHash)) {
 //            return threatenedHashMap.get(tHash);
 //        }
-        boolean res = false;
-        for (int type : UNIQUE_MOVES_PIECE_TYPES) {
-            if (checkThreatening(loc, threateningPlayer, type)) {
-                res = true;
-                break;
-            }
-        }
-//        threatenedHashMap.put(tHash, res);
+//        boolean res = getAttackedSquares(threateningPlayer).isSet(loc);
+        Player store = currentPlayer;
+        currentPlayer = threateningPlayer;
+        boolean res = MoveGenerator.generateMoves(this, false).stream().anyMatch(move -> move.getMovingTo() == loc);
+        currentPlayer = store;
         return res;
-    }
-
-    public ArrayList<Piece> piecesLookingAt(Piece piece) {
-        return piecesLookingAt(piece.getLoc());
     }
 
     public ArrayList<Piece> piecesLookingAt(Location loc) {
         ArrayList<Piece> ret = new ArrayList<>();
-        for (int type : PIECES_TYPES) {
+        for (PieceType type : PieceType.PIECE_TYPES) {
             Piece piece = getPieceLookingAtMe(loc, type);
             if (piece != null)
                 ret.add(piece);
@@ -293,97 +273,88 @@ public class Board implements Iterable<Square[]> {
     }
 
     //    can capture any player
-    public ArrayList<Move> getPieceMovesFrom(Location from, int type) {
+    public ArrayList<Move> getPieceMovesFrom(Location from, PieceType type) {
         return getPieceMovesFrom(from, type, Player.NO_PLAYER);
     }
 
-    public ArrayList<Move> getPieceMovesFrom(Location from, int type, int player) {
-        assert Piece.isValidPieceType(type);
-        ArrayList<ArrayList<Move>> lists;
-        switch (type) {
-            case BISHOP:
-                lists = Bishop.getPseudoBishopMoves(from);
-                break;
-            case ROOK:
-                lists = Rook.getPseudoRookMoves(from);
-                break;
-            case KNIGHT:
-                lists = Knight.getPseudoKnightMoves(from);
-                break;
-            case PAWN:
-                lists = Pawn.createCaptureMoves(from, player);
-                break;
-            case QUEEN:
-                lists = Queen.createQueenMoves(from);
-                break;
-            case KING:
-                lists = King.getKingMoves(from, player);
-                break;
-            default:
-                MyError.error("Wrong Piece Type");
-                lists = new ArrayList<>();
-                break;
-        }
-        lists = PieceMoves.createPseudoLegalMoves(this, lists, type, player);
-        ArrayList<Move> ret = convertListOfLists(lists);
-        return ret;
+    public ArrayList<Move> getPieceMovesFrom(Location from, PieceType type, Player player) {
+//        ArrayList<ArrayList<Move>> lists;
+//        switch (type) {
+//            case BISHOP:
+//                lists = Bishop.getPseudoBishopMoves(from);
+//                break;
+//            case ROOK:
+//                lists = Rook.getPseudoRookMoves(from);
+//                break;
+//            case KNIGHT:
+//                lists = Knight.getPseudoKnightMoves(from);
+//                break;
+//            case PAWN:
+//                lists = Pawn.createCaptureMoves(from, player);
+//                break;
+//            case QUEEN:
+//                lists = Queen.createQueenMoves(from);
+//                break;
+//            case KING:
+//                lists = King.getKingMoves(from, player);
+//                break;
+//            default:
+//                MyError.error("Wrong Piece Type");
+//                lists = new ArrayList<>();
+//                break;
+//        }
+//        ArrayList<Move> ret = convertListOfLists(lists);
+//        return ret;
+        return new ArrayList<>();
     }
 
-    private Piece getPieceLookingAtMe(Location loc, int type) {
+    private Piece getPieceLookingAtMe(Location loc, PieceType type) {
         for (Move move : getPieceMovesFrom(loc, type)) {
-            if (move.isCapturing() && compareMovementType(type, move.getCapturingPieceType()))
+            if (move.isCapturing() && type.compareMovementType(move.getCapturingPieceType()))
                 return getPiece(move.getMovingTo());
         }
         return null;
     }
 
-    private boolean checkThreatening(Location loc, int threateningPlayer, int pieceType) {
-        ArrayList<Move> moves = getPieceMovesFrom(loc, pieceType, Player.getOpponent(threateningPlayer));
+    private boolean checkThreatening(Location loc, Player threateningPlayer, PieceType pieceType) {
+        ArrayList<Move> moves = getPieceMovesFrom(loc, pieceType, threateningPlayer.getOpponent());
         for (Move move : moves) {
-            if (move.isCapturing() && compareMovementType(pieceType, move.getCapturingPieceType()))
+            if (move.isCapturing() && pieceType.compareMovementType(move.getCapturingPieceType()))
                 return true;
         }
         return false;
     }
 
-    public King getKing(int player) {
-        return pieces[player];
+    public Location getKing(Player player) {
+        Bitboard k = getPieceBitBoard(player, PieceType.KING);
+        return k.isEmpty() ? null : k.getSetLocs().get(0);
     }
 
-    public ConcurrentHashMap<Location, Piece> getPieces(int player) {
-        return pieces[player];
+    public Bitboard getPieceBitBoard(PieceType pieceType) {
+        return getPieceBitBoard(currentPlayer, pieceType);
     }
 
-    public Collection<Piece> getPlayersPieces(int player) {
-        return pieces[player].values();
+    public Bitboard getPieceBitBoard(Player player, PieceType pieceType) {
+        return getPlayersPieces(player)[pieceType.asInt()];
     }
 
-    public boolean anyLegalMove(int player) {
-        for (Piece piece : getPlayersPieces(player)) {
-            if (!piece.isCaptured()) {
-                if (piece.canMoveTo(this).size() > 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public Bitboard[] getPlayersPieces() {
+        return getPlayersPieces(getCurrentPlayer());
+    }
+
+    public Bitboard[] getPlayersPieces(Player player) {
+        return pieces[player.asInt()];
+    }
+
+    public boolean anyLegalMove(Player player) {
+        Bitboard[] playersPieces = getPlayersPieces(player);
+        //todo can return true if one piece can move
+        return !generateAllMoves().isEmpty();
     }
 
     public ArrayList<Move> generateAllMoves() {
-        long hash = getBoardHash().getFullHash();
-        if (movesGenerationHashMap.containsKey(hash)) {
-            return movesGenerationHashMap.get(hash);
-        }
 
-        ArrayList<Move> ret = new ArrayList<>();
-        for (Piece piece : getPlayersPieces(currentPlayer)) {
-            if (!piece.isCaptured()) {
-                ret.addAll(piece.canMoveTo(this));
-            }
-        }
-
-        setUniqueStrs(ret);
-        movesGenerationHashMap.put(hash, ret);
+        ArrayList<Move> ret = MoveGenerator.generateMoves(this);
         return ret;
     }
 
@@ -407,10 +378,10 @@ public class Board implements Iterable<Square[]> {
                     for (Move other : moves) {
                         if (!other.equals(move)) {
                             Location otherMovingFrom = other.getMovingFrom();
-                            if (otherMovingFrom.getRow() == movingFrom.getRow()) {
+                            if (Location.row(otherMovingFrom) == Location.row(movingFrom)) {
                                 uniqueRow = false;
                             }
-                            if (otherMovingFrom.getCol() == movingFrom.getCol()) {
+                            if (Location.col(otherMovingFrom) == Location.col(movingFrom)) {
                                 uniqueCol = false;
                             }
                         }
@@ -427,15 +398,15 @@ public class Board implements Iterable<Square[]> {
     }
 
     @Override
-    public Iterator<Square[]> iterator() {
+    public Iterator<Square> iterator() {
         return Arrays.stream(logicMat).iterator();
     }
 
-    public int getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public void setCurrentPlayer(int currentPlayer) {
+    public void setCurrentPlayer(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
 
@@ -456,7 +427,7 @@ public class Board implements Iterable<Square[]> {
         Location movingTo = move.getMovingTo();
 
         Piece piece = getPiece(movingFrom, true);
-        int pieceColor = piece.getPieceColor();
+        Player pieceColor = piece.getPlayer();
 
         move.getMoveAnnotation().setDetailedAnnotation(piece.getPieceType());
         move.setPrevFullMoveClock(fullMoveClock);
@@ -475,11 +446,10 @@ public class Board implements Iterable<Square[]> {
             setEnPassantActualLoc(null);
         }
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
-            int promotingTo = move.getPromotingTo();
-            piecesCount[pieceColor][promotingTo]++;
-            piecesCount[pieceColor][piece.getPieceType()]--;
-            Piece newPiece = Piece.promotePiece(piece, promotingTo);
-            replacePiece(newPiece, piece);
+            PieceType promotingTo = move.getPromotingTo();
+            delPiece(piece, movingFrom);
+            Piece newPiece = Piece.getPiece(promotingTo, pieceColor);
+            addPiece(newPiece, movingFrom);
             piece = newPiece;
         }
         //endregion
@@ -487,22 +457,20 @@ public class Board implements Iterable<Square[]> {
         if (currentPlayer == Player.BLACK)
             fullMoveClock++;
 
-        if (piece instanceof King) {
+        if (piece.getPieceType() == PieceType.KING) {
             castlingAbility = CastlingAbility.disableCastlingForBothSides(pieceColor, castlingAbility);
-        } else if (piece instanceof Rook) {
-            castlingAbility = CastlingAbility.disableCastling(pieceColor, ((Rook) piece).getSideRelativeToKing(this), castlingAbility);
+        } else if (piece.getPieceType() == PieceType.ROOK) {
+            castlingAbility = CastlingAbility.disableCastling(pieceColor, movingTo, castlingAbility, this);
         }
         if (move.isCapturing()) {
             Piece otherPiece = getPiece(movingTo);
             assert otherPiece != null;
-            if (otherPiece instanceof Rook) {
-                int side = ((Rook) otherPiece).getSideRelativeToKing(this);
-                castlingAbility = CastlingAbility.disableCastling(otherPiece.getPieceColor(), side, castlingAbility);
+            if (otherPiece.getPieceType() == PieceType.ROOK) {
+                castlingAbility = CastlingAbility.disableCastling(otherPiece.getPlayer(), movingTo, castlingAbility, this);
             }
-            piecesCount[otherPiece.getPieceColor()][otherPiece.getPieceType()]--;
-            otherPiece.setCaptured(true);
+            delPiece(otherPiece, movingTo);
         }
-        piece.setLoc(movingTo);
+        updatePieceLoc(piece, movingFrom, movingTo);
         setPiece(movingTo, piece);
 
         setSquareEmpty(movingFrom);
@@ -524,7 +492,7 @@ public class Board implements Iterable<Square[]> {
         moveStack.push(move);
 
         setBoardHash();
-
+        setAttackedSquares();
     }
 
     public Move undoMove() {
@@ -539,12 +507,11 @@ public class Board implements Iterable<Square[]> {
         Location movingTo = move.getMovingFrom();
 
         Piece piece = getPiece(movingFrom, true);
-        int pieceColor = piece.getPieceColor();
+        Player pieceColor = piece.getPlayer();
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
-            piecesCount[pieceColor][move.getPromotingTo()]--;
-            piecesCount[pieceColor][PAWN]++;
-            Pawn oldPiece = new Pawn(piece);
-            replacePiece(oldPiece, piece);
+            delPiece(piece, movingFrom);
+            Piece oldPiece = Piece.getPiece(PieceType.PAWN, pieceColor);
+            addPiece(oldPiece, movingFrom);
             piece = oldPiece;
         }
         setEnPassantTargetLoc((Location) null);
@@ -556,33 +523,51 @@ public class Board implements Iterable<Square[]> {
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }
         }
-        piece.setLoc(movingTo);
+        updatePieceLoc(piece, movingFrom, movingTo);
         setPiece(movingTo, piece);
         setSquareEmpty(movingFrom);
 
         if (move.isCapturing()) {
-            int opponent = Player.getOpponent(pieceColor);
-            Piece otherPiece = getCapturedPiece(move.getCapturingPieceType(), opponent, movingFrom);
-            assert otherPiece != null;
-            otherPiece.setCaptured(false);
-            setPiece(movingFrom, otherPiece);
-            piecesCount[otherPiece.getPieceColor()][otherPiece.getPieceType()]++;
+            Player opponent = Player.getOpponent(pieceColor);
+            Piece otherPiece = Piece.getPiece(move.getCapturingPieceType(), opponent);
+            addPiece(otherPiece, movingFrom);
+
         }
         makeIntermediateMove(move, true);
 
         switchTurn();
 
         setBoardHash();
+        setAttackedSquares();
         return move;
     }
 
-    private Piece getCapturedPiece(int capturingPieceType, int player, Location capturedOn) {
-        for (Piece piece : getPlayersPieces(player)) {
-            if (piece.isCaptured() && piece.getPieceType() == capturingPieceType && piece.isOnMyTeam(player) && piece.getLoc().equals(capturedOn)) {
-                return piece;
-            }
-        }
-        return null;
+    private void updatePieceLoc(Piece piece, Location movingFrom, Location movingTo) {
+        Bitboard bitboard = getPieceBitBoard(piece);
+        Bitboard all = getAllPlayersPieces(piece.getPlayer());
+        all.set(movingFrom, false);
+        bitboard.set(movingFrom, false);
+        all.set(movingTo, true);
+        bitboard.set(movingTo, true);
+    }
+
+    private void addPiece(Piece piece, Location currentLoc) {
+        if (piece == null) return;
+        piecesCount[piece.getPlayer().asInt()][piece.getPieceType().asInt()]++;
+        getPieceBitBoard(piece).set(currentLoc, true);
+        getAllPlayersPieces(piece.getPlayer()).set(currentLoc, true);
+        setPiece(currentLoc, piece);
+    }
+
+    private void delPiece(Piece piece, Location currentLoc) {
+        piecesCount[piece.getPlayer().asInt()][piece.getPieceType().asInt()]--;
+        getPieceBitBoard(piece).set(currentLoc, false);
+        getAllPlayersPieces(piece.getPlayer()).set(currentLoc, false);
+        setSquareEmpty(currentLoc);
+    }
+
+    private Bitboard getPieceBitBoard(Piece piece) {
+        return getPlayersPieces(piece.getPlayer())[piece.getPieceType().asInt()];
     }
 
     private void makeIntermediateMove(Move move) {
@@ -607,8 +592,8 @@ public class Board implements Iterable<Square[]> {
         currentPlayer = Player.getOpponent(currentPlayer);
     }
 
-    public int[] getPiecesCount(int player) {
-        return piecesCount[player];
+    public int[] getPiecesCount(Player player) {
+        return piecesCount[player.asInt()];
     }
 
     public Piece getPiece(Location loc, boolean notNull) {
@@ -622,16 +607,17 @@ public class Board implements Iterable<Square[]> {
     }
 
     private void movePiece(Location movingFrom, Location movingTo) {
-        assert isSquareEmpty(movingTo);
+        assert isSquareEmpty(movingTo);//not intended for captures
         Piece piece = getPiece(movingFrom, true);
+        updatePieceLoc(piece, movingFrom, movingTo);
         setPiece(movingTo, piece);
-        piece.setLoc(movingTo);
         setSquareEmpty(movingFrom);
     }
 
-    private Square getSquare(Location loc) {
-        return logicMat[loc.getRow()][loc.getCol()];
+    public Square getSquare(Location loc) {
+        return logicMat[loc.asInt()];
     }
+
 
     @Override
     public String toString() {
@@ -639,15 +625,16 @@ public class Board implements Iterable<Square[]> {
         StringBuilder ret = new StringBuilder();
 
         ret.append(" ");
-        for (int j = 0; j < logicMat.length; j++) {
+        for (int j = 0; j < Controller.COLS; j++) {
             ret.append(" ").append((char) ('ａ' + j)).append(" ");
         }
         ret.append(Controller.HIDE_PRINT).append("\n");
 
-        for (int i = 0, rowNum = logicMat.length - 1; i < logicMat.length; i++, rowNum--) {
+        for (int r = 0, rowNum = Controller.ROWS - 1; r < Controller.ROWS; r++, rowNum--) {
             ret.append(rowNum + 1);
-            for (Square square : logicMat[i]) {
-                ret.append(divider).append(square.toString()).append(divider);
+            for (int c = 0; c < Controller.COLS; c++) {
+                Location loc = Location.getLoc(r, c);
+                ret.append(divider).append(getSquare(loc)).append(divider);
             }
             ret.append(Controller.HIDE_PRINT).append("\n");
         }
@@ -672,16 +659,26 @@ public class Board implements Iterable<Square[]> {
         undoMove();
     }
 
-    public Square[][] getLogicMat() {
+    public Square[] getLogicBoard() {
         return logicMat;
     }
 
-    public int getOpponent() {
-        return Player.getOpponent(currentPlayer);
+    public Player getOpponent() {
+        return currentPlayer.getOpponent();
     }
 
-    public Map<Location, Piece>[] getPieces() {
+    public Bitboard[][] getPieces() {
         return pieces;
+    }
+
+    private void setPieces(Square[] board) {
+        for (Square square : board) {
+            if (!square.isEmpty()) {
+                Piece piece = square.getPiece();
+                addPiece(piece, square.getLoc());
+            }
+        }
+        setAttackedSquares();
     }
 
     public BoardHash getBoardHash() {
@@ -699,5 +696,15 @@ public class Board implements Iterable<Square[]> {
     public ArrayList<Move> getAllCaptureMoves() {
 
         return generateAllMoves().stream().filter(Move::isCapturing).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public boolean isEmpty(Location loc) {
+        return getPiece(loc) == null;
+    }
+
+    public boolean isSamePlayer(Location loc1, Location loc2) {
+        if (isSquareEmpty(loc1) || isSquareEmpty(loc2))
+            return false;
+        return getPiece(loc1).isOnMyTeam(getPiece(loc2));
     }
 }

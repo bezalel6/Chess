@@ -9,8 +9,8 @@ public class BasicMove {
     Location movingTo;
 
     public BasicMove(Location movingFrom, Location movingTo) {
-        this.movingFrom = new Location(movingFrom);
-        this.movingTo = new Location(movingTo);
+        this.movingFrom = movingFrom;
+        this.movingTo = movingTo;
     }
 
     public BasicMove(BasicMove other) {
@@ -33,8 +33,8 @@ public class BasicMove {
     }
 
     public void flip() {
-        Location t = new Location(movingFrom);
-        movingFrom = new Location(movingTo);
+        Location t = movingFrom;
+        movingFrom = movingTo;
         movingTo = t;
     }
 

@@ -3,6 +3,7 @@ package ver36_no_more_location.model_classes.moves;
 import ver36_no_more_location.Player;
 import ver36_no_more_location.model_classes.GameStatus;
 import ver36_no_more_location.model_classes.pieces.Piece;
+import ver36_no_more_location.model_classes.pieces.PieceType;
 
 public class MoveAnnotation {
     public static final int PIECE = 0, CAPTURE = 1, DESTINATION = 2, GAME_OVER = 3;
@@ -17,12 +18,12 @@ public class MoveAnnotation {
 
     public MoveAnnotation(Move move) {
         this.move = move;
-        int capturingPieceType = move.getCapturingPieceType();
+        PieceType capturingPieceType = move.getCapturingPieceType();
         piece = "";
 
         capture = "";
         if (move.isCapturing()) {
-            if (Piece.isValidPieceType(capturingPieceType)) {
+            if (capturingPieceType != null) {
                 setCapture(capturingPieceType);
             }
         }
@@ -48,14 +49,14 @@ public class MoveAnnotation {
 
     }
 
-    public void setDetailedAnnotation(int movingPieceType) {
+    public void setDetailedAnnotation(PieceType movingPieceType) {
         if (!overriding) {
 
-            if (movingPieceType == Piece.PAWN) {
+            if (movingPieceType == PieceType.PAWN) {
                 if (move.isCapturing())
                     piece = move.getMovingFrom().getColString();
             } else {
-                piece = Piece.PIECES_FENS[Player.WHITE][movingPieceType];
+                piece = Piece.getWhitePieceFen(movingPieceType);
             }
         }
     }
@@ -66,19 +67,10 @@ public class MoveAnnotation {
 
     public void setGameStatus(GameStatus gStatus) {
         switch (gStatus.getGameStatusType()) {
-            case TIE:
-                gameStatus = DRAW;
-                break;
-            case CHECK:
-                gameStatus = CHECK_ANN;
-                break;
-            case WIN_OR_LOSS:
-                gameStatus = MATE;
-                break;
-            default:
-                gameStatus = "";
-                break;
-
+            case TIE -> gameStatus = DRAW;
+            case CHECK -> gameStatus = CHECK_ANN;
+            case WIN_OR_LOSS -> gameStatus = MATE;
+            default -> gameStatus = "";
         }
     }
 
@@ -86,7 +78,7 @@ public class MoveAnnotation {
         gameStatus = check ? CHECK_ANN : "";
     }
 
-    public void setCapture(int capturingPieceType) {
+    public void setCapture(PieceType capturingPieceType) {
         capture = CAPTURE_ANN;
     }
 
@@ -96,8 +88,8 @@ public class MoveAnnotation {
         capture = destination = promotion = "";
     }
 
-    public void setPromotion(int promotingTo) {
-        this.promotion = "=" + Piece.PIECES_FENS[0][promotingTo].charAt(0) + "";
+    public void setPromotion(PieceType promotingTo) {
+        this.promotion = "=" + Piece.getWhitePieceFen(promotingTo);
     }
 
     @Override

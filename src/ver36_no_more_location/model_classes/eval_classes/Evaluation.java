@@ -13,7 +13,7 @@ public class Evaluation {
     private ArrayList<Integer> initializedIndexes;
     private double eval;
     private GameStatus gameStatus;
-    private int evaluationFor;
+    private Player evaluationFor;
 
     public Evaluation(double eval, GameStatus gameStatus) {
         initDetailedEval();
@@ -23,28 +23,20 @@ public class Evaluation {
     }
 
     public Evaluation(int gameStatusType) {
-        gameStatus = new GameStatus(gameStatusType);
+        this(0, new GameStatus(gameStatusType));
     }
 
     public Evaluation(GameStatus gameStatus) {
-        this.gameStatus = gameStatus;
+        this(0, gameStatus);
         switch (gameStatus.getGameStatusType()) {
-            case WIN_OR_LOSS:
-                eval = WIN_EVAL;
-                break;
-            case TIE:
-                eval = TIE_EVAL;
-                break;
-            default:
-                eval = 0;
-                break;
+            case WIN_OR_LOSS -> eval = WIN_EVAL;
+            case TIE -> eval = TIE_EVAL;
+            default -> eval = 0;
         }
     }
 
     public Evaluation() {
-        eval = 0;
-        gameStatus = new GameStatus();
-        initDetailedEval();
+        this(0, new GameStatus());
     }
 
     public Evaluation(Evaluation other) {
@@ -129,7 +121,7 @@ public class Evaluation {
         return Double.compare(boardEval.eval, eval) == 0 && gameStatus == boardEval.gameStatus;
     }
 
-    public int getEvaluationFor() {
+    public Player getEvaluationFor() {
         return evaluationFor;
     }
 
@@ -139,7 +131,7 @@ public class Evaluation {
                 "eval=" + eval +
                 ", gameStatus=" + gameStatus +
                 ", detailedEval= " + getDetailedEvalStr() +
-                ", evaluation for= " + Player.PLAYER_NAMES[evaluationFor] +
+                ", evaluation for= " + evaluationFor.getName() +
                 '}';
     }
 
@@ -155,7 +147,7 @@ public class Evaluation {
 
     public Evaluation getEvalForBlack() {
         Evaluation ret = new Evaluation(this);
-        ret.evaluationFor = Player.getOpponent(ret.evaluationFor);
+        ret.evaluationFor = Player.BLACK;
         ret.flipEval();
         return ret;
     }

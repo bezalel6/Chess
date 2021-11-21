@@ -41,11 +41,11 @@ public class View implements Iterable<BoardButton[]> {
     private Dimension winSize;
     private JPanel topPnl, runningProcessPnl, bottomPnl;
     private JLabel statusLbl;
-    private int boardOrientation;
+    private Player boardOrientation;
     private MyJframe win;
     private JLabel runningProcessLbl;
 
-    public View(int boardSize, Controller controller, int boardOrientation, long millis) {
+    public View(int boardSize, Controller controller, Player boardOrientation, long millis) {
         ROWS = COLS = boardSize;
         this.controller = controller;
         this.boardOrientation = boardOrientation;
@@ -169,11 +169,11 @@ public class View implements Iterable<BoardButton[]> {
         return win;
     }
 
-    public int getBoardOrientation() {
+    public Player getBoardOrientation() {
         return boardOrientation;
     }
 
-    public void setBoardOrientation(int boardOrientation) {
+    public void setBoardOrientation(Player boardOrientation) {
         this.boardOrientation = boardOrientation;
         boardPnl.setCoordinates(false);
         boardPnl.createMat();
@@ -357,6 +357,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public BoardButton boardButtonPressed(Location to) {
+
         controller.boardButtonPressed(to);
         return getBtn(to);
     }
@@ -428,6 +429,7 @@ public class View implements Iterable<BoardButton[]> {
         if (movableSquares != null)
             for (Move move : movableSquares) {
                 Location movingTo = move.getMovingTo();
+
                 if (move.isCapturing())
                     highlightSquare(movingTo, red);
                 else if (move.getMoveFlag() == Move.MoveFlag.Promotion)
