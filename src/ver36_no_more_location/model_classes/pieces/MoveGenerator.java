@@ -10,6 +10,7 @@ import ver36_no_more_location.model_classes.moves.Castling;
 import ver36_no_more_location.model_classes.moves.Move;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class MoveGenerator {
@@ -254,6 +255,25 @@ public class MoveGenerator {
         }
         for (Location queenLoc : pieces[PieceType.QUEEN.asInt()].getSetLocs()) {
             ret.addAll(generateSlidingPieceMoves(board, queenLoc, queenDirections));
+        }
+        return ret;
+    }
+
+    public static int[] getDirections(PieceType pieceType) {
+        int[] indexes = switch (pieceType) {
+            case ROOK -> rookDirections;
+            case PAWN -> new int[]{0, 1};
+            case QUEEN -> queenDirections;
+            case BISHOP -> bishopDirections;
+            case KNIGHT -> new int[0];
+            case KING -> queenDirections;
+
+            default -> throw new IllegalStateException("Unexpected value: " + pieceType);
+        };
+        int[] ret = new int[indexes.length];
+        int i = 0;
+        for (int index : ret) {
+            ret[i++] = directionOffsets[index];
         }
         return ret;
     }

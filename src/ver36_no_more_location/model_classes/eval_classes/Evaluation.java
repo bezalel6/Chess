@@ -68,7 +68,7 @@ public class Evaluation {
     }
 
     private void initDetailedEval() {
-        detailedEval = new double[Eval.NUM_OF_EVAL_PARAMETERS];
+        detailedEval = new double[EvaluationParameters.NUM_OF_EVAL_PARAMETERS];
         initializedIndexes = new ArrayList<>();
     }
 
@@ -140,7 +140,7 @@ public class Evaluation {
         if (initializedIndexes == null)
             return "";
         for (int index : initializedIndexes) {
-            ret.append("\n").append(Eval.EVAL_PARAMETERS_NAMES[index]).append(": ").append(detailedEval[index]).append(Controller.HIDE_PRINT);
+            ret.append("\n").append(EvaluationParameters.EVAL_PARAMETERS_NAMES[index]).append(": ").append(detailedEval[index]).append(Controller.HIDE_PRINT);
         }
         return ret.toString();
     }

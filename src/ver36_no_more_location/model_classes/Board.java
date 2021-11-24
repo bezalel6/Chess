@@ -255,10 +255,7 @@ public class Board implements Iterable<Square> {
 //            return threatenedHashMap.get(tHash);
 //        }
 //        boolean res = getAttackedSquares(threateningPlayer).isSet(loc);
-        Player store = currentPlayer;
-        currentPlayer = threateningPlayer;
-        boolean res = MoveGenerator.generateMoves(this, false).stream().anyMatch(move -> move.getMovingTo() == loc);
-        currentPlayer = store;
+        boolean res = getAttackedSquares(threateningPlayer).isSet(loc);
         return res;
     }
 

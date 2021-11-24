@@ -57,35 +57,6 @@ public enum PieceType {
         return compareMovementType(this, compareTo);
     }
 
-    public boolean isSlidingPiece() {
-        return switch (this) {
-            case BISHOP, QUEEN, ROOK -> true;
-            default -> false;
-        };
-    }
-
-    public long getAttackingSquares(Bitboard pieceBB, Player player, Board board) {
-        boolean shiftRight = player == Player.WHITE;
-        return switch (this) {
-            case PAWN -> pieceBB.shift(9, shiftRight)
-                    .or(pieceBB.shift(7, shiftRight));
-            case ROOK, BISHOP, QUEEN -> getSlidingAttack(pieceBB, player);
-            case KNIGHT -> 0L;
-            default -> 0L;
-        };
-    }
-
-    private long getPawnsAttack(Bitboard pawnsBB, Player player) {
-        return 0L;
-    }
-
-    private long getSlidingAttack(Bitboard pieceBB, Player player) {
-        if (pieceBB.isEmpty()) {
-            return 0L;
-        }
-        return 0L;
-    }
-
     public String getPieceName() {
         return this.name().substring(0, 1).toUpperCase(Locale.ROOT) + this.name().substring(1).toLowerCase(Locale.ROOT);
     }

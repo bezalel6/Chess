@@ -5,7 +5,8 @@ import ver36_no_more_location.Location;
 import java.util.ArrayList;
 
 public class Bitboard {
-    public static final Bitboard avoidWrap = new Bitboard();
+    public static final long notAFile = 0xfefefefefefefefeL;
+    public static final long notHFile = 0x7f7f7f7f7f7f7f7fL;
     private long bitBoard;
 
     public Bitboard() {
@@ -30,11 +31,15 @@ public class Bitboard {
         set(loc, true);
     }
 
-    public Bitboard shift(int shiftBy, boolean shiftRight) {
-        if (shiftRight) {
-            return new Bitboard(bitBoard >>> shiftBy);
+    public Bitboard shift(int shiftBy) {
+        long wrapCheck = switch (shiftBy) {
+            case 1, 9, -7 -> notHFile;
+            default -> notAFile;
+        };
+        if (shiftBy > 0) {
+            return new Bitboard((bitBoard & wrapCheck) >>> shiftBy);
         }
-        return new Bitboard(bitBoard << shiftBy);
+        return new Bitboard((bitBoard & wrapCheck) << shiftBy);
     }
 
     public ArrayList<Location> getSetLocs() {
@@ -93,5 +98,9 @@ public class Bitboard {
 
     public boolean isEmpty() {
         return bitBoard == 0L;
+    }
+
+    public void andEqual(Bitboard shift) {
+        bitBoard &= shift.bitBoard;
     }
 }

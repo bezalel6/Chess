@@ -9,21 +9,9 @@ import ver36_no_more_location.model_classes.pieces.PieceType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class Eval {
-    public static final int NUM_OF_EVAL_PARAMETERS = 9;
-    public static final int MATERIAL = 0;
-    public static final int PIECE_TABLES = 1;
-    public static final int KING_SAFETY = 2;
-    public static final int HANGING_PIECES = 3;
-    public static final int SQUARE_CONTROL = 4;
-    public static final int MOVEMENT_ABILITY = 5;
-    public static final int FORCE_KING_TO_CORNER = 6;
-    public static final int EG_WEIGHT = 7;
-    public static final int STOCKFISH_SAYS = 8;
-    public static final String[] EVAL_PARAMETERS_NAMES = initEvalParametersArr();
     public static final int MIDDLE_GAME = 0, ENDGAME = 1, OPENING = 2;
     public static final HashMap<Long, Evaluation> evaluationHashMap = new HashMap<>();
     public static final HashMap<Long, Evaluation> capturesEvaluationHashMap = new HashMap<>();
@@ -36,19 +24,6 @@ public class Eval {
         this.board = board;
     }
 
-    private static String[] initEvalParametersArr() {
-        String[] ret = new String[NUM_OF_EVAL_PARAMETERS];
-        ret[MATERIAL] = "Material";
-        ret[PIECE_TABLES] = "Piece Tables";
-        ret[KING_SAFETY] = "King Safety";
-        ret[HANGING_PIECES] = "Hanging Pieces";
-        ret[SQUARE_CONTROL] = "Square Control";
-        ret[MOVEMENT_ABILITY] = "Movement Ability";
-        ret[FORCE_KING_TO_CORNER] = "Force King To Corner Endgame Eval";
-        ret[EG_WEIGHT] = "Endgame Weight";
-        ret[STOCKFISH_SAYS] = "Stockfish Says";
-        return ret;
-    }
 
     private static double calcClose(int distance) {
         double num = Math.exp(distance);
@@ -108,16 +83,16 @@ public class Eval {
         if (board.isInCheck()) {
             retEval.setGameStatusType(GameStatus.GameStatusType.CHECK);
         }
-        retEval.addDebugDetail(EG_WEIGHT, egWeight);
+        retEval.addDebugDetail(EvaluationParameters.EG_WEIGHT, egWeight);
 
         //Material
-        retEval.addDetail(MATERIAL, compareMaterial());
+        retEval.addDetail(EvaluationParameters.MATERIAL, compareMaterial());
 
         //Piece Tables
-        retEval.addDetail(PIECE_TABLES, comparePieceTables(egWeight));
+        retEval.addDetail(EvaluationParameters.PIECE_TABLES, comparePieceTables(egWeight));
 
 //        force king to corner
-        retEval.addDetail(FORCE_KING_TO_CORNER, compareForceKingToCorner(egWeight));
+        retEval.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, compareForceKingToCorner(egWeight));
 
         //Hanging Pieces
 //        retEval.addDetail(HANGING_PIECES, calcHangingPieces(player));
@@ -129,7 +104,7 @@ public class Eval {
 //        retEval.addDetail(MOVEMENT_ABILITY, compareMovementAbility(player));
 
         //King Safety
-        retEval.addDetail(KING_SAFETY, compareKingSafety());
+        retEval.addDetail(EvaluationParameters.KING_SAFETY, compareKingSafety());
 
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(board.getFenStr(), 10));
         return retEval;
