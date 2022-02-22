@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="github.vertical.blank.sql.formatter" type="repository">
+    <properties maven-id="com.github.vertical-blank:sql-formatter:2.0.3" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/sql-formatter-2.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/sql-formatter-2.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

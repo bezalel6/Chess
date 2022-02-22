@@ -1,2 +1,8 @@
-/test/
-/build/
+/ServerClient/NetBeans/nbproject/private/
+/ServerClient/NetBeans/ChessServerProj/nbproject/private/
+/ServerClient/NetBeans/ChessServerProj/build/
+/ServerClient/NetBeans/ChessServerProj/dist/
+/ServerClient/NetBeans/ServerChessProj/nbproject/private/
+/ServerClient/NetBeans/ServerChessProj/build/
+/ServerClient/NetBeans/ChessClientProj/nbproject/private/
+/ServerClient/NetBeans/ChessClientProj/build/

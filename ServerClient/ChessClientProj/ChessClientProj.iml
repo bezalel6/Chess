@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver1" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver2login" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver3" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver4" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver5" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver6" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver7" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver8/view/Wishfull" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver8" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver9/view/Wishfull" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver9/view/OldDialogs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver9/view/List" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver9" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver10" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver11" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver10/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver10/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver11/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver11/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver12/SharedClasses">
+      <sourceFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver12/SharedClasses" isTestSource="false" packagePrefix="ver12.SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver5/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver5/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver6/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver6/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver7/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver7/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver8/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver8/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver9/SharedClasses">
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver9/SharedClasses" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="formdev.flatlaf" level="project" />
+    <orderEntry type="library" name="flatlaf-intellij-themes-2.0-rc1" level="project" />
+    <orderEntry type="library" name="flatlaf-2.0-rc1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.ideaLibSources/annotations-20.1.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jcalendar-1.4" level="project" />
+  </component>
+</module>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="mylibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/libs/annotations-23.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/commons-lang3-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/hsqldb-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/jackcess-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/ucanaccess-5.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

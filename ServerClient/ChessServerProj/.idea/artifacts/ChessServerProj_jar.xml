@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChessServerProj:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChessServerProj_jar</output-path>
+    <root id="archive" name="ChessServerProj.jar">
+      <element id="module-output" name="ChessServerProj" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/commons-lang-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/commons-logging-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/hsqldb.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/jackcess-2.1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libs/ucanaccess-4.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
