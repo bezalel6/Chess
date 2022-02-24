@@ -2,11 +2,11 @@ package ver12.DB;
 
 //import org.apache.commons.lang.SerializationUtils;
 
-import com.github.vertical_blank.sqlformatter.SqlFormatter;
 import org.apache.commons.lang3.SerializationUtils;
 import org.intellij.lang.annotations.Language;
 import ver12.SharedClasses.DBActions.Condition;
-import ver12.SharedClasses.DBActions.DBRequest;
+import ver12.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver12.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver12.SharedClasses.DBActions.DBResponse;
 import ver12.SharedClasses.DBActions.RequestBuilder;
 import ver12.SharedClasses.DBActions.Table.Col;
@@ -22,7 +22,6 @@ import ver12.SharedClasses.Utils.StrUtils;
 import java.io.File;
 import java.io.Serializable;
 import java.sql.*;
-import java.util.Date;
 import java.util.*;
 
 /**
@@ -154,31 +153,33 @@ public class DB {
 
     public static void main(String[] args) {
         try {
-            Date start = new Date(0);
-//            Date start = new Date(new Date().getTime() - TimeUnit.DAYS.toMillis(1));
-            Date end = new Date();
-            System.out.println(start + " - " + end);
-            System.out.println(request(RequestBuilder.PreMadeRequest.GamesInRange.createBuilder().build("bezalel6", start, end)));
+//            addGames("bezalel6");
+//            clearGames();
+            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public static void clearGames() {
+        runUpdate("DELETE FROM " + Table.UnfinishedGames.name());
+        runUpdate("DELETE FROM " + Table.Games.name());
+    }
+
     public static DBResponse request(DBRequest request) {
         ServerDBResponse response;
-        System.out.println("requesting " + SqlFormatter.format(request.getRequest()).replaceAll("\\[ ", "[").replaceAll(" ]", "]"));
+//        System.out.println("requesting " + SqlFormatter.format(request.getRequest()).replaceAll("\\[ ", "[").replaceAll(" ]", "]"));
+        System.out.println(request.getRequest());
         response = switch (request.type) {
             case Update -> runUpdate(request.getRequest());
             case Query -> runQuery(request.getRequest());
         };
         if (response == null)
             return null;
-        return response.createResponse();
-    }
+        if (request.getSubRequest() != null)
+            response.setAddedRes(request(request.getSubRequest()));
 
-    public static void clearGames() {
-        runUpdate("DELETE FROM " + Table.UnfinishedGames.name());
-        runUpdate("DELETE FROM " + Table.Games.name());
+        return response.clean();
     }
 
     /**
@@ -251,7 +252,7 @@ public class DB {
 
     private static void insert(Table table, String... values) {
         Object[] vals = new ArrayList<>(List.of(values)) {{
-            add(new Date().getTime() + "");
+            add((System.currentTimeMillis() / 1000) + "");
         }}.toArray();
         assert vals.length == table.cols.length;
         runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));

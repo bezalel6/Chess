@@ -17,6 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ver9" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver10" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver11" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver12" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -46,6 +47,5 @@
     </orderEntry>
     <orderEntry type="library" name="mylibs" level="project" />
     <orderEntry type="library" name="ucanaccess-5.0.1" level="project" />
-    <orderEntry type="library" name="github.vertical.blank.sql.formatter" level="project" />
   </component>
 </module>

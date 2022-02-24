@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MoveGenerator {
-    public static final MyHashMap moveGenerationHashMap = new MyHashMap(HashManager.Size.MOVE_GENERATOR);
+    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);
     public static final int[][] numSquaresToEdge;
     private static final ArrayList<Location>[] knightMoves;
     private static final ArrayList<Location>[] kingMoves;
@@ -32,17 +32,17 @@ public class MoveGenerator {
                 int left = col;
                 int right = 7 - col;
 
-                int square = Location.getLoc(row, col).asInt();
-                numSquaresToEdge[square][Direction.U.asInt()] = up;
-                numSquaresToEdge[square][Direction.D.asInt()] = down;
-                numSquaresToEdge[square][Direction.L.asInt()] = left;
-                numSquaresToEdge[square][Direction.R.asInt()] = right;
+                int square = Location.getLoc(row, col).asInt;
+                numSquaresToEdge[square][Direction.U.asInt] = up;
+                numSquaresToEdge[square][Direction.D.asInt] = down;
+                numSquaresToEdge[square][Direction.L.asInt] = left;
+                numSquaresToEdge[square][Direction.R.asInt] = right;
 
-                numSquaresToEdge[square][Direction.U_L.asInt()] = Math.min(up, left);
-                numSquaresToEdge[square][Direction.U_R.asInt()] = Math.min(up, right);
+                numSquaresToEdge[square][Direction.U_L.asInt] = Math.min(up, left);
+                numSquaresToEdge[square][Direction.U_R.asInt] = Math.min(up, right);
 
-                numSquaresToEdge[square][Direction.D_L.asInt()] = Math.min(down, left);
-                numSquaresToEdge[square][Direction.D_R.asInt()] = Math.min(down, right);
+                numSquaresToEdge[square][Direction.D_L.asInt] = Math.min(down, left);
+                numSquaresToEdge[square][Direction.D_R.asInt] = Math.min(down, right);
             }
         }
 
@@ -57,7 +57,7 @@ public class MoveGenerator {
                 }
 
             }
-            knightMoves[loc.asInt()] = locs;
+            knightMoves[loc.asInt] = locs;
         }
 
         kingMoves = new ArrayList[Location.NUM_OF_SQUARES];
@@ -70,7 +70,7 @@ public class MoveGenerator {
                     locs.add(tLoc);
 
             }
-            kingMoves[loc.asInt()] = locs;
+            kingMoves[loc.asInt] = locs;
         }
     }
 
@@ -84,7 +84,7 @@ public class MoveGenerator {
     private MoveGenerator(Model model, GenerationSettings generationSettings) {
         long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
         if (moveGenerationHashMap.containsKey(hash)) {
-            generatedMoves = (ModelMovesList) moveGenerationHashMap.get(hash);
+            generatedMoves = moveGenerationHashMap.get(hash);
             return;
         }
         this.model = model;
@@ -123,7 +123,7 @@ public class MoveGenerator {
                 boolean ad = currentPawnMoves.add(m, PieceType.PAWN);
 
                 if (ad && !promoting && Piece.getStartingRow(movingPlayerColor) + mult == pawnLoc.row) {
-                    Location doublePawnPush = Location.getLoc(pawnLoc.asInt() + 8 * mult * 2);
+                    Location doublePawnPush = Location.getLoc(pawnLoc.asInt + 8 * mult * 2);
                     if (model.isSquareEmpty(doublePawnPush)) {
                         m = new Move(pawnLoc, doublePawnPush) {{
                             setEnPassantLoc(oneStep);
@@ -177,7 +177,7 @@ public class MoveGenerator {
     public void generateKnightMoves() {
         Bitboard bitboard = myPieces.getBB(PieceType.KNIGHT);
         for (Location knightLoc : bitboard.getSetLocs()) {
-            for (Location loc : knightMoves[knightLoc.asInt()]) {
+            for (Location loc : knightMoves[knightLoc.asInt]) {
                 Piece dest = logicBoard.getPiece(loc);
                 if (dest == null) {
                     generatedMoves.add(new Move(knightLoc, loc), PieceType.KNIGHT);
@@ -192,7 +192,7 @@ public class MoveGenerator {
         Location kingLoc = myPieces.getBB(PieceType.KING).getSetLocs().get(0);
         if (kingLoc == null)
             return;
-        for (Location movingTo : kingMoves[kingLoc.asInt()]) {
+        for (Location movingTo : kingMoves[kingLoc.asInt]) {
             Piece dest = logicBoard.getPiece(movingTo);
             Move move = new Move(kingLoc, movingTo);
             if (dest != null) {
@@ -272,7 +272,7 @@ public class MoveGenerator {
 
     public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) {
         for (Direction direction : movingPieceType.getAttackingDirections()) {
-            for (int n = 1; n <= numSquaresToEdge[pieceLocation.asInt()][direction.asInt()]; n++) {
+            for (int n = 1; n <= numSquaresToEdge[pieceLocation.asInt][direction.asInt]; n++) {
                 Location targetSquare = Location.getLoc(pieceLocation, n, direction);
                 if (targetSquare == null)
                     break;

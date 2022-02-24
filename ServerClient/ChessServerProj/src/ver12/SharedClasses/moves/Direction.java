@@ -144,12 +144,14 @@ public enum Direction {
     public final long andWith;//todo check if its postfix/prefix
     public final int offset;
     public final Direction[] combination;
+    public final int asInt;
 
     Direction(Direction... combination) {
         assert combination.length > 0;
         this.andWith = 0;
         this.offset = Arrays.stream(combination).mapToInt(dir -> dir.offset).sum();
         this.combination = combination;
+        this.asInt = ordinal();
     }
 
     Direction(int offset) {
@@ -160,19 +162,16 @@ public enum Direction {
         this.offset = offset;
         this.andWith = andWith;
         this.combination = new Direction[]{this};
+        this.asInt = ordinal();
     }
 
     public static Direction getRelative(Location loc1, Location loc2) {
-        return getDirectionByOffset(loc1.asInt() - loc2.asInt());
+        return getDirectionByOffset(loc1.asInt - loc2.asInt);
     }
 
     public static Direction getDirectionByOffset(int offset) {
         offset /= (double) offset / 8;
         return lookup.get(offset);
-    }
-
-    public int asInt() {
-        return ordinal();
     }
 
     public Direction perspective(PlayerColor playerColor) {

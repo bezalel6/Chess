@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class HashManager {
 
-    public static final ArrayList<MyHashMap> allMaps = new ArrayList<>();
+    public static final ArrayList<MyHashMap<?>> allMaps = new ArrayList<>();
 
     public static void clearAll() {
         allMaps.forEach(ConcurrentHashMap::clear);
@@ -33,12 +33,12 @@ public class HashManager {
         public static final Size[] WORKING_HASHES = {BB_SET_LOCS, EVALUATIONS, GAME_OVER};
         public int size;
 
-        Size(int size) {
-            this.size = size;
-        }
-
         Size(Size S) {
             this(S.size);
+        }
+
+        Size(int size) {
+            this.size = size;
         }
 
         Size(Size S, boolean activate) {

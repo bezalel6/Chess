@@ -1,12 +1,11 @@
 package ver12.Model.hashing.my_hash_maps;
 
 import ver12.Model.hashing.HashManager;
-import ver12.SharedClasses.Hashable;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 
-public class MyHashMap extends ConcurrentHashMap<Long, Hashable> {
+public class MyHashMap<E> extends ConcurrentHashMap<Long, E> {
     private final HashManager.Size maxSize;
     private long size;
 
@@ -30,7 +29,7 @@ public class MyHashMap extends ConcurrentHashMap<Long, Hashable> {
     }
 
     @Override
-    public Hashable put(Long key, Hashable value) {
+    public E put(Long key, E value) {
         if (maxSize.size == 0) {
             return null;
         }

@@ -33,7 +33,7 @@ public class Zobrist {
 
     static {
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
-            zCastling[playerColor.asInt()] = createRandomArr(2);
+            zCastling[playerColor.asInt] = createRandomArr(2);
         }
 
         for (long[][] player : zPieces) {
@@ -90,7 +90,7 @@ public class Zobrist {
     }
 
     public static long hash(Location loc) {
-        return zLocations[loc.asInt()];
+        return zLocations[loc.asInt];
     }
 
     public static long playerHash(Model model) {
@@ -98,7 +98,7 @@ public class Zobrist {
     }
 
     public static long playerHash(PlayerColor playerColor) {
-        return zPlayers[playerColor.asInt()];
+        return zPlayers[playerColor.asInt];
     }
 
     public static long hash(GenerationSettings generationSettings) {
@@ -109,7 +109,7 @@ public class Zobrist {
     }
 
     public static long hashPieceType(PieceType type) {
-        return hashPieceType(type.asInt());
+        return hashPieceType(type.asInt);
     }
 
     public static long hash(boolean bool) {
@@ -126,7 +126,7 @@ public class Zobrist {
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
             for (CastlingRights.Side side : CastlingRights.Side.SIDES) {
                 if (castlingRights.isEnabled(playerColor, side)) {
-                    ret ^= zCastling[playerColor.asInt()][side.asInt()];
+                    ret ^= zCastling[playerColor.asInt][side.asInt];
                 }
             }
         }
@@ -164,11 +164,11 @@ public class Zobrist {
     }
 
     public static long hash(PieceType pieceType) {
-        return zPiecesTypes[pieceType.asInt()];
+        return zPiecesTypes[pieceType.asInt];
     }
 
     public static long hash(PlayerColor playerColor) {
-        return zPlayers[playerColor.asInt()];
+        return zPlayers[playerColor.asInt];
     }
 
     public static long enPassantHash(Model model) {
@@ -179,7 +179,7 @@ public class Zobrist {
             PlayerColor currentPlayerColor = model.getCurrentPlayer();
             Piece piece = model.getLogicBoard().getPiece(actualLoc);
             if (piece != null && !piece.isOnMyTeam(currentPlayerColor))
-                ret ^= zEnPassant[currentPlayerColor.asInt()][enPassant.col];
+                ret ^= zEnPassant[currentPlayerColor.asInt][enPassant.col];
         }
         return ret;
     }
@@ -189,7 +189,7 @@ public class Zobrist {
     }
 
     public static long hash(PlayerColor piecePlayerColor, PieceType pieceType, Location currentLoc) {
-        long ret = zPieces[piecePlayerColor.asInt()][pieceType.asInt()][currentLoc.asInt()];
+        long ret = zPieces[piecePlayerColor.asInt][pieceType.asInt][currentLoc.asInt];
 
         return ret;
     }
@@ -199,6 +199,6 @@ public class Zobrist {
     }
 
     public static long hash(Direction direction) {
-        return zDirections[direction.asInt()];
+        return zDirections[direction.asInt];
     }
 }

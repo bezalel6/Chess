@@ -1,12 +1,12 @@
 package ver12.view.SidePanel;
 
+import ver12.Client;
 import ver12.SharedClasses.FontManager;
 import ver12.SharedClasses.GameTime;
 import ver12.SharedClasses.PlayerColor;
 import ver12.SharedClasses.Utils.StrUtils;
 import ver12.SharedClasses.ui.MyJButton;
 import ver12.SharedClasses.ui.MyLbl;
-import ver12.Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -144,7 +144,7 @@ public class SidePanel extends JPanel {
 
     public void setTimerLabel(PlayerColor player, long millis) {
         String str = StrUtils.createTimeStr(millis);
-        timeLbls[player.asInt()].setText(str);
+        timeLbls[player.asInt].setText(str);
     }
 
     public void syncAndStartTimer(GameTime gameTime) {

@@ -29,9 +29,9 @@ public enum PieceType implements Serializable {
     static {
         Arrays.stream(values())
                 .filter(pieceType -> pieceType != ALL_PIECES)
-                .forEach(pieceType -> PIECE_TYPES[pieceType.asInt()] = pieceType);
+                .forEach(pieceType -> PIECE_TYPES[pieceType.asInt] = pieceType);
         for (PieceType pieceType : PIECE_TYPES) {
-            COLORLESS_PIECES_FENS[pieceType.asInt()] = switch (pieceType) {
+            COLORLESS_PIECES_FENS[pieceType.asInt] = switch (pieceType) {
                 case KNIGHT -> "N";
                 case PAWN -> "P";
                 case ROOK -> "R";
@@ -43,27 +43,27 @@ public enum PieceType implements Serializable {
             };
         }
 
-        ATTACKING_DIRECTIONS[PAWN.asInt()] = new Direction[]
+        ATTACKING_DIRECTIONS[PAWN.asInt] = new Direction[]
                 {
                         Direction.U_R,
                         Direction.U_L
                 };
 
-        ATTACKING_DIRECTIONS[ROOK.asInt()] = new Direction[]
+        ATTACKING_DIRECTIONS[ROOK.asInt] = new Direction[]
                 {
                         Direction.U,
                         Direction.D,
                         Direction.L,
                         Direction.R
                 };
-        ATTACKING_DIRECTIONS[BISHOP.asInt()] = new Direction[]
+        ATTACKING_DIRECTIONS[BISHOP.asInt] = new Direction[]
                 {
                         Direction.U_R,
                         Direction.U_L,
                         Direction.D_R,
                         Direction.D_L
                 };
-        ATTACKING_DIRECTIONS[KNIGHT.asInt()] = new Direction[]
+        ATTACKING_DIRECTIONS[KNIGHT.asInt] = new Direction[]
                 {
                         Direction.U_U_R,
                         Direction.U_U_L,
@@ -79,29 +79,31 @@ public enum PieceType implements Serializable {
 
         Direction[] bishop = getAttackingDirections(BISHOP), rook = getAttackingDirections(ROOK);
 
-        ATTACKING_DIRECTIONS[QUEEN.asInt()] = new Direction[bishop.length + rook.length];
+        ATTACKING_DIRECTIONS[QUEEN.asInt] = new Direction[bishop.length + rook.length];
 
-        for (int i = 0; i < ATTACKING_DIRECTIONS[QUEEN.asInt()].length; i++) {
+        for (int i = 0; i < ATTACKING_DIRECTIONS[QUEEN.asInt].length; i++) {
             Direction setting;
             if (i >= bishop.length) {
                 setting = rook[i - bishop.length];
             } else {
                 setting = bishop[i];
             }
-            ATTACKING_DIRECTIONS[QUEEN.asInt()][i] = setting;
+            ATTACKING_DIRECTIONS[QUEEN.asInt][i] = setting;
         }
 
-        ATTACKING_DIRECTIONS[KING.asInt()] = ATTACKING_DIRECTIONS[QUEEN.asInt()];
+        ATTACKING_DIRECTIONS[KING.asInt] = ATTACKING_DIRECTIONS[QUEEN.asInt];
     }
 
     public final String whiteIcon;
     public final String blackIcon;
     public final double value;
+    public final int asInt;
 
     PieceType(String whiteIcon, String blackIcon, double value) {
         this.whiteIcon = whiteIcon;
         this.blackIcon = blackIcon;
         this.value = value;
+        this.asInt = ordinal();
     }
 
     public static PieceType getPieceType(int pieceType) {
@@ -116,11 +118,7 @@ public enum PieceType implements Serializable {
     }
 
     public String getWhitePieceFen() {
-        return COLORLESS_PIECES_FENS[this.asInt()];
-    }
-
-    public int asInt() {
-        return ordinal();
+        return COLORLESS_PIECES_FENS[this.asInt];
     }
 
     public String getPieceIcon(PlayerColor playerColor) {
@@ -158,6 +156,6 @@ public enum PieceType implements Serializable {
     }
 
     public static Direction[] getAttackingDirections(PieceType pieceType) {
-        return ATTACKING_DIRECTIONS[pieceType.asInt()];
+        return ATTACKING_DIRECTIONS[pieceType.asInt];
     }
 }

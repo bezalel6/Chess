@@ -16,9 +16,10 @@ import java.net.URL;
 
 public class IconManager {
 
-    public static final ImageIcon promotionIcon;
     public static final DynamicIcon dynamicSettingsIcon;
     public static final DynamicIcon dynamicStatisticsIcon;
+    public static final DynamicIcon dynamicServerIcon;
+    public static final ImageIcon promotionIcon;
     public static final ImageIcon capturingIcon;
     public static final ImageIcon loadingIcon;
     public static final ImageIcon loginIcon;
@@ -27,7 +28,6 @@ public class IconManager {
     public static final ImageIcon randomColorIcon;
     public static final ImageIcon greenCheck;
     public static final ImageIcon redX;
-    //    public static final ImageIcon statisticsIcon;
     public static final ImageIcon[] graphIcons;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
@@ -48,12 +48,12 @@ public class IconManager {
         for (PlayerColor player : PlayerColor.PLAYER_COLORS) {
 
             for (PieceType pieceType : PieceType.PIECE_TYPES) {
-                piecesIcons[player.asInt()][pieceType.asInt()] = loadImage(player.getName() + "/" + pieceType.getPieceName());
+                piecesIcons[player.asInt][pieceType.asInt] = loadImage(player.getName() + "/" + pieceType.getPieceName());
             }
 
-            gameOverIcons[player.asInt()][WON] = loadImage("GameOverIcons/Won/" + player.getName());
-            gameOverIcons[player.asInt()][LOST] = loadImage("GameOverIcons/Lost/" + player.getName());
-            gameOverIcons[player.asInt()][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
+            gameOverIcons[player.asInt][WON] = loadImage("GameOverIcons/Won/" + player.getName());
+            gameOverIcons[player.asInt][LOST] = loadImage("GameOverIcons/Lost/" + player.getName());
+            gameOverIcons[player.asInt][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
         hidePassword = loadImage("hidePassword");
         showPassword = loadImage("showPassword");
@@ -76,6 +76,7 @@ public class IconManager {
 
         dynamicStatisticsIcon = new DynamicIcon("Statistics/StatisticsIcon/", SECONDARY_COMP_SIZE);
 
+        dynamicServerIcon = new DynamicIcon("/ServerIcon/", SECONDARY_COMP_SIZE);
 //        statisticsIcon = loadImage("statistics", SECONDARY_COMP_SIZE);
         graphIcons = new ImageIcon[GraphElementType.values().length];
         for (GraphElementType graphElementType : GraphElementType.values()) {
@@ -102,7 +103,7 @@ public class IconManager {
         } else if (player.getOpponent() == gameStatus.getWinningColor()) {
             index = LOST;
         }
-        return gameOverIcons[player.asInt()][index];
+        return gameOverIcons[player.asInt][index];
     }
 
     public static void main(String[] args) {
@@ -120,7 +121,7 @@ public class IconManager {
     }
 
     public static ImageIcon getPieceIcon(PlayerColor player, PieceType type) {
-        return piecesIcons[player.asInt()][type.asInt()];
+        return piecesIcons[player.asInt][type.asInt];
     }
 
     public static ImageIcon getPlayerIcon(PlayerColor playerColor) {

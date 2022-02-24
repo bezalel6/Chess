@@ -1,6 +1,7 @@
 package ver12.SharedClasses.moves;
 
 
+import ver12.SharedClasses.Location;
 import ver12.SharedClasses.PlayerColor;
 
 import java.io.Serializable;
@@ -59,7 +60,7 @@ public class CastlingRights implements Serializable {
     }
 
     private static int getPlayerAndSideIndex(PlayerColor playerColor, Side side) {
-        return playerColor.indexOf2() + side.asInt();
+        return playerColor.indexOf2() + side.asInt;
     }
 
     @Override
@@ -104,22 +105,20 @@ public class CastlingRights implements Serializable {
     }
 
     public enum Side {
-        KING(7, 5, "O-O"),
-        QUEEN(0, 3, "O-O-O");
+        KING(Location.H1.col, Location.F1.col, "O-O"),
+        QUEEN(Location.A1.col, Location.D1.col, "O-O-O");
 
         public static final Side[] SIDES = {KING, QUEEN};
         public final int rookStartingCol;
         public final int castledRookCol;
         public final String castlingNotation;
+        public final int asInt;
 
         Side(int rookStartingCol, int castledRookCol, String castlingNotation) {
             this.rookStartingCol = rookStartingCol;
             this.castledRookCol = castledRookCol;
             this.castlingNotation = castlingNotation;
-        }
-
-        public int asInt() {
-            return ordinal();
+            this.asInt = ordinal();
         }
     }
 }

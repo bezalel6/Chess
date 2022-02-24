@@ -19,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ver9" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver10" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver11" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver12" />
     </content>
     <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver10/SharedClasses">
       <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver10/SharedClasses" />
@@ -27,7 +28,10 @@
       <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver11/SharedClasses" />
     </content>
     <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver12/SharedClasses">
-      <sourceFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver12/SharedClasses" isTestSource="false" packagePrefix="ver12.SharedClasses" />
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver12/SharedClasses" />
+    </content>
+    <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver13/SharedClasses">
+      <sourceFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver13/SharedClasses" isTestSource="false" packagePrefix="ver13.SharedClasses" />
     </content>
     <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses">
       <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses" />

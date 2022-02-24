@@ -138,7 +138,7 @@ public class Eval implements Serializable {
         int[] pieces = ArrayUtils.addAll(model.getPiecesCount(evaluationFor), model.getPiecesCount(opponentColor));
         for (PieceType type : PieceType.PIECE_TYPES) {
             if (type != PieceType.PAWN && type != PieceType.KING)
-                ret += pieces[type.asInt()] * type.value;
+                ret += pieces[type.asInt] * type.value;
         }
         return ret;
     }

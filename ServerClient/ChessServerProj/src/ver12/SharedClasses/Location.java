@@ -29,14 +29,14 @@ public enum Location {
 
     static {
         for (Location p : values()) {
-            map.put(p.asInt(), p);
+            map.put(p.asInt, p);
         }
         ALL_LOCS = Arrays.stream(values())
-                .filter(location -> location.asInt() < NUM_OF_SQUARES)
+                .filter(location -> location.asInt < NUM_OF_SQUARES)
                 .collect(Collectors.toCollection(ArrayList::new));
         STARTING_ROW = new int[PlayerColor.NUM_OF_PLAYERS];
-        STARTING_ROW[PlayerColor.WHITE.asInt()] = 7;
-        STARTING_ROW[PlayerColor.BLACK.asInt()] = 0;
+        STARTING_ROW[PlayerColor.WHITE.asInt] = 7;
+        STARTING_ROW[PlayerColor.BLACK.asInt] = 0;
     }
 
     public final long asLong;
@@ -59,6 +59,10 @@ public enum Location {
         return loc.ordinal() & 7;
     }
 
+    public static int getStartingRow(PlayerColor clr) {
+        return STARTING_ROW[clr.asInt];
+    }
+
     public static Location getLoc(Location loc, Direction direction) {
         return getLoc(loc, 1, direction);
     }
@@ -70,15 +74,11 @@ public enum Location {
     }
 
     public static Location getLoc(Location loc, int add) {
-        return getLoc(loc.asInt() + add);
+        return getLoc(loc.asInt + add);
     }
 
     public static Location getLoc(int loc) {
         return isInBounds(loc) ? valueOf(loc) : null;
-    }
-
-    public int asInt() {
-        return this.asInt;
     }
 
     public static boolean isInBounds(int loc) {
@@ -110,7 +110,7 @@ public enum Location {
     }
 
     public static boolean isInBounds(Location loc) {
-        return loc != null && isInBounds(loc.asInt());
+        return loc != null && isInBounds(loc.asInt);
     }
 
     public static Location getLoc(int row, int col, boolean flip) {
@@ -124,7 +124,7 @@ public enum Location {
     }
 
     public boolean isWhiteSquare() {
-        return (whiteSquares >> asInt() & 1) == 0;
+        return (whiteSquares >> asInt & 1) == 0;
     }
 
     @Override

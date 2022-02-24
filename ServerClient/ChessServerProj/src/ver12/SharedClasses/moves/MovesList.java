@@ -1,10 +1,8 @@
 package ver12.SharedClasses.moves;
 
-import ver12.SharedClasses.Hashable;
-
 import java.util.ArrayList;
 
-public class MovesList extends ArrayList<Move> implements Hashable {
+public class MovesList extends ArrayList<Move> {
 
     protected boolean doneAdding = false;
 

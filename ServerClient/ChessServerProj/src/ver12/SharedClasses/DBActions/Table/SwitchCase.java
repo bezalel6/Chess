@@ -2,7 +2,7 @@ package ver12.SharedClasses.DBActions.Table;
 
 import ver12.SharedClasses.DBActions.Condition;
 
-public final class SwitchCase {
+public class SwitchCase {
     private final Condition condition;
     private final Col ifTrue;
 

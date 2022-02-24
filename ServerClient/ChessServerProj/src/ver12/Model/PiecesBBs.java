@@ -22,12 +22,12 @@ public class PiecesBBs {
         return ret;
     }
 
-    public Bitboard[] getBitboards() {
-        return bitboards;
+    public Bitboard getBB(PieceType pieceType) {
+        return bitboards[pieceType.asInt];
     }
 
-    public Bitboard getBB(PieceType pieceType) {
-        return bitboards[pieceType.asInt()];
+    public Bitboard[] getBitboards() {
+        return bitboards;
     }
 
     public PieceType getPieceType(Bitboard bb) {

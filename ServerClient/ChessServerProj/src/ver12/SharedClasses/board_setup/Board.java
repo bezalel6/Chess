@@ -36,7 +36,7 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     public Square getSquare(Location loc) {
-        return board[loc.asInt()];
+        return board[loc.asInt];
     }
 
     public Board(String fen) {

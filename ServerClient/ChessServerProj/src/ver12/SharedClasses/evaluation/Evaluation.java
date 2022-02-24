@@ -1,12 +1,11 @@
 package ver12.SharedClasses.evaluation;
 
-import ver12.SharedClasses.Hashable;
 import ver12.SharedClasses.PlayerColor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Evaluation implements Serializable, Hashable {
+public class Evaluation implements Serializable {
     public static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
     public static final int WINNING_SIDE = 0, LOSING_SIDE = 1;
     private double[] detailedEval;

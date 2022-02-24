@@ -143,17 +143,17 @@ public class Tables {
     //endregion
     private static PieceTable[] initPieceTablesArr() {
         PieceTable[] ret = new PieceTable[PieceType.NUM_OF_PIECE_TYPES];
-        ret[PieceType.PAWN.asInt()] = pawn;
-        ret[PieceType.KNIGHT.asInt()] = knight;
-        ret[PieceType.BISHOP.asInt()] = bishop;
-        ret[PieceType.ROOK.asInt()] = rook;
-        ret[PieceType.QUEEN.asInt()] = queen;
-        ret[PieceType.KING.asInt()] = king;
+        ret[PieceType.PAWN.asInt] = pawn;
+        ret[PieceType.KNIGHT.asInt] = knight;
+        ret[PieceType.BISHOP.asInt] = bishop;
+        ret[PieceType.ROOK.asInt] = rook;
+        ret[PieceType.QUEEN.asInt] = queen;
+        ret[PieceType.KING.asInt] = king;
         return ret;
     }
 
     public static PieceTable getPieceTable(PieceType pieceType) {
-        return pieceTables[pieceType.asInt()];
+        return pieceTables[pieceType.asInt];
     }
 
     public static class PieceTable {
@@ -167,8 +167,8 @@ public class Tables {
 
         private int[][][] init(int[][] table) {
             int[][][] ret = new int[PlayerColor.NUM_OF_PLAYERS][][];
-            ret[PlayerColor.WHITE.asInt()] = table;
-            ret[PlayerColor.BLACK.asInt()] = reverse(table);
+            ret[PlayerColor.WHITE.asInt] = table;
+            ret[PlayerColor.BLACK.asInt] = reverse(table);
             return ret;
         }
 
@@ -196,7 +196,7 @@ public class Tables {
         }
 
         public double convertFromCentiPawns(int phase, PlayerColor player, Location loc) {
-            double ret = tables[phase][player.asInt()][loc.row][loc.col];
+            double ret = tables[phase][player.asInt][loc.row][loc.col];
             ret /= 100;
             return ret;
         }

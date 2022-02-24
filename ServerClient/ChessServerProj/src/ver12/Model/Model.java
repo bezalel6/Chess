@@ -58,9 +58,9 @@ public class Model implements Serializable {
 
         piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
-            Arrays.fill(piecesCount[playerColor.asInt()], 0);
-            pieces[playerColor.asInt()] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
-            attackedSquares[playerColor.asInt()] = new Bitboard();
+            Arrays.fill(piecesCount[playerColor.asInt], 0);
+            pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
+            attackedSquares[playerColor.asInt] = new Bitboard();
         }
     }
 
@@ -75,7 +75,7 @@ public class Model implements Serializable {
 
     private void addPiece(Piece piece, Location currentLoc) {
         if (piece == null) return;
-        piecesCount[piece.getPlayer().asInt()][piece.getPieceType().asInt()]++;
+        piecesCount[piece.getPlayer().asInt][piece.getPieceType().asInt]++;
         getPieceBitBoard(piece).set(currentLoc, true);
         board.setPiece(currentLoc, piece);
     }
@@ -85,7 +85,7 @@ public class Model implements Serializable {
     }
 
     public PiecesBBs getPlayersPieces(PlayerColor playerColor) {
-        return pieces[playerColor.asInt()];
+        return pieces[playerColor.asInt];
     }
 
     public Model() {
@@ -122,13 +122,13 @@ public class Model implements Serializable {
 
     private void setAttackedSquares() {
 //        for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
-//            attackedSquares[playerColor.asInt()] = AttackedSquares.getAttackedSquares(this, playerColor);
+//            attackedSquares[playerColor.asInt] = AttackedSquares.getAttackedSquares(this, playerColor);
 //        }
     }
 
     public Bitboard getAttackedSquares(PlayerColor attackingPlayerColor) {
         Bitboard genNew = AttackedSquares.getAttackedSquares(this, attackingPlayerColor);
-//        Bitboard old = attackedSquares[attackingPlayerColor.asInt()];
+//        Bitboard old = attackedSquares[attackingPlayerColor.asInt];
 //        assert old.equals(genNew);
         return genNew;
     }
@@ -215,7 +215,7 @@ public class Model implements Serializable {
     }
 
     public int getNumOfPieces(PlayerColor playerColor, PieceType pieceType) {
-        return piecesCount[playerColor.asInt()][pieceType.asInt()];
+        return piecesCount[playerColor.asInt][pieceType.asInt];
     }
 
     public int bothPlayersNumOfPieces(PieceType pieceType) {
@@ -494,7 +494,7 @@ public class Model implements Serializable {
     }
 
     private void delPiece(Piece piece, Location currentLoc) {
-        piecesCount[piece.getPlayer().asInt()][piece.getPieceType().asInt()]--;
+        piecesCount[piece.getPlayer().asInt][piece.getPieceType().asInt]--;
         getPieceBitBoard(piece).set(currentLoc, false);
         board.setSquareEmpty(currentLoc);
     }
@@ -522,7 +522,7 @@ public class Model implements Serializable {
     }
 
     public int[] getPiecesCount(PlayerColor playerColor) {
-        return piecesCount[playerColor.asInt()];
+        return piecesCount[playerColor.asInt];
     }
 
 

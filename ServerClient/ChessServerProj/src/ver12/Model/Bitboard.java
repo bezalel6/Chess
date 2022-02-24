@@ -2,7 +2,6 @@ package ver12.Model;
 
 import ver12.Model.hashing.HashManager;
 import ver12.Model.hashing.my_hash_maps.MyHashMap;
-import ver12.SharedClasses.Hashable;
 import ver12.SharedClasses.Location;
 import ver12.SharedClasses.PlayerColor;
 import ver12.SharedClasses.moves.Direction;
@@ -10,7 +9,7 @@ import ver12.SharedClasses.moves.Direction;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Bitboard implements Serializable, Hashable {
+public class Bitboard implements Serializable {
 
     private static final long[] preCalc = new long[Location.NUM_OF_SQUARES];
     private static final MyHashMap setLocsHashMap = new MyHashMap(HashManager.Size.BB_SET_LOCS);
@@ -146,7 +145,7 @@ public class Bitboard implements Serializable, Hashable {
     }
 
     public LocsList getSetLocs() {
-        if (lastSet != bitBoard)
+        if (lastSet != bitBoard || setLocs == null)
             setSetLocs();
         return setLocs;
     }

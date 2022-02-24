@@ -2,11 +2,10 @@ package ver12.Model.hashing;
 
 
 import ver12.Model.minimax.Minimax;
-import ver12.SharedClasses.Hashable;
 import ver12.SharedClasses.PlayerColor;
 import ver12.SharedClasses.evaluation.Evaluation;
 
-public class Transposition implements Hashable {
+public class Transposition {
     private final int maxDepth;
     private final PlayerColor playerColor;
     private Evaluation evaluation;

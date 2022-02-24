@@ -27,11 +27,11 @@ public enum Piece {
     static {
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
             for (PieceType pieceType : PieceType.PIECE_TYPES) {
-                PIECES_ICONS[playerColor.asInt()][pieceType.asInt()] = pieceType.getPieceIcon(playerColor);
+                PIECES_ICONS[playerColor.asInt][pieceType.asInt] = pieceType.getPieceIcon(playerColor);
             }
         }
         for (Piece piece : ALL_PIECES) {
-            piecesMap[piece.playerColor.asInt()][piece.pieceType.asInt()] = piece;
+            piecesMap[piece.playerColor.asInt][piece.pieceType.asInt] = piece;
         }
 
     }
@@ -59,7 +59,7 @@ public enum Piece {
     }
 
     public static Piece getPiece(PieceType pieceType, PlayerColor playerColor) {
-        return piecesMap[playerColor.asInt()][pieceType.asInt()];
+        return piecesMap[playerColor.asInt][pieceType.asInt];
     }
 
     public int getStartingRow() {
@@ -67,7 +67,7 @@ public enum Piece {
     }
 
     public static int getStartingRow(PlayerColor playerColor) {
-        return STARTING_ROW[playerColor.asInt()];
+        return STARTING_ROW[playerColor.asInt];
     }
 
     public String getPieceIcon() {
@@ -75,7 +75,7 @@ public enum Piece {
     }
 
     public static String getPieceIcon(Piece piece) {
-        return PIECES_ICONS[piece.playerColor.asInt()][piece.pieceType.asInt()];
+        return PIECES_ICONS[piece.playerColor.asInt][piece.pieceType.asInt];
     }
 
     public int getDifference() {

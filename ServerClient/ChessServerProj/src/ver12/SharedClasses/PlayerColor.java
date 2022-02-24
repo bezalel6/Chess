@@ -13,14 +13,16 @@ public enum PlayerColor {
 
     static {
         for (PlayerColor p : values()) {
-            map.put(p.asInt(), p);
+            map.put(p.asInt, p);
         }
     }
 
+    public final int asInt;
     public final int startingRow;
 
     PlayerColor() {
         startingRow = 0;
+        this.asInt = ordinal();
     }
 
     public static PlayerColor getColor(int clr) {
@@ -36,11 +38,7 @@ public enum PlayerColor {
     }
 
     public int indexOf2() {
-        return asInt() * 2;
-    }
-
-    public int asInt() {
-        return ordinal();
+        return asInt * 2;
     }
 
     public PlayerColor getOpponent() {
