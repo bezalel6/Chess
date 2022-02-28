@@ -20,8 +20,8 @@ public class Move extends BasicMove implements Comparable<Move> {
     private Evaluation moveEvaluation;
     private MoveFlag moveFlag;
     private PlayerColor movingPlayerColor = null;
-    private int prevFullMoveClock;
     private CastlingRights prevCastlingAbilities;
+    private int prevFullMoveClock;
     private int prevHalfMoveClock;
 
     public Move(Location movingFrom, Location movingTo, PieceType capturingPieceType) {
@@ -208,21 +208,19 @@ public class Move extends BasicMove implements Comparable<Move> {
         if (o.moveEvaluation != null) {
             return -1;
         }
-        return Double.compare(guessEval(this), guessEval(o));
+        return Double.compare(guessEval(), o.guessEval());
     }
 
-    private static double guessEval(Move move) {
+    private double guessEval() {
         double ret = 0;
-//        int capturingPieceType = move.getCapturingPieceType();
-//        int movingPieceType = move.getMovingPieceType();
-//        if (Piece.isValidPieceType(capturingPieceType)) {
-//            ret += 10 * Piece.getPieceWorth(movingPieceType) - Piece.getPieceWorth(capturingPieceType);
-//        }
-        if (move.moveFlag == MoveFlag.Promotion) {
-            ret += 5 * move.promotingTo.value;
-        } else if (move.moveFlag == MoveFlag.EnPassant) {
+        if (capturingPieceType != NOT_CAPTURING) {
+            ret += 10 - capturingPieceType.value;
+        }
+        if (moveFlag == MoveFlag.Promotion) {
+            ret += 5 * promotingTo.value;
+        } else if (moveFlag == MoveFlag.EnPassant) {
             ret += 0.00001;
-        } else if (move instanceof Castling) {
+        } else if (this instanceof Castling) {
             ret += 10;
         }
         ret -= 100000;

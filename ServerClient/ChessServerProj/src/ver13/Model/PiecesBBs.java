@@ -5,20 +5,32 @@ import ver13.SharedClasses.pieces.PieceType;
 public class PiecesBBs {
     private final int size;
     private final Bitboard[] bitboards;
+    private Bitboard prevAll = null;
 
     public PiecesBBs(int size) {
         this.size = size;
+
         bitboards = new Bitboard[size];
         for (int i = 0; i < size; i++) {
-            bitboards[i] = new Bitboard();
+            bitboards[i] = new Bitboard() {{
+                setOnSet(() -> prevAll = null);
+            }};
         }
+
     }
 
     public Bitboard getAll() {
+        if (prevAll != null)
+            return prevAll;
         Bitboard ret = new Bitboard();
-        for (PieceType pieceType : PieceType.PIECE_TYPES) {
+        PieceType[] piece_types = PieceType.PIECE_TYPES;
+        for (int i = 0, piece_typesLength = piece_types.length; i < piece_typesLength; i++) {
+            PieceType pieceType = piece_types[i];
             ret.orEqual(getBB(pieceType));
         }
+
+        prevAll = ret;
+
         return ret;
     }
 
@@ -39,4 +51,5 @@ public class PiecesBBs {
         }
         return null;
     }
+
 }

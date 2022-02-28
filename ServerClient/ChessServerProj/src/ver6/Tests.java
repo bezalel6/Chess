@@ -20,12 +20,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 6;
+    private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
 
     public static void main(String[] args) {
-
+        printNumOfPositions();
     }
 
     //todo check if Math.abs(-1).... is faster then if/switch/just declaring opp on init(WHITE(BLACK))

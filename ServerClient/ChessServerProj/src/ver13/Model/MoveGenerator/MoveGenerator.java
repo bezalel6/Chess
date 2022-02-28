@@ -1,12 +1,7 @@
 package ver13.Model.MoveGenerator;
 
-import ver13.Model.Bitboard;
-import ver13.Model.Model;
-import ver13.Model.ModelMovesList;
-import ver13.Model.PiecesBBs;
-import ver13.Model.hashing.HashManager;
+import ver13.Model.*;
 import ver13.Model.hashing.Zobrist;
-import ver13.Model.hashing.my_hash_maps.MyHashMap;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.board_setup.Board;
@@ -18,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MoveGenerator {
-    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);
+    //    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);
     public static final int[][] numSquaresToEdge;
     private static final ArrayList<Location>[] knightMoves;
     private static final ArrayList<Location>[] kingMoves;
@@ -72,6 +67,7 @@ public class MoveGenerator {
             }
             kingMoves[loc.asInt] = locs;
         }
+
     }
 
     private GenerationSettings generationSettings;
@@ -83,17 +79,17 @@ public class MoveGenerator {
 
     private MoveGenerator(Model model, GenerationSettings generationSettings) {
         long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
-        if (moveGenerationHashMap.containsKey(hash)) {
-            generatedMoves = moveGenerationHashMap.get(hash);
-            return;
-        }
+//        if (moveGenerationHashMap.containsKey(hash)) {
+//            generatedMoves = moveGenerationHashMap.get(hash);
+//            return;
+//        }
         this.model = model;
         this.movingPlayerColor = model.getCurrentPlayer();
         this.logicBoard = model.getLogicBoard();
         this.myPieces = model.getPlayersPieces(movingPlayerColor);
 
         this.generationSettings = generationSettings;
-        this.generatedMoves = new ModelMovesList();
+        this.generatedMoves = new ModelMovesList(this, generationSettings);
 
         generatePawnMoves();
         generateSlidingMoves();
@@ -102,24 +98,25 @@ public class MoveGenerator {
 
         generatedMoves.doneAdding();
 
-        if (generationSettings.legalize())
+        if (generationSettings.legalize)
             legalize();
 
-        moveGenerationHashMap.put(hash, generatedMoves);
+//        moveGenerationHashMap.put(hash, generatedMoves);
     }
 
     public void generatePawnMoves() {
         Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
         int mult = movingPlayerColor == PlayerColor.WHITE ? -1 : 1;
-        for (Location pawnLoc : bitboard.getSetLocs()) {
+        LocsList setLocs = bitboard.getSetLocs();
+        for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
+            Location pawnLoc = setLocs.get(i);
             int promotionRow = Piece.getStartingRow(movingPlayerColor.getOpponent());
-            ModelMovesList currentPawnMoves = new ModelMovesList();
+            ModelMovesList currentPawnMoves = new ModelMovesList(this, generationSettings);
             boolean promoting = pawnLoc.row + mult == promotionRow;
             Location oneStep = Location.getLoc(pawnLoc, 8 * mult);
 
             if (model.isSquareEmpty(oneStep)) {
                 Move m = new Move(pawnLoc, oneStep);
-                //fixme if doublepawnpush is getting out of check
                 boolean ad = currentPawnMoves.add(m, PieceType.PAWN);
 
                 if (ad && !promoting && Piece.getStartingRow(movingPlayerColor) + mult == pawnLoc.row) {
@@ -140,7 +137,7 @@ public class MoveGenerator {
             currentPawnMoves.doneAdding();
 
             if (promoting) {
-                ModelMovesList replacement = new ModelMovesList();
+                ModelMovesList replacement = new ModelMovesList(this, generationSettings);
                 for (Move move : currentPawnMoves) {
                     boolean set = false;
                     for (PieceType pieceType : PieceType.CAN_PROMOTE_TO) {
@@ -230,7 +227,6 @@ public class MoveGenerator {
     }
 
     public void legalize() {
-
         for (Iterator<Move> iterator = generatedMoves.iterator(); iterator.hasNext(); ) {
             Move move = iterator.next();
             if (move instanceof Castling) {
@@ -239,11 +235,7 @@ public class MoveGenerator {
                     continue;
                 }
             }
-//            Square target = model.getSquare(move.getMovingTo());
-//            if (!target.isEmpty() && target.getPiece().getPieceType() == PieceType.KING) {
-//                iterator.remove();
-//                continue;
-//            }
+
             model.applyMove(move);
             if (model.isInCheck(movingPlayerColor))
                 iterator.remove();
@@ -320,6 +312,21 @@ public class MoveGenerator {
 
     public ModelMovesList getGeneratedMoves() {
         return generatedMoves;
+    }
+
+    public boolean legalizeMove(Move move) {
+        if (move instanceof Castling) {
+            if (!canCastle((Castling) move)) {
+                return false;
+            }
+        }
+
+        boolean ret = true;
+        model.applyMove(move);
+        if (model.isInCheck(movingPlayerColor))
+            ret = false;
+        model.undoMove();
+        return ret;
     }
 
     public void generateRookMoves() {

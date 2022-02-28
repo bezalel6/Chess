@@ -2,27 +2,33 @@ package ver13.SharedClasses;
 
 import ver13.SharedClasses.Utils.StrUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public enum PlayerColor {
-    WHITE, BLACK, NO_PLAYER;
+    WHITE {
+        @Override
+        public PlayerColor getOpponent() {
+            return BLACK;
+        }
+    }, BLACK {
+        @Override
+        public PlayerColor getOpponent() {
+            return WHITE;
+        }
+    }, NO_PLAYER {
+        @Override
+        public PlayerColor getOpponent() {
+            return NO_PLAYER;
+        }
+    };
     public static final PlayerColor[] PLAYER_COLORS = {WHITE, BLACK};
     public static final int NUM_OF_PLAYERS = 2;
-    private static final Map<Integer, PlayerColor> map = new HashMap<>();
-
-    static {
-        for (PlayerColor p : values()) {
-            map.put(p.asInt, p);
-        }
-    }
 
     public final int asInt;
-    public final int startingRow;
+    public final int indexOf2;
+//    public final int startingRow;
 
     PlayerColor() {
-        startingRow = 0;
         this.asInt = ordinal();
+        this.indexOf2 = asInt * 2;
     }
 
     public static PlayerColor getColor(int clr) {
@@ -37,23 +43,7 @@ public enum PlayerColor {
         };
     }
 
-    public int indexOf2() {
-        return asInt * 2;
-    }
-
-    public PlayerColor getOpponent() {
-        return getOpponent(this);
-    }
-
-    public static PlayerColor getOpponent(PlayerColor currentPlayerColor) {
-        if (currentPlayerColor == NO_PLAYER)
-            return NO_PLAYER;
-        return valueOf(Math.abs((currentPlayerColor.ordinal() - 1) * -1));
-    }
-
-    public static PlayerColor valueOf(int p) {
-        return map.get(p);
-    }
+    public abstract PlayerColor getOpponent();
 
     @Override
     public String toString() {

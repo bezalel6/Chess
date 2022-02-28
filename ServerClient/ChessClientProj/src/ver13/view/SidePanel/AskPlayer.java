@@ -6,24 +6,77 @@ import ver13.SharedClasses.ui.MyJButton;
 import ver13.SharedClasses.ui.MyLbl;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class AskPlayer extends JPanel {
+    //including empty flahses between
+    private final static int numOfFlashes = 10;
+    private final static int flashesDelay = 200;
+    private final static int borderThickness = 3;
     private final MyLbl header;
+    //null is the empty flash
+    private final Color[] flashes = {Color.WHITE, null};
+
+    private final AtomicInteger currentClrIndex = new AtomicInteger();
+    private final AtomicInteger numOfFlashesDone = new AtomicInteger();
+    private final Timer flashingTimer;
 
     public AskPlayer() {
         header = new MyLbl() {{
             setFont(SidePanel.font);
         }};
-//        addLayout();
-
+        assert flashes.length > 0;
+        this.flashingTimer = new Timer(flashesDelay, l -> {
+            Color clr = flashes[currentClrIndex.getAndIncrement()];
+            flash(clr);
+            currentClrIndex.set(currentClrIndex.intValue() % flashes.length);
+            numOfFlashesDone.getAndIncrement();
+            if (numOfFlashesDone.get() == numOfFlashes) {
+                stopFlashing();
+            }
+        });
         showPnl(false);
     }
 
+    private void flash(Color clr) {
+        setBackground(clr);
+        Border border = clr == null ? BorderFactory.createLineBorder(null, borderThickness) : BorderFactory.createLineBorder(clr.darker(), borderThickness);
+        setBorder(border);
+    }
+
+
+    private void stopFlashing() {
+        flash(null);
+        setBorder(null);
+        this.flashingTimer.stop();
+    }
+
     public void showPnl(boolean show) {
+
         for (Component component : getComponents()) {
             component.setVisible(show);
         }
+        revalidate();
+        repaint();
+        if (show) {
+            flashingTimer.start();
+        } else {
+            stopFlashing();
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        AskPlayer ask = new AskPlayer();
+        new JFrame() {{
+            setSize(500, 500);
+            add(ask);
+            setVisible(true);
+        }};
+        Thread.sleep(1000);
+        ask.ask(Question.Rematch, a -> {
+        });
     }
 
     public void ask(Question question, QuestionCallback callback) {

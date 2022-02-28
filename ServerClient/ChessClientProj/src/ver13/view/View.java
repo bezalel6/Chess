@@ -1,6 +1,7 @@
 package ver13.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import ver13.Client;
 import ver13.SharedClasses.*;
 import ver13.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver13.SharedClasses.DBActions.DBResponse;
@@ -13,7 +14,6 @@ import ver13.SharedClasses.pieces.Piece;
 import ver13.SharedClasses.ui.MyLbl;
 import ver13.SharedClasses.ui.dialogs.MyDialogs;
 import ver13.SharedClasses.ui.windows.CloseConfirmationJFrame;
-import ver13.Client;
 import ver13.view.AuthorizedComponents.AuthorizedComponent;
 import ver13.view.AuthorizedComponents.Menu;
 import ver13.view.AuthorizedComponents.MenuItem;
@@ -38,8 +38,6 @@ import java.util.Iterator;
 
 
 public class View implements Iterable<BoardButton[]> {
-
-
     public static final String CLIENT_WIN_TITLE = "Chess Client";
     private final static boolean WIREFRAME = false;
     private final static Dimension winSize;
@@ -70,7 +68,6 @@ public class View implements Iterable<BoardButton[]> {
     private String currentGameStr = "";
 
     public View(Client client) {
-
         ROWS = COLS = 8;
         this.client = client;
         this.boardOrientation = PlayerColor.WHITE;

@@ -102,7 +102,7 @@ public class Zobrist {
     }
 
     public static long hash(GenerationSettings generationSettings) {
-        return Zobrist.hash(generationSettings.legalize());
+        return Zobrist.hash(generationSettings.legalize);
     }
 
     public static long hash(boolean bool) {

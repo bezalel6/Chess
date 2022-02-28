@@ -6,7 +6,6 @@ import org.apache.commons.lang3.SerializationUtils;
 import org.intellij.lang.annotations.Language;
 import ver13.SharedClasses.DBActions.Condition;
 import ver13.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver13.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver13.SharedClasses.DBActions.DBResponse;
 import ver13.SharedClasses.DBActions.RequestBuilder;
 import ver13.SharedClasses.DBActions.Table.Col;
@@ -155,7 +154,7 @@ public class DB {
         try {
 //            addGames("bezalel6");
 //            clearGames();
-            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
+//            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
         } catch (Exception e) {
             e.printStackTrace();
         }

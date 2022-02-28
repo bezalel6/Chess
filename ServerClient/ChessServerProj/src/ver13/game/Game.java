@@ -26,7 +26,7 @@ import java.util.Stack;
 public class Game {
     public static final int ROWS = 8;
     public static final int COLS = 8;
-    private final static boolean showGameView = false;
+    private final static boolean showGameView = true;
     private final GameSession session;
     private final GameView gameView;
     private final Player gameCreator, p2;
@@ -36,9 +36,9 @@ public class Game {
     private GameSettings gameSettings;
     private GameTime gameTime;
     private Player currentPlayer;
-    private volatile Player resignedPlayer;
-    private volatile Player disconnectedPlayer;
-    private volatile boolean isReadingMove = false;
+    private Player resignedPlayer;
+    private Player disconnectedPlayer;
+    private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
     private boolean clearMoveStack = true;
 
@@ -184,7 +184,7 @@ public class Game {
                 disconnectedPlayer = currentPlayer;
             return null;
         }
-        session.log("got move from " + currentPlayer + ": " + move);
+        session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
 //        move.getMoveAnnotation().resetPromotion(move);
         move.setMovingColor(currentPlayer.getPlayerColor());

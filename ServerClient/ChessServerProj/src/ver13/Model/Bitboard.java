@@ -1,7 +1,6 @@
 package ver13.Model;
 
-import ver13.Model.hashing.HashManager;
-import ver13.Model.hashing.my_hash_maps.MyHashMap;
+import ver13.SharedClasses.Callbacks.VoidCallback;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.moves.Direction;
@@ -11,9 +10,7 @@ import java.util.Objects;
 
 public class Bitboard implements Serializable {
     private static final long[] preCalc = new long[Location.NUM_OF_SQUARES];
-    private static final MyHashMap<LocsList> setLocsHashMap = new MyHashMap<>(HashManager.Size.BB_SET_LOCS);
-    public static long createdBitBoards = 0;
-    public static long hashedBitBoards = 0;
+//    private static final MyHashMap<LocsList> setLocsHashMap = new MyHashMap<>(HashManager.Size.BB_SET_LOCS);
 
     static {
         for (int i = 0; i < Location.NUM_OF_SQUARES; i++) {
@@ -24,6 +21,7 @@ public class Bitboard implements Serializable {
     private long bitBoard;
     private long lastSet;
     private LocsList setLocs = null;
+    private VoidCallback onSet;
 
     /**
      * creates an empty bitboard and sets loc to true
@@ -40,28 +38,28 @@ public class Bitboard implements Serializable {
     }
 
     public void set(Location loc, boolean state) {
-
-        long l = getLong(loc);
+        long l = loc.asLong;
         if (state) {
-//            if (setLocs != null && !setLocs.contains(loc)) {
-//                setLocs.add(loc);
-//            }
             bitBoard |= l;
+//            if (this.setLocs != null) {
+//                this.setLocs.add(loc);
+//                lastSet = bitBoard;
+//            }
         } else {
-//            if (setLocs != null)
-//                setLocs.remove(loc);
             bitBoard &= ~(l);
+//            if (this.setLocs != null) {
+//                this.setLocs.remove(loc);
+//                lastSet = bitBoard;
+//            }
         }
+
+        if (onSet != null)
+            onSet.callback();
+
     }
 
     public Bitboard(long bitBoard) {
         this.bitBoard = bitBoard;
-        createdBitBoards++;
-    }
-
-    public static long getLong(Location loc) {
-        return loc.asLong;
-//        return getLong(loc.asInt());
     }
 
     public Bitboard(Bitboard start, Bitboard end, Direction direction, PlayerColor playerColor) {
@@ -75,7 +73,7 @@ public class Bitboard implements Serializable {
 
     private Bitboard(Bitboard other) {
         this(other.bitBoard);
-        setLocs = other.setLocs == null ? null : new LocsList(other.setLocs);
+        this.setLocs = other.setLocs;
     }
 
     public Bitboard cp() {
@@ -83,18 +81,20 @@ public class Bitboard implements Serializable {
     }
 
     public boolean notEmpty() {
-        return !isEmpty();
+        return this.bitBoard != 0;
     }
 
     public Bitboard orEqual(Bitboard other) {
         if (other != null) {
-            orEqual(other.bitBoard);
+            return orEqual(other.bitBoard);
         }
         return this;
     }
 
     public Bitboard shiftMe(PlayerColor playerColor, Direction direction) {
-        for (Direction currentDirection : direction.combination) {
+        Direction[] combination = direction.combination;
+        for (int i = 0, combinationLength = combination.length; i < combinationLength; i++) {
+            Direction currentDirection = combination[i];
             currentDirection = currentDirection.perspective(playerColor);
             int shiftBy = currentDirection.offset;
 
@@ -105,11 +105,8 @@ public class Bitboard implements Serializable {
 
             bitBoard &= currentDirection.andWith;
         }
-        return this;
-    }
 
-    public boolean isEmpty() {
-        return bitBoard == 0L;
+        return this;
     }
 
     public Bitboard orEqual(long l) {
@@ -117,10 +114,12 @@ public class Bitboard implements Serializable {
         return this;
     }
 
-    public static long getLong(int loc) {
-        return 1L << loc;
+    public void setOnSet(VoidCallback onSet) {
+        this.onSet = onSet;
+    }
 
-//        return preCalc[loc];
+    public boolean isEmpty() {
+        return bitBoard == 0L;
     }
 
     @Override
@@ -153,11 +152,10 @@ public class Bitboard implements Serializable {
 
     private void setSetLocs() {
         lastSet = bitBoard;
-        if (setLocsHashMap.containsKey(bitBoard)) {
-            setLocs = setLocsHashMap.get(bitBoard);
-            hashedBitBoards++;
-            return;
-        }
+//        if (setLocsHashMap.containsKey(bitBoard)) {
+//            setLocs = setLocsHashMap.get(bitBoard);
+//            return;
+//        }
         setLocs = new LocsList();
         int position = 1;
         long num = bitBoard;
@@ -169,7 +167,7 @@ public class Bitboard implements Serializable {
             position++;
             num = num >>> 1;
         }
-        setLocsHashMap.put(bitBoard, setLocs);
+//        setLocsHashMap.put(bitBoard, setLocs);
 //        for (Location loc : Location.ALL_LOCS) {
 //            if (isSet(loc))
 //                setLocs.add(loc);
@@ -177,7 +175,7 @@ public class Bitboard implements Serializable {
     }
 
     public Bitboard orEqual(Location loc) {
-        return orEqual(getLong(loc));
+        return orEqual(loc.asLong);
     }
 
     public long getBitBoard() {
@@ -196,6 +194,7 @@ public class Bitboard implements Serializable {
      */
     public Bitboard exclude(Bitboard other) {
         this.bitBoard &= ~other.bitBoard;
+
         return this;
     }
 
@@ -223,7 +222,7 @@ public class Bitboard implements Serializable {
     }
 
     public boolean isSet(Location loc) {
-        return (bitBoard & getLong(loc)) != 0;
+        return (bitBoard & loc.asLong) != 0;
     }
 
     public boolean anyMatch(Bitboard other) {
@@ -235,7 +234,7 @@ public class Bitboard implements Serializable {
     }
 
     public boolean anyMatch(Location loc) {
-        return anyMatch(getLong(loc));
+        return anyMatch(loc.asLong);
     }
 
     public Bitboard and(Bitboard other) {
@@ -254,6 +253,7 @@ public class Bitboard implements Serializable {
      */
     public Bitboard andEqual(long l) {
         bitBoard &= l;
+
         return this;
     }
 

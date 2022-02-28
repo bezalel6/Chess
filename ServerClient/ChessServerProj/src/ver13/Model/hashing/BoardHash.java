@@ -11,15 +11,11 @@ public class BoardHash implements Serializable {
         setAll(model);
     }
 
-    public BoardHash(BoardHash boardHash) {
-        this.piecesHash = boardHash.piecesHash;
-        this.enPassantHash = boardHash.enPassantHash;
-        this.castlingAbilityHash = boardHash.castlingAbilityHash;
-        this.currentPlayerHash = boardHash.currentPlayerHash;
-        this.fullHash = boardHash.fullHash;
-    }
-
     public void setAll(Model model) {
+//        if (!HashManager.enableZobrist)
+//            return;
+        if (true)
+            return;
         setCastlingAbilityHash(model);
         setPiecesLocsHash(model);
         setCurrentPlayerHash(model);
@@ -33,6 +29,14 @@ public class BoardHash implements Serializable {
 
     private void setFullHash() {
         fullHash = Zobrist.combineHashes(piecesHash, enPassantHash, castlingAbilityHash, currentPlayerHash);
+    }
+
+    public BoardHash(BoardHash boardHash) {
+        this.piecesHash = boardHash.piecesHash;
+        this.enPassantHash = boardHash.enPassantHash;
+        this.castlingAbilityHash = boardHash.castlingAbilityHash;
+        this.currentPlayerHash = boardHash.currentPlayerHash;
+        this.fullHash = boardHash.fullHash;
     }
 
     public long getPiecesHash() {

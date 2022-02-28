@@ -4,7 +4,6 @@ package ver13.Model;
 import ver13.Model.Eval.Eval;
 import ver13.Model.MoveGenerator.MoveGenerator;
 import ver13.Model.hashing.BoardHash;
-import ver13.Model.hashing.HashManager;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.board_setup.Board;
@@ -17,7 +16,6 @@ import ver13.SharedClasses.pieces.Piece;
 import ver13.SharedClasses.pieces.PieceType;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -49,7 +47,6 @@ public class Model implements Serializable {
         pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
         attackedSquares = new Bitboard[PlayerColor.NUM_OF_PLAYERS];
         castlingRights = new CastlingRights();
-
         piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
             Arrays.fill(piecesCount[playerColor.asInt], 0);
@@ -82,7 +79,7 @@ public class Model implements Serializable {
     public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
         CastlingRights.Side ret = CastlingRights.Side.QUEEN;
         Location kingLoc = model.getKing(playerColor);
-        if (kingLoc.col < rookLoc.col * Piece.getDifference(playerColor)) {
+        if (kingLoc.col < rookLoc.col) {
             ret = CastlingRights.Side.KING;
         }
         return ret;
@@ -121,8 +118,9 @@ public class Model implements Serializable {
     }
 
     private void setBoardHash() {
-        if (HashManager.hashBoard)
-            boardHash.setAll(this);
+//        if (HashManager.hashBoard)
+
+//        boardHash.setAll(this);
     }
 
     private void setAttackedSquares() {
@@ -130,14 +128,6 @@ public class Model implements Serializable {
 //            attackedSquares[playerColor.asInt] = AttackedSquares.getAttackedSquares(this, playerColor);
 //    }
 
-    }
-
-    public Bitboard getAttackedSquares(PlayerColor attackingPlayerColor) {
-        Bitboard genNew = AttackedSquares.getAttackedSquares(this, attackingPlayerColor);
-//        Bitboard old = attackedSquares[attackingPlayerColor.asInt];
-//        return old;
-//        assert old.equals(genNew);
-        return genNew;
     }
 
     public CastlingRights getCastlingRights() {
@@ -205,8 +195,8 @@ public class Model implements Serializable {
         return null;
     }
 
-    public ArrayList<Move> generateAllMoves() {
-        return MoveGenerator.generateMoves(this).getCleanList();
+    public ModelMovesList generateAllMoves() {
+        return MoveGenerator.generateMoves(this);
     }
 
     public int bothPlayersNumOfPieces(PieceType[] arr) {
@@ -234,25 +224,17 @@ public class Model implements Serializable {
     }
 
     public boolean isInCheck(PlayerColor playerColor) {
-//        long hash = getBoardHash().getFullHash();
-//        hash = Zobrist.combineHashes(hash, Zobrist.playerHash(player));
-//        if (isInCheckHashMap.containsKey(hash)) {
-//            return isInCheckHashMap.get(hash);
-//        }
-        boolean ret = isThreatened(getKing(playerColor), PlayerColor.getOpponent(playerColor));
-//        isInCheckHashMap.put(hash, ret);
-        return ret;
+
+        return isThreatened(getKing(playerColor), playerColor.getOpponent());
+
     }
 
-    public boolean isThreatened(Location loc, PlayerColor threateningPlayerColor) {
-
-        return getAttackedSquares(threateningPlayerColor).isSet(loc);
-
-//        MoveGenerator.generateMoves()
-        //working slow
-//        return MoveGenerator.generateMoves(this, false).stream()
-//                .anyMatch(move -> move.getMovingTo().equals(loc));
+    public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
+//        return
+//        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
+        return AttackedSquares.isAttacked(this, loc, threateningPlayer);
     }
+
 
     public Location getKing() {
         return getKing(currentPlayerColor);
@@ -260,6 +242,7 @@ public class Model implements Serializable {
 
     public Location getKing(PlayerColor playerColor) {
         Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
+
         return k.isEmpty() ? null : k.getSetLocs().get(0);
     }
 
@@ -269,12 +252,6 @@ public class Model implements Serializable {
 
     public PiecesBBs getPlayersPieces(PlayerColor playerColor) {
         return pieces[playerColor.asInt];
-    }
-
-    public boolean anyLegalMove(PlayerColor playerColor) {
-//        Bitboard[] playersPieces = getPlayersPieces(playerColor);
-        //todo can return true if one piece can move to any
-        return !generateAllMoves(playerColor).isEmpty();
     }
 
 //    public void applyMove(String moveStr) {
@@ -288,12 +265,19 @@ public class Model implements Serializable {
 //
 //    }
 
-    public ArrayList<Move> generateAllMoves(PlayerColor player) {
-        ArrayList<Move> ret = new ArrayList<>();
+    public boolean anyLegalMove(PlayerColor playerColor) {
+//        Bitboard[] playersPieces = getPlayersPieces(playerColor);
+
+        //todo can return true if one piece can move to any
+        return !generateAllMoves(playerColor).isEmpty();
+    }
+
+    public ModelMovesList generateAllMoves(PlayerColor player) {
+
         if (player == currentPlayerColor) {
-            ret = generateAllMoves();
+            return generateAllMoves();
         }
-        return ret;
+        return new ModelMovesList(null, null);
     }
 
     public PlayerColor getCurrentPlayer() {
@@ -479,10 +463,8 @@ public class Model implements Serializable {
         updatePieceLoc(piece, movingFrom, movingTo);
 
         if (move.isCapturing()) {
-            PlayerColor opponent = PlayerColor.getOpponent(piecePlayerColor);
-            Piece otherPiece = Piece.getPiece(move.getCapturingPieceType(), opponent);
+            Piece otherPiece = Piece.getPiece(move.getCapturingPieceType(), piecePlayerColor.getOpponent());
             addPiece(otherPiece, movingFrom);
-
         }
         makeIntermediateMove(move, true);
 
@@ -527,7 +509,7 @@ public class Model implements Serializable {
     }
 
     public void switchTurn() {
-        currentPlayerColor = PlayerColor.getOpponent(currentPlayerColor);
+        currentPlayerColor = currentPlayerColor.getOpponent();
     }
 
     public int[] getPiecesCount(PlayerColor playerColor) {

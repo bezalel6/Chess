@@ -1,5 +1,7 @@
 package ver13.Model;
 
+import ver13.Model.MoveGenerator.GenerationSettings;
+import ver13.Model.MoveGenerator.MoveGenerator;
 import ver13.Model.hashing.Zobrist;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.moves.Move;
@@ -13,6 +15,14 @@ import java.util.stream.Collectors;
 public class ModelMovesList extends MovesList {
     private final static boolean UNIQUE_STRS = false;
     private final HashMap<Long, ArrayList<Move>> uniqueMoves = new HashMap<>();
+    private final MoveGenerator generator;
+    private final GenerationSettings generationSettings;
+
+    public ModelMovesList(MoveGenerator generator, GenerationSettings generationSettings) {
+        this.generator = generator;
+        this.generationSettings = generationSettings;
+    }
+
 
     public void addAll(ModelMovesList other, PieceType pieceType) {
         for (Move move : other)
@@ -25,7 +35,7 @@ public class ModelMovesList extends MovesList {
         }
         if (adding == null)
             return false;
-//
+
 //        if (!canMakeMove(adding, movingPiece)) {
 //            return false;
 //        }
@@ -117,4 +127,5 @@ public class ModelMovesList extends MovesList {
     public MovesList getCleanList() {
         return new MovesList(this);
     }
+
 }

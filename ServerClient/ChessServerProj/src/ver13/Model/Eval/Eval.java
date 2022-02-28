@@ -7,8 +7,6 @@ import ver13.Model.AttackedSquares;
 import ver13.Model.Bitboard;
 import ver13.Model.Model;
 import ver13.Model.PiecesBBs;
-import ver13.Model.hashing.HashManager;
-import ver13.Model.hashing.my_hash_maps.MyHashMap;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.evaluation.Evaluation;
@@ -21,8 +19,8 @@ import java.io.Serializable;
 
 
 public class Eval implements Serializable {
-    public static final MyHashMap evaluationHashMap = new MyHashMap(HashManager.Size.EVALUATIONS);
-    public static final MyHashMap gameOverHashMap = new MyHashMap(HashManager.Size.GAME_OVER);
+    //    public static final MyHashMap evaluationHashMap = new MyHashMap(HashManager.Size.EVALUATIONS);
+//    public static final MyHashMap gameOverHashMap = new MyHashMap(HashManager.Size.GAME_OVER);
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
 
     private final Model model;
@@ -51,24 +49,24 @@ public class Eval implements Serializable {
         this.opponentColor = evaluationFor.getOpponent();
         egWeight = endgameWeight();
 
-        long hash = model.getBoardHash().getFullHash();
-        if (evaluationHashMap.containsKey(hash)) {
-            evaluation = (Evaluation) evaluationHashMap.get(hash);
-        } else {
-            calcEvaluation();
-            evaluationHashMap.put(hash, evaluation);
-        }
+//        long hash = model.getBoardHash().getFullHash();
+//        if (evaluationHashMap.containsKey(hash)) {
+//            evaluation = (Evaluation) evaluationHashMap.get(hash);
+//        } else {
+        calcEvaluation();
+//            evaluationHashMap.put(hash, evaluation);
+//        }
 
     }
 
     private Evaluation checkGameOver() {
-        long hash = model.getBoardHash().getFullHash();
-        if (gameOverHashMap.containsKey(hash)) {
-            return (Evaluation) gameOverHashMap.get(hash);
-        }
+//        long hash = model.getBoardHash().getFullHash();
+//        if (gameOverHashMap.containsKey(hash)) {
+//            return (Evaluation) gameOverHashMap.get(hash);
+//        }
         Evaluation ret = isGameOver_();
 
-        gameOverHashMap.put(hash, ret);
+//        gameOverHashMap.put(hash, ret);
         return ret;
     }
 

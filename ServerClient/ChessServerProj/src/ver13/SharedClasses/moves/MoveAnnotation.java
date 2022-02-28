@@ -1,5 +1,7 @@
 package ver13.SharedClasses.moves;
 
+import ver13.SharedClasses.Utils.StrUtils;
+
 import java.io.Serializable;
 
 public class MoveAnnotation implements Serializable {
@@ -9,6 +11,6 @@ public class MoveAnnotation implements Serializable {
 
 
     public static String annotate(Move move) {
-        return move.getBasicMoveAnnotation();
+        return StrUtils.dontCapWord(move.getBasicMoveAnnotation());
     }
 }

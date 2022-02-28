@@ -52,7 +52,7 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public Move getMove() {
         // with socket do...
-        ArrayList<Move> moves = game.getModel().generateAllMoves(playerColor);
+        ArrayList<Move> moves = game.getModel().generateAllMoves(playerColor).getCleanList();
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {

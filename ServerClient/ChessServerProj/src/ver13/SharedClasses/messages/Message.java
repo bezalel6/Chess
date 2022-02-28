@@ -210,7 +210,7 @@ public class Message implements Serializable {
         return new Message(MessageType.ALIVE);
     }
 
-    public static Message syncLists(SyncedItems... syncedList) {
+    public static Message syncLists(SyncedItems<?>... syncedList) {
         return new Message(MessageType.UPDATE_SYNCED_LIST) {{
             setSyncedLists(syncedList);
         }};
@@ -244,11 +244,11 @@ public class Message implements Serializable {
         this.moveStack = moveStack;
     }
 
-    public SyncedItems[] getSyncedLists() {
+    public SyncedItems<?>[] getSyncedLists() {
         return syncedLists;
     }
 
-    public void setSyncedLists(SyncedItems... syncedLists) {
+    public void setSyncedLists(SyncedItems<?>... syncedLists) {
 
         this.syncedLists = syncedLists;
     }

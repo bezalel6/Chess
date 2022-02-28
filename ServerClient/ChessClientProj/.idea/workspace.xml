@@ -1009,7 +1009,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last.edited.regexp" value="ddwPacK" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/ver8/view" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChessServerProj/src/ver13/SharedClasses" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -1022,11 +1022,11 @@
       <recent name="ver6.view.List" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver14" />
       <recent name="C:\Users\bezal\Documents\GitHub\Chess\ServerClient\ChessClientProj\src\ver13" />
       <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver12" />
       <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver11" />
       <recent name="E:\SharedCo\IdeaProjects\ChessClientProj\src\ver10" />
-      <recent name="E:\SharedCo\IdeaProjects\ChessClientProj\src\ver9" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bezal\Documents\GitHub\SharedCo\IdeaProjects\ChessClientProj\src\assets\Statistics\StatisticsIcon" />
@@ -1051,12 +1051,39 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Client">
+    <configuration name="AskPlayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver13.view.SidePanel.AskPlayer" />
+      <module name="ChessClientProj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver13.view.SidePanel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ver10.Client" />
       <module name="ChessClientProj" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ver10.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver13.Client" />
+      <module name="ChessClientProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver13.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -1086,8 +1113,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.AskPlayer" />
+      <item itemvalue="Application.Graph" />
+      <item itemvalue="Application.MyDialogs" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.AskPlayer" />
         <item itemvalue="Application.MyDialogs" />
         <item itemvalue="Application.Graph" />
       </list>

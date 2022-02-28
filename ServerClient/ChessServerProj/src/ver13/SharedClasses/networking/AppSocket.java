@@ -14,11 +14,11 @@ import java.net.SocketException;
  * ---------------------------------------------------------------------------
  * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
  */
-public class AppSocket {
+public class AppSocket extends Thread {
     private final static boolean logErrs = true;
-    protected Socket msgSocket;           // Message socket
-    private ObjectOutputStream msgOS;   // Output stream to SEND Messages
-    private ObjectInputStream msgIS;    // Input stream to GET Messages
+    protected final Socket msgSocket;           // Message socket
+    private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
+    private final ObjectInputStream msgIS;    // Input stream to GET Messages
     private MessagesHandler messagesHandler;
     private volatile boolean keepReading;
 
@@ -26,17 +26,12 @@ public class AppSocket {
         this(new Socket(ip, port));
     }
 
-    public AppSocket(Socket socket) {
+    public AppSocket(Socket socket) throws IOException {
         this.msgSocket = socket;
-        try {
-            // Create MESSAGE streams. Output Stream must be created FIRST!
-            // ------------------------------------------------------------
-            msgOS = new ObjectOutputStream(socket.getOutputStream());
-            msgIS = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-
-        }
+        // Create MESSAGE streams. Output Stream must be created FIRST!
+        // ------------------------------------------------------------
+        msgOS = new ObjectOutputStream(socket.getOutputStream());
+        msgIS = new ObjectInputStream(socket.getInputStream());
     }
 
 
@@ -44,26 +39,22 @@ public class AppSocket {
         assert messagesHandler != null;
         messagesHandler.noBlockRequest(requestMsg, onRes);
     }
-
-    public void startReading() {
+    
+    @Override
+    public void run() {
         assert messagesHandler != null;
         keepReading = true;
-
-        new Thread(() -> {
-            while (keepReading) {
-                Message msg;
-                try {
-                    msg = (Message) msgIS.readObject();
-                } catch (Exception ex) {
-                    if (ex instanceof SocketException || logErrs)
-                        ex.printStackTrace();
-                    msg = null;
-                }
-                messagesHandler.receivedMessage(msg);
+        while (keepReading) {
+            Message msg;
+            try {
+                msg = (Message) msgIS.readObject();
+            } catch (Exception ex) {
+                if (!(ex instanceof SocketException) || logErrs)
+                    ex.printStackTrace();
+                msg = null;
             }
-        }).start();
-
-
+            messagesHandler.receivedMessage(msg);
+        }
     }
 
     public MessagesHandler getMessagesHandler() {

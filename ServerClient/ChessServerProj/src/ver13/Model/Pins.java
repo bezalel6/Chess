@@ -22,7 +22,7 @@ public class Pins extends HashMap<Long, Bitboard> {
     }
 
     public void prettyPrint() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder("\n");
         for (Bitboard bitboard : values()) {
             stringBuilder.append(bitboard.prettyBoard()).append("\n");
         }

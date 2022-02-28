@@ -1,14 +1,12 @@
 package ver13.Model;
 
-import ver13.Model.hashing.HashManager;
-import ver13.Model.hashing.Zobrist;
-import ver13.Model.hashing.my_hash_maps.MyHashMap;
+import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.moves.Direction;
 import ver13.SharedClasses.pieces.PieceType;
 
 public class AttackedSquares {
-    public static final MyHashMap<Bitboard> hashMap = new MyHashMap<>(HashManager.Size.ATTACKED_SQUARES);
+//    public static final MyHashMap<Bitboard> hashMap = new MyHashMap<>(HashManager.Size.ATTACKED_SQUARES);
 
     private final PlayerColor attackingPlayerColor;
     private final PlayerColor attackedPlayerColor;
@@ -16,6 +14,7 @@ public class AttackedSquares {
     private Bitboard oppPieces;
     private Bitboard attackedSquares;
     private Pins pins = null;
+    private Location checkingAttacked;
 
     private AttackedSquares(Model model, PlayerColor attackingPlayerColor) {
         this(attackingPlayerColor, model.getPlayersPieces(attackingPlayerColor), model.getPlayersPieces(attackingPlayerColor.getOpponent()).getAll());
@@ -26,7 +25,7 @@ public class AttackedSquares {
         this.attackedPlayerColor = attackingPlayerColor.getOpponent();
         this.myPieces = myPieces;
         this.oppPieces = oppPieces;
-        attackedSquares = new Bitboard();
+        this.attackedSquares = new Bitboard();
     }
 
     public static Bitboard getAttackedSquares(Model model, PlayerColor attackingPlayerColor) {
@@ -34,24 +33,25 @@ public class AttackedSquares {
     }
 
     public Bitboard getAttackedSquares(Model model) {
-        long hash = model.getBoardHash().getFullHash();
-        hash = Zobrist.combineHashes(hash, Zobrist.hash(attackingPlayerColor));
-        if (hashMap.containsKey(hash)) {
-            setAttacks();
-            return attackedSquares;
+//        long hash = model.getBoardHash().getFullHash();
+//        hash = Zobrist.combineHashes(hash, Zobrist.hash(attackingPlayerColor));
+//        if (hashMap.containsKey(hash)) {
+//            setAttacks();
+//            return hashMap.get(hash);
 //            this.attackedSquares = (Bitboard) hashMap.get(hash);
 //            return attackedSquares;
-        }
+//        }
         setAttacks();
 
-        hashMap.put(hash, attackedSquares);
+//        hashMap.put(hash, attackedSquares);
 
         return attackedSquares;
     }
 
     private Bitboard setAttacks() {
         this.attackedSquares = new Bitboard();
-        for (PieceType pieceType : PieceType.PIECE_TYPES) {
+        PieceType[] piece_types = PieceType.PIECE_TYPES;
+        for (PieceType pieceType : piece_types) {
             attack(pieceType, myPieces.getBB(pieceType));
         }
         return attackedSquares;
@@ -62,7 +62,8 @@ public class AttackedSquares {
             attackingDirections = pieceType.getAttackingDirections();
 
         boolean isSliding = pieceType.isSlidingPiece();
-        for (Direction direction : attackingDirections) {
+        for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength; i++) {
+            Direction direction = attackingDirections[i];
             Bitboard pieceBB = ogBB.cp();
             Bitboard opp = oppPieces.cp();
             opp.shiftMe(attackingPlayerColor, direction);
@@ -71,8 +72,26 @@ public class AttackedSquares {
                         .orEqual(pieceBB.shiftMe(attackingPlayerColor, direction)
                                 .exclude(myPieces.getAll())
                                 .exclude(opp));
-            } while (isSliding && pieceBB.notEmpty());
+            } while (isSliding && pieceBB.notEmpty()
+//                    && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
+            );
+
         }
+    }
+
+    public static boolean isAttacked(Model model, Location loc, PlayerColor attackingPlayerColor) {
+        return new AttackedSquares(model, attackingPlayerColor).isAttacked(loc);
+    }
+
+    private boolean isAttacked(Location loc) {
+        PieceType[] piece_types = PieceType.PIECE_TYPES;
+        this.checkingAttacked = loc;
+        for (PieceType pieceType : piece_types) {
+            attack(pieceType, myPieces.getBB(pieceType));
+            if (attackedSquares.isSet(loc))
+                return true;
+        }
+        return false;
     }
 
     public static Pins getPins(Model model, PlayerColor attackingPlayerColor) {
@@ -90,7 +109,9 @@ public class AttackedSquares {
     }
 
     private Bitboard attacksFrom(Bitboard from, boolean onlyAttack) {
-        for (Direction direction : Direction.ALL_DIRECTIONS) {
+        Direction[] all_directions = Direction.ALL_DIRECTIONS;
+        for (int i = 0, all_directionsLength = all_directions.length; i < all_directionsLength; i++) {
+            Direction direction = all_directions[i];
             Bitboard temp = from.cp();
             while (temp.notEmpty()) {
                 temp.shiftMe(attackingPlayerColor, direction);

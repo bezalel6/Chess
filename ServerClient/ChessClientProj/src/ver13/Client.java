@@ -55,6 +55,7 @@ public class Client {
     private Location firstClickLoc;
     private Message lastGetMoveMsg;
     private LoginInfo loginInfo;
+    private ClientMessagesHandler msgHandler;
 
     /**
      * Constractor for Chat Client.
@@ -126,7 +127,6 @@ public class Client {
         }
     }
 
-
     /**
      * <h1>CALLS SYSTEM EXIT <br/><code>System.exit(0)</code></h1>
      *
@@ -178,14 +178,15 @@ public class Client {
             log("Connected to Server(" + clientSocket.getRemoteAddress() + ")");
             log("CLIENT(" + clientSocket.getLocalAddress() + ") Setup & Running!\n");
             firstClickLoc = null;
-            clientSocket.setMessagesHandler(new ClientMessagesHandler(this, view));
-            clientSocket.startReading();
+            msgHandler = new ClientMessagesHandler(this, view);
+            clientSocket.setMessagesHandler(msgHandler);
+            clientSocket.start();
             view.connectedToServer();
         }
     }
 
     public ClientMessagesHandler getMessagesHandler() {
-        return (ClientMessagesHandler) clientSocket.getMessagesHandler();
+        return msgHandler;
     }
 
     public void setMyColor(PlayerColor myColor) {

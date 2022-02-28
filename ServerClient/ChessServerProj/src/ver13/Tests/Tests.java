@@ -4,6 +4,7 @@ import ver13.Model.*;
 import ver13.Model.Eval.Eval;
 import ver13.Model.MoveGenerator.MoveGenerator;
 import ver13.Model.minimax.Minimax;
+import ver13.Server;
 import ver13.SharedClasses.Location;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.evaluation.Evaluation;
@@ -14,6 +15,7 @@ import ver13.SharedClasses.pieces.PieceType;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
@@ -23,67 +25,84 @@ public class Tests {
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
-    private static final int numOfThreads = 6;
-    //    private static final int numOfThreads = Runtime.getRuntime().availableProcessors() / 2;
+    //    private static final int numOfThreads = 6;
+    private static final int numOfThreads = Runtime.getRuntime().availableProcessors();
 
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
-        printNumOfPositions();
-        System.out.println("num of created bitboards = " + Bitboard.createdBitBoards);
+//        printNumOfPositions();
+        minimax(2);
+//        isInCheck();
     }
 
-    public static void startTime() {
-        dateTime = ZonedDateTime.now();
-    }
+    private static void minimax(int time) {
+        for (int threads = 1; threads <= numOfThreads; threads++) {
+            Model model = new Model();
+            model.setup(null);
+            Minimax minimax = new Minimax(model, time);
+            minimax.setLog(false);
+            minimax.setNumOfThreads(threads);
+            minimax.setRecordCpuUsage(true);
+            Move move = minimax.getBestMove();
 
-    public static long stopTime() {
-        assert dateTime != null;
-        return dateTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
-    }
-
-
-    //region
-    //todo check if Math.abs(-1).... is faster then if/switch/opp hash map
-    private static void mathVsIf() {
-        enum e {
-            a, b, c
+            ArrayList<Double> cpuUsage = minimax.getCpuUsageRecords();
+            Collections.sort(cpuUsage);
+            Collections.reverse(cpuUsage);
+            System.out.println("Minimax = \n" + move);
+            assert cpuUsage.size() > 0;
+            double avg = cpuUsage.stream().reduce((double) 0, Double::sum) / cpuUsage.size();
+            double max = cpuUsage.get(0);
+            double padding = 15;
+            int index = 0;
+            int numOfMatchesForConsistent = 2;
+            int numFound = 0;
+            double consistentMax = -1;
+            while (index + 1 < cpuUsage.size() - 1) {
+                double checking = cpuUsage.get(index++);
+                double next = cpuUsage.get(index);
+                if (next > checking - padding && next < checking + padding) {
+                    numFound++;
+                    if (numFound >= numOfMatchesForConsistent) {
+                        consistentMax = checking;
+                        break;
+                    }
+                }
+            }
+            System.out.printf("\n%d:%d threads\navg: %f max: %f consistent max: %s\n", threads, numOfThreads, avg, max, consistentMax != -1 ? consistentMax : "n/a");
+            System.out.println(cpuUsage);
+            minimax.end();
         }
+
+    }
+
+    private static void minimax() {
+        minimax(10);
     }
 
     private static void minimaxVsStockfish() {
+        Server server = new Server();
+        Server.VS_STOCKFISH = true;
+        server.runServer();
+    }
+
+    private static Model create() {
+        return new Model() {{
+            setup(null);
+        }};
+    }
+
+    private static void isInCheck() {
         Model model = new Model();
-        boolean m = new Random().nextBoolean();
-        while (!Eval.isGameOver(model)) {
-            Move move;
-            if (m) {
 
-            } else {
-
-            }
-            m = !m;
-        }
-    }
-
-    private static void ray() {
-        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
-        Model model = new Model(fen);
-        Attack check = AttackedSquares.getCheck(model, PlayerColor.WHITE);
-        check.prettyPrint();
-    }
-
-    private static void pins() {
-        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
-        Model model = new Model(fen);
-        System.out.println("Model: \n");
-        model.printBoard();
-        Pins pins = AttackedSquares.getPins(model, PlayerColor.WHITE);
-        pins.prettyPrint();
-
+        model.setup("1n2kbnr/pppppppp/3q4/8/r2K1b2/8/PP1PPPPP/RNBQ1BNR w k - 0 1");
+//        model.setup(null);
+        ;
     }
 
     private static void rayVsMoveLegalization() {
         Model model = new Model();
+        model.setup(null);
         MovesList moves = MoveGenerator.generateMoves(model);
         long time = 0;
         int numOfTries = 100000;
@@ -108,6 +127,40 @@ public class Tests {
 
     }
 
+    private static void ray() {
+        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
+        Model model = new Model(fen);
+        Attack check = AttackedSquares.getCheck(model, PlayerColor.WHITE);
+        check.prettyPrint();
+    }
+
+    public static void startTime() {
+        dateTime = ZonedDateTime.now();
+    }
+
+    public static long stopTime() {
+        assert dateTime != null;
+        return dateTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
+    }
+
+    //region
+    //todo check if Math.abs(-1).... is faster then if/switch/opp hash map
+    private static void mathVsIf() {
+        enum e {
+            a, b, c
+        }
+    }
+
+    private static void pins() {
+        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
+        Model model = new Model(fen);
+        System.out.println("Model: \n");
+        model.printBoard();
+        Pins pins = AttackedSquares.getPins(model, PlayerColor.WHITE);
+        pins.prettyPrint();
+
+    }
+
     private static void moveGeneration() {
         String fen = null;
         Model model = new Model(fen);
@@ -115,27 +168,6 @@ public class Tests {
 //        ModelMovesList moves = MoveGenerator.generateMoves(model);
 //        System.out.println(moves);
 //        moves.prettyPrint();
-    }
-
-    private static void shiftVsLookupTime() {
-        int numOfTries = 100000000;
-        long time = 0;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-            Bitboard.getLong(Math.abs(new Random().nextInt(64)));
-            time += System.currentTimeMillis() - millis;
-
-        }
-        System.out.println("lookup took " + time);
-        time = 0;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-//            Bitboard.getSlowLong(Math.abs(new Random().nextInt(64)));
-
-            time += System.currentTimeMillis() - millis;
-        }
-
-        System.out.println("shift took " + time);
     }
 
     private static void testSetLocsTime() {
@@ -237,15 +269,6 @@ public class Tests {
         System.out.println(model);
     }
 
-    private static void minimax() {
-        Model model = new Model();
-        Minimax minimax = new Minimax(model, 10);
-        Move move = minimax.getBestMove();
-        System.out.println("Minimax = \n" + move);
-        model.makeMove(move);
-        System.out.println("Next move = \n" + minimax.getBestMove());
-    }
-
     private static void attackedSquares() {
         String fen = null;
         Model model = new Model(fen);
@@ -271,13 +294,16 @@ public class Tests {
         AtomicInteger num = new AtomicInteger();
 
         if (isRoot) {
+//            ForkJoinPool threadPool = ForkJoinPool.commonPool();
             ForkJoinPool threadPool = new ForkJoinPool(numOfThreads);
             threadPool.execute(() -> {
                 num.set(moves.stream().parallel().mapToInt(move -> executePos(depth, new Model(model), move)).sum());
             });
             try {
                 threadPool.shutdown();
-                threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
+                if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS)) {
+                    System.out.println("f");
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

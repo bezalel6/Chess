@@ -3,45 +3,44 @@ package ver13.Model.minimax;
 import ver13.Model.Eval.Book;
 import ver13.Model.Eval.Eval;
 import ver13.Model.Model;
-import ver13.Model.hashing.HashManager;
-import ver13.Model.hashing.Transposition;
-import ver13.Model.hashing.my_hash_maps.MyHashMap;
 import ver13.SharedClasses.PlayerColor;
 import ver13.SharedClasses.evaluation.Evaluation;
 import ver13.SharedClasses.moves.MinimaxMove;
 import ver13.SharedClasses.moves.Move;
+import ver13.ThreadsUtil;
 
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.IntStream;
 
 public class Minimax {
-    public static final MyHashMap<Transposition> transpositionsHashMap = new MyHashMap<>(HashManager.Size.TRANSPOSITIONS);
-    static final boolean USE_OPENING_BOOK = true;
-    static final boolean SHOW_UI = false;
+    //    public static final MyHashMap<Transposition> transpositionsHashMap = new MyHashMap<>(HashManager.Size.TRANSPOSITIONS);
+    private static final boolean USE_OPENING_BOOK = true;
+    private static final boolean SHOW_UI = true;
     private static final int DEFAULT_FLEX = 0;
     private final Model model;
     private final int scanTime;
     private final int scanTimeFlexibility;
     private final MinimaxView minimaxUI;
-
+    private final ArrayList<Double> cpuUsageRecords;
+    private boolean log = true;
+    private int numOfThreads = 12;
+    //    private int numOfThreads = Runtime.getRuntime().availableProcessors();
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
     private long leavesReached;
     private long branchesPruned;
     private long transpositionHits;
     private boolean stillTheory;
-    private ExecutorService threadPool;
-    private int numOfThreads = 4;
+    private ForkJoinPool threadPool;
     private MinimaxMove bestMove;
     private AtomicBoolean isCompleteSearch;
     private boolean interruptSearch;
+    private boolean recordCpuUsage = false;
 
     public Minimax(Model model, int scanTime) {
         this(model, scanTime, DEFAULT_FLEX);
@@ -53,10 +52,20 @@ public class Minimax {
         this.scanTime = scanTime;
         stillTheory = true;
         minimaxUI = new MinimaxView(SHOW_UI);
+        cpuUsageRecords = new ArrayList<>();
+    }
+
+    public void setLog(boolean log) {
+        this.log = log;
+    }
+
+    public void setRecordCpuUsage(boolean recordCpuUsage) {
+        this.recordCpuUsage = recordCpuUsage;
     }
 
     public void end() {
         minimaxUI.dispose();
+        interruptSearch = true;
         if (threadPool != null)
             threadPool.shutdown();
     }
@@ -134,6 +143,11 @@ public class Minimax {
             minimaxUI.setCurrentDepth(currentDepth);
 
             MinimaxMove minimaxMove = minimaxRoot(model, currentDepth);
+            if (recordCpuUsage) {
+                new Thread(() -> {
+                    cpuUsageRecords.add(ThreadsUtil.sampleCpuUsage());
+                }).start();
+            }
             log("depth " + currentDepth + " move: " + minimaxMove);
             currentDepth++;
 
@@ -151,21 +165,22 @@ public class Minimax {
 
         log("\nminimax move: " + bestMoveSoFar);
         log("max depth reached: " + (currentDepth - 1));
-        log("num of positions reached: " + positionsReached);
-        log("num of leaves reached: " + leavesReached);
-        log("num of branches pruned: " + branchesPruned);
-        log("num of transpositions hits: " + transpositionHits);
+//        log("num of positions reached: " + positionsReached);
+//        log("num of leaves reached: " + leavesReached);
+//        log("num of branches pruned: " + branchesPruned);
+//        log("num of transpositions hits: " + transpositionHits);
 
         return bestMoveSoFar;
     }
 
     private void log(String str) {
-        System.out.println("mini->" + str);
+        if (log)
+            System.out.println("minimax->" + str);
     }
 
-    MinimaxMove minimaxRoot(Model model, int maxDepth) {
+    private MinimaxMove minimaxRoot(Model model, int maxDepth) {
         isCompleteSearch = new AtomicBoolean(true);
-        threadPool = Executors.newFixedThreadPool(numOfThreads);
+        threadPool = new ForkJoinPool(numOfThreads);
 
         Evaluation[] evals = startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
         endMultithreadedMinimax();
@@ -187,10 +202,9 @@ public class Minimax {
         int numOfPossibleMoves = possibleMoves.size();
         Evaluation[] evals = new Evaluation[numOfPossibleMoves];
 
-        IntStream.range(0, numOfPossibleMoves).forEach(index -> {
-            threadPool.execute(() -> {
+        threadPool.execute(() -> {
+            possibleMoves.stream().parallel().forEach(move -> {
                 if (!isOvertimeWithFlex()) {
-                    Move move = possibleMoves.get(index);
                     Model model1 = new Model(model);
                     model1.applyMove(move);
                     Evaluation eval = minimax(new MinimaxParameters(model1, false, maxDepth, minimaxPlayerColor, move));
@@ -198,13 +212,14 @@ public class Minimax {
 
                     move.setMoveEvaluation(eval);
 
-                    evals[index] = eval;
+                    evals[possibleMoves.indexOf(move)] = eval;
                 } else {
                     isCompleteSearch.set(false);
                 }
-            });
-        });
 
+            });
+
+        });
         return evals;
     }
 
@@ -212,7 +227,6 @@ public class Minimax {
         threadPool.shutdown();
         try {
             if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)) {
-                log("had to stop the thingy");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -220,16 +234,16 @@ public class Minimax {
     }
 
     private Evaluation minimax(MinimaxParameters parms) {
-        positionsReached++;
+//        positionsReached++;
 
-        long hash = parms.model.getBoardHash().getFullHash();
+//        long hash = parms.model.getBoardHash().getFullHash();
 
-        Evaluation transpositionEval = getTranspositionEval(parms, hash);
-        if (transpositionEval != null)
-            return transpositionEval;
+//        Evaluation transpositionEval = getTranspositionEval(parms, hash);
+//        if (transpositionEval != null)
+//            return transpositionEval;
 
         if (interruptSearch || isOvertimeWithFlex() || Eval.isGameOver(parms.model) || parms.currentDepth >= parms.maxDepth) {
-            leavesReached++;
+//            leavesReached++;
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
             evaluation.setEvaluationDepth(parms.currentDepth / 2);
             return evaluation;
@@ -237,7 +251,7 @@ public class Minimax {
 
         Evaluation bestEval = executeMovesMinimax(parms);
 
-        transpositionsHashMap.put(hash, new Transposition(parms, bestEval));
+//        transpositionsHashMap.put(hash, new Transposition(parms, bestEval));
         return bestEval;
     }
 
@@ -245,7 +259,8 @@ public class Minimax {
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
         sortMoves(possibleMoves, true);
-        for (Move move : possibleMoves) {
+        for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
+            Move move = possibleMoves.get(i);
 
             if (interruptSearch) {
 //                might cause a null return
@@ -269,7 +284,7 @@ public class Minimax {
                 parms.b = Math.min(parms.b, bestEval.getEval());
             }
             if (parms.b <= parms.a) {
-                branchesPruned++;
+//                branchesPruned++;
                 break;
             }
 
@@ -278,16 +293,19 @@ public class Minimax {
         return bestEval;
     }
 
-    private Evaluation getTranspositionEval(MinimaxParameters parms, long hash) {
-        if (transpositionsHashMap.containsKey(hash)) {
-            Transposition transposition = (Transposition) transpositionsHashMap.get(hash);
-            if (transposition.getMaxDepth() >= parms.maxDepth) {
-                transpositionHits++;
-                return new Evaluation(transposition.getEvaluation());
-            }
-        }
-        return null;
+    public ArrayList<Double> getCpuUsageRecords() {
+        return cpuUsageRecords;
     }
+//    private Evaluation getTranspositionEval(MinimaxParameters parms, long hash) {
+//        if (transpositionsHashMap.containsKey(hash)) {
+//            Transposition transposition = transpositionsHashMap.get(hash);
+//            if (transposition.getMaxDepth() >= parms.maxDepth) {
+//                transpositionHits++;
+//                return new Evaluation(transposition.getEvaluation());
+//            }
+//        }
+//        return null;
+//    }
 
     private void sortMoves(ArrayList<Move> list, boolean isMax) {
         Collections.sort(list);

@@ -60,7 +60,7 @@ public class CastlingRights implements Serializable {
     }
 
     private static int getPlayerAndSideIndex(PlayerColor playerColor, Side side) {
-        return playerColor.indexOf2() + side.asInt;
+        return playerColor.indexOf2 + side.asInt;
     }
 
     @Override
@@ -101,7 +101,7 @@ public class CastlingRights implements Serializable {
     }
 
     public byte getPlayersCastling(PlayerColor playerColor) {
-        return (byte) ((rights & RIGHTS[playerColor.indexOf2()]) | rights & RIGHTS[playerColor.indexOf2() + 1]);
+        return (byte) ((rights & RIGHTS[playerColor.indexOf2]) | rights & RIGHTS[playerColor.indexOf2 + 1]);
     }
 
     public enum Side {

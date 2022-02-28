@@ -17,7 +17,8 @@ import ver13.SharedClasses.ui.windows.CloseConfirmationJFrame;
 import ver13.game.Game;
 import ver13.game.GameSession;
 import ver13.players.Player;
-import ver13.players.PlayerAI;
+import ver13.players.PlayerAI.MinimaxVsStockfish;
+import ver13.players.PlayerAI.PlayerAI;
 import ver13.players.PlayerNet;
 
 import javax.swing.*;
@@ -45,6 +46,7 @@ public class Server {
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
+    public static boolean VS_STOCKFISH = false;
 
     static {
         gameIDGenerator = new IDsGenerator() {
@@ -86,7 +88,7 @@ public class Server {
             setAlwaysOnTop(true);
             setTitle(SERVER_WIN_TITLE);
         }};
-        
+
         // create displayArea
         areaLog = new JTextArea() {{
             setEditable(false);
@@ -233,9 +235,9 @@ public class Server {
         System.out.println("**** ChatServer main() finished! ****");
     }
 
-    private void sendAllLists(PlayerNet player, SyncedItems... excludeLists) {
-        ArrayList<SyncedItems> lists = new ArrayList<>();
-        for (SyncedItems syncedList : syncedLists) {
+    private void sendAllLists(PlayerNet player, SyncedItems<?>... excludeLists) {
+        ArrayList<SyncedItems<?>> lists = new ArrayList<>();
+        for (SyncedItems<?> syncedList : syncedLists) {
             if (Arrays.stream(excludeLists).noneMatch(list -> list.equals(syncedList)))
                 lists.add(prepareListForSend(syncedList));
         }
@@ -251,6 +253,9 @@ public class Server {
             frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
 
             serverRunOK = true;
+
+            if (VS_STOCKFISH)
+                minimaxVsStockfish();
 
             // loop while server running OK
             while (serverRunOK) {
@@ -273,8 +278,7 @@ public class Server {
         new Thread(() -> {
             ServerMessagesHandler serverMessagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(serverMessagesHandler);
-//            serverSocket.addClientSocket(playerSocket);
-            playerSocket.startReading();
+            playerSocket.start();
             PlayerNet player = login(playerSocket);
             if (player == null) {
                 playerSocket.stopReading();
@@ -460,6 +464,12 @@ public class Server {
                 .filter(p -> (p).getUsername().equals(username))
                 .findAny()
                 .orElse(null);
+    }
+
+    //DEBUG ONLY
+    public void minimaxVsStockfish() {
+        MinimaxVsStockfish p = new MinimaxVsStockfish(10);
+        gameSetup(p);
     }
 
     public ArrayList<String> createUsernameSuggestions(String username) {

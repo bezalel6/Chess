@@ -11,13 +11,14 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ver3" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver4" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver5" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver6" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver7" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver8" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver9" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver10" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver11" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver12" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver6" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver13" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -47,5 +48,6 @@
     </orderEntry>
     <orderEntry type="library" name="mylibs" level="project" />
     <orderEntry type="library" name="ucanaccess-5.0.1" level="project" />
+    <orderEntry type="library" name="javasysmon-0.3.5.1" level="project" />
   </component>
 </module>
