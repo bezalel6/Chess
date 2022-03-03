@@ -12,13 +12,14 @@ public class ThreadsUtil {
     }
 
     public static double sampleCpuUsage() {
-        JavaSysMon sysMon = new JavaSysMon();
-        CpuTimes cpuTimes = sysMon.cpuTimes();
         try {
+            JavaSysMon sysMon = new JavaSysMon();
+            CpuTimes cpuTimes = sysMon.cpuTimes();
             Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            return sysMon.cpuTimes().getCpuUsage(cpuTimes) * 100;
+        } catch (Error | Exception e) {
+            return -1;
         }
-        return sysMon.cpuTimes().getCpuUsage(cpuTimes) * 100;
+
     }
 }
