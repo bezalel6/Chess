@@ -36,12 +36,10 @@ public class ModelMovesList extends MovesList {
         if (adding == null)
             return false;
 
-//        if (!canMakeMove(adding, movingPiece)) {
-//            return false;
-//        }
+        assert size() < 2000;
         super.add(adding);
 
-        addedMove(adding, movingPiece);
+//        addedMove(adding, movingPiece);
 
         return true;
     }

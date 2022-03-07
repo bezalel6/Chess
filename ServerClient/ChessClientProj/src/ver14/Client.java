@@ -44,8 +44,8 @@ public class Client {
 
     // constatns
     private static final int SERVER_DEFAULT_PORT = 1234;
-    private static final String ilanIP = "192.168.21.239";
-    private static final String ilanAddress = ilanIP + ":" + SERVER_DEFAULT_PORT;
+    private static final String teacherIP = "192.168.21.239";
+    private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
     private final ArrayList<Dialog> displayedDialogs;
     // for GUI
     private View view;
@@ -78,10 +78,10 @@ public class Client {
             serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
 
             // get Server Address from user
-            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"ilan\"", serverIP + " : " + serverPort);
+            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort);
 
-            if (serverAddress != null && serverAddress.equalsIgnoreCase("ilan")) {
-                serverAddress = ilanAddress;
+            if (serverAddress != null && serverAddress.equalsIgnoreCase("teacher")) {
+                serverAddress = teacherAddress;
             }
             // check if Cancel button was pressed
             if (serverAddress == null) {

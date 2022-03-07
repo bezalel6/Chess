@@ -13,6 +13,7 @@ import ver14.SharedClasses.evaluation.Evaluation;
 import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.moves.MovesList;
 import ver14.SharedClasses.pieces.PieceType;
+import ver14.game.Game;
 
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
@@ -29,28 +30,27 @@ public class Tests {
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
-    //    private static final int numOfThreads = 6;
     private static final int numOfThreads = Runtime.getRuntime().availableProcessors();
 
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
-        printNumOfPositions();
+//        printNumOfPositions();
 //        minimax(15);
 //        isInCheck();
-//        minimaxVsStockfish();
+        minimaxVsStockfish();
     }
 
     private static void minimaxVsStockfish() {
         Server server = new Server();
         Server.VS_STOCKFISH = true;
+        Game.showGameView = true;
         server.runServer();
     }
 
     @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
     public static void printNumOfPositions() {
-        Model model = new Model();
-        model.setup(null);
+        Model model = model();
         Stockfish stockfish = new Stockfish();
         for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
             long res, time = 0;
@@ -83,20 +83,21 @@ public class Tests {
             minimax.setNumOfThreads(threads);
             Move move = minimax.getBestMove();
 
-            ArrayList<Double> cpuUsage = minimax.getCpuUsageRecords();
-            Collections.sort(cpuUsage);
-            Collections.reverse(cpuUsage);
-            assert cpuUsage.size() > 0;
-            double avg = cpuUsage.stream().reduce(0.0, Double::sum) / cpuUsage.size();
-            double max = cpuUsage.get(0);
+            Minimax.CpuUsages cpuUsage = minimax.getCpuUsageRecords();
+            ArrayList<Double> usages = cpuUsage.getUsages();
+            Collections.sort(usages);
+            Collections.reverse(usages);
+            assert usages.size() > 0;
+            double avg = usages.stream().reduce(0.0, Double::sum) / usages.size();
+            double max = usages.get(0);
             double padding = 15;
             int index = 0;
             int numOfMatchesForConsistent = 2;
             int numFound = 0;
             double consistentMax = -1;
-            while (index + 1 < cpuUsage.size() - 1) {
-                double checking = cpuUsage.get(index++);
-                double next = cpuUsage.get(index);
+            while (index + 1 < usages.size() - 1) {
+                double checking = usages.get(index++);
+                double next = usages.get(index);
                 if (next > checking - padding && next < checking + padding) {
                     numFound++;
                     if (numFound >= numOfMatchesForConsistent) {
@@ -107,13 +108,13 @@ public class Tests {
             }
             System.out.println("Minimax = \n" + move);
             System.out.printf("\n%d:%d threads\navg: %f max: %f consistent max: %s\n", threads, numOfThreads, avg, max, consistentMax != -1 ? consistentMax : "n/a");
-            System.out.println(cpuUsage);
+            System.out.println(usages);
         }
         minimax.end();
 
     }
 
-    private static Model create() {
+    private static Model model() {
         return new Model() {{
             setup(null);
         }};

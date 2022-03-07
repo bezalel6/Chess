@@ -48,6 +48,20 @@
     </orderEntry>
     <orderEntry type="library" name="mylibs" level="project" />
     <orderEntry type="library" name="ucanaccess-5.0.1" level="project" />
-    <orderEntry type="library" name="javasysmon-0.3.5.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="testng">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/libs/testng-7.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/jcommander-1.72.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/guice-4.1.0-no_aop.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/javax.inject-1.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/aopalliance-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/guava-19.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/libs/snakeyaml-1.21.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

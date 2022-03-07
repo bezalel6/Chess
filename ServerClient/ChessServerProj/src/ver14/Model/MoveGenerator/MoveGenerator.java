@@ -114,7 +114,6 @@ public class MoveGenerator {
         for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
             Location pawnLoc = setLocs.get(i);
             int promotionRow = movingPlayerColor.getOpponent().startingRow;
-            //todo stop creating 10000 lists!
 //            ModelMovesList currentPawnMoves = new ModelMovesList(this, generationSettings);
             int startingIndex = generatedMoves.size();
             boolean promoting = pawnLoc.row + mult == promotionRow;
@@ -140,7 +139,7 @@ public class MoveGenerator {
             generatedMoves.add(checkPawnCapture(pawnLoc, Location.getLoc(pawnLoc, 7 * mult)), PieceType.PAWN);
 
             if (promoting) {
-                for (int j = startingIndex; j < generatedMoves.size(); j++) {
+                for (int j = startingIndex, size = generatedMoves.size(); j < size; j++) {
                     Move move = generatedMoves.get(j);
                     boolean set = false;
                     for (PieceType pieceType : PieceType.CAN_PROMOTE_TO) {

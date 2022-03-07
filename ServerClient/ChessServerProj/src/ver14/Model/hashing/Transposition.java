@@ -1,7 +1,7 @@
 package ver14.Model.hashing;
 
 
-import ver14.Model.minimax.Minimax;
+import ver14.Model.minimax.MinimaxParameters;
 import ver14.SharedClasses.PlayerColor;
 import ver14.SharedClasses.evaluation.Evaluation;
 
@@ -10,7 +10,7 @@ public class Transposition {
     private final PlayerColor playerColor;
     private Evaluation evaluation;
 
-    public Transposition(Minimax.MinimaxParameters parms, Evaluation evaluation) {
+    public Transposition(MinimaxParameters parms, Evaluation evaluation) {
         this.maxDepth = parms.getMaxDepth();
         this.playerColor = parms.getMinimaxPlayer();
         this.evaluation = new Evaluation(evaluation);

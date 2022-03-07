@@ -25,11 +25,11 @@ public class Minimax {
     private final int scanTime;
     private final int scanTimeFlexibility;
     private final MinimaxView minimaxUI;
-    private final ArrayList<Double> cpuUsageRecords;
+    private final CpuUsages cpuUsageRecords;
     private final Timer minimaxTimer;
     private Model model;
     private boolean log = false;
-    private int numOfThreads = 12;
+    private int numOfThreads = 8;
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
     private long leavesReached;
@@ -59,7 +59,7 @@ public class Minimax {
         } else {
             minimaxTimer = null;
         }
-        cpuUsageRecords = new ArrayList<>();
+        cpuUsageRecords = new CpuUsages();
     }
 
 
@@ -160,9 +160,10 @@ public class Minimax {
             MinimaxMove minimaxMove = minimaxRoot(model, currentDepth);
 
             if (recordCpuUsage) {
+                int finalCurrentDepth = currentDepth;
                 new Thread(() -> {
                     double usage = ThreadsUtil.sampleCpuUsage();
-                    cpuUsageRecords.add(usage);
+                    cpuUsageRecords.add(usage, finalCurrentDepth);
                     minimaxUI.setCpuUsage(usage);
                 }).start();
             }
@@ -238,11 +239,6 @@ public class Minimax {
             });
 
         });
-        endMultithreadedMinimax();
-        return evals;
-    }
-
-    private void endMultithreadedMinimax() {
         threadPool.shutdown();
         try {
             if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
@@ -250,6 +246,7 @@ public class Minimax {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return evals;
     }
 
     private Evaluation minimax(MinimaxParameters parms) {
@@ -262,9 +259,7 @@ public class Minimax {
             return evaluation;
         }
 
-        Evaluation bestEval = executeMovesMinimax(parms);
-
-        return bestEval;
+        return executeMovesMinimax(parms);
     }
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
@@ -290,13 +285,7 @@ public class Minimax {
                 bestEval = eval;
             }
 
-            if (parms.isMax) {
-                parms.a = Math.max(parms.a, bestEval.getEval());
-            } else {
-                parms.b = Math.min(parms.b, bestEval.getEval());
-            }
-            if (parms.b <= parms.a) {
-//                branchesPruned++;
+            if (parms.prune(bestEval)) {
                 break;
             }
 
@@ -305,9 +294,16 @@ public class Minimax {
         return bestEval;
     }
 
-    public ArrayList<Double> getCpuUsageRecords() {
+    public CpuUsages getCpuUsageRecords() {
         return cpuUsageRecords;
     }
+
+    private void sortMoves(ArrayList<Move> list, boolean isMax) {
+        Collections.sort(list);
+        if (isMax)
+            Collections.reverse(list);
+    }
+
 //    private Evaluation getTranspositionEval(MinimaxParameters parms, long hash) {
 //        if (transpositionsHashMap.containsKey(hash)) {
 //            Transposition transposition = transpositionsHashMap.get(hash);
@@ -319,70 +315,35 @@ public class Minimax {
 //        return null;
 //    }
 
-    private void sortMoves(ArrayList<Move> list, boolean isMax) {
-        Collections.sort(list);
-        if (isMax)
-            Collections.reverse(list);
-    }
-
     private boolean isOvertime() {
         return getElapsed(ChronoUnit.SECONDS) > scanTime + scanTimeFlexibility;
     }
 
-    public static class MinimaxParameters {
-        private final Model model;
-        private final boolean isMax;
-        private final PlayerColor minimaxPlayerColor;
-        private final int currentDepth, maxDepth;
-        private final Move rootMove;
-        private double a, b;
+    public static class CpuUsages {
+        private final ArrayList<Double> usages;
+        private final ArrayList<Integer> depths;
 
-        public MinimaxParameters(Model model, boolean isMax, int maxDepth, PlayerColor minimaxPlayerColor, Move rootMove) {
-            this(model, isMax, 1, maxDepth, minimaxPlayerColor, -Evaluation.WIN_EVAL, Evaluation.WIN_EVAL, rootMove);
+        public CpuUsages() {
+            depths = new ArrayList<>();
+            usages = new ArrayList<>();
         }
 
-        public MinimaxParameters(Model model, boolean isMax, int currentDepth, int maxDepth, PlayerColor minimaxPlayerColor, double a, double b, Move rootMove) {
-            this.model = model;
-            this.isMax = isMax;
-            this.maxDepth = maxDepth;
-            this.minimaxPlayerColor = minimaxPlayerColor;
-            this.currentDepth = currentDepth;
-            this.a = a;
-            this.b = b;
-            this.rootMove = rootMove;
-
+        public void add(double usage, int depth) {
+            usages.add(usage);
+            depths.add(depth);
         }
 
-        public Model getBoard() {
-            return model;
+        public ArrayList<Double> getUsages() {
+            return usages;
         }
 
-        public boolean isMax() {
-            return isMax;
+        public ArrayList<Integer> getDepths() {
+            return depths;
         }
 
-        public PlayerColor getMinimaxPlayer() {
-            return minimaxPlayerColor;
-        }
-
-        public int getCurrentDepth() {
-            return currentDepth;
-        }
-
-        public int getMaxDepth() {
-            return maxDepth;
-        }
-
-        public double getA() {
-            return a;
-        }
-
-        public double getB() {
-            return b;
-        }
-
-        public MinimaxParameters nextDepth() {
-            return new MinimaxParameters(model, !isMax, currentDepth + 1, maxDepth, minimaxPlayerColor, a, b, rootMove);
+        public void clear() {
+            usages.clear();
+            depths.clear();
         }
     }
 }

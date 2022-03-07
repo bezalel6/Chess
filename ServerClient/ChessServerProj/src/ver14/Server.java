@@ -472,6 +472,7 @@ public class Server {
     }
 
     public ArrayList<String> createUsernameSuggestions(String username) {
+        
         return UsernameSuggestions.createSuggestions(username);
     }
 }

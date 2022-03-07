@@ -26,7 +26,7 @@ import java.util.Stack;
 public class Game {
     public static final int ROWS = 8;
     public static final int COLS = 8;
-    private final static boolean showGameView = false;
+    public static boolean showGameView = false;
     private final GameSession session;
     private final GameView gameView;
     private final Player gameCreator, p2;
