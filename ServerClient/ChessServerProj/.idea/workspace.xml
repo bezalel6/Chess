@@ -806,6 +806,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JavaSysMon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jezhumble.javasysmon.JavaSysMon" />
+      <module name="ChessServerProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jezhumble.javasysmon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ver12.Server" />
       <module name="ChessServerProj" />
@@ -857,50 +871,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.printNumOfPositions" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <shortenClasspath name="NONE" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
-      <option name="METHOD_NAME" value="printNumOfPositions" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Stockfish" />
-      <item itemvalue="TestNG.Tests" />
-      <item itemvalue="TestNG.Tests.printNumOfPositions" />
       <item itemvalue="Application.DB" />
       <item itemvalue="Application.FEN" />
       <item itemvalue="Application.Tests" />
+      <item itemvalue="Application.JavaSysMon" />
+      <item itemvalue="TestNG.Tests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Tests" />
+        <item itemvalue="Application.JavaSysMon" />
         <item itemvalue="Application.FEN" />
         <item itemvalue="Application.DB" />
         <item itemvalue="Application.Stockfish" />
-        <item itemvalue="TestNG.Tests.printNumOfPositions" />
       </list>
     </recent_temporary>
   </component>

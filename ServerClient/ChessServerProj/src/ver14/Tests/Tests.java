@@ -35,11 +35,41 @@ public class Tests {
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
-//        System.out.println(Location.E1.row);
-//        printNumOfPositions();
-        minimax(15);
+        printNumOfPositions();
+//        minimax(15);
 //        isInCheck();
 //        minimaxVsStockfish();
+    }
+
+    private static void minimaxVsStockfish() {
+        Server server = new Server();
+        Server.VS_STOCKFISH = true;
+        server.runServer();
+    }
+
+    @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
+    public static void printNumOfPositions() {
+        Model model = new Model();
+        model.setup(null);
+        Stockfish stockfish = new Stockfish();
+        for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
+            long res, time = 0;
+            startTime();
+            res = countPositions(depth, model, MULTITHREADING_POS);
+            long st = stockfish.perft(depth);
+            Assert.assertEquals(st, res);
+            time += stopTime();
+            System.out.println("Depth: " + depth + " Result: " + res + " positions Time: " + time + " milliseconds");
+        }
+        stockfish.stopEngine();
+    }
+
+    public static void startTime() {
+        dateTime = ZonedDateTime.now();
+    }
+
+    private static void minimax() {
+        minimax(10);
     }
 
     private static void minimax(int time) {
@@ -81,37 +111,6 @@ public class Tests {
         }
         minimax.end();
 
-    }
-
-    private static void minimaxVsStockfish() {
-        Server server = new Server();
-        Server.VS_STOCKFISH = true;
-        server.runServer();
-    }
-
-    @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
-    public static void printNumOfPositions() {
-        Model model = new Model();
-        model.setup(null);
-        Stockfish stockfish = new Stockfish();
-        for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
-            long res, time = 0;
-            startTime();
-            res = countPositions(depth, model, MULTITHREADING_POS);
-            long st = stockfish.perft(depth);
-            Assert.assertEquals(st, res);
-            time += stopTime();
-            System.out.println("Depth: " + depth + " Result: " + res + " positions Time: " + time + " milliseconds");
-        }
-        stockfish.stopEngine();
-    }
-
-    public static void startTime() {
-        dateTime = ZonedDateTime.now();
-    }
-
-    private static void minimax() {
-        minimax(10);
     }
 
     private static Model create() {

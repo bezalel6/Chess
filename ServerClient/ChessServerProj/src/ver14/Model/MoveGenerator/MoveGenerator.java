@@ -207,7 +207,7 @@ public class MoveGenerator {
                 if (castlingRights.isEnabled(movingPlayerColor, side)) {
                     int rookCol = side.rookStartingCol;
                     int diff = kingLoc.col - rookCol;
-                    int multBySide = side == CastlingRights.Side.KING ? 1 : -1;
+                    int multBySide = side.mult;
                     int addToKingLoc = 2 * multBySide;
                     Location kingFinalLoc = Location.getLoc(kingLoc, addToKingLoc);
                     boolean add = true;
