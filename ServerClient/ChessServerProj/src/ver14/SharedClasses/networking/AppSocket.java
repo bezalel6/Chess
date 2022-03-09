@@ -1,6 +1,7 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.ErrorHandler;
 import ver14.SharedClasses.messages.Message;
 
 import java.io.IOException;
@@ -15,7 +16,6 @@ import java.net.SocketException;
  * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
  */
 public class AppSocket extends Thread {
-    private final static boolean logErrs = true;
     protected final Socket msgSocket;           // Message socket
     private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
     private final ObjectInputStream msgIS;    // Input stream to GET Messages
@@ -39,19 +39,17 @@ public class AppSocket extends Thread {
         assert messagesHandler != null;
         messagesHandler.noBlockRequest(requestMsg, onRes);
     }
-    
+
     @Override
     public void run() {
         assert messagesHandler != null;
         keepReading = true;
         while (keepReading) {
-            Message msg;
+            Message msg = null;
             try {
                 msg = (Message) msgIS.readObject();
-            } catch (Exception ex) {
-                if (!(ex instanceof SocketException) || logErrs)
-                    ex.printStackTrace();
-                msg = null;
+            } catch (Exception | Error ex) {
+                ErrorHandler.thrown(ex, !(ex instanceof SocketException));
             }
             messagesHandler.receivedMessage(msg);
         }
@@ -75,8 +73,7 @@ public class AppSocket extends Thread {
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception ex) {
-            if (logErrs)
-                ex.printStackTrace();
+            ErrorHandler.thrown(ex);
         }
     }
 
@@ -88,7 +85,7 @@ public class AppSocket extends Thread {
             keepReading = false;
             msgSocket.close();  // will close the IS & OS streams
         } catch (Exception e) {
-            e.printStackTrace();
+            ErrorHandler.thrown(e);
         }
     }
 

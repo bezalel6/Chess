@@ -67,8 +67,8 @@ public class GameIconsGenerator {
             for (Square square : board) {
                 Location loc = square.getLoc();
                 if (boardOrientation != PlayerColor.WHITE) {
-                    int r = Location.getFlipped(loc.row);
-                    int c = Location.getFlipped(loc.col);
+                    int r = Location.flip(loc.row);
+                    int c = Location.flip(loc.col);
                     loc = Location.getLoc(r, c);
                 }
                 int x = loc.col * squareSize.width;

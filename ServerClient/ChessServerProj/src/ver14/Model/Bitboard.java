@@ -14,6 +14,7 @@ public class Bitboard implements Serializable {
     private long lastSet;
     private LocsList setLocs = null;
     private VoidCallback onSet;
+    private Location lastSetLoc;
 
     /**
      * creates an empty bitboard and sets loc to true
@@ -32,8 +33,10 @@ public class Bitboard implements Serializable {
     public void set(Location loc, boolean state) {
         if (state) {
             bitBoard |= loc.asLong;
+            lastSetLoc = loc;
         } else {
             bitBoard &= ~loc.asLong;
+            lastSetLoc = null;
         }
         if (onSet != null)
             onSet.callback();
@@ -126,6 +129,10 @@ public class Bitboard implements Serializable {
         return new Bitboard().shiftMe(playerColor, direction);
     }
 
+    public Location getLastSetLoc() {
+        return lastSetLoc;
+    }
+
     public LocsList getSetLocs() {
         if (lastSet != bitBoard || setLocs == null)
             setSetLocs();
@@ -141,6 +148,7 @@ public class Bitboard implements Serializable {
             if ((num & 1) != 0) {
                 Location loc = Location.getLoc(position - 1);
                 setLocs.add(loc);
+                lastSetLoc = loc;
             }
             position++;
             num = num >>> 1;
@@ -226,7 +234,7 @@ public class Bitboard implements Serializable {
      */
     public Bitboard andEqual(long l) {
         bitBoard &= l;
-
+        lastSetLoc = null;
         return this;
     }
 

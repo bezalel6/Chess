@@ -1,7 +1,6 @@
 package ver14.Model.MoveGenerator;
 
 import ver14.Model.*;
-import ver14.Model.hashing.Zobrist;
 import ver14.SharedClasses.Location;
 import ver14.SharedClasses.PlayerColor;
 import ver14.SharedClasses.board_setup.Board;
@@ -81,7 +80,7 @@ public class MoveGenerator {
     private ModelMovesList generatedMoves;
 
     private MoveGenerator(Model model, GenerationSettings generationSettings) {
-        long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
+//        long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
 //        if (moveGenerationHashMap.containsKey(hash)) {
 //            generatedMoves = moveGenerationHashMap.get(hash);
 //            return;
@@ -184,7 +183,7 @@ public class MoveGenerator {
     }
 
     public void generateKingMoves() {
-        Location kingLoc = myPieces.getBB(PieceType.KING).getSetLocs().get(0);
+        Location kingLoc = myPieces.getBB(PieceType.KING).getLastSetLoc();
         if (kingLoc == null)
             return;
         for (Location movingTo : kingMoves[kingLoc.asInt]) {
@@ -201,27 +200,22 @@ public class MoveGenerator {
 
         }
         CastlingRights castlingRights = model.getCastlingRights();
-        if (castlingRights.hasAny(movingPlayerColor))
-            for (CastlingRights.Side side : CastlingRights.Side.SIDES) {
+        if (castlingRights.hasAny(movingPlayerColor)) {
+            CastlingRights.Side[] sides = CastlingRights.Side.SIDES;
+            sides:
+            for (int j = 0, sidesLength = sides.length; j < sidesLength; j++) {
+                CastlingRights.Side side = sides[j];
                 if (castlingRights.isEnabled(movingPlayerColor, side)) {
-                    int rookCol = side.rookStartingCol;
-                    int diff = kingLoc.col - rookCol;
-                    int multBySide = side.mult;
-                    int addToKingLoc = 2 * multBySide;
-                    Location kingFinalLoc = Location.getLoc(kingLoc, addToKingLoc);
-                    boolean add = true;
-                    for (int i = 1; i <= Math.abs(diff) - 1; i++) {
-                        Location testingLoc = Location.getLoc(kingLoc, i * multBySide);
+                    for (int i = 1; i <= side.kingTravelDistance; i++) {
+                        Location testingLoc = Location.getLoc(kingLoc, i * side.mult);
                         if (testingLoc == null || !model.isSquareEmpty(testingLoc)) {
-                            add = false;
-                            break;
+                            continue sides;
                         }
                     }
-                    if (add) {
-                        generatedMoves.add(Move.castling(kingLoc, kingFinalLoc, side), PieceType.KING);
-                    }
+                    generatedMoves.add(Move.castling(kingLoc, side.kingFinalLoc(kingLoc), side), PieceType.KING);
                 }
             }
+        }
     }
 
     public void legalize() {
@@ -289,9 +283,11 @@ public class MoveGenerator {
         if (model.isInCheck(movingPlayerColor))
             return false;
 
-        int mult = castling.getMoveFlag().castlingSide.mult;
+        CastlingRights.Side side = castling.getMoveFlag().castlingSide;
 
-        for (int i = 1; i <= 2; i++) {
+        int mult = side.mult;
+
+        for (int i = 1; i <= side.kingTravelDistance; i++) {
             if (model.isThreatened(Location.getLoc(castling.getMovingFrom(), i * mult), movingPlayerColor.getOpponent())) {
                 return false;
             }

@@ -59,7 +59,7 @@ public class Board implements Iterable<Square>, Serializable {
             int col = 0;
             for (char currentChar : row.toCharArray()) {
                 if (Character.isLetter(currentChar)) {
-                    Location currentLoc = Location.getLoc(rowIndex, col).getFlipped();
+                    Location currentLoc = Location.getLoc(rowIndex, col).flip();
                     Piece piece = Piece.getPieceFromFen(currentChar);
                     setPiece(currentLoc, piece);
 

@@ -132,11 +132,6 @@ public class StrUtils {
         return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 200), str);
     }
 
-//    public static String wrapInHtml(String str) {
-//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
-////        return str;
-//    }
-
     //todo make recursive
     public static String createTimeStr(long millis) {
         long h = TimeUnit.MILLISECONDS.toHours(millis);
@@ -155,6 +150,11 @@ public class StrUtils {
 
         return hours + minutes + seconds + micros;
     }
+
+//    public static String wrapInHtml(String str) {
+//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
+////        return str;
+//    }
 
     public static String wrapInHtml(String str) {
         return str;
@@ -218,6 +218,14 @@ public class StrUtils {
         return prefixToWord(str, RegEx.Prefixes.DATE_TIME);
     }
 
+    public static String repeat(IterationThingy<String> iterationThingy, int numOfIterations) {
+        StringBuilder bldr = new StringBuilder();
+        for (int i = 0; i < numOfIterations; i++) {
+            bldr.append(iterationThingy.iteration(i, i == numOfIterations - 1));
+        }
+        return bldr.toString();
+    }
+
     enum TimeRange {
         Night(23, 6),
         EarlyMorning(6, 10),
@@ -254,5 +262,10 @@ public class StrUtils {
         public boolean isBetween(int hour) {
             return hour >= start && hour < end;
         }
+    }
+
+    public interface IterationThingy<T> {
+        T iteration(int i, boolean isLast);
+
     }
 }

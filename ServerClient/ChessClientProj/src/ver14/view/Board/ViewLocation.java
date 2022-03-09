@@ -8,6 +8,8 @@ public class ViewLocation {
 
     public ViewLocation(Location originalLocation) {
         this.originalLocation = originalLocation;
-        this.viewLocation = Location.getLoc(Location.getFlipped(originalLocation.row), Location.getFlipped(originalLocation.col));
+//        this.viewLocation = originalLocation.flip();
+//        this.viewLocation = Location.getLoc(Location.flip(originalLocation.row), Location.flip(originalLocation.col));
+        this.viewLocation = originalLocation;
     }
 }

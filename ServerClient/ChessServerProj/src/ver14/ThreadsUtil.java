@@ -5,7 +5,7 @@ import com.jezhumble.javasysmon.JavaSysMon;
 
 public class ThreadsUtil {
     public static final int NUM_OF_THREADS = Runtime.getRuntime().availableProcessors();
-
+//    public static final int
 
     public static void main(String[] args) {
         System.out.println(sampleCpuUsage() + "%");

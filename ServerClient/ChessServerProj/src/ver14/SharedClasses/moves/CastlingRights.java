@@ -3,8 +3,10 @@ package ver14.SharedClasses.moves;
 
 import ver14.SharedClasses.Location;
 import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class CastlingRights implements Serializable {
@@ -69,6 +71,9 @@ public class CastlingRights implements Serializable {
         return playerColor.indexOf2 + side.asInt;
     }
 
+    public static void main(String[] args) {
+
+    }
 
     @Override
     public String toString() {
@@ -127,22 +132,51 @@ public class CastlingRights implements Serializable {
     }
 
     public enum Side {
-        KING(Location.H1.col, Location.F1.col, "O-O", 1),
-        QUEEN(Location.A1.col, Location.D1.col, "O-O-O", -1);
+        KING(Location.G1.col, Location.H1.col, Location.F1.col),
+        QUEEN(Location.C1.col, Location.A1.col, Location.D1.col);
 
         public static final Side[] SIDES = {KING, QUEEN};
         public final int rookStartingCol;
         public final int castledRookCol;
+        public final int castledKingCol;
+        public final int kingTravelDistance;
         public final String castlingNotation;
         public final int asInt;
+        //King Movement Direction Mult
         public final int mult;
 
-        Side(int rookStartingCol, int castledRookCol, String castlingNotation, int mult) {
+        Side(int castledKingCol, int rookStartingCol, int castledRookCol) {
             this.rookStartingCol = rookStartingCol;
             this.castledRookCol = castledRookCol;
-            this.castlingNotation = castlingNotation;
-            this.mult = mult;
+            this.castledKingCol = castledKingCol;
+
+            this.mult = Integer.compare(Location.KING_STARTING_COL, castledKingCol);
+//            always 2 🤡 technically more dynamic
+            this.kingTravelDistance = Math.abs(Location.KING_STARTING_COL - castledKingCol);
+            this.castlingNotation = StrUtils.repeat((i, isLast) -> "O" + (isLast ? "" : "-"), Math.abs(Location.KING_STARTING_COL - rookStartingCol) - 1);
             this.asInt = ordinal();
         }
+
+        public static void main(String[] args) {
+            Arrays.stream(values()).forEach(System.out::println);
+        }
+
+        @Override
+        public String toString() {
+            return name() + "{" +
+                    "rookStartingCol=" + rookStartingCol +
+                    ", castledRookCol=" + castledRookCol +
+                    ", castledKingCol=" + castledKingCol +
+                    ", kingTravelDistance=" + kingTravelDistance +
+                    ", castlingNotation='" + castlingNotation + '\'' +
+                    ", asInt=" + asInt +
+                    ", mult=" + mult +
+                    '}';
+        }
+
+        public Location kingFinalLoc(Location currentKingLoc) {
+            return Location.getLoc(currentKingLoc, kingTravelDistance * mult);
+        }
+
     }
 }

@@ -143,36 +143,16 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Tests">
-    <configuration name="DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.DB.DB" />
+    <configuration name="CastlingRights$Side" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.moves.CastlingRights$Side" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.DB.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FEN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.Model.FEN" />
-      <module name="ChessServerProj" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaSysMon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jezhumble.javasysmon.JavaSysMon" />
+    <configuration name="CastlingRights" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.moves.CastlingRights" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
@@ -227,22 +207,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.positionsCountRoot" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ChessServerProj" />
+      <option name="PACKAGE_NAME" value="ver14.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
+      <option name="METHOD_NAME" value="positionsCountRoot" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.DB" />
-      <item itemvalue="Application.FEN" />
       <item itemvalue="Application.Tests" />
-      <item itemvalue="Application.JavaSysMon" />
       <item itemvalue="Application.ThreadsUtil" />
       <item itemvalue="TestNG.Tests" />
+      <item itemvalue="TestNG.Tests.positionsCountRoot" />
+      <item itemvalue="Application.CastlingRights" />
+      <item itemvalue="Application.CastlingRights$Side" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Tests" />
+        <item itemvalue="Application.CastlingRights$Side" />
+        <item itemvalue="Application.CastlingRights" />
+        <item itemvalue="TestNG.Tests.positionsCountRoot" />
         <item itemvalue="Application.ThreadsUtil" />
-        <item itemvalue="Application.JavaSysMon" />
-        <item itemvalue="Application.FEN" />
-        <item itemvalue="Application.DB" />
       </list>
     </recent_temporary>
   </component>
@@ -365,6 +357,7 @@
       </configuration>
       <configuration name="Application">
         <watch expression="print();" language="JAVA" />
+        <watch expression="board.print();" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

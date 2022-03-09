@@ -13,6 +13,7 @@ import ver14.SharedClasses.evaluation.Evaluation;
 import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.moves.MovesList;
 import ver14.SharedClasses.pieces.PieceType;
+import ver14.ThreadsUtil;
 import ver14.game.Game;
 
 import java.time.ZonedDateTime;
@@ -27,18 +28,18 @@ import java.util.stream.IntStream;
 
 @Test
 public class Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 5;
-    private static final boolean PRINT_POSITIONS_MOVES = false;
+    private static final int POSITIONS_COUNT_DEPTH = 6;
+    private static final boolean PRINT_POSITIONS_MOVES = true;
     private static final boolean MULTITHREADING_POS = true;
-    private static final int numOfThreads = Runtime.getRuntime().availableProcessors();
-
+    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS / 2;
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
 //        printNumOfPositions();
-//        minimax(15);
-//        isInCheck();
+//        minimaxThreadsTest();
         minimaxVsStockfish();
+//        isInCheck();
+//        minimaxVsStockfish();
     }
 
     private static void minimaxVsStockfish() {
@@ -48,31 +49,11 @@ public class Tests {
         server.runServer();
     }
 
-    @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
-    public static void printNumOfPositions() {
-        Model model = model();
-        Stockfish stockfish = new Stockfish();
-        for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
-            long res, time = 0;
-            startTime();
-            res = countPositions(depth, model, MULTITHREADING_POS);
-            long st = stockfish.perft(depth);
-            Assert.assertEquals(st, res);
-            time += stopTime();
-            System.out.println("Depth: " + depth + " Result: " + res + " positions Time: " + time + " milliseconds");
-        }
-        stockfish.stopEngine();
+    private static void minimaxThreadsTest() {
+        minimaxThreadsTest(10);
     }
 
-    public static void startTime() {
-        dateTime = ZonedDateTime.now();
-    }
-
-    private static void minimax() {
-        minimax(10);
-    }
-
-    private static void minimax(int time) {
+    private static void minimaxThreadsTest(int time) {
         Minimax minimax = new Minimax(null, time);
         minimax.setRecordCpuUsage(true);
         minimax.setLog(false);
@@ -112,6 +93,33 @@ public class Tests {
         }
         minimax.end();
 
+    }
+
+    @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
+    public static void printNumOfPositions() {
+        Model model = model();
+        Stockfish stockfish = new Stockfish();
+        for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
+            long res, time = 0;
+            startTime();
+            res = countPositions(depth, model, MULTITHREADING_POS);
+            long st = stockfish.perft(depth);
+            Assert.assertEquals(st, res);
+            time += stopTime();
+            System.out.println("Depth: " + depth + " Result: " + res + " positions Time: " + time + " milliseconds");
+        }
+        stockfish.stopEngine();
+    }
+
+    //
+//    @Test(testName = "")
+//    private static void positionsCountRoot(int depth) {
+//
+//        Assert.assertEquals(1, 2, "");
+//    }
+    @Test(enabled = false)
+    public static void startTime() {
+        dateTime = ZonedDateTime.now();
     }
 
     private static Model model() {

@@ -21,11 +21,12 @@ public enum Location {
     public static final ArrayList<Location> ALL_LOCS;
     public static final int NUM_OF_SQUARES = 64;
 
+    public static final int KING_STARTING_COL = E1.col;
 
     public static final int WHITE_DIFF = 1;
     public static final int BLACK_DIFF = -WHITE_DIFF;
-    public static final int WHITE_STARTING_ROW = E1.row;
-    public static final int BLACK_STARTING_ROW = E8.row;
+    public static final int WHITE_STARTING_ROW = E8.row;
+    public static final int BLACK_STARTING_ROW = flip(WHITE_STARTING_ROW);
 
 
     private static final Map<Integer, Location> map = new HashMap<>();
@@ -45,16 +46,23 @@ public enum Location {
     public final int asInt;
     public final int row;
     public final int col;
+//    public final int matRow
 
     Location() {
-        this.row = row(this);
-        this.col = col(this);
+        int matRow = row(this);
+        this.row = flip(row(this));
+        this.col = flip(col(this));
+//        this.col = flip(col(this));
         this.asInt = this.row * 8 + this.col;
         this.asLong = 1L << this.asInt;
     }
 
     private static int row(Location loc) {
         return loc.ordinal() >> 3;
+    }
+
+    public static int flip(int num) {
+        return Math.abs(num - 7);
     }
 
     private static int col(Location loc) {
@@ -111,17 +119,13 @@ public enum Location {
         if (row > 8 || row < 0 || col > 8 || col < 0)
             return null;
         if (flip) {
-            row = getFlipped(row);
-//            col = getFlipped(col);
+            row = flip(row);
+            col = flip(col);
         }
         return valueOf(row * 8 + col);
     }
 
-    public static int getFlipped(int num) {
-        return Math.abs(num - 7);
-    }
-
-    public Location getFlipped() {
+    public Location flip() {
         return getLoc(row, col, true);
     }
 
@@ -136,7 +140,7 @@ public enum Location {
     }
 
     public String getColString() {
-        return Character.toString((char) (col + 'a'));
+        return Character.toString((char) (flip(col) + 'a'));
     }
 
     public String getRowString() {
