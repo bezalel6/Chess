@@ -28,8 +28,8 @@ import java.util.stream.IntStream;
 
 @Test
 public class Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 6;
-    private static final boolean PRINT_POSITIONS_MOVES = true;
+    private static final int POSITIONS_COUNT_DEPTH = 5;
+    private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
     private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS / 2;
     private static ZonedDateTime dateTime;

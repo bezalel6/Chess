@@ -30,8 +30,8 @@ public class Game {
     private final GameSession session;
     private final GameView gameView;
     private final Player gameCreator, p2;
-    private final Model model;
     private final GameSettings originalSettings;
+    private Model model;
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
     private GameTime gameTime;
@@ -43,12 +43,12 @@ public class Game {
     private boolean clearMoveStack = true;
 
     public Game(Player gameCreator, Player p2, GameSettings gameSettings, GameSession session) {
-        this.moveStack = new Stack<>();
         this.session = session;
         this.gameCreator = gameCreator;
         this.p2 = p2;
         this.gameView = new GameView(showGameView);
         this.originalSettings = new GameSettings(gameSettings);
+        this.moveStack = new Stack<>();
         this.model = new Model();
         setPartners();
     }
@@ -87,6 +87,8 @@ public class Game {
     }
 
     public GameStatus startNewGame() {
+        this.moveStack = new Stack<>();
+        this.model = new Model();
         disconnectedPlayer = null;
         resignedPlayer = null;
         initGame();

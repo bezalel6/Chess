@@ -16,7 +16,7 @@ public class ErrorHandler {
         if (logErrs)
             error.printStackTrace();
         if (throwErrs || hardThrow)
-            throw new RuntimeException(error);
+            throw new Error(error);
         if (exitOnErr)
             System.exit(69);
     }
