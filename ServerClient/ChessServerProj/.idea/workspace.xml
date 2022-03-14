@@ -220,13 +220,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.CastlingRights$Side" />
+      <item itemvalue="Application.CastlingRights" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Tests" />
       <item itemvalue="Application.ThreadsUtil" />
-      <item itemvalue="TestNG.Tests" />
       <item itemvalue="TestNG.Tests.positionsCountRoot" />
-      <item itemvalue="Application.CastlingRights" />
-      <item itemvalue="Application.CastlingRights$Side" />
+      <item itemvalue="TestNG.Tests" />
     </list>
     <recent_temporary>
       <list>
