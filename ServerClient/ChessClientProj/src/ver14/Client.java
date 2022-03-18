@@ -32,7 +32,6 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
 import ver14.view.IconManager.IconManager;
 import ver14.view.View;
 
-import javax.swing.*;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -112,7 +111,7 @@ public class Client {
         } catch (Exception exp) {
             clientSetupOK = false;
             String serverAddress = serverIP + ":" + serverPort;
-            log("Client can't connect to Server(" + serverAddress + ")", exp, view.getWin());
+            log("Client can't connect to Server(" + serverAddress + ")", exp);
         }
     }
 
@@ -130,7 +129,7 @@ public class Client {
         closeClient("The connection with the Server is LOST!\nClient will close now...", "Chat Client Error");
     }
 
-    private static void log(String msg, Exception ex, JFrame... win) {
+    private void log(String msg, Exception ex) {
         String title = "Runtime Exception: " + msg;
 
         System.out.println("\n>> " + title);
@@ -140,16 +139,9 @@ public class Client {
         for (StackTraceElement element : ex.getStackTrace())
             errMsg += ">>> " + element + "\n";
         System.out.println(errMsg);
-
-        if (win.length != 0) {
-            // bring the window into front (DeIconified)
-            win[0].setVisible(true);
-            win[0].toFront();
-            win[0].setState(JFrame.NORMAL);
-
-            // popup dialog with the error message
-            JOptionPane.showMessageDialog(win[0], msg + "\n\n" + errMsg, "Exception Error", JOptionPane.ERROR_MESSAGE);
-        }
+        view.drawFocus();
+        // popup dialog with the error message
+        view.showMessage(msg + "\n\n" + errMsg, "Exception Error", MessageCard.MessageType.ERROR);
     }
 
     /**

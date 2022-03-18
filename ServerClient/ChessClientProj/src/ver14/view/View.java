@@ -556,6 +556,13 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
+    public void drawFocus() {
+        // bring the window into front (DeIconified)
+        win.setVisible(true);
+        win.toFront();
+        win.setState(JFrame.NORMAL);
+    }
+
     public void dispose() {
         win.dispose();
         closeOpenDialogs();
