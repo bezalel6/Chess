@@ -1,11 +1,11 @@
 package ver14.Model;
 
 
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.board_setup.Square;
-import ver14.SharedClasses.moves.CastlingRights;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.moves.CastlingRights;
 
 
 public class FEN {

@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards;
 
-import ver14.SharedClasses.GameSettings;
+import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.BackOkInterface;

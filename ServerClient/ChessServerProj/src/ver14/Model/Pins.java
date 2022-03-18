@@ -1,8 +1,8 @@
 package ver14.Model;
 
 import ver14.Model.hashing.Zobrist;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.moves.Direction;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.moves.Direction;
 
 import java.util.HashMap;
 

@@ -1,6 +1,6 @@
 package ver14.Model;
 
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

@@ -6,10 +6,61 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="created message dialogs">
+    <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="created message dialogs&#10;error handling">
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/copyright/MyProf.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/scopes/Unnamed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/ClientMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/BoardButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/BoardButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/BoardOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/BoardOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/BoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/BoardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/ViewLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/ViewLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/ViewSavedBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/ViewSavedBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameVsAi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameVsAi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/StartFromPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/StartFromPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameSelectionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameSelectionCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiDifficulties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiDifficulties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/FenField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/FenField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/PlayerColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/PlayerColors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/SyncedGamesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/SyncedGamesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/TimeFormats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Components/TimeFormats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/GameSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/GameSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/InputDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/InputDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/AiDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/AiDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/AiType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/AiType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/Selectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/Selectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/SelectablePlayerColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/SelectablePlayerColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/SelectableTimeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Selectables/SelectableTimeFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/IconManager/GameIconsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/IconManager/GameIconsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/SidePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/instrumented.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/instrumented.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/perft.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/perft.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/reprosearch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/reprosearch.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/signature.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/tests/signature.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/ServerMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/ServerMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/MessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/ui/windows/CloseConfirmationJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/ui/windows/CloseConfirmationJFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Tests/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +131,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="rearrange.code.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="JavaDoc" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -244,7 +295,13 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1647575755850</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎00002" summary="created message dialogs">
+      <created>1647576017130</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1647576017130</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

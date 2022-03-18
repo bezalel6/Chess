@@ -7,12 +7,12 @@ import ver14.Model.Eval.Eval;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.minimax.Minimax;
 import ver14.Server;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.moves.MovesList;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.ThreadsUtil;
 import ver14.game.Game;
 
@@ -111,6 +111,18 @@ public class Tests {
         stockfish.stopEngine();
     }
 
+    @Test(testName = "Fen Generation")
+    public static void fenTest() {
+        String fen = FEN.generateFEN(model());
+        Assert.assertEquals(fen, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    }
+
+    private static Model model() {
+        return new Model() {{
+            setup(null);
+        }};
+    }
+
     //
 //    @Test(testName = "")
 //    private static void positionsCountRoot(int depth) {
@@ -120,12 +132,6 @@ public class Tests {
     @Test(enabled = false)
     public static void startTime() {
         dateTime = ZonedDateTime.now();
-    }
-
-    private static Model model() {
-        return new Model() {{
-            setup(null);
-        }};
     }
 
     private static void isInCheck() {

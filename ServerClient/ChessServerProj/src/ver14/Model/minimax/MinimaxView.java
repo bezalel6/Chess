@@ -1,8 +1,8 @@
 package ver14.Model.minimax;
 
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.Move;
 
 import javax.swing.*;
 import java.awt.*;

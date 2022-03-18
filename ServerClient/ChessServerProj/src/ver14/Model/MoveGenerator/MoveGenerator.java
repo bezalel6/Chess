@@ -1,15 +1,15 @@
 package ver14.Model.MoveGenerator;
 
 import ver14.Model.*;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.moves.BasicMove;
-import ver14.SharedClasses.moves.CastlingRights;
-import ver14.SharedClasses.moves.Direction;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.CastlingRights;
+import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 

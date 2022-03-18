@@ -2,8 +2,8 @@ package ver14.Model.hashing;
 
 
 import ver14.Model.minimax.MinimaxParameters;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
 
 public class Transposition {
     private final int maxDepth;

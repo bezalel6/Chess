@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.view.IconManager.IconManager;
 
 import javax.swing.*;

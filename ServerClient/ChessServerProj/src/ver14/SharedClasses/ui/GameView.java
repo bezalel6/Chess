@@ -1,6 +1,6 @@
 package ver14.SharedClasses.ui;
 
-import ver14.SharedClasses.board_setup.Board;
+import ver14.SharedClasses.Game.BoardSetup.Board;
 
 import javax.swing.*;
 import java.awt.*;

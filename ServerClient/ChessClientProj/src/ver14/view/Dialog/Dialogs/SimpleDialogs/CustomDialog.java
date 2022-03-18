@@ -14,7 +14,6 @@ import java.util.Map;
 
 public class CustomDialog extends Dialog implements CancelOk {
     private final int resultsArrSize;
-    int n = 0;
     private Map<DialogField<?>, Integer> map = new HashMap<>();
     private boolean noRes = false;
 
@@ -63,6 +62,7 @@ public class CustomDialog extends Dialog implements CancelOk {
 
     }
 
+
     @Override
     public void onBack() {
         noRes = true;
@@ -71,9 +71,6 @@ public class CustomDialog extends Dialog implements CancelOk {
 
     @Override
     public void onOk() {
-        if (n > 0)
-            return;
-        n++;
         closeDialog();
     }
 

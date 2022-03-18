@@ -1,8 +1,8 @@
 package ver14.Model.Eval;
 
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 public class Tables {
     private static final int MIDDLE_GAME = 0, ENDGAME = 1;

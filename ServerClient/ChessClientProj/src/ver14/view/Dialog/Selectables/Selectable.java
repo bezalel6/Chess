@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
 import ver14.view.Dialog.WinPnl;

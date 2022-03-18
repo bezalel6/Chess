@@ -1,9 +1,9 @@
 package ver14.view.SidePanel;
 
 import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.Board.BoardPanel;

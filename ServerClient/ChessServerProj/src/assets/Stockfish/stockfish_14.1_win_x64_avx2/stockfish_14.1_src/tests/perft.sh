@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Copyright (c) 18.3.2022, 10:40.
+# by Bezalel Avrahami
+#
+
 # verify perft numbers (positions from www.chessprogramming.org/Perft_Results)
 
 error()

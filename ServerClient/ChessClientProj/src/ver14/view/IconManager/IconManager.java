@@ -2,11 +2,11 @@ package ver14.view.IconManager;
 
 
 import ver14.SharedClasses.DBActions.Graphable.GraphElementType;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
 import ver14.view.Board.BoardOverlay;
 
 import javax.swing.*;

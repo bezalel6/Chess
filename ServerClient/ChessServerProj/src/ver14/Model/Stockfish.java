@@ -1,9 +1,9 @@
 package ver14.Model;
 
 
-import ver14.SharedClasses.Location;
+import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.BasicMove;
 
 import javax.swing.*;
 import java.io.BufferedReader;

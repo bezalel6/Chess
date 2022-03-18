@@ -2,7 +2,7 @@ package ver14.SharedClasses.Sync;
 
 import org.jetbrains.annotations.NotNull;
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;

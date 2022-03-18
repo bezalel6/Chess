@@ -1,7 +1,7 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.view.View;
 
 import javax.swing.*;

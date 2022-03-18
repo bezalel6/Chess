@@ -11,25 +11,47 @@ import ver14.players.PlayerNet;
 
 import java.util.ArrayList;
 
+/**
+ * The type Server messages handler.
+ */
 public class ServerMessagesHandler extends MessagesHandler {
     private final Server server;
     private PlayerNet player = null;
 
+    /**
+     * Instantiates a new Server messages handler.
+     *
+     * @param server    the server
+     * @param appSocket the app socket
+     */
     public ServerMessagesHandler(Server server, AppSocket appSocket) {
         super(appSocket);
         this.server = server;
     }
 
+    /**
+     * Sets player.
+     *
+     * @param playerNet the player net
+     */
     public void setPlayer(PlayerNet playerNet) {
         this.player = playerNet;
     }
 
+    /**
+     * On disconnected.
+     */
     @Override
     public void onDisconnected() {
-        server.disconnectPlayer(player, " player disconnected");
         super.onDisconnected();
+        server.playerDisconnected(player);
     }
 
+    /**
+     * On resign message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onResign() {
         return message -> {
@@ -38,6 +60,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On offer draw message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onOfferDraw() {
         return message -> {
@@ -51,6 +78,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On bye message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onBye() {
         return message -> {
@@ -74,6 +106,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On username availability message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onUsernameAvailability() {
         return message -> {
@@ -90,6 +127,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On db request message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onDBRequest() {
         return message -> {

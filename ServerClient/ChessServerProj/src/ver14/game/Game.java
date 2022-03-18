@@ -2,13 +2,13 @@ package ver14.game;
 
 import ver14.Model.Model;
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.GameSettings;
-import ver14.SharedClasses.GameTime;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.SavedGames.EstablishedGameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 

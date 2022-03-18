@@ -1,5 +1,9 @@
 <component name="CopyrightManager">
-  <settings>
+  <settings default="MyProf">
+    <module2copyright>
+      <element module="Open Files" copyright="MyProf" />
+      <element module="Project Files" copyright="MyProf" />
+    </module2copyright>
     <LanguageOptions name="JAVA">
       <option name="fileTypeOverride" value="1" />
     </LanguageOptions>

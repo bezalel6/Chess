@@ -1,13 +1,13 @@
 package ver14.players.PlayerAI;
 
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.GameSettings;
-import ver14.SharedClasses.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
-import ver14.SharedClasses.TimeFormat;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.TimeFormat;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.players.Player;
 
 /**

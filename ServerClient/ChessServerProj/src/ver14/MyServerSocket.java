@@ -8,26 +8,11 @@ import java.net.Socket;
 
 public class MyServerSocket extends ServerSocket {
 
-    private Thread messagesThread = null;
-
-    private AppSocket serverMessagesListener;
 
     public MyServerSocket(int port) throws IOException {
         super(port);
-        this.messagesThread = new Thread(() -> {
-            assert messagesThread != null;
-            while (!messagesThread.isInterrupted()) {
-                try {
-
-//                    Message msg = (Message)
-                } catch (Exception e) {
-
-                }
-            }
-        });
     }
 
-//    private HashMap<String , MessagesHandler>;
 
     public AppSocket acceptAppSocket() {
         AppSocket socketToClient = null;
@@ -43,15 +28,4 @@ public class MyServerSocket extends ServerSocket {
         return socketToClient;
     }
 
-    public void startReading() {
-        messagesThread.start();
-    }
-
-    public void stopReading() {
-        messagesThread.interrupt();
-    }
-
-    public void addClientSocket(AppSocket socket) {
-
-    }
 }

@@ -1,13 +1,22 @@
 package ver14;
 
 import ver14.DB.DB;
-import ver14.SharedClasses.*;
-import ver14.SharedClasses.SavedGames.CreatedGame;
-import ver14.SharedClasses.SavedGames.GameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.SavedGames.CreatedGame;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.IDsGenerator;
+import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorContext;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -32,13 +41,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 /**
- * Server -דוגמה לשרת משחק רשת מרובה משחקים .
- * ---------------------------------------------------------------------------
- * by Ilan Perez (ilanperets@gmail.com)  10/11/2021
+ * The type Server.
  */
-public class Server {
+public class Server implements ErrorContext, EnvManager {
+    /**
+     * The constant SERVER_WIN_TITLE.
+     */
     public static final String SERVER_WIN_TITLE = "Chat Server";
+    /**
+     * The constant SERVER_LOG_FONT.
+     */
     public static final Font SERVER_LOG_FONT = new Font("Consolas", Font.PLAIN, 16); // Font.MONOSPACED
     // constants
     private static final int SERVER_DEFAULT_PORT = 1234;
@@ -46,9 +60,13 @@ public class Server {
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
+    /**
+     * The constant VS_STOCKFISH.
+     */
     public static boolean VS_STOCKFISH = false;
 
     static {
+
         gameIDGenerator = new IDsGenerator() {
             @Override
             public boolean canUseId(String id) {
@@ -63,7 +81,6 @@ public class Server {
     private SyncedItems<GameSession> gameSessions;
     private SyncedItems<GameInfo> gamePool;
     private ArrayList<SyncedItems<?>> syncedLists;
-    // תכונות
     private CloseConfirmationJFrame frmWin;
     private JTextArea areaLog;
     private String serverIP;
@@ -76,8 +93,11 @@ public class Server {
      * Constructor for ChatServer.
      */
     public Server() {
-        createServerGUI();
-        setupServer();
+        ErrorManager.setEnvManager(this);
+        ThreadsManager.handleErrors(() -> {
+            createServerGUI();
+            setupServer();
+        }).run();
 
     }
 
@@ -156,10 +176,16 @@ public class Server {
         System.out.println("**** setupServer() finished! ****");
     }
 
+
     private void exitServer() {
         closeServer("");
     }
 
+    /**
+     * Synced list updated.
+     *
+     * @param list the list
+     */
     public void syncedListUpdated(SyncedItems<?> list) {
         list = prepareListForSend(list);
         if (list.isEmpty())
@@ -168,6 +194,13 @@ public class Server {
         players.forEachItem(playerNet -> playerNet.getSocketToClient().writeMessage(Message.syncLists(finalList)));
     }
 
+    /**
+     * Log.
+     *
+     * @param msg the msg
+     * @param ex  the ex
+     * @param win the win
+     */
     public static void log(String msg, Exception ex, JFrame... win) {
         String title = "Runtime Exception: " + msg;
 
@@ -219,6 +252,11 @@ public class Server {
         }
     }
 
+    /**
+     * Log.
+     *
+     * @param msg the msg
+     */
     public void log(String msg) {
         msg = StrUtils.format(msg);
         areaLog.append(msg + "\n");
@@ -226,7 +264,12 @@ public class Server {
         System.out.println(msg);
     }
 
-    // main
+    /**
+     * The entry point of the application.
+     *
+     * @param args the input arguments
+     */
+// main
     public static void main(String[] args) {
         Server chatServer = new Server();
         chatServer.runServer();
@@ -243,7 +286,10 @@ public class Server {
         player.getSocketToClient().writeMessage(Message.syncLists(lists.toArray(new SyncedItems[0])));
     }
 
-    // Run the server - wait for clients to connect & handle them
+    /**
+     * Run server.
+     */
+// Run the server - wait for clients to connect & handle them
     public void runServer() {
         if (serverSetupOK) {
             String serverAddress = "(" + serverIP + ":" + serverPort + ")";
@@ -274,7 +320,7 @@ public class Server {
 
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
-        new Thread(() -> {
+        ThreadsManager.HandledThread.run(() -> {
             ServerMessagesHandler serverMessagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(serverMessagesHandler);
             playerSocket.start();
@@ -293,9 +339,15 @@ public class Server {
 
             gameSetup(player);
 
-        }).start();
+        });
     }
 
+    /**
+     * Login player net.
+     *
+     * @param appSocket the app socket
+     * @return the player net
+     */
     public PlayerNet login(AppSocket appSocket) {
         Message request = appSocket.requestMessage(Message.askForLogin());
         Message responseMessage = responseToLogin(request.getLoginInfo());
@@ -357,32 +409,59 @@ public class Server {
     }
 
     private boolean isUserConnected(String username) {
-        return players.stream().anyMatch(p -> ((PlayerNet) p).getUsername().equals(username));
+        return players.stream().anyMatch(p -> p.getUsername().equals(username));
     }
 
+    /**
+     * Disconnect player.
+     *
+     * @param player the player
+     * @param err    the err
+     */
     public void disconnectPlayer(Player player, MyErrors err) {
         disconnectPlayer(player, "error occurred. " + err);
     }
 
+    /**
+     * Disconnect player.
+     *
+     * @param player the player
+     * @param cause  the cause
+     */
     public void disconnectPlayer(Player player, String cause) {
         if (player != null) {
-            log("disconnected " + player.getUsername() + " " + cause);
+            log("disconnecting " + player.getUsername() + " " + cause);
             player.disconnect(cause);
-            Game ongoingGame = player.getOnGoingGame();
-            if (ongoingGame != null) {
-                ongoingGame.playerDisconnected(player);
-            }
-            if (player instanceof PlayerNet) {
-                players.remove(((PlayerNet) player).ID());
-            }
-            List<GameInfo> del = gamePool.values()
-                    .stream()
-                    .filter(game -> ((CreatedGame) game).creatorUsername.equals(player.getUsername()))
-                    .toList();
-            del.forEach(deleting -> gamePool.remove((deleting).gameId));
+            playerDisconnected(player);
         }
     }
 
+    /**
+     * Player disconnected.
+     *
+     * @param player the player
+     */
+    public void playerDisconnected(Player player) {
+        Game ongoingGame = player.getOnGoingGame();
+        if (ongoingGame != null) {
+            ongoingGame.playerDisconnected(player);
+        }
+        if (player instanceof PlayerNet) {
+            players.remove(((PlayerNet) player).ID());
+        }
+        List<GameInfo> del = gamePool.values()
+                .stream()
+                .filter(game -> game.creatorUsername.equals(player.getUsername()))
+                .toList();
+        del.forEach(deleting -> gamePool.remove((deleting).gameId));
+    }
+
+    /**
+     * End of game session.
+     *
+     * @param session            the session
+     * @param disconnectedPlayer the disconnected player
+     */
     public void endOfGameSession(GameSession session, Player disconnectedPlayer) {
         gameSessions.remove(session.gameID);
         Arrays.stream(session.getPlayers()).parallel().forEach(player -> {
@@ -392,6 +471,11 @@ public class Server {
         });
     }
 
+    /**
+     * Game setup.
+     *
+     * @param player the player
+     */
     public void gameSetup(Player player) {
         SyncedItems<GameInfo> joinable = getJoinableGames(player);
         SyncedItems<GameInfo> resumable = getResumableGames(player);
@@ -430,14 +514,31 @@ public class Server {
 
     }
 
+    /**
+     * Gets joinable games.
+     *
+     * @param playerNet the player net
+     * @return the joinable games
+     */
     public SyncedItems<GameInfo> getJoinableGames(Player playerNet) {
         return gamePool.clean();
     }
 
+    /**
+     * Gets resumable games.
+     *
+     * @param playerNet the player net
+     * @return the resumable games
+     */
     public SyncedItems<GameInfo> getResumableGames(Player playerNet) {
         return DB.getUnfinishedGames(playerNet.getUsername()).clean();
     }
 
+    /**
+     * Disconnects player.
+     *
+     * @param player the player to disconnect
+     */
     public void disconnectPlayer(Player player) {
         disconnectPlayer(player, "");
     }
@@ -465,14 +566,55 @@ public class Server {
                 .orElse(null);
     }
 
-    //DEBUG ONLY
+    /**
+     * Minimax vs stockfish.
+     */
+//DEBUG ONLY
     public void minimaxVsStockfish() {
         MinimaxVsStockfish p = new MinimaxVsStockfish(10);
         gameSetup(p);
     }
 
+    /**
+     * Create username suggestions array list.
+     *
+     * @param username the username
+     * @return the array list
+     */
     public ArrayList<String> createUsernameSuggestions(String username) {
-        
+
         return UsernameSuggestions.createSuggestions(username);
+    }
+
+    /**
+     * Context type my error . context type.
+     *
+     * @return the my error . context type
+     */
+    @Override
+    public MyError.ContextType contextType() {
+        return null;
+//        return MyError.ContextType.Server;
+    }
+
+    /**
+     * Handled err.
+     *
+     * @param err the err
+     */
+    @Override
+    public void handledErr(MyError err) {
+        log("handled: " + err);
+
+    }
+
+    /**
+     * Critical err.
+     *
+     * @param err the err
+     */
+    @Override
+    public void criticalErr(MyError err) {
+        log("ahhhhhh: " + err);
     }
 }

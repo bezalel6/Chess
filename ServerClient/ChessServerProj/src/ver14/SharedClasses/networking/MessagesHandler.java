@@ -10,7 +10,13 @@ import java.util.Stack;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The type Messages handler.
+ */
 public abstract class MessagesHandler {
+    /**
+     * The Socket.
+     */
     protected final AppSocket socket;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
@@ -49,10 +55,21 @@ public abstract class MessagesHandler {
 
     }
 
+    /**
+     * Instantiates a new Messages handler.
+     *
+     * @param socket the socket
+     */
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
     }
 
+    /**
+     * Block til res message.
+     *
+     * @param request the request
+     * @return the message
+     */
     public Message blockTilRes(Message request) {
         //askilan synchronize func/save current blocking in a list<id/future> so interrupt can be sent to saved future(s)
         currentBlockingMsgId = request.messageID;
@@ -69,11 +86,22 @@ public abstract class MessagesHandler {
         return msg;
     }
 
+    /**
+     * No block request.
+     *
+     * @param request the request
+     * @param onRes   the on res
+     */
     public void noBlockRequest(Message request, MessageCallback onRes) {
         customCallbacks.put(request.messageID, onRes);
         socket.writeMessage(request);
     }
 
+    /**
+     * Received message.
+     *
+     * @param message the message
+     */
     public void receivedMessage(Message message) {
             /*
             some messages need to be processed in a new thread to free blocking requests
@@ -107,11 +135,19 @@ public abstract class MessagesHandler {
         callback.onMsg(message);
     }
 
+    /**
+     * On disconnected.
+     */
     public void onDisconnected() {
         interruptBlocking();
         socket.close();
     }
 
+    /**
+     * On any msg.
+     *
+     * @param message the message
+     */
     public void onAnyMsg(Message message) {
         boolean log = message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE;
         if (log)
@@ -125,130 +161,238 @@ public abstract class MessagesHandler {
 //        }
     }
 
+    /**
+     * Interrupt blocking.
+     */
     public void interruptBlocking() {
         interruptBlocking(Message.interrupt());
     }
 
+    /**
+     * Interrupt blocking.
+     *
+     * @param interruptWith the interrupt with
+     */
     public void interruptBlocking(Message interruptWith) {
         if (currentBlockingMsgId != null && customCallbacks.containsKey(currentBlockingMsgId)) {
             customCallbacks.remove(currentBlockingMsgId).onMsg(interruptWith);
         }
     }
 
+    /**
+     * On login message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onLogin() {
         return message -> {
 
         };
     }
 
+    /**
+     * On resign message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onResign() {
         return message -> {
 
         };
     }
 
+    /**
+     * On add time message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onAddTime() {
         return message -> {
 
         };
     }
 
+    /**
+     * On offer draw message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onOfferDraw() {
         return message -> {
 
         };
     }
 
+    /**
+     * On welcome message message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onWelcomeMessage() {
         return message -> {
 
         };
     }
 
+    /**
+     * On get game settings message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onGetGameSettings() {
         return message -> {
 
         };
     }
 
+    /**
+     * On wait for match message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onWaitForMatch() {
         return message -> {
 
         };
     }
 
+    /**
+     * On init game message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onInitGame() {
         return message -> {
 
         };
     }
 
+    /**
+     * On wait turn message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onWaitTurn() {
         return message -> {
 
         };
     }
 
+    /**
+     * On get move message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onGetMove() {
         return message -> {
 
         };
     }
 
+    /**
+     * On update by move message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onUpdateByMove() {
         return message -> {
 
         };
     }
 
+    /**
+     * On game over message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onGameOver() {
         return message -> {
 
         };
     }
 
+    /**
+     * On error message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onError() {
         return message -> {
 
         };
     }
 
+    /**
+     * On question message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onQuestion() {
         return message -> {
 
         };
     }
 
+    /**
+     * On bye message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onBye() {
         return message -> {
 
         };
     }
 
+    /**
+     * On username availability message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onUsernameAvailability() {
         return message -> {
 
         };
     }
 
+    /**
+     * On db request message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onDBRequest() {
         return message -> {
 
         };
     }
 
+    /**
+     * On db response message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onDBResponse() {
         return message -> {
 
         };
     }
 
+    /**
+     * On update synced list message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onUpdateSyncedList() {
         return message -> {
 
         };
     }
 
+    /**
+     * On interrupt message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onInterrupt() {
         return message -> {
             if (!message.isResponse()) {
@@ -257,12 +401,22 @@ public abstract class MessagesHandler {
         };
     }
 
+    /**
+     * On is alive message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onIsAlive() {
         return message -> {
             socket.respond(Message.interrupt(), message);
         };
     }
 
+    /**
+     * On alive message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onAlive() {
         return message -> {
 

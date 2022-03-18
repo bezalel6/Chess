@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.view.IconManager.GameIconsGenerator;
 import ver14.view.IconManager.Size;

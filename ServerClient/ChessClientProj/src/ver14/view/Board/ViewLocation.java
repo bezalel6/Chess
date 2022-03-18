@@ -1,6 +1,6 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.Location;
+import ver14.SharedClasses.Game.Location;
 
 public class ViewLocation {
     public final Location originalLocation;
