@@ -1,7 +1,7 @@
 package ver14.SharedClasses;
 
 public class ErrorHandler {
-    private final static boolean logErrs = false, throwErrs = true, exitOnErr = true;
+    private final static boolean logErrs = false, throwErrs = false, exitOnErr = false;
 
     private ErrorHandler() {
     }

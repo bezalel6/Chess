@@ -3,7 +3,6 @@ package ver14.view.Board;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
 import ver14.SharedClasses.board_setup.Board;
 import ver14.SharedClasses.board_setup.Square;
 import ver14.SharedClasses.pieces.Piece;
@@ -293,17 +292,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     @Override
     public Iterator<BoardButton[]> iterator() {
         return Arrays.stream(btnMat).iterator();
-    }
-
-    public void setOtbMode(boolean state) {
-        for (BoardButton[] row : this) {
-            for (BoardButton btn : row) {
-                Piece piece = btn.getPiece();
-                if (piece != null && piece.isOnMyTeam(PlayerColor.BLACK)) {
-
-                }
-            }
-        }
     }
 
     public interface BtnRowCallback extends Callback<BoardButton[]> {

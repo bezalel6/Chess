@@ -123,15 +123,7 @@ public class DB {
 
         return runQuery("SELECT %s FROM %s %s".formatted(selecting.toString(), selectFrom, conditionsStr));
     }
-
-    /**
-     * Run SQL Query Statement - SELECT הפעולה מריצה שאילתת
-     *
-     * @param sql        שאילתה
-     * @param dbFilePath פרמטר אופציונאלי לנתיב מסד הנתונים עליו רוצים להפעיל השאילתה
-     * @return מחזירה טבלת תוצאה
-     * @throws SQLException נזרקת שגיאה אם לא ניתן להריץ את השאילתה
-     */
+    
     public static ServerDBResponse runQuery(@Language("SQL") String sql, String... dbFilePath) {
 
         try {
@@ -155,6 +147,7 @@ public class DB {
 //            addGames("bezalel6");
 //            clearGames();
 //            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
+            System.out.println(RequestBuilder.top().build(5).getRequest());
         } catch (Exception e) {
             e.printStackTrace();
         }

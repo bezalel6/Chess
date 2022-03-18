@@ -31,7 +31,7 @@ public class Tests {
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
-    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS / 2;
+    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
@@ -334,7 +334,7 @@ public class Tests {
                 threadPool.shutdown();
                 if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
                     IntStream.range(0, 1000).forEach(i -> {
-                        System.err.println("F");
+                        System.err.print("F");
                     });
                 }
             } catch (InterruptedException e) {

@@ -12,7 +12,6 @@ import ver14.SharedClasses.pieces.Piece;
 import ver14.SharedClasses.pieces.PieceType;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MoveGenerator {
     //    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);
@@ -93,17 +92,34 @@ public class MoveGenerator {
         this.generationSettings = generationSettings;
         this.generatedMoves = new ModelMovesList(this, generationSettings);
 
-        generatePawnMoves();
-        generateSlidingMoves();
-        generateKnightMoves();
-        generateKingMoves();
+//        moveGenerationHashMap.put(hash, generatedMoves);
+    }
+
+    public static ModelMovesList generateMoves(Model model) {
+        return generateMoves(model, GenerationSettings.defaultSettings);
+    }
+
+    public static ModelMovesList generateMoves(Model model, GenerationSettings generationSettings) {
+        MoveGenerator mvg = new MoveGenerator(model, generationSettings);
+        return mvg.getGeneratedMoves();
+    }
+
+    public ModelMovesList getGeneratedMoves() {
+        try {
+            generatePawnMoves();
+            generateSlidingMoves();
+            generateKnightMoves();
+            generateKingMoves();
+        } catch (ModelMovesList.ListEx ex) {
+            return generatedMoves;
+        }
 
         generatedMoves.doneAdding();
 
         if (generationSettings.legalize)
             legalize();
 
-//        moveGenerationHashMap.put(hash, generatedMoves);
+        return generatedMoves;
     }
 
     public void generatePawnMoves() {
@@ -219,20 +235,7 @@ public class MoveGenerator {
     }
 
     public void legalize() {
-        for (Iterator<Move> iterator = generatedMoves.iterator(); iterator.hasNext(); ) {
-            Move move = iterator.next();
-            if (move.getMoveFlag().isCastling) {
-                if (!canCastle(move)) {
-                    iterator.remove();
-                    continue;
-                }
-            }
-
-            model.applyMove(move);
-            if (model.isInCheck(movingPlayerColor))
-                iterator.remove();
-            model.undoMove();
-        }
+        generatedMoves.removeIf(move -> !isLegal(move));
     }
 
     private Move checkPawnCapture(Location movingFrom, Location capLoc) {
@@ -279,6 +282,19 @@ public class MoveGenerator {
         }
     }
 
+    public boolean isLegal(Move move) {
+        if (move.getMoveFlag().isCastling) {
+            if (!canCastle(move)) {
+                return false;
+            }
+        }
+
+        model.applyMove(move);
+        boolean ret = !model.isInCheck(movingPlayerColor);
+        model.undoMove();
+        return ret;
+    }
+
     private boolean canCastle(Move castling) {
         if (model.isInCheck(movingPlayerColor))
             return false;
@@ -293,19 +309,6 @@ public class MoveGenerator {
             }
         }
         return true;
-    }
-
-    public static ModelMovesList generateMoves(Model model) {
-        return generateMoves(model, GenerationSettings.defaultSettings);
-    }
-
-    public static ModelMovesList generateMoves(Model model, GenerationSettings generationSettings) {
-        MoveGenerator mvg = new MoveGenerator(model, generationSettings);
-        return mvg.getGeneratedMoves();
-    }
-
-    public ModelMovesList getGeneratedMoves() {
-        return generatedMoves;
     }
 
     public void generateRookMoves() {

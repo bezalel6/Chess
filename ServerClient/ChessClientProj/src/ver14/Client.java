@@ -3,6 +3,7 @@ package ver14;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
+import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
@@ -21,12 +22,13 @@ import ver14.SharedClasses.pieces.PieceType;
 import ver14.SharedClasses.ui.dialogs.MyDialogs;
 import ver14.SharedClasses.ui.dialogs.MyDialogs.DialogOption;
 import ver14.view.Board.ViewLocation;
-import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.DialogProperties;
+import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
+import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
 import ver14.view.IconManager.IconManager;
 import ver14.view.View;
 
@@ -46,7 +48,6 @@ public class Client {
     private static final int SERVER_DEFAULT_PORT = 1234;
     private static final String teacherIP = "192.168.21.239";
     private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
-    private final ArrayList<Dialog> displayedDialogs;
     // for GUI
     private View view;
     // for Client
@@ -66,9 +67,12 @@ public class Client {
      */
 
     public Client() {
-        view = new View(this);
-        displayedDialogs = new ArrayList<>();
+        setupClientGui();
         setupClient();
+    }
+
+    private void setupClientGui() {
+        view = new View(this);
     }
 
     public void setupClient() {
@@ -78,7 +82,14 @@ public class Client {
             serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
 
             // get Server Address from user
-            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort);
+//            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort);
+
+            Properties properties = dialogProperties("Server Address");
+            Config<String> config = new Config<>("Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort, "Local Host");
+            properties.setArgConfig(config);
+            InputDialog inputDialog = view.showDialog(new InputDialog(properties));
+
+            String serverAddress = inputDialog.getInput();
 
             if (serverAddress != null && serverAddress.equalsIgnoreCase("teacher")) {
                 serverAddress = teacherAddress;
@@ -103,6 +114,16 @@ public class Client {
             String serverAddress = serverIP + ":" + serverPort;
             log("Client can't connect to Server(" + serverAddress + ")", exp, view.getWin());
         }
+    }
+
+    /**
+     * Creates Dialog Properties
+     *
+     * @param properties []/[header]/[header,title]/[header,title,error]
+     * @return the created properties
+     */
+    public Properties dialogProperties(String... properties) {
+        return new Properties(clientSocket, view.getWin(), new Properties.Details(properties));
     }
 
     public void disconnectedFromServer() {
@@ -143,7 +164,7 @@ public class Client {
                 String msg = cause[0];
                 String title = cause.length > 1 ? cause[1] : "Closing";
 
-                MyDialogs.showErrorMessage(null, msg, title);
+                view.showMessage(msg, title, MessageCard.MessageType.ERROR);
             }
         }
 
@@ -165,9 +186,6 @@ public class Client {
 
     public void closeGui() {
         clientRunOK = false;
-        synchronized (displayedDialogs) {
-            displayedDialogs.forEach(Dialog::closeNow);
-        }
         view.dispose();
     }
 
@@ -223,11 +241,6 @@ public class Client {
         }
 
     }
-//
-//    private void getMove(Message message) {
-//        unlockMovableSquares(message);
-//        view.getWin().requestFocus();
-//    }
 
     void unlockMovableSquares(Message message) {
         possibleMoves = message.getPossibleMoves();
@@ -239,14 +252,14 @@ public class Client {
         view.enableSources(possibleMoves);
     }
 
-    void hideQuestionPnl() {
-        view.getSidePanel().askPlayerPnl.showPnl(false);
-    }
-
 //    private void initGame(Message message) {
 //        myColor = message.getPlayerColor();
 //        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
 //    }
+
+    void hideQuestionPnl() {
+        view.getSidePanel().askPlayerPnl.showPnl(false);
+    }
 
     String login(Message loginMessage) {
         return login("", loginMessage);
@@ -254,11 +267,12 @@ public class Client {
 
     private String login(String err, Message loginMessage) {
 
-        loginInfo = ((LoginProcess) showDialog(Dialog.DialogType.LoginProcess, new DialogProperties("Login", err, "Login"))).getLoginInfo();
+        Properties properties = dialogProperties("Login", "Login", err);
+        this.loginInfo = view.showDialog(new LoginProcess(properties)).getLoginInfo();
 
         Message response = clientSocket.requestMessage(Message.returnLogin(loginInfo, loginMessage));
 
-        if (loginInfo.getLoginType() == LoginType.CANCEL) {
+        if (this.loginInfo.getLoginType() == LoginType.CANCEL) {
             closeClient("");
             return null;
         }
@@ -271,9 +285,9 @@ public class Client {
             return login(response.getSubject(), response);
         }
         if (response.getMessageType() == MessageType.WELCOME_MESSAGE) {
-            loginInfo = response.getLoginInfo();
+            this.loginInfo = response.getLoginInfo();
         }
-        return loginInfo.getUsername();
+        return this.loginInfo.getUsername();
     }
 
     public void boardButtonPressed(ViewLocation loc) {
@@ -345,9 +359,9 @@ public class Client {
     }
 
     public void disconnectFromServer() {
-        if (clientSocket != null) {
+        if (clientSocket != null && clientSocket.isConnected()) {
             Message response = clientSocket.requestMessage(Message.bye(""));
-            view.showMessage(response.getSubject(), "", null);
+            view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
         }
         closeClient();
     }
@@ -366,28 +380,12 @@ public class Client {
 
     public GameSettings showGameSettingsDialog() {
         String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
-        DialogProperties properties = new DialogProperties(msg, "Game Selection");
-        return ((GameSelect) showDialog(Dialog.DialogType.GameSelection, properties)).getGameSettings();
-    }
-
-    public <T extends Dialog> T showDialog(Dialog.DialogType dialogType, DialogProperties properties) {
-        Dialog d = Dialog.createDialog(view.getWin(), dialogType, clientSocket, properties);
-        return (T) showDialog(d);
-    }
-
-    public <T extends Dialog> T showDialog(T dialog) {
-        synchronized (displayedDialogs) {
-            displayedDialogs.add(dialog);
-            dialog.start(d -> {
-                if (clientRunOK)//if false, we're trying to close and dont care about removing the dialog from the list. also, will cause a concurrent modification exception when closing
-                    displayedDialogs.remove(d);
-            });
-        }
-        return dialog;
+        Properties properties = dialogProperties(msg, "game selection");
+        return view.showDialog(new GameSelect(properties)).getGameSettings();
     }
 
     public void changePassword() {
-        ChangePassword changePassword = showDialog(new ChangePassword(clientSocket, new DialogProperties("Change Password"), view.getWin(), loginInfo.getPassword()));
+        ChangePassword changePassword = view.showDialog(new ChangePassword(dialogProperties("change password"), loginInfo.getPassword()));
         String pw = changePassword.getPassword();
         if (pw != null) {
             request(RequestBuilder.changePassword(), msg -> {
@@ -426,8 +424,9 @@ public class Client {
 
     public void request(PreMadeRequest request) {
         RequestBuilder builder = request.createBuilder();
-        DialogProperties properties = new DialogProperties(builder.getPreDescription(), builder.getName());
-        CustomDialog customDialog = showDialog(new CustomDialog(view.getWin(), properties, builder.getArgs()));
+        Properties properties = dialogProperties(builder.getPreDescription(), builder.getName());
+//        Properties properties = new Properties(builder.getPreDescription(), builder.getName());
+        CustomDialog customDialog = view.showDialog(new CustomDialog(properties, builder.getArgs()));
         Object[] args = customDialog.getResults();
         request(builder, null, args);
     }

@@ -21,6 +21,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class DialogField<T> extends DialogComponent implements Verified {
+    private static final boolean ON_DEFAULT_CLICK_OK = true;
     private static final int cols = 2;
     protected final ErrorPnl errLbl;
     private final ArrayList<CanError<T>> notEqualsTo;
@@ -60,7 +61,16 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         this.config = config;
         if (config != null && config.canUseDefault) {
             setValue(config.getDefault());
-            addInNewLine(new MyJButton(config.defaultValueDesc, getFont(), () -> setValue(config.getDefault())));
+            addInNewLine(new MyJButton(config.defaultValueDesc, getFont(), this::defaultValueBtnPresses));
+        }
+    }
+
+    public void defaultValueBtnPresses() {
+        setValue(config.getDefault());
+        if (ON_DEFAULT_CLICK_OK) {
+            DialogCard card = parent.currentCard();
+            if (card != null)
+                card.onOk();
         }
     }
 

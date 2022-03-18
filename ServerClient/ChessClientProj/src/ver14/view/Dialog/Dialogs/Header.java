@@ -2,7 +2,6 @@ package ver14.view.Dialog.Dialogs;
 
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.view.Dialog.WinPnl;
 import ver14.view.IconManager.Size;
 
 import javax.swing.*;
@@ -12,7 +11,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class Header extends JPanel {
-    public final static Insets insets = WinPnl.insets;
+    //    public final static Insets insets = WinPnl.insets;
+    public final static Insets insets = new Insets(10, 10, 10, 10);
     protected final static Size maximumSize = new Size(500);
     private final String text;
     private final JLabel lbl;

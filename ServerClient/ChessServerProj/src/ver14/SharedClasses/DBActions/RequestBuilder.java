@@ -196,6 +196,7 @@ public class RequestBuilder {
         return builder;
     }
 
+
     public static RequestBuilder select() {
         return new RequestBuilder(new Selection(Table.Games, new Object[0]), "selecting something");
     }

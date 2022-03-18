@@ -2,6 +2,7 @@ package ver14.Model;
 
 
 import ver14.Model.Eval.Eval;
+import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.hashing.BoardHash;
 import ver14.SharedClasses.Location;
@@ -255,8 +256,10 @@ public class Model implements Serializable {
     public boolean anyLegalMove(PlayerColor playerColor) {
 //        Bitboard[] playersPieces = getPlayersPieces(playerColor);
 
+        return playerColor == currentPlayerColor && !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
+
         //todo can return true if one piece can move to any
-        return !generateAllMoves(playerColor).isEmpty();
+//        return !generateAllMoves(playerColor).isEmpty();
     }
 
     public ModelMovesList generateAllMoves(PlayerColor player) {

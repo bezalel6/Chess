@@ -17,7 +17,6 @@ public class StockfishPlayer extends PlayerAI {
 
     @Override
     protected void initGame() {
-
     }
 
     @Override

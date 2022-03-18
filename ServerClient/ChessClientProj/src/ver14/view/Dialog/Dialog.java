@@ -1,17 +1,16 @@
 package ver14.view.Dialog;
 
+import ver14.ClientMessagesHandler;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
-import ver14.ClientMessagesHandler;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
-import ver14.view.Dialog.Cards.NavigationDialogCard;
+import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
-import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
-import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
 
 import javax.swing.*;
@@ -20,9 +19,8 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public abstract class Dialog extends JDialog implements Parent {
-
     protected final JPanel topPnl;
-    protected final DialogProperties properties;
+    protected final Properties properties;
     private final Component parentWin;
     private final Container pane;
     private final Stack<DialogCard> cardStack;
@@ -33,12 +31,12 @@ public abstract class Dialog extends JDialog implements Parent {
     private Callback<Dialog> onClose;
     private boolean isDisposing;
 
-    public Dialog(AppSocket socketToServer, DialogProperties properties, Component parentWin) {
+    public Dialog(Properties properties) {
         super((java.awt.Dialog) null);
-        this.parentWin = parentWin;
+        this.parentWin = properties.parentWin();
         this.isDisposing = false;
         this.pane = getContentPane();
-        this.socketToServer = socketToServer;
+        this.socketToServer = properties.socketToServer();
 
         cardStack = new Stack<>();
         cardsPnl = new JPanel(new CardLayout());
@@ -54,9 +52,9 @@ public abstract class Dialog extends JDialog implements Parent {
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
-        setTitle(properties.title());
+        setTitle(properties.details().title());
         setLocationRelativeTo(parentWin);
-        dialogWideErr(properties.err());
+        dialogWideErr(properties.details().error());
     }
 
     public void dialogWideErr(String error) {
@@ -64,33 +62,27 @@ public abstract class Dialog extends JDialog implements Parent {
             errorPnl.setText(error);
     }
 
-    /**
-     * @param dialogType
-     * @param socketToServer
-     * @return
-     */
-    public static Dialog createDialog(Component parentWin, DialogType dialogType, AppSocket socketToServer, DialogProperties properties) {
-        return switch (dialogType) {
-            case LoginProcess -> new LoginProcess(socketToServer, properties, parentWin);
-            case GameSelection -> new GameSelect(socketToServer, properties, parentWin);
-            default -> throw new IllegalStateException("Unexpected value: " + dialogType);
-        };
-    }
-
-
     public void start() {
         start(null);
     }
 
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
-
+        pack();
         setVisible(true);
+
+        dispose();
     }
 
     @Override
     public void setVisible(boolean b) {
         super.setVisible(!isDisposing && b);
+    }
+
+    @Override
+    public void dispose() {
+        this.isDisposing = true;
+        super.dispose();
     }
 
     @Override
@@ -116,6 +108,11 @@ public abstract class Dialog extends JDialog implements Parent {
         }
         setLocationRelativeTo(parentWin);
         repackWin();
+    }
+
+    @Override
+    public DialogCard currentCard() {
+        return currentCard;
     }
 
     @Override
@@ -173,14 +170,11 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     public void closeDialog() {
-        dispose();
-        notifyClosed();
-    }
-
-    @Override
-    public void dispose() {
-        this.isDisposing = true;
-        super.dispose();
+        if (!isDisposing) {
+            dispose();
+            notifyClosed();
+        }
+        System.gc();
     }
 
     protected void notifyClosed() {
@@ -190,7 +184,7 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     protected void navigationCardSetup(DialogCard... dialogCards) {
-        cardsSetup(new NavigationDialogCard(createHeader(), this, dialogCards), dialogCards);
+        cardsSetup(new NavigationCard(createHeader(), this, dialogCards), dialogCards);
     }
 
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {
@@ -209,7 +203,7 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     protected CardHeader createHeader() {
-        return new CardHeader(properties.header());
+        return new CardHeader(properties.details().header());
     }
 
     public void switchTo(DialogCard card) {
@@ -224,9 +218,4 @@ public abstract class Dialog extends JDialog implements Parent {
         dispose();
         notifyClosed();
     }
-
-    public enum DialogType {
-        LoginProcess, GameSelection, ChangePassword, Custom
-    }
-
 }

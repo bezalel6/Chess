@@ -49,20 +49,20 @@ public enum Location {
 //    public final int matRow
 
     Location() {
-        int matRow = row(this);
+//        int matRow = row(this);
         this.row = flip(row(this));
-        this.col = flip(col(this));
+        this.col = col(this);
 //        this.col = flip(col(this));
         this.asInt = this.row * 8 + this.col;
         this.asLong = 1L << this.asInt;
     }
 
-    private static int row(Location loc) {
-        return loc.ordinal() >> 3;
-    }
-
     public static int flip(int num) {
         return Math.abs(num - 7);
+    }
+
+    private static int row(Location loc) {
+        return loc.ordinal() >> 3;
     }
 
     private static int col(Location loc) {

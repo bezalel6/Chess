@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Cards;
 
 import ver14.SharedClasses.FontManager;
-import ver14.view.Dialog.DialogProperties;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
 
 import javax.swing.*;
@@ -19,8 +19,8 @@ public class CardHeader extends Header {
         this.cardName = cardName;
     }
 
-    public CardHeader(DialogProperties properties) {
-        this(properties.header());
+    public CardHeader(Properties properties) {
+        this(properties.details().header());
     }
 
     /**

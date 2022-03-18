@@ -19,6 +19,7 @@ public class IconManager {
     public static final DynamicIcon dynamicSettingsIcon;
     public static final DynamicIcon dynamicStatisticsIcon;
     public static final DynamicIcon dynamicServerIcon;
+
     public static final ImageIcon promotionIcon;
     public static final ImageIcon capturingIcon;
     public static final ImageIcon loadingIcon;
@@ -28,19 +29,22 @@ public class IconManager {
     public static final ImageIcon randomColorIcon;
     public static final ImageIcon greenCheck;
     public static final ImageIcon redX;
+    public static final ImageIcon showPassword;
+    public static final ImageIcon hidePassword;
     public static final ImageIcon[] graphIcons;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
     public final static Size USER_ICON_SIZE = new Size(25);
     public final static Size ABOVE_BTNS_SIZES = new Size(10);
-    public static final ImageIcon showPassword;
-    public static final ImageIcon hidePassword;
+    public static final ImageIcon infoIcon;
+    public static final ImageIcon errorIcon;
     private static final ImageIcon[][] gameOverIcons;
     private final static ImageIcon[][] piecesIcons;
     private static final int WON = 0;
     private static final int LOST = 1;
     private static final int TIE = 2;
 
+    //todo vars for path
     static {
         piecesIcons = new ImageIcon[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
         gameOverIcons = new ImageIcon[PlayerColor.NUM_OF_PLAYERS][3];
@@ -55,6 +59,10 @@ public class IconManager {
             gameOverIcons[player.asInt][LOST] = loadImage("GameOverIcons/Lost/" + player.getName());
             gameOverIcons[player.asInt][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
+
+        infoIcon = loadImage("StatusIcons/Info");
+        errorIcon = loadImage("StatusIcons/Error");
+
         hidePassword = loadImage("hidePassword");
         showPassword = loadImage("showPassword");
 

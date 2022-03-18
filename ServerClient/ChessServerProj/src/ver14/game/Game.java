@@ -28,9 +28,9 @@ public class Game {
     public static final int COLS = 8;
     public static boolean showGameView = false;
     private final GameSession session;
-    private final GameView gameView;
     private final Player gameCreator, p2;
     private final GameSettings originalSettings;
+    private GameView gameView;
     private Model model;
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
@@ -46,11 +46,12 @@ public class Game {
         this.session = session;
         this.gameCreator = gameCreator;
         this.p2 = p2;
-        this.gameView = new GameView(showGameView);
+
         this.originalSettings = new GameSettings(gameSettings);
         this.moveStack = new Stack<>();
         this.model = new Model();
         setPartners();
+        this.gameView = showGameView ? new GameView() : null;
     }
 
     private void setPartners() {
@@ -107,7 +108,8 @@ public class Game {
         gameTime = new GameTime(gameSettings.getTimeFormat());
         initPlayersGames();
         session.log("Starting game " + this);
-        gameView.update(model.getLogicBoard());
+
+        updateView();
     }
 
     private GameStatus runGame() {
@@ -145,6 +147,12 @@ public class Game {
         forEachPlayer(p -> p.initGame(this));
     }
 
+    private void updateView() {
+        if (this.gameView != null) {
+            this.gameView.update(model.getLogicBoard());
+        }
+    }
+
     private GameStatus playTurn() {
 //        gameTime.startRunning(currentPlayer.getPlayerColor());
         Move move = getMove();
@@ -156,7 +164,7 @@ public class Game {
     }
 
     private void switchTurn() {
-        gameView.update(model.getLogicBoard());
+        updateView();
         currentPlayer = currentPlayer.getPartner();
         gameTime.startRunning(currentPlayer.getPlayerColor());
         currentPlayer.getPartner().waitTurn();

@@ -10,30 +10,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/DialogProperties/InputDialogProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/DialogProperties/Properties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/InputDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/TextWrapPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/copyright/MyProfile.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/DateUtil.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/DateUtil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/IDateEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/IDateEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/IDateEvaluator.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/IDateEvaluator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JCalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JCalendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JDateChooser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JDateChooser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JDayChooser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JDayChooser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JMonthChooser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JMonthChooser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JSpinnerDateEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JSpinnerDateEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JTextFieldDateEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/JTextFieldDateEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/MinMaxDateEvaluator.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/MinMaxDateEvaluator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/demo/DateChooserPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/demo/DateChooserPanel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/demo/JCalendarDemo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/demo/JCalendarDemo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/calendar/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/GenericBeanInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/GenericBeanInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/JLocaleChooser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/JLocaleChooser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/JSpinField.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/JSpinField.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/UTF8ResourceBundle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/UTF8ResourceBundle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/com/toedter/components/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/index-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/doc/api/index-all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/src/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/src/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver11/view/SidePanel/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver11/view/SidePanel/SidePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/CardHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/CardHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/NavigationDialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/NavigationCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/SimpleDialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/SimpleDialogCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DateField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DateField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/ChangePassword/ChangePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/ChangePassword/ChangePassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/GameSelect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/GameSelect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/LoginProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/LoginProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/SimpleDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/SimpleDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessServerProj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChessServerProj.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/GenerationSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/GenerationSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyJButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyJButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerAI/StockfishPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerAI/StockfishPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +89,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/ver9/server/game/GameSession.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/Server.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/DB.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/Condition.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/model_classes/Bitboard.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/Tests.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/players/PlayerNet.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver9/server/players/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/players/PlayerNet.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/Server.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/Tests.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver9/SharedClasses/messages/Message.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/DB.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/model_classes/Bitboard.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/Condition.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -248,6 +272,17 @@
       <updated>1636632021405</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

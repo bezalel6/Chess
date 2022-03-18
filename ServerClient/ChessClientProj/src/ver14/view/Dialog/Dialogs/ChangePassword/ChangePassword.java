@@ -1,25 +1,22 @@
 package ver14.view.Dialog.Dialogs.ChangePassword;
 
 import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.networking.AppSocket;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.DialogProperties;
 import ver14.view.Dialog.Dialogs.BackOkInterface;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;
-
-import java.awt.*;
 
 public class ChangePassword extends Dialog implements BackOkInterface {
     private final LoginInfo newInfo;
     private String password;
 
-    public ChangePassword(AppSocket socketToServer, DialogProperties properties, Component parentWin, String currentPassword) {
-        super(socketToServer, properties, parentWin);
+    public ChangePassword(Properties properties, String currentPassword) {
+        super(properties);
 
         ConfirmPasswordPnl confirmCurrentPassword = new ConfirmPasswordPnl("enter current password", new LoginInfo(), null, this);
         confirmCurrentPassword.setMatchWith(() -> currentPassword, "wrong password");
@@ -45,9 +42,9 @@ public class ChangePassword extends Dialog implements BackOkInterface {
     }
 
     public static void main(String[] args) {
-        ChangePassword changePassword = new ChangePassword(null, DialogProperties.example, null, "123456");
-        changePassword.start();
-        System.out.println("new pass = " + changePassword.getPassword());
+//        ChangePassword changePassword = new ChangePassword(null, Properties.example, null, "123456");
+//        changePassword.start();
+//        System.out.println("new pass = " + changePassword.getPassword());
     }
 
     public String getPassword() {

@@ -16,4 +16,14 @@ public class ArrUtils {
         System.arraycopy(array2, 0, result, array1.length, array2.length);
         return result;
     }
+
+    /**
+     * @param arr
+     * @param index
+     * @param <T>
+     * @return arr[index] if index inside arr. null otherwise
+     */
+    public static <T> T exists(T[] arr, int index) {
+        return arr.length <= index ? null : arr[index];
+    }
 }

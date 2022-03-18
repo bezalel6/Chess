@@ -22,7 +22,6 @@ public class SidePanel extends JPanel {
     private final MyJButton offerDrawBtn;
     private long timeControl;
     private PlayerColor currentlyRunningClr;
-    private Timer currentTimer;
     private long currentRunMillis;
 
     public SidePanel(long millis, boolean isFlipped, Client client) {

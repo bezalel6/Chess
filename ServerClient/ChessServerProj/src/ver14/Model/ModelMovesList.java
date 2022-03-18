@@ -36,8 +36,13 @@ public class ModelMovesList extends MovesList {
         if (adding == null)
             return false;
 
+        if (generationSettings.anyLegal) {
+            if (generator.isLegal(adding)) {
+                super.add(adding);
+                throw ListEx.FoundLegalMove;
+            }
+        }
         super.add(adding);
-
 //        addedMove(adding, movingPiece);
 
         return true;
@@ -123,6 +128,14 @@ public class ModelMovesList extends MovesList {
 
     public MovesList getCleanList() {
         return new MovesList(this);
+    }
+
+    public static class ListEx extends RuntimeException {
+        public static ListEx FoundLegalMove = new ListEx("found legal move");
+
+        public ListEx(String message) {
+            super(message);
+        }
     }
 
 }

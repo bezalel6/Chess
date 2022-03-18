@@ -56,14 +56,14 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         return cardHeader.getCardName();
     }
 
+    public void navToMe() {
+        parentDialog.switchTo(this);
+    }
+
 //    @Override
 //    public Dimension getPreferredSize() {
 //        return Size.max(super.getPreferredSize());
 //    }
-
-    public void navToMe() {
-        parentDialog.switchTo(this);
-    }
 
     public String getCardID() {
         return cardID;
@@ -105,6 +105,11 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     @Override
     public void addToNavText(String str) {
         navBtn.setText(getCardName() + str);
+    }
+
+    @Override
+    public DialogCard currentCard() {
+        return this;
     }
 
     @Override

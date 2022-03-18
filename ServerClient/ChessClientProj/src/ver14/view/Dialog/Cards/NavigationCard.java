@@ -2,8 +2,8 @@ package ver14.view.Dialog.Cards;
 
 import ver14.view.Dialog.Dialog;
 
-public class NavigationDialogCard extends DialogCard {
-    public NavigationDialogCard(CardHeader cardHeader, Dialog parentDialog, DialogCard... linkTo) {
+public class NavigationCard extends DialogCard {
+    public NavigationCard(CardHeader cardHeader, Dialog parentDialog, DialogCard... linkTo) {
         super(cardHeader, parentDialog, null);
         for (DialogCard card : linkTo) {
             addNavigationTo(card);
