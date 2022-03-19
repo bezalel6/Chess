@@ -51,7 +51,7 @@ public class Board implements Iterable<Square>, Serializable {
         String[] rows = fen.split(" ")[0].split("/");
 
         /*
-         * when loading a fen we need to flip the locations bc a fen is structured with the white pieces on the bottom. and thats not how we want our mat to work.
+         * when loading a fen we might need to flip the locations bc a fen is structured with the white pieces on the bottom. and thats not how we want our mat to work.
          * */
 
         for (int rowIndex = 0; rowIndex < rows.length; rowIndex++) {
@@ -59,7 +59,10 @@ public class Board implements Iterable<Square>, Serializable {
             int col = 0;
             for (char currentChar : row.toCharArray()) {
                 if (Character.isLetter(currentChar)) {
-                    Location currentLoc = Location.getLoc(rowIndex, col).flip();
+                    Location currentLoc = Location.getLoc(rowIndex, col);
+                    if (Location.flip_fen_load_locs) {
+                        currentLoc = currentLoc.flip();
+                    }
                     Piece piece = Piece.getPieceFromFen(currentChar);
                     setPiece(currentLoc, piece);
 
@@ -77,10 +80,11 @@ public class Board implements Iterable<Square>, Serializable {
         }};
     }
 
-    public Square[] getRow(int row) {
+    public Square[] getRow(int row, boolean flipLocs) {
         Square[] ret = new Square[8];
         IntStream.range(0, 8).forEach(col -> {
-            Location loc = Location.getLoc(row, col, true);
+//            col = Location.flip(col);
+            Location loc = Location.getLoc(row, col, flipLocs);
             ret[col] = getSquare(loc);
         });
         return ret;

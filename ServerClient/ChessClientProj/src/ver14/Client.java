@@ -15,6 +15,9 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -41,7 +44,7 @@ import java.util.stream.Collectors;
  * ---------------------------------------------------------------------------
  * by Ilan Perez (ilanperets@gmail.com) 20/10/2021
  */
-public class Client {
+public class Client implements EnvManager {
 
     // constatns
     private static final int SERVER_DEFAULT_PORT = 1234;
@@ -66,6 +69,7 @@ public class Client {
      */
 
     public Client() {
+        ErrorManager.setEnvManager(this);
         setupClientGui();
         setupClient();
     }
@@ -424,4 +428,13 @@ public class Client {
     }
 
 
+    @Override
+    public void handledErr(MyError err) {
+        log("handled: " + err);
+    }
+
+    @Override
+    public void criticalErr(MyError err) {
+        closeClient(err.toString());
+    }
 }

@@ -51,6 +51,8 @@ public class ThreadsManager {
                 runnable.run();
             } catch (MyError e) {
                 err = e;
+            } catch (AssertionError assertionError) {
+                throw assertionError;
             } catch (Throwable t) {
                 err = new MyError(t);
             }

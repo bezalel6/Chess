@@ -123,6 +123,7 @@ public class Game {
             switchTurn();
         }
         onGameOver();
+        session.log("game over. " + gameOverStatus);
         return gameOverStatus;
     }
 

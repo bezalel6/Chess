@@ -1,6 +1,7 @@
 package ver14.SharedClasses;
 
 import org.intellij.lang.annotations.Language;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -14,7 +15,7 @@ public class RegEx implements Serializable {
     public static final RegEx Icon = new RegEx("\\.(png|gif)$", "");
     public static final RegEx StrUtilSkip = new RegEx("(^[ \\n\\t\\[])|(<[^>]*>)", "");//skip over spcaes and stuff
     public static final RegEx Numbers = new RegEx("^[0-9]+$", "enter number");
-    public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX, "");
+    public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX + "|" + AiParameters.AiType.MyAi + "|" + AiParameters.AiType.Stockfish, "");
     public static final RegEx Any = new RegEx("", "");
     public final String[] dontMatch;
     private final String details;

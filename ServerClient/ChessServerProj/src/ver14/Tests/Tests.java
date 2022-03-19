@@ -28,18 +28,15 @@ import java.util.stream.IntStream;
 
 @Test
 public class Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 5;
+    private static final int POSITIONS_COUNT_DEPTH = 6;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
     private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
-//        printNumOfPositions();
-//        minimaxThreadsTest();
         minimaxVsStockfish();
-//        isInCheck();
-//        minimaxVsStockfish();
+//        MoveGenerator.generateMoves(model()).prettyPrint();
     }
 
     private static void minimaxVsStockfish() {
@@ -98,6 +95,7 @@ public class Tests {
     @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
     public static void printNumOfPositions() {
         Model model = model();
+
         Stockfish stockfish = new Stockfish();
         for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
             long res, time = 0;

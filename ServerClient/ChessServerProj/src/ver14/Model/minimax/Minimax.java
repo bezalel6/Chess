@@ -14,6 +14,7 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -36,7 +37,8 @@ public class Minimax {
     private long branchesPruned;
     private long transpositionHits;
     private boolean stillTheory;
-    private ForkJoinPool threadPool;
+    private ExecutorService threadPool;
+    //    private ForkJoinPool threadPool;
     private MinimaxMove bestMove;
     private AtomicBoolean isCompleteSearch;
     private boolean interruptSearch;
@@ -200,6 +202,7 @@ public class Minimax {
 
     private MinimaxMove minimaxRoot(Model model, int maxDepth) {
         isCompleteSearch = new AtomicBoolean(true);
+//        threadPool = Executors.newFixedThreadPool(numOfThreads);
         threadPool = new ForkJoinPool(numOfThreads);
 
         Evaluation[] evals = startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
@@ -242,6 +245,7 @@ public class Minimax {
         threadPool.shutdown();
         try {
             if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
+                throw new Error("thread pool is acting up");
             }
         } catch (Exception e) {
             e.printStackTrace();

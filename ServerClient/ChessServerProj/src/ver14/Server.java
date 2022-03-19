@@ -477,6 +477,7 @@ public class Server implements ErrorContext, EnvManager {
      * @param player the player
      */
     public void gameSetup(Player player) {
+
         SyncedItems<GameInfo> joinable = getJoinableGames(player);
         SyncedItems<GameInfo> resumable = getResumableGames(player);
 
@@ -517,21 +518,22 @@ public class Server implements ErrorContext, EnvManager {
     /**
      * Gets joinable games.
      *
-     * @param playerNet the player net
+     * @param player the player net
      * @return the joinable games
      */
-    public SyncedItems<GameInfo> getJoinableGames(Player playerNet) {
+    public SyncedItems<GameInfo> getJoinableGames(Player player) {
+
         return gamePool.clean();
     }
 
     /**
      * Gets resumable games.
      *
-     * @param playerNet the player net
+     * @param player the player
      * @return the resumable games
      */
-    public SyncedItems<GameInfo> getResumableGames(Player playerNet) {
-        return DB.getUnfinishedGames(playerNet.getUsername()).clean();
+    public SyncedItems<GameInfo> getResumableGames(Player player) {
+        return DB.getUnfinishedGames(player.getUsername()).clean();
     }
 
     /**
@@ -571,7 +573,7 @@ public class Server implements ErrorContext, EnvManager {
      */
 //DEBUG ONLY
     public void minimaxVsStockfish() {
-        MinimaxVsStockfish p = new MinimaxVsStockfish(10);
+        MinimaxVsStockfish p = new MinimaxVsStockfish(1);
         gameSetup(p);
     }
 

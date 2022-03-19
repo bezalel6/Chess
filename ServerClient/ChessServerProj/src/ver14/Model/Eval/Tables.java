@@ -180,10 +180,10 @@ public class Tables {
                 for (int j = 0; j < 8; j++) {
                     Location loc = Location.getLoc(i, j);
                     //fixme
-                    Location flipped = Location.getLoc(loc.row, loc.col, true);
+//                    Location flipped = Location.getLoc(loc.row, loc.col, true);
 //                    Location flipped = loc;
-                    int fCol = flipped.col, fRow = flipped.row;
-                    ret[fRow][fCol] = arr[i][j];
+//                    int fCol = flipped.col, fRow = flipped.row;
+                    ret[loc.viewRow][loc.viewCol] = arr[i][j];
                 }
             }
             return ret;

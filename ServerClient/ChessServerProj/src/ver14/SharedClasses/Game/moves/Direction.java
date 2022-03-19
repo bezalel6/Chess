@@ -126,7 +126,7 @@ public enum Direction {
     public final static Direction[] ALL_DIRECTIONS = values();
     //endregion
     //endregion
-    private final static PlayerColor normalPerspective = PlayerColor.BLACK;
+    private final static PlayerColor normalPerspective = Location.normalPerspective;
     private final static HashMap<Integer, Direction> lookup;
 
     static {

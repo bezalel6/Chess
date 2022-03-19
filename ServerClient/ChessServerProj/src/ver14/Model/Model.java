@@ -5,10 +5,10 @@ import ver14.Model.Eval.Eval;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.hashing.BoardHash;
-import ver14.SharedClasses.Game.Location;
-import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.CastlingRights;
@@ -187,6 +187,7 @@ public class Model implements Serializable {
     }
 
     public Move findMove(BasicMove basicMove) {
+//        basicMove.flip();
         for (Move move : generateAllMoves()) {
             if (basicMove.equals(move)) {
                 return Move.copyMove(move);

@@ -35,4 +35,14 @@ public class LinkLabel extends JLabel {
             }
         });
     }
+
+    public static void main(String[] args) {
+        new JFrame() {{
+//            setLayout(new GridBagLayout());
+            setSize(500, 500);
+            add(new LinkLabel("hello", () -> {
+            }));
+            setVisible(true);
+        }};
+    }
 }

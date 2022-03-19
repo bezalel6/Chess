@@ -73,7 +73,7 @@ public class AttackedSquares {
                                 .exclude(myPieces.getAll())
                                 .exclude(opp));
             } while (isSliding && pieceBB.notEmpty()
-//                    && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
+                    && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
             );
 
         }

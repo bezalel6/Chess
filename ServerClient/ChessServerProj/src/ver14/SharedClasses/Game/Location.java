@@ -9,26 +9,28 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public enum Location {
-    A1, B1, C1, D1, E1, F1, G1, H1,
-    A2, B2, C2, D2, E2, F2, G2, H2,
-    A3, B3, C3, D3, E3, F3, G3, H3,
-    A4, B4, C4, D4, E4, F4, G4, H4,
-    A5, B5, C5, D5, E5, F5, G5, H5,
-    A6, B6, C6, D6, E6, F6, G6, H6,
-    A7, B7, C7, D7, E7, F7, G7, H7,
     A8, B8, C8, D8, E8, F8, G8, H8,
+    A7, B7, C7, D7, E7, F7, G7, H7,
+    A6, B6, C6, D6, E6, F6, G6, H6,
+    A5, B5, C5, D5, E5, F5, G5, H5,
+    A4, B4, C4, D4, E4, F4, G4, H4,
+    A3, B3, C3, D3, E3, F3, G3, H3,
+    A2, B2, C2, D2, E2, F2, G2, H2,
+    A1, B1, C1, D1, E1, F1, G1, H1,
     NONE;
+
+    public static final boolean flip_fen_locs = false;
+    public static final boolean flip_fen_load_locs = false;
     public static final ArrayList<Location> ALL_LOCS;
     public static final int NUM_OF_SQUARES = 64;
 
     public static final int KING_STARTING_COL = E1.col;
 
-    public static final int WHITE_DIFF = 1;
-    public static final int BLACK_DIFF = -WHITE_DIFF;
-    public static final int WHITE_STARTING_ROW = E8.row;
+    public static final int WHITE_STARTING_ROW = E1.row;
     public static final int BLACK_STARTING_ROW = flip(WHITE_STARTING_ROW);
-
-
+    public static final int WHITE_DIFF = WHITE_STARTING_ROW > BLACK_STARTING_ROW ? -1 : 1;
+    public static final int BLACK_DIFF = -WHITE_DIFF;
+    public static final PlayerColor normalPerspective = PlayerColor.WHITE;
     private static final Map<Integer, Location> map = new HashMap<>();
     private static final long whiteSquares = 0x55aa55aa55aa55aaL;
     private static final long blackSquares = ~whiteSquares;
@@ -38,7 +40,7 @@ public enum Location {
             map.put(p.asInt, p);
         }
         ALL_LOCS = Arrays.stream(values())
-                .filter(location -> location.asInt < NUM_OF_SQUARES)
+                .filter(location -> location != NONE)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -46,20 +48,22 @@ public enum Location {
     public final int asInt;
     public final int row;
     public final int col;
-//    public final int matRow
+    public final int viewRow;
+    public final int viewCol;
 
     Location() {
 //        int matRow = row(this);
-        this.row = flip(row(this));
-        this.col = col(this);
-//        this.col = flip(col(this));
+
+        this.row = (row(this));
+        this.col = (col(this));
+
+        this.viewRow = flip(row);
+        this.viewCol = flip(col);
+
         this.asInt = this.row * 8 + this.col;
         this.asLong = 1L << this.asInt;
     }
-
-    public static int flip(int num) {
-        return Math.abs(num - 7);
-    }
+//    public final int matRow
 
     private static int row(Location loc) {
         return loc.ordinal() >> 3;
@@ -67,6 +71,47 @@ public enum Location {
 
     private static int col(Location loc) {
         return loc.ordinal() & 7;
+    }
+
+    public static int flip(int num) {
+        return Math.abs(num - 7);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(locsMatStr());
+    }
+
+    public static String locsMatStr() {
+        StringBuilder str = new StringBuilder();
+        for (Location[] row : locsMat()) {
+            for (Location loc : row) {
+                str.append(loc.matrixStr());
+            }
+            str.append("\n");
+        }
+        return str.toString();
+    }
+
+    public static Location[][] locsMat() {
+        Location[][] mat = new Location[8][8];
+        for (Location loc : ALL_LOCS) {
+            mat[loc.row][loc.col] = loc;
+        }
+        return mat;
+    }
+
+    public String matrixStr() {
+        return " %s: %d,%d ".formatted(name(), row, col);
+    }
+
+    public static String createMatIndicesStr() {
+        StringBuilder bldr = new StringBuilder();
+        for (Location loc : ALL_LOCS) {
+            if (loc.col % 8 == 0)
+                bldr.append("\n");
+            bldr.append(loc.matrixStr());
+        }
+        return bldr.toString();
     }
 
     public static Location getLoc(Location loc, Direction direction) {
@@ -98,7 +143,8 @@ public enum Location {
     public static Location getLoc(String str) {
         int r = Integer.parseInt(str.substring(1)) - 1;
         int c = Integer.parseInt((str.charAt(0) - 'a') + "");
-//        r = getFlipped(r);
+//        c = flip(c);
+        r = flip(r);
         Location loc = getLoc(r, c);
         if (!isInBounds(loc)) {
             return null;
@@ -140,11 +186,15 @@ public enum Location {
     }
 
     public String getColString() {
-        return Character.toString((char) (flip(col) + 'a'));
+        return Character.toString((char) ((flip_fen_locs ? flip(col) : col) + 'a'));
     }
 
     public String getRowString() {
-        return (row + 1) + "";
+        int r = row + 1;
+        if (flip_fen_locs) {
+            r = flip(r);
+        }
+        return r + "";
     }
 
     public int getMaxDistance(Location other) {

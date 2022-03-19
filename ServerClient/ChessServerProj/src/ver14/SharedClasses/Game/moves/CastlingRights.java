@@ -132,8 +132,8 @@ public class CastlingRights implements Serializable {
     }
 
     public enum Side {
-        KING(Location.G1.col, Location.H1.col, Location.F1.col),
-        QUEEN(Location.C1.col, Location.A1.col, Location.D1.col);
+        KING(6, 7, 5),
+        QUEEN(2, 0, 3);
 
         public static final Side[] SIDES = {KING, QUEEN};
         public final int rookStartingCol;
@@ -150,9 +150,9 @@ public class CastlingRights implements Serializable {
             this.castledRookCol = castledRookCol;
             this.castledKingCol = castledKingCol;
 
-            this.mult = Integer.compare(Location.KING_STARTING_COL, castledKingCol);
-//            always 2 🤡 technically more dynamic
-            this.kingTravelDistance = Math.abs(Location.KING_STARTING_COL - castledKingCol);
+            this.mult = -Integer.compare(4, castledKingCol);
+//            always 2, but this is technically more dynamic
+            this.kingTravelDistance = Math.abs(4 - castledKingCol);
             this.castlingNotation = StrUtils.repeat((i, isLast) -> "O" + (isLast ? "" : "-"), Math.abs(Location.KING_STARTING_COL - rookStartingCol) - 1);
             this.asInt = ordinal();
         }
