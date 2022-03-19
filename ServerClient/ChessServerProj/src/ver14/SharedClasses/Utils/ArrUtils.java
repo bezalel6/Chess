@@ -1,5 +1,8 @@
 package ver14.SharedClasses.Utils;
 
+import ver14.SharedClasses.Callbacks.ObjCallback;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArrUtils {
@@ -15,6 +18,15 @@ public class ArrUtils {
         T[] result = Arrays.copyOf(array1, array1.length + array2.length);
         System.arraycopy(array2, 0, result, array1.length, array2.length);
         return result;
+    }
+
+
+    public static <T> ArrayList<T> createList(ObjCallback<T> objCreator, int size) {
+        ArrayList<T> lst = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            lst.add(objCreator.get());
+        }
+        return lst;
     }
 
     /**

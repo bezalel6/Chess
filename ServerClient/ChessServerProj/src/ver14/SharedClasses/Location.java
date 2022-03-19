@@ -49,10 +49,8 @@ public enum Location {
 //    public final int matRow
 
     Location() {
-//        int matRow = row(this);
         this.row = flip(row(this));
         this.col = col(this);
-//        this.col = flip(col(this));
         this.asInt = this.row * 8 + this.col;
         this.asLong = 1L << this.asInt;
     }

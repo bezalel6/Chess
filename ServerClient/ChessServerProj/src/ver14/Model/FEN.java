@@ -7,14 +7,42 @@ import ver14.SharedClasses.board_setup.Board;
 import ver14.SharedClasses.board_setup.Square;
 import ver14.SharedClasses.moves.CastlingRights;
 
+import java.util.Random;
 
+
+/**
+ * The type Fen.
+ */
 public class FEN {
+
+    /**
+     * The constant rndFens.
+     */
+    public static final String[] rndFens = {"rnb1kb1r/pppppppp/3q1n2/8/4K3/8/PPPPPPPP/RNBQ1BNR w kq - 0 1", "3K4/n2b3q/1PP1r1p1/2k1P3/5Qp1/3P1N2/P4P2/8 w - - 0 1", "3K4/n2b3q/1PP1r1p1/2k1P3/5Qp1/3P1N2/P4P2/8 w - - 0 1", "8/4b2p/P5Bk/3KR1p1/1N1pp1pP/q7/1QP5/8 w - - 0 1", "5q2/2n1p3/1P1P1PN1/7K/5p2/1n6/b1P2kPP/3B4 w - - 0 1", "k5n1/3pbp2/2P2P2/p2N4/P1PP3R/8/2K3Qp/8 w - - 0 1", "4B2r/8/1P6/6K1/qP2p3/Q1P2Rp1/2P3kp/Nb6 w - - 0 1"};
+
+
+    /**
+     * Rnd fen string.
+     * not actually random just random element from the arr
+     *
+     * @return the string
+     */
+    public static String rndFen() {
+        return rndFens[new Random().nextInt(rndFens.length)];
+    }
+
     public static void main(String[] args) {
         System.out.println(generateFEN(new Model() {{
             setup(null);
         }}));
     }
 
+    /**
+     * Generate fen string.
+     *
+     * @param model the model
+     * @return the string
+     */
     public static String generateFEN(Model model) {
         StringBuilder ret = new StringBuilder();
         Board board = model.getLogicBoard();
@@ -56,14 +84,31 @@ public class FEN {
         return ret.toString();
     }
 
+    /**
+     * Assert fen.
+     *
+     * @param fen the fen
+     */
     public static void assertFen(String fen) {
         assert isValidFen(fen);
     }
 
+    /**
+     * Is valid fen boolean.
+     *
+     * @param fen the fen
+     * @return the boolean
+     */
     public static boolean isValidFen(String fen) {
         return RegEx.Fen.check(fen);
     }
 
+    /**
+     * Load fen.
+     *
+     * @param fen   the fen
+     * @param model the model
+     */
     public static void loadFEN(String fen, Model model) {
         assertFen(fen);
 

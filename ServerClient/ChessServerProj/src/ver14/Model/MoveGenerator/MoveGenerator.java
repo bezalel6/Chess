@@ -311,6 +311,12 @@ public class MoveGenerator {
         return true;
     }
 
+    public static int numSquaresToEdge(Location loc, Direction direction) {
+        if (direction.combination.length != 1)
+            return 1;
+        return numSquaresToEdge[loc.asInt][direction.asInt];
+    }
+
     public void generateRookMoves() {
         for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
             generateSlidingPieceMoves(rookLoc, PieceType.ROOK);

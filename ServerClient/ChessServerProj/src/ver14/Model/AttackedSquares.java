@@ -61,7 +61,7 @@ public class AttackedSquares {
         if (attackingDirections.length == 0)
             attackingDirections = pieceType.getAttackingDirections();
 
-        boolean isSliding = pieceType.isSlidingPiece();
+        boolean isSliding = pieceType.isSliding;
         for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength; i++) {
             Direction direction = attackingDirections[i];
             Bitboard pieceBB = ogBB.cp();
@@ -118,21 +118,23 @@ public class AttackedSquares {
                 Bitboard and = temp.and(myPieces.getAll());
                 if (and.notEmpty()) {
                     PieceType pieceType = myPieces.getPieceType(and);
-                    if (pieceType.isAttack(direction)) {
-                        if (pieceType != PieceType.KNIGHT) {
-                            Bitboard attck = new Bitboard(from, temp, direction, attackingPlayerColor);
-                            if (pins != null) {
-                                pins.addPin(direction, attck);
-                            }
-                            attackedSquares.orEqual(attck);
+//                    touncomment
+//                    if (pieceType.isAttack(direction)) {
+                    if (pieceType != PieceType.KNIGHT) {
+                        Bitboard attck = new Bitboard(from, temp, direction, attackingPlayerColor);
+                        if (pins != null) {
+                            pins.addPin(direction, attck);
                         }
-                        if (onlyAttack)
-                            attack(pieceType, and, direction); //only check direction
-                        else
-                            attack(pieceType, and);
-
-                        break;
+                        attackedSquares.orEqual(attck);
                     }
+                    if (onlyAttack)
+                        attack(pieceType, and, direction); //only check direction
+                    else
+                        attack(pieceType, and);
+
+                    break;
+
+//                    }
 
                 }
                 if (temp.anyMatch(oppPieces)) {

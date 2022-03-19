@@ -7,8 +7,11 @@ import ver14.Model.Eval.Eval;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.minimax.Minimax;
 import ver14.Server;
+import ver14.SharedClasses.Callbacks.Callback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Location;
 import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.evaluation.Evaluation;
 import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.moves.MovesList;
@@ -18,9 +21,7 @@ import ver14.game.Game;
 
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -28,18 +29,129 @@ import java.util.stream.IntStream;
 
 @Test
 public class Tests {
+    private static final boolean enableInput = false;
     private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
     private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
+    private static final int attackedFensNum = 10;
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
 //        printNumOfPositions();
 //        minimaxThreadsTest();
-        minimaxVsStockfish();
+//        minimaxVsStockfish();
 //        isInCheck();
 //        minimaxVsStockfish();
+//        compareAttacks();
+
+    }
+
+    private static void compareAttacks() {
+        VoidCallback one = Tests::fastAttacked;
+        VoidCallback two = Tests::normalAttacked;
+        one.callback();
+        one.callback();
+        one.callback();
+        one.callback();
+
+        two.callback();
+        two.callback();
+        two.callback();
+        two.callback();
+        int size = 1000000;
+        int checkIn = size / 1000;
+        long[] times = {0, 0};
+        System.out.printf("running %s times....\n", size);
+        IntStream.range(0, size).forEach(
+                i -> {
+                    long[] arr = compareTimes("new attacked squares", one, "old attacked squares", two);
+                    for (int j = 0; j < arr.length; j++) {
+                        times[j] += arr[j];
+                    }
+                    if (i % checkIn == 0) {
+                        System.out.println(i);
+
+                    }
+                }
+        );
+        System.out.println(Arrays.toString(times));
+        Arrays.stream(times).forEach(l -> System.out.println(l / size));
+    }
+
+    private static void fastAttacked() {
+        rerunOnInput(fen -> {
+            Model model = model(fen);
+            FastAttackedSquares attackedSquares = new FastAttackedSquares(model.getLogicBoard(), model.getKing(PlayerColor.WHITE));
+            boolean b = attackedSquares.isAttacked();
+//            System.out.println(b);
+        }, ArrUtils.createList(FEN::rndFen, attackedFensNum).toArray(new String[0]));
+    }
+
+    private static void normalAttacked() {
+        rerunOnInput(fen -> {
+            Model model = model(fen);
+            boolean b = (AttackedSquares.isAttacked(model, model.getKing(PlayerColor.WHITE), PlayerColor.BLACK));
+//            System.out.println(b);
+        }, ArrUtils.createList(FEN::rndFen, attackedFensNum).toArray(new String[0]));
+    }
+
+    private static long[] compareTimes(String v1Name, VoidCallback v1, String v2Name, VoidCallback v2) {
+        startTime();
+        v1.callback();
+        long one = stopTime();
+        startTime();
+        v2.callback();
+        long two = stopTime();
+//        System.out.println((one > two ? v2Name : v1Name) + " is better");
+//        System.out.printf("%s:  %s\n%s: %s\n%s-%s=%s\n\n", v1Name, one, v2Name, two, one, two, one - two);
+        return new long[]{one, two};
+    }
+
+    private static void rerunOnInput(Callback<String> run, String... startingValues) {
+        Scanner scanner = new Scanner(System.in);
+        for (String str : startingValues) {
+            run.callback(str);
+        }
+        if (!enableInput)
+            return;
+        String str;
+        do {
+            System.out.println("waiting for input");
+            str = scanner.nextLine();
+            run.callback(str);
+        } while (str != null && !str.equals("q"));
+    }
+
+    private static Model model(String... fen) {
+        return new Model() {{
+            setup(ArrUtils.exists(fen, 0));
+        }};
+    }
+
+    //
+//    @Test(testName = "")
+//    private static void positionsCountRoot(int depth) {
+//
+//        Assert.assertEquals(1, 2, "");
+//    }
+    public static void startTime() {
+        dateTime = ZonedDateTime.now();
+    }
+
+    public static long stopTime() {
+        assert dateTime != null;
+        return dateTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
+    }
+
+    private static void attackedSquares() {
+        String fen = null;
+        Model model = new Model(fen);
+        System.out.println("Model: \n");
+        model.printBoard();
+        System.out.println();
+        Bitboard attacked = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, new Bitboard(Location.E4), PlayerColor.WHITE, model);
+        System.out.println(attacked.prettyBoard());
     }
 
     private static void minimaxVsStockfish() {
@@ -111,23 +223,6 @@ public class Tests {
         stockfish.stopEngine();
     }
 
-    //
-//    @Test(testName = "")
-//    private static void positionsCountRoot(int depth) {
-//
-//        Assert.assertEquals(1, 2, "");
-//    }
-    @Test(enabled = false)
-    public static void startTime() {
-        dateTime = ZonedDateTime.now();
-    }
-
-    private static Model model() {
-        return new Model() {{
-            setup(null);
-        }};
-    }
-
     private static void isInCheck() {
         Model model = new Model();
 
@@ -168,11 +263,6 @@ public class Tests {
         Model model = new Model(fen);
         Attack check = AttackedSquares.getCheck(model, PlayerColor.WHITE);
         check.prettyPrint();
-    }
-
-    public static long stopTime() {
-        assert dateTime != null;
-        return dateTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
     }
 
     //region
@@ -281,6 +371,8 @@ public class Tests {
         System.out.println("Evaluation = " + evaluation);
     }
 
+    //endregion
+
     private static void fiftyMoves() {
         Model model = new Model();
         int i = 0;
@@ -299,18 +391,6 @@ public class Tests {
 
         }
         System.out.println(model);
-    }
-
-    //endregion
-
-    private static void attackedSquares() {
-        String fen = null;
-        Model model = new Model(fen);
-        System.out.println("Model: \n");
-        model.printBoard();
-        System.out.println();
-        Bitboard attacked = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, new Bitboard(Location.E4), PlayerColor.WHITE, model);
-        System.out.println(attacked.prettyBoard());
     }
 
     public static long countPositions(int depth, Model model, boolean isRoot) {
