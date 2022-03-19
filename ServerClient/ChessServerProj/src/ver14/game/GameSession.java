@@ -2,15 +2,15 @@ package ver14.game;
 
 import ver14.DB.DB;
 import ver14.Server;
-import ver14.SharedClasses.GameSettings;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.SavedGames.ArchivedGameInfo;
-import ver14.SharedClasses.SavedGames.EstablishedGameInfo;
-import ver14.SharedClasses.SavedGames.GameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Sync.SyncableItem;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
 import ver14.players.Player;
 
 import java.util.Arrays;
@@ -124,13 +124,18 @@ public class GameSession extends Thread implements SyncableItem {
 
     public boolean isSaveWorthy(GameStatus gameResult) {
         if (gameResult.getGameStatusType() == GameStatus.GameStatusType.UNFINISHED) {
-            return game.getGameSettings().isVsAi();
+            return creator.isSaveWorthy() && p2.isAi();
         }
         return creator.isSaveWorthy() || p2.isSaveWorthy();
     }
 
     public Player[] getPlayers() {
         return new Player[]{creator, p2};
+    }
+
+    @Override
+    public String toString() {
+        return "Session(%s) %s".formatted(gameID, game);
     }
 
     @Override
@@ -144,6 +149,6 @@ public class GameSession extends Thread implements SyncableItem {
     }
 
     public void log(String str) {
-        server.log(str);
+        server.log(this + "-->" + str);
     }
 }

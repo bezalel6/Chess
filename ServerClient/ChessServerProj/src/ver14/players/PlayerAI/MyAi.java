@@ -1,9 +1,9 @@
 package ver14.players.PlayerAI;
 
 import ver14.Model.minimax.Minimax;
-import ver14.SharedClasses.GameSetup.AiParameters;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 
 import java.util.concurrent.TimeUnit;
 

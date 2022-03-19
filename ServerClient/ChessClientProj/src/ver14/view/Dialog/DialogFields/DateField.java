@@ -2,14 +2,9 @@ package ver14.view.Dialog.DialogFields;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.toedter.calendar.JCalendar;
-import ver14.SharedClasses.DBActions.Arg.Arg;
-import ver14.SharedClasses.DBActions.Arg.ArgType;
-import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.FontManager;
 import ver14.view.Dialog.Components.Parent;
-import ver14.view.Dialog.DialogProperties;
 import ver14.view.Dialog.Dialogs.Header;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
 import ver14.view.IconManager.Size;
 
 import java.awt.*;
@@ -56,8 +51,8 @@ public class DateField extends DialogField<Date> {
     }
 
     public static void main(String[] args) {
-        Arg a = new Arg(ArgType.Date, new Config<>("iuehwdifdhsdhjdoishj neoifcneoiemcoism kpekoms pom\nddwaawaddawdwad", new Date()));
-        new CustomDialog(null, DialogProperties.example, a, a, a).start();
+//        Arg a = new Arg(ArgType.Date, new Config<>("iuehwdifdhsdhjdoishj neoifcneoiemcoism kpekoms pom\nddwaawaddawdwad", new Date()));
+//        new CustomDialog(null, Properties.example, a, a, a).start();
     }
 
     @Override

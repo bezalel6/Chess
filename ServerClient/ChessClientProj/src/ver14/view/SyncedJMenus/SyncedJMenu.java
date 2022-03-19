@@ -4,6 +4,7 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.messages.Message;
+import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Components.SyncableListComponent;
 import ver14.view.Dialog.Dialogs.Header;
@@ -77,6 +78,11 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         @Override
         public void addToNavText(String str) {
             setText(header.getText() + str);
+        }
+
+        @Override
+        public DialogCard currentCard() {
+            return null;
         }
 
         @Override

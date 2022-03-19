@@ -1,14 +1,17 @@
 package ver14.Model;
 
 
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.board_setup.Square;
-import ver14.SharedClasses.moves.CastlingRights;
 
 
 public class FEN {
+    private static final boolean flipLocs = Location.flip_fen_locs;
+
     public static void main(String[] args) {
         System.out.println(generateFEN(new Model() {{
             setup(null);
@@ -16,31 +19,11 @@ public class FEN {
     }
 
     public static String generateFEN(Model model) {
-        StringBuilder ret = new StringBuilder();
+        StringBuilder bldr = new StringBuilder();
         Board board = model.getLogicBoard();
-        for (int rowNum = 0; rowNum < 8; rowNum++) {
-            Square[] row = board.getRow(rowNum);
-            int emptySquaresNum = 0;
-            for (Square square : row) {
-                if (square.isEmpty()) {
-                    emptySquaresNum++;
-                } else {
-                    if (emptySquaresNum != 0) {
-                        ret.append(emptySquaresNum);
-                    }
-                    ret.append(square.getFen());
+        normalGen(bldr, board);
 
-                    emptySquaresNum = 0;
-                }
-            }
-            if (emptySquaresNum != 0) {
-                ret.append(emptySquaresNum);
-            }
-            if (rowNum != 8 - 1) {
-                ret.append("/");
-            }
-        }
-        ret
+        bldr
                 .append(" ")
                 .append(model.getCurrentPlayer() == PlayerColor.WHITE ? "w" : "b")
                 .append(" ")
@@ -52,9 +35,35 @@ public class FEN {
                 .append(" ")
                 .append(model.getFullMoveClock());
 
-        assertFen(ret.toString());
-        return ret.toString();
+        assertFen(bldr.toString());
+        return bldr.toString();
     }
+
+    private static void normalGen(StringBuilder bldr, Board board) {
+        for (int rowNum = 0; rowNum < 8; rowNum++) {
+            Square[] row = board.getRow(rowNum, flipLocs);
+            int emptySquaresNum = 0;
+            for (Square square : row) {
+                if (square.isEmpty()) {
+                    emptySquaresNum++;
+                } else {
+                    if (emptySquaresNum != 0) {
+                        bldr.append(emptySquaresNum);
+                    }
+                    bldr.append(square.getFen());
+
+                    emptySquaresNum = 0;
+                }
+            }
+            if (emptySquaresNum != 0) {
+                bldr.append(emptySquaresNum);
+            }
+            if (rowNum != 8 - 1) {
+                bldr.append("/");
+            }
+        }
+    }
+
 
     public static void assertFen(String fen) {
         assert isValidFen(fen);

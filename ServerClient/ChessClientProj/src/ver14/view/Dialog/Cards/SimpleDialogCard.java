@@ -12,7 +12,6 @@ public class SimpleDialogCard extends DialogCard {
         this.backOk = backOk;
     }
 
-
     public static SimpleDialogCard create(DialogComponent component, Dialog parent) {
         BackOkInterface backOk = null;
         if (parent instanceof BackOkInterface b) {
@@ -34,5 +33,22 @@ public class SimpleDialogCard extends DialogCard {
                 }
             }
         };
+    }
+
+    @Override
+    public void onBack() {
+        super.onBack();
+        if (backOk != null) {
+            backOk.onBack();
+
+        }
+    }
+
+    @Override
+    public void onOk() {
+        super.onOk();
+        if (backOk != null) {
+            backOk.onOk();
+        }
     }
 }

@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class MyJButton extends JButton {
 
+    private int numOfSetCallbacks = 0;
+
     public MyJButton(String text, VoidCallback callback) {
         this(text);
         setOnClick(callback);

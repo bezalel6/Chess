@@ -7,12 +7,12 @@ import ver14.Model.Eval.Eval;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.minimax.Minimax;
 import ver14.Server;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.moves.MovesList;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.ThreadsUtil;
 import ver14.game.Game;
 
@@ -28,18 +28,15 @@ import java.util.stream.IntStream;
 
 @Test
 public class Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 5;
+    private static final int POSITIONS_COUNT_DEPTH = 6;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
-    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS / 2;
+    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
-//        printNumOfPositions();
-//        minimaxThreadsTest();
         minimaxVsStockfish();
-//        isInCheck();
-//        minimaxVsStockfish();
+//        MoveGenerator.generateMoves(model()).prettyPrint();
     }
 
     private static void minimaxVsStockfish() {
@@ -98,6 +95,7 @@ public class Tests {
     @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
     public static void printNumOfPositions() {
         Model model = model();
+
         Stockfish stockfish = new Stockfish();
         for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
             long res, time = 0;
@@ -111,6 +109,18 @@ public class Tests {
         stockfish.stopEngine();
     }
 
+    @Test(testName = "Fen Generation")
+    public static void fenTest() {
+        String fen = FEN.generateFEN(model());
+        Assert.assertEquals(fen, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    }
+
+    private static Model model() {
+        return new Model() {{
+            setup(null);
+        }};
+    }
+
     //
 //    @Test(testName = "")
 //    private static void positionsCountRoot(int depth) {
@@ -120,12 +130,6 @@ public class Tests {
     @Test(enabled = false)
     public static void startTime() {
         dateTime = ZonedDateTime.now();
-    }
-
-    private static Model model() {
-        return new Model() {{
-            setup(null);
-        }};
     }
 
     private static void isInCheck() {
@@ -334,7 +338,7 @@ public class Tests {
                 threadPool.shutdown();
                 if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
                     IntStream.range(0, 1000).forEach(i -> {
-                        System.err.println("F");
+                        System.err.print("F");
                     });
                 }
             } catch (InterruptedException e) {

@@ -1,15 +1,15 @@
 package ver14;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.GameSettings;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.evaluation.GameStatus;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.networking.MessagesHandler;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.View;

@@ -1,9 +1,9 @@
 package ver14.Model.minimax;
 
 import ver14.Model.Model;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.Move;
 
 public class MinimaxParameters {
     public final Model model;

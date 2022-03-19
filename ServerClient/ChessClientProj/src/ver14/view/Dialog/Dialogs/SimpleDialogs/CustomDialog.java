@@ -6,9 +6,8 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.DialogField;
-import ver14.view.Dialog.DialogProperties;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +17,13 @@ public class CustomDialog extends Dialog implements CancelOk {
     private Map<DialogField<?>, Integer> map = new HashMap<>();
     private boolean noRes = false;
 
+
     /**
-     * @param parentWin
      * @param properties - a general description of the dialog
      * @param args       - specific
      */
-    public CustomDialog(Component parentWin, DialogProperties properties, Arg... args) {
-        super(null, properties, parentWin);
+    public CustomDialog(Properties properties, Arg... args) {
+        super(properties);
         this.resultsArrSize = args.length;
         ArrayList<DialogField<?>> fields = new ArrayList<>();
         for (int i = 0; i < args.length; i++) {
@@ -41,7 +40,6 @@ public class CustomDialog extends Dialog implements CancelOk {
         else closeDialog();
     }
 
-
     protected void setup(ArrayList<DialogField<?>> components) {
         setup(components.toArray(DialogField[]::new));
     }
@@ -49,7 +47,6 @@ public class CustomDialog extends Dialog implements CancelOk {
     protected void setup(DialogField<?>... components) {
         cardsSetup(null, SimpleDialogCard.create(new CardHeader(properties), this, this, components));
     }
-
 
     public Object[] getResults() {
         if (noRes)
@@ -64,6 +61,7 @@ public class CustomDialog extends Dialog implements CancelOk {
         super.onUpdate();
 
     }
+
 
     @Override
     public void onBack() {

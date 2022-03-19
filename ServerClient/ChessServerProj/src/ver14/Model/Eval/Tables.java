@@ -1,8 +1,8 @@
 package ver14.Model.Eval;
 
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 public class Tables {
     private static final int MIDDLE_GAME = 0, ENDGAME = 1;
@@ -180,10 +180,10 @@ public class Tables {
                 for (int j = 0; j < 8; j++) {
                     Location loc = Location.getLoc(i, j);
                     //fixme
-                    Location flipped = Location.getLoc(loc.row, loc.col, true);
+//                    Location flipped = Location.getLoc(loc.row, loc.col, true);
 //                    Location flipped = loc;
-                    int fCol = flipped.col, fRow = flipped.row;
-                    ret[fRow][fCol] = arr[i][j];
+//                    int fCol = flipped.col, fRow = flipped.row;
+                    ret[loc.viewRow][loc.viewCol] = arr[i][j];
                 }
             }
             return ret;

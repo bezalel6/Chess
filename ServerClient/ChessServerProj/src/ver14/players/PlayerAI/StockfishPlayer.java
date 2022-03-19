@@ -2,10 +2,10 @@ package ver14.players.PlayerAI;
 
 import ver14.Model.FEN;
 import ver14.Model.Stockfish;
-import ver14.SharedClasses.GameSetup.AiParameters;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.BasicMove;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.Move;
 
 public class StockfishPlayer extends PlayerAI {
     private final Stockfish stockfish;
@@ -17,7 +17,6 @@ public class StockfishPlayer extends PlayerAI {
 
     @Override
     protected void initGame() {
-
     }
 
     @Override

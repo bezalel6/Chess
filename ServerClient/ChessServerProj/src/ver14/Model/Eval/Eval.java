@@ -7,13 +7,13 @@ import ver14.Model.AttackedSquares;
 import ver14.Model.Bitboard;
 import ver14.Model.Model;
 import ver14.Model.PiecesBBs;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.evaluation.EvaluationParameters;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.evaluation.EvaluationParameters;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.io.Serializable;
 
@@ -60,14 +60,22 @@ public class Eval implements Serializable {
     }
 
     private Evaluation checkGameOver() {
-//        long hash = model.getBoardHash().getFullHash();
-//        if (gameOverHashMap.containsKey(hash)) {
-//            return (Evaluation) gameOverHashMap.get(hash);
-//        }
-        Evaluation ret = isGameOver_();
+        if (!model.anyLegalMove(playerToMove)) {
+            if (model.isInCheck(playerToMove)) {
+                return new Evaluation(GameStatus.checkmate(playerToMove.getOpponent(), model.getKing(playerToMove)), playerToMove);
+            }
+            return new Evaluation(GameStatus.stalemate(), playerToMove);
 
-//        gameOverHashMap.put(hash, ret);
-        return ret;
+        } else if (model.getHalfMoveClock() >= 100) {
+            return new Evaluation(GameStatus.fiftyMoveRule(), playerToMove);
+        }
+        if (checkRepetition()) {
+            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
+        }
+        if (checkForInsufficientMaterial()) {
+            return new Evaluation(GameStatus.insufficientMaterial(), playerToMove);
+        }
+        return new Evaluation(playerToMove);
     }
 
     private double endgameWeight() {
@@ -111,23 +119,14 @@ public class Eval implements Serializable {
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
     }
 
-    private Evaluation isGameOver_() {
-        if (!model.anyLegalMove(playerToMove)) {
-            if (model.isInCheck(playerToMove)) {
-                return new Evaluation(GameStatus.checkmate(playerToMove.getOpponent(), model.getKing(playerToMove)), playerToMove);
-            }
-            return new Evaluation(GameStatus.stalemate(), playerToMove);
+    private boolean checkRepetition() {
 
-        } else if (model.getHalfMoveClock() >= 100) {
-            return new Evaluation(GameStatus.fiftyMoveRule(), playerToMove);
-        }
-        if (checkRepetition()) {
-            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
-        }
-        if (checkForInsufficientMaterial()) {
-            return new Evaluation(GameStatus.insufficientMaterial(), playerToMove);
-        }
-        return new Evaluation(playerToMove);
+        return false;
+    }
+
+    private boolean checkForInsufficientMaterial() {
+        return insufficientMaterial(PlayerColor.WHITE) &&
+                insufficientMaterial(PlayerColor.BLACK);
     }
 
     private double materialSumWithoutPandK() {
@@ -166,23 +165,21 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
     }
 
-    private void compareKingSafety() {
-        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
-    }
-
 //
 //    private double compareSquareControl(int player) {
 //        return squaresControl(player) - squaresControl(Player.getOpponent(player));
 //    }
 
-    private boolean checkRepetition() {
-
-        return false;
+    private void compareKingSafety() {
+        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
     }
 
-    private boolean checkForInsufficientMaterial() {
-        return insufficientMaterial(PlayerColor.WHITE) &&
-                insufficientMaterial(PlayerColor.BLACK);
+    private boolean insufficientMaterial(PlayerColor playerColor) {
+        return model.getNumOfPieces(playerColor, PieceType.KING) < 1 || (
+                model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
+                        model.getNumOfPieces(playerColor, PieceType.MINOR_PIECES) <= 1 &&
+                        model.getNumOfPieces(playerColor, PieceType.MAJOR_PIECES) == 0);
+
     }
 
     private double materialSum(PlayerColor playerColor) {
@@ -232,14 +229,6 @@ public class Eval implements Serializable {
         return ret;
     }
 
-    private boolean insufficientMaterial(PlayerColor playerColor) {
-        return model.getNumOfPieces(playerColor, PieceType.KING) < 1 || (
-                model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
-                        model.getNumOfPieces(playerColor, PieceType.MINOR_PIECES) <= 1 &&
-                        model.getNumOfPieces(playerColor, PieceType.MAJOR_PIECES) == 0);
-
-    }
-
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
         return new Eval(model, playerColor).evaluation;
     }
@@ -266,6 +255,7 @@ public class Eval implements Serializable {
         num = Math.floor(num);
         return num + "".length();
     }
+
 
     private double squaresControl(int player) {
         double ret = 0;

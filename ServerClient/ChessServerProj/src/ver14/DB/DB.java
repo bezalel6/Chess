@@ -11,9 +11,9 @@ import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.SavedGames.ArchivedGameInfo;
-import ver14.SharedClasses.SavedGames.GameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -124,14 +124,6 @@ public class DB {
         return runQuery("SELECT %s FROM %s %s".formatted(selecting.toString(), selectFrom, conditionsStr));
     }
 
-    /**
-     * Run SQL Query Statement - SELECT הפעולה מריצה שאילתת
-     *
-     * @param sql        שאילתה
-     * @param dbFilePath פרמטר אופציונאלי לנתיב מסד הנתונים עליו רוצים להפעיל השאילתה
-     * @return מחזירה טבלת תוצאה
-     * @throws SQLException נזרקת שגיאה אם לא ניתן להריץ את השאילתה
-     */
     public static ServerDBResponse runQuery(@Language("SQL") String sql, String... dbFilePath) {
 
         try {
@@ -155,6 +147,7 @@ public class DB {
 //            addGames("bezalel6");
 //            clearGames();
 //            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
+            System.out.println(RequestBuilder.top().build(5).getRequest());
         } catch (Exception e) {
             e.printStackTrace();
         }

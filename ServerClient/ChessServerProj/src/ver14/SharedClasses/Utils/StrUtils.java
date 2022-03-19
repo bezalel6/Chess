@@ -27,6 +27,8 @@ public class StrUtils {
     }
 
     public static String htmlNewLines(String str) {
+        if (str == null)
+            return null;
         if (str.startsWith("<html>"))
             return str;
         return "<html>%s</html>".formatted(str.replace("\n", "<br />"));
@@ -70,7 +72,7 @@ public class StrUtils {
                 word = formatDate(word);
             } else if (s.contains(RegEx.Prefixes.DONT_CAP_WORD)) {
                 word = word.replace(RegEx.Prefixes.DONT_CAP_WORD, "");
-            } else {
+            } else if (!word.matches("^[A-Z]+$")) {
                 word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
             }
             ret.append(word);

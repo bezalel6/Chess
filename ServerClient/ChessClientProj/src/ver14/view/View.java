@@ -2,17 +2,21 @@ package ver14.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
-import ver14.SharedClasses.*;
+import ver14.SharedClasses.AuthSettings;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.Graphable.Graphable;
+import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.moves.BasicMove;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.pieces.Piece;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.SharedClasses.ui.dialogs.MyDialogs;
 import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.AuthorizedComponents.Menu;
@@ -20,7 +24,10 @@ import ver14.view.AuthorizedComponents.MenuItem;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewLocation;
-import ver14.view.Dialog.DialogProperties;
+import ver14.view.Dialog.Cards.MessageCard;
+import ver14.view.Dialog.Dialog;
+import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Graph.Graph;
@@ -35,6 +42,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 
@@ -44,6 +52,8 @@ public class View implements Iterable<BoardButton[]> {
     private final static Dimension winSize;
     private final static Color statusLblNormalClr = Color.BLACK;
     private final static Color statusLblHighlightClr = Color.BLUE;
+    private static final int ROWS = 8;
+    private static final int COLS = 8;
 
     static {
         GraphicsEnvironment gbd = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -53,8 +63,7 @@ public class View implements Iterable<BoardButton[]> {
         FlatLightLaf.setup();
     }
 
-    private final int ROWS;
-    private final int COLS;
+    private final ArrayList<Dialog> displayedDialogs;
     private final Client client;
     private final ArrayList<AuthorizedComponent> authorizedComponents = new ArrayList<>();
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
@@ -69,7 +78,7 @@ public class View implements Iterable<BoardButton[]> {
     private String currentGameStr = "";
 
     public View(Client client) {
-        ROWS = COLS = 8;
+        this.displayedDialogs = new ArrayList<>();
         this.client = client;
         this.boardOrientation = PlayerColor.WHITE;
         sidePanel = new SidePanel(0, isBoardFlipped(), client);
@@ -199,7 +208,7 @@ public class View implements Iterable<BoardButton[]> {
 
         settingsMenu.add(new MenuItem("about") {{
             addActionListener(e -> {
-                showMessage("i really hope i remembered to change this", "About", null);
+                showMessage("i really hope i remembered to change this", "About", MessageCard.MessageType.INFO);
             });
         }});
 
@@ -227,8 +236,9 @@ public class View implements Iterable<BoardButton[]> {
         boardPnl.onResize();
     }
 
-    public void showMessage(String message, String title, ImageIcon icon) {
-        MyDialogs.showInfoMessage(win, message, title, icon);
+    public void showMessage(String message, String title, MessageCard.MessageType messageType) {
+        showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
+
     }
 
     public void resetStatusLbl() {
@@ -377,7 +387,6 @@ public class View implements Iterable<BoardButton[]> {
         client.boardButtonPressed(viewLoc);
     }
 
-
     public void highlightPath(ArrayList<Move> movableSquares) {
         for (Move move : movableSquares) {
             Location movingTo = move.getMovingTo();
@@ -508,10 +517,12 @@ public class View implements Iterable<BoardButton[]> {
                 pnl.add(Graph.createGraph(graphable));
             currentRes = currentRes.getAddedRes();
         }
-        SimpleDialog d = new SimpleDialog(new DialogProperties(respondingTo, title + " | " + response.getStatus()), win, pnl);
-        d.pack();
-        d.start();
 
+        assert response != null;
+
+        Properties properties = client.dialogProperties(respondingTo, title + " | " + response.getStatus());
+
+        showDialog(new SimpleDialog(properties, pnl));
     }
 
     private JComponent createSingleComp(DBResponse response) {
@@ -534,8 +545,42 @@ public class View implements Iterable<BoardButton[]> {
         }};
     }
 
+    public <D extends Dialog> D showDialog(D dialog) {
+        synchronized (displayedDialogs) {
+            displayedDialogs.add(dialog);
+            dialog.start(this::dialogClosed);
+        }
+        return dialog;
+    }
+
+    private void dialogClosed(Dialog dialog) {
+        try {
+            displayedDialogs.remove(dialog);
+        } catch (ConcurrentModificationException e) {
+
+        }
+    }
+
+    public void drawFocus() {
+        // bring the window into front (DeIconified)
+        win.setVisible(true);
+        win.toFront();
+        win.setState(JFrame.NORMAL);
+    }
+
     public void dispose() {
         win.dispose();
+        closeOpenDialogs();
+    }
+
+    public void closeOpenDialogs() {
+        synchronized (displayedDialogs) {
+            try {
+                displayedDialogs.forEach(Dialog::closeNow);
+
+            } catch (ConcurrentModificationException e) {
+            }
+        }
     }
 
     public void connectedToServer() {

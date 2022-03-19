@@ -2,12 +2,17 @@ package ver14.SharedClasses.messages;
 
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
-import ver14.SharedClasses.*;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.IDsGenerator;
+import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
 
 import java.io.Serializable;
 import java.util.ArrayList;

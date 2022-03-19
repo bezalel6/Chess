@@ -1,6 +1,6 @@
 package ver14.Model;
 
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class PiecesBBs {
     private final int size;
     private final Bitboard[] bitboards;
-    private Bitboard prevAll = null;
+    private volatile Bitboard prevAll = null;
 
     public PiecesBBs(int size) {
         this.size = size;

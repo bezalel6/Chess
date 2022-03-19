@@ -3,10 +3,10 @@ package ver14.Model;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.hashing.Zobrist;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.moves.MovesList;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,8 +36,13 @@ public class ModelMovesList extends MovesList {
         if (adding == null)
             return false;
 
+        if (generationSettings.anyLegal) {
+            if (generator.isLegal(adding)) {
+                super.add(adding);
+                throw ListEx.FoundLegalMove;
+            }
+        }
         super.add(adding);
-
 //        addedMove(adding, movingPiece);
 
         return true;
@@ -123,6 +128,14 @@ public class ModelMovesList extends MovesList {
 
     public MovesList getCleanList() {
         return new MovesList(this);
+    }
+
+    public static class ListEx extends RuntimeException {
+        public static ListEx FoundLegalMove = new ListEx("found legal move");
+
+        public ListEx(String message) {
+            super(message);
+        }
     }
 
 }

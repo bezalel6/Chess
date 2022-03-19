@@ -1,7 +1,7 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.view.View;
 
 import javax.swing.*;
@@ -236,20 +236,20 @@ public class BoardOverlay extends LayerUI<JPanel> {
     }
 
     private Location createPointLoc(Point point) {
-        Location loc = getLoc(point, jlayer.getWidth(), jlayer.getHeight(), view);
+        Location loc = getLoc(point);
         return loc;
     }
 
-    public static Location getLoc(Point point, int width, int height, View view) {
+    public Location getLoc(Point point) {
         if (point != null) {
             int x = point.x;
             int y = point.y;
-            int divYWidth = width / 8;
-            int divXHeight = height / 8;
+            int divYWidth = jlayer.getWidth() / 8;
+            int divXHeight = jlayer.getHeight() / 8;
             int col = x / divYWidth;
             int row = y / divXHeight;
 //            !flip bc normally when white is on the bottom you have to flip
-            boolean flip = view.isBoardFlipped();
+            boolean flip = !view.isBoardFlipped();
             return Location.getLoc(row, col, flip);
         }
         return null;

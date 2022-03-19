@@ -2,13 +2,13 @@ package ver14.game;
 
 import ver14.Model.Model;
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.GameSettings;
-import ver14.SharedClasses.GameTime;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.SavedGames.EstablishedGameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 
@@ -28,9 +28,9 @@ public class Game {
     public static final int COLS = 8;
     public static boolean showGameView = false;
     private final GameSession session;
-    private final GameView gameView;
     private final Player gameCreator, p2;
     private final GameSettings originalSettings;
+    private GameView gameView;
     private Model model;
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
@@ -46,11 +46,12 @@ public class Game {
         this.session = session;
         this.gameCreator = gameCreator;
         this.p2 = p2;
-        this.gameView = new GameView(showGameView);
+
         this.originalSettings = new GameSettings(gameSettings);
         this.moveStack = new Stack<>();
         this.model = new Model();
         setPartners();
+        this.gameView = showGameView ? new GameView() : null;
     }
 
     private void setPartners() {
@@ -107,7 +108,8 @@ public class Game {
         gameTime = new GameTime(gameSettings.getTimeFormat());
         initPlayersGames();
         session.log("Starting game " + this);
-        gameView.update(model.getLogicBoard());
+
+        updateView();
     }
 
     private GameStatus runGame() {
@@ -121,6 +123,7 @@ public class Game {
             switchTurn();
         }
         onGameOver();
+        session.log("game over. " + gameOverStatus);
         return gameOverStatus;
     }
 
@@ -145,6 +148,12 @@ public class Game {
         forEachPlayer(p -> p.initGame(this));
     }
 
+    private void updateView() {
+        if (this.gameView != null) {
+            this.gameView.update(model.getLogicBoard());
+        }
+    }
+
     private GameStatus playTurn() {
 //        gameTime.startRunning(currentPlayer.getPlayerColor());
         Move move = getMove();
@@ -156,7 +165,7 @@ public class Game {
     }
 
     private void switchTurn() {
-        gameView.update(model.getLogicBoard());
+        updateView();
         currentPlayer = currentPlayer.getPartner();
         gameTime.startRunning(currentPlayer.getPlayerColor());
         currentPlayer.getPartner().waitTurn();

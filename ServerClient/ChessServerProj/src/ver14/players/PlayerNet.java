@@ -2,13 +2,15 @@ package ver14.players;
 
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.*;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
-import ver14.SharedClasses.evaluation.GameStatus;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.networking.AppSocket;
 
 import java.util.ArrayList;
