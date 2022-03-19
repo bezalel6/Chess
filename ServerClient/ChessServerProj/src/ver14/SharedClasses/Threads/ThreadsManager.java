@@ -5,7 +5,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.*;
 import java.util.ArrayList;
 
 public class ThreadsManager {
-    private final static ArrayList<Thread> threads;
+    private final static ArrayList<MyThread> threads;
 
 
     static {
@@ -24,15 +24,15 @@ public class ThreadsManager {
                 System.err.println(err + " *panik*");
             }
         });
-        ErrorManager.setHandler(MyError.ErrorType.Model, e -> {
+        ErrorManager.setHandler(ErrorType.Model, e -> {
             System.out.println("hmmm what a curious thing this is");
         });
         handleErrors(() -> {
-            MyError err = new MyError(MyError.ErrorType.Model);
+            MyError err = new MyError(ErrorType.Model);
             err.addContext(new ErrorContext() {
                 @Override
-                public MyError.ContextType contextType() {
-                    return MyError.ContextType.Game;
+                public ContextType contextType() {
+                    return ContextType.Game;
                 }
 
                 @Override
@@ -41,29 +41,27 @@ public class ThreadsManager {
                 }
             });
             throw err;
-        }).run();
+        });
     }
 
-    public static Runnable handleErrors(ThrowingRunnable runnable) {
-        return () -> {
-            MyError err = null;
-            try {
-                runnable.run();
-            } catch (MyError e) {
-                err = e;
-            } catch (AssertionError assertionError) {
-                throw assertionError;
-            } catch (Throwable t) {
-                err = new MyError(t);
-            }
-            if (err != null)
-                ErrorManager.handle(err);
-        };
+    public static void handleErrors(ThrowingRunnable runnable) {
+
+        MyError err = null;
+        try {
+            runnable.run();
+        } catch (MyError e) {
+            err = e;
+        } catch (AssertionError assertionError) {
+            throw assertionError;
+        } catch (Throwable t) {
+            err = new MyError(t);
+        }
+        if (err != null)
+            ErrorManager.handle(err);
     }
 
-    public static Thread createThread(Runnable runnable, boolean start) {
-        Thread thread = new Thread(runnable);
-        threads.add(thread);
+    public static MyThread createThread(ThrowingRunnable runnable, boolean start) {
+        MyThread thread = new HandledThread(runnable);
         if (start)
             thread.start();
         return thread;
@@ -77,7 +75,7 @@ public class ThreadsManager {
 
         @Override
         public final void run() {
-            handleErrors(this::handledRun).run();
+            handleErrors(this::handledRun);
         }
 
         protected abstract void handledRun() throws Throwable;

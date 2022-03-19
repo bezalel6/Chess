@@ -51,27 +51,31 @@ public class MyError extends Error {
 
     @Override
     public String toString() {
+
         return "MyError{" +
+                "error=" + errToString(this) +
                 "type=" + type +
                 ", context=" + context +
-                ", source=" + source +
+                ", source=" + errToString(source) +
                 '}';
     }
 
-    public enum ErrorType {
-        UnKnown,
-        Model(ContextType.Game),
-        AppSocketWrite(ContextType.AppSocket),
-        AppSocketRead(ContextType.AppSocket);
-        public final ContextType[] contextTypes;
-
-        ErrorType(ContextType... contextTypes) {
-            this.contextTypes = contextTypes;
+    public static String errToString(Throwable error) {
+        if (error == null) {
+            return "";
         }
+        String toStr;
+        if (error instanceof MyError myError)
+            toStr = myError.superToString();
+        else toStr = error + "";
+        StringBuilder errMsg = new StringBuilder(">> " + toStr + "\n");
+        for (StackTraceElement element : error.getStackTrace())
+            errMsg.append(">>> ").append(element).append("\n");
+        return errMsg.toString();
     }
 
-    public enum ContextType {
-        GameSession, Game, Player, AppSocket;
-
+    private String superToString() {
+        return super.toString();
     }
+
 }

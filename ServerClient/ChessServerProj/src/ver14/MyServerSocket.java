@@ -20,8 +20,8 @@ public class MyServerSocket extends ServerSocket {
         System.out.println("Waiting for client ...");
         try {
             // Wait for a new client to connect. return client socket.
-            Socket mainSocket = accept(); // blocking method
-            socketToClient = new AppSocket(mainSocket);
+            Socket socket = accept(); // blocking method
+            socketToClient = new AppSocket(socket);
         } catch (IOException exp) {
             exp.printStackTrace();
         }

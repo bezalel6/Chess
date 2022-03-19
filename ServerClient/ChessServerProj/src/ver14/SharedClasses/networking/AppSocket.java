@@ -1,10 +1,7 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorContext;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.*;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 
@@ -19,18 +16,15 @@ import java.net.Socket;
  * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
  */
 public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
-    private static final ErrorHandler readErr = err -> {
-        AppSocket socket = (AppSocket) err.getContext(MyError.ContextType.AppSocket);
-        socket.messagesHandler.receivedMessage(null);
-    };
-    private static ErrorHandler writeErr = err -> {
-        AppSocket socket = (AppSocket) err.getContext(MyError.ContextType.AppSocket);
-        socket.messagesHandler.receivedMessage(null);
-    };
-
     static {
-        ErrorManager.setHandler(MyError.ErrorType.AppSocketWrite, AppSocket.writeErr);
-        ErrorManager.setHandler(MyError.ErrorType.AppSocketRead, AppSocket.readErr);
+//        ErrorManager.setHandler(MyError.ErrorType.AppSocketWrite, err -> {
+//            AppSocket socket = (AppSocket) err.getContext(MyError.ContextType.AppSocket);
+//            socket.messagesHandler.receivedMessage(null);
+//        });
+        ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
+            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
+            socket.messagesHandler.receivedMessage(null);
+        });
     }
 
     /**
@@ -143,15 +137,13 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      * Close.
      */
     public void close() {
-        try {
+        ErrorHandler.ignore(() -> {
             if (messagesHandler != null) {
                 messagesHandler.interruptBlocking();
             }
             keepReading = false;
             msgSocket.close();  // will close the IS & OS streams
-        } catch (Exception e) {
-//            ErrorHandler.thrown(e);
-        }
+        });
     }
 
     /**
@@ -222,7 +214,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      * @return the my error . context type
      */
     @Override
-    public MyError.ContextType contextType() {
-        return MyError.ContextType.AppSocket;
+    public ContextType contextType() {
+        return ContextType.AppSocket;
     }
 }

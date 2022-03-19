@@ -12,10 +12,7 @@ import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorContext;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.*;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
@@ -97,7 +94,7 @@ public class Server implements ErrorContext, EnvManager {
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
             setupServer();
-        }).run();
+        });
 
     }
 
@@ -232,6 +229,7 @@ public class Server implements ErrorContext, EnvManager {
         frmWin.dispose(); // close GUI
     }
 
+    //todo move to synceditems as a func
     private SyncedItems<?> prepareListForSend(SyncedItems<?> list) {
         SyncedItems<?> ret = new SyncedItems<>(list.syncedListType);
         ret.addAll(list.stream().map(SyncableItem::getSyncableItem).collect(Collectors.toList()));
@@ -277,10 +275,10 @@ public class Server implements ErrorContext, EnvManager {
         System.out.println("**** ChatServer main() finished! ****");
     }
 
-    private void sendAllLists(PlayerNet player, SyncedItems<?>... excludeLists) {
+    private void sendAllSyncedLists(PlayerNet player, SyncedItems<?>... excludeLists) {
         ArrayList<SyncedItems<?>> lists = new ArrayList<>();
         for (SyncedItems<?> syncedList : syncedLists) {
-            if (Arrays.stream(excludeLists).noneMatch(list -> list.equals(syncedList)))
+            if (Arrays.stream(excludeLists).noneMatch(excludedList -> excludedList.equals(syncedList)))
                 lists.add(prepareListForSend(syncedList));
         }
         player.getSocketToClient().writeMessage(Message.syncLists(lists.toArray(new SyncedItems[0])));
@@ -292,25 +290,27 @@ public class Server implements ErrorContext, EnvManager {
 // Run the server - wait for clients to connect & handle them
     public void runServer() {
         if (serverSetupOK) {
-            String serverAddress = "(" + serverIP + ":" + serverPort + ")";
-            log("SERVER" + serverAddress + " Setup & Running!");
+            ThreadsManager.handleErrors(() -> {
+                String serverAddress = "(" + serverIP + ":" + serverPort + ")";
+                log("SERVER" + serverAddress + " Setup & Running!");
 //            log(new NoThrow<String>(DB::getAllUsersCredentials).get());
-            frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
+                frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
 
-            serverRunOK = true;
+                serverRunOK = true;
 
-            if (VS_STOCKFISH)
-                minimaxVsStockfish();
+                if (VS_STOCKFISH)
+                    minimaxVsStockfish();
 
-            // loop while server running OK
-            while (serverRunOK) {
-                AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
-                if (appSocketToPlayer == null)
-                    serverRunOK = false;
-                else {
-                    handleClient(appSocketToPlayer);
+                // loop while server running OK
+                while (serverRunOK) {
+                    AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
+                    if (appSocketToPlayer == null)
+                        serverRunOK = false;
+                    else {
+                        handleClient(appSocketToPlayer);
+                    }
                 }
-            }
+            });
         }
 
         closeServer("runServer() finised!");
@@ -321,8 +321,8 @@ public class Server implements ErrorContext, EnvManager {
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         ThreadsManager.HandledThread.run(() -> {
-            ServerMessagesHandler serverMessagesHandler = new ServerMessagesHandler(this, playerSocket);
-            playerSocket.setMessagesHandler(serverMessagesHandler);
+            ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
+            playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
             PlayerNet player = login(playerSocket);
             if (player == null) {
@@ -330,10 +330,10 @@ public class Server implements ErrorContext, EnvManager {
                 return;
             }
 
-            serverMessagesHandler.setPlayer(player);
+            messagesHandler.setPlayer(player);
             players.add(player);
 
-            sendAllLists(player, players);
+            sendAllSyncedLists(player, players);
 
             log("Client(" + playerSocket.getRemoteAddress() + ") Connected as " + player.getLoginInfo().getUsername());
 
@@ -594,7 +594,7 @@ public class Server implements ErrorContext, EnvManager {
      * @return the my error . context type
      */
     @Override
-    public MyError.ContextType contextType() {
+    public ContextType contextType() {
         return null;
 //        return MyError.ContextType.Server;
     }

@@ -231,9 +231,13 @@ public class Model implements Serializable {
     }
 
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
-//        return
 //        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
         return AttackedSquares.isAttacked(this, loc, threateningPlayer);
+//        PlayerColor b4 = currentPlayerColor;
+//        currentPlayerColor = threateningPlayer;
+//        boolean b = MoveGenerator.generateMoves(this).stream().anyMatch(move -> move.getMovingColor() == threateningPlayer && move.getMovingTo().equals(loc));
+//        currentPlayerColor = b4;
+//        return b;
     }
 
     public Location getKing() {
@@ -243,7 +247,7 @@ public class Model implements Serializable {
     public Location getKing(PlayerColor playerColor) {
         Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
 
-        return k.isEmpty() ? null : k.getLastSetLoc();
+        return k.getLastSetLoc();
     }
 
     public Bitboard getPieceBitBoard(PlayerColor playerColor, PieceType pieceType) {

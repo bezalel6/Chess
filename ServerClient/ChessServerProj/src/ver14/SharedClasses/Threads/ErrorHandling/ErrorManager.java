@@ -5,7 +5,7 @@ import java.util.Map;
 
 public final class ErrorManager {
 
-    private static Map<MyError.ErrorType, ErrorHandler> map = new HashMap<>();
+    private static final Map<ErrorType, ErrorHandler> map = new HashMap<>();
     private static EnvManager envManager = null;
 
     private ErrorManager() {
@@ -15,7 +15,7 @@ public final class ErrorManager {
         envManager = manager;
     }
 
-    public static void setHandler(MyError.ErrorType type, ErrorHandler handler) {
+    public static void setHandler(ErrorType type, ErrorHandler handler) {
         map.put(type, handler);
     }
 
