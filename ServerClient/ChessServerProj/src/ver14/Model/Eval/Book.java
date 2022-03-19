@@ -1,7 +1,7 @@
 package ver14.Model.Eval;
 
 import ver14.Model.Model;
-import ver14.SharedClasses.moves.Move;
+import ver14.SharedClasses.Game.moves.Move;
 
 import java.io.File;
 import java.io.FileNotFoundException;

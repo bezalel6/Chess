@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Copyright (c) 18.3.2022, 10:40.
+# by Bezalel Avrahami
+#
+
 # obtain and optionally verify Bench / signature
 # if no reference is given, the output is deliberately limited to just the signature
 

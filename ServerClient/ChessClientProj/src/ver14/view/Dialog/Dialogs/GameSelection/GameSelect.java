@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection;
 
-import ver14.SharedClasses.GameSettings;
+import ver14.SharedClasses.Game.GameSettings;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;

@@ -1,9 +1,9 @@
 package ver14.Model;
 
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.moves.Direction;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 public class AttackedSquares {
 //    public static final MyHashMap<Bitboard> hashMap = new MyHashMap<>(HashManager.Size.ATTACKED_SQUARES);
@@ -73,7 +73,7 @@ public class AttackedSquares {
                                 .exclude(myPieces.getAll())
                                 .exclude(opp));
             } while (isSliding && pieceBB.notEmpty()
-//                    && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
+                    && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
             );
 
         }

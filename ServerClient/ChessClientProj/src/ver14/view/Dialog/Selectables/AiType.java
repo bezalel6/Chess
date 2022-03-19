@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
 
 import javax.swing.*;
 import java.util.ArrayList;

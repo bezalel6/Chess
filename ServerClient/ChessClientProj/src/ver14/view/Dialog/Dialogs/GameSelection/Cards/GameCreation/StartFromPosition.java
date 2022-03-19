@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation;
 
-import ver14.SharedClasses.GameSettings;
+import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.LinkLabel;
 import ver14.view.Dialog.Cards.CardHeader;
@@ -23,7 +23,7 @@ public class StartFromPosition extends GameCreationCard {
         add(iconLbl);
         FenField fenField = new FenField(this, gameSettings);
         addDialogComponent(fenField);
-        JPanel pnl = new JPanel(new GridLayout(0, 4, 5, 5));
+        JPanel pnl = new JPanel(new GridLayout(0, 4, 10, 10));
         Arrays.stream(Position.values()).forEach(position -> {
             pnl.add(new LinkLabel(position.name, () -> {
                 fenField.setFen(position.fen);

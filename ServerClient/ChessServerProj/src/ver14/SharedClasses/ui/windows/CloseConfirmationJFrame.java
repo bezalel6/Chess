@@ -36,6 +36,7 @@ public class CloseConfirmationJFrame extends JFrame {
                         return;
                     leave = true;
                     lastResize = System.currentTimeMillis();
+                    
                     new Thread(() -> {
                         while (System.currentTimeMillis() - lastResize < delayInMs) Thread.onSpinWait();
                         onResize.callback();

@@ -8,8 +8,6 @@ import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 
 
 public class InputDialog extends CustomDialog {
-
-
     public InputDialog(Properties properties) {
         this(properties, ArgType.Text);
     }

@@ -7,13 +7,13 @@ import ver14.Model.AttackedSquares;
 import ver14.Model.Bitboard;
 import ver14.Model.Model;
 import ver14.Model.PiecesBBs;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.evaluation.EvaluationParameters;
-import ver14.SharedClasses.evaluation.GameStatus;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.evaluation.EvaluationParameters;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.io.Serializable;
 
@@ -256,7 +256,7 @@ public class Eval implements Serializable {
         return num + "".length();
     }
 
-  
+
     private double squaresControl(int player) {
         double ret = 0;
 //        for (PieceInterface piece : model.getPlayersPieces(player)) {

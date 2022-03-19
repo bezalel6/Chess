@@ -11,9 +11,9 @@ import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.SavedGames.ArchivedGameInfo;
-import ver14.SharedClasses.SavedGames.GameInfo;
-import ver14.SharedClasses.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
+import ver14.SharedClasses.Game.SavedGames.GameInfo;
+import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -123,7 +123,7 @@ public class DB {
 
         return runQuery("SELECT %s FROM %s %s".formatted(selecting.toString(), selectFrom, conditionsStr));
     }
-    
+
     public static ServerDBResponse runQuery(@Language("SQL") String sql, String... dbFilePath) {
 
         try {

@@ -1,15 +1,15 @@
 package ver14.Model.MoveGenerator;
 
 import ver14.Model.*;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.moves.BasicMove;
-import ver14.SharedClasses.moves.CastlingRights;
-import ver14.SharedClasses.moves.Direction;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.CastlingRights;
+import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 
@@ -129,7 +129,6 @@ public class MoveGenerator {
         for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
             Location pawnLoc = setLocs.get(i);
             int promotionRow = movingPlayerColor.getOpponent().startingRow;
-//            ModelMovesList currentPawnMoves = new ModelMovesList(this, generationSettings);
             int startingIndex = generatedMoves.size();
             boolean promoting = pawnLoc.row + mult == promotionRow;
             Location oneStep = Location.getLoc(pawnLoc, 8 * mult);
@@ -301,10 +300,8 @@ public class MoveGenerator {
 
         CastlingRights.Side side = castling.getMoveFlag().castlingSide;
 
-        int mult = side.mult;
-
         for (int i = 1; i <= side.kingTravelDistance; i++) {
-            if (model.isThreatened(Location.getLoc(castling.getMovingFrom(), i * mult), movingPlayerColor.getOpponent())) {
+            if (model.isThreatened(Location.getLoc(castling.getMovingFrom(), i * side.mult), movingPlayerColor.getOpponent())) {
                 return false;
             }
         }

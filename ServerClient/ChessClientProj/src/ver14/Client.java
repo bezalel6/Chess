@@ -7,18 +7,21 @@ import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
-import ver14.SharedClasses.GameSettings;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.LoginType;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.evaluation.GameStatus;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.moves.Move;
 import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
 import ver14.SharedClasses.ui.dialogs.MyDialogs;
 import ver14.SharedClasses.ui.dialogs.MyDialogs.DialogOption;
 import ver14.view.Board.ViewLocation;
@@ -41,7 +44,7 @@ import java.util.stream.Collectors;
  * ---------------------------------------------------------------------------
  * by Ilan Perez (ilanperets@gmail.com) 20/10/2021
  */
-public class Client {
+public class Client implements EnvManager {
 
     // constatns
     private static final int SERVER_DEFAULT_PORT = 1234;
@@ -66,8 +69,31 @@ public class Client {
      */
 
     public Client() {
+        ErrorManager.setEnvManager(this);
         setupClientGui();
         setupClient();
+    }
+
+    // main
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.runClient();
+    }
+
+    public void runClient() {
+        if (clientSetupOK) {
+            log("Connected to Server(" + clientSocket.getRemoteAddress() + ")");
+            log("CLIENT(" + clientSocket.getLocalAddress() + ") Setup & Running!\n");
+            firstClickLoc = null;
+            msgHandler = new ClientMessagesHandler(this, view);
+            clientSocket.setMessagesHandler(msgHandler);
+            clientSocket.start();
+            view.connectedToServer();
+        }
+    }
+
+    private void log(String str) {
+        System.out.println(str);
     }
 
     private void setupClientGui() {
@@ -111,92 +137,12 @@ public class Client {
         } catch (Exception exp) {
             clientSetupOK = false;
             String serverAddress = serverIP + ":" + serverPort;
-            log("Client can't connect to Server(" + serverAddress + ")", exp);
+            closeClient("Client can't connect to Server(" + serverAddress + ")", exp);
         }
-    }
-
-    /**
-     * Creates Dialog Properties
-     *
-     * @param properties []/[header]/[header,title]/[header,title,error]
-     * @return the created properties
-     */
-    public Properties dialogProperties(String... properties) {
-        return new Properties(clientSocket, view.getWin(), new Properties.Details(properties));
     }
 
     public void disconnectedFromServer() {
         closeClient("The connection with the Server is LOST!\nClient will close now...", "Chat Client Error");
-    }
-
-    private void log(String msg, Exception ex) {
-        String title = "Runtime Exception: " + msg;
-
-        System.out.println("\n>> " + title);
-        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
-
-        String errMsg = ">> " + ex.toString() + "\n";
-        for (StackTraceElement element : ex.getStackTrace())
-            errMsg += ">>> " + element + "\n";
-        System.out.println(errMsg);
-        view.drawFocus();
-        // popup dialog with the error message
-        view.showMessage(msg + "\n\n" + errMsg, "Exception Error", MessageCard.MessageType.ERROR);
-    }
-
-    /**
-     * <h1>CALLS SYSTEM EXIT <br/><code>System.exit(0)</code></h1>
-     *
-     * @param cause
-     */
-    public void closeClient(String... cause) {
-        if (clientSocket != null && clientSocket.isConnected()) {
-            stopClient();
-            if (cause.length > 0) {
-                String msg = cause[0];
-                String title = cause.length > 1 ? cause[1] : "Closing";
-
-                view.showMessage(msg, title, MessageCard.MessageType.ERROR);
-            }
-        }
-
-        log("Client Closed!");
-
-        // close GUI
-        closeGui();
-        // close client
-        System.exit(0);
-    }
-
-    public void stopClient() {
-        clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
-    }
-
-    private void log(String str) {
-        System.out.println(str);
-    }
-
-    public void closeGui() {
-        clientRunOK = false;
-        view.dispose();
-    }
-
-    // main
-    public static void main(String[] args) {
-        Client client = new Client();
-        client.runClient();
-    }
-
-    public void runClient() {
-        if (clientSetupOK) {
-            log("Connected to Server(" + clientSocket.getRemoteAddress() + ")");
-            log("CLIENT(" + clientSocket.getLocalAddress() + ") Setup & Running!\n");
-            firstClickLoc = null;
-            msgHandler = new ClientMessagesHandler(this, view);
-            clientSocket.setMessagesHandler(msgHandler);
-            clientSocket.start();
-            view.connectedToServer();
-        }
     }
 
     public ClientMessagesHandler getMessagesHandler() {
@@ -243,11 +189,6 @@ public class Client {
         hideQuestionPnl();
         view.enableSources(possibleMoves);
     }
-
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
 
     void hideQuestionPnl() {
         view.getSidePanel().askPlayerPnl.showPnl(false);
@@ -317,6 +258,11 @@ public class Client {
                 .findAny().orElse(null);
     }
 
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
+
     //todo change to new dialog system
     public PieceType showPromotionDialog() {
         ArrayList<DialogOption> options = new ArrayList<>();
@@ -351,11 +297,40 @@ public class Client {
     }
 
     public void disconnectFromServer() {
+
         if (clientSocket != null && clientSocket.isConnected()) {
-            Message response = clientSocket.requestMessage(Message.bye(""));
-            view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
+            clientSocket.requestMessage(Message.bye(""), response -> {
+                view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
+                closeClient();
+            });
+        } else {
+            closeClient();
         }
-        closeClient();
+    }
+
+    public void closeClient(String... cause) {
+
+        if (clientSocket != null && clientSocket.isConnected()) {
+            clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
+            if (cause.length > 0) {
+                String msg = cause[0];
+                String title = cause.length > 1 ? cause[1] : "Closing";
+
+                view.showMessage(msg, title, MessageCard.MessageType.ERROR);
+            }
+        }
+
+        log("Client Closed!");
+
+        // close GUI
+        closeGui();
+        // close client
+        System.exit(0);
+    }
+
+    public void closeGui() {
+        clientRunOK = false;
+        view.dispose();
     }
 
     public void stopRunningTime() {
@@ -374,6 +349,16 @@ public class Client {
         String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
         Properties properties = dialogProperties(msg, "game selection");
         return view.showDialog(new GameSelect(properties)).getGameSettings();
+    }
+
+    /**
+     * Creates Dialog Properties
+     *
+     * @param properties []/[header]/[header,title]/[header,title,error]
+     * @return the created properties
+     */
+    public Properties dialogProperties(String... properties) {
+        return new Properties(clientSocket, view.getWin(), new Properties.Details(properties));
     }
 
     public void changePassword() {
@@ -423,5 +408,25 @@ public class Client {
         request(builder, null, args);
     }
 
+    @Override
+    public void handledErr(MyError err) {
+        log("handled: " + err);
+    }
 
+    @Override
+    public void criticalErr(MyError err) {
+        closeClient("critical error", err);
+    }
+
+    private void closeClient(String msg, Throwable ex) {
+        String title = "Runtime Exception: " + msg;
+
+        System.out.println("\n>> " + title);
+        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
+
+        view.drawFocus();
+        // popup dialog with the error message
+        view.showMessage(msg + "\n\n" + MyError.errToString(ex), "Exception Error", MessageCard.MessageType.ERROR);
+        closeClient();
+    }
 }

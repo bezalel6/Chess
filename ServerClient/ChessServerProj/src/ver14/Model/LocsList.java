@@ -1,6 +1,6 @@
 package ver14.Model;
 
-import ver14.SharedClasses.Location;
+import ver14.SharedClasses.Game.Location;
 
 import java.util.ArrayList;
 

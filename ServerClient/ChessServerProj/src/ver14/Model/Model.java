@@ -5,16 +5,16 @@ import ver14.Model.Eval.Eval;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.hashing.BoardHash;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.board_setup.Square;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.BasicMove;
-import ver14.SharedClasses.moves.CastlingRights;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.moves.CastlingRights;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -187,6 +187,7 @@ public class Model implements Serializable {
     }
 
     public Move findMove(BasicMove basicMove) {
+//        basicMove.flip();
         for (Move move : generateAllMoves()) {
             if (basicMove.equals(move)) {
                 return Move.copyMove(move);
@@ -230,9 +231,13 @@ public class Model implements Serializable {
     }
 
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
-//        return
 //        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
         return AttackedSquares.isAttacked(this, loc, threateningPlayer);
+//        PlayerColor b4 = currentPlayerColor;
+//        currentPlayerColor = threateningPlayer;
+//        boolean b = MoveGenerator.generateMoves(this).stream().anyMatch(move -> move.getMovingColor() == threateningPlayer && move.getMovingTo().equals(loc));
+//        currentPlayerColor = b4;
+//        return b;
     }
 
     public Location getKing() {
@@ -242,7 +247,7 @@ public class Model implements Serializable {
     public Location getKing(PlayerColor playerColor) {
         Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
 
-        return k.isEmpty() ? null : k.getSetLocs().get(0);
+        return k.getLastSetLoc();
     }
 
     public Bitboard getPieceBitBoard(PlayerColor playerColor, PieceType pieceType) {

@@ -1,12 +1,12 @@
 package ver14.view.SidePanel;
 
+import ver14.Client;
 import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.GameTime;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.Client;
 
 import javax.swing.*;
 import java.awt.*;
