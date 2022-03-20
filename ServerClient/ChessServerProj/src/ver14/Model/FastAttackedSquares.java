@@ -1,35 +1,27 @@
 package ver14.Model;
 
 import ver14.Model.MoveGenerator.MoveGenerator;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
-import ver14.SharedClasses.Utils.ArrUtils;
-import ver14.SharedClasses.board_setup.Board;
-import ver14.SharedClasses.moves.Direction;
-import ver14.SharedClasses.pieces.Piece;
-import ver14.SharedClasses.pieces.PieceType;
+import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Game.pieces.Piece;
+
+import java.util.List;
 
 public class FastAttackedSquares {
-    private final Board board;
-    private final Location loc;
-
-    public FastAttackedSquares(Board board, Location loc) {
-        this.board = board;
-        this.loc = loc;
-    }
-
-    public boolean isAttacked() {
-        PlayerColor myClr = board.getPiece(loc).playerColor;
-        Direction[] directions = PieceType.QUEEN.getAttackingDirections();
-        directions = ArrUtils.concat(directions, PieceType.KNIGHT.getAttackingDirections());
-        for (Direction direction : directions) {
-            for (int i = 0; i < MoveGenerator.numSquaresToEdge(loc, direction); i++) {
+    public static boolean isAttacked(Board board, Location loc, PlayerColor attackedBy) {
+        List<Direction> allUsedDirections = Direction.ALL_USED_DIRECTIONS;
+        for (int j = 0, allUsedDirectionsSize = allUsedDirections.size(); j < allUsedDirectionsSize; j++) {
+            Direction direction = allUsedDirections.get(j);
+            int sqrs = MoveGenerator.numSquaresToEdge(loc, direction);
+            for (int i = 0; i < sqrs; i++) {
                 Location checking = Location.getLoc(loc, i + 1, direction);
                 if (checking == null)
                     break;
                 Piece piece = board.getPiece(checking);
                 if (piece != null) {
-                    if (piece.isOnMyTeam(myClr) || !piece.pieceType.isAttack(direction, loc.getMaxDistance(checking)))
+                    if (!piece.isOnMyTeam(attackedBy) || !piece.pieceType.isAttack(direction, loc.getMaxDistance(checking)))
                         break;
 
                     return true;

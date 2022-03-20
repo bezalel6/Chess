@@ -25,6 +25,14 @@ public class BackOkPnl extends JPanel {
 
     }
 
+    public MyJButton getOk() {
+        return ok;
+    }
+
+    public MyJButton getBack() {
+        return back;
+    }
+
     public void enableOk(boolean enable) {
         ok.setEnabled(enable);
 //        if (enable)

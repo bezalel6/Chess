@@ -9,19 +9,20 @@ import ver14.Model.minimax.Minimax;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.Location;
-import ver14.SharedClasses.PlayerColor;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.Utils.ArrUtils;
-import ver14.SharedClasses.evaluation.Evaluation;
-import ver14.SharedClasses.moves.Move;
-import ver14.SharedClasses.moves.MovesList;
-import ver14.SharedClasses.pieces.PieceType;
 import ver14.ThreadsUtil;
 import ver14.game.Game;
 
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -35,6 +36,8 @@ public class Tests {
     private static final boolean MULTITHREADING_POS = true;
     private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static final int attackedFensNum = 10;
+    private static final boolean debugPositions = true;
+    private final static Map<Move, ArrayList<String>> bottomReachedFens = new ConcurrentHashMap<>();
     private static ZonedDateTime dateTime;
 
     public static void main(String[] args) throws Exception {
@@ -43,7 +46,7 @@ public class Tests {
 //        minimaxVsStockfish();
 //        isInCheck();
 //        minimaxVsStockfish();
-//        compareAttacks();
+        compareAttacks();
 
     }
 
@@ -59,7 +62,7 @@ public class Tests {
         two.callback();
         two.callback();
         two.callback();
-        int size = 1000000;
+        int size = 100000;
         int checkIn = size / 1000;
         long[] times = {0, 0};
         System.out.printf("running %s times....\n", size);
@@ -82,8 +85,7 @@ public class Tests {
     private static void fastAttacked() {
         rerunOnInput(fen -> {
             Model model = model(fen);
-            FastAttackedSquares attackedSquares = new FastAttackedSquares(model.getLogicBoard(), model.getKing(PlayerColor.WHITE));
-            boolean b = attackedSquares.isAttacked();
+            boolean b = FastAttackedSquares.isAttacked(model.getLogicBoard(), model.getKing(PlayerColor.WHITE), PlayerColor.BLACK);
 //            System.out.println(b);
         }, ArrUtils.createList(FEN::rndFen, attackedFensNum).toArray(new String[0]));
     }
@@ -208,13 +210,13 @@ public class Tests {
     }
 
     @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
-    public static void printNumOfPositions() {
+    public static void perft() {
         Model model = model();
         Stockfish stockfish = new Stockfish();
         for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
             long res, time = 0;
             startTime();
-            res = countPositions(depth, model, MULTITHREADING_POS);
+            res = countPositions(depth, model, null, true);
             long st = stockfish.perft(depth);
             Assert.assertEquals(st, res);
             time += stopTime();
@@ -335,6 +337,8 @@ public class Tests {
 //        FEN.loadFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", null);
     }
 
+    //endregion
+
     private static void threefold() {
         Model model = new Model();
         String[] pgn = {"Nc3", "Nc6", "Nb1", "Nb8", "Nc3", "Nc6", "Nb1", "Nb8"};
@@ -371,8 +375,6 @@ public class Tests {
         System.out.println("Evaluation = " + evaluation);
     }
 
-    //endregion
-
     private static void fiftyMoves() {
         Model model = new Model();
         int i = 0;
@@ -393,17 +395,17 @@ public class Tests {
         System.out.println(model);
     }
 
-    public static long countPositions(int depth, Model model, boolean isRoot) {
+    public static long countPositions(int depth, Model model, Move root, boolean isRoot) {
         if (depth == 0)
             return 1;
         ArrayList<Move> moves = model.generateAllMoves();
         AtomicLong num = new AtomicLong();
 
-        if (isRoot) {
+        if (isRoot && MULTITHREADING_POS) {
             ForkJoinPool threadPool = new ForkJoinPool(numOfThreads);
             threadPool.execute(() -> {
                 num.set(moves.stream().parallel().mapToLong(move -> {
-                    long result = executePos(depth, new Model(model), move);
+                    long result = executePos(depth, new Model(model), move, move);
 //                    Stockfish stockfish = new Stockfish();
 //                    Assert.assertEquals(stockfish.perft(depth, move), result);
 //                    stockfish.stopEngine();
@@ -421,16 +423,24 @@ public class Tests {
                 e.printStackTrace();
             }
         } else {
-            num.set(moves.stream().mapToLong(move -> executePos(depth, model, move)).sum());
+            num.set(moves.stream().mapToLong(move -> executePos(depth, model, root, move)).sum());
         }
         return num.get();
     }
 
-    private static long executePos(int depth, Model model, Move move) {
+    private static long executePos(int depth, Model model, Move move, Move root) {
         model.applyMove(move);
-        long res = countPositions(depth - 1, model, false);
+        long res = countPositions(depth - 1, model, root, false);
         if (PRINT_POSITIONS_MOVES && depth == POSITIONS_COUNT_DEPTH)
             System.out.println(move.getBasicMoveAnnotation() + ": " + res);
+        if (depth == 0 && debugPositions) {
+            synchronized (bottomReachedFens) {
+                if (!bottomReachedFens.containsKey(move)) {
+                    bottomReachedFens.put(move, new ArrayList<>());
+                }
+                bottomReachedFens.get(root).add(model.genFenStr() + " " + move);
+            }
+        }
         model.undoMove();
         return res;
     }

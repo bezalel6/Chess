@@ -5,6 +5,8 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public enum Direction {
@@ -124,6 +126,7 @@ public enum Direction {
     public static final int NUM_OF_KNIGHT_DIRECTIONS;
     public static final int NUM_OF_DIRECTIONS_WO_KNIGHT;
     public final static Direction[] ALL_DIRECTIONS = values();
+    public final static List<Direction> ALL_USED_DIRECTIONS = Arrays.stream(values()).filter(d -> d != U_U && d != D_D).collect(Collectors.toList());
     //endregion
     //endregion
     private final static PlayerColor normalPerspective = Location.normalPerspective;

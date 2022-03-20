@@ -231,8 +231,9 @@ public class Model implements Serializable {
     }
 
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
+        return FastAttackedSquares.isAttacked(board, loc, threateningPlayer);
 //        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
-        return AttackedSquares.isAttacked(this, loc, threateningPlayer);
+//        return AttackedSquares.isAttacked(this, loc, threateningPlayer);
 //        PlayerColor b4 = currentPlayerColor;
 //        currentPlayerColor = threateningPlayer;
 //        boolean b = MoveGenerator.generateMoves(this).stream().anyMatch(move -> move.getMovingColor() == threateningPlayer && move.getMovingTo().equals(loc));

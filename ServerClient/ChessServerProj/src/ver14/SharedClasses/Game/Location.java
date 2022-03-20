@@ -191,7 +191,7 @@ public enum Location {
 
     public String getRowString() {
         int r = row + 1;
-        if (flip_fen_locs) {
+        if (!flip_fen_locs) {
             r = flip(r);
         }
         return r + "";

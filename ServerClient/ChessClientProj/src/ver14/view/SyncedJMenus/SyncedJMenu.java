@@ -21,7 +21,7 @@ public abstract class SyncedJMenu extends SyncableListComponent {
     public SyncedJMenu(Header header, SyncedListType listType) {
         super(header, listType, null);
         setParent(new MyM(header));
-        header.setFont(FontManager.menuItemsFont);
+        header.setFont(FontManager.JMenus.headers);
     }
 
     @Override
@@ -81,11 +81,6 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         }
 
         @Override
-        public DialogCard currentCard() {
-            return null;
-        }
-
-        @Override
         public void done() {
 
         }
@@ -93,6 +88,11 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         @Override
         public void back() {
 
+        }
+
+        @Override
+        public DialogCard currentCard() {
+            return null;
         }
     }
 }

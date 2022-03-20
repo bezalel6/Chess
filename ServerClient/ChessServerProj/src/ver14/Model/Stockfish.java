@@ -1,15 +1,16 @@
 package ver14.Model;
 
 
-import ver14.SharedClasses.Game.Location;
-import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -95,30 +96,14 @@ public class Stockfish {
 
     public static void main(String[] args) {
         Stockfish stockfish = new Stockfish();
-        System.out.println(stockfish.perft(2, new BasicMove(Location.E2, Location.E4)));
+//        System.out.println(stockfish.perft(8, new BasicMove(Location.E2, Location.E4)));
+        PerftResults res = stockfish.createPerft();
+        System.out.println(res);
         stockfish.stopEngine();
     }
 
-    /**
-     * get nodes from move
-     * <h1>make sure move is legal</h1>
-     */
-    public long perft(int depth, BasicMove move) {
-        if (depth >= 8) {
-            int selected;
-            do {
-                selected = JOptionPane.showConfirmDialog(null, "are you sure you want to blow your computer up? depth %d?!".formatted(depth));
-            } while (selected == JOptionPane.OK_OPTION);
-            return -1;
-        }
-        sendCommand("go perft " + depth);
-        String searching = "%s: ".formatted(StrUtils.clean(move.getBasicMoveAnnotation()));
-        String out;
-        do {
-            out = getOutput(0);
-        }
-        while (!out.contains(searching));
-        return Long.parseLong(out.split(searching)[1].split("[ \n]")[0]);
+    private PerftResults createPerft() {
+        return new PerftResults(5, null);
     }
 
     /**
@@ -133,6 +118,28 @@ public class Stockfish {
         }
     }
 
+    /**
+     * get nodes from move
+     * <h1>make sure move is legal</h1>
+     */
+    public long perft(int depth, BasicMove move) {
+        if (depth >= 8) {
+            int selected;
+            do {
+                selected = JOptionPane.showConfirmDialog(null, "do you hate your pc? depth %d?!".formatted(depth));
+            } while (selected == JOptionPane.OK_OPTION);
+            return -1;
+        }
+        sendCommand("go perft " + depth);
+        String searching = "%s: ".formatted(StrUtils.clean(move.getBasicMoveAnnotation()));
+        String out;
+        do {
+            out = getOutput(0);
+        }
+        while (!out.contains(searching));
+        return Long.parseLong(out.split(searching)[1].split("[ \n]")[0]);
+    }
+
     public long perft(int depth) {
         if (depth >= 8) {
             int selected;
@@ -145,7 +152,7 @@ public class Stockfish {
         String searching = "searched: ";
         String out;
         do {
-            out = getOutput(0);
+            out = getOutput(10);
         }
         while (!out.contains(searching));
         return Long.parseLong(out.split(searching)[1].split("[ \n]")[0]);
@@ -227,5 +234,47 @@ public class Stockfish {
             }
         }
         return evalScore / 100;
+    }
+
+    public class PerftResults {
+        private final Map<BasicMove, Long> map = new HashMap<>();
+        private long sum = -1;
+        private String fullStr = "";
+
+        public PerftResults(int depth, BasicMove move) {
+            if (depth >= 8) {
+                int selected;
+                do {
+                    selected = JOptionPane.showConfirmDialog(null, "are you sure you want to blow your computer up? depth %d?!".formatted(depth));
+                } while (selected == JOptionPane.OK_OPTION);
+                return;
+            }
+            String cmd = "go perft " + depth;
+            sendCommand(cmd);
+            String searching = "searched: " + (move != null ? move.getBasicMoveAnnotation() : "");
+            do {
+                fullStr = getOutput(10);
+            }
+            while (!fullStr.contains(searching));
+            System.out.println(fullStr);
+            sum = Long.parseLong(fullStr.split(searching)[1].split("[ \n]")[0]);
+            String moves = fullStr.split("\nNodes")[0];
+            for (String moveStr : moves.split("\n")) {
+                try {
+                    BasicMove m = new BasicMove(moveStr);
+                    map.put(m, Long.parseLong(moveStr.split(": ")[1]));
+                } catch (Exception e) {
+                }
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "PerftResults{" +
+                    "\nmap=" + map +
+                    ", sum=" + sum +
+                    ",\n fullStr='\n" + fullStr + '\'' +
+                    '}';
+        }
     }
 }

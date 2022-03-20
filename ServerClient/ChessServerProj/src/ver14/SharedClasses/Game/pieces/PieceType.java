@@ -41,6 +41,7 @@ public enum PieceType implements Serializable {
     private final static String[] COLORLESS_PIECES_FENS = new String[NUM_OF_PIECE_TYPES];
     private static final Direction[][] ATTACKING_DIRECTIONS = new Direction[NUM_OF_PIECE_TYPES][];
 
+
     static {
         Arrays.stream(values())
                 .filter(pieceType -> pieceType != ALL_PIECES)

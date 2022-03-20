@@ -69,6 +69,7 @@ public class ThreadsManager {
 
 
     public static abstract class MyThread extends Thread {
+
         public MyThread() {
             threads.add(this);
         }
@@ -83,7 +84,11 @@ public class ThreadsManager {
 
     public static class HandledThread extends MyThread {
 
-        private final ThrowingRunnable runnable;
+        private ThrowingRunnable runnable;
+
+        public HandledThread() {
+            this(null);
+        }
 
         public HandledThread(ThrowingRunnable runnable) {
             this.runnable = runnable;
@@ -95,9 +100,14 @@ public class ThreadsManager {
             return thread;
         }
 
+        public void setRunnable(ThrowingRunnable runnable) {
+            this.runnable = runnable;
+        }
+
         @Override
         protected void handledRun() throws Throwable {
-            this.runnable.run();
+            if (runnable != null)
+                this.runnable.run();
         }
     }
 }

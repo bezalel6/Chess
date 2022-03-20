@@ -17,7 +17,7 @@ public class FetchVerify extends MyLbl {
         this.verifiedIcon = verifiedIcon;
         this.notVerifiedIcon = notVerifiedIcon;
         this.loadingIcon = loadingIcon;
-        setFont(FontManager.loginProcess);
+        setFont(FontManager.Dialogs.fetchVerifyLbl);
         nothing();
     }
 

@@ -1,38 +1,56 @@
 package ver14.SharedClasses.DBActions.Arg;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Config<V> implements Serializable {
     public final boolean canUseDefault;
-    public final String defaultValueDesc;
     public final String description;
-    public final V defaultValue;
+    private final Described<V> defaultValue;
+    private final ArrayList<Described<V>> valuesSuggestion;
 
     public Config() {
         this(null);
     }
 
     public Config(String description) {
-        this(description, false, null, null);
+        this(description, false, null);
     }
 
-    public Config(String description, boolean canUseDefault, V defaultValue, String defaultValueDesc) {
+    public Config(String description, boolean canUseDefault, Described<V> defaultValue) {
         this.canUseDefault = canUseDefault;
         this.defaultValue = defaultValue;
-        this.defaultValueDesc = defaultValueDesc;
         this.description = description;
+        this.valuesSuggestion = new ArrayList<>();
     }
 
-    public Config(String description, V defaultValue) {
-        this(description, defaultValue, defaultValue + "");
+
+    public Config(String description, V defVal) {
+        this(description, defVal, defVal + "");
     }
 
-    public Config(String description, V defaultValue, String defaultValueDesc) {
-        this(description, true, defaultValue, defaultValueDesc);
+    public Config(String description, V defVal, String defDesc) {
+        this(description, new Described<>(defVal, defDesc));
+    }
+
+    public Config(String description, Described<V> defaultValue) {
+        this(description, true, defaultValue);
+    }
+
+    public void addSuggestion(Described<V> suggestion) {
+        valuesSuggestion.add(suggestion);
+    }
+
+    public ArrayList<Described<V>> getValuesSuggestion() {
+        return valuesSuggestion;
+    }
+
+    public Described<V> getDescribedDefault() {
+        return defaultValue;
     }
 
     public V getDefault() {
-        return defaultValue;
+        return defaultValue.obj();
     }
 
     @Override
@@ -41,6 +59,8 @@ public class Config<V> implements Serializable {
     }
 
     public String getDefaultDesc() {
-        return (canUseDefault ? "\nor leave empty. default value is " + defaultValueDesc : "");
+        return (canUseDefault ? "\nor leave empty. default value is " + defaultValue.description() : "");
     }
+
+
 }

@@ -88,7 +88,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public boolean isBoardFlipped() {
-        return boardOrientation != PlayerColor.WHITE;
+        return boardOrientation == PlayerColor.WHITE;
     }
 
     public void createGui() {
@@ -135,8 +135,8 @@ public class View implements Iterable<BoardButton[]> {
         ArrayList<JComponent> middle = new ArrayList<>();
         ArrayList<JComponent> end = new ArrayList<>();
 
-        Font menuFont = FontManager.menuFont;
-        Font menuItemsFont = FontManager.menuItemsFont;
+        Font menuFont = FontManager.JMenus.headers;
+        Font menuItemsFont = FontManager.JMenus.items;
 
         Menu settingsMenu = new Menu("settings", AuthSettings.NO_AUTH) {{
             setFont(menuFont);

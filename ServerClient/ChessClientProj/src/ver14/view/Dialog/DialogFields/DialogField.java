@@ -2,9 +2,10 @@ package ver14.view.Dialog.DialogFields;
 
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.Config;
+import ver14.SharedClasses.DBActions.Arg.Described;
 import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.ui.ObjBtn;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
@@ -15,6 +16,7 @@ import ver14.view.Dialog.DialogFields.TextBasedFields.NumberField;
 import ver14.view.Dialog.DialogFields.TextBasedFields.TextField;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Verified;
+import ver14.view.Dialog.WinPnl;
 import ver14.view.ErrorPnl;
 
 import java.awt.*;
@@ -49,6 +51,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
             case Date -> new DateField(fieldHeader, fieldParent);
             case Text -> new TextField(fieldHeader, fieldParent, RegEx.Any);
+            case ServerAddress -> new TextField(fieldHeader, fieldParent, RegEx.IPPAddress);
             case Number -> new NumberField(fieldHeader, fieldParent);
 
             default -> throw new IllegalStateException("Unexpected value: " + arg.argType);
@@ -59,18 +62,28 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     public final void setConfig(Config<T> config) {
         this.config = config;
-        if (config != null && config.canUseDefault) {
-            setValue(config.getDefault());
-            addInNewLine(new MyJButton(config.defaultValueDesc, getFont(), this::defaultValueBtnPresses));
+        if (config != null) {
+            if (config.canUseDefault) {
+                setValue(config.getDefault());
+                addInNewLine(createValBtn(config.getDescribedDefault()));
+            }
+            var suggestions = config.getValuesSuggestion();
+            WinPnl pnl = new WinPnl(suggestions.size() % 3, null);
+            suggestions.forEach(suggestion -> pnl.add(createValBtn(suggestion)));
+            addInNewLine(pnl);
         }
+
     }
 
-    public void defaultValueBtnPresses() {
-        setValue(config.getDefault());
+    private ObjBtn<T> createValBtn(Described<T> desc) {
+        return new ObjBtn<>(desc.description(), getFont(), desc.obj(), this::valueBtnPresses);
+    }
+
+
+    public void valueBtnPresses(T val) {
+        setValue(val);
         if (ON_DEFAULT_CLICK_OK) {
-            DialogCard card = parent.currentCard();
-            if (card != null)
-                card.onOk();
+            parent.tryOk(false);
         }
     }
 

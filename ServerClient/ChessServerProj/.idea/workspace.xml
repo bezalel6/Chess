@@ -9,24 +9,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="created message dialogs&#10;error handling">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Model/FastAttackedSquares.java" afterDir="false" />
+    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="sadx">
+      <change afterPath="$PROJECT_DIR$/src/ver14/Model/RndFen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/ObjBtn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/Tests/LocationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/ViewLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/ViewLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/TextBasedFields/TextBasedField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/TextBasedFields/TextBasedField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/BackOkInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/BackOkInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/BackOkPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/BackOkPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/InputDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/InputDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FetchVerify.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FetchVerify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/FEN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/FEN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/board_setup/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/board_setup/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/pieces/PieceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/FastAttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/FastAttackedSquares.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Stockfish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Stockfish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/FontManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/FontManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/pieces/PieceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/RegEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/RegEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyJButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyJButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +125,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19885057" />
     <property name="rearrange.code.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/ver13/Model/Bitboard.java" />
   </component>
   <component name="ReaderModeSettings">
@@ -148,7 +167,7 @@
       <recent name="ver3.model_classes" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Tests">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="CastlingRights$Side" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.moves.CastlingRights$Side" />
       <module name="ChessServerProj" />
@@ -169,6 +188,20 @@
       <option name="MAIN_CLASS_NAME" value="ver12.Server" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Stockfish" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.Model.Stockfish" />
+      <module name="ChessServerProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,17 +228,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadsUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="java.library.path" value="&quot;src/assets/dlls&quot;" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="ver14.ThreadsUtil" />
-      <module name="ChessServerProj" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -213,11 +235,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.positionsCountRoot" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.perft" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
-      <option name="METHOD_NAME" value="positionsCountRoot" />
+      <option name="METHOD_NAME" value="perft" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -230,17 +258,17 @@
       <item itemvalue="Application.CastlingRights$Side" />
       <item itemvalue="Application.CastlingRights" />
       <item itemvalue="Application.Tests" />
-      <item itemvalue="Application.ThreadsUtil" />
+      <item itemvalue="Application.Stockfish" />
       <item itemvalue="TestNG.Tests" />
-      <item itemvalue="TestNG.Tests.positionsCountRoot" />
+      <item itemvalue="TestNG.Tests.perft" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Stockfish" />
+        <item itemvalue="TestNG.Tests.perft" />
         <item itemvalue="Application.Tests" />
         <item itemvalue="Application.CastlingRights$Side" />
         <item itemvalue="Application.CastlingRights" />
-        <item itemvalue="TestNG.Tests.positionsCountRoot" />
-        <item itemvalue="Application.ThreadsUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +281,13 @@
       <option name="presentableId" value="Default" />
       <updated>1636632021405</updated>
     </task>
+    <task id="LOCAL‎00001" summary="sadx">
+      <created>1647731988270</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1647731988270</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +300,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sadx" />
+    <option name="LAST_COMMIT_MESSAGE" value="sadx" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

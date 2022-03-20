@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Arg;
 
 public enum ArgType {
-    Date, DateRange, Text, Number, Username(false), Password;
+    Date, DateRange, Text, ServerAddress, Number, Username(false), Password;
     final boolean isUserInput;
 
     ArgType() {

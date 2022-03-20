@@ -9,6 +9,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public abstract class TextBasedField<T> extends DialogField<T> {
     protected static final Dimension defaultTextFieldSize = new Dimension(250, 20);
@@ -37,6 +39,14 @@ public abstract class TextBasedField<T> extends DialogField<T> {
             @Override
             public void changedUpdate(DocumentEvent e) {
 //                onUpdate();
+            }
+        });
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                    parent.tryOk(false);
             }
         });
         addMainComp(this.textField);

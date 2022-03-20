@@ -19,7 +19,7 @@ public class NormalButton extends MyJButton implements SelectableBtn {
         setHorizontalTextPosition(SwingConstants.CENTER);
         setText(value.getText());
         setIcon(value.getIcon());
-        setFont(FontManager.defaultSelectableBtn);
+        setFont(FontManager.Dialogs.selectableBtn);
         this.value = value;
         setOnClick(() -> {
             if (selected) {
