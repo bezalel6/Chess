@@ -108,7 +108,7 @@ public abstract class MessagesHandler {
 
                 example:
                     client received a login message.
-                    sending the login info and waiting for a welcome\error response message.
+                    client replying with the login info and waiting for a welcome\error response message.
                     gets stuck. because the response message will never get read.
                  */
         if (message != null && !message.getMessageType().shouldBlock) {

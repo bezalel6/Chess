@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class RegisterUsernamePnl extends UsernamePnl {
     protected static final int availabilityCoolDown = 500;
-    private final ThreadsManager.HandledThread fetchingThread;
+    private final FetchingThread fetchingThread;
     private final Map<String, Boolean> availabilityMap = new HashMap<>();
     private final Map<String, ArrayList<String>> suggestionsMap = new HashMap<>();
     private final FetchVerify fetchVerifyPnl;
@@ -35,9 +35,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
         addSecondaryComp(fetchVerifyPnl);
         this.suggestionsPnl = new WinPnl();
         bottomPnl.add(suggestionsPnl);
-        fetchingThread = new ThreadsManager.HandledThread() {{
-
-        }};
+        fetchingThread = new FetchingThread();
     }
 
     @Override
@@ -73,13 +71,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
             lastCheckTime = ZonedDateTime.now();
         lastCheckedStr = username;
 
-//        ew
-        synchronized (fetchingThread) {
-            fetchingThread.setRunnable(() -> {
-                lastCheckTime = ZonedDateTime.now();
-                parent.askServer(Message.checkUsernameAvailability(username), res -> this.serverResponded(res, username));
-            });
-        }
+        fetchingThread.startFetch(username);
 
         return false;
     }
@@ -113,6 +105,23 @@ public class RegisterUsernamePnl extends UsernamePnl {
         });
     }
 
+    private void removeSuggestions() {
+        suggestionsPnl.removeContent();
+        suggestionsPnl.setHeader(null);
+    }
+
+    @Override
+    public String errorDetails() {
+        if (!super.verifyRegEx()) {
+            fetchVerifyPnl.nothing();
+            return super.errorDetails();
+        }
+        if (isLoading) {
+            return "checking if username is available";
+        }
+        return "username is not available";
+    }
+
     private void serverResponded(Message response, String username) {
         long s = availabilityCoolDown - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
         if (s > 0) {
@@ -137,54 +146,26 @@ public class RegisterUsernamePnl extends UsernamePnl {
         onUpdate();
     }
 
-    private void removeSuggestions() {
-        suggestionsPnl.removeContent();
-        suggestionsPnl.setHeader(null);
-    }
-
-    @Override
-    public String errorDetails() {
-        if (!super.verifyRegEx()) {
-            fetchVerifyPnl.nothing();
-            return super.errorDetails();
-        }
-        if (isLoading) {
-            return "checking if username is available";
-        }
-        return "username is not available";
-    }
-
     public class FetchingThread extends ThreadsManager.HandledThread {
-
-
         private String fetching;
 
         public FetchingThread() {
             setRunnable(() -> {
                 while (!isInterrupted()) {
                     synchronized (this) {
-                        this.wait();
+                        wait();
                         lastCheckTime = ZonedDateTime.now();
                         parent.askServer(Message.checkUsernameAvailability(fetching), res -> serverResponded(res, fetching));
                     }
                 }
             });
+            start();
         }
 
-        public synchronized void startR(String f) {
-            fetching = f;
-            this.notify();
-//                fetchingThread.setRunnable(() -> {
-//                            lastCheckTime = ZonedDateTime.now();
-//                            parent.askServer(Message.checkUsernameAvailability(username), res -> serverResponded(res, username));
-//                        }
-//            fetchingThread.queue();
+        public synchronized void startFetch(String username) {
+            fetching = username;
+            notify();
         }
-
-        private void response(Message res, String un) {
-
-        }
-
     }
 
 }

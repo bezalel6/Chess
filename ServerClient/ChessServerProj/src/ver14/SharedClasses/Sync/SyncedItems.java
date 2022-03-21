@@ -78,7 +78,7 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
     @Override
     public E remove(Object key) {
         E ret = super.remove(key);
-        updated();
+        if (ret != null) updated();
         return ret;
     }
 

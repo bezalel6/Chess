@@ -446,9 +446,7 @@ public class Server implements ErrorContext, EnvManager {
         if (ongoingGame != null) {
             ongoingGame.playerDisconnected(player);
         }
-        if (player instanceof PlayerNet) {
-            players.remove(((PlayerNet) player).ID());
-        }
+        players.remove(player.getUsername());
         List<GameInfo> del = gamePool.values()
                 .stream()
                 .filter(game -> game.creatorUsername.equals(player.getUsername()))

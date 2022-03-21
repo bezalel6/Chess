@@ -45,7 +45,7 @@ public class Header extends JPanel {
 
     protected JLabel createHeader() {
         return new JLabel(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {{
-            setFont(FontManager.normal);
+            setFont(FontManager.Dialogs.dialog);
         }};
     }
 

@@ -1,5 +1,6 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
+import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.DialogField;
@@ -56,6 +57,7 @@ public abstract class TextBasedField<T> extends DialogField<T> {
     protected static JTextField styleTextField(JTextField textField) {
         textField.setForeground(Color.BLUE);
         textField.setPreferredSize(defaultTextFieldSize);
+        textField.setFont(FontManager.Dialogs.dialogInput);
         return textField;
     }
 

@@ -48,7 +48,7 @@ public class CardHeader extends Header {
     @Override
     protected JLabel createHeader() {
         JLabel lbl = super.createHeader();
-        lbl.setFont(FontManager.xLarge);
+        lbl.setFont(FontManager.Dialogs.dialogHeader);
         return lbl;
     }
 }

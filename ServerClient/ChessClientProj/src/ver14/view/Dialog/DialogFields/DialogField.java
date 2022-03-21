@@ -3,6 +3,7 @@ package ver14.view.Dialog.DialogFields;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.Arg.Described;
+import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.ObjBtn;
@@ -76,7 +77,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
     }
 
     private ObjBtn<T> createValBtn(Described<T> desc) {
-        return new ObjBtn<>(desc.description(), getFont(), desc.obj(), this::valueBtnPresses);
+        return new ObjBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
     }
 
 
