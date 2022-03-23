@@ -23,7 +23,6 @@ import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
 import ver14.game.Game;
 import ver14.game.GameSession;
 import ver14.players.Player;
-import ver14.players.PlayerAI.MinimaxVsStockfish;
 import ver14.players.PlayerAI.PlayerAI;
 import ver14.players.PlayerNet;
 
@@ -57,10 +56,6 @@ public class Server implements ErrorContext, EnvManager {
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
-    /**
-     * The constant VS_STOCKFISH.
-     */
-    public static boolean VS_STOCKFISH = false;
 
     static {
 
@@ -153,7 +148,9 @@ public class Server implements ErrorContext, EnvManager {
             serverPort = -1;
             serverIP = InetAddress.getLocalHost().getHostAddress(); // get Computer IP
 
-            String port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
+            String port = System.getenv("PORT");
+            if (port == null)
+                port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
 
             if (port == null) // check if Cancel button was pressed
                 serverPort = -1;
@@ -168,6 +165,7 @@ public class Server implements ErrorContext, EnvManager {
             serverSetupOK = false;
             String serverAddress = serverIP + ":" + serverPort;
             log("Can't setup Server Socket on " + serverAddress + "\n" + "Fix the problem & restart the server.", exp, frmWin);
+            exp.printStackTrace();
         }
 
         System.out.println("**** setupServer() finished! ****");
@@ -221,10 +219,15 @@ public class Server implements ErrorContext, EnvManager {
     }
 
     private void closeServer(String cause) {
+        players.forEachItem(player -> {
+            ErrorHandler.ignore(() -> {
+                player.disconnect(cause);
+            });
+        });
         if (serverSocket != null && !serverSocket.isClosed())
             stopServer();
 
-        log("Server Closed!");
+        log("Server Closed! " + cause);
         serverRunOK = false;
         frmWin.dispose(); // close GUI
     }
@@ -290,37 +293,33 @@ public class Server implements ErrorContext, EnvManager {
 // Run the server - wait for clients to connect & handle them
     public void runServer() {
         if (serverSetupOK) {
-            ThreadsManager.handleErrors(() -> {
-                String serverAddress = "(" + serverIP + ":" + serverPort + ")";
-                log("SERVER" + serverAddress + " Setup & Running!");
+            String serverAddress = "(" + serverIP + ":" + serverPort + ")";
+            log("SERVER" + serverAddress + " Setup & Running!");
 //            log(new NoThrow<String>(DB::getAllUsersCredentials).get());
-                frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
+            frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
 
-                serverRunOK = true;
+            serverRunOK = true;
 
-                if (VS_STOCKFISH)
-                    minimaxVsStockfish();
-
-                // loop while server running OK
-                while (serverRunOK) {
-                    AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
-                    if (appSocketToPlayer == null)
-                        serverRunOK = false;
-                    else {
-                        handleClient(appSocketToPlayer);
-                    }
+            // loop while server running OK
+            while (serverRunOK) {
+                AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
+                if (appSocketToPlayer == null)
+                    serverRunOK = false;
+                else {
+                    handleClient(appSocketToPlayer);
                 }
-            });
+            }
+            closeServer("runServer() finised!");
+        } else {
+            closeServer("server setup was not ok");
         }
-
-        closeServer("runServer() finised!");
 
         System.out.println("**** runServer() finished! ****");
     }
 
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
-        ThreadsManager.HandledThread.run(() -> {
+        ThreadsManager.HandledThread.runInHandledThread(() -> {
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
@@ -566,14 +565,6 @@ public class Server implements ErrorContext, EnvManager {
                 .orElse(null);
     }
 
-    /**
-     * Minimax vs stockfish.
-     */
-//DEBUG ONLY
-    public void minimaxVsStockfish() {
-        MinimaxVsStockfish p = new MinimaxVsStockfish(1);
-        gameSetup(p);
-    }
 
     /**
      * Create username suggestions array list.
@@ -615,6 +606,6 @@ public class Server implements ErrorContext, EnvManager {
      */
     @Override
     public void criticalErr(MyError err) {
-        log("ahhhhhh: " + err);
+        closeServer("critical error: " + err);
     }
 }

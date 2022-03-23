@@ -30,7 +30,7 @@ public class Minimax {
     private final Timer minimaxTimer;
     private Model model;
     private boolean log = false;
-    private int numOfThreads = 8;
+    private int numOfThreads = 1;
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
     private long leavesReached;
@@ -280,7 +280,6 @@ public class Minimax {
             parms.model.applyMove(move);
 
             Evaluation eval = minimax(parms.nextDepth());
-
             parms.model.undoMove();
 
             move.setMoveEvaluation(eval);
@@ -295,6 +294,7 @@ public class Minimax {
 
         }
 //        assert bestEval != null;
+        assert bestEval != null;
         return bestEval;
     }
 

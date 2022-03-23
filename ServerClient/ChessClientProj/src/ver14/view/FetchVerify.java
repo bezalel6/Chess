@@ -5,9 +5,12 @@ import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.IconManager.IconManager;
 
 import javax.swing.*;
+import java.time.ZonedDateTime;
 
 public class FetchVerify extends MyLbl {
     private final ImageIcon verifiedIcon, notVerifiedIcon, loadingIcon;
+
+    private ZonedDateTime startedLoading;
 
     public FetchVerify() {
         this(IconManager.greenCheck, IconManager.redX, IconManager.loadingIcon);
@@ -32,8 +35,10 @@ public class FetchVerify extends MyLbl {
     }
 
     public void verify(boolean verified) {
+        
         setIcon(verified ? verifiedIcon : notVerifiedIcon);
     }
+
 
     @Override
     public void setIcon(Icon icon) {
@@ -42,6 +47,7 @@ public class FetchVerify extends MyLbl {
     }
 
     public void load() {
+        startedLoading = ZonedDateTime.now();
         setIcon(loadingIcon);
     }
 }

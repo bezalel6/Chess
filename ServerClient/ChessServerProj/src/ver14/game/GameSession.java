@@ -11,13 +11,14 @@ import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Sync.SyncableItem;
+import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.players.Player;
 
 import java.util.Arrays;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class GameSession extends Thread implements SyncableItem {
+public class GameSession extends ThreadsManager.HandledThread implements SyncableItem {
     public final String gameID;
     private final Server server;
     private final Game game;
@@ -54,7 +55,7 @@ public class GameSession extends Thread implements SyncableItem {
     }
 
     @Override
-    public void run() {
+    public void handledRun() {
         GameStatus gameOver;
         Player disconnectedPlayer;
         do {

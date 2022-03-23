@@ -41,7 +41,8 @@ public class Square implements Serializable {
 
     @Override
     public String toString() {
-        return getFen();
+        return loc + ": " + getFen();
+//        return getFen();
     }
 
     public String getFen() {

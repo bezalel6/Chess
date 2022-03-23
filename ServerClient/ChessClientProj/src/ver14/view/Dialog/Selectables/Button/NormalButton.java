@@ -22,11 +22,7 @@ public class NormalButton extends MyJButton implements SelectableBtn {
         setFont(FontManager.Dialogs.selectableBtn);
         this.value = value;
         setOnClick(() -> {
-            if (selected) {
-                onSelect.callback(null);
-            } else {
-                onSelect.callback(value);
-            }
+            onSelect.callback(selected ? value : null);
         });
     }
 

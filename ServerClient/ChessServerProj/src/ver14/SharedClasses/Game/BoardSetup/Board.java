@@ -10,9 +10,8 @@ import java.util.stream.IntStream;
 
 public class Board implements Iterable<Square>, Serializable {
 
-//    todo make a hashmap
-
-    private final static String startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+    //    todo turn into a hashmap
+    public final static String startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
     public static final Board example = new Board() {{
         fenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     }};

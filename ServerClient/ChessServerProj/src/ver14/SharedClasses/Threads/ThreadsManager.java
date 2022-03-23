@@ -45,7 +45,6 @@ public class ThreadsManager {
     }
 
     public static void handleErrors(ThrowingRunnable runnable) {
-
         MyError err = null;
         try {
             runnable.run();
@@ -72,6 +71,12 @@ public class ThreadsManager {
 
         public MyThread() {
             threads.add(this);
+            setDaemon(false);
+
+        }
+
+        public static void closeAll() {
+            threads.forEach(Thread::interrupt);
         }
 
         @Override
@@ -94,7 +99,7 @@ public class ThreadsManager {
             this.runnable = runnable;
         }
 
-        public static HandledThread run(ThrowingRunnable runnable) {
+        public static HandledThread runInHandledThread(ThrowingRunnable runnable) {
             HandledThread thread = new HandledThread(runnable);
             thread.start();
             return thread;

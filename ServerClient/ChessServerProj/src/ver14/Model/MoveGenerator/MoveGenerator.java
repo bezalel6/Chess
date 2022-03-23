@@ -116,7 +116,7 @@ public class MoveGenerator {
 
         generatedMoves.doneAdding();
 
-        if (generationSettings.legalize)
+        if (generationSettings.legalize && !generationSettings.anyLegal)//!any legal bc it already checked legality before adding moves
             legalize();
 
         return generatedMoves;

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class RegisterUsernamePnl extends UsernamePnl {
-    protected static final int availabilityCoolDown = 500;
+    protected static final int minLoadTime = 500;
     private final FetchingThread fetchingThread;
     private final Map<String, Boolean> availabilityMap = new HashMap<>();
     private final Map<String, ArrayList<String>> suggestionsMap = new HashMap<>();
@@ -89,7 +89,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
                 }
             }
         } else {
-            header = new Header("no suggestions found");
+            header = new Header("no suggestions");
         }
         suggestionsPnl.setCols(cols);
 
@@ -116,17 +116,14 @@ public class RegisterUsernamePnl extends UsernamePnl {
             fetchVerifyPnl.nothing();
             return super.errorDetails();
         }
-        if (isLoading) {
-            return "checking if username is available";
-        }
-        return "username is not available";
+        return isLoading ? "checking if username is available" : "username is not available";
     }
 
     private void serverResponded(Message response, String username) {
-        long s = availabilityCoolDown - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
-        if (s > 0) {
+        long ms = minLoadTime - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
+        if (ms > 0) {
             try {
-                Thread.sleep(s);
+                Thread.sleep(ms);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -166,6 +163,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
             fetching = username;
             notify();
         }
+
     }
 
 }

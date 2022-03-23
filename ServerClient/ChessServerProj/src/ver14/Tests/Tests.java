@@ -1,53 +1,64 @@
 package ver14.Tests;
 
-import org.testng.Assert;
+import org.testng.ITest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ver14.Model.*;
-import ver14.Model.Eval.Eval;
-import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.minimax.Minimax;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.Evaluation;
+import ver14.SharedClasses.Game.TimeFormat;
 import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.moves.MovesList;
-import ver14.SharedClasses.Game.pieces.PieceType;
+import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.ThreadsUtil;
-import ver14.game.Game;
+import ver14.players.PlayerAI.MyAi;
 
+import java.lang.reflect.Method;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
 @Test
-public class Tests {
+public class Tests implements ITest {
+    protected static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static final boolean enableInput = false;
-    private static final int POSITIONS_COUNT_DEPTH = 5;
-    private static final boolean PRINT_POSITIONS_MOVES = false;
-    private static final boolean MULTITHREADING_POS = true;
-    private static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
     private static final int attackedFensNum = 10;
-    private static final boolean debugPositions = true;
-    private final static Map<Move, ArrayList<String>> bottomReachedFens = new ConcurrentHashMap<>();
     private static ZonedDateTime dateTime;
+    protected final ThreadLocal<String> testName = new ThreadLocal<>();
+    //endregion
+    protected Model model;
+    protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
 //        printNumOfPositions();
 //        minimaxThreadsTest();
 //        minimaxVsStockfish();
 //        isInCheck();
-//        minimaxVsStockfish();
-        compareAttacks();
+        minimaxVsStockfish();
+//        compareAttacks();
 
+    }
+
+    private static void minimaxVsStockfish() {
+        Server server = new Server();
+        server.runServer();
+        MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, TimeFormat.BULLET)) {
+            @Override
+            public GameSettings getGameSettings(SyncedItems joinableGames, SyncedItems resumableGames) {
+                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AiParameters(AiParameters.AiType.Stockfish, TimeFormat.BULLET), GameSettings.GameType.CREATE_NEW);
+            }
+        };
+        server.gameSetup(ai);
     }
 
     private static void compareAttacks() {
@@ -125,9 +136,9 @@ public class Tests {
         } while (str != null && !str.equals("q"));
     }
 
-    private static Model model(String... fen) {
+    public static Model model(String fen) {
         return new Model() {{
-            setup(ArrUtils.exists(fen, 0));
+            setup(fen);
         }};
     }
 
@@ -152,15 +163,8 @@ public class Tests {
         System.out.println("Model: \n");
         model.printBoard();
         System.out.println();
-        Bitboard attacked = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, new Bitboard(Location.E4), PlayerColor.WHITE, model);
-        System.out.println(attacked.prettyBoard());
-    }
-
-    private static void minimaxVsStockfish() {
-        Server server = new Server();
-        Server.VS_STOCKFISH = true;
-        Game.showGameView = true;
-        server.runServer();
+//        Bitboard attacked = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, new Bitboard(Location.E4), PlayerColor.WHITE, model);
+//        System.out.println(attacked.prettyBoard());
     }
 
     private static void minimaxThreadsTest() {
@@ -209,239 +213,26 @@ public class Tests {
 
     }
 
-    @Test(testName = "Number of positions to depth " + POSITIONS_COUNT_DEPTH)
-    public static void perft() {
-        Model model = model();
-        Stockfish stockfish = new Stockfish();
-        for (int depth = 1; depth <= POSITIONS_COUNT_DEPTH; depth++) {
-            long res, time = 0;
-            startTime();
-            res = countPositions(depth, model, null, true);
-            long st = stockfish.perft(depth);
-            Assert.assertEquals(st, res);
-            time += stopTime();
-            System.out.println("Depth: " + depth + " Result: " + res + " positions Time: " + time + " milliseconds");
-        }
+    @BeforeMethod
+    protected void BeforeMethod(Method method, Object[] testData) {
+//        testName.set("b4 method of" + method.getName() + " data: " + testData);
+        testName.set(method.getName() + "_" + ArrUtils.exists(testData, 0, 0));
+        String fen = (String) ArrUtils.exists(testData, 1);
+        if (fen != null)
+            FEN.assertFen(fen);
+        model = model(fen);
+        stockfish = new Stockfish(fen);
+    }
+
+    @AfterMethod
+    private void after() {
         stockfish.stopEngine();
     }
 
-    private static void isInCheck() {
-        Model model = new Model();
-
-        model.setup("1n2kbnr/pppppppp/3q4/8/r2K1b2/8/PP1PPPPP/RNBQ1BNR w k - 0 1");
-//        model.setup(null);
-        ;
+    @Override
+    public String getTestName() {
+        return testName.get();
     }
 
-    private static void rayVsMoveLegalization() {
-        Model model = new Model();
-        model.setup(null);
-        MovesList moves = MoveGenerator.generateMoves(model);
-        long time = 0;
-        int numOfTries = 100000;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-            for (Move move : moves) {
-                model.applyMove(move);
-                model.isInCheck();
-                model.undoMove();
-            }
-            time += System.currentTimeMillis() - millis;
-        }
 
-        System.out.println("Legalization took " + time);
-        time = 0;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-            AttackedSquares.getPins(model, PlayerColor.WHITE);
-            time += System.currentTimeMillis() - millis;
-        }
-        System.out.println("Ray took " + time);
-
-    }
-
-    private static void ray() {
-        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
-        Model model = new Model(fen);
-        Attack check = AttackedSquares.getCheck(model, PlayerColor.WHITE);
-        check.prettyPrint();
-    }
-
-    //region
-    //todo check if Math.abs(-1).... is faster then if/switch/opp hash map
-    private static void mathVsIf() {
-        enum e {
-            a, b, c
-        }
-    }
-
-    private static void pins() {
-        String fen = "3r4/8/1Rbk4/2q5/2N5/Q7/8/3R4 w - - 0 1";
-        Model model = new Model(fen);
-        System.out.println("Model: \n");
-        model.printBoard();
-        Pins pins = AttackedSquares.getPins(model, PlayerColor.WHITE);
-        pins.prettyPrint();
-
-    }
-
-    private static void moveGeneration() {
-        String fen = null;
-        Model model = new Model(fen);
-        model.generateAllMoves();
-//        ModelMovesList moves = MoveGenerator.generateMoves(model);
-//        System.out.println(moves);
-//        moves.prettyPrint();
-    }
-
-    private static void testSetLocsTime() {
-        int numOfTries = 1000000;
-        long time = 0;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-            Bitboard bitboard = new Bitboard(Math.abs(new Random().nextLong()));
-            ArrayList<Location> setLocs = new ArrayList<>();
-            int position = 1;
-            long num = bitboard.getBitBoard();
-            while (num != 0) {
-                if ((num & 1) != 0) {
-                    Location loc = Location.getLoc(position - 1);
-                    assert loc != null;
-                    setLocs.add(loc);
-                }
-                position++;
-                num = num >>> 1;
-            }
-            time += System.currentTimeMillis() - millis;
-
-        }
-        System.out.println("shifting took " + time);
-        time = 0;
-        for (int i = 0; i < numOfTries; i++) {
-            long millis = System.currentTimeMillis();
-            Bitboard bitboard = new Bitboard(Math.abs(new Random().nextLong()));
-            ArrayList<Location> setLocs = new ArrayList<>();
-            for (Location loc : Location.ALL_LOCS) {
-                if (bitboard.isSet(loc))
-                    setLocs.add(loc);
-            }
-            time += System.currentTimeMillis() - millis;
-        }
-
-        System.out.println("is set took " + time);
-    }
-
-    private static void fen() {
-        Model model = new Model();
-        System.out.println("Fen = " + FEN.generateFEN(model));
-//        FEN.loadFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", null);
-    }
-
-    //endregion
-
-    private static void threefold() {
-        Model model = new Model();
-        String[] pgn = {"Nc3", "Nc6", "Nb1", "Nb8", "Nc3", "Nc6", "Nb1", "Nb8"};
-        int index = 0;
-        while (!Eval.isGameOver(model)) {
-            var moves = model.generateAllMoves();
-            int finalIndex = index;
-            Move applying = moves.stream()
-                    .filter(move ->
-                            move.getAnnotation().startsWith(pgn[finalIndex]))
-                    .findAny()
-                    .orElse(null);
-            index++;
-            if (applying == null) {
-                System.out.println("didnt find. moves = " + moves);
-                assert false;
-            }
-            System.out.println("Move: " + applying + " Model:\n");
-            model.printBoard();
-
-            model.applyMove(applying);
-
-            if (applying.getThreefoldStatus() == Move.ThreefoldStatus.CAN_CLAIM) {
-                System.out.println("Found threefold!");
-                break;
-            }
-        }
-        System.out.println(Eval.getEvaluation(model));
-    }
-
-    private static void evaluation() {
-        Model model = new Model();
-        Evaluation evaluation = Eval.getEvaluation(model);
-        System.out.println("Evaluation = " + evaluation);
-    }
-
-    private static void fiftyMoves() {
-        Model model = new Model();
-        int i = 0;
-        while (!Eval.isGameOver(model)) {
-            Move move = model.generateAllMoves()
-                    .stream()
-                    .filter(Move::isReversible)
-                    .findAny()
-                    .orElse(null);
-            if (move == null) {
-                System.out.println("Couldnt find a reversible move.");
-                break;
-            }
-            System.out.println("Move " + (++i) + " = " + move);
-            model.applyMove(move);
-
-        }
-        System.out.println(model);
-    }
-
-    public static long countPositions(int depth, Model model, Move root, boolean isRoot) {
-        if (depth == 0)
-            return 1;
-        ArrayList<Move> moves = model.generateAllMoves();
-        AtomicLong num = new AtomicLong();
-
-        if (isRoot && MULTITHREADING_POS) {
-            ForkJoinPool threadPool = new ForkJoinPool(numOfThreads);
-            threadPool.execute(() -> {
-                num.set(moves.stream().parallel().mapToLong(move -> {
-                    long result = executePos(depth, new Model(model), move, move);
-//                    Stockfish stockfish = new Stockfish();
-//                    Assert.assertEquals(stockfish.perft(depth, move), result);
-//                    stockfish.stopEngine();
-                    return result;
-                }).sum());
-            });
-            try {
-                threadPool.shutdown();
-                if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
-                    IntStream.range(0, 1000).forEach(i -> {
-                        System.err.print("F");
-                    });
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } else {
-            num.set(moves.stream().mapToLong(move -> executePos(depth, model, root, move)).sum());
-        }
-        return num.get();
-    }
-
-    private static long executePos(int depth, Model model, Move move, Move root) {
-        model.applyMove(move);
-        long res = countPositions(depth - 1, model, root, false);
-        if (PRINT_POSITIONS_MOVES && depth == POSITIONS_COUNT_DEPTH)
-            System.out.println(move.getBasicMoveAnnotation() + ": " + res);
-        if (depth == 0 && debugPositions) {
-            synchronized (bottomReachedFens) {
-                if (!bottomReachedFens.containsKey(move)) {
-                    bottomReachedFens.put(move, new ArrayList<>());
-                }
-                bottomReachedFens.get(root).add(model.genFenStr() + " " + move);
-            }
-        }
-        model.undoMove();
-        return res;
-    }
 }

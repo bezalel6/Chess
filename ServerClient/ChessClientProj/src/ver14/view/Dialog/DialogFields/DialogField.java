@@ -40,6 +40,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         this.notEqualsTo = new ArrayList<>();
         errLbl = new ErrorPnl();
         bottomPnl.add(errLbl);
+        setFont(FontManager.Dialogs.dialogInput);
 
     }
 

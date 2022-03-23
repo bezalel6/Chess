@@ -133,6 +133,10 @@ public enum PieceType implements Serializable {
         return PIECE_TYPES[pieceType];
     }
 
+    public static Direction[] getAttackingDirections(PieceType pieceType) {
+        return ATTACKING_DIRECTIONS[pieceType.asInt];
+    }
+
     public String getWhitePieceFen() {
         return COLORLESS_PIECES_FENS[this.asInt];
     }
@@ -169,10 +173,6 @@ public enum PieceType implements Serializable {
     }
 
     public Direction[] getAttackingDirections() {
-        return getAttackingDirections(this);
-    }
-
-    public static Direction[] getAttackingDirections(PieceType pieceType) {
-        return ATTACKING_DIRECTIONS[pieceType.asInt];
+        return ATTACKING_DIRECTIONS[asInt];
     }
 }

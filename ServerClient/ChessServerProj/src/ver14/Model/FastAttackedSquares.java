@@ -10,6 +10,8 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import java.util.List;
 
 public class FastAttackedSquares {
+
+
     public static boolean isAttacked(Board board, Location loc, PlayerColor attackedBy) {
         List<Direction> allUsedDirections = Direction.ALL_USED_DIRECTIONS;
         for (int j = 0, allUsedDirectionsSize = allUsedDirections.size(); j < allUsedDirectionsSize; j++) {
@@ -21,7 +23,9 @@ public class FastAttackedSquares {
                     break;
                 Piece piece = board.getPiece(checking);
                 if (piece != null) {
-                    if (!piece.isOnMyTeam(attackedBy) || !piece.pieceType.isAttack(direction, loc.getMaxDistance(checking)))
+
+//                    todo opposite thingy
+                    if (!piece.isOnMyTeam(attackedBy) || !piece.pieceType.isAttack(direction.opposite(), loc.getMaxDistance(checking)))
                         break;
 
                     return true;

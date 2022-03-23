@@ -132,8 +132,8 @@ public class CastlingRights implements Serializable {
     }
 
     public enum Side {
-        KING(6, 7, 5),
-        QUEEN(2, 0, 3);
+        KING(Location.G, Location.H, Location.F),
+        QUEEN(Location.C, Location.A, Location.D);
 
         public static final Side[] SIDES = {KING, QUEEN};
         public final int rookStartingCol;
