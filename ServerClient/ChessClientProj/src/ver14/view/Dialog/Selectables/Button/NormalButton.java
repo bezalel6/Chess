@@ -33,6 +33,7 @@ public class NormalButton extends MyJButton implements SelectableBtn {
 
     @Override
     public void setSelected(boolean e) {
+//        super.setSelected(e);
         if (e) {
             select();
         } else {

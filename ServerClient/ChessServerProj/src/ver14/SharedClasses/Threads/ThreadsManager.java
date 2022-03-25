@@ -56,7 +56,9 @@ public class ThreadsManager {
             err = new MyError(t);
         }
         if (err != null)
-            ErrorManager.handle(err);
+            throw err;
+//        if (err != null)
+//            ErrorManager.handle(err);
     }
 
     public static MyThread createThread(ThrowingRunnable runnable, boolean start) {

@@ -18,7 +18,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.networking.MyErrors;
 import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
 import ver14.game.Game;
 import ver14.game.GameSession;
@@ -382,7 +381,7 @@ public class Server implements ErrorContext, EnvManager {
         return switch (loginInfo.getLoginType()) {
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
-                    if (!isUserConnected(username)) {
+                    if (!isLoggedIn(username)) {
                         yield Message.welcomeMessage("Welcome " + username, loginInfo);
                     } else {
                         yield Message.error("User already connected");
@@ -407,50 +406,8 @@ public class Server implements ErrorContext, EnvManager {
         };
     }
 
-    private boolean isUserConnected(String username) {
+    private boolean isLoggedIn(String username) {
         return players.stream().anyMatch(p -> p.getUsername().equals(username));
-    }
-
-    /**
-     * Disconnect player.
-     *
-     * @param player the player
-     * @param err    the err
-     */
-    public void disconnectPlayer(Player player, MyErrors err) {
-        disconnectPlayer(player, "error occurred. " + err);
-    }
-
-    /**
-     * Disconnect player.
-     *
-     * @param player the player
-     * @param cause  the cause
-     */
-    public void disconnectPlayer(Player player, String cause) {
-        if (player != null) {
-            log("disconnecting " + player.getUsername() + " " + cause);
-            player.disconnect(cause);
-            playerDisconnected(player);
-        }
-    }
-
-    /**
-     * Player disconnected.
-     *
-     * @param player the player
-     */
-    public void playerDisconnected(Player player) {
-        Game ongoingGame = player.getOnGoingGame();
-        if (ongoingGame != null) {
-            ongoingGame.playerDisconnected(player);
-        }
-        players.remove(player.getUsername());
-        List<GameInfo> del = gamePool.values()
-                .stream()
-                .filter(game -> game.creatorUsername.equals(player.getUsername()))
-                .toList();
-        del.forEach(deleting -> gamePool.remove((deleting).gameId));
     }
 
     /**
@@ -565,6 +522,37 @@ public class Server implements ErrorContext, EnvManager {
                 .orElse(null);
     }
 
+    /**
+     * Disconnect player.
+     *
+     * @param player the player
+     * @param cause  the cause
+     */
+    public void disconnectPlayer(Player player, String cause) {
+        if (player != null) {
+            log("disconnecting " + player.getUsername() + " " + cause);
+            player.disconnect(cause);
+            playerDisconnected(player);
+        }
+    }
+
+    /**
+     * Player disconnected.
+     *
+     * @param player the player
+     */
+    public void playerDisconnected(Player player) {
+        Game ongoingGame = player.getOnGoingGame();
+        if (ongoingGame != null) {
+            ongoingGame.playerDisconnected(player);
+        }
+        players.remove(player.getUsername());
+        List<GameInfo> del = gamePool.values()
+                .stream()
+                .filter(game -> game.creatorUsername.equals(player.getUsername()))
+                .toList();
+        del.forEach(deleting -> gamePool.remove((deleting).gameId));
+    }
 
     /**
      * Create username suggestions array list.

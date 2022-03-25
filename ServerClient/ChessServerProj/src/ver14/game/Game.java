@@ -50,8 +50,8 @@ public class Game {
         this.originalSettings = new GameSettings(gameSettings);
         this.moveStack = new Stack<>();
         this.model = new Model();
-        setPartners();
         this.gameView = showGameView ? new GameView() : null;
+        setPartners();
     }
 
     private void setPartners() {
@@ -109,7 +109,7 @@ public class Game {
         initPlayersGames();
         session.log("Starting game " + this);
 
-        updateView();
+        updateDebugView();
     }
 
     private GameStatus runGame() {
@@ -148,7 +148,7 @@ public class Game {
         forEachPlayer(p -> p.initGame(this));
     }
 
-    private void updateView() {
+    private void updateDebugView() {
         if (this.gameView != null) {
             this.gameView.update(model.getLogicBoard());
         }
@@ -165,10 +165,10 @@ public class Game {
     }
 
     private void switchTurn() {
-        updateView();
         currentPlayer = currentPlayer.getPartner();
         gameTime.startRunning(currentPlayer.getPlayerColor());
         currentPlayer.getPartner().waitTurn();
+        updateDebugView();
     }
 
     private void onGameOver() {

@@ -206,6 +206,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public void interruptListener() {
         messagesHandler.interruptBlocking();
+        interrupt();
     }
 
     /**

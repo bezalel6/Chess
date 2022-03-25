@@ -88,7 +88,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
                     game.getCurrentPlayer().getUsername(),
                     moveStack
             );
-            server.log("saving unfinished game: " + unfinishedGame);
+            log("saving unfinished game: " + unfinishedGame);
             DB.saveUnFinishedGame(unfinishedGame);
         } else {
             String winner = switch (gameResult.getGameStatusType()) {
@@ -105,7 +105,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
                     winner,
                     moveStack
             );
-            server.log("saving game result: " + archivedGameInfo);
+            log("saving game result: " + archivedGameInfo);
             DB.saveGameResult(archivedGameInfo);
 
         }
@@ -130,6 +130,10 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
         return creator.isSaveWorthy() || p2.isSaveWorthy();
     }
 
+    public void log(String str) {
+        server.log(this + "-->" + str);
+    }
+
     public Player[] getPlayers() {
         return new Player[]{creator, p2};
     }
@@ -147,9 +151,5 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     @Override
     public String ID() {
         return gameID;
-    }
-
-    public void log(String str) {
-        server.log(this + "-->" + str);
     }
 }

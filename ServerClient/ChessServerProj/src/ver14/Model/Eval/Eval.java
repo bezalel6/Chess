@@ -93,7 +93,6 @@ public class Eval implements Serializable {
         if (model.isInCheck()) {
             evaluation.getGameStatus().setInCheck(model.getKing());
         }
-        evaluation.addDebugDetail(EvaluationParameters.EG_WEIGHT, egWeight);
 
         //Material
         compareMaterial();

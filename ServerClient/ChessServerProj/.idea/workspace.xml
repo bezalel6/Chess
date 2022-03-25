@@ -10,48 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="sadx">
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/shelf/Uncommitted_changes_before_Update_at_21_03_2022_15_06__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Model/Perft/Perft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Model/Perft/StockfishPerft.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Tests/MoveGenerationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/Model/minimax/NewMinimax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FetchVerify.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FetchVerify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Server.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Bitboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Bitboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/FEN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/FEN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/FastAttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/FastAttackedSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/PiecesBBs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/PiecesBBs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Stockfish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Stockfish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/MyServerSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/BoardSetup/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/BoardSetup/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/BoardSetup/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/BoardSetup/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/CastlingRights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/CastlingRights.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/MovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/MovesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/pieces/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/ErrorCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/EvaluationParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/EvaluationParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/LocationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/LocationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MyErrors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerAI/MinimaxVsStockfish.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ChessServerProj.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="main" />
+        <entry key="$PROJECT_DIR$/../.." value="Game_session" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -175,7 +153,7 @@
       <recent name="ver3.model_classes" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MinimaxTests.game">
+  <component name="RunManager" selected="TestNG.MinimaxTests.minimaxVsMinimax">
     <configuration name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ver12.Server" />
       <module name="ChessServerProj" />
@@ -216,7 +194,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimaxTests.game" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MinimaxTests.minimaxVsMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <shortenClasspath name="NONE" />
       <useClassPathOnly />
@@ -229,7 +207,7 @@
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="game" />
+      <option name="METHOD_NAME" value="minimaxVsMinimax" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="PARAMETERS" value="" />
@@ -247,36 +225,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoveGenerationTest.attacked" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MinimaxTests.newMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ver14.Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
-      <option name="METHOD_NAME" value="attacked" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
+      <option name="METHOD_NAME" value="newMinimax" />
+      <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoveGenerationTest.castling" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
-      <option name="METHOD_NAME" value="castling" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <envs>
+        <env name="PORT" value="1234" />
+      </envs>
       <properties />
       <listeners />
       <method v="2">
@@ -295,6 +268,37 @@
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
       <option name="METHOD_NAME" value="perft" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.ArrUtilsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ChessServerProj" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ver14.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
+      <option name="METHOD_NAME" value="ArrUtilsTest" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <envs>
+        <env name="PORT" value="1234" />
+      </envs>
       <properties />
       <listeners />
       <method v="2">
@@ -329,17 +333,17 @@
       <item itemvalue="Application.Tests" />
       <item itemvalue="TestNG.Tests" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
-      <item itemvalue="TestNG.MoveGenerationTest.castling" />
-      <item itemvalue="TestNG.MoveGenerationTest.attacked" />
-      <item itemvalue="TestNG.MinimaxTests.game" />
+      <item itemvalue="TestNG.Tests.ArrUtilsTest" />
+      <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
+      <item itemvalue="TestNG.MinimaxTests.newMinimax" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.MinimaxTests.game" />
+        <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
+        <item itemvalue="TestNG.MinimaxTests.newMinimax" />
+        <item itemvalue="TestNG.Tests.ArrUtilsTest" />
         <item itemvalue="Application.Tests" />
         <item itemvalue="TestNG.MoveGenerationTest.perft" />
-        <item itemvalue="TestNG.MoveGenerationTest.attacked" />
-        <item itemvalue="TestNG.MoveGenerationTest.castling" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +362,13 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1647731988270</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎00002" summary="sadx">
+      <created>1648018936204</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1648018936204</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

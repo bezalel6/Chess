@@ -216,12 +216,21 @@ public class Tests implements ITest {
     @BeforeMethod
     protected void BeforeMethod(Method method, Object[] testData) {
 //        testName.set("b4 method of" + method.getName() + " data: " + testData);
-        testName.set(method.getName() + "_" + ArrUtils.exists(testData, 0, 0));
+        Object name = ArrUtils.exists(testData, 0, 0);
+        if (name == null)
+            name = "";
+        testName.set(method.getName() + "_" + name);
         String fen = (String) ArrUtils.exists(testData, 1);
         if (fen != null)
             FEN.assertFen(fen);
         model = model(fen);
         stockfish = new Stockfish(fen);
+    }
+
+    @Test
+    private void ArrUtilsTest() {
+        Object[][] objs = new Object[][]{{new Object()}};
+        System.out.println(ArrUtils.exists(objs, 0, 0).getClass());
     }
 
     @AfterMethod
