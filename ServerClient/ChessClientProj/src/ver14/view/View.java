@@ -396,7 +396,7 @@ public class View implements Iterable<BoardButton[]> {
             else
                 btn.setAsMovable();
 
-            if (move.getMoveFlag() == Move.MoveFlag.Promotion)
+            if (move.getMoveFlag() == Move.MoveType.Promotion)
                 btn.setAsPromotion();
 
             enableSquare(movingTo, true);

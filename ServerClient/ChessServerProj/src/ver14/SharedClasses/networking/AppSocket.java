@@ -138,10 +138,10 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public void close() {
         ErrorHandler.ignore(() -> {
+            keepReading = false;
             if (messagesHandler != null) {
                 messagesHandler.interruptBlocking();
             }
-            keepReading = false;
             msgSocket.close();  // will close the IS & OS streams
         });
     }

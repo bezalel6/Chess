@@ -96,7 +96,7 @@ public class Server implements ErrorContext, EnvManager {
     private void createServerGUI() {
         frmWin = new CloseConfirmationJFrame(this::exitServer) {{
             setSize(SERVER_WIN_SIZE);
-            setAlwaysOnTop(true);
+//            setAlwaysOnTop(true);
             setTitle(SERVER_WIN_TITLE);
         }};
 
@@ -583,7 +583,7 @@ public class Server implements ErrorContext, EnvManager {
      */
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err);
+        log("handled: " + err.type);
 
     }
 

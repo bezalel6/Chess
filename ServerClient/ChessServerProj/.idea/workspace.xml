@@ -10,26 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="sadx">
-      <change afterPath="$PROJECT_DIR$/src/ver14/Model/minimax/NewMinimax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/ListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/ListComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/MenuItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/NormalButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/SelectableBtn.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Button/SelectableBtn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/ErrorCallback.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/Evaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/EvaluationParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/EvaluationParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/moves/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MyErrors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/MoveGenerationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/MoveGenerationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +154,7 @@
       <recent name="ver3.model_classes" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MinimaxTests.minimaxVsMinimax">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ver12.Server" />
       <module name="ChessServerProj" />
@@ -225,6 +226,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MinimaxTests.minimaxVsStockfish" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ChessServerProj" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ver14.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
+      <option name="METHOD_NAME" value="minimaxVsStockfish" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <envs>
+        <env name="PORT" value="1234" />
+      </envs>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MinimaxTests.newMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <shortenClasspath name="NONE" />
@@ -258,24 +290,6 @@
     </configuration>
     <configuration name="MoveGenerationTest.perft" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
-      <option name="METHOD_NAME" value="perft" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.ArrUtilsTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
       <shortenClasspath name="NONE" />
       <useClassPathOnly />
       <extension name="coverage">
@@ -286,8 +300,8 @@
       </extension>
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
-      <option name="METHOD_NAME" value="ArrUtilsTest" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
+      <option name="METHOD_NAME" value="perft" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="PARAMETERS" value="" />
@@ -332,18 +346,18 @@
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Tests" />
       <item itemvalue="TestNG.Tests" />
-      <item itemvalue="TestNG.MoveGenerationTest.perft" />
-      <item itemvalue="TestNG.Tests.ArrUtilsTest" />
       <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
       <item itemvalue="TestNG.MinimaxTests.newMinimax" />
+      <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
+      <item itemvalue="TestNG.MoveGenerationTest.perft" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
-        <item itemvalue="TestNG.MinimaxTests.newMinimax" />
-        <item itemvalue="TestNG.Tests.ArrUtilsTest" />
-        <item itemvalue="Application.Tests" />
         <item itemvalue="TestNG.MoveGenerationTest.perft" />
+        <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
+        <item itemvalue="Application.Tests" />
+        <item itemvalue="TestNG.MinimaxTests.newMinimax" />
       </list>
     </recent_temporary>
   </component>
@@ -368,7 +382,13 @@
       <option name="presentableId" value="LOCAL‎00002" />
       <updated>1648018936204</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎00003" summary="sadx">
+      <created>1648212837433</created>
+      <option name="number" value="LOCAL‎00003" />
+      <option name="presentableId" value="LOCAL‎00003" />
+      <updated>1648212837433</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,7 +417,7 @@
           <properties class="java.io.NotSerializableException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <breakpoint type="java-exception">
+        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
@@ -488,7 +508,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="bestEval==null" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java</url>
-          <line>296</line>
+          <line>298</line>
           <option name="timeStamp" value="193" />
         </line-breakpoint>
       </breakpoints>
@@ -501,13 +521,18 @@
     <watches-manager>
       <configuration name="TestNG">
         <watch expression="print();" language="JAVA" />
-        <watch expression="model.getLogicBoard().print();" language="JAVA" />
-        <watch expression="new Model(model).getLogicBoard().print();" language="JAVA" />
         <watch expression="board.print();" language="JAVA" />
+        <watch expression="model.getCurrentPlayer()" language="JAVA" />
+        <watch expression="parms.model.printBoard();" language="JAVA" />
+        <watch expression="MoveGenerator.generateMoves(parms.model)" language="JAVA" custom="ver14.Model.MoveGenerator.MoveGenerator" />
+        <watch expression="MoveGenerator.generateMoves(parms.model, GenerationSettings.anyLegalMove)" language="JAVA" custom="ver14.Model.MoveGenerator.MoveGenerator,ver14.Model.MoveGenerator.GenerationSettings" />
         <watch expression="method.getName()" language="JAVA" />
         <watch expression="ArrUtils.exists(testData,0)" language="JAVA" />
         <watch expression="attackedSquares.prettyPrint();" language="JAVA" />
         <watch expression="parms.model" />
+        <watch expression="Eval.getEvaluation(parms.model)" language="JAVA" />
+        <watch expression="parms.model.printBoard();" language="JAVA" />
+        <watch expression="parms" />
       </configuration>
       <configuration name="Application">
         <watch expression="print();" language="JAVA" />

@@ -7,7 +7,7 @@ import java.awt.*;
 public interface SelectableBtn {
     Selectable getValue();
 
-    void setSelected(boolean e);
+    void select(boolean e);
 
     default Component comp() {
         return (Component) this;

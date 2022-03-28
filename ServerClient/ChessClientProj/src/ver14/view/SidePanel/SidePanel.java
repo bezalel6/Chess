@@ -133,7 +133,6 @@ public class SidePanel extends JPanel {
     }
 
     public void setBothPlayersClocks(GameTime gameTime) {
-        System.out.println("setting game time:" + gameTime);
         if (gameTime == null)
             return;
         timeControl = gameTime.getRunningTime(PlayerColor.WHITE).getTimeInMillis();

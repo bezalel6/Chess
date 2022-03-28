@@ -1,6 +1,7 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 
@@ -112,9 +113,9 @@ public abstract class MessagesHandler {
                     gets stuck. because the response message will never get read.
                  */
         if (message != null && !message.getMessageType().shouldBlock) {
-            new Thread(() -> {
+            ThreadsManager.createThread(() -> {
                 processMessage(message);
-            }).start();
+            }, true);
         } else
             processMessage(message);
     }

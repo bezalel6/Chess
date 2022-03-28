@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
  * The type Move generation test.
  */
 public class MoveGenerationTest extends Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 6;
+    private static final int POSITIONS_COUNT_DEPTH = 5;
     private static final boolean PRINT_POSITIONS_MOVES = false;
     private static final boolean MULTITHREADING_POS = true;
 
@@ -52,6 +52,7 @@ public class MoveGenerationTest extends Tests {
         list.add(new Object[]{"castling", FEN.castling, 4});
         list.add(new Object[]{"pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
         list.add(new Object[]{"another pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
+        list.add(new Object[]{"another pawn check", "rnbq1bnr/ppp1pppp/2kp4/3P4/8/5N2/PPP1PPPP/RNBQKB1R w KQ - 1 4", 1});
 
         return list.stream().toList().toArray(new Object[0][]);
     }

@@ -41,8 +41,9 @@ public class ModelMovesList extends MovesList {
                 super.add(adding);
                 throw ListEx.FoundLegalMove;
             }
+        } else {
+            super.add(adding);
         }
-        super.add(adding);
 //        addedMove(adding, movingPiece);
 
         return true;

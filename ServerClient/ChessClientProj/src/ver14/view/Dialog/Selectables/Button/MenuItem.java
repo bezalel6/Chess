@@ -38,7 +38,7 @@ public class MenuItem extends JMenuItem implements SelectableBtn {
 
 
     @Override
-    public void setSelected(boolean e) {
+    public void select(boolean e) {
         if (e) {
             select();
         } else {

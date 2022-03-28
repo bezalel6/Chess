@@ -30,6 +30,21 @@ public class MinimaxTests extends Tests {
         server.runServer();
     }
 
+    @Test(testName = "minimax vs stockfish")
+    private void minimaxVsStockfish() {
+        MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(1000))) {
+            @Override
+            public GameSettings getGameSettings(SyncedItems joinableGames, SyncedItems resumableGames) {
+                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AiParameters(AiParameters.AiType.Stockfish, new TimeFormat(1000)), GameSettings.GameType.CREATE_NEW);
+            }
+        };
+
+        Game.showGameView = true;
+        Server server = new Server();
+        server.gameSetup(ai);
+        server.runServer();
+    }
+
     @Test
     private void newMinimax() {
         System.out.println(new NewMinimax(model, PlayerColor.WHITE).minimax(0, 7, true, -Evaluation.WIN_EVAL, Evaluation.WIN_EVAL));

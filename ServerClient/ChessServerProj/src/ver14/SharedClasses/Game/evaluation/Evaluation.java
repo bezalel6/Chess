@@ -125,7 +125,7 @@ public class Evaluation implements Serializable {
         eval = -eval;
     }
 
-    public record EvaluationDetail(EvaluationParameters parm, double eval) {
+    public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {
         @Override
         public String toString() {
             return parm + ": " + eval;

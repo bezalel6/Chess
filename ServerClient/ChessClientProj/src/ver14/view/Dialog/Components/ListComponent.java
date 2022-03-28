@@ -11,12 +11,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class ListComponent extends DialogField<Selectable> {
-    protected final ArrayList<SelectableBtn> btns;
+    protected final ArrayList<SelectableBtn> btns = new ArrayList<>();
     protected Selectable selected = null;
+    private final Callback<Selectable> onSelect =
+            justSelected -> {
+                //justSelected is null when user unselects button
+                selected = justSelected;
+                btns.forEach(btn -> btn.select(selected == btn.getValue()));
+                onSelected();
+                onUpdate();
+            };
 
     public ListComponent(int cols, Header header, Parent parent) {
         super(cols, header, parent);
-        btns = new ArrayList<>();
     }
 
     @Override
@@ -38,17 +45,7 @@ public abstract class ListComponent extends DialogField<Selectable> {
     }
 
     protected SelectableBtn createButton(Selectable item) {
-        return new NormalButton(item, onSelect());
-    }
-
-    private Callback<Selectable> onSelect() {
-        return justSelected -> {
-            //justSelected is null when user unselects button
-            selected = justSelected;
-            btns.forEach(btn -> btn.setSelected(selected == btn.getValue()));
-            onSelected();
-            onUpdate();
-        };
+        return new NormalButton(item, onSelect);
     }
 
     protected abstract void onSelected();
@@ -80,6 +77,6 @@ public abstract class ListComponent extends DialogField<Selectable> {
 
     @Override
     protected void setValue(Selectable value) {
-        onSelect().callback(value);
+        onSelect.callback(value);
     }
 }

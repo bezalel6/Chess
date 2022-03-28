@@ -142,7 +142,7 @@ public class MoveGenerator {
                     if (model.isSquareEmpty(doublePawnPush)) {
                         m = new Move(pawnLoc, doublePawnPush) {{
                             setEnPassantLoc(oneStep);
-                            setMoveFlag(MoveFlag.DoublePawnPush);
+                            setMoveFlag(MoveType.DoublePawnPush);
                         }};
                         generatedMoves.add(m, PieceType.PAWN);
                     }
@@ -245,7 +245,7 @@ public class MoveGenerator {
             if (model.getEnPassantTargetLoc() == capLoc)
                 return new Move(movingFrom, capLoc) {{
                     setCapturing(PieceType.PAWN);
-                    setMoveFlag(MoveFlag.EnPassant);
+                    setMoveFlag(MoveType.EnPassant);
                     setIntermediateMove(new BasicMove(model.getEnPassantActualLoc(), capLoc));
                 }};
             return null;

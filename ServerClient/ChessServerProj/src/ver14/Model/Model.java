@@ -289,7 +289,9 @@ public class Model implements Serializable {
     public boolean anyLegalMove(PlayerColor playerColor) {
 //        Bitboard[] playersPieces = getPlayersPieces(playerColor);
 
-        return playerColor == currentPlayerColor && !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
+        assert playerColor == currentPlayerColor;
+
+        return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
 
         //todo can return true if one piece can move to any
 //        return !generateAllMoves(playerColor).isEmpty();
@@ -324,14 +326,14 @@ public class Model implements Serializable {
 
         makeIntermediateMove(move);
 
-        if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
+        if (move.getMoveFlag() == Move.MoveType.DoublePawnPush) {
             setEnPassantTargetLoc(move.getEnPassantLoc());
             setEnPassantActualLoc(movingTo);
         } else {
             setEnPassantTargetLoc((Location) null);
             setEnPassantActualLoc(null);
         }
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
             delPiece(piece, movingFrom);
             Piece newPiece = Piece.getPiece(promotingTo, piecePlayerColor);
@@ -404,7 +406,7 @@ public class Model implements Serializable {
 
         Piece piece = board.getPiece(movingFrom, true);
         PlayerColor piecePlayerColor = piece.playerColor;
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             delPiece(piece, movingFrom);
             Piece oldPiece = Piece.getPiece(PieceType.PAWN, piecePlayerColor);
             addPiece(oldPiece, movingFrom);
@@ -414,7 +416,7 @@ public class Model implements Serializable {
         setEnPassantActualLoc(null);
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
-            if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
+            if (prevMove.getMoveFlag() == Move.MoveType.DoublePawnPush) {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }

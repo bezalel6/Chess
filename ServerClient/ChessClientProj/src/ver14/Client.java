@@ -168,7 +168,7 @@ public class Client implements EnvManager {
 
     public void updateByMove(Move move) {
         view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
             view.setBtnPiece(move.getMovingFrom(), piece);
         }
@@ -234,7 +234,7 @@ public class Client implements EnvManager {
             view.enableAllSquares(false);
             Move completeMove = getMoveFromDest(loc);
             if (completeMove != null) {
-                if (completeMove.getMoveFlag() == Move.MoveFlag.Promotion) {
+                if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
                     completeMove.setPromotingTo(showPromotionDialog());
                 }
                 returnMove(completeMove);
