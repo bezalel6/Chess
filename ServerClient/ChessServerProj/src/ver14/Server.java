@@ -96,8 +96,8 @@ public class Server implements ErrorContext, EnvManager {
     private void createServerGUI() {
         frmWin = new CloseConfirmationJFrame(this::exitServer) {{
             setSize(SERVER_WIN_SIZE);
-//            setAlwaysOnTop(true);
             setTitle(SERVER_WIN_TITLE);
+//            setAlwaysOnTop(true);
         }};
 
         // create displayArea
@@ -437,7 +437,7 @@ public class Server implements ErrorContext, EnvManager {
 
         GameSettings gameSettings = player.getGameSettings(joinable, resumable);
         if (gameSettings == null) {
-            disconnectPlayer(player);
+            playerDisconnected(player);
             return;
         }
         switch (gameSettings.getGameType()) {
@@ -454,7 +454,8 @@ public class Server implements ErrorContext, EnvManager {
             case JOIN_EXISTING -> {
                 GameInfo gameInfo = gamePool.get(gameSettings.getGameID());
                 if (gameInfo == null) {
-                    throw new Error("user should get an error");
+//                    throw new Error("user should get an error");
+                    player.error("game does not exist");
                 } else {
                     GameSession gameSession = new GameSession(gameInfo, getPlayerNet(gameInfo.creatorUsername), player, this);
                     gameSession.start();
@@ -491,12 +492,28 @@ public class Server implements ErrorContext, EnvManager {
     }
 
     /**
-     * Disconnects player.
+     * Player disconnected.
      *
-     * @param player the player to disconnect
+     * @param player the player
      */
-    public void disconnectPlayer(Player player) {
-        disconnectPlayer(player, "");
+    public void playerDisconnected(Player player) {
+        if (player == null)
+            return;
+
+        log(player.getUsername() + " disconnected");
+        player.disconnect("");
+
+        Game ongoingGame = player.getOnGoingGame();
+        if (ongoingGame != null) {
+            ongoingGame.playerDisconnected(player);
+        }
+
+        players.remove(player.getUsername());
+        List<GameInfo> del = gamePool.values()
+                .stream()
+                .filter(game -> game.creatorUsername.equals(player.getUsername()))
+                .toList();
+        del.forEach(deleting -> gamePool.remove(deleting.gameId));
     }
 
     private void startGameVsAi(Player player, GameSettings gameSettings) {
@@ -520,38 +537,6 @@ public class Server implements ErrorContext, EnvManager {
                 .filter(p -> (p).getUsername().equals(username))
                 .findAny()
                 .orElse(null);
-    }
-
-    /**
-     * Disconnect player.
-     *
-     * @param player the player
-     * @param cause  the cause
-     */
-    public void disconnectPlayer(Player player, String cause) {
-        if (player != null) {
-            log("disconnecting " + player.getUsername() + " " + cause);
-            player.disconnect(cause);
-            playerDisconnected(player);
-        }
-    }
-
-    /**
-     * Player disconnected.
-     *
-     * @param player the player
-     */
-    public void playerDisconnected(Player player) {
-        Game ongoingGame = player.getOnGoingGame();
-        if (ongoingGame != null) {
-            ongoingGame.playerDisconnected(player);
-        }
-        players.remove(player.getUsername());
-        List<GameInfo> del = gamePool.values()
-                .stream()
-                .filter(game -> game.creatorUsername.equals(player.getUsername()))
-                .toList();
-        del.forEach(deleting -> gamePool.remove((deleting).gameId));
     }
 
     /**

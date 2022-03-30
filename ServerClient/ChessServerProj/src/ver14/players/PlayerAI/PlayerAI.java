@@ -3,11 +3,11 @@ package ver14.players.PlayerAI;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
-import ver14.SharedClasses.Question;
-import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Game.TimeFormat;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
+import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.players.Player;
 
 /**
@@ -28,6 +28,11 @@ public abstract class PlayerAI extends Player {
             case MyAi -> new MyAi(aiParameters);
             case Stockfish -> new StockfishPlayer(aiParameters);
         };
+    }
+
+    @Override
+    public void error(String error) {
+        interrupt();
     }
 
     @Override

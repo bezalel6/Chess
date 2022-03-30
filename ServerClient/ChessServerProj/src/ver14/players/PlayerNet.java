@@ -56,6 +56,11 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
+    public void error(String error) {
+        socketToClient.writeMessage(Message.error(error));
+    }
+
+    @Override
     public Move getMove() {
         // with socket do...
         ArrayList<Move> moves = game.getModel().generateAllMoves(playerColor).getCleanList();
@@ -103,8 +108,10 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public void disconnect(String cause) {
         interrupt();
-        socketToClient.writeMessage(Message.bye(cause));
-        socketToClient.close();
+        if (socketToClient.isConnected()) {
+            socketToClient.writeMessage(Message.bye(cause));
+            socketToClient.close();
+        }
     }
 
     @Override

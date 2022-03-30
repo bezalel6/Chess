@@ -3,10 +3,10 @@ package ver14.players;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Question;
-import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
+import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.game.Game;
 import ver14.game.GameSession;
 
@@ -64,6 +64,8 @@ public abstract class Player {
     }
 
     protected abstract void initGame();
+
+    public abstract void error(String error);
 
     public void playerDisconnected() {
         System.out.println(this + " disconnected");

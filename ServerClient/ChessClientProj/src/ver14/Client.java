@@ -400,7 +400,6 @@ public class Client implements EnvManager {
             if (onResponse != null)
                 onResponse.onMsg(msg);
             view.showDBResponse(msg.getDBResponse(), builder.getPostDescription(), builder.getName());
-
         });
     }
 

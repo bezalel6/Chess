@@ -19,6 +19,7 @@ public class MyAi extends PlayerAI {
         minimax = new Minimax(game.getModel(), (int) (TimeUnit.MILLISECONDS.toSeconds(moveSearchTimeout.timeInMillis)));
     }
 
+    
     @Override
     public Move getMove() {
         assert minimax != null;

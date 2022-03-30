@@ -1,6 +1,8 @@
 package ver14.SharedClasses.Threads;
 
-import ver14.SharedClasses.Threads.ErrorHandling.*;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 import java.util.ArrayList;
 
@@ -12,36 +14,9 @@ public class ThreadsManager {
         threads = new ArrayList<>();
     }
 
-    public static void main(String[] args) {
-        ErrorManager.setEnvManager(new EnvManager() {
-            @Override
-            public void handledErr(MyError err) {
-                System.out.println(err + "");
-            }
 
-            @Override
-            public void criticalErr(MyError err) {
-                System.err.println(err + " *panik*");
-            }
-        });
-        ErrorManager.setHandler(ErrorType.Model, e -> {
-            System.out.println("hmmm what a curious thing this is");
-        });
-        handleErrors(() -> {
-            MyError err = new MyError(ErrorType.Model);
-            err.addContext(new ErrorContext() {
-                @Override
-                public ContextType contextType() {
-                    return ContextType.Game;
-                }
-
-                @Override
-                public String toString() {
-                    return "$classname{}";
-                }
-            });
-            throw err;
-        });
+    public static void stopAll() {
+        threads.forEach(Thread::interrupt);
     }
 
     public static void handleErrors(ThrowingRunnable runnable) {
@@ -74,7 +49,6 @@ public class ThreadsManager {
         public MyThread() {
             threads.add(this);
             setDaemon(false);
-
         }
 
         public static void closeAll() {

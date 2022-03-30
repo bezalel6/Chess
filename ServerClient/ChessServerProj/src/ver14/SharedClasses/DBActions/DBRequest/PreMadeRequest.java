@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class PreMadeRequest {
-    public static final PreMadeRequest select = new PreMadeRequest(RequestBuilder::select, AuthSettings.NO_AUTH);
 
     public static final PreMadeRequest TopPlayers = new PreMadeRequest(RequestBuilder::top, AuthSettings.ANY_LOGIN, builder -> new Variation("Top Five Players", new Object[]{5}, new Arg[0]));
 
@@ -21,7 +20,7 @@ public class PreMadeRequest {
         Arg un = builder.args[0];
         return new Variation("Games from last week", new Object[]{un.repInStr, new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), new Date()}, new Arg[]{un});
     });
-    public final static PreMadeRequest[] statistics = {TopPlayers, Games, select};
+    public final static PreMadeRequest[] statistics = {TopPlayers, Games};
     public final @AuthSettings
     int authSettings;
     private final ObjCallback<RequestBuilder> builderBuilder;
@@ -30,7 +29,7 @@ public class PreMadeRequest {
     PreMadeRequest(ObjCallback<RequestBuilder> builderBuilder, @AuthSettings int authSettings, VariationCreator... variations) {
         this.builderBuilder = builderBuilder;
         this.authSettings = authSettings;
-        this.requestVariations = Arrays.stream(variations).map(var -> new PreMadeRequest(() -> RequestBuilder.createVariation(builderBuilder, var), authSettings)).toList().toArray(new PreMadeRequest[0]);
+        this.requestVariations = Arrays.stream(variations).map(variation -> new PreMadeRequest(() -> RequestBuilder.createVariation(builderBuilder, variation), authSettings)).toList().toArray(new PreMadeRequest[0]);
     }
 
     public PreMadeRequest[] getRequestVariations() {

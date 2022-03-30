@@ -5,6 +5,7 @@ import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -19,10 +20,10 @@ public abstract class MessagesHandler {
      * The Socket.
      */
     protected final AppSocket socket;
+    private final ArrayList<CompletableFuture<?>> waiting;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
-    private String currentBlockingMsgId = null;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -63,6 +64,7 @@ public abstract class MessagesHandler {
      */
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
+        waiting = new ArrayList<>();
     }
 
     /**
@@ -72,18 +74,22 @@ public abstract class MessagesHandler {
      * @return the message
      */
     public Message blockTilRes(Message request) {
-        //askilan synchronize func/save current blocking in a list<id/future> so interrupt can be sent to saved future(s)
-        currentBlockingMsgId = request.messageID;
         CompletableFuture<Message> future = new CompletableFuture<>();
-        noBlockRequest(request, future::complete);
+        synchronized (waiting) {
+            waiting.add(future);
+        }
+
         Message msg = null;
+        noBlockRequest(request, future::complete);
         try {
             msg = future.get();
         } catch (InterruptedException e) {//if interrupted, returning null is fine
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        currentBlockingMsgId = null;
+        synchronized (waiting) {
+            waiting.remove(future);
+        }
         return msg;
     }
 
@@ -166,17 +172,8 @@ public abstract class MessagesHandler {
      * Interrupt blocking.
      */
     public void interruptBlocking() {
-        interruptBlocking(Message.interrupt());
-    }
-
-    /**
-     * Interrupt blocking.
-     *
-     * @param interruptWith the interrupt with
-     */
-    public void interruptBlocking(Message interruptWith) {
-        if (currentBlockingMsgId != null && customCallbacks.containsKey(currentBlockingMsgId)) {
-            customCallbacks.remove(currentBlockingMsgId).onMsg(interruptWith);
+        synchronized (waiting) {
+            waiting.forEach(w -> w.complete(null));
         }
     }
 

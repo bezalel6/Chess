@@ -163,7 +163,6 @@ public class RegisterUsernamePnl extends UsernamePnl {
             fetching = username;
             notify();
         }
-
     }
 
 }

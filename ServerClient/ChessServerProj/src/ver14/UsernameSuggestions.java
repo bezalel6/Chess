@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class UsernameSuggestions {
 
-    //todo make less of a O(no)
+    //tooptimize O(no)
     private static final int maxSuggestions = 10;
     private static final int numOfIterationsPerOptionGroup = 10;
     private static final MatchIterations preUnderscore = ((result, iteration) -> "_" + result.group());
