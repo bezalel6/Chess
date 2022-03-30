@@ -9,12 +9,27 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public enum PieceType implements Serializable {
-    PAWN("♙", "♟", 1),
+    PAWN("♙", "♟", 1, false) {
+        @Override
+        public boolean isAttack(Direction direction, int maxDistance) {
+            return maxDistance == 1 && super.isAttack(direction, maxDistance);
+        }
+    },
     ROOK("♖", "♜", 5),
     BISHOP("♗", "♝", 3.2),
-    KNIGHT("♘", "♞", 3.1),
+    KNIGHT("♘", "♞", 3.1, false) {
+        @Override
+        public boolean isAttack(Direction direction, int maxDistance) {
+            return maxDistance == 2 && super.isAttack(direction, maxDistance);
+        }
+    },
     QUEEN("♕", "♛", 9),
-    KING("♔", "♚", 200),
+    KING("♔", "♚", 200, false) {
+        @Override
+        public boolean isAttack(Direction direction, int maxDistance) {
+            return maxDistance == 1 && super.isAttack(direction, maxDistance);
+        }
+    },
     ALL_PIECES("", "", 0);
 
     public static final int NUM_OF_PIECE_TYPES = 6;
@@ -25,6 +40,7 @@ public enum PieceType implements Serializable {
     public final static PieceType[] CAN_PROMOTE_TO = {KNIGHT, ROOK, BISHOP, QUEEN};
     private final static String[] COLORLESS_PIECES_FENS = new String[NUM_OF_PIECE_TYPES];
     private static final Direction[][] ATTACKING_DIRECTIONS = new Direction[NUM_OF_PIECE_TYPES][];
+
 
     static {
         Arrays.stream(values())
@@ -97,24 +113,28 @@ public enum PieceType implements Serializable {
     public final String whiteIcon;
     public final String blackIcon;
     public final double value;
+    public final boolean isSliding;
     public final int asInt;
 
     PieceType(String whiteIcon, String blackIcon, double value) {
+        this(whiteIcon, blackIcon, value, true);
+    }
+
+    PieceType(String whiteIcon, String blackIcon, double value, boolean isSliding) {
         this.whiteIcon = whiteIcon;
         this.blackIcon = blackIcon;
         this.value = value;
+        this.isSliding = isSliding;
         this.asInt = ordinal();
+
     }
 
     public static PieceType getPieceType(int pieceType) {
         return PIECE_TYPES[pieceType];
     }
 
-    public boolean isSlidingPiece() {
-        return switch (this) {
-            case PAWN, KING, KNIGHT -> false;
-            default -> true;
-        };
+    public static Direction[] getAttackingDirections(PieceType pieceType) {
+        return ATTACKING_DIRECTIONS[pieceType.asInt];
     }
 
     public String getWhitePieceFen() {
@@ -147,15 +167,12 @@ public enum PieceType implements Serializable {
         return StrUtils.format(name());
     }
 
-    public boolean isAttack(Direction direction) {
+    //tooptimize
+    public boolean isAttack(Direction direction, int maxDistance) {
         return Arrays.stream(getAttackingDirections()).anyMatch(dir -> dir == direction);
     }
 
     public Direction[] getAttackingDirections() {
-        return getAttackingDirections(this);
-    }
-
-    public static Direction[] getAttackingDirections(PieceType pieceType) {
-        return ATTACKING_DIRECTIONS[pieceType.asInt];
+        return ATTACKING_DIRECTIONS[asInt];
     }
 }

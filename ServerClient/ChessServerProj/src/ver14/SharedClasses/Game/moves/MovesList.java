@@ -16,6 +16,12 @@ public class MovesList extends ArrayList<Move> {
         //todo cp list
     }
 
+    public String createSimpleStr() {
+        return stream().map(BasicMove::getBasicMoveAnnotation).collect(StringBuilder::new, (stringBuilder, s) -> {
+            stringBuilder.append(s).append("\n");
+        }, StringBuilder::append) + "";
+    }
+
 //    @Override
 //    public boolean add(Move move) {
 //        throw new Error("USE ADD WITH PIECE TYPE");

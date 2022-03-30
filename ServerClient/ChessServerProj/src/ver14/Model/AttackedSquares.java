@@ -10,29 +10,29 @@ public class AttackedSquares {
 
     private final PlayerColor attackingPlayerColor;
     private final PlayerColor attackedPlayerColor;
-    private final PiecesBBs myPieces;
-    private Bitboard oppPieces;
+    private final PiecesBBs attackingPieces;
+    private Bitboard attackedPlayerBB;
     private Bitboard attackedSquares;
     private Pins pins = null;
     private Location checkingAttacked;
 
-    private AttackedSquares(Model model, PlayerColor attackingPlayerColor) {
+    public AttackedSquares(Model model, PlayerColor attackingPlayerColor) {
         this(attackingPlayerColor, model.getPlayersPieces(attackingPlayerColor), model.getPlayersPieces(attackingPlayerColor.getOpponent()).getAll());
     }
 
-    private AttackedSquares(PlayerColor attackingPlayerColor, PiecesBBs myPieces, Bitboard oppPieces) {
+    private AttackedSquares(PlayerColor attackingPlayerColor, PiecesBBs attackingPieces, Bitboard attackedPlayerBB) {
         this.attackingPlayerColor = attackingPlayerColor;
         this.attackedPlayerColor = attackingPlayerColor.getOpponent();
-        this.myPieces = myPieces;
-        this.oppPieces = oppPieces;
+        this.attackingPieces = attackingPieces;
+        this.attackedPlayerBB = attackedPlayerBB;
         this.attackedSquares = new Bitboard();
     }
 
     public static Bitboard getAttackedSquares(Model model, PlayerColor attackingPlayerColor) {
-        return new AttackedSquares(model, attackingPlayerColor).getAttackedSquares(model);
+        return new AttackedSquares(model, attackingPlayerColor).getAttackedSquares();
     }
 
-    public Bitboard getAttackedSquares(Model model) {
+    public Bitboard getAttackedSquares() {
 //        long hash = model.getBoardHash().getFullHash();
 //        hash = Zobrist.combineHashes(hash, Zobrist.hash(attackingPlayerColor));
 //        if (hashMap.containsKey(hash)) {
@@ -49,30 +49,35 @@ public class AttackedSquares {
     }
 
     private Bitboard setAttacks() {
-        this.attackedSquares = new Bitboard();
+        this.attackedSquares.reset();
         PieceType[] piece_types = PieceType.PIECE_TYPES;
         for (PieceType pieceType : piece_types) {
-            attack(pieceType, myPieces.getBB(pieceType));
+            attack(pieceType);
         }
         return attackedSquares;
     }
 
-    private void attack(PieceType pieceType, Bitboard ogBB, Direction... attackingDirections) {
+    private void attack(PieceType pieceType, Direction... attackingDirections) {
+        attack(pieceType, attackingPieces.getBB(pieceType), attackingDirections);
+    }
+
+    private void attack(PieceType pieceType, Bitboard attackingPiecesBB, Direction... attackingDirections) {
         if (attackingDirections.length == 0)
             attackingDirections = pieceType.getAttackingDirections();
 
-        boolean isSliding = pieceType.isSlidingPiece();
-        for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength; i++) {
+        for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked)); i++) {
             Direction direction = attackingDirections[i];
-            Bitboard pieceBB = ogBB.cp();
-            Bitboard opp = oppPieces.cp();
-            opp.shiftMe(attackingPlayerColor, direction);
+            Bitboard pieceBB = attackingPiecesBB.cp();
+            /*
+             *moving the opponent in the attacking player direction so it can be attacked and detected one step later.
+             */
+            Bitboard adjustedOpponent = attackedPlayerBB.shift(attackingPlayerColor, direction);
             do {
                 attackedSquares
                         .orEqual(pieceBB.shiftMe(attackingPlayerColor, direction)
-                                .exclude(myPieces.getAll())
-                                .exclude(opp));
-            } while (isSliding && pieceBB.notEmpty()
+                                .exclude(attackingPieces.getAll())
+                                .exclude(adjustedOpponent));
+            } while (pieceType.isSliding && pieceBB.notEmpty()
                     && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked))
             );
 
@@ -87,11 +92,12 @@ public class AttackedSquares {
         PieceType[] piece_types = PieceType.PIECE_TYPES;
         this.checkingAttacked = loc;
         for (PieceType pieceType : piece_types) {
-            attack(pieceType, myPieces.getBB(pieceType));
+            attack(pieceType);
             if (attackedSquares.isSet(loc))
                 return true;
         }
         return false;
+//        return attackedSquares.isSet(loc);
     }
 
     public static Pins getPins(Model model, PlayerColor attackingPlayerColor) {
@@ -101,8 +107,8 @@ public class AttackedSquares {
     public Pins getPins(Model model) {
         setAttacks();
         Bitboard kingBB = model.getPieceBitBoard(attackedPlayerColor, PieceType.KING);
-        Bitboard excluded = oppPieces.cp().exclude(attackedSquares);
-        oppPieces = excluded;
+        Bitboard excluded = attackedPlayerBB.cp().exclude(attackedSquares);
+        attackedPlayerBB = excluded;
         pins = new Pins();
         attacksFrom(kingBB, true);
         return pins;
@@ -115,27 +121,29 @@ public class AttackedSquares {
             Bitboard temp = from.cp();
             while (temp.notEmpty()) {
                 temp.shiftMe(attackingPlayerColor, direction);
-                Bitboard and = temp.and(myPieces.getAll());
+                Bitboard and = temp.and(attackingPieces.getAll());
                 if (and.notEmpty()) {
-                    PieceType pieceType = myPieces.getPieceType(and);
-                    if (pieceType.isAttack(direction)) {
-                        if (pieceType != PieceType.KNIGHT) {
-                            Bitboard attck = new Bitboard(from, temp, direction, attackingPlayerColor);
-                            if (pins != null) {
-                                pins.addPin(direction, attck);
-                            }
-                            attackedSquares.orEqual(attck);
+                    PieceType pieceType = attackingPieces.getPieceType(and);
+//                    touncomment
+//                    if (pieceType.isAttack(direction)) {
+                    if (pieceType != PieceType.KNIGHT) {
+                        Bitboard attck = new Bitboard(from, temp, direction, attackingPlayerColor);
+                        if (pins != null) {
+                            pins.addPin(direction, attck);
                         }
-                        if (onlyAttack)
-                            attack(pieceType, and, direction); //only check direction
-                        else
-                            attack(pieceType, and);
-
-                        break;
+                        attackedSquares.orEqual(attck);
                     }
+                    if (onlyAttack)
+                        attack(pieceType, and, direction); //only check direction
+                    else
+                        attack(pieceType, and);
+
+                    break;
+
+//                    }
 
                 }
-                if (temp.anyMatch(oppPieces)) {
+                if (temp.anyMatch(attackedPlayerBB)) {
                     break;
                 }
             }
@@ -155,8 +163,8 @@ public class AttackedSquares {
         ret.setCheckRay(attacksFrom(kingBB, true));
         attackedSquares.reset();
 
-        Bitboard excluded = oppPieces.cp().exclude(attacksFrom(kingBB, false));
-        AttackedSquares a = new AttackedSquares(attackingPlayerColor, myPieces, excluded);
+        Bitboard excluded = attackedPlayerBB.cp().exclude(attacksFrom(kingBB, false));
+        AttackedSquares a = new AttackedSquares(attackingPlayerColor, attackingPieces, excluded);
         ret.setxRayAttack(a.attacksFrom(kingBB, false));
 
         return ret;
@@ -164,7 +172,7 @@ public class AttackedSquares {
 
     public static Bitboard getPieceAttacksFrom(PieceType pieceType, Bitboard pieceBB, PlayerColor attackingPlayerColor, Model model) {
         AttackedSquares attackedSquares = new AttackedSquares(model, attackingPlayerColor);
-        attackedSquares.attack(pieceType, pieceBB);
+        attackedSquares.attack(pieceType);
         return attackedSquares.attackedSquares;
     }
 }

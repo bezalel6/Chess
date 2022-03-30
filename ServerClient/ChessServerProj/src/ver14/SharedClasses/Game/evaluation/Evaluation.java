@@ -8,12 +8,12 @@ import java.util.ArrayList;
 public class Evaluation implements Serializable {
     public static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
     public static final int WINNING_SIDE = 0, LOSING_SIDE = 1;
-    private double[] detailedEval;
-    private ArrayList<Integer> initializedIndexes;
+    private final ArrayList<EvaluationDetail> detailedEval;
     private double eval;
     private GameStatus gameStatus;
     private PlayerColor evaluationFor;
     private Integer evaluationDepth = null;
+
 
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(0, gameStatus, evaluationFor);
@@ -24,45 +24,34 @@ public class Evaluation implements Serializable {
         }
     }
 
+    ;
+
     public Evaluation(double eval, GameStatus gameStatus, PlayerColor evaluationFor) {
-        initDetailedEval();
         this.eval = eval;
         this.gameStatus = gameStatus;
         this.evaluationFor = evaluationFor;
-    }
-
-    private void initDetailedEval() {
-        detailedEval = new double[EvaluationParameters.NUM_OF_EVAL_PARAMETERS];
-        initializedIndexes = new ArrayList<>();
+        detailedEval = new ArrayList<>();
     }
 
     public Evaluation(PlayerColor evaluationFor) {
         this(0, GameStatus.gameGoesOn(), evaluationFor);
     }
 
+
     public Evaluation(Evaluation other) {
-        copyEvaluation(other);
-    }
-
-    public void copyEvaluation(Evaluation other) {
-        eval = other.eval;
-        gameStatus = other.gameStatus;
-        this.evaluationFor = other.evaluationFor;
+        this(other.eval, other.gameStatus, other.evaluationFor);
+        detailedEval.addAll(other.detailedEval);
         this.evaluationDepth = other.evaluationDepth;
-        if (!other.isGameOver()) {
-            detailedEval = other.detailedEval.clone();
-            initializedIndexes = new ArrayList<>();
-            initializedIndexes.addAll(other.initializedIndexes);
-        }
     }
 
-    public boolean isGameOver() {
-        return gameStatus.isGameOver();
-    }
 
     public static Evaluation book() {
         //fixme
         return new Evaluation(PlayerColor.WHITE);
+    }
+
+    public boolean isGameOver() {
+        return gameStatus.isGameOver();
     }
 
     public void setEvaluationDepth(Integer evaluationDepth) {
@@ -78,26 +67,11 @@ public class Evaluation implements Serializable {
         return other.eval < this.eval;
     }
 
-    public void addDetail(int evalType, double value) {
+    public void addDetail(EvaluationParameters parm, double value) {
         eval += value;
-        addToList(evalType, value);
+        detailedEval.add(new EvaluationDetail(parm, value));
     }
 
-    private void addToList(int evalType, double value) {
-        detailedEval[evalType] = value;
-        if (!initializedIndexes.contains(evalType))
-            initializedIndexes.add(evalType);
-    }
-
-    /**
-     * add to the detailed eval without actually adding to the sum
-     *
-     * @param evalType
-     * @param value
-     */
-    public void addDebugDetail(int evalType, double value) {
-        addToList(evalType, value);
-    }
 
     public double getEval() {
         return eval;
@@ -131,10 +105,8 @@ public class Evaluation implements Serializable {
 
     private String getDetailedEvalStr() {
         StringBuilder ret = new StringBuilder();
-        if (initializedIndexes == null)
-            return "";
-        for (int index : initializedIndexes) {
-            ret.append("\n").append(EvaluationParameters.EVAL_PARAMETERS_NAMES[index]).append(": ").append(detailedEval[index]);
+        for (var v : detailedEval) {
+            ret.append("\n").append(detailedEval);
         }
         return ret.toString();
     }
@@ -151,6 +123,13 @@ public class Evaluation implements Serializable {
 
     public void flipEval() {
         eval = -eval;
+    }
+
+    public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {
+        @Override
+        public String toString() {
+            return parm + ": " + eval;
+        }
     }
 
 }

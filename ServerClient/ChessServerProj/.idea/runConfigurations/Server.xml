@@ -1,5 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Server" type="Application" factoryName="Application">
+    <envs>
+      <env name="PORT" value="1234" />
+    </envs>
     <option name="MAIN_CLASS_NAME" value="ver14.Server" />
     <module name="ChessServerProj" />
     <option name="VM_PARAMETERS" value="-ea" />

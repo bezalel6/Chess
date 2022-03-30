@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+//ew
 public class RegEx implements Serializable {
     public static final RegEx Fen = new RegEx("^$|\\s*([rnbqkpRNBQKP1-8]+\\/){7}([rnbqkpRNBQKP1-8]+)\\s[bw-]\\s(([a-hkqA-HKQ]{1,4})|(-))\\s(([a-h][36])|(-))\\s\\d+\\s\\d+\\s*", "standard fen");
     public static final RegEx Username = new RegEx("^[a-zA-Z0-9_.-]{5,10}$", "5-10 characters a-z 0-9 _.-", Prefixes.GUEST_PREFIX, "User");
@@ -16,6 +18,7 @@ public class RegEx implements Serializable {
     public static final RegEx StrUtilSkip = new RegEx("(^[ \\n\\t\\[])|(<[^>]*>)", "");//skip over spcaes and stuff
     public static final RegEx Numbers = new RegEx("^[0-9]+$", "enter number");
     public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX + "|" + AiParameters.AiType.MyAi + "|" + AiParameters.AiType.Stockfish, "");
+    public static final RegEx IPPAddress = new RegEx("^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3} *: *[0-9]{2,5}$", "[IP : PORT]");
     public static final RegEx Any = new RegEx("", "");
     public final String[] dontMatch;
     private final String details;

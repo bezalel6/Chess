@@ -30,7 +30,6 @@ public class CustomDialog extends Dialog implements CancelOk {
             Arg arg = args[i];
             DialogField<?> field = DialogField.createField(arg, this);
             if (field != null) {
-//                if(arg)
                 fields.add(field);
                 map.put(field, i);
             }

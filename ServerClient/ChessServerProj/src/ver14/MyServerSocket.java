@@ -22,7 +22,7 @@ public class MyServerSocket extends ServerSocket {
             // Wait for a new client to connect. return client socket.
             Socket socket = accept(); // blocking method
             socketToClient = new AppSocket(socket);
-        } catch (IOException exp) {
+        } catch (Throwable exp) {
             exp.printStackTrace();
         }
         return socketToClient;

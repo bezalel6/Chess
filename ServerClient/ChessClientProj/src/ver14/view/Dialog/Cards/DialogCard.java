@@ -34,8 +34,7 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
-        this.backOkPnl = new BackOkPnl(this);
-        this.bottomPnl.add(backOkPnl);
+        setBackOk(this);
     }
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
@@ -44,12 +43,17 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         this.verifiedComponentsList = new ArrayList<>();
         this.parentDialog = parentDialog;
         this.cardID = cardIDs.generate();
+        setBackOk(backOk);
+        addAncestorListener(this);
+        navBtn = new MyJButton(getCardName(), FontManager.normal, this::navToMe);
+    }
+
+    private void setBackOk(BackOkInterface backOk) {
         if (backOk != null) {
             this.backOkPnl = new BackOkPnl(backOk);
             this.bottomPnl.add(backOkPnl);
+//            parentDialog.setFocusOn(backOkPnl.getOk());
         }
-        addAncestorListener(this);
-        navBtn = new MyJButton(getCardName(), FontManager.normal, this::navToMe);
     }
 
     public String getCardName() {
@@ -108,11 +112,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     }
 
     @Override
-    public DialogCard currentCard() {
-        return this;
-    }
-
-    @Override
     public void done() {
         parentDialog.done();
     }
@@ -120,6 +119,11 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     @Override
     public void back() {
         parentDialog.back();
+    }
+
+    @Override
+    public DialogCard currentCard() {
+        return this;
     }
 
     public void addNavigationTo(DialogCard card) {
@@ -187,5 +191,10 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     @Override
     public void onOk() {
         parentDialog.closeDialog();
+    }
+
+
+    public boolean isOkEnabled() {
+        return backOkPnl != null && backOkPnl.getOk() != null && backOkPnl.getOk().isEnabled();
     }
 }

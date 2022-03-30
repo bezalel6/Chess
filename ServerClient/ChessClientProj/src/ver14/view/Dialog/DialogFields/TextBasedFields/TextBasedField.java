@@ -1,5 +1,6 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
+import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.DialogField;
@@ -9,6 +10,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public abstract class TextBasedField<T> extends DialogField<T> {
     protected static final Dimension defaultTextFieldSize = new Dimension(250, 20);
@@ -39,6 +42,14 @@ public abstract class TextBasedField<T> extends DialogField<T> {
 //                onUpdate();
             }
         });
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                    parent.tryOk(false);
+            }
+        });
         addMainComp(this.textField);
 
     }
@@ -46,6 +57,7 @@ public abstract class TextBasedField<T> extends DialogField<T> {
     protected static JTextField styleTextField(JTextField textField) {
         textField.setForeground(Color.BLUE);
         textField.setPreferredSize(defaultTextFieldSize);
+        textField.setFont(FontManager.Dialogs.dialogInput);
         return textField;
     }
 

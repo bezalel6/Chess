@@ -15,10 +15,16 @@ public interface Parent {
     default void addToNavText(String str) {
     }
 
-    DialogCard currentCard();
-
     void done();
 
     void back();
+
+    default void tryOk(boolean verify) {
+        DialogCard card = currentCard();
+        if (card != null && (!verify || card.isOkEnabled()))
+            card.onOk();
+    }
+
+    DialogCard currentCard();
 
 }

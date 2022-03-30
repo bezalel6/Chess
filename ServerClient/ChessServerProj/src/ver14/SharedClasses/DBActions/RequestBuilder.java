@@ -139,7 +139,8 @@ public class RequestBuilder {
         winLossTieRatio.math(Math.Plus, countWins);
         winLossTieRatio.math(Math.Div, gamesPlayed.colName());
         Selection selection = new Selection(Table.Games, condition, cols);
-        selection = selection.nestMe(ArrUtils.concat(cols, gamesPlayed, winLossTieRatio));
+        selection = selection.nestMe(gamesPlayed, winLossTieRatio);
+//        selection = selection.nestMe(ArrUtils.concat(cols, gamesPlayed, winLossTieRatio));
         return selection;
     }
 
@@ -196,10 +197,6 @@ public class RequestBuilder {
         return builder;
     }
 
-
-    public static RequestBuilder select() {
-        return new RequestBuilder(new Selection(Table.Games, new Object[0]), "selecting something");
-    }
 
     public String getPreDescription() {
         return preDescription;

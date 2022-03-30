@@ -27,10 +27,10 @@ public abstract class Dialog extends JDialog implements Parent {
     private final AppSocket socketToServer;
     private final ErrorPnl errorPnl;
     private final JPanel cardsPnl;
+    private Component focusOn;
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
     private boolean isDisposing;
-
     public Dialog(Properties properties) {
         super((java.awt.Dialog) null);
         this.parentWin = properties.parentWin();
@@ -62,6 +62,10 @@ public abstract class Dialog extends JDialog implements Parent {
             errorPnl.setText(error);
     }
 
+    public void setFocusOn(Component focusOn) {
+        this.focusOn = focusOn;
+    }
+
     public void start() {
         start(null);
     }
@@ -69,10 +73,15 @@ public abstract class Dialog extends JDialog implements Parent {
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
         pack();
+
+        if (this.focusOn != null)
+            SwingUtilities.invokeLater(() -> focusOn.requestFocus());
+
         setVisible(true);
 
         dispose();
     }
+
 
     @Override
     public void setVisible(boolean b) {

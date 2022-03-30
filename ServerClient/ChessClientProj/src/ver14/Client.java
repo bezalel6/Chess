@@ -4,6 +4,7 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
+import ver14.SharedClasses.DBActions.Arg.Described;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
@@ -70,6 +71,7 @@ public class Client implements EnvManager {
 
     public Client() {
         ErrorManager.setEnvManager(this);
+
         setupClientGui();
         setupClient();
     }
@@ -110,20 +112,23 @@ public class Client implements EnvManager {
 //            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort);
 
             Properties properties = dialogProperties("Server Address");
-            Config<String> config = new Config<>("Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort, "Local Host");
+            String desc = "Enter SERVER Address";
+            Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
+            Config<String> config = new Config<>(desc, defaultValue);
+            config.addSuggestion(Described.d(teacherAddress, "teacher address"));
             properties.setArgConfig(config);
-            InputDialog inputDialog = view.showDialog(new InputDialog(properties));
+
+            InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
 
             String serverAddress = inputDialog.getInput();
 
-            if (serverAddress != null && serverAddress.equalsIgnoreCase("teacher")) {
-                serverAddress = teacherAddress;
-            }
             // check if Cancel button was pressed
             if (serverAddress == null) {
                 disconnectedFromServer();
                 return;
             }
+
+            log("trying to connect to: " + serverAddress);
 
             // get server IP & PORT from input string
             serverAddress = serverAddress.replace(" ", ""); // remove all spaces
@@ -163,7 +168,7 @@ public class Client implements EnvManager {
 
     public void updateByMove(Move move) {
         view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
             view.setBtnPiece(move.getMovingFrom(), piece);
         }
@@ -229,7 +234,7 @@ public class Client implements EnvManager {
             view.enableAllSquares(false);
             Move completeMove = getMoveFromDest(loc);
             if (completeMove != null) {
-                if (completeMove.getMoveFlag() == Move.MoveFlag.Promotion) {
+                if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
                     completeMove.setPromotingTo(showPromotionDialog());
                 }
                 returnMove(completeMove);
@@ -395,7 +400,6 @@ public class Client implements EnvManager {
             if (onResponse != null)
                 onResponse.onMsg(msg);
             view.showDBResponse(msg.getDBResponse(), builder.getPostDescription(), builder.getName());
-
         });
     }
 

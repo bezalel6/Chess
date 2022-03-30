@@ -1,6 +1,8 @@
 package ver14.SharedClasses.Threads;
 
-import ver14.SharedClasses.Threads.ErrorHandling.*;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 import java.util.ArrayList;
 
@@ -12,40 +14,12 @@ public class ThreadsManager {
         threads = new ArrayList<>();
     }
 
-    public static void main(String[] args) {
-        ErrorManager.setEnvManager(new EnvManager() {
-            @Override
-            public void handledErr(MyError err) {
-                System.out.println(err + "");
-            }
 
-            @Override
-            public void criticalErr(MyError err) {
-                System.err.println(err + " *panik*");
-            }
-        });
-        ErrorManager.setHandler(ErrorType.Model, e -> {
-            System.out.println("hmmm what a curious thing this is");
-        });
-        handleErrors(() -> {
-            MyError err = new MyError(ErrorType.Model);
-            err.addContext(new ErrorContext() {
-                @Override
-                public ContextType contextType() {
-                    return ContextType.Game;
-                }
-
-                @Override
-                public String toString() {
-                    return "$classname{}";
-                }
-            });
-            throw err;
-        });
+    public static void stopAll() {
+        threads.forEach(Thread::interrupt);
     }
 
     public static void handleErrors(ThrowingRunnable runnable) {
-
         MyError err = null;
         try {
             runnable.run();
@@ -56,6 +30,8 @@ public class ThreadsManager {
         } catch (Throwable t) {
             err = new MyError(t);
         }
+//        if (err != null)
+//            throw err;
         if (err != null)
             ErrorManager.handle(err);
     }
@@ -69,8 +45,14 @@ public class ThreadsManager {
 
 
     public static abstract class MyThread extends Thread {
+
         public MyThread() {
             threads.add(this);
+            setDaemon(false);
+        }
+
+        public static void closeAll() {
+            threads.forEach(Thread::interrupt);
         }
 
         @Override
@@ -83,21 +65,30 @@ public class ThreadsManager {
 
     public static class HandledThread extends MyThread {
 
-        private final ThrowingRunnable runnable;
+        private ThrowingRunnable runnable;
+
+        public HandledThread() {
+            this(null);
+        }
 
         public HandledThread(ThrowingRunnable runnable) {
             this.runnable = runnable;
         }
 
-        public static HandledThread run(ThrowingRunnable runnable) {
+        public static HandledThread runInHandledThread(ThrowingRunnable runnable) {
             HandledThread thread = new HandledThread(runnable);
             thread.start();
             return thread;
         }
 
+        public void setRunnable(ThrowingRunnable runnable) {
+            this.runnable = runnable;
+        }
+
         @Override
         protected void handledRun() throws Throwable {
-            this.runnable.run();
+            if (runnable != null)
+                this.runnable.run();
         }
     }
 }

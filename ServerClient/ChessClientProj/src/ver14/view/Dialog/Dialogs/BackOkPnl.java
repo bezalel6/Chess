@@ -12,17 +12,25 @@ public class BackOkPnl extends JPanel {
 
     public BackOkPnl(BackOkInterface backOk) {
         if (backOk.getBackText() != null) {
-            back = new MyJButton(StrUtils.uppercase(backOk.getBackText()), FontManager.backOk, backOk::onBack);
+            back = new MyJButton(StrUtils.uppercase(backOk.getBackText()), FontManager.Dialogs.dialog, backOk::onBack);
             add(back);
         }
         if (backOk.getOkText() != null) {
-            ok = new MyJButton(StrUtils.uppercase(backOk.getOkText()), FontManager.backOk, backOk::onOk) {{
+            ok = new MyJButton(StrUtils.uppercase(backOk.getOkText()), FontManager.Dialogs.dialog, backOk::onOk) {{
                 setEnabled(false);
             }};
             add(ok);
         }
 
 
+    }
+
+    public MyJButton getOk() {
+        return ok;
+    }
+
+    public MyJButton getBack() {
+        return back;
     }
 
     public void enableOk(boolean enable) {

@@ -116,7 +116,7 @@ public class MoveGenerator {
 
         generatedMoves.doneAdding();
 
-        if (generationSettings.legalize)
+        if (generationSettings.legalize && !generationSettings.anyLegal)//!any legal bc it already checked legality before adding moves
             legalize();
 
         return generatedMoves;
@@ -142,7 +142,7 @@ public class MoveGenerator {
                     if (model.isSquareEmpty(doublePawnPush)) {
                         m = new Move(pawnLoc, doublePawnPush) {{
                             setEnPassantLoc(oneStep);
-                            setMoveFlag(MoveFlag.DoublePawnPush);
+                            setMoveFlag(MoveType.DoublePawnPush);
                         }};
                         generatedMoves.add(m, PieceType.PAWN);
                     }
@@ -245,7 +245,7 @@ public class MoveGenerator {
             if (model.getEnPassantTargetLoc() == capLoc)
                 return new Move(movingFrom, capLoc) {{
                     setCapturing(PieceType.PAWN);
-                    setMoveFlag(MoveFlag.EnPassant);
+                    setMoveFlag(MoveType.EnPassant);
                     setIntermediateMove(new BasicMove(model.getEnPassantActualLoc(), capLoc));
                 }};
             return null;
@@ -306,6 +306,12 @@ public class MoveGenerator {
             }
         }
         return true;
+    }
+
+    public static int numSquaresToEdge(Location loc, Direction direction) {
+        if (direction.combination.length != 1)
+            return 1;
+        return numSquaresToEdge[loc.asInt][direction.asInt];
     }
 
     public void generateRookMoves() {

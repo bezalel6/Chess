@@ -41,8 +41,9 @@ public class ModelMovesList extends MovesList {
                 super.add(adding);
                 throw ListEx.FoundLegalMove;
             }
+        } else {
+            super.add(adding);
         }
-        super.add(adding);
 //        addedMove(adding, movingPiece);
 
         return true;
@@ -70,12 +71,13 @@ public class ModelMovesList extends MovesList {
                         uniqueCol = false;
                     }
                 }
-                if (uniqueCol) {
-                    uniqueStr = movingFrom.getColString();
-                } else if (uniqueRow) {
-                    uniqueStr = movingFrom.getRowString();
-                }
-//                move.getMoveAnnotation().setUniqueStr(uniqueStr);
+//                    touncomment
+//                if (uniqueCol) {
+//                    uniqueStr = movingFrom.getColString();
+//                } else if (uniqueRow) {
+//                    uniqueStr = movingFrom.getRowString();
+//                }
+////                move.getMoveAnnotation().setUniqueStr(uniqueStr);
             }
         } else {
             ArrayList<Move> putting = new ArrayList<>();

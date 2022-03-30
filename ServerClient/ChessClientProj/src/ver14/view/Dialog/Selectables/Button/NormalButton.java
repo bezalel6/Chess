@@ -19,14 +19,11 @@ public class NormalButton extends MyJButton implements SelectableBtn {
         setHorizontalTextPosition(SwingConstants.CENTER);
         setText(value.getText());
         setIcon(value.getIcon());
-        setFont(FontManager.defaultSelectableBtn);
+        setFont(FontManager.Dialogs.selectableBtn);
         this.value = value;
         setOnClick(() -> {
-            if (selected) {
-                onSelect.callback(null);
-            } else {
-                onSelect.callback(value);
-            }
+            selected = !selected;
+            onSelect.callback(selected ? value : null);
         });
     }
 
@@ -35,9 +32,9 @@ public class NormalButton extends MyJButton implements SelectableBtn {
         return value;
     }
 
-    @Override
-    public void setSelected(boolean e) {
-        if (e) {
+    public void select(boolean select) {
+//        super.setSelected(e);
+        if (select) {
             select();
         } else {
             unselect();

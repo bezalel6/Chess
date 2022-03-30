@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 public class StrUtils {
 
+
     public static String dontCapFull(String str) {
         return prefixToWord(str, RegEx.Prefixes.DONT_CAP_FULL);
     }
@@ -203,7 +204,7 @@ public class StrUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(awful("InMeShwamp"));
+
     }
 
     public static String awful(String og) {

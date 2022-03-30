@@ -8,10 +8,11 @@ import java.util.Map;
 public class MyError extends Error {
     public final ErrorType type;
     private final Map<ContextType, ErrorContext> context;
-    private Throwable source;
+    private Throwable cause;
 
     public MyError(Throwable throwable) {
         super(throwable);
+
         this.type = ErrorType.UnKnown;
         this.context = new HashMap<>();
     }
@@ -29,7 +30,7 @@ public class MyError extends Error {
     public static MyError AppSocket(boolean isRead, AppSocket appSocket, Throwable source) {
         return new MyError(isRead ? ErrorType.AppSocketRead : ErrorType.AppSocketWrite) {{
             addContext(appSocket);
-            setSource(source);
+            initCause(source);
         }};
     }
 
@@ -37,13 +38,6 @@ public class MyError extends Error {
         this.context.put(context.contextType(), context);
     }
 
-    public void setSource(Throwable source) {
-        this.source = source;
-    }
-
-    public Throwable source() {
-        return source;
-    }
 
     public ErrorContext getContext(ContextType contextType) {
         return context.get(contextType);
@@ -56,7 +50,7 @@ public class MyError extends Error {
                 "error=" + errToString(this) +
                 "type=" + type +
                 ", context=" + context +
-                ", source=" + errToString(source) +
+                ", source=" + errToString(getCause()) +
                 '}';
     }
 

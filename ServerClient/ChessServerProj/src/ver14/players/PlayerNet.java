@@ -1,16 +1,20 @@
 package ver14.players;
 
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.*;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.networking.AppSocket;
 
 import java.util.ArrayList;
@@ -52,13 +56,18 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
+    public void error(String error) {
+        socketToClient.writeMessage(Message.error(error));
+    }
+
+    @Override
     public Move getMove() {
         // with socket do...
         ArrayList<Move> moves = game.getModel().generateAllMoves(playerColor).getCleanList();
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {
-            return null;
+            throw new MyError(ErrorType.Disconnected);
         }
         assert moveMsg.getMessageType() == MessageType.GET_MOVE;
         return moveMsg.getMove();
@@ -99,8 +108,10 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public void disconnect(String cause) {
         interrupt();
-        socketToClient.writeMessage(Message.bye(cause));
-        socketToClient.close();
+        if (socketToClient.isConnected()) {
+            socketToClient.writeMessage(Message.bye(cause));
+            socketToClient.close();
+        }
     }
 
     @Override

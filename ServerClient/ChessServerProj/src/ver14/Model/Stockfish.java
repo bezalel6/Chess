@@ -1,11 +1,9 @@
 package ver14.Model;
 
 
-import ver14.SharedClasses.Game.Location;
+import ver14.Model.Perft.StockfishPerft;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.Game.moves.BasicMove;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +11,7 @@ import java.io.OutputStreamWriter;
 
 
 /**
- * <a href="https://github.com/rahular/chess-misc/blob/master/JavaStockfish/src/com/rahul/stockfish/Stockfish.java">Source</a>
+ * <a href="https://github.com/rahular/chess-misc/blob/master/JavaStockfish/src/com/rahul/stockfish/Stockfish.java">modified version of</a>
  */
 public class Stockfish {
 
@@ -21,6 +19,11 @@ public class Stockfish {
     private Process engineProcess;
     private BufferedReader processReader;
     private OutputStreamWriter processWriter;
+
+    public Stockfish(String fen) {
+        this();
+        setFen(fen);
+    }
 
     public Stockfish() {
         if (startEngine()) {
@@ -32,6 +35,18 @@ public class Stockfish {
         } else {
             System.out.println("err");
         }
+    }
+
+    private void setFen(String fen) {
+        FEN.assertFen(fen);
+        String cmd;
+
+        if (StrUtils.isEmpty(fen)) {
+            cmd = "position startpos";
+        } else {
+            cmd = "position fen " + fen;
+        }
+        sendCommand(cmd);
     }
 
     /**
@@ -94,31 +109,6 @@ public class Stockfish {
     }
 
     public static void main(String[] args) {
-        Stockfish stockfish = new Stockfish();
-        System.out.println(stockfish.perft(2, new BasicMove(Location.E2, Location.E4)));
-        stockfish.stopEngine();
-    }
-
-    /**
-     * get nodes from move
-     * <h1>make sure move is legal</h1>
-     */
-    public long perft(int depth, BasicMove move) {
-        if (depth >= 8) {
-            int selected;
-            do {
-                selected = JOptionPane.showConfirmDialog(null, "are you sure you want to blow your computer up? depth %d?!".formatted(depth));
-            } while (selected == JOptionPane.OK_OPTION);
-            return -1;
-        }
-        sendCommand("go perft " + depth);
-        String searching = "%s: ".formatted(StrUtils.clean(move.getBasicMoveAnnotation()));
-        String out;
-        do {
-            out = getOutput(0);
-        }
-        while (!out.contains(searching));
-        return Long.parseLong(out.split(searching)[1].split("[ \n]")[0]);
     }
 
     /**
@@ -131,25 +121,6 @@ public class Stockfish {
             processWriter.close();
         } catch (IOException e) {
         }
-    }
-
-    public long perft(int depth) {
-        if (depth >= 8) {
-            int selected;
-            do {
-                selected = JOptionPane.showConfirmDialog(null, "are you sure you want to blow your computer up? depth %d?!".formatted(depth));
-            } while (selected == JOptionPane.OK_OPTION);
-            return -1;
-        }
-        sendCommand("go perft " + depth);
-        String searching = "searched: ";
-        String out;
-        do {
-            out = getOutput(0);
-        }
-        while (!out.contains(searching));
-        return Long.parseLong(out.split(searching)[1].split("[ \n]")[0]);
-
     }
 
     /**
@@ -174,16 +145,8 @@ public class Stockfish {
         return out;
     }
 
-    /**
-     * Get a list of all legal moves from the given position
-     *
-     * @param fen Position string
-     * @return String of moves
-     */
-    public String getLegalMoves(String fen) {
-        sendCommand("position fen " + fen);
-        sendCommand("d");
-        return getOutput(0).split("Legal moves: ")[1];
+    public StockfishPerft perft(int depth) {
+        return new StockfishPerft(this, depth);
     }
 
     /**
@@ -228,4 +191,5 @@ public class Stockfish {
         }
         return evalScore / 100;
     }
+
 }

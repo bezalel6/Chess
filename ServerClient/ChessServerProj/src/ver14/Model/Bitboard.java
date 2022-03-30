@@ -126,7 +126,7 @@ public class Bitboard implements Serializable {
     }
 
     public Bitboard shift(PlayerColor playerColor, Direction direction) {
-        return new Bitboard().shiftMe(playerColor, direction);
+        return cp().shiftMe(playerColor, direction);
     }
 
     public Location getLastSetLoc() {

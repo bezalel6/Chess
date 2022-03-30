@@ -30,7 +30,7 @@ public class Minimax {
     private final Timer minimaxTimer;
     private Model model;
     private boolean log = false;
-    private int numOfThreads = 8;
+    private int numOfThreads = 10;
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
     private long leavesReached;
@@ -175,8 +175,8 @@ public class Minimax {
             if (bestMoveSoFar == null || minimaxMove.isCompleteSearch() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
                 bestMoveSoFar = minimaxMove;
             }
-            assert bestMoveSoFar.getMove() != null;
-            if (bestMoveSoFar.getMoveEvaluation() == null || bestMoveSoFar.getMoveEvaluation().isGameOver()) {
+            assert bestMoveSoFar.getMove() != null && bestMoveSoFar.getMoveEvaluation() != null;
+            if (bestMoveSoFar.getMoveEvaluation().isGameOver()) {
                 stop = true;
             }
 
@@ -270,6 +270,7 @@ public class Minimax {
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
         sortMoves(possibleMoves, true);
+        assert !possibleMoves.isEmpty();
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
 
@@ -295,6 +296,7 @@ public class Minimax {
 
         }
 //        assert bestEval != null;
+        assert bestEval != null;
         return bestEval;
     }
 

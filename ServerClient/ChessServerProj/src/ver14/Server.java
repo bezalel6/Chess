@@ -18,12 +18,10 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.networking.MyErrors;
 import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
 import ver14.game.Game;
 import ver14.game.GameSession;
 import ver14.players.Player;
-import ver14.players.PlayerAI.MinimaxVsStockfish;
 import ver14.players.PlayerAI.PlayerAI;
 import ver14.players.PlayerNet;
 
@@ -57,10 +55,6 @@ public class Server implements ErrorContext, EnvManager {
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
-    /**
-     * The constant VS_STOCKFISH.
-     */
-    public static boolean VS_STOCKFISH = false;
 
     static {
 
@@ -102,8 +96,8 @@ public class Server implements ErrorContext, EnvManager {
     private void createServerGUI() {
         frmWin = new CloseConfirmationJFrame(this::exitServer) {{
             setSize(SERVER_WIN_SIZE);
-            setAlwaysOnTop(true);
             setTitle(SERVER_WIN_TITLE);
+//            setAlwaysOnTop(true);
         }};
 
         // create displayArea
@@ -153,7 +147,9 @@ public class Server implements ErrorContext, EnvManager {
             serverPort = -1;
             serverIP = InetAddress.getLocalHost().getHostAddress(); // get Computer IP
 
-            String port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
+            String port = System.getenv("PORT");
+            if (port == null)
+                port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
 
             if (port == null) // check if Cancel button was pressed
                 serverPort = -1;
@@ -168,6 +164,7 @@ public class Server implements ErrorContext, EnvManager {
             serverSetupOK = false;
             String serverAddress = serverIP + ":" + serverPort;
             log("Can't setup Server Socket on " + serverAddress + "\n" + "Fix the problem & restart the server.", exp, frmWin);
+            exp.printStackTrace();
         }
 
         System.out.println("**** setupServer() finished! ****");
@@ -221,10 +218,15 @@ public class Server implements ErrorContext, EnvManager {
     }
 
     private void closeServer(String cause) {
+        players.forEachItem(player -> {
+            ErrorHandler.ignore(() -> {
+                player.disconnect(cause);
+            });
+        });
         if (serverSocket != null && !serverSocket.isClosed())
             stopServer();
 
-        log("Server Closed!");
+        log("Server Closed! " + cause);
         serverRunOK = false;
         frmWin.dispose(); // close GUI
     }
@@ -290,37 +292,33 @@ public class Server implements ErrorContext, EnvManager {
 // Run the server - wait for clients to connect & handle them
     public void runServer() {
         if (serverSetupOK) {
-            ThreadsManager.handleErrors(() -> {
-                String serverAddress = "(" + serverIP + ":" + serverPort + ")";
-                log("SERVER" + serverAddress + " Setup & Running!");
+            String serverAddress = "(" + serverIP + ":" + serverPort + ")";
+            log("SERVER" + serverAddress + " Setup & Running!");
 //            log(new NoThrow<String>(DB::getAllUsersCredentials).get());
-                frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
+            frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
 
-                serverRunOK = true;
+            serverRunOK = true;
 
-                if (VS_STOCKFISH)
-                    minimaxVsStockfish();
-
-                // loop while server running OK
-                while (serverRunOK) {
-                    AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
-                    if (appSocketToPlayer == null)
-                        serverRunOK = false;
-                    else {
-                        handleClient(appSocketToPlayer);
-                    }
+            // loop while server running OK
+            while (serverRunOK) {
+                AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
+                if (appSocketToPlayer == null)
+                    serverRunOK = false;
+                else {
+                    handleClient(appSocketToPlayer);
                 }
-            });
+            }
+            closeServer("runServer() finised!");
+        } else {
+            closeServer("server setup was not ok");
         }
-
-        closeServer("runServer() finised!");
 
         System.out.println("**** runServer() finished! ****");
     }
 
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
-        ThreadsManager.HandledThread.run(() -> {
+        ThreadsManager.HandledThread.runInHandledThread(() -> {
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
@@ -383,7 +381,7 @@ public class Server implements ErrorContext, EnvManager {
         return switch (loginInfo.getLoginType()) {
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
-                    if (!isUserConnected(username)) {
+                    if (!isLoggedIn(username)) {
                         yield Message.welcomeMessage("Welcome " + username, loginInfo);
                     } else {
                         yield Message.error("User already connected");
@@ -408,52 +406,8 @@ public class Server implements ErrorContext, EnvManager {
         };
     }
 
-    private boolean isUserConnected(String username) {
+    private boolean isLoggedIn(String username) {
         return players.stream().anyMatch(p -> p.getUsername().equals(username));
-    }
-
-    /**
-     * Disconnect player.
-     *
-     * @param player the player
-     * @param err    the err
-     */
-    public void disconnectPlayer(Player player, MyErrors err) {
-        disconnectPlayer(player, "error occurred. " + err);
-    }
-
-    /**
-     * Disconnect player.
-     *
-     * @param player the player
-     * @param cause  the cause
-     */
-    public void disconnectPlayer(Player player, String cause) {
-        if (player != null) {
-            log("disconnecting " + player.getUsername() + " " + cause);
-            player.disconnect(cause);
-            playerDisconnected(player);
-        }
-    }
-
-    /**
-     * Player disconnected.
-     *
-     * @param player the player
-     */
-    public void playerDisconnected(Player player) {
-        Game ongoingGame = player.getOnGoingGame();
-        if (ongoingGame != null) {
-            ongoingGame.playerDisconnected(player);
-        }
-        if (player instanceof PlayerNet) {
-            players.remove(((PlayerNet) player).ID());
-        }
-        List<GameInfo> del = gamePool.values()
-                .stream()
-                .filter(game -> game.creatorUsername.equals(player.getUsername()))
-                .toList();
-        del.forEach(deleting -> gamePool.remove((deleting).gameId));
     }
 
     /**
@@ -483,7 +437,7 @@ public class Server implements ErrorContext, EnvManager {
 
         GameSettings gameSettings = player.getGameSettings(joinable, resumable);
         if (gameSettings == null) {
-            disconnectPlayer(player);
+            playerDisconnected(player);
             return;
         }
         switch (gameSettings.getGameType()) {
@@ -500,7 +454,8 @@ public class Server implements ErrorContext, EnvManager {
             case JOIN_EXISTING -> {
                 GameInfo gameInfo = gamePool.get(gameSettings.getGameID());
                 if (gameInfo == null) {
-                    throw new Error("user should get an error");
+//                    throw new Error("user should get an error");
+                    player.error("game does not exist");
                 } else {
                     GameSession gameSession = new GameSession(gameInfo, getPlayerNet(gameInfo.creatorUsername), player, this);
                     gameSession.start();
@@ -537,12 +492,28 @@ public class Server implements ErrorContext, EnvManager {
     }
 
     /**
-     * Disconnects player.
+     * Player disconnected.
      *
-     * @param player the player to disconnect
+     * @param player the player
      */
-    public void disconnectPlayer(Player player) {
-        disconnectPlayer(player, "");
+    public void playerDisconnected(Player player) {
+        if (player == null)
+            return;
+
+        log(player.getUsername() + " disconnected");
+        player.disconnect("");
+
+        Game ongoingGame = player.getOnGoingGame();
+        if (ongoingGame != null) {
+            ongoingGame.playerDisconnected(player);
+        }
+
+        players.remove(player.getUsername());
+        List<GameInfo> del = gamePool.values()
+                .stream()
+                .filter(game -> game.creatorUsername.equals(player.getUsername()))
+                .toList();
+        del.forEach(deleting -> gamePool.remove(deleting.gameId));
     }
 
     private void startGameVsAi(Player player, GameSettings gameSettings) {
@@ -566,15 +537,6 @@ public class Server implements ErrorContext, EnvManager {
                 .filter(p -> (p).getUsername().equals(username))
                 .findAny()
                 .orElse(null);
-    }
-
-    /**
-     * Minimax vs stockfish.
-     */
-//DEBUG ONLY
-    public void minimaxVsStockfish() {
-        MinimaxVsStockfish p = new MinimaxVsStockfish(1);
-        gameSetup(p);
     }
 
     /**
@@ -606,7 +568,7 @@ public class Server implements ErrorContext, EnvManager {
      */
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err);
+        log("handled: " + err.type);
 
     }
 
@@ -617,6 +579,6 @@ public class Server implements ErrorContext, EnvManager {
      */
     @Override
     public void criticalErr(MyError err) {
-        log("ahhhhhh: " + err);
+        closeServer("critical error: " + err);
     }
 }

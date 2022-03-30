@@ -15,6 +15,7 @@ import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -22,6 +23,13 @@ import java.util.Stack;
 
 public class Model implements Serializable {
     private final static String startingPos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+
+
+    //    static{
+//        ErrorManager.setHandler(ErrorType.Model,err -> {
+//
+//        });
+//    }
     private boolean finishSetup = false;
     private Stack<Move> moveStack;
     private Board board;
@@ -53,8 +61,9 @@ public class Model implements Serializable {
     }
 
     public Model(Model other) {
-        this(startingPos);
-        other.moveStack.forEach(this::applyMove);
+        this(other.genFenStr());
+
+//        other.moveStack.forEach(this::applyMove);
 //        this.moveStack = new Stack<>();
 //        for (Move move : other.moveStack) {
 //            moveStack.push(Move.copyMove(move));
@@ -75,15 +84,6 @@ public class Model implements Serializable {
 
     public Model(String fen) {
         setup(fen);
-    }
-
-    public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
-        CastlingRights.Side ret = CastlingRights.Side.QUEEN;
-        Location kingLoc = model.getKing(playerColor);
-        if (kingLoc.col < rookLoc.col) {
-            ret = CastlingRights.Side.KING;
-        }
-        return ret;
     }
 
     public String genFenStr() {
@@ -120,6 +120,19 @@ public class Model implements Serializable {
 
     private Bitboard getPieceBitBoard(Piece piece) {
         return getPlayersPieces(piece.playerColor).getBB(piece.pieceType);
+    }
+
+    public PiecesBBs getPlayersPieces(PlayerColor playerColor) {
+        return pieces[playerColor.asInt];
+    }
+
+    public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
+        CastlingRights.Side ret = CastlingRights.Side.QUEEN;
+        Location kingLoc = model.getKing(playerColor);
+        if (kingLoc.col < rookLoc.col) {
+            ret = CastlingRights.Side.KING;
+        }
+        return ret;
     }
 
     private void setBoardHash() {
@@ -230,7 +243,26 @@ public class Model implements Serializable {
 
     }
 
+    private void Assert(boolean b, Object... message) {
+        if (!b) {
+            String div = "\n\n\n";
+
+            String str = (moveStack.isEmpty() ? "" : "last move: " + moveStack.peek());
+            str += "\n";
+            str += StrUtils.splitArr(message);
+            str += "\n";
+            str += "assertion failed";
+            str += div;
+            str += genFenStr();
+            str += div;
+            str += board.toString();
+
+            throw new AssertionError(str);
+        }
+    }
+
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
+//        return FastAttackedSquares.isAttacked(board, loc, threateningPlayer);
 //        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
         return AttackedSquares.isAttacked(this, loc, threateningPlayer);
 //        PlayerColor b4 = currentPlayerColor;
@@ -254,14 +286,12 @@ public class Model implements Serializable {
         return getPlayersPieces(playerColor).getBB(pieceType);
     }
 
-    public PiecesBBs getPlayersPieces(PlayerColor playerColor) {
-        return pieces[playerColor.asInt];
-    }
-
     public boolean anyLegalMove(PlayerColor playerColor) {
 //        Bitboard[] playersPieces = getPlayersPieces(playerColor);
 
-        return playerColor == currentPlayerColor && !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
+        assert playerColor == currentPlayerColor;
+
+        return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
 
         //todo can return true if one piece can move to any
 //        return !generateAllMoves(playerColor).isEmpty();
@@ -296,14 +326,14 @@ public class Model implements Serializable {
 
         makeIntermediateMove(move);
 
-        if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
+        if (move.getMoveFlag() == Move.MoveType.DoublePawnPush) {
             setEnPassantTargetLoc(move.getEnPassantLoc());
             setEnPassantActualLoc(movingTo);
         } else {
             setEnPassantTargetLoc((Location) null);
             setEnPassantActualLoc(null);
         }
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
             delPiece(piece, movingFrom);
             Piece newPiece = Piece.getPiece(promotingTo, piecePlayerColor);
@@ -325,7 +355,8 @@ public class Model implements Serializable {
         }
         if (move.isCapturing()) {
             Piece otherPiece = board.getPiece(movingTo);
-            assert otherPiece != null && otherPiece.pieceType != PieceType.KING;
+            Assert(otherPiece != null, "eating on empty stomach", move);
+            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
                 CastlingRights.Side side = getSideRelativeToKing(this, capClr, movingTo);
@@ -375,7 +406,7 @@ public class Model implements Serializable {
 
         Piece piece = board.getPiece(movingFrom, true);
         PlayerColor piecePlayerColor = piece.playerColor;
-        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
             delPiece(piece, movingFrom);
             Piece oldPiece = Piece.getPiece(PieceType.PAWN, piecePlayerColor);
             addPiece(oldPiece, movingFrom);
@@ -385,7 +416,7 @@ public class Model implements Serializable {
         setEnPassantActualLoc(null);
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
-            if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
+            if (prevMove.getMoveFlag() == Move.MoveType.DoublePawnPush) {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }
@@ -451,7 +482,7 @@ public class Model implements Serializable {
     }
 
     private void movePiece(Location movingFrom, Location movingTo) {
-        assert isSquareEmpty(movingTo);//not intended for captures
+        Assert(isSquareEmpty(movingTo), "move piece is not intended for captures. prob smn wrong with castling", getSquare(movingFrom), getSquare(movingTo));//not intended for captures
         Piece piece = board.getPiece(movingFrom, true);
         updatePieceLoc(piece, movingFrom, movingTo);
     }

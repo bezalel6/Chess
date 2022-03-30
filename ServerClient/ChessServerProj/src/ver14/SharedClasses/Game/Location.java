@@ -2,10 +2,7 @@ package ver14.SharedClasses.Game;
 
 import ver14.SharedClasses.Game.moves.Direction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public enum Location {
@@ -18,6 +15,16 @@ public enum Location {
     A2, B2, C2, D2, E2, F2, G2, H2,
     A1, B1, C1, D1, E1, F1, G1, H1,
     NONE;
+
+    public static final int
+            A = A1.col,
+            B = B1.col,
+            C = C1.col,
+            D = D1.col,
+            E = E1.col,
+            F = F1.col,
+            G = G1.col,
+            H = H1.col;
 
     public static final boolean flip_fen_locs = false;
     public static final boolean flip_fen_load_locs = false;
@@ -141,24 +148,21 @@ public enum Location {
     }
 
     public static Location getLoc(String str) {
-        int r = Integer.parseInt(str.substring(1)) - 1;
-        int c = Integer.parseInt((str.charAt(0) - 'a') + "");
-//        c = flip(c);
-        r = flip(r);
-        Location loc = getLoc(r, c);
-        if (!isInBounds(loc)) {
-            return null;
-        }
-
-        return loc;
+//        int r = Integer.parseInt(str.substring(1)) - 1;
+//        int c = Integer.parseInt((str.charAt(0) - 'a') + "");
+////        c = flip(c);
+//        r = flip(r);
+//        Location loc = getLoc(r, c);
+//        if (!isInBounds(loc)) {
+//            return null;
+//        }
+//
+//        return loc;
+        return valueOf(str.toUpperCase(Locale.ROOT));
     }
 
     public static Location getLoc(int row, int col) {
         return getLoc(row, col, false);
-    }
-
-    public static boolean isInBounds(Location loc) {
-        return loc != null && isInBounds(loc.asInt);
     }
 
     public static Location getLoc(int row, int col, boolean flip) {
@@ -169,6 +173,10 @@ public enum Location {
             col = flip(col);
         }
         return valueOf(row * 8 + col);
+    }
+
+    public static boolean isInBounds(Location loc) {
+        return loc != null && isInBounds(loc.asInt);
     }
 
     public Location flip() {
@@ -182,20 +190,21 @@ public enum Location {
 
     @Override
     public String toString() {
-        return getColString() + getRowString();
+        return name().toLowerCase(Locale.ROOT);
+//        return getColString() + getRowString();
     }
 
-    public String getColString() {
-        return Character.toString((char) ((flip_fen_locs ? flip(col) : col) + 'a'));
-    }
-
-    public String getRowString() {
-        int r = row + 1;
-        if (flip_fen_locs) {
-            r = flip(r);
-        }
-        return r + "";
-    }
+//    public String getColString() {
+//        return Character.toString((char) ((flip_fen_locs ? flip(col) : col) + 'a'));
+//    }
+//
+//    public String getRowString() {
+//        int r = row + 1;
+//        if (!flip_fen_locs) {
+//            r = flip(r);
+//        }
+//        return r + "";
+//    }
 
     public int getMaxDistance(Location other) {
         return other == null ? -1 : Math.max(Math.abs(row - other.row), Math.abs(col - other.col));
