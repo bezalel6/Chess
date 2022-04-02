@@ -24,7 +24,8 @@ public class MessageCard extends DialogCard {
     }
 
     public enum MessageType {
-        INFO(IconManager.infoIcon, FontManager.Dialogs.MessageDialogs.info, Color.BLACK), ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED);
+        INFO(IconManager.infoIcon, FontManager.Dialogs.MessageDialogs.info, Color.BLACK),
+        ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED);
         public final ImageIcon icon;
         public final Font font;
         public final CardHeader header;
@@ -32,7 +33,9 @@ public class MessageCard extends DialogCard {
 
         MessageType(ImageIcon icon, Font font, Color clr) {
             this.icon = icon;
-            this.header = new CardHeader(name(), icon, true, name());
+            this.header = new CardHeader(name(), icon, true, name()) {{
+                spaceLblIcon();
+            }};
             this.font = font;
             this.clr = clr;
         }

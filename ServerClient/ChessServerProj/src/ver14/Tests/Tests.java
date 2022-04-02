@@ -11,13 +11,17 @@ import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.TimeFormat;
+import ver14.SharedClasses.Game.moves.Direction;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.ThreadsUtil;
+import ver14.game.Game;
 import ver14.players.PlayerAI.MyAi;
+import ver14.players.PlayerNet.DummyPlayerNet;
 
 import java.lang.reflect.Method;
 import java.time.ZonedDateTime;
@@ -40,12 +44,30 @@ public class Tests implements ITest {
     protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
-//        printNumOfPositions();
-//        minimaxThreadsTest();
-//        minimaxVsStockfish();
-//        isInCheck();
-        minimaxVsStockfish();
-//        compareAttacks();
+        System.out.println("");
+//        actual();
+//        dummyPlayerNet();
+    }
+
+    public static void actual() {
+        Bitboard bb = new Bitboard(Location.F5).shiftMe(PlayerColor.WHITE, Direction.U_R);
+
+        bb.prettyPrint("WHITE U RIGHT");
+//        long l = 100000000000000000000000000000000000000L;
+//        System.out.println(((bb.getBitBoard() + "").equals("100000000000000000000000000000000000000")));
+        System.out.println(bb.getBitBoard());
+        System.out.println(bb + "");
+    }
+
+    private static void dummyPlayerNet() {
+        Game.showGameView = true;
+        Server server = new Server();
+        server.runServer();
+        DummyPlayerNet dummy = new DummyPlayerNet();
+        server.gameSetup(dummy);
+    }
+
+    private static void a() {
 
     }
 
@@ -54,7 +76,7 @@ public class Tests implements ITest {
         server.runServer();
         MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, TimeFormat.BULLET)) {
             @Override
-            public GameSettings getGameSettings(SyncedItems joinableGames, SyncedItems resumableGames) {
+            public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
                 return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AiParameters(AiParameters.AiType.Stockfish, TimeFormat.BULLET), GameSettings.GameType.CREATE_NEW);
             }
         };

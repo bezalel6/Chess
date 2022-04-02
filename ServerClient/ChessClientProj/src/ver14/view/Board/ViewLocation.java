@@ -8,9 +8,17 @@ public class ViewLocation {
 
     public ViewLocation(Location originalLocation) {
         this.originalLocation = originalLocation;
-        this.viewLocation = originalLocation;
+        this.viewLocation = originalLocation.flip();
 //        this.viewLocation = originalLocation.flip();
 //        this.viewLocation = Location.getLoc(Location.flip(originalLocation.row), Location.flip(originalLocation.col));
 //        this.viewLocation = originalLocation;
+    }
+
+    @Override
+    public String toString() {
+        return "ViewLocation{" +
+                "originalLocation=" + originalLocation +
+                ", viewLocation=" + viewLocation +
+                '}';
     }
 }

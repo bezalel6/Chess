@@ -10,12 +10,14 @@ import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
-import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.File;
@@ -134,11 +136,11 @@ public class DB {
             ResultSet resultSetTable = st.executeQuery(sql);
             return new ServerDBResponse(resultSetTable);
         } catch (SQLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            throw new MyError(ErrorType.DB) {{
+                initCause(e);
+            }};
         }
-        return null;
-
-        // execute SQL Query statement
 
     }
 
@@ -147,7 +149,7 @@ public class DB {
 //            addGames("bezalel6");
 //            clearGames();
 //            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
-            System.out.println(RequestBuilder.top().build(5).getRequest());
+            System.out.println(request(RequestBuilder.top().build(5)));
         } catch (Exception e) {
             e.printStackTrace();
         }

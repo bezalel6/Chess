@@ -1,5 +1,6 @@
 package ver14.view.Board;
 
+import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.view.IconManager.IconManager;
@@ -15,22 +16,23 @@ import java.util.ArrayList;
 
 public class BoardButton extends MyJButton {
     private static final double iconMultiplier = .8;
+    private final static Color checkColor = new Color(186, 11, 11, 255);
+    private final static Color currentColor = new Color(0, 0, 255, 255);
+    private final static Color captureColor = Color.red;
+    private final static Color canMoveToClr = Color.yellow;
+    private final static Color promotingColor = new Color(151, 109, 3);
     private static int ICON_SIZE = 50;
-    private final Color checkColor = new Color(186, 11, 11, 255);
-    private final Color currentColor = new Color(0, 0, 255, 255);
-    private final Color captureColor = Color.red;
-    private final Color canMoveToClr = Color.yellow;
-    private final Color promotingColor = new Color(151, 109, 3);
     private final Color startingBackgroundColor;
     private final ArrayList<State> btnStates;
     private final View view;
-    private ViewLocation btnLoc;
+    private final ViewLocation btnLoc;
     private boolean isSelected = false;
     private Icon ogQualityIcon;
     private Piece piece = null;
     private boolean wasUnlocked = false;
     private Color beforeLockBg;
     private Color beforeHoverClr;
+    private Color selectedClr;
     private boolean isHovering = false;
 
     public BoardButton(ViewLocation btnLoc, Color startingBackgroundColor, View view) {
@@ -39,6 +41,7 @@ public class BoardButton extends MyJButton {
         this.view = view;
         this.btnStates = new ArrayList<>();
         this.beforeLockBg = startingBackgroundColor;
+        setFont(FontManager.boardButtons);
 
         setActionCommand("");
         setUI(new BasicButtonUI());
@@ -227,6 +230,7 @@ public class BoardButton extends MyJButton {
 //        g2.setStroke(new BasicStroke(1));
 //        g2.fill(new Rectangle(0, 0, getWidth(), getHeight()));
         super.paintComponent(g);
+
         if (isSelected) {
             g2.setStroke(new BasicStroke(5));
             int nGap = 7;
@@ -235,7 +239,8 @@ public class BoardButton extends MyJButton {
             int nHeight = getHeight() - nGap * 2;
             int nWidth = getWidth() - nGap * 2;
 
-            g2.setColor(new Color(0, 0, 0, .5f));
+            g2.setColor(selectedClr);
+//            g2.setColor(new Color(0, 0, 0, .5f));
             g2.drawOval(nXPosition, nYPosition, nWidth, nHeight);
             ((Graphics2D) g).setStroke(new BasicStroke());
         }
@@ -253,6 +258,12 @@ public class BoardButton extends MyJButton {
 
     public void toggleSelected() {
         isSelected = !isSelected;
+        if (isSelected)
+            captureSelectedClr();
+    }
+
+    private void captureSelectedClr() {
+        selectedClr = view.getBoardPnl().getBoardOverlay().currentColor();
     }
 
     public void reset() {

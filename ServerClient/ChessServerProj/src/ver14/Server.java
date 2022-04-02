@@ -23,7 +23,7 @@ import ver14.game.Game;
 import ver14.game.GameSession;
 import ver14.players.Player;
 import ver14.players.PlayerAI.PlayerAI;
-import ver14.players.PlayerNet;
+import ver14.players.PlayerNet.PlayerNet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -291,29 +291,32 @@ public class Server implements ErrorContext, EnvManager {
      */
 // Run the server - wait for clients to connect & handle them
     public void runServer() {
-        if (serverSetupOK) {
-            String serverAddress = "(" + serverIP + ":" + serverPort + ")";
-            log("SERVER" + serverAddress + " Setup & Running!");
+        ThreadsManager.HandledThread.runInHandledThread(() -> {
+            if (serverSetupOK) {
+                String serverAddress = "(" + serverIP + ":" + serverPort + ")";
+                log("SERVER" + serverAddress + " Setup & Running!");
 //            log(new NoThrow<String>(DB::getAllUsersCredentials).get());
-            frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
+                frmWin.setTitle(SERVER_WIN_TITLE + " " + serverAddress);
 
-            serverRunOK = true;
+                serverRunOK = true;
 
-            // loop while server running OK
-            while (serverRunOK) {
-                AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
-                if (appSocketToPlayer == null)
-                    serverRunOK = false;
-                else {
-                    handleClient(appSocketToPlayer);
+                // loop while server running OK
+                while (serverRunOK) {
+                    AppSocket appSocketToPlayer = serverSocket.acceptAppSocket();
+                    if (appSocketToPlayer == null)
+                        serverRunOK = false;
+                    else {
+                        handleClient(appSocketToPlayer);
+                    }
                 }
+                closeServer("runServer() finised!");
+            } else {
+                closeServer("server setup was not ok");
             }
-            closeServer("runServer() finised!");
-        } else {
-            closeServer("server setup was not ok");
-        }
+            System.out.println("**** runServer() finished! ****");
+        });
 
-        System.out.println("**** runServer() finished! ****");
+
     }
 
     // handle client in a separate thread
@@ -582,3 +585,4 @@ public class Server implements ErrorContext, EnvManager {
         closeServer("critical error: " + err);
     }
 }
+

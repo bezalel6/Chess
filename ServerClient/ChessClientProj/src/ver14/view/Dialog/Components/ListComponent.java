@@ -54,7 +54,7 @@ public abstract class ListComponent extends DialogField<Selectable> {
         return btns.size();
     }
 
-    public void addComponents(Collection<Selectable> components) {
+    public void addComponents(Collection<? extends Selectable> components) {
         for (Selectable comp : components) {
             addComponent(comp);
         }

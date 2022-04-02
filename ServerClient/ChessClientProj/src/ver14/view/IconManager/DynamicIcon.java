@@ -33,6 +33,7 @@ public class DynamicIcon {
                 btn.setIcon(DynamicIcon.this.getNormal());
             }
         });
+
         btn.setIcon(this.getNormal());
     }
 

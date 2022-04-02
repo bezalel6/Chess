@@ -22,8 +22,8 @@ public class PiecesBBs {
 
     }
 
-    //todo sync
-    public Bitboard getAll() {
+    //tosync
+    public synchronized Bitboard getAll() {
         if (prevAll != null)
             return prevAll;
         Bitboard ret = new Bitboard();
@@ -32,7 +32,6 @@ public class PiecesBBs {
             PieceType pieceType = piece_types[i];
             ret.orEqual(getBB(pieceType));
         }
-
         prevAll = ret;
 
         return ret;

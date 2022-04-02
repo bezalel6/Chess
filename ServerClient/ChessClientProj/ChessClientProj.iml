@@ -36,6 +36,7 @@
     </content>
     <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver14/SharedClasses">
       <sourceFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver14/SharedClasses" isTestSource="false" packagePrefix="ver14.SharedClasses" />
+      <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver14/SharedClasses/Utils/sqlformatter" />
     </content>
     <content url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses">
       <excludeFolder url="file://$MODULE_DIR$/../ChessServerProj/src/ver4/SharedClasses" />

@@ -11,7 +11,6 @@ import ver14.view.IconManager.Size;
 import ver14.view.View;
 
 import javax.swing.*;
-import javax.swing.plaf.LayerUI;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     private BoardButton[][] btnMat;
     private JPanel buttonsPnl;
     private JPanel colsCoordinatesPnl, rowsCoordinatesPnl;
-    private LayerUI<JPanel> layerUI;
+    private BoardOverlay boardOverlay;
     private Size lastResize = new Size(0);
 
     public BoardPanel(int rows, int cols, View view) {
@@ -82,10 +81,8 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
             }
         }
         for (int i = 0; i < 8; i++) {
-            MyLbl col = new Lbl(cols.get(i) + "");
-            MyLbl row = new Lbl(rows.get(i) + "");
-            colsCoordinatesPnl.add(col);
-            rowsCoordinatesPnl.add(row);
+            colsCoordinatesPnl.add(new Lbl(cols.get(i) + ""));
+            rowsCoordinatesPnl.add(new Lbl(rows.get(i) + ""));
         }
         FontMetrics metrics = getFontMetrics(FontManager.coordinates);
         int small = Math.max(metrics.getHeight(), metrics.stringWidth("a"));
@@ -120,7 +117,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     public BoardOverlay getBoardOverlay() {
-        return (BoardOverlay) layerUI;
+        return boardOverlay;
     }
 
     public void forEachRowParallel(BtnRowCallback call) {
@@ -138,13 +135,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 
     public void boardContainerSetup() {
         //הוספת הקורדינאטות
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = coordinatesInsets;
-//        gbc.gridx = 1;
-        gbc.anchor = GridBagConstraints.LINE_END;
-        gbc.gridwidth = GridBagConstraints.NONE;
-        gbc.fill = GridBagConstraints.BOTH;
-        me.add(colsCoordinatesPnl, gbc);
+        GridBagConstraints gbc;
 
         gbc = new GridBagConstraints();
         gbc.insets = coordinatesInsets;
@@ -153,15 +144,22 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         gbc.fill = GridBagConstraints.BOTH;
         me.add(rowsCoordinatesPnl, gbc);
 
-        layerUI = new BoardOverlay(view);
-        JLayer<JPanel> jlayer = new JLayer<>(buttonsPnl, layerUI);
+        boardOverlay = new BoardOverlay(view);
+        JLayer<JPanel> jlayer = new JLayer<>(buttonsPnl, boardOverlay);
 
         gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.gridheight = GridBagConstraints.REMAINDER;
+        gbc.gridheight = GridBagConstraints.RELATIVE;
         gbc.weighty = gbc.weightx = 30;
         gbc.fill = GridBagConstraints.BOTH;
         me.add(jlayer, gbc);
+
+        gbc = new GridBagConstraints();
+        gbc.insets = coordinatesInsets;
+        gbc.anchor = GridBagConstraints.PAGE_END;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridheight = 1;
+        me.add(colsCoordinatesPnl, gbc);
     }
 
     public void setBoardButtons(Board board) {
@@ -177,50 +175,52 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     public void resetOrientation() {
+        ViewSavedBoard savedBoard = new ViewSavedBoard(this);
         setCoordinates(false);
         createMat();
-        getButtonsPnl().repaint();
-        getBoardOverlay().repaintLayer();
+        restoreBoardButtons(savedBoard);
+        repaint();
+        SwingUtilities.invokeLater(this::resizeIcons);
+//        getButtonsPnl().repaint();
+//        getBoardOverlay().repaintLayer();
     }
 
     public void createMat() {
-        boolean isBlack = false;
         buttonsPnl.removeAll();
-        for (int row = rows - 1; row >= 0; row--) {
-            for (int col = cols - 1; col >= 0; col--) {
 
-                ViewLocation btnLoc = new ViewLocation(Location.getLoc(row, col, isBoardFlipped()));
-                BoardButton currentBtn = new BoardButton(btnLoc, isBlack ? blackSquareClr : whiteSquareClr, view) {
-                    {
-                        setSize(btnDimension);
+        for (Location loc : Location.ALL_LOCS) {
+            if (view.isBoardFlipped())
+                loc = loc.flip();
+            ViewLocation btnLoc = new ViewLocation(loc);
+
+            BoardButton currentBtn = new BoardButton(btnLoc, loc.isBlackSquare() ? blackSquareClr : whiteSquareClr, view) {
+                {
+                    setSize(btnDimension);
+                    addActionListener(e -> {
+                        view.boardButtonPressed(((BoardButton) e.getSource()).getBtnLoc());
+                    });
+                    setEnabled(false);
 //                    setMinimumSize(getPreferredSize());
-                        setFont(FontManager.boardButtons);
-                        addActionListener(e -> {
-                            view.boardButtonPressed(((BoardButton) e.getSource()).getBtnLoc());
-                        });
-                        setEnabled(false);
-                    }
+                }
 
-                    @Override
-                    public void setSize(int width, int height) {
-                        width = height = Math.min(width, height);
-                        super.setSize(width, height);
-                    }
-                };
-                setButton(currentBtn, currentBtn.getBtnLoc());
-                buttonsPnl.add(currentBtn);
-                isBlack = !isBlack;
-            }
-            isBlack = !isBlack;
+                @Override
+                public void setSize(int width, int height) {
+                    width = height = Math.min(width, height);
+                    super.setSize(width, height);
+                }
+            };
+            setButton(currentBtn, currentBtn.getBtnLoc());
+            buttonsPnl.add(currentBtn);
         }
-    }
-
-    public JPanel getButtonsPnl() {
-        return buttonsPnl;
+        repaint();
     }
 
     private void setButton(BoardButton button, ViewLocation loc) {
         btnMat[loc.viewLocation.row][loc.viewLocation.col] = button;
+    }
+
+    public JPanel getButtonsPnl() {
+        return buttonsPnl;
     }
 
     public void restoreBoardButtons(ViewSavedBoard savedBoard) {
@@ -273,14 +273,16 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 
     public void resizeIcons() {
         forEachBtnParallel(BoardButton::scaleIcon);
-        getBoardOverlay().repaintLayer();
-//        setOtbMode(true);
         repaint();
     }
 
     @Override
     public void repaint() {
         super.repaint();
+        if (buttonsPnl != null)
+            buttonsPnl.repaint();
+        if (boardOverlay != null)
+            boardOverlay.repaintLayer();
         if (view != null)
             view.repaint();
     }

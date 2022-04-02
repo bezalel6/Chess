@@ -28,4 +28,9 @@ public class MyServerSocket extends ServerSocket {
         return socketToClient;
     }
 
+    @Override
+    public void close() throws IOException {
+        System.out.println("closing socket!!!");
+        super.close();
+    }
 }

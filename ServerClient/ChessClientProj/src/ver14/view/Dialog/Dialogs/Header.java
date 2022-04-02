@@ -53,6 +53,10 @@ public class Header extends JPanel {
         this(null, icon, center);
     }
 
+    public void spaceLblIcon() {
+        lbl.setIconTextGap(50);
+    }
+
     @Override
     public void setFont(Font font) {
         super.setFont(font);

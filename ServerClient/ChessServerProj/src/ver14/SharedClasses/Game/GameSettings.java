@@ -24,6 +24,10 @@ public class GameSettings implements Serializable {
         this.gameType = other.gameType;
     }
 
+    public GameSettings(AiParameters aiParameters) {
+        this(PlayerColor.NO_PLAYER, TimeFormat.BULLET, aiParameters, GameType.CREATE_NEW);
+    }
+
     public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, AiParameters aiParameters, GameType gameType) {
         this(playerToMove, timeFormat, null, aiParameters, gameType);
     }

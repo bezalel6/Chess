@@ -74,7 +74,7 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public GameSettings getGameSettings(SyncedItems joinableGames, SyncedItems resumableGames) {
+    public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
         return null;
     }
 

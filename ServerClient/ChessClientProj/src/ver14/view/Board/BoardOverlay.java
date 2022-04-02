@@ -7,26 +7,28 @@ import ver14.view.View;
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 class Arrow {
-    private final static Color defaultColor = Color.WHITE;
     private final Point start, end;
-    private final Color clr;
     int barb = 50;                   // barb length WAS 50
     double phi = Math.PI / 6;             // 30 degrees barb angle WAS 6
+    private Color clr;
 
-    public Arrow(Point start, Point end) {
-        this.start = start;
-        this.end = end;
-        clr = defaultColor;
-    }
 
     public Arrow(Point start, Point end, Color clr) {
         this.start = start;
         this.end = end;
+        this.clr = clr;
+    }
+
+    public void setClr(Color clr) {
         this.clr = clr;
     }
 
@@ -54,13 +56,23 @@ class Arrow {
 }
 
 public class BoardOverlay extends LayerUI<JPanel> {
+    final static Color defaultColor = Color.BLACK;
+    private static final Map<Integer, Color> keyClrMap;
+    private final static int NO_KEY = -1;
     public static Point mouseCoordinates, startedAt;
-    public boolean isDrawing = false;
-    private View view;
-    private ArrayList<Arrow> arrows;
 
+    static {
+        keyClrMap = new HashMap<>();
+        keyClrMap.put(KeyEvent.VK_SHIFT, Color.RED);
+        keyClrMap.put(KeyEvent.VK_CONTROL, Color.GREEN);
+    }
+
+    private final View view;
+    public boolean isDrawing = false;
+    private ArrayList<Arrow> arrows;
     private JLayer jlayer;
     private boolean blockBoard = false;
+    private int pressedKey = NO_KEY;
 
     public BoardOverlay(View view) {
         this.view = view;
@@ -87,20 +99,35 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return new Polygon(xpoints, ypoints, points.length);
     }
 
-    public void setBlockBoard(boolean blockBoard) {
-        this.blockBoard = blockBoard;
-        repaintLayer();
+    public KeyAdapter createKeyAdapter() {
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                pressedKey = e.getKeyCode();
+                repaintLayer();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                pressedKey = NO_KEY;
+                repaintLayer();
+            }
+        };
     }
 
     public void repaintLayer() {
         jlayer.repaint();
     }
 
+    public void setBlockBoard(boolean blockBoard) {
+        this.blockBoard = blockBoard;
+        repaintLayer();
+    }
 
     @Override
     public void paint(Graphics g, JComponent c) {
-//        if (view != null)
-//            view.repaint();
         Graphics2D g2 = (Graphics2D) g.create();
         super.paint(g2, c);
         if (isInsideBoardPnl()) {
@@ -117,8 +144,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
             g2.setColor(new Color(0, 0, 0, 50));
             g2.fill(shape);
         }
-//        g2.dispose();
-
     }
 
     @Override
@@ -221,9 +246,17 @@ public class BoardOverlay extends LayerUI<JPanel> {
     }
 
     private Arrow newArrow(Point start, Point end) {
+        return newArrow(start, end, currentColor());
+    }
+
+    private Arrow newArrow(Point start, Point end, Color clr) {
         start = centerPoint(start);
         end = centerPoint(end);
-        return new Arrow(start, end);
+        return new Arrow(start, end, clr);
+    }
+
+    public Color currentColor() {
+        return pressedKey == NO_KEY || !keyClrMap.containsKey(pressedKey) ? defaultColor : keyClrMap.get(pressedKey);
     }
 
     private Point centerPoint(Point point) {
@@ -248,9 +281,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
             int divXHeight = jlayer.getHeight() / 8;
             int col = x / divYWidth;
             int row = y / divXHeight;
-//            !flip bc normally when white is on the bottom you have to flip
-            boolean flip = !view.isBoardFlipped();
-            return Location.getLoc(row, col, flip);
+            return Location.getLoc(row, col, view.isBoardFlipped());
         }
         return null;
     }
@@ -274,12 +305,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         Point end = view.getBtn(loc).getLocation();
         arrows.add(newArrow(start, end, clr));
         jlayer.repaint();
-    }
-
-    private Arrow newArrow(Point start, Point end, Color clr) {
-        start = centerPoint(start);
-        end = centerPoint(end);
-        return new Arrow(start, end, clr);
     }
 
 

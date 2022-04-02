@@ -12,6 +12,11 @@ import java.util.Arrays;
 public class SimpleDialog extends Dialog {
     public SimpleDialog(Properties properties, Component... components) {
         super(properties);
+        if (components.length == 0)
+            delayedSetup(components);
+    }
+
+    protected void delayedSetup(Component... components) {
         DialogCard card = new DialogCard(new CardHeader(properties.details().header()), this) {
             {
                 Arrays.stream(components).forEach(this::add);

@@ -37,6 +37,7 @@ public enum Location {
     public static final int BLACK_STARTING_ROW = flip(WHITE_STARTING_ROW);
     public static final int WHITE_DIFF = WHITE_STARTING_ROW > BLACK_STARTING_ROW ? -1 : 1;
     public static final int BLACK_DIFF = -WHITE_DIFF;
+    //    ahhhhhh
     public static final PlayerColor normalPerspective = PlayerColor.WHITE;
     private static final Map<Integer, Location> map = new HashMap<>();
     private static final long whiteSquares = 0x55aa55aa55aa55aaL;
@@ -181,6 +182,10 @@ public enum Location {
 
     public Location flip() {
         return getLoc(row, col, true);
+    }
+
+    public boolean isBlackSquare() {
+        return !isWhiteSquare();
     }
 
     //todo shouldnt be !=0?

@@ -27,7 +27,7 @@ public class NewMinimax {
 
             Evaluation eval = minimax(depth + 1, maxDepth, !isMax, a, b);
 
-            model.undoMove();
+            model.undoMove(move);
 
             if (bestEval == null || eval.isGreaterThan(bestEval) == isMax) {
                 bestEval = eval;

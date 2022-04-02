@@ -30,4 +30,9 @@ public class LocationTests {
         });
     }
 
+    private void checkCLrs() {
+
+    }
+
+
 }

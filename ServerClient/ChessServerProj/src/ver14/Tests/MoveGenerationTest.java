@@ -7,8 +7,11 @@ import ver14.Model.AttackedSquares;
 import ver14.Model.FEN;
 import ver14.Model.Model;
 import ver14.Model.Perft.Perft;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -21,13 +24,18 @@ import java.util.stream.IntStream;
  * The type Move generation test.
  */
 public class MoveGenerationTest extends Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 5;
-    private static final boolean PRINT_POSITIONS_MOVES = false;
+    private static final int POSITIONS_COUNT_DEPTH = 7;
+    private static final boolean PRINT_POSITIONS_MOVES = true;
     private static final boolean MULTITHREADING_POS = true;
 
     @Test(dataProvider = "attackedPositions")
-    private void attacked(String name, String fen, boolean isAttacked) {
-        Assert.assertEquals(AttackedSquares.isAttacked(model, model.getKing(), model.getCurrentPlayer().getOpponent()), isAttacked);
+    private void attacked(String name, String fen, Location attackedLoc, PlayerColor attacked, boolean isAttacked) {
+
+        AttackedSquares attackedSquares = new AttackedSquares(model, attacked.getOpponent());
+        attackedSquares.attack(PieceType.PAWN);
+        attackedSquares.attackedSquares.prettyPrint();
+
+        Assert.assertEquals(AttackedSquares.isAttacked(model, attackedLoc, attacked.getOpponent()), isAttacked);
 //        model.printBoard();
 //        AttackedSquares squares = new AttackedSquares(model, PlayerColor.BLACK);
 //        squares.getAttackedSquares().prettyPrint();
@@ -37,8 +45,9 @@ public class MoveGenerationTest extends Tests {
     @DataProvider(name = "attackedPositions")
     private Object[][] attackedPositions() {
         ArrayList<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"thing", "4k3/8/8/8/1p6/2K5/8/8 w - - 2 5", true});
-//        list.add(new Object[]{"thing", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 2 5", true});
+//        list.add(new Object[]{"thing", "4k3/8/8/8/1p6/2K5/8/8 w - - 2 5", true});
+//        list.add(new Object[]{"thing", "rnbq1b1r/ppppkppp/5P2/8/8/8/PPP1PPPP/RNBQKBNR b KQ - 0 4", true});
+        list.add(new Object[]{"thing", "rnbq1bnr/ppppp1pp/4kp2/5P2/3P4/8/PPP1P1PP/RNBQKBNR w KQ - 1 4", Location.E6, PlayerColor.BLACK, true});
 
         return list.stream().toList().toArray(new Object[0][]);
     }
@@ -49,12 +58,12 @@ public class MoveGenerationTest extends Tests {
         IntStream.range(0, POSITIONS_COUNT_DEPTH).forEach(i -> {
             list.add(new Object[]{(i + 1) + "", FEN.startingFen, i + 1});
         });
-        list.add(new Object[]{"castling", FEN.castling, 4});
-        list.add(new Object[]{"pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
-        list.add(new Object[]{"another pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
-        list.add(new Object[]{"another pawn check", "rnbq1bnr/ppp1pppp/2kp4/3P4/8/5N2/PPP1PPPP/RNBQKB1R w KQ - 1 4", 1});
+//        list.add(new Object[]{"castling", FEN.castling, 4});
+//        list.add(new Object[]{"pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
+//        list.add(new Object[]{"another pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
+//        list.add(new Object[]{"another pawn check", "rnbq1bnr/ppp1pppp/2kp4/3P4/8/5N2/PPP1PPPP/RNBQKB1R b KQ - 1 4", 1});
 
-        return list.stream().toList().toArray(new Object[0][]);
+        return list.toArray(new Object[0][]);
     }
 
     /**
@@ -126,7 +135,7 @@ public class MoveGenerationTest extends Tests {
         long res = countPositions(depth - 1, model, root);
         if (PRINT_POSITIONS_MOVES && depth == POSITIONS_COUNT_DEPTH)
             System.out.println(move.getBasicMoveAnnotation() + ": " + res);
-        model.undoMove();
+        model.undoMove(move);
         return res;
     }
 

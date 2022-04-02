@@ -290,7 +290,7 @@ public class MoveGenerator {
 
         model.applyMove(move);
         boolean ret = !model.isInCheck(movingPlayerColor);
-        model.undoMove();
+        model.undoMove(move);
         return ret;
     }
 
@@ -309,7 +309,7 @@ public class MoveGenerator {
     }
 
     public static int numSquaresToEdge(Location loc, Direction direction) {
-        if (direction.combination.length != 1)
+        if (direction.getCombination().length != 1)
             return 1;
         return numSquaresToEdge[loc.asInt][direction.asInt];
     }

@@ -11,8 +11,8 @@ public class AttackedSquares {
     private final PlayerColor attackingPlayerColor;
     private final PlayerColor attackedPlayerColor;
     private final PiecesBBs attackingPieces;
+    public Bitboard attackedSquares;
     private Bitboard attackedPlayerBB;
-    private Bitboard attackedSquares;
     private Pins pins = null;
     private Location checkingAttacked;
 
@@ -20,7 +20,7 @@ public class AttackedSquares {
         this(attackingPlayerColor, model.getPlayersPieces(attackingPlayerColor), model.getPlayersPieces(attackingPlayerColor.getOpponent()).getAll());
     }
 
-    private AttackedSquares(PlayerColor attackingPlayerColor, PiecesBBs attackingPieces, Bitboard attackedPlayerBB) {
+    AttackedSquares(PlayerColor attackingPlayerColor, PiecesBBs attackingPieces, Bitboard attackedPlayerBB) {
         this.attackingPlayerColor = attackingPlayerColor;
         this.attackedPlayerColor = attackingPlayerColor.getOpponent();
         this.attackingPieces = attackingPieces;
@@ -57,19 +57,23 @@ public class AttackedSquares {
         return attackedSquares;
     }
 
-    private void attack(PieceType pieceType, Direction... attackingDirections) {
+    public void attack(PieceType pieceType, Direction... attackingDirections) {
         attack(pieceType, attackingPieces.getBB(pieceType), attackingDirections);
     }
 
-    private void attack(PieceType pieceType, Bitboard attackingPiecesBB, Direction... attackingDirections) {
+    void attack(PieceType pieceType, Bitboard attackingPiecesBB, Direction... attackingDirections) {
         if (attackingDirections.length == 0)
             attackingDirections = pieceType.getAttackingDirections();
 
         for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked)); i++) {
             Direction direction = attackingDirections[i];
+
+//            direction = pieceType == PieceType.PAWN && attackingPlayerColor == PlayerColor.WHITE ? direction.opposite() : direction;
+
             Bitboard pieceBB = attackingPiecesBB.cp();
             /*
-             *moving the opponent in the attacking player direction so it can be attacked and detected one step later.
+             *moving the opponent in the attacking player direction, so it can be attacked and detected one step later.
+             * (supposed to be opp perspective, so it moves with it)
              */
             Bitboard adjustedOpponent = attackedPlayerBB.shift(attackingPlayerColor, direction);
             do {

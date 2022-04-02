@@ -23,8 +23,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.ui.dialogs.MyDialogs;
-import ver14.SharedClasses.ui.dialogs.MyDialogs.DialogOption;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
@@ -33,7 +31,7 @@ import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
-import ver14.view.IconManager.IconManager;
+import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
 import ver14.view.View;
 
 import java.net.InetAddress;
@@ -104,13 +102,10 @@ public class Client implements EnvManager {
 
     public void setupClient() {
         try {
+
             // set the Server Adress (DEFAULT IP&PORT)
             serverPort = SERVER_DEFAULT_PORT;
             serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
-
-            // get Server Address from user
-//            String serverAddress = JOptionPane.showInputDialog(view.getWin(), "Enter SERVER Address [IP : PORT] or \"teacher\"", serverIP + " : " + serverPort);
-
             Properties properties = dialogProperties("Server Address");
             String desc = "Enter SERVER Address";
             Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
@@ -235,7 +230,7 @@ public class Client implements EnvManager {
             Move completeMove = getMoveFromDest(loc);
             if (completeMove != null) {
                 if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
-                    completeMove.setPromotingTo(showPromotionDialog());
+                    completeMove.setPromotingTo(showPromotionDialog(myColor));
                 }
                 returnMove(completeMove);
                 firstClickLoc = null;
@@ -268,17 +263,8 @@ public class Client implements EnvManager {
 //        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
 //    }
 
-    //todo change to new dialog system
-    public PieceType showPromotionDialog() {
-        ArrayList<DialogOption> options = new ArrayList<>();
-        for (PieceType type : PieceType.CAN_PROMOTE_TO) {
-            options.add(new DialogOption(IconManager.getPieceIcon(myColor, type), type));
-        }
-        DialogOption[] objectsOptions = new DialogOption[options.size()];
-        for (int i = 0; i < options.size(); i++) {
-            objectsOptions[i] = options.get(i);
-        }
-        return (PieceType) MyDialogs.showListDialog(view.getWin(), null, "Promote", null, objectsOptions).getKey();
+    public PieceType showPromotionDialog(PlayerColor clr) {
+        return view.showDialog(new PromotionDialog(clr)).getResult().pieceType;
     }
 
     private void returnMove(Move move) {
@@ -383,6 +369,7 @@ public class Client implements EnvManager {
         if (args == null) {
             return;
         }
+
         for (int i = 0; i < args.length; i++) {
             Arg arg = builder.getArgs()[i];
             Object argVal = args[i];

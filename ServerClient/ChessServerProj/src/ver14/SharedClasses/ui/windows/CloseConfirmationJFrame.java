@@ -9,6 +9,8 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+//fixme BUSY WAITTTTTTTTTTT
+//todo stop with the things and just use functions to set on close and another one for on resize
 public class CloseConfirmationJFrame extends JFrame {
     private static final int delayInMs = 100;
     private long lastResize;
@@ -36,7 +38,7 @@ public class CloseConfirmationJFrame extends JFrame {
                         return;
                     leave = true;
                     lastResize = System.currentTimeMillis();
-                    
+
                     new Thread(() -> {
                         while (System.currentTimeMillis() - lastResize < delayInMs) Thread.onSpinWait();
                         onResize.callback();

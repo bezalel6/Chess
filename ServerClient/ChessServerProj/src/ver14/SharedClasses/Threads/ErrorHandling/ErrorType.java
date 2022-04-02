@@ -2,6 +2,7 @@ package ver14.SharedClasses.Threads.ErrorHandling;
 
 public enum ErrorType {
     UnKnown,
+    DB,
     Model(ContextType.Game),
     AppSocketWrite(ContextType.AppSocket),
     AppSocketRead(ContextType.AppSocket), Disconnected();

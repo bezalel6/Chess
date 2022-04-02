@@ -34,7 +34,6 @@ public class Model implements Serializable {
     private Stack<Move> moveStack;
     private Board board;
     private PiecesBBs[] pieces;
-    private Bitboard[] attackedSquares;
     private int[][] piecesCount;
     private PlayerColor currentPlayerColor;
     private int halfMoveClock, fullMoveClock;
@@ -50,13 +49,11 @@ public class Model implements Serializable {
     private void createNewEmptyLogicBoard() {
         board = new Board();
         pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
-        attackedSquares = new Bitboard[PlayerColor.NUM_OF_PLAYERS];
         castlingRights = new CastlingRights();
         piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
             Arrays.fill(piecesCount[playerColor.asInt], 0);
             pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
-            attackedSquares[playerColor.asInt] = new Bitboard();
         }
     }
 
@@ -256,7 +253,6 @@ public class Model implements Serializable {
             str += genFenStr();
             str += div;
             str += board.toString();
-
             throw new AssertionError(str);
         }
     }
@@ -278,7 +274,6 @@ public class Model implements Serializable {
 
     public Location getKing(PlayerColor playerColor) {
         Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
-
         return k.getLastSetLoc();
     }
 
@@ -356,6 +351,7 @@ public class Model implements Serializable {
         if (move.isCapturing()) {
             Piece otherPiece = board.getPiece(movingTo);
             Assert(otherPiece != null, "eating on empty stomach", move);
+            Location lastSet = getKing(otherPiece.playerColor);
             Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
@@ -385,6 +381,7 @@ public class Model implements Serializable {
 
         setAttackedSquares();
 
+//todo remember ur in check
         if (isInCheck()) {
             Evaluation e = new Evaluation(currentPlayerColor);
             e.getGameStatus().setInCheck(getKing(currentPlayerColor));
@@ -393,8 +390,9 @@ public class Model implements Serializable {
     }
 
 
-    public void undoMove() {
-        Move move = moveStack.pop();
+    public void undoMove(Move move) {
+//        Move move = moveStack.pop();
+        assert move == moveStack.pop();
 
         setFullMoveClock(move.getPrevFullMoveClock());
         setHalfMoveClock(move.getPrevHalfMoveClock());

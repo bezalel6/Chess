@@ -9,6 +9,8 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 
@@ -186,19 +188,27 @@ public class Game {
     }
 
     private Move getMove() {
-        isReadingMove = true;
-        Move move = currentPlayer.getMove();
-        isReadingMove = false;
-        if (move == null || disconnectedPlayer != null) {
-            if (disconnectedPlayer == null)
-                disconnectedPlayer = currentPlayer;
-            return null;
-        }
-        session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
+        try {
+            isReadingMove = true;
+            Move move = currentPlayer.getMove();
+            isReadingMove = false;
+            if (move == null || disconnectedPlayer != null) {
+                if (disconnectedPlayer == null)
+                    disconnectedPlayer = currentPlayer;
+                return null;
+            }
+            session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
 //        move.getMoveAnnotation().resetPromotion(move);
-        move.setMovingColor(currentPlayer.getPlayerColor());
-        return move;
+            move.setMovingColor(currentPlayer.getPlayerColor());
+            return move;
+        } catch (MyError error) {
+            isReadingMove = false;
+            if (error.type == ErrorType.Disconnected) {
+                return null;
+            }
+            throw error;
+        }
     }
 
     private GameStatus makeMove(Move move) {
@@ -278,9 +288,8 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" +
-                "p1=" + gameCreator +
-                ", p2=" + p2 +
-                ", gameSettings=" + gameSettings +
+                "p1=" + gameCreator.getUsername() +
+                ", p2=" + p2.getUsername() +
                 '}';
     }
 

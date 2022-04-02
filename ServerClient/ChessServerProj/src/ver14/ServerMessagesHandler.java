@@ -7,7 +7,7 @@ import ver14.SharedClasses.networking.AppSocket;
 import ver14.SharedClasses.networking.MessagesHandler;
 import ver14.game.Game;
 import ver14.game.GameSession;
-import ver14.players.PlayerNet;
+import ver14.players.PlayerNet.PlayerNet;
 
 import java.util.ArrayList;
 

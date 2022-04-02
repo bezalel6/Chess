@@ -19,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ver12" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver6" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver13" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ver14/SharedClasses/Utils/sqlformatter" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

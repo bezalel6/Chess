@@ -11,7 +11,11 @@ import java.util.concurrent.TimeUnit;
 
 public class PreMadeRequest {
 
-    public static final PreMadeRequest TopPlayers = new PreMadeRequest(RequestBuilder::top, AuthSettings.ANY_LOGIN, builder -> new Variation("Top Five Players", new Object[]{5}, new Arg[0]));
+    public static final PreMadeRequest TopPlayers = new PreMadeRequest(RequestBuilder::top,
+            AuthSettings.ANY_LOGIN,
+            builder ->
+                    new Variation("Top All Players", new Object[]{0}, new Arg[0]),
+            builder -> new Variation("Top Five Players", new Object[]{5}, new Arg[0]));
 
     public static final PreMadeRequest Games = new PreMadeRequest(RequestBuilder::games, AuthSettings.USER, builder -> {
         Arg un = builder.args[0];

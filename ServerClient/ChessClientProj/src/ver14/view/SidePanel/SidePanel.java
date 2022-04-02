@@ -1,6 +1,7 @@
 package ver14.view.SidePanel;
 
 import ver14.Client;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -34,8 +35,8 @@ public class SidePanel extends JPanel {
             timeLbls[i] = new MyLbl(timeControlStr);
             timeLbls[i].setFont(font);
         }
-        resignBtn = new MyJButton("Resign", font, client::resignBtnClicked);
-        offerDrawBtn = new MyJButton("Offer Draw", font, client::offerDrawBtnClicked);
+        resignBtn = createBtn("Resign", client::resignBtnClicked);
+        offerDrawBtn = createBtn("Offer Draw", client::offerDrawBtnClicked);
 
         setLayout(new GridBagLayout());
 
@@ -49,6 +50,13 @@ public class SidePanel extends JPanel {
         addLayout(isFlipped);
 
         enableBtns(false);
+    }
+
+    private MyJButton createBtn(String text, VoidCallback onClick) {
+        return new MyJButton(text, font, onClick) {{
+            setFocusable(false);
+        }};
+
     }
 
     public JPanel createTimerPnl(String str, MyLbl timerLbl) {
@@ -116,7 +124,6 @@ public class SidePanel extends JPanel {
         resignBtn.setEnabled(enable);
         offerDrawBtn.setEnabled(enable);
     }
-
 
     public void setFlipped(boolean isFlipped) {
         addLayout(isFlipped);

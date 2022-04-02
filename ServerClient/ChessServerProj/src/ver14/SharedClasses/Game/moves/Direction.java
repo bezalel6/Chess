@@ -129,7 +129,10 @@ public enum Direction {
     public final static List<Direction> ALL_USED_DIRECTIONS = Arrays.stream(values()).filter(d -> d != U_U && d != D_D).collect(Collectors.toList());
     //endregion
     //endregion
-    private final static PlayerColor normalPerspective = Location.normalPerspective;
+    private final static PlayerColor normalPerspective = PlayerColor.WHITE;
+    //null at a certain point for some foocking reason
+    //    private final static PlayerColor normalPerspective = Location.normalPerspective;
+
     private final static HashMap<Integer, Direction> lookup;
 
     static {
@@ -141,13 +144,14 @@ public enum Direction {
         for (Direction direction : ALL_DIRECTIONS) {
             lookup.put(direction.offset, direction);
         }
+
     }
 
     //todo null to save space
     public final long andWith;//todo check if its postfix/prefix
     public final int offset;
-    public final Direction[] combination;
     public final int asInt;
+    private final Direction[] combination;
 
     Direction(Direction... combination) {
         assert combination.length > 0;
@@ -177,7 +181,12 @@ public enum Direction {
         return lookup.get(offset);
     }
 
+    public Direction[] getCombination() {
+        return combination;
+    }
+
     public Direction perspective(PlayerColor playerColor) {
+        assert normalPerspective != null;
         return playerColor == normalPerspective ? this : opposite();
     }
 

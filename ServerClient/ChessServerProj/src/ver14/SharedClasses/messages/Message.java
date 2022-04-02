@@ -215,9 +215,9 @@ public class Message implements Serializable {
         return new Message(MessageType.ALIVE);
     }
 
-    public static Message syncLists(SyncedItems<?>... syncedList) {
+    public static Message syncLists(SyncedItems<?>... syncedLists) {
         return new Message(MessageType.UPDATE_SYNCED_LIST) {{
-            setSyncedLists(syncedList);
+            setSyncedLists(syncedLists);
         }};
     }
 

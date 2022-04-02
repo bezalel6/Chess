@@ -77,7 +77,7 @@ public class Bitboard implements Serializable {
     }
 
     public Bitboard shiftMe(PlayerColor playerColor, Direction direction) {
-        Direction[] combination = direction.combination;
+        Direction[] combination = direction.getCombination();
         for (int i = 0, combinationLength = combination.length; i < combinationLength; i++) {
             Direction currentDirection = combination[i];
             currentDirection = currentDirection.perspective(playerColor);
@@ -94,7 +94,9 @@ public class Bitboard implements Serializable {
         return this;
     }
 
+
     public Bitboard orEqual(long l) {
+
         bitBoard |= l;
         return this;
     }
@@ -164,6 +166,7 @@ public class Bitboard implements Serializable {
     }
 
     public void reset() {
+
         bitBoard = 0L;
     }
 
@@ -180,13 +183,17 @@ public class Bitboard implements Serializable {
     }
 
     public void prettyPrint() {
+        prettyPrint("");
+    }
+
+    public void prettyPrint(String desc) {
         System.out.println();
-        System.out.println(prettyBoard());
+        System.out.println(prettyBoard(desc));
 
     }
 
-    public String prettyBoard() {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String prettyBoard(String desc) {
+        StringBuilder stringBuilder = new StringBuilder(desc + "\n");
         String RESET = "\033[0m";
         String RED = "\033[0;31m";
         for (int i = 0; i < Location.NUM_OF_SQUARES; i++) {
@@ -204,6 +211,11 @@ public class Bitboard implements Serializable {
 
     public boolean isSet(Location loc) {
         return (bitBoard & loc.asLong) != 0;
+    }
+
+    public String prettyBoard() {
+        return prettyBoard("");
+
     }
 
     public boolean anyMatch(Bitboard other) {
@@ -232,13 +244,13 @@ public class Bitboard implements Serializable {
      * @param l
      * @return myself
      */
-    public Bitboard andEqual(long l) {
+    public synchronized Bitboard andEqual(long l) {
         bitBoard &= l;
         lastSetLoc = null;
         return this;
     }
 
-    private Bitboard andEqual(Bitboard other) {
+    private synchronized Bitboard andEqual(Bitboard other) {
         return andEqual(other.bitBoard);
     }
 }

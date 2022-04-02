@@ -7,7 +7,6 @@
       <root url="jar://$PROJECT_DIR$/src/libs/hsqldb-2.5.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/libs/jackcess-3.0.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/libs/ucanaccess-5.0.1.jar!/" />
-      <root url="file://$PROJECT_DIR$/src/libs/sqlformatter" />
       <root url="jar://$PROJECT_DIR$/src/libs/javasysmon-0.3.5.1.jar!/" />
     </CLASSES>
     <JAVADOC />

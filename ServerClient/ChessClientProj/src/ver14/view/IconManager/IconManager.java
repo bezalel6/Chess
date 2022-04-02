@@ -36,6 +36,7 @@ public class IconManager {
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
     public final static Size USER_ICON_SIZE = new Size(25);
     public final static Size ABOVE_BTNS_SIZES = new Size(10);
+    public final static Size MESSAGES_ICONS = new Size(20);
     public static final ImageIcon infoIcon;
     public static final ImageIcon errorIcon;
     private static final ImageIcon[][] gameOverIcons;
@@ -60,8 +61,8 @@ public class IconManager {
             gameOverIcons[player.asInt][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
 
-        infoIcon = loadImage("StatusIcons/Info");
-        errorIcon = loadImage("StatusIcons/Error");
+        infoIcon = loadImage("StatusIcons/Info", MESSAGES_ICONS);
+        errorIcon = loadImage("StatusIcons/Error", MESSAGES_ICONS);
 
         hidePassword = loadImage("hidePassword");
         showPassword = loadImage("showPassword");

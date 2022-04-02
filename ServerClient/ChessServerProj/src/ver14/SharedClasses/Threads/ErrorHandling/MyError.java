@@ -8,7 +8,6 @@ import java.util.Map;
 public class MyError extends Error {
     public final ErrorType type;
     private final Map<ContextType, ErrorContext> context;
-    private Throwable cause;
 
     public MyError(Throwable throwable) {
         super(throwable);

@@ -14,7 +14,6 @@ import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Math;
 import ver14.SharedClasses.DBActions.Table.SwitchCase;
 import ver14.SharedClasses.DBActions.Table.Table;
-import ver14.SharedClasses.Utils.ArrUtils;
 
 import java.util.Date;
 
@@ -82,7 +81,7 @@ public class RequestBuilder {
         Arg start = new Arg(ArgType.Date, new Config<>("starting date", new Date(0)));
         Arg end = new Arg(ArgType.Date, new Config<>("ending date", new Date(), "Now"));
 
-        Condition condition = p1_Or_p2(username.repInStr);
+        Condition condition = p1_OR_p2(username.repInStr);
 
         Col date = Col.SavedDateTime.as().of(Table.Games).date();
         condition = condition.and(Condition.between(date.colName(), start.repInStr, end.repInStr));
@@ -112,7 +111,7 @@ public class RequestBuilder {
         }};
     }
 
-    private static Condition p1_Or_p2(Object un) {
+    private static Condition p1_OR_p2(Object un) {
         Condition condition = Condition.equals(Col.Player1.of(Table.Games), un);
         condition.add(Condition.equals(Col.Player2.of(Table.Games), un), Condition.Relation.OR, true);
         return condition;
@@ -169,8 +168,9 @@ public class RequestBuilder {
                 countLosses,
                 countTies
         };
+
         Selection selection = new Selection(Table.Users, cols);
-        selection.join(Selection.Join.LEFT, Table.Games, p1_Or_p2(username), username);
+        selection.join(Selection.Join.LEFT, Table.Games, p1_OR_p2(username), username);
 
         Col gamesPlayed = Col.sum("num of games played", countWins, countLosses, countTies);
 
@@ -181,7 +181,7 @@ public class RequestBuilder {
 
         Arg topNum = new Arg(ArgType.Number, new Config<>("Number Of Players", 0, "all players"));
 
-        selection = selection.nestMe(ArrUtils.concat(cols, gamesPlayed, winLossTieRatio));
+        selection = selection.nestMe(Col.Username, winLossTieRatio, gamesPlayed);
         selection.top(topNum.repInStr);
         selection.orderBy(winLossTieRatio, Selection.Order.DESC);
 

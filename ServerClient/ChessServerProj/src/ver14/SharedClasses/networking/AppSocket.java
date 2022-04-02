@@ -83,7 +83,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
             try {
                 Message msg = (Message) msgIS.readObject();
                 messagesHandler.receivedMessage(msg);
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 throw MyError.AppSocket(true, this, e);
             }
         }
@@ -127,7 +127,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         try {
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
-        } catch (Throwable e) {
+        } catch (Exception e) {
             throw MyError.AppSocket(false, this, e);
 //            ErrorHandler.thrown(ex);
         }

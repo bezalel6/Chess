@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TimeFormat implements Serializable {
     public static final TimeFormat NORMAl = new TimeFormat(TimeUnit.MINUTES.toMillis(10));
-    public static final TimeFormat BULLET = new TimeFormat(TimeUnit.SECONDS.toMillis(30));
+    public static final TimeFormat BULLET = new TimeFormat(TimeUnit.SECONDS.toMillis(2));
     public static final TimeFormat[] PRESETS = {NORMAl, BULLET};
     public static final int numOfFields = 2;
     public final long timeInMillis;

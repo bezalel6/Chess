@@ -18,7 +18,7 @@ public class MyJButton extends JButton {
     public MyJButton(String text) {
         text = StrUtils.format(text);
         setText(text);
-//        setFocusable(false);
+        setFocusable(false);
     }
 
     public void setOnClick(VoidCallback onClick) {

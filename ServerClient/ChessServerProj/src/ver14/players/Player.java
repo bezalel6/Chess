@@ -18,7 +18,7 @@ import ver14.game.GameSession;
 public abstract class Player {
     protected Game game;
     protected GameSession gameSession;
-    PlayerColor playerColor;
+    protected PlayerColor playerColor;
     private Player partner = null;
     private String username;
 
@@ -94,7 +94,7 @@ public abstract class Player {
 
     public abstract void drawOffered(Callback<Question.Answer> answerCallback);
 
-    public abstract GameSettings getGameSettings(SyncedItems joinableGames, SyncedItems resumableGames);
+    public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);
 
     public Game getOnGoingGame() {
         return game;

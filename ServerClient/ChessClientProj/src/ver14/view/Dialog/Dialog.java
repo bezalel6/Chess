@@ -4,6 +4,7 @@ import ver14.ClientMessagesHandler;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Sync.SyncedItems;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.view.Dialog.Cards.CardHeader;
@@ -31,6 +32,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
     private boolean isDisposing;
+
     public Dialog(Properties properties) {
         super((java.awt.Dialog) null);
         this.parentWin = properties.parentWin();
@@ -52,7 +54,7 @@ public abstract class Dialog extends JDialog implements Parent {
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
-        setTitle(properties.details().title());
+        setTitle(StrUtils.format(properties.details().title()));
         setLocationRelativeTo(parentWin);
         dialogWideErr(properties.details().error());
     }
@@ -120,11 +122,6 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     @Override
-    public DialogCard currentCard() {
-        return currentCard;
-    }
-
-    @Override
     public void done() {
         closeDialog();
     }
@@ -132,6 +129,11 @@ public abstract class Dialog extends JDialog implements Parent {
     @Override
     public void back() {
         popCard();
+    }
+
+    @Override
+    public DialogCard currentCard() {
+        return currentCard;
     }
 
     public void popCard() {

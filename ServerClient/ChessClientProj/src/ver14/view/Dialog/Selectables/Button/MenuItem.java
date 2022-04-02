@@ -16,6 +16,7 @@ public class MenuItem extends JMenuItem implements SelectableBtn {
     public MenuItem(Selectable value, Callback<Selectable> onSelect) {
 //        setVerticalTextPosition(SwingConstants.TOP);
 //        setHorizontalTextPosition(SwingConstants.CENTER);
+
         setText(value.getText());
         setIcon(value.getIcon());
         setFont(FontManager.small);

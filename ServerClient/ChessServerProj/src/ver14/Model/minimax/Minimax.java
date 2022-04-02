@@ -30,6 +30,7 @@ public class Minimax {
     private final Timer minimaxTimer;
     private Model model;
     private boolean log = false;
+    //    private int numOfThreads = 1;
     private int numOfThreads = 10;
     private ZonedDateTime minimaxStartedTime;
     private long positionsReached;
@@ -141,10 +142,7 @@ public class Minimax {
             return bookMove;
         cpuUsageRecords.clear();
         MinimaxMove bestMoveSoFar = null;
-        positionsReached = -1;
-        leavesReached = 0;
-        branchesPruned = 0;
-        transpositionHits = 0;
+        resetCounters();
         minimaxUI.setNumOfThreads(numOfThreads);
         int currentDepth = 1;
         boolean stop = false;
@@ -195,6 +193,13 @@ public class Minimax {
         return bestMoveSoFar;
     }
 
+    private void resetCounters() {
+        positionsReached = -1;
+        leavesReached = 0;
+        branchesPruned = 0;
+        transpositionHits = 0;
+    }
+
     private void log(String str) {
         if (log)
             System.out.println("minimax->" + str);
@@ -230,7 +235,7 @@ public class Minimax {
                     Model model1 = new Model(model);
                     model1.applyMove(move);
                     Evaluation eval = minimax(new MinimaxParameters(model1, false, maxDepth, minimaxPlayerColor, move));
-                    model1.undoMove();
+                    model1.undoMove(move);
 
                     move.setMoveEvaluation(eval);
 
@@ -282,7 +287,7 @@ public class Minimax {
 
             Evaluation eval = minimax(parms.nextDepth());
 
-            parms.model.undoMove();
+            parms.model.undoMove(move);
 
             move.setMoveEvaluation(eval);
 
