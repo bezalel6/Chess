@@ -100,10 +100,6 @@ public class View implements Iterable<BoardButton[]> {
         listsToRegister.add(list);
     }
 
-    public boolean isBoardFlipped() {
-        return boardOrientation != PlayerColor.WHITE;
-    }
-
     public void createGui() {
         win = new CloseConfirmationJFrame(client::disconnectFromServer, this::winResized) {
             {
@@ -245,6 +241,10 @@ public class View implements Iterable<BoardButton[]> {
         setBoardOrientation(boardOrientation.getOpponent());
     }
 
+    public boolean isBoardFlipped() {
+        return boardOrientation != PlayerColor.WHITE;
+    }
+
     public SidePanel getSidePanel() {
         return sidePanel;
     }
@@ -259,8 +259,7 @@ public class View implements Iterable<BoardButton[]> {
         resetAllBtns();
         boardPnl.setBoardButtons(board);
         boardPnl.getBoardOverlay().clearAllArrows();
-        sidePanel.reset(gameTime);
-        sidePanel.enableBtns(true);
+        sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
         currentGameStr = playerColor.getName() + " vs " + otherPlayer;
         updateTitle();
     }
@@ -302,6 +301,7 @@ public class View implements Iterable<BoardButton[]> {
     public void setBoardOrientation(PlayerColor boardOrientation) {
         this.boardOrientation = boardOrientation;
         boardPnl.resetOrientation();
+        sidePanel.setFlipped(isBoardFlipped());
 
     }
 

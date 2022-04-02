@@ -43,11 +43,6 @@ public class StockfishPlayer extends PlayerAI {
     }
 
     @Override
-    public boolean askForRematch() {
-        return true;
-    }
-
-    @Override
     public void updateByMove(Move move) {
 
     }

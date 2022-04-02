@@ -11,8 +11,10 @@ public class MessageDialog extends Dialog {
         super(properties);
         setTitle(title);
         setIconImage(messageType.icon.getImage());
-        cardsSetup(null, new MessageCard(this, message, messageType));
+        MessageCard card = new MessageCard(this, message, messageType);
+        cardsSetup(null, card);
         setMinimumSize(new Size(250));
+        setFocusOn(card.getBackOkPnl().getOk());
 
     }
 

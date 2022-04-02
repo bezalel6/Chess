@@ -258,14 +258,7 @@ public class Model implements Serializable {
     }
 
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
-//        return FastAttackedSquares.isAttacked(board, loc, threateningPlayer);
-//        return AttackedSquares.getAttackedSquares(this, threateningPlayer).isSet(loc);
         return AttackedSquares.isAttacked(this, loc, threateningPlayer);
-//        PlayerColor b4 = currentPlayerColor;
-//        currentPlayerColor = threateningPlayer;
-//        boolean b = MoveGenerator.generateMoves(this).stream().anyMatch(move -> move.getMovingColor() == threateningPlayer && move.getMovingTo().equals(loc));
-//        currentPlayerColor = b4;
-//        return b;
     }
 
     public Location getKing() {
@@ -282,14 +275,9 @@ public class Model implements Serializable {
     }
 
     public boolean anyLegalMove(PlayerColor playerColor) {
-//        Bitboard[] playersPieces = getPlayersPieces(playerColor);
-
         assert playerColor == currentPlayerColor;
 
         return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
-
-        //todo can return true if one piece can move to any
-//        return !generateAllMoves(playerColor).isEmpty();
     }
 
     public ModelMovesList generateAllMoves(PlayerColor player) {

@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class SimpleDialog extends Dialog {
     public SimpleDialog(Properties properties, Component... components) {
         super(properties);
-        if (components.length == 0)
+        if (components.length != 0)
             delayedSetup(components);
     }
 

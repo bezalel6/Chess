@@ -34,9 +34,12 @@ public abstract class Dialog extends JDialog implements Parent {
     private boolean isDisposing;
 
     public Dialog(Properties properties) {
-        super((java.awt.Dialog) null);
+//        super((java.awt.Dialog) null);
+        super(properties.parentWin());
         this.parentWin = properties.parentWin();
         this.isDisposing = false;
+        if (properties.getContentPane() != null)
+            setContentPane(properties.getContentPane());
         this.pane = getContentPane();
         this.socketToServer = properties.socketToServer();
 
@@ -55,13 +58,17 @@ public abstract class Dialog extends JDialog implements Parent {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
         setTitle(StrUtils.format(properties.details().title()));
-        setLocationRelativeTo(parentWin);
         dialogWideErr(properties.details().error());
+        recenter();
     }
 
     public void dialogWideErr(String error) {
         if (errorPnl != null)
             errorPnl.setText(error);
+    }
+
+    protected void recenter() {
+        setLocationRelativeTo(parentWin);
     }
 
     public void setFocusOn(Component focusOn) {
@@ -117,7 +124,7 @@ public abstract class Dialog extends JDialog implements Parent {
         if (currentCard != null) {
             verifyCurrentCard();
         }
-        setLocationRelativeTo(parentWin);
+        recenter();
         repackWin();
     }
 
@@ -210,7 +217,7 @@ public abstract class Dialog extends JDialog implements Parent {
 
         showCard(startingCard, false);
         pack();
-        setLocationRelativeTo(parentWin);
+        recenter();
     }
 
     protected CardHeader createHeader() {

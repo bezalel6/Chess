@@ -172,19 +172,14 @@ public class Tables {
             return ret;
         }
 
-        private int[][] reverse(int[][] arr) {
+        private static int[][] reverse(int[][] arr) {
             int[][] ret = new int[arr.length][arr[0].length];
-            for (int i = 0; i < 8; i++) {
-//                ret[i] = Arrays.copyOf(arr[i], arr[i].length);
+            for (int i = 0; i < ret.length; i++) {
                 ret[i] = new int[8];
-                for (int j = 0; j < 8; j++) {
-                    Location loc = Location.getLoc(i, j);
-                    //fixme
-//                    Location flipped = Location.getLoc(loc.row, loc.col, true);
-//                    Location flipped = loc;
-//                    int fCol = flipped.col, fRow = flipped.row;
-                    ret[loc.viewRow][loc.viewCol] = arr[i][j];
-                }
+            }
+            for (Location loc : Location.ALL_LOCS) {
+                Location flipped = loc.flip();
+                ret[flipped.row][flipped.col] = arr[loc.row][loc.col];
             }
             return ret;
         }

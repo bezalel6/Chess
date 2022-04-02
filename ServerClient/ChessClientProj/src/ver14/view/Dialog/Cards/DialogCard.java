@@ -64,6 +64,10 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         parentDialog.switchTo(this);
     }
 
+    public BackOkPnl getBackOkPnl() {
+        return backOkPnl;
+    }
+
 //    @Override
 //    public Dimension getPreferredSize() {
 //        return Size.max(super.getPreferredSize());

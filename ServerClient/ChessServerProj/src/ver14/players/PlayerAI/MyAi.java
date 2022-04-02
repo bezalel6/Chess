@@ -2,7 +2,6 @@ package ver14.players.PlayerAI;
 
 import ver14.Model.minimax.Minimax;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 
 import java.util.concurrent.TimeUnit;
@@ -19,7 +18,7 @@ public class MyAi extends PlayerAI {
         minimax = new Minimax(game.getModel(), (int) (TimeUnit.MILLISECONDS.toSeconds(moveSearchTimeout.timeInMillis)));
     }
 
-    
+
     @Override
     public Move getMove() {
         assert minimax != null;
@@ -28,12 +27,6 @@ public class MyAi extends PlayerAI {
 
     @Override
     public void disconnect(String cause) {
-        minimax.end();
-    }
-
-    @Override
-    public void gameOver(GameStatus gameStatus) {
-        super.gameOver(gameStatus);
         minimax.end();
     }
 

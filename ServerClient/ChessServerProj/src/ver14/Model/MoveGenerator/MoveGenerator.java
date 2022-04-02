@@ -110,7 +110,7 @@ public class MoveGenerator {
             generateSlidingMoves();
             generateKnightMoves();
             generateKingMoves();
-        } catch (ModelMovesList.ListEx ex) {
+        } catch (ModelMovesList.ListEx ex) {//throws when ur looking for any legal move and one is found
             return generatedMoves;
         }
 

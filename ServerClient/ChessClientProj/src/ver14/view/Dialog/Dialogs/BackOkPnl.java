@@ -1,5 +1,6 @@
 package ver14.view.Dialog.Dialogs;
 
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyJButton;
@@ -12,17 +13,22 @@ public class BackOkPnl extends JPanel {
 
     public BackOkPnl(BackOkInterface backOk) {
         if (backOk.getBackText() != null) {
-            back = new MyJButton(StrUtils.uppercase(backOk.getBackText()), FontManager.Dialogs.dialog, backOk::onBack);
+            back = createBtn(backOk.getBackText(), backOk::onBack);
             add(back);
         }
         if (backOk.getOkText() != null) {
-            ok = new MyJButton(StrUtils.uppercase(backOk.getOkText()), FontManager.Dialogs.dialog, backOk::onOk) {{
-                setEnabled(false);
-            }};
+            ok = createBtn(StrUtils.uppercase(backOk.getOkText()), backOk::onOk);
+            ok.setEnabled(false);
             add(ok);
         }
 
 
+    }
+
+    public static MyJButton createBtn(String str, VoidCallback onClick) {
+        return new MyJButton(StrUtils.uppercase(str), FontManager.Dialogs.dialog, onClick) {{
+            setFocusable(true);
+        }};
     }
 
     public MyJButton getOk() {

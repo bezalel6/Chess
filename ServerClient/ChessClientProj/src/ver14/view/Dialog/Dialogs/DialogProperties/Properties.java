@@ -4,21 +4,29 @@ import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.networking.AppSocket;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
 public class Properties {
     private final AppSocket socketToServer;
-    private final Component parentWin;
+    private final JFrame parentWin;
     private final Details details;
-
+    private Container contentPane;
     private Config<?> argConfig;
-
-    public Properties(AppSocket socketToServer, Component parentWin,
+    public Properties(AppSocket socketToServer, JFrame parentWin,
                       Details details) {
         this.socketToServer = socketToServer;
         this.parentWin = parentWin;
         this.details = details;
+    }
+
+    public Container getContentPane() {
+        return contentPane;
+    }
+
+    public void setContentPane(Container contentPane) {
+        this.contentPane = contentPane;
     }
 
     public Config<?> argConfig() {
@@ -33,7 +41,7 @@ public class Properties {
         return socketToServer;
     }
 
-    public Component parentWin() {
+    public JFrame parentWin() {
         return parentWin;
     }
 

@@ -96,6 +96,10 @@ public class Client implements EnvManager {
         System.out.println(str);
     }
 
+    public String getUsername() {
+        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
+    }
+
     private void setupClientGui() {
         view = new View(this);
     }

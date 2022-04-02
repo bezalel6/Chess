@@ -82,6 +82,8 @@ public abstract class Player {
 
     public abstract boolean askForRematch();
 
+//    public abstract QuestionCallback askQuestion(Question question);
+
     public abstract void updateByMove(Move move);
 
     public abstract void cancelRematch();

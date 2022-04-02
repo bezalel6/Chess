@@ -271,8 +271,8 @@ public class Server implements ErrorContext, EnvManager {
      */
 // main
     public static void main(String[] args) {
-        Server chatServer = new Server();
-        chatServer.runServer();
+        Server server = new Server();
+        server.runServer();
 
         System.out.println("**** ChatServer main() finished! ****");
     }

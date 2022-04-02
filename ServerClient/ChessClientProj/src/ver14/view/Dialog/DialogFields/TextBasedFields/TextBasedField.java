@@ -47,7 +47,7 @@ public abstract class TextBasedField<T> extends DialogField<T> {
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER)
-                    parent.tryOk(false);
+                    parent.tryOk(true);
             }
         });
         addMainComp(this.textField);

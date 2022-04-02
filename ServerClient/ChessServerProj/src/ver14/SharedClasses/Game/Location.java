@@ -149,16 +149,6 @@ public enum Location {
     }
 
     public static Location getLoc(String str) {
-//        int r = Integer.parseInt(str.substring(1)) - 1;
-//        int c = Integer.parseInt((str.charAt(0) - 'a') + "");
-////        c = flip(c);
-//        r = flip(r);
-//        Location loc = getLoc(r, c);
-//        if (!isInBounds(loc)) {
-//            return null;
-//        }
-//
-//        return loc;
         return valueOf(str.toUpperCase(Locale.ROOT));
     }
 

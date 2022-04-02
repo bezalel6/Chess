@@ -113,8 +113,10 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
 
     public boolean askForRematch() {
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+
         Arrays.stream(getPlayers()).parallel().forEach(player -> {
             boolean res = player.askForRematch();
+            log(player + " rematch " + res);
             if (atomicBoolean.get() && !res) {
                 atomicBoolean.set(false);
                 player.getPartner().cancelRematch();

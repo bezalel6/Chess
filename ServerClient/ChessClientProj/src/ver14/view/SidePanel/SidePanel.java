@@ -5,71 +5,72 @@ import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyJButton;
-import ver14.SharedClasses.ui.MyLbl;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class SidePanel extends JPanel {
     static final Font font = FontManager.sidePanel;
     public final AskPlayer askPlayerPnl;
     public final MoveLog moveLog;
-    private final MyLbl[] timeLbls;
-    private final JPanel white, black;
-    private final MyJButton resignBtn;
-    private final MyJButton offerDrawBtn;
+    final Client client;
+    private final TimerPnl bottom, top;
+    private final GameActions gameActions;
+    private final Map<PlayerColor, TimerPnl> timersMap = new HashMap<>();
+    private final Map<PlayerColor, String> usernames = new HashMap<>() {{
+        for (PlayerColor clr : PlayerColor.PLAYER_COLORS) {
+            put(clr, clr.getName());
+        }
+    }};
     private long timeControl;
     private PlayerColor currentlyRunningClr;
     private Timer currentTimer;
     private long currentRunMillis;
 
     public SidePanel(long millis, boolean isFlipped, Client client) {
+        this.client = client;
         this.currentlyRunningClr = null;
         this.timeControl = millis;
-        String timeControlStr = StrUtils.createTimeStr(millis);
-        timeLbls = new MyLbl[2];
-        for (int i = 0; i < timeLbls.length; i++) {
-            timeLbls[i] = new MyLbl(timeControlStr);
-            timeLbls[i].setFont(font);
-        }
-        resignBtn = createBtn("Resign", client::resignBtnClicked);
-        offerDrawBtn = createBtn("Offer Draw", client::offerDrawBtnClicked);
+        this.gameActions = new GameActions(this);
 
         setLayout(new GridBagLayout());
 
-        white = createTimerPnl("White", timeLbls[PlayerColor.WHITE.ordinal()]);
-        black = createTimerPnl("Black", timeLbls[PlayerColor.BLACK.ordinal()]);
+        bottom = new TimerPnl("White");
+        top = new TimerPnl("Black");
 
         moveLog = new MoveLog();
 
         askPlayerPnl = new AskPlayer();
-
-        addLayout(isFlipped);
+        setFlipped(isFlipped);
 
         enableBtns(false);
     }
 
-    private MyJButton createBtn(String text, VoidCallback onClick) {
-        return new MyJButton(text, font, onClick) {{
-            setFocusable(false);
-        }};
-
+    public void setFlipped(boolean isFlipped) {
+        synchronized (timersMap) {
+            PlayerColor base = isFlipped ? PlayerColor.BLACK : PlayerColor.WHITE;
+            timersMap.put(base, bottom);
+            timersMap.put(base.getOpponent(), top);
+            namesSync();
+        }
+        addLayout();
     }
 
-    public JPanel createTimerPnl(String str, MyLbl timerLbl) {
-        return new JPanel() {{
-            MyLbl lbl = new MyLbl(str);
-            lbl.setFont(font);
-            setLayout(new BorderLayout());
-            add(lbl, BorderLayout.NORTH);
-            add(timerLbl, BorderLayout.SOUTH);
-        }};
+    public void enableBtns(boolean enable) {
+        gameActions.enableBtns(enable);
     }
 
-    private void addLayout(boolean isFlipped) {
+    private void namesSync() {
+        for (PlayerColor clr : PlayerColor.PLAYER_COLORS) {
+            timersMap.get(clr).setName(usernames.get(clr));
+        }
+    }
+
+    private void addLayout() {
         removeAll();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
@@ -77,24 +78,21 @@ public class SidePanel extends JPanel {
 
         int wY, bY;
         int bottomY = 6;
-        if (isFlipped) {
-            wY = 0;
-            bY = bottomY;
-        } else {
-            wY = bottomY;
-            bY = 0;
-        }
+//        if (isFlipped) {
+//            wY = 0;
+//            bY = bottomY;
+//        } else {
+        wY = bottomY;
+        bY = 0;
+//        }
 
         gbc.gridx = 0;
         gbc.gridy = bY;
-        add(black, gbc);
+        add(top, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        add(resignBtn, gbc);
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        add(offerDrawBtn, gbc);
+        add(gameActions, gbc);
 
 //        gbc.gridx = 2;
 //        gbc.gridy = 1;
@@ -111,7 +109,7 @@ public class SidePanel extends JPanel {
         gbc.gridy = wY;
         gbc.weighty = 0;
         gbc.gridheight = 2;
-        add(white, gbc);
+        add(bottom, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = bottomY + 3;
@@ -120,22 +118,14 @@ public class SidePanel extends JPanel {
 
     }
 
-    public void enableBtns(boolean enable) {
-        resignBtn.setEnabled(enable);
-        offerDrawBtn.setEnabled(enable);
+    MyJButton createBtn(String text, VoidCallback onClick) {
+        return new MyJButton(text, font, onClick) {{
+            setFocusable(false);
+        }};
+
     }
 
-    public void setFlipped(boolean isFlipped) {
-        addLayout(isFlipped);
-    }
-
-    public void reset(GameTime gameTime) {
-        sync(gameTime);
-        moveLog.reset();
-        askPlayerPnl.showPnl(false);
-    }
-
-    public void sync(GameTime gameTime) {
+    public void syncAndStartTimer(GameTime gameTime) {
         setBothPlayersClocks(gameTime);
     }
 
@@ -149,11 +139,32 @@ public class SidePanel extends JPanel {
     }
 
     public void setTimerLabel(PlayerColor player, long millis) {
-        String str = StrUtils.createTimeStr(millis);
-        timeLbls[player.asInt].setText(str);
+        getTimerPnl(player).setTimer(millis);
     }
 
-    public void syncAndStartTimer(GameTime gameTime) {
+    protected TimerPnl getTimerPnl(PlayerColor clr) {
+        synchronized (timersMap) {
+            return timersMap.get(clr);
+        }
+    }
+
+    public void initGame(PlayerColor myClr, String myUn, String oppUn, GameTime gameTime) {
+        synchronized (usernames) {
+            usernames.put(myClr, myUn);
+            usernames.put(myClr.getOpponent(), oppUn);
+        }
+        namesSync();
+        reset(gameTime);
+        enableBtns(true);
+    }
+
+    public void reset(GameTime gameTime) {
+        sync(gameTime);
+        moveLog.reset();
+        askPlayerPnl.showPnl(false);
+    }
+
+    public void sync(GameTime gameTime) {
         setBothPlayersClocks(gameTime);
     }
 
