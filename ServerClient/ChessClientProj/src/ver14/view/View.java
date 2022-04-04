@@ -55,6 +55,7 @@ public class View implements Iterable<BoardButton[]> {
         FlatLightLaf.setup();
     }
 
+    public final Object boardLock = new Object();
     private final ArrayList<Dialog> displayedDialogs;
     private final Client client;
     private final ArrayList<AuthorizedComponent> authorizedComponents = new ArrayList<>();
@@ -107,7 +108,7 @@ public class View implements Iterable<BoardButton[]> {
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
-                setAlwaysOnTop(true);
+                //setAlwaysOnTop(true);
             }
 
             @Override
@@ -147,7 +148,11 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void showMessage(String message, String title, MessageCard.MessageType messageType) {
-        showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
+        try {
+
+            showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
+        } catch (IllegalStateException e) {
+        }
 
     }
 
@@ -157,6 +162,7 @@ public class View implements Iterable<BoardButton[]> {
         }
         synchronized (displayedDialogs) {
             displayedDialogs.add(dialog);
+            drawFocus();
             dialog.start(this::dialogClosed);
         }
         return dialog;
@@ -167,6 +173,13 @@ public class View implements Iterable<BoardButton[]> {
             displayedDialogs.forEach(Dialog::closeNow);
         } catch (ConcurrentModificationException e) {
         }
+    }
+
+    public void drawFocus() {
+        // bring the window into front (DeIconified)
+        win.setVisible(true);
+        win.toFront();
+        win.setState(JFrame.NORMAL);
     }
 
     private void dialogClosed(Dialog dialog) {
@@ -183,6 +196,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void resetBackground() {
+
         boardPnl.forEachBtnParallel(BoardButton::resetBackground);
     }
 
@@ -264,14 +278,17 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void initGame(GameTime gameTime, Board board, PlayerColor playerColor, String otherPlayer) {
-        setBoardOrientation(playerColor);
-        resetStatusLbl();
-        resetAllBtns();
-        boardPnl.setBoardButtons(board);
-        boardPnl.getBoardOverlay().clearAllArrows();
-        sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
-        currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
-        updateTitle();
+        synchronized (boardLock) {
+            setBoardOrientation(playerColor);
+            resetStatusLbl();
+            resetAllBtns();
+            boardPnl.setBoardButtons(board);
+            boardPnl.getBoardOverlay().clearAllArrows();
+            sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
+            currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
+            updateTitle();
+        }
+
     }
 
     public void resetAllBtns() {
@@ -413,11 +430,13 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void updateByMove(Move move) {
-        enableAllSquares(false);
-        sidePanel.moveLog.preAdding();
-        makeMove(move);
-        boardPnl.resizeIcons();
-        sidePanel.moveLog.addMove(move);
+        synchronized (boardLock) {
+            enableAllSquares(false);
+            sidePanel.moveLog.preAdding();
+            makeMove(move);
+            boardPnl.resizeIcons();
+            sidePanel.moveLog.addMove(move);
+        }
     }
 
     public void makeMove(Move move) {
@@ -429,10 +448,13 @@ public class View implements Iterable<BoardButton[]> {
         if (basicMove == null)
             return;
 
-        BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
-        BoardButton newBtn = getBtn(basicMove.getMovingTo());
-        newBtn.setPiece(prevBtn);
-        prevBtn.reset();
+        synchronized (boardLock) {
+            BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
+            BoardButton newBtn = getBtn(basicMove.getMovingTo());
+            newBtn.setPiece(prevBtn);
+            prevBtn.reset();
+
+        }
     }
 
     public void gameOver(String str) {
@@ -490,13 +512,6 @@ public class View implements Iterable<BoardButton[]> {
                 setPreferredSize(size);
             });
         }};
-    }
-
-    public void drawFocus() {
-        // bring the window into front (DeIconified)
-        win.setVisible(true);
-        win.toFront();
-        win.setState(JFrame.NORMAL);
     }
 
     public void dispose() {

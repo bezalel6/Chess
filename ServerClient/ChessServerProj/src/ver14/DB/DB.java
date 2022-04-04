@@ -11,9 +11,12 @@ import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
+import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
@@ -24,6 +27,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.File;
 import java.io.Serializable;
 import java.sql.*;
+import java.util.Date;
 import java.util.*;
 
 /**
@@ -51,6 +55,7 @@ public class DB {
         Connection con = getConnection(dbFilePath);
         DBResponse.Status status;
         try {
+            sql = StrUtils.clean(sql);
             Statement st = con.createStatement();
             st.executeUpdate(sql);
             status = DBResponse.Status.SUCCESS;
@@ -153,6 +158,7 @@ public class DB {
         ArrayList<UserDetails> ret = new ArrayList<>();
         assert res != null;
         for (String[] row : res.getRows()) {
+            assert row[0].equals(StrUtils.clean(row[0]));
             ret.add(new UserDetails(row[0], row[1]));
         }
         return ret;
@@ -160,11 +166,15 @@ public class DB {
 
     public static void main(String[] args) {
         try {
+
+            createRndGames(10);
+//            System.out.println(getAllUserDetails());
+            System.out.println(request(RequestBuilder.top().build(0)));
+//            createRndGames(30);
 //            addGames("bezalel6");
 //            clearGames();
 //            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
 //            System.out.println(request(RequestBuilder.top().build(5)));
-            System.out.println(getAllUserDetails());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -210,11 +220,12 @@ public class DB {
     }
 
     private static void addUsers() {
-        for (int i = 0; i < 5; i++) {
-            String un = "un-test" + i;
+        for (int i = 0; i < 10; i++) {
+            String un = "bezalel" + i;
             addUser(un, "openSesame");
-            addGames(un);
+//            addGames(un);
         }
+        createRndGames(20);
     }
 
     public static SyncedItems<GameInfo> getUnfinishedGames(String username) {
@@ -258,12 +269,16 @@ public class DB {
         insert(Table.Users, un, pw);
     }
 
-    private static void insert(Table table, String... values) {
+    private static void insertAtDate(Table table, Date date, String... values) {
         Object[] vals = new ArrayList<>(List.of(values)) {{
-            add((System.currentTimeMillis() / 1000) + "");
+            add((date.getTime() / 1000) + "");
         }}.toArray();
         assert vals.length == table.cols.length;
         runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
+    }
+
+    private static void insert(Table table, String... values) {
+        insertAtDate(table, new Date(), values);
     }
 
     private static String stringify(Serializable obj) {
@@ -283,13 +298,13 @@ public class DB {
     public static void saveGameResult(ArchivedGameInfo gameInfo) {
         if (isGameIdExists(gameInfo.gameId, Table.Games))
             deleteGame(Table.Games, gameInfo.gameId);
-        insert(Table.Games, gameInfo.gameId, gameInfo.creatorUsername, gameInfo.opponentUsername, stringify(gameInfo), gameInfo.getWinner());
+        insertAtDate(Table.Games, gameInfo.getCreatedAt(), gameInfo.gameId, gameInfo.creatorUsername, gameInfo.opponentUsername, stringify(gameInfo), gameInfo.getWinner());
     }
 
     public static void saveUnFinishedGame(UnfinishedGame gameInfo) {
         if (isGameIdExists(gameInfo.gameId, Table.UnfinishedGames))
             deleteGame(Table.UnfinishedGames, gameInfo.gameId);
-        insert(Table.UnfinishedGames, gameInfo.gameId, gameInfo.creatorUsername, gameInfo.opponentUsername, stringify(gameInfo), gameInfo.gameSettings.getPlayerToMove().name());
+        insertAtDate(Table.UnfinishedGames, gameInfo.getCreatedAt(), gameInfo.gameId, gameInfo.creatorUsername, gameInfo.opponentUsername, stringify(gameInfo), gameInfo.gameSettings.getPlayerToMove().name());
 
     }
 
@@ -318,6 +333,46 @@ public class DB {
 
     public static void deleteGame(Table table, String gameId) {
         runUpdate("DELETE FROM %s WHERE GameID='%s'".formatted(table.name(), gameId));
+    }
+
+    public static void createRndGames(int numOfGames) {
+        ArrayList<UserDetails> details = getAllUserDetails();
+        Random rnd = new Random();
+        for (int i = 0; i < numOfGames; i++) {
+            String un = details.get(rnd.nextInt(details.size())).username;
+            boolean isVsAi = rnd.nextBoolean();
+            GameSettings gameSettings = new GameSettings();
+            String oppUn, winner;
+            if (isVsAi) {
+                oppUn = AiParameters.AiType.MyAi.toString();
+                gameSettings.initDefault1vAi();
+            } else {
+                int index;
+                do {
+                    index = rnd.nextInt(details.size());
+                } while (un.equals(details.get(index).username));
+                oppUn = details.get(index).username;
+                gameSettings.initDefault1v1();
+
+            }
+            winner = switch (rnd.nextInt(3)) {
+                case 0 -> oppUn;
+                case 1 -> un;
+                case 2 -> TIE_STR;
+                default -> "";
+            };
+            IDsGenerator generator = new IDsGenerator();
+            ArchivedGameInfo gameInfo = new ArchivedGameInfo(generator.generate(), un, oppUn, gameSettings, winner, new Stack<>());
+
+            long now = new Date().getTime();
+            long start = new Date(0).getTime();
+            long d = rnd.nextLong() % (now - start);
+            gameInfo.setCreatedAt(new Date(d));
+
+            saveGameResult(gameInfo);
+        }
+
+
     }
 
     public static record UserDetails(String username, String password) {

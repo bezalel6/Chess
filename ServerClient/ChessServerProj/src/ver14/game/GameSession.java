@@ -115,6 +115,9 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public boolean askForRematch() {
+        if (getPlayers().stream().anyMatch(p -> !p.isConnected()))
+            return false;
+
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
 
         AtomicInteger numOfRes = new AtomicInteger(0);
@@ -165,6 +168,10 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
 
     public List<Player> getPlayers() {
         return List.of(creator, p2);
+    }
+
+    public void playerDisconnected(Player player) {
+        game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
     }
 
     @Override

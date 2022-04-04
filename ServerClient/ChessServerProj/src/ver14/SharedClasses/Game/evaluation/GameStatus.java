@@ -55,8 +55,8 @@ public class GameStatus implements Serializable {
         return new GameStatus(SpecificStatus.InsufficientMaterial);
     }
 
-    public static GameStatus playerDisconnected(PlayerColor disconnectedPlayer) {
-        return new GameStatus(disconnectedPlayer.getOpponent(), SpecificStatus.PlayerDisconnected);
+    public static GameStatus playerDisconnected(PlayerColor disconnectedPlayer, boolean isVsAi) {
+        return new GameStatus(disconnectedPlayer.getOpponent(), isVsAi ? SpecificStatus.PlayerDisconnectedVsAi : SpecificStatus.PlayerDisconnectedVsReal);
     }
 
     public static GameStatus timedOut(PlayerColor timedOutPlayer) {
@@ -127,7 +127,18 @@ public class GameStatus implements Serializable {
         Stalemate(GameStatusType.TIE),
         InsufficientMaterial(GameStatusType.TIE),
         FiftyMoveRule(GameStatusType.TIE),
-        PlayerDisconnected(GameStatusType.UNFINISHED),
+        PlayerDisconnectedVsAi(GameStatusType.UNFINISHED) {
+            @Override
+            public String toString() {
+                return "Disconnected";
+            }
+        },
+        PlayerDisconnectedVsReal {
+            @Override
+            public String toString() {
+                return "Other Player Disconnected";
+            }
+        },
         ServerStoppedGame(GameStatusType.UNFINISHED);
         public final GameStatusType gameStatusType;
 
@@ -138,6 +149,7 @@ public class GameStatus implements Serializable {
         SpecificStatus(GameStatusType gameStatusType) {
             this.gameStatusType = gameStatusType;
         }
+
 
         @Override
         public String toString() {

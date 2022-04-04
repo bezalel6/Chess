@@ -1,6 +1,8 @@
 package ver14.SharedClasses.DBActions.Table;
 
 
+import ver14.SharedClasses.Utils.StrUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,7 +19,7 @@ public enum Table {
     }
 
     public String tableAndValues() {
-        return name() + escapeValues(cols, false, true);
+        return StrUtils.clean(name() + escapeValues(cols, false, true));
     }
 
     public static String escapeValues(Object[] values, boolean quotes, boolean parentheses) {
@@ -29,7 +31,7 @@ public enum Table {
             if (quotes) {
                 bldr.append("'");
             }
-            bldr.append(str);
+            bldr.append(StrUtils.clean(str));
             if (quotes) {
                 bldr.append("'");
             }

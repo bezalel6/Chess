@@ -17,6 +17,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
+import ver14.game.Game;
 import ver14.players.Player;
 
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class PlayerNet extends Player implements SyncableItem {
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {
-            throw new MyError.DisconnectedError();
+            throw new Game.PlayerDisconnectedError(this);
         }
         assert moveMsg.getMessageType() == MessageType.GET_MOVE;
         return moveMsg.getMove();
@@ -111,12 +112,16 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void disconnect(String cause) {
+    public void
+    disconnect(String cause) {
         ErrorHandler.ignore(() -> {
             if (socketToClient.isConnected()) {
                 socketToClient.writeMessage(Message.bye(cause));
+                if (gameSession != null) {
+                    gameSession.playerDisconnected(this);
+                }
+//                interrupt(new MyError.DisconnectedError(cause));
                 socketToClient.close();
-                interrupt(new MyError.DisconnectedError(cause));
             }
         });
     }

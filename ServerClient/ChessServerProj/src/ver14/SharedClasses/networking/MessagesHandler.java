@@ -132,7 +132,7 @@ public abstract class MessagesHandler {
                 example:
                     client received a login message.
                     client replying with the login info and waiting for a welcome\error response message.
-                    gets stuck. because the response message will never get read.
+                    gets stuck. because the response message will never get read, bc the reading thread is waiting for a response
                  */
         if (message != null && !message.getMessageType().shouldBlock) {
             ThreadsManager.createThread(() -> {
@@ -162,7 +162,6 @@ public abstract class MessagesHandler {
      * On disconnected.
      */
     public void onDisconnected() {
-        interruptBlocking(new MyError.DisconnectedError());
         socket.close();
     }
 
@@ -194,6 +193,10 @@ public abstract class MessagesHandler {
         synchronized (waiting) {
             waiting.forEach(w -> w.complete(Message.throwError(err)));
         }
+    }
+
+    protected MyError.DisconnectedError createDisconnectedError() {
+        return new MyError.DisconnectedError();
     }
 
     /**

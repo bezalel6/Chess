@@ -2,6 +2,7 @@ package ver14;
 
 import ver14.DB.DB;
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.SharedClasses.networking.MessagesHandler;
@@ -44,6 +45,11 @@ public class ServerMessagesHandler extends MessagesHandler {
     public void onDisconnected() {
         server.playerDisconnected(player);
         super.onDisconnected();
+    }
+
+    @Override
+    protected MyError.DisconnectedError createDisconnectedError() {
+        return new Game.PlayerDisconnectedError(player);
     }
 
     /**

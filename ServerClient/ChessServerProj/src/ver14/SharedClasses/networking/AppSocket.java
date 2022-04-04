@@ -24,6 +24,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
             AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
             socket.messagesHandler.onDisconnected();
+
         });
         ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
 //            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
@@ -130,10 +131,11 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      *
      * @param msg the msg
      */
-    public void writeMessage(Message msg) {
+    public synchronized void writeMessage(Message msg) {
         if (!isConnected())
             return;
         try {
+            msg = new Message(msg);
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {
@@ -160,7 +162,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         ErrorHandler.ignore(() -> {
             keepReading = false;
             if (messagesHandler != null) {
-                messagesHandler.interruptBlocking(null);
+                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
             }
             msgSocket.close();  // will close the IS & OS streams
         });

@@ -11,6 +11,7 @@ import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.MessagesHandler;
+import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.View;
 
@@ -127,10 +128,12 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onGetMove() {
         return message -> {
             super.onGetMove().onMsg(message);
-            client.setLatestGetMoveMsg(message);
-            client.unlockMovableSquares(message);
-            view.getWin().toFront();
-            client.startMyTime();
+            synchronized (view.boardLock) {
+                client.setLatestGetMoveMsg(message);
+                client.unlockMovableSquares(message);
+                view.getWin().toFront();
+                client.startMyTime();
+            }
         };
     }
 
@@ -158,7 +161,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onError() {
         return message -> {
             super.onError().onMsg(message);
-            client.closeClient(message.getSubject());
+            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ERROR);
         };
     }
 
@@ -176,7 +179,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onBye() {
         return message -> {
             super.onBye().onMsg(message);
-            client.closeClient(message.getSubject());
+            client.closeClient(message.getSubject(), "Bye", MessageCard.MessageType.INFO);
         };
     }
 

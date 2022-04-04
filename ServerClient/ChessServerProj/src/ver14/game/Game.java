@@ -193,6 +193,9 @@ public class Game {
 
             move.setMovingColor(currentPlayer.getPlayerColor());
             return move;
+        } catch (PlayerDisconnectedError error) {
+            isReadingMove = false;
+            throw new GameOverError(GameStatus.playerDisconnected(error.getDisconnectedPlayer().getPlayerColor(), error.disconnectedPlayer.getPartner().isAi()));
         } catch (MyError error) {
             isReadingMove = false;
             throw error;
@@ -214,7 +217,6 @@ public class Game {
     private boolean checkTimeOut() {
         return gameTime.getRunningTime(currentPlayer.getPlayerColor()).didRunOut();
     }
-
 
     public PlayerColor getCreatorColor() {
         return creatorColor;
@@ -241,7 +243,6 @@ public class Game {
         return new Player[]{gameCreator, p2};
     }
 
-
     void interruptRead(GameStatus status) {
         MyError err = new Game.GameOverError(status);
         if (isReadingMove) {
@@ -249,7 +250,6 @@ public class Game {
         } else throw err;
 
     }
-
 
     @Override
     public String toString() {
@@ -264,6 +264,18 @@ public class Game {
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
         });
+    }
+
+    public static class PlayerDisconnectedError extends MyError.DisconnectedError {
+        private final Player disconnectedPlayer;
+
+        public PlayerDisconnectedError(Player disconnectedPlayer) {
+            this.disconnectedPlayer = disconnectedPlayer;
+        }
+
+        public Player getDisconnectedPlayer() {
+            return disconnectedPlayer;
+        }
     }
 
     public static class GameOverError extends MyError {

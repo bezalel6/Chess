@@ -12,6 +12,10 @@ import ver14.players.PlayerAI.MyAi;
 
 public class MinimaxTests extends Tests {
 
+    public static void main(String[] args) {
+        new MinimaxTests().minimaxVsMinimax();
+    }
+
     @Test(testName = "minimax vs minimax")
     private void minimaxVsMinimax() {
         AiParameters parms = new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(2000));

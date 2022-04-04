@@ -40,7 +40,7 @@ public class ServerDBResponse extends DBResponse {
                     if (dateTimeCols.contains(i)) {
                         str = StrUtils.formatDate(str);
                     }
-                    str = StrUtils.dontCapWord(str);
+//                    str = StrUtils.dontCapWord(str);
                     strs[i - 1] = str;
                 }
                 rowsList.add(strs);
