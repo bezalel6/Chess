@@ -1,6 +1,7 @@
 package ver14.players.PlayerAI;
 
 import ver14.SharedClasses.Callbacks.Callback;
+import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.TimeFormat;
@@ -8,7 +9,12 @@ import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.players.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * PlayerAI.
@@ -17,6 +23,8 @@ import ver14.players.Player;
  */
 public abstract class PlayerAI extends Player {
     final TimeFormat moveSearchTimeout;
+
+    protected Map<Question, Question.Answer> qNa = new HashMap<>();
 
     public PlayerAI(AiParameters aiParameters) {
         super(aiParameters.getAiType().toString());
@@ -30,9 +38,13 @@ public abstract class PlayerAI extends Player {
         };
     }
 
+    protected void setAnswer(Question question, Question.Answer answer) {
+        qNa.put(question, answer);
+    }
+
     @Override
     public void error(String error) {
-        interrupt();
+        interrupt(new MyError(error, ErrorType.UnKnown));
     }
 
     @Override
@@ -44,8 +56,12 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public boolean askForRematch() {
-        return true;
+    public void askQuestion(Question question, QuestionCallback onAns) {
+        if (qNa.containsKey(question)) {
+            onAns.callback(qNa.get(question));
+        } else {
+            super.askQuestion(question, onAns);
+        }
     }
 
     @Override
@@ -54,12 +70,12 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public void cancelRematch() {
+    public void cancelQuestion(Question question, String cause) {
 
     }
 
     @Override
-    public void interrupt() {
+    public void interrupt(MyError error) {
 
     }
 

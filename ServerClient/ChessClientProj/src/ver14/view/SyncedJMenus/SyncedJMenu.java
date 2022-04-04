@@ -1,6 +1,7 @@
 package ver14.view.SyncedJMenus;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.messages.Message;
@@ -93,6 +94,11 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         @Override
         public DialogCard currentCard() {
             return null;
+        }
+
+        @Override
+        public void addOnClose(VoidCallback callback) {
+            
         }
     }
 }

@@ -6,7 +6,6 @@ import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.SharedClasses.networking.MessagesHandler;
 import ver14.game.Game;
-import ver14.game.GameSession;
 import ver14.players.PlayerNet.PlayerNet;
 
 import java.util.ArrayList;
@@ -43,8 +42,8 @@ public class ServerMessagesHandler extends MessagesHandler {
      */
     @Override
     public void onDisconnected() {
-        super.onDisconnected();
         server.playerDisconnected(player);
+        super.onDisconnected();
     }
 
     /**
@@ -56,7 +55,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     public MessageCallback onResign() {
         return message -> {
             super.onResign().onMsg(message);
-            player.getOnGoingGame().resigned(player);
+            player.getGameSession().resigned(player);
         };
     }
 
@@ -92,17 +91,10 @@ public class ServerMessagesHandler extends MessagesHandler {
             if (player != null) {
                 response += " " + player.getUsername();
 
-                GameSession gameSession = player.getGameSession();
-                if (gameSession != null) {
-                    //todo smn
-                    Game game = player.getOnGoingGame();
-                    if (game != null) {
-//                        response += " saving game";
-                        game.playerDisconnected(player);
-                    }
-                }
-            }
-            socket.respond(Message.bye(response), message);
+//                GameSession gameSession = player.getGameSession();
+                player.disconnect(response);
+            } else
+                socket.respond(Message.bye(response), message);
         };
     }
 

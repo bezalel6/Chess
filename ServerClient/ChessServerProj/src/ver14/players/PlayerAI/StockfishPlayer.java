@@ -6,6 +6,7 @@ import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
 
 public class StockfishPlayer extends PlayerAI {
     private final Stockfish stockfish;
@@ -48,7 +49,7 @@ public class StockfishPlayer extends PlayerAI {
     }
 
     @Override
-    public void cancelRematch() {
+    public void cancelQuestion(Question question, String cause) {
 
     }
 

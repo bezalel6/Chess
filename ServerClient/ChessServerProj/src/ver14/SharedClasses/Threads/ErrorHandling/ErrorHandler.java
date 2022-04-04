@@ -1,9 +1,12 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
+import java.util.ArrayList;
+
 /**
  * The interface Error handler.
  */
 public interface ErrorHandler {
+    ArrayList<Long> dontThrowIds = new ArrayList<>();
 
     /**
      * catches anything that might get thrown
@@ -12,11 +15,25 @@ public interface ErrorHandler {
      * @return did the runnable throw
      */
     static boolean ignore(ThrowingRunnable runnable) {
+        boolean ret;
+        synchronized (dontThrowIds) {
+            dontThrowIds.add(Thread.currentThread().getId());
+        }
         try {
             runnable.run();
-            return false;
+            ret = false;
         } catch (Throwable t) {
-            return true;
+            ret = true;
+        }
+        synchronized (dontThrowIds) {
+            dontThrowIds.remove(Thread.currentThread().getId());
+        }
+        return ret;
+    }
+
+    static boolean canThrow() {
+        synchronized (dontThrowIds) {
+            return !dontThrowIds.contains(Thread.currentThread().getId());
         }
     }
 

@@ -10,14 +10,12 @@ import ver14.view.View;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class BoardButton extends MyJButton {
     private static final double iconMultiplier = .8;
     private final static Color checkColor = new Color(186, 11, 11, 255);
-    private final static Color currentColor = new Color(0, 0, 255, 255);
+    private final static Color hoverClr = new Color(0, 0, 255, 255);
     private final static Color captureColor = Color.red;
     private final static Color canMoveToClr = Color.yellow;
     private final static Color promotingColor = new Color(151, 109, 3);
@@ -46,30 +44,22 @@ public class BoardButton extends MyJButton {
         setActionCommand("");
         setUI(new BasicButtonUI());
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                startHover();
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-                endHover();
-            }
-        });
+//        addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                super.mouseEntered(e);
+//                startHover();
+//            }
+//
+//            @Override
+//            public void mouseExited(MouseEvent e) {
+//                super.mouseExited(e);
+//                endHover();
+//            }
+//        });
     }
 
-    private void startHover() {
-        this.isHovering = true;
-        if (isEnabled()) {
-            beforeHoverClr = getBackground();
-            super.setBackground(Color.BLUE);
-        }
-    }
-
-    private void endHover() {
+    public void endHover() {
         this.isHovering = false;
         setBackground(beforeHoverClr);
     }
@@ -157,7 +147,6 @@ public class BoardButton extends MyJButton {
         return btnLoc;
     }
 
-
     public void setSelected(boolean selected) {
         isSelected = selected;
     }
@@ -188,6 +177,15 @@ public class BoardButton extends MyJButton {
     private void checkHoverStatus() {
         if (isHovering)
             startHover();
+    }
+
+
+    public void startHover() {
+        this.isHovering = true;
+        if (isEnabled()) {
+            beforeHoverClr = getBackground() != hoverClr ? getBackground() : beforeHoverClr;
+            super.setBackground(hoverClr);
+        }
     }
 
     private int getIconHeight() {

@@ -1,5 +1,6 @@
 package ver14.SharedClasses.Threads;
 
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
@@ -16,21 +17,28 @@ public class ThreadsManager {
 
 
     public static void stopAll() {
-        threads.forEach(Thread::interrupt);
+        try {
+            threads.forEach(MyThread::stopRun);
+        } catch (Exception e) {
+            System.out.println("stopping threads");
+            System.out.println(e.getClass());
+        }
     }
 
     public static void handleErrors(ThrowingRunnable runnable) {
         MyError err = null;
         try {
             runnable.run();
+        } catch (InterruptedException ignored) {
         } catch (MyError e) {
             err = e;
         } catch (Throwable throwable) {
             err = new MyError(throwable);
         }
+
 //        if (err != null)
 //            throw err;
-        if (err != null)
+        if (err != null && ErrorHandler.canThrow())
             ErrorManager.handle(err);
     }
 
@@ -49,9 +57,10 @@ public class ThreadsManager {
             setDaemon(false);
         }
 
-        public static void closeAll() {
-            threads.forEach(Thread::interrupt);
+        public void stopRun() {
+            ErrorHandler.ignore(this::interrupt);
         }
+
 
         @Override
         public final void run() {

@@ -167,8 +167,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onQuestion().onMsg(message);
             view.getSidePanel().askPlayerPnl.ask(message.getQuestion(), answer -> {
-                message.getQuestion().setAnswer(answer);
-                socket.writeMessage(Message.answerQuestion(message.getQuestion(), message));
+                socket.writeMessage(Message.answerQuestion(answer, message));
             });
         };
     }

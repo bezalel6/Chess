@@ -7,6 +7,8 @@ import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.IconManager.Size;
 
 public class MessageDialog extends Dialog {
+    private final MessageCard.MessageType messageType;
+
     public MessageDialog(Properties properties, String message, String title, MessageCard.MessageType messageType) {
         super(properties);
         setTitle(title);
@@ -16,11 +18,15 @@ public class MessageDialog extends Dialog {
         setMinimumSize(new Size(250));
         setFocusOn(card.getBackOkPnl().getOk());
 
+        this.messageType = messageType;
     }
 
-
     public static void main(String[] args) {
-        new MessageDialog(new Properties(null, null, new Properties.Details()), "fekplfe erfj ejifhiouf nifehjfoi fenfoes hffshjf soijf fsnoif oifjsi j ijifj oijjoifj sij" + StrUtils.repeat((i, isLast) -> i + "", 50), "title", MessageCard.MessageType.ERROR).start();
+        new MessageDialog(new Properties(new Properties.Details()), "fekplfe erfj ejifhiouf nifehjfoi fenfoes hffshjf soijf fsnoif oifjsi j ijifj oijjoifj sij" + StrUtils.repeat((i, isLast) -> i + "", 50), "title", MessageCard.MessageType.ERROR).start();
+    }
+
+    public MessageCard.MessageType getMessageType() {
+        return messageType;
     }
 
 

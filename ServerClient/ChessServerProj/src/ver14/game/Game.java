@@ -32,14 +32,12 @@ public class Game {
     private final GameSession session;
     private final Player gameCreator, p2;
     private final GameSettings originalSettings;
-    private GameView gameView;
+    private final GameView gameView;
     private Model model;
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
     private GameTime gameTime;
     private Player currentPlayer;
-    private Player resignedPlayer;
-    private Player disconnectedPlayer;
     private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
     private boolean clearMoveStack = true;
@@ -92,8 +90,6 @@ public class Game {
     public GameStatus startNewGame() {
         this.moveStack = new Stack<>();
         this.model = new Model();
-        disconnectedPlayer = null;
-        resignedPlayer = null;
         initGame();
         return runGame();
     }
@@ -109,6 +105,7 @@ public class Game {
         setCurrentPlayer();
         gameTime = new GameTime(gameSettings.getTimeFormat());
         initPlayersGames();
+
         session.log("Starting game " + this);
 
         updateDebugView();
@@ -158,12 +155,12 @@ public class Game {
 
     private GameStatus playTurn() {
 //        gameTime.startRunning(currentPlayer.getPlayerColor());
-        Move move = getMove();
-//        gameTime.stopRunning(currentPlayer.getPlayerColor());
-//        if (checkTimeOut()) {
-//            return GameStatus.timedOut(currentPlayer.getPlayerColor());
-//        }
-        return makeMove(move);
+        try {
+            Move move = getMove();
+            return makeMove(move);
+        } catch (GameOverError error) {
+            return error.gameOverStatus;
+        }
     }
 
     private void switchTurn() {
@@ -192,32 +189,17 @@ public class Game {
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
-            if (move == null || disconnectedPlayer != null) {
-                if (disconnectedPlayer == null)
-                    disconnectedPlayer = currentPlayer;
-                return null;
-            }
             session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
-//        move.getMoveAnnotation().resetPromotion(move);
             move.setMovingColor(currentPlayer.getPlayerColor());
             return move;
         } catch (MyError error) {
             isReadingMove = false;
-            if (error.type == ErrorType.Disconnected) {
-                return null;
-            }
             throw error;
         }
     }
 
     private GameStatus makeMove(Move move) {
-        if (resignedPlayer != null) {
-            return GameStatus.playerResigned(resignedPlayer.getPlayerColor());
-        }
-        if (disconnectedPlayer != null) {
-            return GameStatus.playerDisconnected(disconnectedPlayer.getPlayerColor());
-        }
         if (move.getThreefoldStatus() == Move.ThreefoldStatus.CLAIMED) {
             return GameStatus.threeFoldRepetition();
         }
@@ -233,13 +215,6 @@ public class Game {
         return gameTime.getRunningTime(currentPlayer.getPlayerColor()).didRunOut();
     }
 
-    public Player getResignedPlayer() {
-        return resignedPlayer;
-    }
-
-    public Player getDisconnectedPlayer() {
-        return disconnectedPlayer;
-    }
 
     public PlayerColor getCreatorColor() {
         return creatorColor;
@@ -266,22 +241,13 @@ public class Game {
         return new Player[]{gameCreator, p2};
     }
 
-    public void resigned(Player player) {
-        resignedPlayer = player;
-        interruptRead();
-    }
 
-    private void interruptRead() {
+    void interruptRead(GameStatus status) {
+        MyError err = new Game.GameOverError(status);
         if (isReadingMove) {
-            currentPlayer.interrupt();
-        }
-    }
+            currentPlayer.interrupt(err);
+        } else throw err;
 
-    public void playerDisconnected(Player player) {
-        if (disconnectedPlayer == null) {
-            disconnectedPlayer = player;
-            interruptRead();
-        }
     }
 
 
@@ -293,11 +259,21 @@ public class Game {
                 '}';
     }
 
-
     public void drawOffered(Player player) {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
         });
+    }
+
+    public static class GameOverError extends MyError {
+
+        public final GameStatus gameOverStatus;
+
+        public GameOverError(GameStatus gameOverStatus) {
+            super(ErrorType.UnKnown);
+
+            this.gameOverStatus = gameOverStatus;
+        }
     }
 }

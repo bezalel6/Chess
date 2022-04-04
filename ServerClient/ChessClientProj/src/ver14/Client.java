@@ -74,32 +74,6 @@ public class Client implements EnvManager {
         setupClient();
     }
 
-    // main
-    public static void main(String[] args) {
-        Client client = new Client();
-        client.runClient();
-    }
-
-    public void runClient() {
-        if (clientSetupOK) {
-            log("Connected to Server(" + clientSocket.getRemoteAddress() + ")");
-            log("CLIENT(" + clientSocket.getLocalAddress() + ") Setup & Running!\n");
-            firstClickLoc = null;
-            msgHandler = new ClientMessagesHandler(this, view);
-            clientSocket.setMessagesHandler(msgHandler);
-            clientSocket.start();
-            view.connectedToServer();
-        }
-    }
-
-    private void log(String str) {
-        System.out.println(str);
-    }
-
-    public String getUsername() {
-        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
-    }
-
     private void setupClientGui() {
         view = new View(this);
     }
@@ -123,7 +97,7 @@ public class Client implements EnvManager {
 
             // check if Cancel button was pressed
             if (serverAddress == null) {
-                disconnectedFromServer();
+                closeClient();
                 return;
             }
 
@@ -143,6 +117,79 @@ public class Client implements EnvManager {
             String serverAddress = serverIP + ":" + serverPort;
             closeClient("Client can't connect to Server(" + serverAddress + ")", exp);
         }
+    }
+
+    /**
+     * Creates Dialog Properties
+     *
+     * @param properties []/[header]/[header,title]/[header,title,error]
+     * @return the created properties
+     */
+    public Properties dialogProperties(String... properties) {
+        return new Properties(loginInfo, clientSocket, view.getWin(), new Properties.Details(properties));
+    }
+
+    public void closeClient(String... cause) {
+
+        if (clientSocket != null) {
+            clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
+            if (cause.length > 0) {
+                String msg = cause[0];
+                String title = cause.length > 1 ? cause[1] : "Closing";
+
+                view.showMessage(msg, title, MessageCard.MessageType.ERROR);
+            }
+        }
+
+        log("Client Closed!");
+
+        // close GUI
+        closeGui();
+        // close client
+        System.exit(0);
+    }
+
+    private void log(String str) {
+        System.out.println(str);
+    }
+
+    private void closeClient(String msg, Throwable ex) {
+        String title = "Runtime Exception: " + msg;
+
+        System.out.println("\n>> " + title);
+        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
+
+        view.drawFocus();
+        // popup dialog with the error message
+        view.showMessage(msg + "\n\n" + MyError.errToString(ex), "Exception Error", MessageCard.MessageType.ERROR);
+        closeClient();
+    }
+
+    public void closeGui() {
+        clientRunOK = false;
+        view.dispose();
+    }
+
+    // main
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.runClient();
+    }
+
+    public void runClient() {
+        if (clientSetupOK) {
+            log("Connected to Server(" + clientSocket.getRemoteAddress() + ")");
+            log("CLIENT(" + clientSocket.getLocalAddress() + ") Setup & Running!\n");
+            firstClickLoc = null;
+            msgHandler = new ClientMessagesHandler(this, view);
+            clientSocket.setMessagesHandler(msgHandler);
+            clientSocket.start();
+            view.connectedToServer();
+        }
+    }
+
+    public String getUsername() {
+        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
     }
 
     public void disconnectedFromServer() {
@@ -197,6 +244,11 @@ public class Client implements EnvManager {
     void hideQuestionPnl() {
         view.getSidePanel().askPlayerPnl.showPnl(false);
     }
+
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
 
     String login(Message loginMessage) {
         return login("", loginMessage);
@@ -262,11 +314,6 @@ public class Client implements EnvManager {
                 .findAny().orElse(null);
     }
 
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
-
     public PieceType showPromotionDialog(PlayerColor clr) {
         return view.showDialog(new PromotionDialog(clr)).getResult().pieceType;
     }
@@ -303,31 +350,6 @@ public class Client implements EnvManager {
         }
     }
 
-    public void closeClient(String... cause) {
-
-        if (clientSocket != null && clientSocket.isConnected()) {
-            clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
-            if (cause.length > 0) {
-                String msg = cause[0];
-                String title = cause.length > 1 ? cause[1] : "Closing";
-
-                view.showMessage(msg, title, MessageCard.MessageType.ERROR);
-            }
-        }
-
-        log("Client Closed!");
-
-        // close GUI
-        closeGui();
-        // close client
-        System.exit(0);
-    }
-
-    public void closeGui() {
-        clientRunOK = false;
-        view.dispose();
-    }
-
     public void stopRunningTime() {
         view.getSidePanel().stopRunningTime();
     }
@@ -344,16 +366,6 @@ public class Client implements EnvManager {
         String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
         Properties properties = dialogProperties(msg, "game selection");
         return view.showDialog(new GameSelect(properties)).getGameSettings();
-    }
-
-    /**
-     * Creates Dialog Properties
-     *
-     * @param properties []/[header]/[header,title]/[header,title,error]
-     * @return the created properties
-     */
-    public Properties dialogProperties(String... properties) {
-        return new Properties(clientSocket, view.getWin(), new Properties.Details(properties));
     }
 
     public void changePassword() {
@@ -405,23 +417,11 @@ public class Client implements EnvManager {
 
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err);
+        log("handled: " + err.getHandledStr());
     }
 
     @Override
     public void criticalErr(MyError err) {
         closeClient("critical error", err);
-    }
-
-    private void closeClient(String msg, Throwable ex) {
-        String title = "Runtime Exception: " + msg;
-
-        System.out.println("\n>> " + title);
-        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
-
-        view.drawFocus();
-        // popup dialog with the error message
-        view.showMessage(msg + "\n\n" + MyError.errToString(ex), "Exception Error", MessageCard.MessageType.ERROR);
-        closeClient();
     }
 }

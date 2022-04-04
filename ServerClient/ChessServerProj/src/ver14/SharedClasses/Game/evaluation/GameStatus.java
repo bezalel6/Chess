@@ -95,9 +95,10 @@ public class GameStatus implements Serializable {
     public String getDetailedStr() {
         String winning = "";
         if (winningPlayerColor != null) {
-            winning = winningPlayerColor.getName() + " Won By ";
+            winning = winningPlayerColor.getName();
         }
-        return winning + specificStatus + (isGameOver() && depth != -1 ? " In " + depth : "");
+
+        return winning + " " + gameStatusType.gameOverStr + " By " + specificStatus + (isGameOver() && depth != -1 ? " In " + depth : "");
     }
 
     public boolean isGameOver() {
@@ -145,14 +146,20 @@ public class GameStatus implements Serializable {
     }
 
     public enum GameStatusType implements Serializable {
-        TIE("½½"), CHECK("+"), GAME_GOES_ON(""), WIN_OR_LOSS("#"), UNFINISHED("...");
+        TIE("½½", "Tie"), CHECK("+"), GAME_GOES_ON(""), WIN_OR_LOSS("#", "Won"), UNFINISHED("...");
 
         //        public static final GameStatusType[] GAME_OVERS = {TIE, WIN_OR_LOSS};
-        public final String annotation;
+        public final String annotation, gameOverStr;
 
         GameStatusType(String annotation) {
-            this.annotation = annotation;
+            this(annotation, annotation);
         }
+
+        GameStatusType(String annotation, String gameOverStr) {
+            this.annotation = annotation;
+            this.gameOverStr = gameOverStr;
+        }
+
 
         public boolean isGameOver() {
             return this == TIE || this == WIN_OR_LOSS || this == UNFINISHED;

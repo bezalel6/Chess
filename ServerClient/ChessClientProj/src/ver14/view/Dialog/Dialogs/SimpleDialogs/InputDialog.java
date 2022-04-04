@@ -3,6 +3,7 @@ package ver14.view.Dialog.Dialogs.SimpleDialogs;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.Utils.ArrUtils;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 
 
@@ -20,6 +21,10 @@ public class InputDialog extends CustomDialog {
     }
 
     public String getInput() {
-        return ArrUtils.exists(getResults(), 0) + "";
+        String str = (String) ArrUtils.exists(getResults(), 0);
+        if (StrUtils.isEmpty(str)) {
+            return null;
+        }
+        return str;
     }
 }

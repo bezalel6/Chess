@@ -8,7 +8,6 @@ import ver14.view.TextWrapPnl;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Locale;
 
 public class MessageCard extends DialogCard {
     public MessageCard(Dialog parentDialog, String message, MessageType messageType) {
@@ -34,7 +33,7 @@ public class MessageCard extends DialogCard {
 
         MessageType(ImageIcon icon, Font font, Color clr) {
             this.icon = icon;
-            this.header = new CardHeader(name().toLowerCase(Locale.ROOT), null, true, name());
+            this.header = new CardHeader(name().toLowerCase(), null, true, name());
             this.font = font;
             this.clr = clr;
         }

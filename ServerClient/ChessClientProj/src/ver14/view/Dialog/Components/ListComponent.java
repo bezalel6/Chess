@@ -9,11 +9,21 @@ import ver14.view.Dialog.Selectables.Selectable;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
+/**
+ * The type List component.
+ */
 public abstract class ListComponent extends DialogField<Selectable> {
+    /**
+     * The Btns.
+     */
     protected final ArrayList<SelectableBtn> btns = new ArrayList<>();
+    /**
+     * The Selected.
+     */
     protected Selectable selected = null;
-    private final Callback<Selectable> onSelect =
+    protected final Callback<Selectable> onSelect =
             justSelected -> {
                 //justSelected is null when user unselects button
                 selected = justSelected;
@@ -22,6 +32,13 @@ public abstract class ListComponent extends DialogField<Selectable> {
                 onUpdate();
             };
 
+    /**
+     * Instantiates a new List component.
+     *
+     * @param cols   the cols
+     * @param header the header
+     * @param parent the parent
+     */
     public ListComponent(int cols, Header header, Parent parent) {
         super(cols, header, parent);
     }
@@ -32,6 +49,11 @@ public abstract class ListComponent extends DialogField<Selectable> {
         super.removeAll();
     }
 
+    /**
+     * Add components.
+     *
+     * @param components the components
+     */
     public void addComponents(Selectable... components) {
         for (Selectable comp : components) {
             addComponent(comp);
@@ -44,16 +66,44 @@ public abstract class ListComponent extends DialogField<Selectable> {
         add(btn.comp());
     }
 
+    /**
+     * Create button selectable btn.
+     *
+     * @param item the item
+     * @return the selectable btn
+     */
     protected SelectableBtn createButton(Selectable item) {
         return new NormalButton(item, onSelect);
     }
 
+    /**
+     * Get random selectable.
+     *
+     * @return random value from the components. if components are empty null is returned
+     */
+    public Selectable getRandom() {
+        return btns.isEmpty() ? null : btns.get(new Random().nextInt(btns.size())).getValue();
+    }
+
+    /**
+     * On selected.
+     */
     protected abstract void onSelected();
 
+    /**
+     * List size int.
+     *
+     * @return the int
+     */
     public int listSize() {
         return btns.size();
     }
 
+    /**
+     * Add components.
+     *
+     * @param components the components
+     */
     public void addComponents(Collection<? extends Selectable> components) {
         for (Selectable comp : components) {
             addComponent(comp);

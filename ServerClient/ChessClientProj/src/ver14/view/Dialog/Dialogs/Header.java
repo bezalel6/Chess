@@ -34,6 +34,9 @@ public class Header extends JPanel {
         this.center = center;
 
         lbl = createHeader();
+
+        setToolTipText(lbl.getText());
+        
         add(lbl);
 
         Border border = getBorder();

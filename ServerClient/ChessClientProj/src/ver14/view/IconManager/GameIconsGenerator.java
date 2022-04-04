@@ -1,6 +1,5 @@
 package ver14.view.IconManager;
 
-import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
@@ -16,6 +15,11 @@ import java.awt.image.BufferedImage;
 
 public class GameIconsGenerator {
 
+    /**
+     * source: https://chess.stackexchange.com/questions/30004/longest-possible-fen#:~:text=Using%20the%20definition,4%2B5%20%3D%2090
+     */
+    private final static int maxFenLen = 90;
+
     public static void main(String[] args) {
         new JFrame() {{
             setSize(500, 500);
@@ -25,16 +29,10 @@ public class GameIconsGenerator {
         }};
     }
 
-    public static ImageIcon generate(String fen, PlayerColor boardOrientation, Dimension iconSize) {
+    public static ImageIcon generate(String fen, PlayerColor orientation, Dimension iconSize) {
         if (!RegEx.Fen.check(fen)) {
             return IconManager.scaleImage(IconManager.redX, iconSize);
         }
-
-        return screenshot(fen, boardOrientation, iconSize);
-    }
-
-    private static ImageIcon screenshot(String fen, PlayerColor orientation, Dimension iconSize) {
-        Font font = FontManager.small;
 
         fen = StrUtils.isEmpty(fen) ? Board.startingFen : fen;
         orientation = (orientation == null || orientation == PlayerColor.NO_PLAYER) ? PlayerColor.WHITE : orientation;
@@ -43,11 +41,14 @@ public class GameIconsGenerator {
         Size squareSize = new Size(iconSize);
         squareSize.multBy((double) 1 / 8);
 
-        int textHeight = font.getSize();
-        int textWidth = font.getSize() * fen.length();
+//        Font font = FontManager.small;
+//        int textHeight = font.getSize();
+//        int textWidth = font.getSize() * maxFenLen;
 
-        int w = Math.max(iconSize.width, textWidth);
-        int h = iconSize.height + textHeight;
+        int w = iconSize.width;
+        int h = iconSize.height;
+//        int w = Math.max(iconSize.width, textWidth);
+//        int h = iconSize.height + textHeight;
 
         BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = image.createGraphics();
@@ -79,13 +80,13 @@ public class GameIconsGenerator {
                 g2d.drawImage(icon.getImage(), x, y, null);
             }
         }
-        int x = 0;
-        int y = squareSize.height * 8 - 1;
-        g2d.setColor(Color.BLACK);
-//            g2d.fillRect(x, y, textWidth, textHeight);
 
-        g2d.setFont(font);
-        g2d.drawString(fen, x, y + textHeight);
+//        int x = 0;
+//        int y = squareSize.height * 8 - 1;
+//        g2d.setColor(Color.BLACK);
+//
+//        g2d.setFont(font);
+//        g2d.drawString(fen, x, y + textHeight);
 
         return new ImageIcon(image);
     }

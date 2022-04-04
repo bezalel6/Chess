@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Dialogs.GameSelection;
 
 import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
@@ -18,8 +19,10 @@ public class GameSelect extends Dialog {
         DialogCard[] cards = new DialogCard[]{
                 new GameCreation(this, gameSettings),
                 new JoinExistingGame(this, gameSettings).createCard(),
-                new ResumeUnfinishedGame(this, gameSettings).createCard()
         };
+        if (!properties.getLoginInfo().isGuest()) {
+            cards = ArrUtils.concat(cards, new ResumeUnfinishedGame(this, gameSettings).createCard());
+        }
 
         navigationCardSetup(cards);
     }

@@ -14,6 +14,7 @@ import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.TimeFormat;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.ThreadsUtil;
@@ -51,9 +52,15 @@ public class Tests implements ITest {
         Server server = new Server();
         server.runServer();
         MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, TimeFormat.BULLET)) {
+            int num = 0;
+
+            {
+                setAnswer(Question.Rematch, Question.Answer.NO);
+            }
+
             @Override
             public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
-                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AiParameters(AiParameters.AiType.Stockfish, TimeFormat.BULLET), GameSettings.GameType.CREATE_NEW);
+                return num++ != 0 ? null : new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, "rnb1k1nr/pppppppp/5q2/2b5/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", new AiParameters(AiParameters.AiType.Stockfish, TimeFormat.BULLET), GameSettings.GameType.CREATE_NEW);
             }
         };
         server.gameSetup(ai);

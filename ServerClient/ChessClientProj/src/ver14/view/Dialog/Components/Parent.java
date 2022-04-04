@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Components;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.messages.Message;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.SyncableList;
@@ -26,5 +27,7 @@ public interface Parent {
     }
 
     DialogCard currentCard();
+
+    void addOnClose(VoidCallback callback);
 
 }

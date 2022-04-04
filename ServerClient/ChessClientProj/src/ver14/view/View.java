@@ -152,11 +152,21 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public <D extends Dialog> D showDialog(D dialog) {
+        if (dialog instanceof MessageDialog messageDialog && messageDialog.getMessageType() == MessageCard.MessageType.ERROR) {
+            closeOpenDialogs();
+        }
         synchronized (displayedDialogs) {
             displayedDialogs.add(dialog);
             dialog.start(this::dialogClosed);
         }
         return dialog;
+    }
+
+    public void closeOpenDialogs() {
+        try {
+            displayedDialogs.forEach(Dialog::closeNow);
+        } catch (ConcurrentModificationException e) {
+        }
     }
 
     private void dialogClosed(Dialog dialog) {
@@ -260,7 +270,7 @@ public class View implements Iterable<BoardButton[]> {
         boardPnl.setBoardButtons(board);
         boardPnl.getBoardOverlay().clearAllArrows();
         sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
-        currentGameStr = playerColor.getName() + " vs " + otherPlayer;
+        currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
         updateTitle();
     }
 
@@ -335,6 +345,13 @@ public class View implements Iterable<BoardButton[]> {
 
     public void enableSquare(Location loc, boolean enabled) {
         getBtn(loc).setEnabled(enabled);
+    }
+
+    public void unHoverAllBtns() {
+        for (var row : this) {
+            for (var btn : row)
+                btn.endHover();
+        }
     }
 
     public void enablePath(ArrayList<Move> movableSquares) {
@@ -485,16 +502,6 @@ public class View implements Iterable<BoardButton[]> {
     public void dispose() {
         win.dispose();
         closeOpenDialogs();
-    }
-
-    public void closeOpenDialogs() {
-        synchronized (displayedDialogs) {
-            try {
-                displayedDialogs.forEach(Dialog::closeNow);
-
-            } catch (ConcurrentModificationException e) {
-            }
-        }
     }
 
     public void connectedToServer() {

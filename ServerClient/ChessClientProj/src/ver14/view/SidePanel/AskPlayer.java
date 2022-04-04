@@ -33,7 +33,7 @@ public class AskPlayer extends JPanel {
             flash(clr);
             currentClrIndex.set(currentClrIndex.intValue() % flashes.length);
             numOfFlashesDone.getAndIncrement();
-            if (numOfFlashesDone.get() == numOfFlashes) {
+            if (numOfFlashesDone.get() >= numOfFlashes) {
                 stopFlashing();
             }
         });
@@ -50,7 +50,9 @@ public class AskPlayer extends JPanel {
     private void stopFlashing() {
         flash(null);
         setBorder(null);
-        this.flashingTimer.stop();
+        if (this.flashingTimer.isRunning())
+            this.flashingTimer.stop();
+
     }
 
     public void showPnl(boolean show) {
@@ -61,6 +63,7 @@ public class AskPlayer extends JPanel {
         revalidate();
         repaint();
         if (show) {
+            numOfFlashesDone.set(0);
             flashingTimer.start();
         } else {
             stopFlashing();
@@ -76,6 +79,13 @@ public class AskPlayer extends JPanel {
         }};
         Thread.sleep(1000);
         ask.ask(Question.Rematch, a -> {
+            System.out.println(a);
+            ask.ask(Question.Rematch, b -> {
+                System.out.println(b);
+                ask.ask(Question.Rematch, c -> {
+                    System.out.println(c);
+                });
+            });
         });
     }
 

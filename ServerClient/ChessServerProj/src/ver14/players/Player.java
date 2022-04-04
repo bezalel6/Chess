@@ -1,12 +1,14 @@
 package ver14.players;
 
 import ver14.SharedClasses.Callbacks.Callback;
+import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.game.Game;
 import ver14.game.GameSession;
 
@@ -19,7 +21,7 @@ public abstract class Player {
     protected Game game;
     protected GameSession gameSession;
     protected PlayerColor playerColor;
-    private Player partner = null;
+    protected Player partner = null;
     private String username;
 
     public Player(String id) {
@@ -67,28 +69,21 @@ public abstract class Player {
 
     public abstract void error(String error);
 
-    public void playerDisconnected() {
-        System.out.println(this + " disconnected");
-        if (game != null) {
-            game.playerDisconnected(this);
-        }
-    }
-
     public abstract Move getMove();
 
     public abstract void waitTurn();
 
     public abstract void gameOver(GameStatus gameStatus);
 
-    public abstract boolean askForRematch();
-
-//    public abstract QuestionCallback askQuestion(Question question);
+    public void askQuestion(Question question, QuestionCallback onAns) {
+        onAns.callback(question.getDefaultAnswer());
+    }
 
     public abstract void updateByMove(Move move);
 
-    public abstract void cancelRematch();
+    public abstract void cancelQuestion(Question question, String cause);
 
-    public abstract void interrupt();
+    public abstract void interrupt(MyError error);
 
     public abstract void disconnect(String cause);
 
@@ -97,6 +92,11 @@ public abstract class Player {
     public abstract void drawOffered(Callback<Question.Answer> answerCallback);
 
     public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);
+
+    public void resigned() {
+        assert gameSession != null;
+        gameSession.resigned(this);
+    }
 
     public Game getOnGoingGame() {
         return game;

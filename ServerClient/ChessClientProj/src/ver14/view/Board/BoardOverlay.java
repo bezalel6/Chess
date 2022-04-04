@@ -181,22 +181,32 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
-        if (e.paramString().contains("MOUSE_PRESSED")) {
-            if (e.getButton() == MouseEvent.BUTTON1) {
-                stopDrawingArrows();
-            } else if (e.getButton() == MouseEvent.BUTTON3) {
-                startDrawing();
-            }
-        } else if (e.paramString().contains("MOUSE_RELEASED")) {
-            if (e.getButton() == MouseEvent.BUTTON3) {
-                if (isSameBtn(btn) && isDrawing)
-                    view.highLightButton(btn);
-                stopDrawingArrows();
+        switch (e.getID()) {
+            case MouseEvent.MOUSE_ENTERED:
+                view.unHoverAllBtns();
+                btn.startHover();
+                break;
+            case MouseEvent.MOUSE_EXITED:
+                btn.endHover();
+                break;
+            case MouseEvent.MOUSE_PRESSED:
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    stopDrawingArrows();
+                } else if (e.getButton() == MouseEvent.BUTTON3) {
+                    startDrawing();
+                }
+                break;
+            case MouseEvent.MOUSE_RELEASED:
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    if (isSameBtn(btn) && isDrawing)
+                        view.highLightButton(btn);
+                    stopDrawingArrows();
 
-            } else {
-                clearAllArrows();
-                view.resetSelectedButtons();
-            }
+                } else {
+                    clearAllArrows();
+                    view.resetSelectedButtons();
+                }
+                break;
         }
     }
 

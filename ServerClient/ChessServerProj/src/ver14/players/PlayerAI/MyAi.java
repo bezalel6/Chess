@@ -3,6 +3,8 @@ package ver14.players.PlayerAI;
 import ver14.Model.minimax.Minimax;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,14 +33,14 @@ public class MyAi extends PlayerAI {
     }
 
     @Override
-    public void cancelRematch() {
-        super.cancelRematch();
+    public void cancelQuestion(Question question, String cause) {
+        super.cancelQuestion(question, cause);
         minimax.end();
     }
 
     @Override
-    public void interrupt() {
-        super.interrupt();
+    public void interrupt(MyError error) {
+        super.interrupt(error);
         minimax.end();
     }
 }

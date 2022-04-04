@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public interface Selectable {
-    static Collection<Selectable> createSelectables(SyncedItems list, boolean canUseIcon) {
+    static Collection<Selectable> createSelectables(SyncedItems<?> list, boolean canUseIcon) {
         ArrayList<Selectable> ret = new ArrayList<>();
         Size iconSize = canUseIcon ? WinPnl.listItemSize : null;
         list.forEachItem(item -> {

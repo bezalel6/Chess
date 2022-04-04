@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyError extends Error {
+
     public final ErrorType type;
     private final Map<ContextType, ErrorContext> context;
 
@@ -37,16 +38,16 @@ public class MyError extends Error {
         this.context.put(context.contextType(), context);
     }
 
-
-    public ErrorContext getContext(ContextType contextType) {
-        return context.get(contextType);
+    public String getHandledStr() {
+        return toString();
+//        return type+"";
     }
 
     @Override
     public String toString() {
 
         return "MyError{" +
-                "error=" + errToString(this) +
+//                "error=" + errToString(this) +
                 "type=" + type +
                 ", context=" + context +
                 ", source=" + errToString(getCause()) +
@@ -69,6 +70,20 @@ public class MyError extends Error {
 
     private String superToString() {
         return super.toString();
+    }
+
+    public ErrorContext getContext(ContextType contextType) {
+        return context.get(contextType);
+    }
+
+    public static class DisconnectedError extends MyError {
+        public DisconnectedError() {
+            this("");
+        }
+
+        public DisconnectedError(String message) {
+            super(message, ErrorType.Disconnected);
+        }
     }
 
 }

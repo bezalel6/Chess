@@ -40,10 +40,10 @@ public class ArrUtils {
         return lst;
     }
 
-    public static <T> T exists(T[] arr, int... indices) {
-        int index = indices.length == 0 ? 0 : indices[0];
+    public static <T> T exists(T[] arr, int... index) {
+        int _index = index.length == 0 ? 0 : index[0];
 
-        return (arr == null || arr.length <= index) ? null : arr[index];
+        return (arr == null || arr.length <= _index) ? null : arr[_index];
     }
 
 }

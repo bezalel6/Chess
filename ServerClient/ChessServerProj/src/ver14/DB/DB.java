@@ -8,6 +8,7 @@ import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
+import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
@@ -144,12 +145,26 @@ public class DB {
 
     }
 
+    public static ArrayList<UserDetails> getAllUserDetails() {
+        DBRequest request = new DBRequest(new Selection(Table.Users, new Object[]{Col.Username, Col.Password}));
+
+        DBResponse res = request(request);
+
+        ArrayList<UserDetails> ret = new ArrayList<>();
+        assert res != null;
+        for (String[] row : res.getRows()) {
+            ret.add(new UserDetails(row[0], row[1]));
+        }
+        return ret;
+    }
+
     public static void main(String[] args) {
         try {
 //            addGames("bezalel6");
 //            clearGames();
 //            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
-            System.out.println(request(RequestBuilder.top().build(5)));
+//            System.out.println(request(RequestBuilder.top().build(5)));
+            System.out.println(getAllUserDetails());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -193,7 +208,6 @@ public class DB {
         runUpdate("delete from " + Table.Games.name());
         runUpdate("delete from " + Table.UnfinishedGames.name());
     }
-
 
     private static void addUsers() {
         for (int i = 0; i < 5; i++) {
@@ -252,7 +266,6 @@ public class DB {
         runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
     }
 
-
     private static String stringify(Serializable obj) {
         return Arrays.toString(SerializationUtils.serialize(obj));
     }
@@ -292,6 +305,10 @@ public class DB {
         return unstringify(select(Table.UnfinishedGames, Condition.equals(Col.GameID, gameID)).getCell(0, Col.SavedGame));
     }
 
+    public static void deleteUnfinishedGame(UnfinishedGame game) {
+        deleteGame(Table.UnfinishedGames, game.gameId);
+    }
+
     //todo PlayerOverview combination of wins,losses,ties
 //    public static PlayerStatistics getPlayersStatistics(String username) {
 //        if (RegEx.DontSaveGame.check(username))
@@ -299,13 +316,18 @@ public class DB {
 //        return new PlayerStatistics(username, getNumOfWins(username), getNumOfLosses(username), getNumOfTies(username));
 //    }
 
-
-    public static void deleteUnfinishedGame(UnfinishedGame game) {
-        deleteGame(Table.UnfinishedGames, game.gameId);
-    }
-
     public static void deleteGame(Table table, String gameId) {
         runUpdate("DELETE FROM %s WHERE GameID='%s'".formatted(table.name(), gameId));
+    }
+
+    public static record UserDetails(String username, String password) {
+
+        @Override
+        public String toString() {
+            return
+                    "username='" + username + '\'' +
+                            ", password='" + password + '\'';
+        }
     }
 
 }

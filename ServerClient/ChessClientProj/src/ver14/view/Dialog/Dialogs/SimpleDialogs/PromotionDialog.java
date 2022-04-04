@@ -11,7 +11,7 @@ public class PromotionDialog extends SimpleDialog {
     private final PromotionList list;
 
     public PromotionDialog(PlayerColor playerColor) {
-        super(new Properties(null, null, new Properties.Details("promotion", "promotion")));
+        super(new Properties(new Properties.Details("promotion", "promotion")));
         list = (new PromotionList(playerColor));
         delayedSetup(list);
     }

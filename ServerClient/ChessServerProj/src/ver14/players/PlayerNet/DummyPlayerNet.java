@@ -7,6 +7,7 @@ import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.players.Player;
 
 public class DummyPlayerNet extends Player {
@@ -40,22 +41,17 @@ public class DummyPlayerNet extends Player {
     }
 
     @Override
-    public boolean askForRematch() {
-        return false;
-    }
-
-    @Override
     public void updateByMove(Move move) {
 
     }
 
     @Override
-    public void cancelRematch() {
+    public void cancelQuestion(Question question, String cause) {
 
     }
 
     @Override
-    public void interrupt() {
+    public void interrupt(MyError error) {
 
     }
 

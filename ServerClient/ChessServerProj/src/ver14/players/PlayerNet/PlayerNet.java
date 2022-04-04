@@ -1,6 +1,7 @@
 package ver14.players.PlayerNet;
 
 import ver14.SharedClasses.Callbacks.Callback;
+import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
@@ -11,7 +12,7 @@ import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -29,6 +30,10 @@ public class PlayerNet extends Player implements SyncableItem {
     private final LoginInfo loginInfo;
     private AppSocket socketToClient;
 
+    public PlayerNet(AppSocket socketToClient, LoginInfo loginInfo) {
+        this(socketToClient, loginInfo, loginInfo.getUsername());
+    }
+
     public PlayerNet(AppSocket socketToClient, LoginInfo loginInfo, String id) {
         super(id);
         this.loginInfo = loginInfo;
@@ -42,7 +47,7 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public void initGame() {
         getSocketToClient().writeMessage(Message.initGame(game.getModel().getLogicBoard(),
-                getPartner().toString(),
+                getPartner().getUsername(),
                 getPlayerColor(),
                 game.getGameTime().clean(),
                 game.getMoveStack()));
@@ -68,7 +73,7 @@ public class PlayerNet extends Player implements SyncableItem {
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {
-            throw new MyError(ErrorType.Disconnected);
+            throw new MyError.DisconnectedError();
         }
         assert moveMsg.getMessageType() == MessageType.GET_MOVE;
         return moveMsg.getMove();
@@ -85,9 +90,8 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public boolean askForRematch() {
-        Message msg = socketToClient.requestMessage(Message.askQuestion(Question.Rematch));
-        return msg != null && msg.getMessageType() != MessageType.INTERRUPT && msg.getQuestion().getAnswer() == Question.Answer.YES;
+    public void askQuestion(Question question, QuestionCallback onAns) {
+        socketToClient.requestMessage(Message.askQuestion(question), msg -> onAns.callback(msg.getAnswer()));
     }
 
     @Override
@@ -96,23 +100,25 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void cancelRematch() {
+    public void cancelQuestion(Question question, String cause) {
 //        sendInterrupt();
         socketToClient.writeMessage(Message.interrupt());
     }
 
     @Override
-    public void interrupt() {
-        socketToClient.interruptListener();
+    public void interrupt(MyError error) {
+        socketToClient.interruptListener(error);
     }
 
     @Override
     public void disconnect(String cause) {
-        interrupt();
-        if (socketToClient.isConnected()) {
-            socketToClient.writeMessage(Message.bye(cause));
-            socketToClient.close();
-        }
+        ErrorHandler.ignore(() -> {
+            if (socketToClient.isConnected()) {
+                socketToClient.writeMessage(Message.bye(cause));
+                socketToClient.close();
+                interrupt(new MyError.DisconnectedError(cause));
+            }
+        });
     }
 
     @Override

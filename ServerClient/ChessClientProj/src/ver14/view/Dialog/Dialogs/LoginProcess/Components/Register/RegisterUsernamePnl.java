@@ -36,7 +36,10 @@ public class RegisterUsernamePnl extends UsernamePnl {
         this.suggestionsPnl = new WinPnl();
         bottomPnl.add(suggestionsPnl);
         fetchingThread = new FetchingThread();
+
+        parent.addOnClose(fetchingThread::stopRun);
     }
+
 
     @Override
     public boolean verifyField() {
@@ -119,6 +122,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
         return isLoading ? "checking if username is available" : "username is not available";
     }
 
+
     private void serverResponded(Message response, String username) {
         long ms = minLoadTime - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
         if (ms > 0) {
@@ -155,6 +159,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
                         parent.askServer(Message.checkUsernameAvailability(fetching), res -> serverResponded(res, fetching));
                     }
                 }
+                System.out.println("fetching thread finishing");
             });
             start();
         }

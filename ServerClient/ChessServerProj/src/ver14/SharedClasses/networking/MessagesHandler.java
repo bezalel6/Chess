@@ -1,6 +1,7 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -20,7 +21,7 @@ public abstract class MessagesHandler {
      * The Socket.
      */
     protected final AppSocket socket;
-    private final ArrayList<CompletableFuture<?>> waiting;
+    private final ArrayList<CompletableFuture<Message>> waiting;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
@@ -39,6 +40,7 @@ public abstract class MessagesHandler {
                 case INIT_GAME -> onInitGame();
                 case WAIT_TURN -> onWaitTurn();
                 case GET_MOVE -> onGetMove();
+                case THROW_ERROR -> onThrowError();
                 case UPDATE_BY_MOVE -> onUpdateByMove();
                 case GAME_OVER -> onGameOver();
                 case ERROR -> onError();
@@ -90,6 +92,14 @@ public abstract class MessagesHandler {
         synchronized (waiting) {
             waiting.remove(future);
         }
+
+        if (msg == null)
+            throw new MyError.DisconnectedError();
+
+        if (msg.getMessageType() == MessageType.THROW_ERROR) {
+            onThrowError().onMsg(msg);
+        }
+
         return msg;
     }
 
@@ -102,6 +112,12 @@ public abstract class MessagesHandler {
     public void noBlockRequest(Message request, MessageCallback onRes) {
         customCallbacks.put(request.messageID, onRes);
         socket.writeMessage(request);
+    }
+
+    private MessageCallback onThrowError() {
+        return msg -> {
+            throw msg.getError();
+        };
     }
 
     /**
@@ -146,7 +162,7 @@ public abstract class MessagesHandler {
      * On disconnected.
      */
     public void onDisconnected() {
-        interruptBlocking();
+        interruptBlocking(new MyError.DisconnectedError());
         socket.close();
     }
 
@@ -171,9 +187,12 @@ public abstract class MessagesHandler {
     /**
      * Interrupt blocking.
      */
-    public void interruptBlocking() {
+//    public void interruptBlocking() {
+//        interruptBlocking();
+//    }
+    public void interruptBlocking(MyError err) {
         synchronized (waiting) {
-            waiting.forEach(w -> w.complete(null));
+            waiting.forEach(w -> w.complete(Message.throwError(err)));
         }
     }
 

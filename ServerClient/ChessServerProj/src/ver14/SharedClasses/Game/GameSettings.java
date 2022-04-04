@@ -93,6 +93,19 @@ public class GameSettings implements Serializable {
         this.playerToMove = playerToMove;
     }
 
+    public void initDefault1vAi() {
+        initDefault1v1();
+        setAiParameters(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(2000)));
+    }
+
+    public void initDefault1v1() {
+        setPlayerToMove(PlayerColor.NO_PLAYER);
+        setTimeFormat(TimeFormat.NORMAl);
+        setGameType(GameSettings.GameType.CREATE_NEW);
+        setAiParameters(null);
+        setFen(null);
+    }
+
     public TimeFormat getTimeFormat() {
         return timeFormat;
     }

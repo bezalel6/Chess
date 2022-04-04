@@ -3,6 +3,7 @@ package ver14.view.Dialog;
 import ver14.ClientMessagesHandler;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
@@ -16,6 +17,7 @@ import ver14.view.ErrorPnl;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -28,6 +30,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private final AppSocket socketToServer;
     private final ErrorPnl errorPnl;
     private final JPanel cardsPnl;
+    private final ArrayList<VoidCallback> onCloseCallbacks = new ArrayList<>();
     private Component focusOn;
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
@@ -91,7 +94,6 @@ public abstract class Dialog extends JDialog implements Parent {
         dispose();
     }
 
-
     @Override
     public void setVisible(boolean b) {
         super.setVisible(!isDisposing && b);
@@ -141,6 +143,11 @@ public abstract class Dialog extends JDialog implements Parent {
     @Override
     public DialogCard currentCard() {
         return currentCard;
+    }
+
+    @Override
+    public void addOnClose(VoidCallback callback) {
+        this.onCloseCallbacks.add(callback);
     }
 
     public void popCard() {
@@ -196,9 +203,11 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     protected void notifyClosed() {
+//        todo combine
         if (onClose != null) {
             onClose.callback(this);
         }
+        onCloseCallbacks.forEach(VoidCallback::callback);
     }
 
     protected void navigationCardSetup(DialogCard... dialogCards) {

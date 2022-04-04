@@ -1,24 +1,35 @@
 package ver14.view.Dialog.Dialogs.DialogProperties;
 
 import ver14.SharedClasses.DBActions.Arg.Config;
+import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.networking.AppSocket;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 public class Properties {
+    private final LoginInfo loginInfo;
     private final AppSocket socketToServer;
     private final JFrame parentWin;
     private final Details details;
     private Container contentPane;
     private Config<?> argConfig;
-    public Properties(AppSocket socketToServer, JFrame parentWin,
+
+    public Properties(Details details) {
+        this(null, null, null, details);
+    }
+
+    public Properties(LoginInfo loginInfo, AppSocket socketToServer, JFrame parentWin,
                       Details details) {
+        this.loginInfo = loginInfo;
         this.socketToServer = socketToServer;
         this.parentWin = parentWin;
         this.details = details;
+    }
+
+    public LoginInfo getLoginInfo() {
+        return loginInfo;
     }
 
     public Container getContentPane() {
@@ -47,21 +58,6 @@ public class Properties {
 
     public Details details() {
         return details;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(socketToServer, parentWin, details);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Properties) obj;
-        return Objects.equals(this.socketToServer, that.socketToServer) &&
-                Objects.equals(this.parentWin, that.parentWin) &&
-                Objects.equals(this.details, that.details);
     }
 
     @Override

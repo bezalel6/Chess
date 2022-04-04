@@ -11,6 +11,7 @@ public enum MessageType {
     INIT_GAME(true),
     WAIT_TURN,
     GET_MOVE,
+    THROW_ERROR,
     UPDATE_BY_MOVE(true),
     GAME_OVER,
     ERROR,

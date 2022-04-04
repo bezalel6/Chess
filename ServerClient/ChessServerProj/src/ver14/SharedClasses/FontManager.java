@@ -1,5 +1,6 @@
 package ver14.SharedClasses;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class FontManager {
@@ -22,6 +23,25 @@ public class FontManager {
     public static final Font small = Base.small;
     public static final Font error = Base.error;
     public static final Font defaultLinkLbl = Base.normal;
+
+    public static void main(String[] args) {
+        JLabel lbl = new JLabel();
+        lbl.setFont(Base.xLarge.get("Verdana"));
+        lbl.setText(lbl.getFont().getFontName());
+        new JFrame() {{
+            setSize(500, 500);
+            add(lbl);
+            setVisible(true);
+        }};
+        JLabel lbl2 = new JLabel();
+        lbl2.setFont(Base.xLarge.get("Didot"));
+        lbl2.setText(lbl2.getFont().getFontName());
+        new JFrame() {{
+            setSize(500, 500);
+            add(lbl2);
+            setVisible(true);
+        }};
+    }
 
     public static class JMenus {
         public static final Font headers = Base.normal;
@@ -48,12 +68,14 @@ public class FontManager {
     }
 
     static class Base extends Font {
-        public static final Base error = new Base(Font.MONOSPACED, Font.BOLD | Font.ITALIC, Nums.smallSize);
+        public static final Base error = new Base(Font.MONOSPACED, Font.BOLD, Nums.normalSize);
         public static final Base xLarge = new Base(Nums.xLargeSize);
         public static final Base normal = new Base(Nums.normalSize);
         public static final Base large = new Base(Nums.largeSize);
         public static final Base small = new Base(Nums.smallSize);
         private static final String defaultFontName = null;
+        //        private static final String defaultFontName = "Verdana";
+//        private static final int type = 0;
         private static final int type = Font.BOLD;
 
         Base(int size) {

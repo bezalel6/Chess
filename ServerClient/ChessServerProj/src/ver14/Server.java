@@ -18,8 +18,8 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
+import ver14.SharedClasses.ui.MyJButton;
 import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
-import ver14.game.Game;
 import ver14.game.GameSession;
 import ver14.players.Player;
 import ver14.players.PlayerAI.PlayerAI;
@@ -99,7 +99,27 @@ public class Server implements ErrorContext, EnvManager {
             setTitle(SERVER_WIN_TITLE);
 //            setAlwaysOnTop(true);
         }};
+        JPanel bottomPnl = new JPanel();
+        MyJButton connectedUsersBtn = new MyJButton("Connected Users", () -> {
+            log("Connected Users:");
+            players.forEachItem(plr -> {
+                log(plr.getUsername());
+            });
+        });
+        MyJButton gameSessionsBtn = new MyJButton("Game Sessions", () -> {
+            log("Game Sessions:");
+            gameSessions.forEachItem(session -> {
+                log(session.sessionsDesc());
+            });
+        });
+        MyJButton usersDetailsBtn = new MyJButton("Users Details", () -> {
+            log("Users Details:");
+            DB.getAllUserDetails().forEach(userDetails -> log(userDetails.toString()));
+        });
 
+        bottomPnl.add(connectedUsersBtn);
+        bottomPnl.add(gameSessionsBtn);
+        bottomPnl.add(usersDetailsBtn);
         // create displayArea
         areaLog = new JTextArea() {{
             setEditable(false);
@@ -125,6 +145,7 @@ public class Server implements ErrorContext, EnvManager {
         }};
         // panel for send message
         frmWin.add(new JScrollPane(areaLog), BorderLayout.CENTER);
+        frmWin.add(bottomPnl, BorderLayout.SOUTH);
 
         // show window
         frmWin.setLocationRelativeTo(null);
@@ -164,7 +185,6 @@ public class Server implements ErrorContext, EnvManager {
             serverSetupOK = false;
             String serverAddress = serverIP + ":" + serverPort;
             log("Can't setup Server Socket on " + serverAddress + "\n" + "Fix the problem & restart the server.", exp, frmWin);
-            exp.printStackTrace();
         }
 
         System.out.println("**** setupServer() finished! ****");
@@ -173,6 +193,18 @@ public class Server implements ErrorContext, EnvManager {
 
     private void exitServer() {
         closeServer("");
+    }
+
+    /**
+     * Log.
+     *
+     * @param msg the msg
+     */
+    public void log(String msg) {
+        msg = StrUtils.format(msg);
+        areaLog.append(msg + "\n");
+        areaLog.setCaretPosition(areaLog.getDocument().getLength());
+        System.out.println(msg);
     }
 
     /**
@@ -229,6 +261,9 @@ public class Server implements ErrorContext, EnvManager {
         log("Server Closed! " + cause);
         serverRunOK = false;
         frmWin.dispose(); // close GUI
+
+//        😨
+        ThreadsManager.stopAll();
     }
 
     //todo move to synceditems as a func
@@ -250,18 +285,6 @@ public class Server implements ErrorContext, EnvManager {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    /**
-     * Log.
-     *
-     * @param msg the msg
-     */
-    public void log(String msg) {
-        msg = StrUtils.format(msg);
-        areaLog.append(msg + "\n");
-        areaLog.setCaretPosition(areaLog.getDocument().getLength());
-        System.out.println(msg);
     }
 
     /**
@@ -355,9 +378,12 @@ public class Server implements ErrorContext, EnvManager {
         if (responseMessage == null)
             return null;
         while (responseMessage.getMessageType() == MessageType.ERROR) {
+
             responseMessage.setRespondingTo(request);
             request = appSocket.requestMessage(responseMessage);
+
             responseMessage = responseToLogin(request.getLoginInfo());
+
             if (responseMessage == null)
                 return null;
         }
@@ -370,7 +396,7 @@ public class Server implements ErrorContext, EnvManager {
             return null;
 
         if (responseMessage.getMessageType() != MessageType.ERROR) {
-            return new PlayerNet(appSocket, loginInfo, loginInfo.getUsername());
+            return new PlayerNet(appSocket, loginInfo);
         }
         return login(appSocket);
     }
@@ -416,13 +442,12 @@ public class Server implements ErrorContext, EnvManager {
     /**
      * End of game session.
      *
-     * @param session            the session
-     * @param disconnectedPlayer the disconnected player
+     * @param session the session
      */
-    public void endOfGameSession(GameSession session, Player disconnectedPlayer) {
+    public void endOfGameSession(GameSession session) {
         gameSessions.remove(session.gameID);
-        Arrays.stream(session.getPlayers()).parallel().forEach(player -> {
-            if (player != disconnectedPlayer && player.isConnected()) {
+        (session.getPlayers()).stream().parallel().forEach(player -> {
+            if (player.isConnected()) {
                 gameSetup(player);
             }
         });
@@ -438,11 +463,17 @@ public class Server implements ErrorContext, EnvManager {
         SyncedItems<GameInfo> joinable = getJoinableGames(player);
         SyncedItems<GameInfo> resumable = getResumableGames(player);
 
-        GameSettings gameSettings = player.getGameSettings(joinable, resumable);
-        if (gameSettings == null) {
+        GameSettings gameSettings = null;
+        try {
+            gameSettings = player.getGameSettings(joinable, resumable);
+        } catch (MyError.DisconnectedError e) {
             playerDisconnected(player);
             return;
         }
+//        if (gameSettings == null) {
+//            playerDisconnected(player);
+//            return;
+//        }
         switch (gameSettings.getGameType()) {
             case CREATE_NEW -> {
                 if (gameSettings.isVsAi()) {
@@ -506,10 +537,10 @@ public class Server implements ErrorContext, EnvManager {
         log(player.getUsername() + " disconnected");
         player.disconnect("");
 
-        Game ongoingGame = player.getOnGoingGame();
-        if (ongoingGame != null) {
-            ongoingGame.playerDisconnected(player);
-        }
+//        Game ongoingGame = player.getOnGoingGame();
+//        if (ongoingGame != null) {
+//            ongoingGame.playerDisconnected(player);
+//        }
 
         players.remove(player.getUsername());
         List<GameInfo> del = gamePool.values()
@@ -571,7 +602,7 @@ public class Server implements ErrorContext, EnvManager {
      */
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err.type);
+        log("handled: " + err.getHandledStr());
 
     }
 

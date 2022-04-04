@@ -68,6 +68,11 @@ public class WinPnl extends JPanel {
         this(1, new Header(header, centerHeader));
     }
 
+
+    public void setBorder() {
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    }
+
     public Header getHeader() {
         return header;
     }
