@@ -63,8 +63,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     static {
         keyClrMap = new HashMap<>();
-        keyClrMap.put(KeyEvent.VK_SHIFT, Color.RED);
-        keyClrMap.put(KeyEvent.VK_CONTROL, Color.GREEN);
+        keyClrMap.put(KeyEvent.VK_SHIFT, Color.decode("#9FC0A2"));
+        keyClrMap.put(KeyEvent.VK_CONTROL, Color.decode("#d36d6d"));
     }
 
     private final View view;

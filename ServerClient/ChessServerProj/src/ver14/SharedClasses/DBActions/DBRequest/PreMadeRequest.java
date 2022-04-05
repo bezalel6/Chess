@@ -24,6 +24,8 @@ public class PreMadeRequest {
         Arg un = builder.args[0];
         return new Variation("Games from last week", new Object[]{un.repInStr, new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), new Date()}, new Arg[]{un});
     });
+    public static final PreMadeRequest deleteUnfGames = new PreMadeRequest(RequestBuilder::deleteAllUnFinishedGames, AuthSettings.USER);
+
     public final static PreMadeRequest[] statistics = {TopPlayers, Games};
     public final @AuthSettings
     int authSettings;

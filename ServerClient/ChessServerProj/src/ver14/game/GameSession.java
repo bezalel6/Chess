@@ -13,6 +13,7 @@ import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.players.Player;
 
 import java.util.List;
@@ -194,6 +195,6 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public String sessionsDesc() {
-        return "Session(%s) %s vs %s".formatted(gameID, creator.getUsername(), p2.getUsername());
+        return "Session(%s) %s vs %s".formatted(gameID, StrUtils.dontCapWord(creator.getUsername()), StrUtils.dontCapWord(p2.getUsername()));
     }
 }

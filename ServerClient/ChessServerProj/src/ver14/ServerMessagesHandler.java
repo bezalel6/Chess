@@ -44,6 +44,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public void onDisconnected() {
         server.playerDisconnected(player);
+        player.disconnect("");
         super.onDisconnected();
     }
 

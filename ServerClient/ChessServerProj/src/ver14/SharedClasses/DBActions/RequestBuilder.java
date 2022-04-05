@@ -70,6 +70,19 @@ public class RequestBuilder {
         return new RequestBuilder(update, "change password", "", username, pw);
     }
 
+    public static RequestBuilder deleteAllUnFinishedGames() {
+        Arg username = new Arg(ArgType.Username);
+        Update.Delete del = new Update.Delete(Table.UnfinishedGames, p1_OR_p2(username.repInStr, Table.UnfinishedGames));
+
+        return new RequestBuilder(del, "delete all unfinished games", "", username);
+    }
+
+    private static Condition p1_OR_p2(Object un, Table playersOf) {
+        Condition condition = Condition.equals(Col.Player1.of(playersOf), un);
+        condition.add(Condition.equals(Col.Player2.of(playersOf), un), Condition.Relation.OR, true);
+        return condition;
+    }
+
     public static RequestBuilder games() {
         Arg username = new Arg(ArgType.Username);
         Col opponent = Col.switchCase(
@@ -112,9 +125,7 @@ public class RequestBuilder {
     }
 
     private static Condition p1_OR_p2(Object un) {
-        Condition condition = Condition.equals(Col.Player1.of(Table.Games), un);
-        condition.add(Condition.equals(Col.Player2.of(Table.Games), un), Condition.Relation.OR, true);
-        return condition;
+        return p1_OR_p2(un, Table.Games);
     }
 
     private static Selection gamesStats(Object username, Condition condition) {

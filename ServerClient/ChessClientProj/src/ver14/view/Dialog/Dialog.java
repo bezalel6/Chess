@@ -221,7 +221,7 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(dialogCard);
         }
         addCard(startingCard);
-
+        
         pane.add(cardsPnl, BorderLayout.CENTER);
 
         showCard(startingCard, false);

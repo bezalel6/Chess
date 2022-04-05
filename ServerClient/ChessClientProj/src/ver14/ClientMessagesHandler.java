@@ -110,7 +110,7 @@ public class ClientMessagesHandler extends MessagesHandler {
             view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
             if (isLoadingGame) {
                 for (Move move : moveStack)
-                    client.updateByMove(move);
+                    client.updateByMove(move, false);
             }
 
         };

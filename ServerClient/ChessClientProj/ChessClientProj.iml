@@ -73,5 +73,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jcalendar-1.4" level="project" />
+    <orderEntry type="library" name="DJNativeSwing" level="project" />
+    <orderEntry type="library" name="DJNativeSwing-SWT" level="project" />
   </component>
 </module>

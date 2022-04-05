@@ -19,7 +19,7 @@ import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.SharedClasses.ui.MyJButton;
-import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.game.GameSession;
 import ver14.players.Player;
 import ver14.players.PlayerAI.PlayerAI;
@@ -55,6 +55,7 @@ public class Server implements ErrorContext, EnvManager {
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
+    private static int START_AT_PORT = -1;
 
     static {
 
@@ -72,7 +73,7 @@ public class Server implements ErrorContext, EnvManager {
     private SyncedItems<GameSession> gameSessions;
     private SyncedItems<GameInfo> gamePool;
     private ArrayList<SyncedItems<?>> syncedLists;
-    private CloseConfirmationJFrame frmWin;
+    private MyJFrame frmWin;
     private JTextArea areaLog;
     private String serverIP;
     private int serverPort;
@@ -94,16 +95,17 @@ public class Server implements ErrorContext, EnvManager {
 
     // create server GUI
     private void createServerGUI() {
-        frmWin = new CloseConfirmationJFrame(this::exitServer) {{
+        frmWin = new MyJFrame() {{
             setSize(SERVER_WIN_SIZE);
             setTitle(SERVER_WIN_TITLE);
+            setOnExit(Server.this::exitServer);
 //            setAlwaysOnTop(true);
         }};
         JPanel bottomPnl = new JPanel();
         MyJButton connectedUsersBtn = new MyJButton("Connected Users", () -> {
             log("Connected Users:");
             players.forEachItem(plr -> {
-                log(plr.getUsername());
+                log(StrUtils.dontCapWord(plr.getUsername()));
             });
         });
         MyJButton gameSessionsBtn = new MyJButton("Game Sessions", () -> {
@@ -114,7 +116,7 @@ public class Server implements ErrorContext, EnvManager {
         });
         MyJButton usersDetailsBtn = new MyJButton("Users Details", () -> {
             log("Users Details:");
-            DB.getAllUserDetails().forEach(userDetails -> log(userDetails.toString()));
+            DB.getAllUserDetails().forEach(userDetails -> log(StrUtils.dontCapFull(userDetails.toString())));
         });
 
         bottomPnl.add(connectedUsersBtn);
@@ -149,7 +151,9 @@ public class Server implements ErrorContext, EnvManager {
 
         // show window
         frmWin.setLocationRelativeTo(null);
-        frmWin.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            frmWin.setVisible(true);
+        });
     }
 
     // setup Server Address(IP&Port) and create the ServerSocket
@@ -165,17 +169,19 @@ public class Server implements ErrorContext, EnvManager {
                 add(gamePool);
                 add(gameSessions);
             }};
-            serverPort = -1;
+            serverPort = START_AT_PORT;
             serverIP = InetAddress.getLocalHost().getHostAddress(); // get Computer IP
 
-            String port = System.getenv("PORT");
-            if (port == null)
-                port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
+            if (serverPort == -1) {
+                String port = System.getenv("PORT");
+                if (port == null)
+                    port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
 
-            if (port == null) // check if Cancel button was pressed
-                serverPort = -1;
-            else
-                serverPort = Integer.parseInt(port);
+                if (port == null) // check if Cancel button was pressed
+                    serverPort = -1;
+                else
+                    serverPort = Integer.parseInt(port);
+            }
 
             // Setup Server Socket ...
             serverSocket = new MyServerSocket(serverPort);
@@ -294,6 +300,15 @@ public class Server implements ErrorContext, EnvManager {
      */
 // main
     public static void main(String[] args) {
+        if (args.length > 0) {
+            String port = Arrays.stream(args).filter(str -> str.startsWith("p=")).findAny().orElse(null);
+            if (port != null)
+                try {
+                    START_AT_PORT = Integer.parseInt(port.substring(port.indexOf('=') + 1));
+                } catch (NumberFormatException e) {
+                    START_AT_PORT = -1;
+                }
+        }
         Server server = new Server();
         server.runServer();
 
@@ -467,6 +482,8 @@ public class Server implements ErrorContext, EnvManager {
         try {
             gameSettings = player.getGameSettings(joinable, resumable);
         } catch (MyError.DisconnectedError e) {
+        }
+        if (gameSettings == null) {
             playerDisconnected(player);
             return;
         }

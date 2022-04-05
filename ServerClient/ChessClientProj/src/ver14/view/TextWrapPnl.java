@@ -22,10 +22,11 @@ public class TextWrapPnl extends JPanel {
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(500, 200));
 
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+//        textArea.setLineWrap(true);
+//        textArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         this.add(scrollPane, BorderLayout.CENTER);
     }

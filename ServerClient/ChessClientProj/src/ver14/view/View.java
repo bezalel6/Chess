@@ -15,7 +15,7 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
@@ -27,7 +27,9 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Graph.Graph;
+import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
+import ver14.view.MenuBar.MenuBar;
 import ver14.view.SidePanel.SidePanel;
 
 import javax.swing.*;
@@ -40,7 +42,7 @@ import java.util.Iterator;
 
 public class View implements Iterable<BoardButton[]> {
     public static final String CLIENT_WIN_TITLE = "Chess Client";
-    private final static boolean WIREFRAME = false;
+    private final static boolean WIREFRAME = true;
     private final static Dimension winSize;
     private final static Color statusLblNormalClr = Color.BLACK;
     private final static Color statusLblHighlightClr = Color.BLUE;
@@ -62,11 +64,11 @@ public class View implements Iterable<BoardButton[]> {
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
     private BoardPanel boardPnl;
     private SidePanel sidePanel;
-    private MenuBar menuBar;
+    private ver14.view.MenuBar.MenuBar menuBar;
     private JPanel topPnl, bottomPnl;
     private MyLbl statusLbl;
     private PlayerColor boardOrientation;
-    private CloseConfirmationJFrame win;
+    private MyJFrame win;
     private String username = "";
     private String currentGameStr = "";
 
@@ -102,12 +104,15 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void createGui() {
-        win = new CloseConfirmationJFrame(client::disconnectFromServer, this::winResized) {
+        win = new MyJFrame() {
             {
+                setIconImage(IconManager.getPieceIcon(Piece.W_K).getImage());
                 setLayout(new GridBagLayout());
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
+                setOnExit(client::disconnectFromServer);
+                setOnResize(View.this::winResized);
                 //setAlwaysOnTop(true);
             }
 
@@ -127,6 +132,7 @@ public class View implements Iterable<BoardButton[]> {
         menuBar = new MenuBar(authorizedComponents, client, this);
 
         statusLbl = new MyLbl();
+
         statusLbl.setFont(FontManager.statusLbl);
         resetStatusLbl();
         bottomPnl.add(statusLbl);
@@ -135,6 +141,11 @@ public class View implements Iterable<BoardButton[]> {
         resetBackground();
         layoutSetup();
         addWinListeners();
+
+        SwingUtilities.invokeLater(() -> {
+            statusLbl.setPreferredSize(new Size(win.getWidth() / 2, statusLbl.getPreferredSize().height));
+        });
+
         win.setVisible(true);
     }
 
@@ -149,7 +160,6 @@ public class View implements Iterable<BoardButton[]> {
 
     public void showMessage(String message, String title, MessageCard.MessageType messageType) {
         try {
-
             showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
         } catch (IllegalStateException e) {
         }
@@ -522,6 +532,13 @@ public class View implements Iterable<BoardButton[]> {
     public void connectedToServer() {
         for (SyncableList list : listsToRegister) {
             client.getMessagesHandler().registerSyncableList(list);
+        }
+    }
+
+    public void colorMove(Move move) {
+        synchronized (boardLock) {
+            getBtn(move.getMovingFrom()).movingFrom();
+            getBtn(move.getMovingTo()).movingTo();
         }
     }
 }

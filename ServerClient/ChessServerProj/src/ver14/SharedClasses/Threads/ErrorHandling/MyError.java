@@ -39,9 +39,10 @@ public class MyError extends Error {
     }
 
     public String getHandledStr() {
-        return toString();
-//        return type+"";
+//        return toString();
+        return type + "";
     }
+
 
     @Override
     public String toString() {

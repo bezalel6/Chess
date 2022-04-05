@@ -4,7 +4,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
-import ver14.view.IconManager.Size;
 
 public class MessageDialog extends Dialog {
     private final MessageCard.MessageType messageType;
@@ -15,7 +14,7 @@ public class MessageDialog extends Dialog {
         setIconImage(messageType.icon.getImage());
         MessageCard card = new MessageCard(this, message, messageType);
         cardsSetup(null, card);
-        setMinimumSize(new Size(250));
+//        setMinimumSize(new Size(250));
         setFocusOn(card.getBackOkPnl().getOk());
 
         this.messageType = messageType;

@@ -32,4 +32,10 @@ public class MyLbl extends JLabel {
     public static void toggle() {
 
     }
+
+    @Override
+    public void setText(String text) {
+//        text = StrUtils.fitInside(text, this);
+        super.setText(text);
+    }
 }

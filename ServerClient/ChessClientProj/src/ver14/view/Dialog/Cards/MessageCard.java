@@ -14,6 +14,7 @@ public class MessageCard extends DialogCard {
         super(messageType.header, parentDialog);
         TextWrapPnl pnl = new TextWrapPnl(StrUtils.format(message));
         messageType.style(pnl);
+        pnl.getTextArea().setCaretPosition(0);
         pnl.setEditable(false);
         add(pnl);
     }

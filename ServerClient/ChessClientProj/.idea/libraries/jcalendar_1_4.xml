@@ -5,8 +5,18 @@
       <root url="jar://$PROJECT_DIR$/src/libs/jcalendar-1.4/lib/jgoodies-common-1.2.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/libs/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/libs/jcalendar-1.4/lib/junit-4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/libs/swt.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT-1-0-2.zip!/api" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT-1-0-2.zip!/src/DJNativeSwing" />
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT-1-0-2.zip!/src/DJNativeSwing-SWT" />
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT-1-0-2.zip!/src/DJNativeSwing-SWTCore" />
+      <root url="jar://$PROJECT_DIR$/src/libs/DJNativeSwing-SWT-1-0-2.zip!/src/DJNativeSwing-SWTDemo" />
+    </SOURCES>
   </library>
 </component>

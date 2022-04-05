@@ -158,7 +158,6 @@ public class DB {
         ArrayList<UserDetails> ret = new ArrayList<>();
         assert res != null;
         for (String[] row : res.getRows()) {
-            assert row[0].equals(StrUtils.clean(row[0]));
             ret.add(new UserDetails(row[0], row[1]));
         }
         return ret;
