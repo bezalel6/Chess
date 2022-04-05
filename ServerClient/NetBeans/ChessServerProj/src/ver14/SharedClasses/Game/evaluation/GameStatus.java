@@ -25,10 +25,6 @@ public class GameStatus implements Serializable {
         this.gameStatusType = specificStatus.gameStatusType;
     }
 
-    public static GameStatus drawByAgreement(){
-        return new GameStatus(SpecificStatus.DrawByAgreement);
-    }
-    
     public static GameStatus checkmate(PlayerColor winningPlayerColor, Location matedKing) {
         return new GameStatus(winningPlayerColor, SpecificStatus.Checkmate) {{
             setCheckedKingLoc(matedKing);
@@ -126,7 +122,6 @@ public class GameStatus implements Serializable {
         Checkmate,
         TimedOut,
         Resignation,
-        DrawByAgreement(GameStatusType.TIE),
         GameGoesOn(GameStatusType.GAME_GOES_ON),
         ThreeFoldRepetition(GameStatusType.TIE),
         Stalemate(GameStatusType.TIE),

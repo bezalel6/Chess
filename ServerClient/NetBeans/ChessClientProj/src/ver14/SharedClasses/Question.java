@@ -53,7 +53,7 @@ public class Question implements Serializable {
         public final String answerStr;
 
         Answer() {
-            this.answerStr = name();
+            this.answerStr = StrUtils.format(name());
         }
 
         Answer(String answerStr) {

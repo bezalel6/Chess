@@ -48,6 +48,7 @@ public class MyError extends Error {
     public String toString() {
 
         return "MyError{" +
+                "" + getStackTrace()[0] + "\n" +
 //                "error=" + errToString(this) +
                 "type=" + type +
                 ", context=" + context +

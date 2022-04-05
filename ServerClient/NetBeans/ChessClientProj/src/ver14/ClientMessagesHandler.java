@@ -110,7 +110,7 @@ public class ClientMessagesHandler extends MessagesHandler {
             view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
             if (isLoadingGame) {
                 for (Move move : moveStack)
-                    client.updateByMove(move);
+                    client.updateByMove(move, false);
             }
 
         };
@@ -169,7 +169,6 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onQuestion() {
         return message -> {
             super.onQuestion().onMsg(message);
-            view.drawFocus();
             view.getSidePanel().askPlayerPnl.ask(message.getQuestion(), answer -> {
                 socket.writeMessage(Message.answerQuestion(answer, message));
             });

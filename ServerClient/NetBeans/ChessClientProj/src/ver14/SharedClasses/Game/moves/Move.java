@@ -224,6 +224,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         if (o.moveEvaluation != null) {
             return -1;
         }
+//return 0;
         return Double.compare(guessEval(), o.guessEval());
     }
 
@@ -239,7 +240,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         } else if (moveType.isCastling) {
             ret += 10;
         }
-        ret -= 100000;
+        ret -= 1000000000;
         return ret;
     }
 

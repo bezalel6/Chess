@@ -247,7 +247,8 @@ public class Game {
         MyError err = new Game.GameOverError(status);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
-        } else throw err;
+        }
+//        else throw err;
 
     }
 

@@ -25,6 +25,7 @@ public abstract class MessagesHandler {
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
+    private boolean isBye = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -360,8 +361,12 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
-
+            isBye = true;
         };
+    }
+
+    public boolean isBye() {
+        return isBye;
     }
 
     /**

@@ -19,8 +19,10 @@ import java.util.Iterator;
 import java.util.stream.IntStream;
 
 public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
-    public static final Color blackSquareClr = new Color(79, 60, 33, 255);
-    public static final Color whiteSquareClr = new Color(222, 213, 187);
+    public static final Color blackSquareClr = Color.decode("#71828f");
+    //    public static final Color blackSquareClr = new Color(79, 60, 33, 255);
+    public static final Color whiteSquareClr = Color.decode("#f2f5f3");
+    //    public static final Color whiteSquareClr = new Color(222, 213, 187);
     private final static Dimension btnDimension = new Size(50);
     private final static Insets coordinatesInsets = new Insets(1, 1, 1, 1);
     private final int rows, cols;

@@ -49,11 +49,11 @@ public class Question implements Serializable {
     }
 
     public enum Answer {
-        YES, NO, ACCEPT("Accept"), DO_NOT_ACCEPT("Do not accept"), OK;
+        YES, NO, ACCEPT, DO_NOT_ACCEPT, OK;
         public final String answerStr;
 
         Answer() {
-            this.answerStr = name();
+            this.answerStr = StrUtils.format(name());
         }
 
         Answer(String answerStr) {

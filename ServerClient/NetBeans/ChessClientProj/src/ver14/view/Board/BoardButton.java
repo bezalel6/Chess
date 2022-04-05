@@ -97,6 +97,12 @@ public class BoardButton extends MyJButton {
                 case PROMOTING -> {
                     setBackground(promotingColor);
                 }
+                case MOVING_FROM -> {
+                    setBackground(getBackground().brighter());
+                }
+                case MOVING_TO -> {
+                    setBackground(getBackground().darker());
+                }
             }
         }
     }
@@ -285,8 +291,17 @@ public class BoardButton extends MyJButton {
         updateState();
     }
 
+    public void movingFrom() {
+
+        addState(State.MOVING_FROM);
+    }
+
+    public void movingTo() {
+        addState(State.MOVING_TO);
+    }
+
 
     public enum State {
-        CHECK, CAPTURE, CAN_MOVE_TO, CURRENT, PROMOTING;
+        CHECK, CAPTURE, CAN_MOVE_TO, CURRENT, PROMOTING, MOVING_FROM, MOVING_TO;
     }
 }

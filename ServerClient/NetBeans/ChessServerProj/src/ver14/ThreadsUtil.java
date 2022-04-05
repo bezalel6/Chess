@@ -13,7 +13,6 @@ public class ThreadsUtil {
 
     public static double sampleCpuUsage() {
 //        try {
-//            
 //            JavaSysMon sysMon = new JavaSysMon();
 //            CpuTimes cpuTimes = sysMon.cpuTimes();
 //            Thread.sleep(500);

@@ -1,7 +1,12 @@
 package ver14.view;
 
-import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import javax.swing.*;
 import ver14.Client;
 import ver14.SharedClasses.DBActions.DBResponse;
 import ver14.SharedClasses.DBActions.Graphable.Graphable;
@@ -16,7 +21,7 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
@@ -28,18 +33,12 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Graph.Graph;
+import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
 import ver14.view.SidePanel.SidePanel;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-
-
 public class View implements Iterable<BoardButton[]> {
+
     public static final String CLIENT_WIN_TITLE = "Chess Client";
     private final static boolean WIREFRAME = false;
     private final static Dimension winSize;
@@ -52,6 +51,7 @@ public class View implements Iterable<BoardButton[]> {
         GraphicsEnvironment gbd = GraphicsEnvironment.getLocalGraphicsEnvironment();
         Dimension d = gbd.getScreenDevices()[0].getDefaultConfiguration().getBounds().getSize();
         winSize = new Dimension((int) (d.width / 3), (int) (d.height / 2));
+
         FlatLightLaf.setup();
     }
 
@@ -62,11 +62,11 @@ public class View implements Iterable<BoardButton[]> {
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
     private BoardPanel boardPnl;
     private SidePanel sidePanel;
-    private MenuBar menuBar;
+    private ver14.view.MenuBars.MenuBar menuBar;
     private JPanel topPnl, bottomPnl;
     private MyLbl statusLbl;
     private PlayerColor boardOrientation;
-    private CloseConfirmationJFrame win;
+    private MyJFrame win;
     private String username = "";
     private String currentGameStr = "";
 
@@ -102,19 +102,23 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void createGui() {
-        win = new CloseConfirmationJFrame(client::disconnectFromServer, this::winResized) {
+        win = new MyJFrame() {
             {
+                setIconImage(IconManager.getPieceIcon(Piece.W_K).getImage());
                 setLayout(new GridBagLayout());
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
+                setOnExit(client::disconnectFromServer);
+                setOnResize(View.this::winResized);
                 //setAlwaysOnTop(true);
             }
 
             @Override
             public void add(Component comp, Object constraints) {
-                if (WIREFRAME && comp instanceof JComponent jcomp)
+                if (WIREFRAME && comp instanceof JComponent jcomp) {
                     jcomp.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
+                }
                 super.add(comp, constraints);
             }
 
@@ -124,9 +128,10 @@ public class View implements Iterable<BoardButton[]> {
 
         topPnl = new JPanel();
         bottomPnl = new JPanel();
-        menuBar = new MenuBar(authorizedComponents, client, this);
+        menuBar = new ver14.view.MenuBars.MenuBar(authorizedComponents, client, this);
 
         statusLbl = new MyLbl();
+
         statusLbl.setFont(FontManager.statusLbl);
         resetStatusLbl();
         bottomPnl.add(statusLbl);
@@ -135,6 +140,11 @@ public class View implements Iterable<BoardButton[]> {
         resetBackground();
         layoutSetup();
         addWinListeners();
+
+        SwingUtilities.invokeLater(() -> {
+            statusLbl.setPreferredSize(new Size(win.getWidth() / 2, statusLbl.getPreferredSize().height));
+        });
+
         win.setVisible(true);
     }
 
@@ -149,7 +159,6 @@ public class View implements Iterable<BoardButton[]> {
 
     public void showMessage(String message, String title, MessageCard.MessageType messageType) {
         try {
-
             showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
         } catch (IllegalStateException e) {
         }
@@ -235,7 +244,6 @@ public class View implements Iterable<BoardButton[]> {
         win.add(sidePanel, gbc);
 
         //שורה תחתונה
-
         gbc = new GridBagConstraints();
 
         win.add(bottomPnl, gbc);
@@ -305,8 +313,9 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void setGameTime(GameTime gameTime) {
-        if (gameTime != null)
+        if (gameTime != null) {
             sidePanel.sync(gameTime);
+        }
     }
 
     public void setBtnPiece(Location loc, Piece piece) {
@@ -348,13 +357,15 @@ public class View implements Iterable<BoardButton[]> {
         for (Move move : movableSquares) {
             Location movingTo = move.getMovingTo();
             BoardButton btn = getBtn(movingTo);
-            if (move.isCapturing())
+            if (move.isCapturing()) {
                 btn.setAsCapture();
-            else
+            } else {
                 btn.setAsMovable();
+            }
 
-            if (move.getMoveFlag() == Move.MoveType.Promotion)
+            if (move.getMoveFlag() == Move.MoveType.Promotion) {
                 btn.setAsPromotion();
+            }
 
             enableSquare(movingTo, true);
         }
@@ -366,8 +377,9 @@ public class View implements Iterable<BoardButton[]> {
 
     public void unHoverAllBtns() {
         for (var row : this) {
-            for (var btn : row)
+            for (var btn : row) {
                 btn.endHover();
+            }
         }
     }
 
@@ -445,8 +457,9 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void makeBasicMove(BasicMove basicMove) {
-        if (basicMove == null)
+        if (basicMove == null) {
             return;
+        }
 
         synchronized (boardLock) {
             BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
@@ -464,10 +477,11 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void setStatusLbl(String str, Color fg) {
-        if (str == null || str.equals(""))
+        if (str == null || str.equals("")) {
             str = " ";
-        else
+        } else {
             str = StrUtils.format(str);
+        }
 //        str = StrUtils.wrapInHtml(str);
         statusLbl.setForeground(fg);
         statusLbl.setText(str);
@@ -482,8 +496,9 @@ public class View implements Iterable<BoardButton[]> {
         DBResponse currentRes = response;
         while (currentRes != null) {
             pnl.add(createSingleComp(currentRes));
-            if (currentRes instanceof Graphable graphable)
+            if (currentRes instanceof Graphable graphable) {
                 pnl.add(Graph.createGraph(graphable));
+            }
             currentRes = currentRes.getAddedRes();
         }
 
@@ -503,15 +518,17 @@ public class View implements Iterable<BoardButton[]> {
         table.setEnabled(false);
         table.fit();
 
-        return new JScrollPane() {{
-            setViewportView(table);
+        return new JScrollPane() {
+            {
+                setViewportView(table);
 
-            SwingUtilities.invokeLater(() -> {
-                Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
-                setMaximumSize(size);
-                setPreferredSize(size);
-            });
-        }};
+                SwingUtilities.invokeLater(() -> {
+                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
+                    setMaximumSize(size);
+                    setPreferredSize(size);
+                });
+            }
+        };
     }
 
     public void dispose() {
@@ -522,6 +539,13 @@ public class View implements Iterable<BoardButton[]> {
     public void connectedToServer() {
         for (SyncableList list : listsToRegister) {
             client.getMessagesHandler().registerSyncableList(list);
+        }
+    }
+
+    public void colorMove(Move move) {
+        synchronized (boardLock) {
+            getBtn(move.getMovingFrom()).movingFrom();
+            getBtn(move.getMovingTo()).movingTo();
         }
     }
 }

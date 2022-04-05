@@ -17,8 +17,6 @@ import ver14.players.Player;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Stack;
-import ver14.SharedClasses.Game.Location;
-import ver14.SharedClasses.Question;
 
 /**
  * Game.
@@ -249,7 +247,8 @@ public class Game {
         MyError err = new Game.GameOverError(status);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
-        } else throw err;
+        }
+//        else throw err;
 
     }
 
@@ -265,10 +264,6 @@ public class Game {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
-
-            if(ans==Question.Answer.ACCEPT){
-                throw new GameOverError(GameStatus.drawByAgreement());
-            }
         });
     }
 

@@ -41,6 +41,6 @@ public class MyAi extends PlayerAI {
     @Override
     public void interrupt(MyError error) {
         super.interrupt(error);
-        minimax.end();
+        minimax.interrupt(error);
     }
 }

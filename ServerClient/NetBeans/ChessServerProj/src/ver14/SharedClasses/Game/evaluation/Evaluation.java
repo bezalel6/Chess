@@ -1,11 +1,11 @@
 package ver14.SharedClasses.Game.evaluation;
 
-import ver14.SharedClasses.Game.PlayerColor;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+import ver14.SharedClasses.Game.PlayerColor;
 
 public class Evaluation implements Serializable {
+
     public static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
     public static final int WINNING_SIDE = 0, LOSING_SIDE = 1;
     private final ArrayList<EvaluationDetail> detailedEval;
@@ -14,13 +14,15 @@ public class Evaluation implements Serializable {
     private PlayerColor evaluationFor;
     private Integer evaluationDepth = null;
 
-
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(0, gameStatus, evaluationFor);
         switch (gameStatus.getGameStatusType()) {
-            case WIN_OR_LOSS -> eval = -WIN_EVAL;
-            case TIE -> eval = TIE_EVAL;
-            default -> eval = 0;
+            case WIN_OR_LOSS ->
+                eval = -WIN_EVAL;
+            case TIE ->
+                eval = TIE_EVAL;
+            default ->
+                eval = 0;
         }
     }
 
@@ -37,13 +39,11 @@ public class Evaluation implements Serializable {
         this(0, GameStatus.gameGoesOn(), evaluationFor);
     }
 
-
     public Evaluation(Evaluation other) {
         this(other.eval, other.gameStatus, other.evaluationFor);
         detailedEval.addAll(other.detailedEval);
         this.evaluationDepth = other.evaluationDepth;
     }
-
 
     public static Evaluation book() {
         //fixme
@@ -64,14 +64,13 @@ public class Evaluation implements Serializable {
     }
 
     public boolean isGreaterThan(Evaluation other) {
-        return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth > other.evaluationDepth) || (eval < 0 && evaluationDepth < other.evaluationDepth)));
+        return other == null || other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth > other.evaluationDepth) || (eval < 0 && evaluationDepth < other.evaluationDepth)));
     }
 
     public void addDetail(EvaluationParameters parm, double value) {
         eval += value;
         detailedEval.add(new EvaluationDetail(parm, value));
     }
-
 
     public double getEval() {
         return eval;
@@ -87,20 +86,24 @@ public class Evaluation implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Evaluation boardEval = (Evaluation) o;
         return Double.compare(boardEval.eval, eval) == 0 && gameStatus == boardEval.gameStatus;
     }
 
     @Override
     public String toString() {
-        return "Eval{" +
-                "eval=" + eval +
-                ", gameStatus=" + gameStatus +
-                ", detailedEval= " + getDetailedEvalStr() +
-                ", evaluation for= " + evaluationFor.getName() +
-                '}';
+        return "Eval{"
+                + "eval=" + eval
+                + ", gameStatus=" + gameStatus
+                + ", detailedEval= " + getDetailedEvalStr()
+                + ", evaluation for= " + evaluationFor.getName()
+                + '}';
     }
 
     private String getDetailedEvalStr() {
@@ -116,8 +119,9 @@ public class Evaluation implements Serializable {
     }
 
     public void setPerspective(PlayerColor playerColor) {
-        if (evaluationFor != playerColor)
+        if (evaluationFor != playerColor) {
             flipEval();
+        }
         evaluationFor = playerColor;
     }
 
@@ -126,6 +130,7 @@ public class Evaluation implements Serializable {
     }
 
     public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {
+
         @Override
         public String toString() {
             return parm + ": " + eval;

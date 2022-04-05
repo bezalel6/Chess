@@ -4,7 +4,6 @@ import ver14.SharedClasses.ui.MyJButton;
 
 import javax.swing.*;
 import java.awt.*;
-import ver14.SharedClasses.Callbacks.VoidCallback;
 
 class GameActions extends JPanel {
     private final SidePanel sidePanel;
@@ -15,14 +14,7 @@ class GameActions extends JPanel {
         this.sidePanel = sidePanel;
         setLayout(new GridLayout(1, 0));
         resignBtn = sidePanel.createBtn("Resign", sidePanel.client::resignBtnClicked);
-        
-        offerDrawBtn = sidePanel.createBtn("Offer Draw", new VoidCallback() {
-            @Override
-            public void callback() {
-                offerDrawBtn.setEnabled(false);
-                sidePanel.client.offerDrawBtnClicked();
-            }
-        });
+        offerDrawBtn = sidePanel.createBtn("Offer Draw", sidePanel.client::offerDrawBtnClicked);
         add(offerDrawBtn);
         add(resignBtn);
     }

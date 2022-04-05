@@ -42,7 +42,7 @@ import java.util.Iterator;
 
 public class View implements Iterable<BoardButton[]> {
     public static final String CLIENT_WIN_TITLE = "Chess Client";
-    private final static boolean WIREFRAME = true;
+    private final static boolean WIREFRAME = false;
     private final static Dimension winSize;
     private final static Color statusLblNormalClr = Color.BLACK;
     private final static Color statusLblHighlightClr = Color.BLUE;

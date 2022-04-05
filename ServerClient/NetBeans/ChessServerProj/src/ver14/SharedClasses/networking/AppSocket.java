@@ -26,7 +26,11 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
             socket.messagesHandler.onDisconnected();
 
         });
+        ErrorManager.setHandler(ErrorType.Disconnected, err -> {
+
+        });
         ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
+            System.out.println();
 //            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
 //            socket.messagesHandler.onDisconnected();
         });
@@ -92,7 +96,9 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
                 messagesHandler.receivedMessage(msg);
             } catch (Exception e) {
                 didDisconnect = true;
-                throw MyError.AppSocket(true, this, e);
+                if (!messagesHandler.isBye())
+                    throw MyError.AppSocket(true, this, e);
+else break;
             }
         }
     }

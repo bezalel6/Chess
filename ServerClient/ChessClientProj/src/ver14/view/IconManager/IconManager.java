@@ -218,6 +218,8 @@ public class IconManager {
         }
         relativePath = "/assets/" + relativePath;
         URL path = IconManager.class.getResource(relativePath);
+//        System.out.println(new File("./").getAbsolutePath());
+//        System.out.println(new File(IconManager.class.getCanonicalName()).getAbsolutePath());
         assert path != null;
         return new ImageIcon(path, path.getPath());
     }

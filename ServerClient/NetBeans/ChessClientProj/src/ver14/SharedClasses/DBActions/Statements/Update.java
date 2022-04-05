@@ -24,6 +24,23 @@ public class Update extends SQLStatement {
         return "UPDATE %s\nSET %s\nWHERE %s".formatted(updating, StrUtils.splitArr(newValues), condition);
     }
 
+    public static class Delete extends SQLStatement {
+
+        private final Table deletingFrom;
+        private final Condition condition;
+
+        public Delete(Table deletingFrom, Condition condition) {
+            super(DBRequest.Type.Update);
+            this.condition = condition;
+            this.deletingFrom = deletingFrom;
+        }
+
+        @Override
+        protected String createStatement() {
+            return "DELETE FROM %s  ".formatted(deletingFrom) + (condition == null ? "" : ("WHERE " + condition));
+        }
+    }
+
     public static class NewValue {
         public final Col col;
         public final Object value;

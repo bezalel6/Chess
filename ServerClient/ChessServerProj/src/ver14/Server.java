@@ -1,6 +1,7 @@
 package ver14;
 
 import ver14.DB.DB;
+import ver14.Model.minimax.Minimax;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.CreatedGame;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
@@ -308,6 +309,7 @@ public class Server implements ErrorContext, EnvManager {
                 } catch (NumberFormatException e) {
                     START_AT_PORT = -1;
                 }
+            Minimax.SHOW_UI = Arrays.stream(args).anyMatch(str -> str.equalsIgnoreCase("DEBUG_MINIMAX"));
         }
         Server server = new Server();
         server.runServer();

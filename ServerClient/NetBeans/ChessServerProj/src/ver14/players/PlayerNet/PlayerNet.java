@@ -133,7 +133,7 @@ public class PlayerNet extends Player implements SyncableItem {
 
     @Override
     public void drawOffered(Callback<Question.Answer> answerCallback) {
-        socketToClient.requestMessage(Message.askQuestion(Question.drawOffer(getPartner().getUsername())), res -> answerCallback.callback(res.getAnswer()));
+        socketToClient.requestMessage(Message.askQuestion(Question.drawOffer(getPartner().getUsername())), res -> answerCallback.callback(res.getQuestion().getAnswer()));
     }
 
     public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
