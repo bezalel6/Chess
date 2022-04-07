@@ -8,20 +8,25 @@ import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
 public abstract class Dialog extends JDialog implements Parent {
+    protected final static Size maximumSize = new Size(600);
     protected final JPanel topPnl;
     protected final Properties properties;
     private final Component parentWin;
@@ -53,9 +58,19 @@ public abstract class Dialog extends JDialog implements Parent {
         errorPnl = new ErrorPnl();
         topPnl.add(errorPnl);
 
+        MyJFrame.debugAdapter(this);
+
         pane.add(topPnl, BorderLayout.PAGE_START);
 
         this.properties = properties;
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                onXClick();
+            }
+        });
 
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -65,9 +80,9 @@ public abstract class Dialog extends JDialog implements Parent {
         recenter();
     }
 
-    public void dialogWideErr(String error) {
-        if (errorPnl != null)
-            errorPnl.setText(error);
+    protected void onXClick() {
+        tryOk(true);
+        
     }
 
     protected void recenter() {
@@ -128,6 +143,11 @@ public abstract class Dialog extends JDialog implements Parent {
         }
         recenter();
         repackWin();
+    }
+
+    public void dialogWideErr(String error) {
+        if (errorPnl != null)
+            errorPnl.setText(error);
     }
 
     @Override
@@ -221,8 +241,19 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(dialogCard);
         }
         addCard(startingCard);
-        
-        pane.add(cardsPnl, BorderLayout.CENTER);
+
+        pane.add(new JScrollPane(cardsPnl) {
+            {
+                setPreferredSize(getPreferredSize());
+                setMaximumSize(getPreferredSize());
+                getVerticalScrollBar().setBlockIncrement(100);
+            }
+
+//            @Override
+//            public Dimension getPreferredSize() {
+//                return maximumSize.min(super.getPreferredSize());
+//            }
+        }, BorderLayout.CENTER);
 
         showCard(startingCard, false);
         pack();

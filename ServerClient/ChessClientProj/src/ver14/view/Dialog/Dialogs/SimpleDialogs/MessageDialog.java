@@ -24,6 +24,12 @@ public class MessageDialog extends Dialog {
         new MessageDialog(new Properties(new Properties.Details()), "fekplfe erfj ejifhiouf nifehjfoi fenfoes hffshjf soijf fsnoif oifjsi j ijifj oijjoifj sij" + StrUtils.repeat((i, isLast) -> i + "", 50), "title", MessageCard.MessageType.ERROR).start();
     }
 
+    @Override
+    protected void onXClick() {
+        super.onXClick();
+        tryOk(false);
+    }
+
     public MessageCard.MessageType getMessageType() {
         return messageType;
     }

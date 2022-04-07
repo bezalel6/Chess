@@ -98,19 +98,22 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onInitGame() {
         return message -> {
             super.onInitGame().onMsg(message);
-            PlayerColor myColor = message.getPlayerColor();
-            client.setMyColor(myColor);
-            Stack<Move> moveStack = message.getMoveStack();
-            Board board = message.getBoard();
-            //if loading a prev game the board should start from the starting pos and make all moves
-            boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
-            if (isLoadingGame) {
-                board = Board.startingPos();
-            }
-            view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
-            if (isLoadingGame) {
-                for (Move move : moveStack)
-                    client.updateByMove(move, false);
+            client.soundManager.gameStart.play();
+            synchronized (view.boardLock) {
+                PlayerColor myColor = message.getPlayerColor();
+                client.setMyColor(myColor);
+                Stack<Move> moveStack = message.getMoveStack();
+                Board board = message.getBoard();
+                //if loading a prev game the board should start from the starting pos and make all moves
+                boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
+                if (isLoadingGame) {
+                    board = Board.startingPos();
+                }
+                view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
+                if (isLoadingGame) {
+                    for (Move move : moveStack)
+                        client.updateByMove(move, false);
+                }
             }
 
         };
@@ -128,6 +131,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onGetMove() {
         return message -> {
             super.onGetMove().onMsg(message);
+
             synchronized (view.boardLock) {
                 client.setLatestGetMoveMsg(message);
                 client.unlockMovableSquares(message);
@@ -135,6 +139,7 @@ public class ClientMessagesHandler extends MessagesHandler {
                 client.startMyTime();
             }
         };
+
     }
 
     @Override
@@ -151,6 +156,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onGameOver().onMsg(message);
             client.stopRunningTime();
+            client.soundManager.gameEnd.play();
             GameStatus gameStatus = message.getGameStatus();
             view.gameOver(gameStatus.getDetailedStr());
 

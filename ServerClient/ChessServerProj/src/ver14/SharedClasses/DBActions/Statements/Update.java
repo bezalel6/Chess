@@ -6,6 +6,8 @@ import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Utils.StrUtils;
 
+import java.io.Serializable;
+
 public class Update extends SQLStatement {
     private final Table updating;
     private final NewValue[] newValues;
@@ -41,7 +43,7 @@ public class Update extends SQLStatement {
         }
     }
 
-    public static class NewValue {
+    public static class NewValue implements Serializable {
         public final Col col;
         public final Object value;
 

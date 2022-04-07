@@ -1,4 +1,4 @@
-package ver14.SharedClasses.DBActions.Graphable;
+package ver14.SharedClasses.DBActions.DBResponse.Graphable;
 
 import java.util.Locale;
 

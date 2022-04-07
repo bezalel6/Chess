@@ -32,7 +32,6 @@ public class Selection extends SQLStatement {
         this.postFix = "";
     }
 
-
     public Selection nestMe(Col... outerSelect) {
         return new Selection("(%s)".formatted(getStatement()), Arrays.stream(outerSelect).map(Col::nested).toArray());
     }

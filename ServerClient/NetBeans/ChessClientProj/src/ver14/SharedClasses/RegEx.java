@@ -17,9 +17,7 @@ public class RegEx implements Serializable {
     public static final RegEx Icon = new RegEx("\\.(png|gif)$", "");
     public static final RegEx StrUtilSkip = new RegEx("(^[ \\n\\t\\[])|(<[^>]*>)", "");//skip over spcaes and stuff
     public static final RegEx Numbers = new RegEx("^[0-9]+$", "enter number");
-    public static final RegEx
-
-            URL = new RegEx("(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})\n", "");
+    public static final RegEx URL = new RegEx("(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})\n", "");
     public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX + "|" + AiParameters.AiType.MyAi + "|" + AiParameters.AiType.Stockfish, "");
     public static final RegEx IPPAddress = new RegEx("^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3} *: *[0-9]{2,5}$", "[IP : PORT]");
     public static final RegEx Any = new RegEx("", "");

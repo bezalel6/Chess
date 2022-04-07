@@ -56,6 +56,11 @@ public class Arg implements Serializable {
         return Objects.equals(repInStr, arg.repInStr);
     }
 
+    @Override
+    public String toString() {
+        return repInStr;
+    }
+
     public String createVal(Object val) {
         if (val == null && config != null && config.canUseDefault)
             val = config.getDefault();
@@ -72,6 +77,4 @@ public class Arg implements Serializable {
         };
 //        return str;
     }
-
-
 }

@@ -36,7 +36,7 @@ public class GameIconsGenerator {
 
         fen = StrUtils.isEmpty(fen) ? Board.startingFen : fen;
         orientation = (orientation == null || orientation == PlayerColor.NO_PLAYER) ? PlayerColor.WHITE : orientation;
-        iconSize = Size.min(iconSize);
+        iconSize = Size.minSquare(iconSize);
 
         Size squareSize = new Size(iconSize);
         squareSize.multBy((double) 1 / 8);

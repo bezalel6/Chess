@@ -20,7 +20,7 @@ public class JoinExistingGame extends SyncedGamesList {
         card.addDefaultValueBtn("Join Random Game", () -> {
             Selectable val = getRandom();
             if (val == null) {
-
+                parent.dialogWideErr("There are no available games");
             } else {
                 onSelect.callback(val);
                 onOk();

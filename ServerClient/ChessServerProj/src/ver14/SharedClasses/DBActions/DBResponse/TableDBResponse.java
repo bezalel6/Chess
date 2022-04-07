@@ -1,23 +1,21 @@
-package ver14.SharedClasses.DBActions;
+package ver14.SharedClasses.DBActions.DBResponse;
 
-import java.io.Serializable;
+import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.Table.Col;
 
-public class DBResponse implements Serializable {
+public class TableDBResponse extends DBResponse {
     private final int[] calcedLengths;
-    //todo success/err
     protected String[] columns;
     protected String[][] rows;
-    protected Status status;
-    private DBResponse addedRes = null;
 
-    public DBResponse(Status status) {
-        this(new String[]{"status: " + status.toString()}, new String[0][], status);
+    public TableDBResponse(String[] columns, String[][] rows, DBRequest request) {
+        this(columns, rows, Status.SUCCESS, request);
     }
 
-    public DBResponse(String[] columns, String[][] rows, Status status) {
+    public TableDBResponse(String[] columns, String[][] rows, Status status, DBRequest request) {
+        super(status, request);
         this.columns = columns;
         this.rows = rows;
-        this.status = status;
         this.calcedLengths = new int[columns.length];
         for (int i = 0; i < columns.length; i++) {
             this.calcedLengths[i] = calcMaxLength(i);
@@ -39,20 +37,9 @@ public class DBResponse implements Serializable {
         return max;
     }
 
-    public DBResponse(String[] columns, String[][] rows) {
-        this(columns, rows, Status.SUCCESS);
-    }
-
-    protected DBResponse() {
+    protected TableDBResponse() {
+        super(Status.SUCCESS, null);
         this.calcedLengths = new int[0];
-    }
-
-    public DBResponse getAddedRes() {
-        return addedRes;
-    }
-
-    public void setAddedRes(DBResponse addedRes) {
-        this.addedRes = addedRes;
     }
 
     public int numOfRows() {
@@ -76,12 +63,20 @@ public class DBResponse implements Serializable {
         return -1;
     }
 
+    public String getCell(int row, Col col) {
+        return rows[row][getColumnIndex(col)];
+    }
+
+    private int getColumnIndex(Col col) {
+        return getColumnIndex(col.colName());
+    }
+
     public boolean isAnyData() {
         return rows.length > 0;
     }
 
-    public DBResponse clean() {
-        DBResponse clean = new DBResponse(columns, rows, status);
+    public TableDBResponse clean() {
+        TableDBResponse clean = new TableDBResponse(columns, rows, status, request);
         clean.setAddedRes(this.addedRes == null ? null : this.addedRes.clean());
         return clean;
     }
@@ -102,11 +97,15 @@ public class DBResponse implements Serializable {
             bldr.append(rowToString(row)).append("\n");
         }
 
+        if (addedRes != null) {
+            bldr.append("--------------").append("\n").append(addedRes);
+        }
+
         return bldr.toString();
     }
 
     private int maxLength(int colIndex) {
-        return calcedLengths[colIndex];
+        return calcedLengths.length == 0 ? 10 : calcedLengths[colIndex];
     }
 
     public String rowToString(String[] row) {
@@ -119,9 +118,6 @@ public class DBResponse implements Serializable {
         return bldr.toString();
     }
 
-    public Status getStatus() {
-        return status;
-    }
 
     public String[] getColumns() {
         return columns;
@@ -131,11 +127,4 @@ public class DBResponse implements Serializable {
         return rows;
     }
 
-    public void print() {
-        System.out.println(this);
-    }
-
-    public enum Status {
-        SUCCESS, ERROR;
-    }
 }

@@ -43,8 +43,7 @@ public class ServerMessagesHandler extends MessagesHandler {
      */
     @Override
     public void onDisconnected() {
-        server.playerDisconnected(player);
-        player.disconnect("");
+        server.playerDisconnected(player, "");
         super.onDisconnected();
     }
 
@@ -99,7 +98,9 @@ public class ServerMessagesHandler extends MessagesHandler {
                 response += " " + player.getUsername();
 
 //                GameSession gameSession = player.getGameSession();
-                player.disconnect(response);
+//                player.disconnect(response);
+                server.playerDisconnected(player, response);
+
             } else
                 socket.respond(Message.bye(response), message);
         };

@@ -12,11 +12,23 @@ import java.awt.*;
 public class MessageCard extends DialogCard {
     public MessageCard(Dialog parentDialog, String message, MessageType messageType) {
         super(messageType.header, parentDialog);
-        TextWrapPnl pnl = new TextWrapPnl(StrUtils.format(message));
-        messageType.style(pnl);
+        TextWrapPnl pnl = createMsgPnl(message, messageType);
         pnl.getTextArea().setCaretPosition(0);
         pnl.setEditable(false);
         add(pnl);
+        getBackOkPnl().getOk().setEnabled(true);
+    }
+
+    public static TextWrapPnl createMsgPnl(String msg, MessageType type) {
+        return new TextWrapPnl(StrUtils.format(msg)) {{
+            type.style(this);
+        }};
+    }
+
+
+    @Override
+    public String checkVerifiedComponents() {
+        return null;
     }
 
     @Override

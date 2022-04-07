@@ -23,7 +23,7 @@ public class MyServerSocket extends ServerSocket {
             Socket socket = accept(); // blocking method
             socketToClient = new AppSocket(socket);
         } catch (Throwable exp) {
-            exp.printStackTrace();
+//            exp.printStackTrace();
         }
         return socketToClient;
     }

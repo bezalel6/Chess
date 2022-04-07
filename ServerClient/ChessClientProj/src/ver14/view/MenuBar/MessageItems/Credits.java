@@ -11,8 +11,8 @@ public class Credits extends MessageItem {
     protected String msg() {
         String msg = "";
         msg += category("Programming", "Bezalel Avrahami (bezalel3250@gmail.com)");
-        msg += category("Sound", "N/A");
-        msg += category("Graphics", category("Icons", "google.com"), "Noam Cohen(#3) (noamcohen2367@gmail.com)", "MASELF");
+        msg += category("Sound", "chess.com");
+        msg += category("Graphics", category("Icons", "google.com"), "Noam Cohen(#3) (noamcohen2367@gmail.com)", "Bezalel Avrahami (bezalel3250@gmail.com)");
         msg += category("Inspiration", "lichess.org", "chess.com");
         msg += category("Educational", "Ilan Perets (ilanperets@gmail.com)", "chessprogramming.org", "https://www.youtube.com/watch?v=U4ogK0MIzqk");
         return msg;

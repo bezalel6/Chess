@@ -5,10 +5,10 @@ import ver14.SharedClasses.ui.dialogs.ConfirmDialogs;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Vector;
 
 public class MyJFrame extends JFrame {
     private static final int delayInMs = 100;
@@ -16,6 +16,56 @@ public class MyJFrame extends JFrame {
     private boolean isSleeping = false;
 
     public MyJFrame() throws HeadlessException {
+        debugAdapter(this);
+    }
+
+    public static void debugAdapter(Window addTo) {
+        final ArrayList<Integer> enableOn = new ArrayList<>() {{
+            add(KeyEvent.VK_CONTROL);
+            add(KeyEvent.VK_SHIFT);
+            add(KeyEvent.VK_D);
+        }};
+        final ArrayList<Integer> packOn = new ArrayList<>() {{
+            add(KeyEvent.VK_CONTROL);
+            add(KeyEvent.VK_SHIFT);
+            add(KeyEvent.VK_P);
+        }};
+        Vector<Integer> pressed = new Vector<>();
+        KeyAdapter adapter = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                pressed.add(e.getKeyCode());
+                if (enableOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
+                    addBorderRec(addTo);
+                }
+                if (packOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
+                    addTo.pack();
+                }
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                pressed.remove((Integer) e.getKeyCode());
+            }
+        };
+        addTo.addKeyListener(adapter);
+    }
+
+    private static void addBorderRec(Container container) {
+        if (container instanceof JComponent component && !(container instanceof JViewport)) {
+            component.setBorder(BorderFactory.createLineBorder(Color.orange));
+            component.setToolTipText(component.toString());
+//            component.add(new JLabel(component.toString()));
+        }
+
+        for (Component component : container.getComponents()) {
+            if (component instanceof JComponent jComponent) {
+                addBorderRec(jComponent);
+            }
+        }
     }
 
     public void setOnExit(VoidCallback onClose) {

@@ -1,7 +1,7 @@
 package ver14.SharedClasses.messages;
 
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;

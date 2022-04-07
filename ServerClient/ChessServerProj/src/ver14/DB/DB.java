@@ -3,11 +3,13 @@ package ver14.DB;
 //import org.apache.commons.lang.SerializationUtils;
 
 import org.apache.commons.lang3.SerializationUtils;
-import org.intellij.lang.annotations.Language;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
+import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
+import ver14.SharedClasses.DBActions.Statements.CustomStatement;
 import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
@@ -43,27 +45,26 @@ public class DB {
         runUpdate("DELETE FROM users WHERE 'un'='%s' AND 'pw'='%s'".formatted(un, pw));
     }
 
+    public static synchronized StatusResponse runUpdate(String sql) {
+        sql = StrUtils.clean(sql);
+        return runUpdate(new DBRequest(new CustomStatement(DBRequest.Type.Update, sql)));
+    }
+
     /**
      * Run SQL Update Statement - INSERT, DELETE, UPDATE הפעולה מריצה משפט עדכון
-     *
-     * @param sql        עדכון
-     * @param dbFilePath
-     * @return הפעולה מחזירה מספר השורות שעברו עדכון
-     * @throws SQLException נזרקת שגיאה אם לא ניתן להריץ משפט עדכון
      */
-    public static ServerDBResponse runUpdate(@Language("SQL") String sql, String... dbFilePath) {
-        Connection con = getConnection(dbFilePath);
+    public static synchronized StatusResponse runUpdate(DBRequest request) {
+        Connection con = getConnection();
         DBResponse.Status status;
         try {
-            sql = StrUtils.clean(sql);
             Statement st = con.createStatement();
-            st.executeUpdate(sql);
+            st.executeUpdate(request.getRequest());
             status = DBResponse.Status.SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
             status = DBResponse.Status.ERROR;
         }
-        return new ServerDBResponse(status);
+        return new StatusResponse(status, request);
     }
 
     /**
@@ -71,7 +72,6 @@ public class DB {
      *
      * @param dbFileRelativePath הנתיב היחסי למסד הנתונים שאליו רוצים לקבל חיבור
      * @return מחזיר חיבור למסד הנתונים
-     * @throws SQLException נזרקת שגיאה אם החיבור למסד הנתונים לא מצליח
      */
     public static Connection getConnection(String... dbFileRelativePath) {
         String dbPath = APP_DB_FILE_PATH;
@@ -104,7 +104,7 @@ public class DB {
         return select(Table.Users, Condition.equals(Col.Username, un)).isAnyData();
     }
 
-    private static ServerDBResponse select(Table selectFromTable, Condition condition, String... select) {
+    private static DBResponse select(Table selectFromTable, Condition condition, String... select) {
         return select(selectFromTable.name(), condition, select);
     }
 
@@ -113,34 +113,20 @@ public class DB {
      * @param select    the cols to select. default is *
      * @return
      */
-    private static ServerDBResponse select(String selectFrom, Condition condition, String... select) {
-        String conditionsStr = condition == null ? "" : "WHERE " + condition;
+    private static DBResponse select(String selectFrom, Condition condition, String... select) {
 
-        StringBuilder selecting = new StringBuilder();
-        if (select.length > 0) {
-            for (int i = 0; i < select.length; i++) {
-                String str = select[i];
-                selecting.append(str);
-                if (i < select.length - 1) {
-                    selecting.append(", ");
-                }
-            }
-        } else {
-            selecting.append("*");
-        }
+        Selection selection = new Selection(selectFrom, condition, select);
+        return runQuery(new DBRequest(selection));
 
-        return runQuery("SELECT %s FROM %s %s".formatted(selecting.toString(), selectFrom, conditionsStr));
     }
 
-    public static ServerDBResponse runQuery(@Language("SQL") String sql, String... dbFilePath) {
-
+    public static synchronized DBResponse runQuery(DBRequest request) {
         try {
-            Connection con = getConnection(dbFilePath);
+            Connection con = getConnection();
             Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sql = StrUtils.clean(sql);
-            sql = sql.replaceAll("  ", " ");
-            ResultSet resultSetTable = st.executeQuery(sql);
-            return new ServerDBResponse(resultSetTable);
+
+            ResultSet rs = st.executeQuery(request.getRequest());
+            return request.getBuilder().createResponse(rs, request);
         } catch (SQLException e) {
 //            e.printStackTrace();
             throw new MyError(ErrorType.DB) {{
@@ -150,10 +136,11 @@ public class DB {
 
     }
 
+
     public static ArrayList<UserDetails> getAllUserDetails() {
         DBRequest request = new DBRequest(new Selection(Table.Users, new Object[]{Col.Username, Col.Password}));
 
-        DBResponse res = request(request);
+        TableDBResponse res = (TableDBResponse) request(request);
 
         ArrayList<UserDetails> ret = new ArrayList<>();
         assert res != null;
@@ -166,9 +153,14 @@ public class DB {
     public static void main(String[] args) {
         try {
 
-            createRndGames(10);
-//            System.out.println(getAllUserDetails());
-            System.out.println(request(RequestBuilder.top().build(0)));
+//            System.out.println(runQuery("SELECT format(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#),'short time') as a FROM Games where format(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#),'short time') between '16:00' AND '17:00'"));
+//            System.out.println(runQuery("SELECT WeekDay(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#)) FROM Games"));
+//            System.out.println(runQuery("SELECT DATEADD('s', CLng(Games.SavedDateTime),#01/01/1970 00:00:00 AM#) FROM Games"));
+//            System.out.println(request(RequestBuilder.games().build("bezalel6", null, null)));
+            System.out.println(request(RequestBuilder.statsByTimeOfDay().build("bezalel5")));
+//            for (int i = 0; i < 24; i++) {
+//                System.out.println(String.format("%02d:00", i));
+//            }
 //            createRndGames(30);
 //            addGames("bezalel6");
 //            clearGames();
@@ -185,19 +177,19 @@ public class DB {
     }
 
     public static DBResponse request(DBRequest request) {
-        ServerDBResponse response;
+        DBResponse response;
 //        System.out.println("requesting " + SqlFormatter.format(request.getRequest()).replaceAll("\\[ ", "[").replaceAll(" ]", "]"));
         System.out.println(request.getRequest());
         response = switch (request.type) {
-            case Update -> runUpdate(request.getRequest());
-            case Query -> runQuery(request.getRequest());
+            case Update -> runUpdate(request);
+            case Query -> runQuery(request);
         };
         if (response == null)
             return null;
         if (request.getSubRequest() != null)
             response.setAddedRes(request(request.getSubRequest()));
 
-        return response.clean();
+        return response;
     }
 
     /**
@@ -234,7 +226,7 @@ public class DB {
         Condition condition = Condition.equals(Col.Player1, username);
         condition.add(Condition.equals(Col.Player2, username), Condition.Relation.OR);
 
-        ServerDBResponse rs = select(Table.UnfinishedGames, condition, Col.SavedGame.colName());
+        TableDBResponse rs = (TableDBResponse) select(Table.UnfinishedGames, condition, Col.SavedGame.colName());
         String[][] rows = rs.getRows();
         for (int rowIndex = 0; rowIndex < rows.length; rowIndex++) {
             UnfinishedGame gameInfo = unstringify(rs.getCell(rowIndex, Col.SavedGame));
@@ -316,7 +308,7 @@ public class DB {
     }
 
     public static UnfinishedGame loadUnfinishedGame(String gameID) {
-        return unstringify(select(Table.UnfinishedGames, Condition.equals(Col.GameID, gameID)).getCell(0, Col.SavedGame));
+        return unstringify(((TableDBResponse) select(Table.UnfinishedGames, Condition.equals(Col.GameID, gameID))).getCell(0, Col.SavedGame));
     }
 
     public static void deleteUnfinishedGame(UnfinishedGame game) {
@@ -336,6 +328,7 @@ public class DB {
 
     public static void createRndGames(int numOfGames) {
         ArrayList<UserDetails> details = getAllUserDetails();
+        IDsGenerator generator = new IDsGenerator();
         Random rnd = new Random();
         for (int i = 0; i < numOfGames; i++) {
             String un = details.get(rnd.nextInt(details.size())).username;
@@ -360,12 +353,11 @@ public class DB {
                 case 2 -> TIE_STR;
                 default -> "";
             };
-            IDsGenerator generator = new IDsGenerator();
             ArchivedGameInfo gameInfo = new ArchivedGameInfo(generator.generate(), un, oppUn, gameSettings, winner, new Stack<>());
 
             long now = new Date().getTime();
             long start = new Date(0).getTime();
-            long d = rnd.nextLong() % (now - start);
+            long d = (Math.abs(rnd.nextLong()) % (now - start)) + start;
             gameInfo.setCreatedAt(new Date(d));
 
             saveGameResult(gameInfo);

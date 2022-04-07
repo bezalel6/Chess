@@ -1,7 +1,7 @@
 package ver14.view.IconManager;
 
 
-import ver14.SharedClasses.DBActions.Graphable.GraphElementType;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.pieces.Piece;

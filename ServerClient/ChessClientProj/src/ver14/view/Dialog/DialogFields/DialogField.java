@@ -28,7 +28,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
     protected final ErrorPnl errLbl;
     private final ArrayList<CanError<T>> notEqualsTo;
     protected Config<T> config;
-    private boolean onDefaultClockOk = true;
+    private boolean onDefaultClickOk = true;
     private boolean noRes = false;
 
     protected DialogField(Header fieldHeader, Parent parent) {
@@ -59,7 +59,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
             default -> throw new IllegalStateException("Unexpected value: " + arg.argType);
         };
         field.setConfig(arg.config);
-        field.setOnDefaultClockOk(false);
+//        field.setOnDefaultClickOk(false);
         return field;
     }
 
@@ -78,19 +78,19 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     }
 
-    public void setOnDefaultClockOk(boolean onDefaultClockOk) {
-        this.onDefaultClockOk = onDefaultClockOk;
-    }
-
     private ObjBtn<T> createValBtn(Described<T> desc) {
         return new ObjBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
     }
 
     public void valueBtnPresses(T val) {
         setValue(val);
-        if (onDefaultClockOk) {
+        if (onDefaultClickOk) {
             parent.tryOk(false);
         }
+    }
+
+    public void setOnDefaultClickOk(boolean onDefaultClickOk) {
+        this.onDefaultClickOk = onDefaultClickOk;
     }
 
     protected void addSecondaryComp(Component comp) {

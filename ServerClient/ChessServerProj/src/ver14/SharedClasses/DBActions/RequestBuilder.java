@@ -6,6 +6,12 @@ import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
+import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.Statements.CustomStatement;
 import ver14.SharedClasses.DBActions.Statements.SQLStatement;
 import ver14.SharedClasses.DBActions.Statements.Selection;
@@ -15,16 +21,21 @@ import ver14.SharedClasses.DBActions.Table.Math;
 import ver14.SharedClasses.DBActions.Table.SwitchCase;
 import ver14.SharedClasses.DBActions.Table.Table;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
-public class RequestBuilder {
+public class RequestBuilder implements Serializable {
     public static final String TIE_STR = "----tie----";
     public final Arg[] args;
-    private final SQLStatement statement;
-    private final String name;
-    private String postDescription;
-    private String preDescription;
-    private RequestBuilder subBuilder = null;
+    protected final SQLStatement statement;
+    protected final String name;
+    protected String postDescription;
+    protected String preDescription;
+    protected RequestBuilder subBuilder = null;
 
     public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
@@ -128,6 +139,13 @@ public class RequestBuilder {
         return p1_OR_p2(un, Table.Games);
     }
 
+    /**
+     * <a href="https://sciencing.com/calculate-win-loss-average-8167765.html">Win loss tie ratio formula</a>
+     *
+     * @param username
+     * @param condition
+     * @return
+     */
     private static Selection gamesStats(Object username, Condition condition) {
         Col winner = Col.Winner.of(Table.Games);
 
@@ -158,13 +176,38 @@ public class RequestBuilder {
         this.subBuilder = subBuilder;
     }
 
+    public static RequestBuilder statsByTimeOfDay() {
+        Arg username = new Arg(ArgType.Username);
+        int hour = 25;
+
+        Condition condition = betweenHours(hour - 2, hour - 1);
+
+        Selection stats = gamesStats(username.repInStr, condition);
+
+        RequestBuilder builder = new GraphableSelection(stats,
+                "Stats By Time Of Day",
+                "%02d:00 - %02d:00".formatted(hour - 2, hour - 1),
+                "",
+                username
+        );
+        hour -= 2;
+        RequestBuilder current = builder;
+        for (; hour > 1; hour -= 2) {
+            current.setSubBuilder(new GraphableSelection(gamesStats(username, betweenHours(hour - 2, hour - 1)), "", "%02d:00 - %02d:00".formatted(hour - 2, hour - 1), "", username));
+            current = current.subBuilder;
+        }
+        return builder;
+    }
+
+    private static Condition betweenHours(int start, int end) {
+        return Condition.between(Col.SavedDateTime.time(), "'%02d:00'".formatted(start), "'%02d:00'".formatted(end));
+    }
+
     private static Selection gamesStats(Object username) {
         return gamesStats(username, null);
     }
 
-    /**
-     * <a href="https://sciencing.com/calculate-win-loss-average-8167765.html">Win loss tie ratio formula</a>
-     */
+
     public static RequestBuilder top() {
         Col winner = Col.Winner.of(Table.Games);
         Col username = Col.Username.of(Table.Users);
@@ -208,6 +251,38 @@ public class RequestBuilder {
         return builder;
     }
 
+    public DBResponse createResponse(ResultSet rs, DBRequest request) {
+        try {
+            String[] columns;
+            String[][] rows;
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int colsNum = rsmd.getColumnCount();
+            columns = new String[colsNum];
+
+            // Create Table Title (Columns Names)
+            for (int i = 1; i <= colsNum; i++) {
+                columns[i - 1] = rsmd.getColumnLabel(i);
+
+            }
+            ArrayList<String[]> rowsList = new ArrayList<>();
+            // Create All Table Rows
+            while (rs.next()) {
+                String[] strs = new String[colsNum];
+                for (int i = 1; i <= colsNum; i++) {
+                    String str = rs.getString(i);
+//                    str = StrUtils.dontCapWord(str);
+                    strs[i - 1] = str;
+                }
+                rowsList.add(strs);
+            }
+            rows = rowsList.toArray(new String[0][]);
+            return new TableDBResponse(columns, rows, request);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new StatusResponse(DBResponse.Status.ERROR, request);
+        }
+    }
 
     public String getPreDescription() {
         return preDescription;
@@ -234,8 +309,72 @@ public class RequestBuilder {
             postDescription = postDescription.replaceAll(arg.repInStr, argVal);
             preDescription = preDescription.replaceAll(arg.repInStr, argVal);
         }
-        DBRequest ret = new DBRequest(statement);
+        DBRequest ret = new DBRequest(statement, this);
         ret.setSubRequest(subBuilder == null ? null : subBuilder.build(argsVals));
         return ret;
+    }
+
+
+    public static class GraphableSelection extends RequestBuilder {
+
+        protected ArrayList<GraphElement> elements;
+
+        public GraphableSelection(Selection selection, String name, String postDescription, String preDescription, Arg... args) {
+            super(selection, name, postDescription, preDescription, args);
+        }
+
+        @Override
+        public String toString() {
+            return super.toString();
+        }
+
+        @Override
+        public GraphableDBResponse createResponse(ResultSet rs, DBRequest request) {
+            try {
+                GraphableSelection selection = this;
+                while (rs.next() && selection != null) {
+                    selection.setElements(rs);
+                    selection = (GraphableSelection) subBuilder;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            return new GraphableDBResponse(DBResponse.Status.SUCCESS, request) {
+                @Override
+                public boolean isAnyData() {
+                    return true;
+                }
+
+                @Override
+                public DBResponse clean() {
+                    return this;
+                }
+
+                @Override
+                public String header() {
+                    return name;
+                }
+
+                @Override
+                public GraphElement[] elements() {
+                    return elements.toArray(new GraphElement[0]);
+                }
+            };
+
+//            return;
+        }
+
+        protected void setElements(ResultSet rs) throws SQLException {
+            elements = new ArrayList<>();
+
+            ResultSetMetaData rsmd = rs.getMetaData();
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+
+                GraphElement element = new GraphElement(rs.getDouble(i), rsmd.getColumnName(i), GraphElementType.GREEN);
+
+                elements.add(element);
+            }
+        }
     }
 }

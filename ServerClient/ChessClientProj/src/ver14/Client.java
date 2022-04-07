@@ -6,7 +6,7 @@ import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.Arg.Described;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.DBActions.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -23,6 +23,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
+import ver14.Sound.SoundManager;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
@@ -49,6 +50,7 @@ public class Client implements EnvManager {
     private static final int SERVER_DEFAULT_PORT = 1234;
     private static final String teacherIP = "192.168.21.239";
     private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
+    public final SoundManager soundManager;
     // for GUI
     private View view;
     // for Client
@@ -68,7 +70,7 @@ public class Client implements EnvManager {
      */
     public Client() {
         ErrorManager.setEnvManager(this);
-
+        soundManager = new SoundManager();
         setupClientGui();
         setupClient();
     }
@@ -272,6 +274,7 @@ public class Client implements EnvManager {
 
         if (moveEffects) {
             view.colorMove(move);
+            soundManager.moved(move, myColor);
         }
 
     }
@@ -495,7 +498,7 @@ public class Client implements EnvManager {
         String pw = changePassword.getPassword();
         if (pw != null) {
             request(RequestBuilder.changePassword(), msg -> {
-                if (msg != null && msg.getDBResponse().getStatus() == DBResponse.Status.SUCCESS) {
+                if (msg != null && msg.getDBResponse().getStatus() == TableDBResponse.Status.SUCCESS) {
                     loginInfo.setPassword(pw);
                 }
             }, null, pw);
@@ -514,7 +517,7 @@ public class Client implements EnvManager {
         if (args == null) {
             return;
         }
-
+        
         for (int i = 0; i < args.length; i++) {
             Arg arg = builder.getArgs()[i];
             Object argVal = args[i];
@@ -531,7 +534,7 @@ public class Client implements EnvManager {
         clientSocket.requestMessage(Message.dbRequest(builder.build(args)), msg -> {
             if (onResponse != null)
                 onResponse.onMsg(msg);
-            view.showDBResponse(msg.getDBResponse(), builder.getPostDescription(), builder.getName());
+            view.showDBResponse(msg.getDBResponse(), builder.getName(), builder.getName());
         });
     }
 

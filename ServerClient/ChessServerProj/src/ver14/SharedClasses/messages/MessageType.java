@@ -8,11 +8,11 @@ public enum MessageType {
     WELCOME_MESSAGE,
     GET_GAME_SETTINGS,
     WAIT_FOR_MATCH,
-    INIT_GAME(false),
+    INIT_GAME(true),
     WAIT_TURN,
     GET_MOVE,
     THROW_ERROR,
-    UPDATE_BY_MOVE(false),
+    UPDATE_BY_MOVE(true),
     GAME_OVER,
     ERROR,
     QUESTION,
@@ -24,14 +24,14 @@ public enum MessageType {
     INTERRUPT,
     IS_ALIVE,
     ALIVE;
-    public final boolean shouldBlock;
+    public final boolean chronologicalImportance;
 
     MessageType() {
         this(false);
     }
 
-    MessageType(boolean shouldBlock) {
-        this.shouldBlock = shouldBlock;
+    MessageType(boolean chronologicalImportance) {
+        this.chronologicalImportance = chronologicalImportance;
     }
 
     public static void main(String[] args) {

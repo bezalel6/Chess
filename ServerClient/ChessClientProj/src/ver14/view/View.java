@@ -2,8 +2,10 @@ package ver14.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
-import ver14.SharedClasses.DBActions.DBResponse;
-import ver14.SharedClasses.DBActions.Graphable.Graphable;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
+import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameTime;
@@ -23,9 +25,11 @@ import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.SyncableList;
+import ver14.view.Dialog.WinPnl;
 import ver14.view.Graph.Graph;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
@@ -161,7 +165,7 @@ public class View implements Iterable<BoardButton[]> {
     public void showMessage(String message, String title, MessageCard.MessageType messageType) {
         try {
             showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
-        } catch (IllegalStateException e) {
+        } catch (IllegalStateException e) {//that font err
         }
 
     }
@@ -180,7 +184,11 @@ public class View implements Iterable<BoardButton[]> {
 
     public void closeOpenDialogs() {
         try {
-            displayedDialogs.forEach(Dialog::closeNow);
+            displayedDialogs.forEach(d -> {
+                if (!(d instanceof MessageDialog)) {
+                    d.closeNow();
+                }
+            });
         } catch (ConcurrentModificationException e) {
         }
     }
@@ -492,36 +500,42 @@ public class View implements Iterable<BoardButton[]> {
         DBResponse currentRes = response;
         while (currentRes != null) {
             pnl.add(createSingleComp(currentRes));
-            if (currentRes instanceof Graphable graphable)
-                pnl.add(Graph.createGraph(graphable));
             currentRes = currentRes.getAddedRes();
         }
-
-        assert response != null;
 
         Properties properties = client.dialogProperties(respondingTo, title + " | " + response.getStatus());
 
         showDialog(new SimpleDialog(properties, pnl));
     }
 
-    private JComponent createSingleComp(DBResponse response) {
-        String[][] rowData = response.getRows();
-        String[] colsNames = StrUtils.format(response.getColumns());
-        FitWidthTable table = new FitWidthTable(rowData, colsNames);
-        table.getTableHeader().setFont(FontManager.dbResponseTableHeader);
-        table.setFont(FontManager.dbResponseTable);
-        table.setEnabled(false);
-        table.fit();
-
-        return new JScrollPane() {{
-            setViewportView(table);
-
-            SwingUtilities.invokeLater(() -> {
-                Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
-                setMaximumSize(size);
-                setPreferredSize(size);
-            });
-        }};
+    private JComponent createSingleComp(DBResponse _response) {
+        if (_response instanceof TableDBResponse response) {
+            Header header = new Header(response.getRequest().getBuilder().getPostDescription());
+            String[][] rowData = response.getRows();
+            String[] colsNames = StrUtils.format(response.getColumns());
+            FitWidthTable table = new FitWidthTable(rowData, colsNames);
+            table.getTableHeader().setFont(FontManager.dbResponseTableHeader);
+            table.setFont(FontManager.dbResponseTable);
+            table.setEnabled(false);
+            table.fit();
+            JScrollPane scrollPane = new JScrollPane() {{
+                setViewportView(table);
+                getVerticalScrollBar().setUnitIncrement(100);
+                SwingUtilities.invokeLater(() -> {
+                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
+                    setMaximumSize(size);
+                    setPreferredSize(size);
+                });
+            }};
+            return new WinPnl(header) {{
+                add(scrollPane);
+            }};
+        } else if (_response instanceof GraphableDBResponse response) {
+            return Graph.createGraph(response);
+        } else if (_response instanceof StatusResponse response) {
+            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageCard.MessageType.INFO : MessageCard.MessageType.ERROR);
+        }
+        return null;
     }
 
     public void dispose() {

@@ -122,6 +122,7 @@ public class Minimax {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
                         return new MinimaxMove(move, Evaluation.book(), 0);
                 }
+                throw new Error();
             }
             stillTheory = false;
         }

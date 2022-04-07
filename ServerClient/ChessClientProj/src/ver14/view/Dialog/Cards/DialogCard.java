@@ -35,11 +35,13 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     private final String cardID;
     private final ArrayList<MyJButton> defaultValueBtns;
     private BackOkPnl backOkPnl;
+    private Header optionalHeader = null;
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
         setBackOk(this);
     }
+
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
         super(cardHeader);
@@ -51,8 +53,8 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         setBackOk(backOk);
         addAncestorListener(this);
         navBtn = new MyJButton(getCardName(), navigationBtnsFont, this::navToMe);
+        checkVerifiedComponents();
     }
-
 
     private void setBackOk(BackOkInterface backOk) {
         if (backOk != null) {
@@ -70,6 +72,28 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         parentDialog.switchTo(this);
     }
 
+    /**
+     * @return Error message if any not verified, null otherwise
+     */
+    public String checkVerifiedComponents() {
+        String ret = null;
+        for (Verified comp : verifiedComponentsList) {
+            //keep verifying all components, but set the global error to the first one found
+            if (!comp.verify() && ret == null) {
+                ret = comp.errorDetails();
+//                break;
+            }
+        }
+        if (backOkPnl != null)
+            backOkPnl.enableOk(ret == null);
+        return ret;
+    }
+
+//    @Override
+//    public Dimension getPreferredSize() {
+//        return Size.max(super.getPreferredSize());
+//    }
+
     public BackOkPnl getBackOkPnl() {
         return backOkPnl;
     }
@@ -77,11 +101,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     public String getCardID() {
         return cardID;
     }
-
-//    @Override
-//    public Dimension getPreferredSize() {
-//        return Size.max(super.getPreferredSize());
-//    }
 
     @Override
     public void ancestorAdded(AncestorEvent event) {
@@ -113,12 +132,21 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
     @Override
     public void onUpdate() {
-        parentDialog.onUpdate();
+        if (parentDialog != null)
+            parentDialog.onUpdate();
     }
 
     @Override
     public void addToNavText(String str) {
-        navBtn.setText(getCardName() + str);
+        setNavText(getCardName() + str);
+    }
+
+    private void setNavText(String s) {
+        if (optionalHeader == null) {
+            navBtn.setText(s);
+        } else {
+            optionalHeader.setText(s);
+        }
     }
 
     @Override
@@ -143,7 +171,7 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
     public void addNavigationTo(DialogCard card) {
         parentDialog.addCard(card);
-        add(card.navToMePnl());
+        add(card.createNavPnl());
     }
 
     @Override
@@ -159,10 +187,11 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         return super.add(comp);
     }
 
-    public JPanel navToMePnl() {
+    public JPanel createNavPnl() {
         WinPnl ret = new WinPnl();
         if (!defaultValueBtns.isEmpty()) {
-            ret.setHeader(new Header(navBtn.getText()));
+            optionalHeader = new Header(navBtn.getText());
+            ret.setHeader(optionalHeader);
 
             defaultValueBtns.forEach(ret::add);
             navBtn.setText("Advanced Settings");
@@ -187,23 +216,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         add(component);
     }
 
-    /**
-     * @return Error message if any not verified, null otherwise
-     */
-    public String checkVerifiedComponents() {
-        String ret = null;
-        for (Verified comp : verifiedComponentsList) {
-            //keep verifying all components, but set the global error to the first one found
-            if (!comp.verify() && ret == null) {
-                ret = comp.errorDetails();
-//                break;
-            }
-        }
-        if (backOkPnl != null)
-            backOkPnl.enableOk(ret == null);
-        return ret;
-    }
-
     @Override
     public String toString() {
         return cardHeader.getCardName();
@@ -219,7 +231,16 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
      */
     @Override
     public void onOk() {
-        parentDialog.closeDialog();
+        if (parentDialog != null)
+            parentDialog.closeDialog();
+        else {
+            Container parentContainer = getParent();
+            while (!(parentContainer instanceof Window) && parentContainer != null) {
+                parentContainer = getParent();
+            }
+            assert parentContainer != null;
+            ((Window) parentContainer).dispose();
+        }
     }
 
 

@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Semaphore;
 
 /**
  * The type Messages handler.
@@ -25,6 +26,7 @@ public abstract class MessagesHandler {
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
+    private final Semaphore chronologicalSemaphore = new Semaphore(1);
     private boolean isBye = false;
 
     {
@@ -135,12 +137,21 @@ public abstract class MessagesHandler {
                     client replying with the login info and waiting for a welcome\error response message.
                     gets stuck. because the response message will never get read, bc the reading thread is waiting for a response
                  */
-        if (message != null && !message.getMessageType().shouldBlock) {
+        if (message != null) {
             ThreadsManager.createThread(() -> {
+                if (message.getMessageType().chronologicalImportance) {
+                    System.out.println(message.getMessageType() + " acquiring semaphore");
+                    chronologicalSemaphore.acquire();
+                    System.out.println(message.getMessageType() + " acquired semaphore");
+                }
                 processMessage(message);
+                if (message.getMessageType().chronologicalImportance) {
+                    chronologicalSemaphore.release();
+                    System.out.println(message.getMessageType() + " released semaphore");
+                }
             }, true);
         } else
-            processMessage(message);
+            processMessage(null);
     }
 
     private void processMessage(Message message) {

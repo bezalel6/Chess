@@ -47,6 +47,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public GameSession(String gameID, Player creator, Player p2, GameSettings gameSettings, Server server) {
+        setName("Game Session #" + gameID);
         this.gameID = gameID;
         this.server = server;
         this.creator = creator;
@@ -174,7 +175,6 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     public void playerDisconnected(Player player) {
         try {
             game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
-
         } catch (Exception e) {
         }
     }

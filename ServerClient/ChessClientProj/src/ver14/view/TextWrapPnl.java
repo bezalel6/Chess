@@ -16,6 +16,7 @@ public class TextWrapPnl extends JPanel {
         this.textArea = new JTextArea(5, 40);
         initializeUI();
         setText(text);
+        setEditable(false);
     }
 
     private void initializeUI() {
@@ -27,6 +28,7 @@ public class TextWrapPnl extends JPanel {
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(100);
 
         this.add(scrollPane, BorderLayout.CENTER);
     }
@@ -34,6 +36,10 @@ public class TextWrapPnl extends JPanel {
     public void setText(String text) {
         if (textArea != null)
             textArea.setText(text);
+    }
+
+    public void setEditable(boolean e) {
+        textArea.setEditable(e);
     }
 
     public void setHeight(int height) {
@@ -61,10 +67,6 @@ public class TextWrapPnl extends JPanel {
     public void setFont(Font font) {
         if (textArea != null)
             textArea.setFont(font);
-    }
-
-    public void setEditable(boolean e) {
-        textArea.setEditable(e);
     }
 
 }

@@ -168,14 +168,14 @@ public class StrUtils {
         return hours + minutes + seconds + micros;
     }
 
+    public static String wrapInHtml(String str) {
+        return str;
+    }
+
 //    public static String wrapInHtml(String str) {
 //        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
 ////        return str;
 //    }
-
-    public static String wrapInHtml(String str) {
-        return str;
-    }
 
     public static String strINN(Object... objs) {
         StringBuilder bldr = new StringBuilder();
@@ -218,8 +218,8 @@ public class StrUtils {
     }
 
     public static void main(String[] args) {
-
     }
+
 
     public static String awful(String og) {
         StringBuilder bldr = new StringBuilder();

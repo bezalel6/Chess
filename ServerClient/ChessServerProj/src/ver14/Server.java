@@ -270,7 +270,7 @@ public class Server implements ErrorContext, EnvManager {
         frmWin.dispose(); // close GUI
 
 //        😨
-        ThreadsManager.stopAll();
+//        ThreadsManager.stopAll();
     }
 
     //todo move to synceditems as a func
@@ -464,9 +464,9 @@ public class Server implements ErrorContext, EnvManager {
     public void endOfGameSession(GameSession session) {
         gameSessions.remove(session.gameID);
         (session.getPlayers()).stream().parallel().forEach(player -> {
-            if (player.isConnected()) {
-                gameSetup(player);
-            }
+//            if (player.isConnected()) {
+            gameSetup(player);
+//            }
         });
     }
 
@@ -486,7 +486,7 @@ public class Server implements ErrorContext, EnvManager {
         } catch (MyError.DisconnectedError e) {
         }
         if (gameSettings == null) {
-            playerDisconnected(player);
+            playerDisconnected(player, "");
             return;
         }
 //        if (gameSettings == null) {
@@ -549,12 +549,12 @@ public class Server implements ErrorContext, EnvManager {
      *
      * @param player the player
      */
-    public void playerDisconnected(Player player) {
+    public void playerDisconnected(Player player, String message) {
         if (player == null)
             return;
 
         log(player.getUsername() + " disconnected");
-        player.disconnect("");
+        player.disconnect(message);
 
 //        Game ongoingGame = player.getOnGoingGame();
 //        if (ongoingGame != null) {

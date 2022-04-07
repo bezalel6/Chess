@@ -47,6 +47,15 @@ public class MenuBar extends JMenuBar {
         aboutMenu.add(new Rules(client));
         end.add(aboutMenu);
 
+        JCheckBox sound = new JCheckBox("Sound Effects") {{
+            setFont(menuItemsFont);
+        }};
+        sound.setSelected(true);
+        sound.addActionListener(l -> {
+            client.soundManager.setSoundEnabled(sound.isSelected());
+        });
+        settingsMenu.add(sound);
+
         MenuItem flipBoard = new MenuItem("Flip Board");
         flipBoard.addActionListener(l -> {
             view.flipBoard();
