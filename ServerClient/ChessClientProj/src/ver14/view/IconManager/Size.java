@@ -31,7 +31,7 @@ public class Size extends Dimension {
         return _size.length == 0 ? new Size() : _size[0];
     }
 
-    public static Size min(Dimension size) {
+    public static Size minSquare(Dimension size) {
         return new Size(Math.min(size.height, size.width));
     }
 
@@ -50,6 +50,10 @@ public class Size extends Dimension {
 
     public Size padding(Insets insets) {
         return new Size(width - (insets.left + insets.right), height - (insets.top + insets.bottom));
+    }
+
+    public Dimension min(Dimension other) {
+        return (width + height <= other.height + other.width) ? this : other;
     }
 
     public void multBy(double mult) {

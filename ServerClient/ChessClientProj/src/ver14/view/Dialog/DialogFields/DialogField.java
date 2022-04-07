@@ -24,11 +24,11 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class DialogField<T> extends DialogComponent implements Verified {
-    private static final boolean ON_DEFAULT_CLICK_OK = true;
     private static final int cols = 2;
     protected final ErrorPnl errLbl;
     private final ArrayList<CanError<T>> notEqualsTo;
     protected Config<T> config;
+    private boolean onDefaultClickOk = true;
     private boolean noRes = false;
 
     protected DialogField(Header fieldHeader, Parent parent) {
@@ -59,6 +59,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
             default -> throw new IllegalStateException("Unexpected value: " + arg.argType);
         };
         field.setConfig(arg.config);
+//        field.setOnDefaultClickOk(false);
         return field;
     }
 
@@ -81,12 +82,15 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         return new ObjBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
     }
 
-
     public void valueBtnPresses(T val) {
         setValue(val);
-        if (ON_DEFAULT_CLICK_OK) {
+        if (onDefaultClickOk) {
             parent.tryOk(false);
         }
+    }
+
+    public void setOnDefaultClickOk(boolean onDefaultClickOk) {
+        this.onDefaultClickOk = onDefaultClickOk;
     }
 
     protected void addSecondaryComp(Component comp) {

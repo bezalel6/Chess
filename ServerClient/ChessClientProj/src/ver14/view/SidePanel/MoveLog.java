@@ -38,6 +38,7 @@ public class MoveLog extends JPanel {
         enableNavBtns();
     }
 
+
     private void forward() {
         if (currentMoveIndex > lastMoveIndex() - 1) {
         } else {
@@ -177,7 +178,6 @@ public class MoveLog extends JPanel {
         }
     }
 
-
     public void enableNavBtns() {
         enableForwardNav(!movesBtns.isEmpty() && !isCaughtUp());
         enableBackNav(currentMoveIndex > 0);
@@ -227,8 +227,6 @@ public class MoveLog extends JPanel {
     public synchronized void reset() {
         moveLogPnl.removeAll();
         currentMoveIndex = 0;
-        currentCol = 0;
-        currentRow = 0;
         movesBtns.clear();
         boardsList.clear();
         setBoardPanel(boardPanel);

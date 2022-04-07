@@ -10,13 +10,18 @@ import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.players.Player;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameSession extends ThreadsManager.HandledThread implements SyncableItem {
     public final String gameID;
@@ -42,6 +47,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public GameSession(String gameID, Player creator, Player p2, GameSettings gameSettings, Server server) {
+        setName("Game Session #" + gameID);
         this.gameID = gameID;
         this.server = server;
         this.creator = creator;
@@ -57,16 +63,15 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     @Override
     public void handledRun() {
         GameStatus gameOver;
-        Player disconnectedPlayer;
+
         do {
             gameOver = game.startNewGame();
             saveGame(gameOver);
             GameStatus finalGameOver = gameOver;
             game.parallelForEachPlayer(player -> player.gameOver(finalGameOver));
-            disconnectedPlayer = game.getDisconnectedPlayer();
-        } while (disconnectedPlayer != null && askForRematch());
+        } while (askForRematch());
 
-        server.endOfGameSession(this, disconnectedPlayer);
+        server.endOfGameSession(this);
     }
 
     public void saveGame(GameStatus gameResult) {
@@ -112,15 +117,44 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public boolean askForRematch() {
+        if (getPlayers().stream().anyMatch(p -> !p.isConnected()))
+            return false;
+
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
-        Arrays.stream(getPlayers()).parallel().forEach(player -> {
-            boolean res = player.askForRematch();
-            if (atomicBoolean.get() && !res) {
-                atomicBoolean.set(false);
-                player.getPartner().cancelRematch();
-            }
+
+        AtomicInteger numOfRes = new AtomicInteger(0);
+
+        CompletableFuture<Boolean> rematch = new CompletableFuture<>();
+
+        getPlayers().forEach(player -> {
+            player.askQuestion(Question.Rematch, ans -> {
+                synchronized (atomicBoolean) {
+                    if (atomicBoolean.get() && !ans.equals(Question.Answer.YES)) {
+                        atomicBoolean.set(false);
+                        rematch.complete(false);
+                    }
+
+                    if (numOfRes.incrementAndGet() >= 2) {
+                        rematch.complete(atomicBoolean.get());
+                    }
+                }
+
+            });
         });
-        return atomicBoolean.get();
+
+        try {
+            boolean res = rematch.get();
+            log("rematch = " + res);
+            if (!res) {
+                getPlayers().forEach(player ->
+                        player.cancelQuestion(Question.Rematch, player.getUsername() + " didnt want to rematch")
+                );
+            }
+            return res;
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public boolean isSaveWorthy(GameStatus gameResult) {
@@ -134,8 +168,15 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
         server.log(this + "-->" + str);
     }
 
-    public Player[] getPlayers() {
-        return new Player[]{creator, p2};
+    public List<Player> getPlayers() {
+        return List.of(creator, p2);
+    }
+
+    public void playerDisconnected(Player player) {
+        try {
+            game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
+        } catch (Exception e) {
+        }
     }
 
     @Override
@@ -151,5 +192,13 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     @Override
     public String ID() {
         return gameID;
+    }
+
+    public void resigned(Player player) {
+        game.interruptRead(GameStatus.playerResigned(player.getPlayerColor()));
+    }
+
+    public String sessionsDesc() {
+        return "Session(%s) %s vs %s".formatted(gameID, StrUtils.dontCapWord(creator.getUsername()), StrUtils.dontCapWord(p2.getUsername()));
     }
 }

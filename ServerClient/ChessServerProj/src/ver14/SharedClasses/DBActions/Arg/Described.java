@@ -1,6 +1,8 @@
 package ver14.SharedClasses.DBActions.Arg;
 
-public record Described<T>(T obj, String description) {
+import java.io.Serializable;
+
+public record Described<T>(T obj, String description) implements Serializable {
     public Described(T obj) {
         this(obj, obj + "");
     }

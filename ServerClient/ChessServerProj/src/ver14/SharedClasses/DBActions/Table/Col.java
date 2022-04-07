@@ -67,6 +67,13 @@ public class Col implements Serializable {
         this.isWrapped = true;
     }
 
+    public Col time() {
+//        format(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#),'short time')
+        return new Col("format(%s,'short time')".formatted(date().colName), alias) {{
+            setWrapped(Col.this.isWrapped);
+        }};
+    }
+
     public Col date() {
         return new Col("DATEADD('s', CLng(%s),#01/01/1970 00:00:00 AM#)".formatted(colName), alias) {{
             setWrapped(Col.this.isWrapped);

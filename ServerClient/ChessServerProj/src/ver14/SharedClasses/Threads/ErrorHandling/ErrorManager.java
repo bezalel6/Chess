@@ -20,6 +20,8 @@ public final class ErrorManager {
     }
 
     public static void handle(MyError error) {
+        if (envManager == null)
+            throw error;
         if (map.containsKey(error.type)) {
             envManager.handledErr(error);
             map.get(error.type).handle(error);

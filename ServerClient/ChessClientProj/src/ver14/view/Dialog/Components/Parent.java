@@ -1,8 +1,10 @@
 package ver14.view.Dialog.Components;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.messages.Message;
 import ver14.view.Dialog.Cards.DialogCard;
+import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.SyncableList;
 
 public interface Parent {
@@ -15,16 +17,26 @@ public interface Parent {
     default void addToNavText(String str) {
     }
 
+    default void dialogWideErr(String err) {
+        if (this instanceof Dialog dialog)
+            dialog.dialogWideErr(err);
+    }
+
     void done();
 
     void back();
 
-    default void tryOk(boolean verify) {
+    default boolean tryOk(boolean verify) {
         DialogCard card = currentCard();
-        if (card != null && (!verify || card.isOkEnabled()))
+        if (card != null && (!verify || card.isOkEnabled())) {
             card.onOk();
+            return true;
+        }
+        return false;
     }
 
     DialogCard currentCard();
+
+    void addOnClose(VoidCallback callback);
 
 }

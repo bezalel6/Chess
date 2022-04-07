@@ -2,34 +2,90 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ChessClientProj:jar" />
+      <artifact name="ChessClientProj:jar2" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="created message dialogs&#10;error handling">
-      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Tests/Sockets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_03_2022_15_06_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_03_2022_15_06__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/capture.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/castle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/check.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/game-end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/game-start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/opponent-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/promote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ChessClientProj/assets/SoundEffects/self-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/capture.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/castle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/check.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/game-end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/game-start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/opponent-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/promote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/SoundEffects/self-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/Sound/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/Sound/SoundManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphableDBResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Tests/EvalTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Client.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/ClientMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Cards/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Dialog/WinPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Dialog/WinPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Graph/UIGraphElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Graph/UIGraphElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/IconManager/GameIconsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/IconManager/GameIconsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/IconManager/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/IconManager/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/MenuBar/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/MenuBar/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/MenuBar/MessageItems/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/MenuBar/MessageItems/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/TextWrapPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/TextWrapPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/libraries/mylibs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/libraries/mylibs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_03_2022_22_53_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_03_2022_22_53__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/DB/ServerDBResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/minimax/Minimax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/MyServerSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/ServerMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/ServerMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Arg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Arg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Described.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Graphable/GraphElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Graphable/GraphElementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElementType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Graphable/Graphable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/Graphable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Selection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Col.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Col.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/messages/MessageType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/MessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/UsernameSuggestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/UsernameSuggestions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerAI/MyAi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerAI/MyAi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerAI/PlayerAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerAI/PlayerAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/players/PlayerNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/ui/windows/MyJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/ui/windows/MyJFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/game/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj/src/ver14/SharedClasses/RegEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj/src/ver14/SharedClasses/RegEx.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +105,11 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="Game_session_handling" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -93,14 +154,15 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last.edited.regexp" value="123.456.789.123  :123" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last.edited.regexp" value="ab s" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/ver8/view" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/SoundEffects" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="rearrange.code.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="JavaDoc" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -108,22 +170,25 @@
       <recent name="ver6.view.List" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\assets\SoundEffects" />
       <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver14" />
+      <recent name="C:\Users\bezal\Documents\GitHub\Chess\ServerClient\ChessClientProj\src\ver14\view\IconManager\Icons" />
+      <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\libs" />
       <recent name="C:\Users\bezal\Documents\GitHub\Chess\ServerClient\ChessClientProj\src\ver13" />
-      <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver12" />
-      <recent name="E:\SharedCo\Chess\ServerClient\ChessClientProj\src\ver11" />
-      <recent name="E:\SharedCo\IdeaProjects\ChessClientProj\src\ver10" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bezal\Documents\GitHub\SharedCo\IdeaProjects\ChessClientProj\src\assets\Statistics\StatisticsIcon" />
       <recent name="C:\Users\bezal\Documents\GitHub\SharedCo\IdeaProjects\ChessClientProj\src\assets\SettingsIcon" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="ver14.SharedClasses.DBActions.DBResponse" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ver7.view" />
       <recent name="ver5.view.game_select" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
-      <recent name="ver14.SharedClasses.DBActions.Arg" />
+      <recent name="ver14.view.SidePanel" />
       <recent name="ver12.SharedClasses.DBActions" />
       <recent name="ver10.SharedClasses.DBActions" />
       <recent name="ver10.view.Dialog" />
@@ -137,6 +202,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Client">
+    <configuration name="AskPlayer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.view.SidePanel.AskPlayer" />
+      <module name="ChessClientProj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.view.SidePanel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ver10.Client" />
       <module name="ChessClientProj" />
@@ -172,12 +250,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InputDialog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog" />
+    <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.view.Graph.Graph" />
       <module name="ChessClientProj" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.view.Dialog.Dialogs.SimpleDialogs.*" />
+          <option name="PATTERN" value="ver14.view.Graph.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,12 +263,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkLabel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.ui.LinkLabel" />
+    <configuration name="MessageCard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.view.Dialog.Cards.MessageCard" />
       <module name="ChessClientProj" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.SharedClasses.ui.*" />
+          <option name="PATTERN" value="ver14.view.Dialog.Cards.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -198,12 +276,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageDialog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog" />
+    <configuration name="MoveLog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.view.SidePanel.MoveLog" />
       <module name="ChessClientProj" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.view.Dialog.Dialogs.SimpleDialogs.*" />
+          <option name="PATTERN" value="ver14.view.SidePanel.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -211,25 +289,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RequestBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.DBActions.RequestBuilder" />
+    <configuration name="SoundManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.Sound.SoundManager" />
       <module name="ChessClientProj" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.SharedClasses.DBActions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TextWrapPnl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.view.TextWrapPnl" />
-      <module name="ChessClientProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.view.*" />
+          <option name="PATTERN" value="ver14.Sound.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -239,19 +304,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Client" />
-      <item itemvalue="Application.RequestBuilder" />
-      <item itemvalue="Application.InputDialog" />
-      <item itemvalue="Application.MessageDialog" />
-      <item itemvalue="Application.TextWrapPnl" />
-      <item itemvalue="Application.LinkLabel" />
+      <item itemvalue="Application.AskPlayer" />
+      <item itemvalue="Application.MoveLog" />
+      <item itemvalue="Application.MessageCard" />
+      <item itemvalue="Application.SoundManager" />
+      <item itemvalue="Application.Graph" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LinkLabel" />
-        <item itemvalue="Application.MessageDialog" />
-        <item itemvalue="Application.TextWrapPnl" />
-        <item itemvalue="Application.InputDialog" />
-        <item itemvalue="Application.RequestBuilder" />
+        <item itemvalue="Application.Graph" />
+        <item itemvalue="Application.SoundManager" />
+        <item itemvalue="Application.MessageCard" />
+        <item itemvalue="Application.MoveLog" />
+        <item itemvalue="Application.AskPlayer" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +418,10 @@
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.io.InvalidClassException" package="java.io">
-            <option name="NOTIFY_CAUGHT" value="false" />
+            <catch-class-filters>
+              <class-filter pattern="ver14.SharedClasses.networking.AppSocket" />
+            </catch-class-filters>
+            <option name="catch-filters-enabled" value="true" />
           </properties>
           <option name="timeStamp" value="65" />
         </breakpoint>
@@ -368,8 +436,8 @@
           <option name="timeStamp" value="73" />
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalThreadStateException" package="java.lang" />
-          <option name="timeStamp" value="74" />
+          <properties class="java.io.UTFDataFormatException" package="java.io" />
+          <option name="timeStamp" value="76" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ver7/view/View.java</url>
@@ -377,9 +445,24 @@
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ver14/view/Dialog/Components/ListComponent.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="78" />
+          <url>file://$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/AppSocket.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Threads/ThreadsManager.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -390,11 +473,11 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="((JButton)e.getSource()).actionListener" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.io.ObjectInputStream$BlockDataInputStream" memberName="din" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

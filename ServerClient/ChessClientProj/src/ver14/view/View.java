@@ -2,10 +2,10 @@ package ver14.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
-import ver14.SharedClasses.AuthSettings;
-import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.DBActions.DBResponse;
-import ver14.SharedClasses.DBActions.Graphable.Graphable;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
+import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameTime;
@@ -17,26 +17,24 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.SharedClasses.ui.windows.CloseConfirmationJFrame;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
-import ver14.view.AuthorizedComponents.Menu;
-import ver14.view.AuthorizedComponents.MenuItem;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.SyncableList;
+import ver14.view.Dialog.WinPnl;
 import ver14.view.Graph.Graph;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
+import ver14.view.MenuBar.MenuBar;
 import ver14.view.SidePanel.SidePanel;
-import ver14.view.SyncedJMenus.ConnectedUsers;
-import ver14.view.SyncedJMenus.OngoingGames;
-import ver14.view.SyncedJMenus.SyncedJMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,17 +61,18 @@ public class View implements Iterable<BoardButton[]> {
         FlatLightLaf.setup();
     }
 
+    public final Object boardLock = new Object();
     private final ArrayList<Dialog> displayedDialogs;
     private final Client client;
     private final ArrayList<AuthorizedComponent> authorizedComponents = new ArrayList<>();
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
     private BoardPanel boardPnl;
     private SidePanel sidePanel;
-    private JMenuBar menuBar;
+    private ver14.view.MenuBar.MenuBar menuBar;
     private JPanel topPnl, bottomPnl;
     private MyLbl statusLbl;
     private PlayerColor boardOrientation;
-    private CloseConfirmationJFrame win;
+    private MyJFrame win;
     private String username = "";
     private String currentGameStr = "";
 
@@ -87,19 +86,38 @@ public class View implements Iterable<BoardButton[]> {
         enableAllSquares(false);
     }
 
-    public boolean isBoardFlipped() {
-        return boardOrientation == PlayerColor.WHITE;
+    public static void main(String[] args) {
+//        JFrame f = new JFrame("Password Field Example");
+//        //Creating PasswordField and label
+//        JPasswordField value = new JPasswordField();
+//        value.setBounds(100, 100, 100, 30);
+//        value.setToolTipText("Enter your Password");
+//        JLabel l1 = new JLabel("Password:");
+//        l1.setBounds(20, 100, 80, 30);
+//        //Adding components to frame
+//        f.add(value);
+//        f.add(l1);
+//        f.setSize(300, 300);
+//        f.setLayout(null);
+//        f.setVisible(true);
+
+    }
+
+    public void addListToRegister(SyncableList list) {
+        listsToRegister.add(list);
     }
 
     public void createGui() {
-        win = new CloseConfirmationJFrame(client::disconnectFromServer, this::winResized) {
+        win = new MyJFrame() {
             {
+                setIconImage(IconManager.getPieceIcon(Piece.W_K).getImage());
                 setLayout(new GridBagLayout());
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
-                setAlwaysOnTop(true);
-                addKeyListener(sidePanel.moveLog.createNavAdapter());
+                setOnExit(client::disconnectFromServer);
+                setOnResize(View.this::winResized);
+                //setAlwaysOnTop(true);
             }
 
             @Override
@@ -115,9 +133,10 @@ public class View implements Iterable<BoardButton[]> {
 
         topPnl = new JPanel();
         bottomPnl = new JPanel();
-        createMenuBar();
+        menuBar = new MenuBar(authorizedComponents, client, this);
 
         statusLbl = new MyLbl();
+
         statusLbl.setFont(FontManager.statusLbl);
         resetStatusLbl();
         bottomPnl.add(statusLbl);
@@ -125,120 +144,68 @@ public class View implements Iterable<BoardButton[]> {
         boardPnl.createMat();
         resetBackground();
         layoutSetup();
+        addWinListeners();
+
+        SwingUtilities.invokeLater(() -> {
+            statusLbl.setPreferredSize(new Size(win.getWidth() / 2, statusLbl.getPreferredSize().height));
+        });
 
         win.setVisible(true);
     }
 
-    private void createMenuBar() {
-        menuBar = new JMenuBar();
-        ArrayList<JComponent> start = new ArrayList<>();
-        ArrayList<JComponent> middle = new ArrayList<>();
-        ArrayList<JComponent> end = new ArrayList<>();
-
-        Font menuFont = FontManager.JMenus.headers;
-        Font menuItemsFont = FontManager.JMenus.items;
-
-        Menu settingsMenu = new Menu("settings", AuthSettings.NO_AUTH) {{
-            setFont(menuFont);
-            setChildrenFont(menuItemsFont);
-        }};
-        IconManager.dynamicSettingsIcon.set(settingsMenu);
-        authorizedComponents.add(settingsMenu);
-        end.add(settingsMenu);
-
-        Menu statisticsMenu = new Menu("statistics", AuthSettings.ANY_LOGIN) {{
-            setFont(menuFont);
-            setChildrenFont(menuItemsFont);
-        }};
-        IconManager.dynamicStatisticsIcon.set(statisticsMenu);
-        authorizedComponents.add(statisticsMenu);
-        start.add(statisticsMenu);
-
-        Menu serverStatusMenu = new Menu("server status", AuthSettings.NO_AUTH) {{
-            setFont(menuFont);
-            setChildrenFont(menuItemsFont);
-        }};
-        authorizedComponents.add(serverStatusMenu);
-        IconManager.dynamicServerIcon.set(serverStatusMenu);
-        start.add(serverStatusMenu);
-
-        Menu userSettings = new Menu("user settings", AuthSettings.USER) {{
-            setFont(menuFont);
-            setChildrenFont(menuItemsFont);
-        }};
-        authorizedComponents.add(userSettings);
-        settingsMenu.add(userSettings);
-
-        userSettings.add(new MenuItem("change password") {{
-            addActionListener(l -> client.changePassword());
-        }});
-
-        statisticsMenu.setFont(menuFont);
-        for (PreMadeRequest preMadeRequest : PreMadeRequest.statistics) {
-            Menu currentMenu = statisticsMenu;
-            PreMadeRequest[] variations = preMadeRequest.getRequestVariations();
-
-            if (variations.length > 0) {
-                Menu newMenu = new Menu(preMadeRequest.createBuilder().getName(), preMadeRequest.authSettings);
-                newMenu.setFont(currentMenu.getFont());
-                authorizedComponents.add(newMenu);
-                currentMenu.add(newMenu);
-                currentMenu = newMenu;
-            }
-            MenuItem parentItem = createRequestMenuItem(preMadeRequest, menuItemsFont);
-            authorizedComponents.add(parentItem);
-            currentMenu.add(parentItem);
-
-            Menu finalCurrentMenu = currentMenu;
-            Arrays.stream(variations).forEach(req -> {
-                MenuItem requestMenuItem = createRequestMenuItem(req, menuItemsFont);
-                authorizedComponents.add(requestMenuItem);
-                finalCurrentMenu.add(requestMenuItem);
-            });
-
-        }
-
-        SyncedJMenu connectedUsers = new ConnectedUsers();
-        serverStatusMenu.add(connectedUsers.getJMenu());
-        listsToRegister.add(connectedUsers);
-
-        SyncedJMenu ongoingGames = new OngoingGames();
-        serverStatusMenu.add(ongoingGames.getJMenu());
-        listsToRegister.add(ongoingGames);
-
-        settingsMenu.add(new MenuItem("about") {{
-            addActionListener(e -> {
-                showMessage("i really hope i remembered to change this", "About", MessageCard.MessageType.INFO);
-            });
-        }});
-
-        start.forEach(menuBar::add);
-        if (!middle.isEmpty()) {
-            menuBar.add(Box.createHorizontalGlue());
-            middle.forEach(menuBar::add);
-        }
-        menuBar.add(Box.createHorizontalGlue());
-        end.forEach(menuBar::add);
-    }
-
-    private MenuItem createRequestMenuItem(PreMadeRequest preMadeRequest, Font menuItemsFont) {
-        return new MenuItem(preMadeRequest.createBuilder().getName(), preMadeRequest.authSettings) {{
-            addActionListener(l -> {
-                client.request(preMadeRequest);
-            });
-            setFont(menuItemsFont);
-        }};
-
+    private void addWinListeners() {
+        win.addKeyListener(sidePanel.moveLog.createNavAdapter());
+        win.addKeyListener(boardPnl.getBoardOverlay().createKeyAdapter());
     }
 
     private void winResized() {
-        repaint();
         boardPnl.onResize();
     }
 
     public void showMessage(String message, String title, MessageCard.MessageType messageType) {
-        showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
+        try {
+            showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
+        } catch (IllegalStateException e) {//that font err
+        }
 
+    }
+
+    public <D extends Dialog> D showDialog(D dialog) {
+        if (dialog instanceof MessageDialog messageDialog && messageDialog.getMessageType() == MessageCard.MessageType.ERROR) {
+            closeOpenDialogs();
+        }
+        synchronized (displayedDialogs) {
+            displayedDialogs.add(dialog);
+            drawFocus();
+            dialog.start(this::dialogClosed);
+        }
+        return dialog;
+    }
+
+    public void closeOpenDialogs() {
+        try {
+            displayedDialogs.forEach(d -> {
+                if (!(d instanceof MessageDialog)) {
+                    d.closeNow();
+                }
+            });
+        } catch (ConcurrentModificationException e) {
+        }
+    }
+
+    public void drawFocus() {
+        // bring the window into front (DeIconified)
+        win.setVisible(true);
+        win.toFront();
+        win.setState(JFrame.NORMAL);
+    }
+
+    private void dialogClosed(Dialog dialog) {
+        try {
+            displayedDialogs.remove(dialog);
+        } catch (ConcurrentModificationException e) {
+
+        }
     }
 
     public void resetStatusLbl() {
@@ -247,6 +214,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void resetBackground() {
+
         boardPnl.forEachBtnParallel(BoardButton::resetBackground);
     }
 
@@ -311,8 +279,12 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
-    private void flipBoard() {
+    public void flipBoard() {
         setBoardOrientation(boardOrientation.getOpponent());
+    }
+
+    public boolean isBoardFlipped() {
+        return boardOrientation != PlayerColor.WHITE;
     }
 
     public SidePanel getSidePanel() {
@@ -324,15 +296,17 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void initGame(GameTime gameTime, Board board, PlayerColor playerColor, String otherPlayer) {
-        setBoardOrientation(playerColor);
-        resetStatusLbl();
-        resetAllBtns();
-        boardPnl.setBoardButtons(board);
-        boardPnl.getBoardOverlay().clearAllArrows();
-        sidePanel.reset(gameTime);
-        sidePanel.enableBtns(true);
-        currentGameStr = playerColor.getName() + " vs " + otherPlayer;
-        updateTitle();
+        synchronized (boardLock) {
+            setBoardOrientation(playerColor);
+            resetStatusLbl();
+            resetAllBtns();
+            boardPnl.setBoardButtons(board);
+            boardPnl.getBoardOverlay().clearAllArrows();
+            sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
+            currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
+            updateTitle();
+        }
+
     }
 
     public void resetAllBtns() {
@@ -372,6 +346,7 @@ public class View implements Iterable<BoardButton[]> {
     public void setBoardOrientation(PlayerColor boardOrientation) {
         this.boardOrientation = boardOrientation;
         boardPnl.resetOrientation();
+        sidePanel.setFlipped(isBoardFlipped());
 
     }
 
@@ -405,6 +380,13 @@ public class View implements Iterable<BoardButton[]> {
 
     public void enableSquare(Location loc, boolean enabled) {
         getBtn(loc).setEnabled(enabled);
+    }
+
+    public void unHoverAllBtns() {
+        for (var row : this) {
+            for (var btn : row)
+                btn.endHover();
+        }
     }
 
     public void enablePath(ArrayList<Move> movableSquares) {
@@ -466,11 +448,13 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void updateByMove(Move move) {
-        enableAllSquares(false);
-        sidePanel.moveLog.preAdding();
-        makeMove(move);
-        boardPnl.resizeIcons();
-        sidePanel.moveLog.addMove(move);
+        synchronized (boardLock) {
+            enableAllSquares(false);
+            sidePanel.moveLog.preAdding();
+            makeMove(move);
+            boardPnl.resizeIcons();
+            sidePanel.moveLog.addMove(move);
+        }
     }
 
     public void makeMove(Move move) {
@@ -482,10 +466,13 @@ public class View implements Iterable<BoardButton[]> {
         if (basicMove == null)
             return;
 
-        BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
-        BoardButton newBtn = getBtn(basicMove.getMovingTo());
-        newBtn.setPiece(prevBtn);
-        prevBtn.reset();
+        synchronized (boardLock) {
+            BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
+            BoardButton newBtn = getBtn(basicMove.getMovingTo());
+            newBtn.setPiece(prevBtn);
+            prevBtn.reset();
+
+        }
     }
 
     public void gameOver(String str) {
@@ -513,59 +500,42 @@ public class View implements Iterable<BoardButton[]> {
         DBResponse currentRes = response;
         while (currentRes != null) {
             pnl.add(createSingleComp(currentRes));
-            if (currentRes instanceof Graphable graphable)
-                pnl.add(Graph.createGraph(graphable));
             currentRes = currentRes.getAddedRes();
         }
-
-        assert response != null;
 
         Properties properties = client.dialogProperties(respondingTo, title + " | " + response.getStatus());
 
         showDialog(new SimpleDialog(properties, pnl));
     }
 
-    private JComponent createSingleComp(DBResponse response) {
-        String[][] rowData = response.getRows();
-        String[] colsNames = StrUtils.format(response.getColumns());
-        FitWidthTable table = new FitWidthTable(rowData, colsNames);
-        table.getTableHeader().setFont(FontManager.dbResponseTableHeader);
-        table.setFont(FontManager.dbResponseTable);
-        table.setEnabled(false);
-        table.fit();
-
-        return new JScrollPane() {{
-            setViewportView(table);
-
-            SwingUtilities.invokeLater(() -> {
-                Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
-                setMaximumSize(size);
-                setPreferredSize(size);
-            });
-        }};
-    }
-
-    public <D extends Dialog> D showDialog(D dialog) {
-        synchronized (displayedDialogs) {
-            displayedDialogs.add(dialog);
-            dialog.start(this::dialogClosed);
+    private JComponent createSingleComp(DBResponse _response) {
+        if (_response instanceof TableDBResponse response) {
+            Header header = new Header(response.getRequest().getBuilder().getPostDescription());
+            String[][] rowData = response.getRows();
+            String[] colsNames = StrUtils.format(response.getColumns());
+            FitWidthTable table = new FitWidthTable(rowData, colsNames);
+            table.getTableHeader().setFont(FontManager.dbResponseTableHeader);
+            table.setFont(FontManager.dbResponseTable);
+            table.setEnabled(false);
+            table.fit();
+            JScrollPane scrollPane = new JScrollPane() {{
+                setViewportView(table);
+                getVerticalScrollBar().setUnitIncrement(100);
+                SwingUtilities.invokeLater(() -> {
+                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
+                    setMaximumSize(size);
+                    setPreferredSize(size);
+                });
+            }};
+            return new WinPnl(header) {{
+                add(scrollPane);
+            }};
+        } else if (_response instanceof GraphableDBResponse response) {
+            return Graph.createGraph(response);
+        } else if (_response instanceof StatusResponse response) {
+            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageCard.MessageType.INFO : MessageCard.MessageType.ERROR);
         }
-        return dialog;
-    }
-
-    private void dialogClosed(Dialog dialog) {
-        try {
-            displayedDialogs.remove(dialog);
-        } catch (ConcurrentModificationException e) {
-
-        }
-    }
-
-    public void drawFocus() {
-        // bring the window into front (DeIconified)
-        win.setVisible(true);
-        win.toFront();
-        win.setState(JFrame.NORMAL);
+        return null;
     }
 
     public void dispose() {
@@ -573,19 +543,16 @@ public class View implements Iterable<BoardButton[]> {
         closeOpenDialogs();
     }
 
-    public void closeOpenDialogs() {
-        synchronized (displayedDialogs) {
-            try {
-                displayedDialogs.forEach(Dialog::closeNow);
-
-            } catch (ConcurrentModificationException e) {
-            }
-        }
-    }
-
     public void connectedToServer() {
         for (SyncableList list : listsToRegister) {
             client.getMessagesHandler().registerSyncableList(list);
+        }
+    }
+
+    public void colorMove(Move move) {
+        synchronized (boardLock) {
+            getBtn(move.getMovingFrom()).movingFrom();
+            getBtn(move.getMovingTo()).movingTo();
         }
     }
 }

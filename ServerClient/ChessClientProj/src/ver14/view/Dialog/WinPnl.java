@@ -60,12 +60,21 @@ public class WinPnl extends JPanel {
         currentCol = currentRow = 0;
     }
 
+    public WinPnl(int cols) {
+        this(cols, null);
+    }
+
     public WinPnl(String header) {
         this(header, true);
     }
 
     public WinPnl(String header, boolean centerHeader) {
         this(1, new Header(header, centerHeader));
+    }
+
+
+    public void setBorder() {
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     public Header getHeader() {
@@ -142,7 +151,7 @@ public class WinPnl extends JPanel {
             setPreferredSize(listSize);
             setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            getVerticalScrollBar().setUnitIncrement(10);
+            getVerticalScrollBar().setUnitIncrement(100);
         }
 
         public void addToComponent(Component adding, Object constraints) {

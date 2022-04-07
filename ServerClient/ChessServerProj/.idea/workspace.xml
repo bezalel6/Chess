@@ -9,30 +9,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="sadx">
-      <change afterPath="$PROJECT_DIR$/src/ver14/Tests/Sockets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/shelf/Uncommitted_changes_before_Update_at_21_03_2022_15_06_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/shelf/Uncommitted_changes_before_Update_at_21_03_2022_15_06__Changes_.xml" beforeDir="false" />
+    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="הגשה">
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/capture.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/castle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/check.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/game-end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/game-start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/opponent-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/promote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/assets/SoundEffects/self-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/capture.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/castle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/check.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/game-end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/game-start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/opponent-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/promote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/self-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Sound/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Sound/SoundManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphableDBResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/Tests/EvalTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/runConfigurations/Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/runConfigurations/Client.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_21__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_03_2022_20_26__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/GameCreation/GameCreationCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/JoinExistingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Cards/ResumeUnfinishedGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/UIGraphElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/UIGraphElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/GameIconsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/GameIconsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MessageItems/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MessageItems/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/MoveLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/MoveLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/TextWrapPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/TextWrapPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mylibs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mylibs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_03_2022_22_53_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_03_2022_22_53__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/DB/ServerDBResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/MyServerSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/MyServerSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Arg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Arg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Described.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Graphable/GraphElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Graphable/GraphElementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElementType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Graphable/Graphable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/Graphable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Selection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Table/Col.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Table/Col.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/UsernameSuggestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/UsernameSuggestions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerAI/MyAi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerAI/MyAi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerAI/PlayerAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerAI/PlayerAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/players/PlayerNet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/windows/MyJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/windows/MyJFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj/src/ver14/SharedClasses/RegEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj/src/ver14/SharedClasses/RegEx.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +98,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -54,7 +110,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="Game_session" />
+        <entry key="$PROJECT_DIR$/../.." value="SimplifiyingMove" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -69,14 +125,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/ver9/server/game/GameSession.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/Server.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/DB.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/Condition.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/model_classes/Bitboard.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/Tests.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ver9/server/players/PlayerNet.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver9/server/players/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/players/PlayerNet.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/Server.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/Tests.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver9/SharedClasses/messages/Message.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/DB.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/model_classes/Bitboard.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver9/server/DB/Condition.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -98,6 +154,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path" value="C:\Users\bezal\Documents\GitHub\Chess\ServerClient\ChessServerProj\src\libs" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -105,13 +162,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last.edited.regexp" value="ssDatesdd" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/dlls" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19885057" />
     <property name="rearrange.code.on.save" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/ver13/Model/Bitboard.java" />
   </component>
   <component name="ReaderModeSettings">
@@ -134,11 +192,8 @@
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="ver5.server.DB.DB.Table" />
     </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="ver14.Model.Perft" />
-    </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
-      <recent name="ver14.Model" />
+      <recent name="ver14.SharedClasses.Threads.ErrorHandling" />
       <recent name="ver14.Model.minimax" />
       <recent name="ver13.Tests" />
       <recent name="ver10.SharedClasses.DBActions.Statements" />
@@ -156,33 +211,42 @@
       <recent name="ver3.model_classes" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Sockets">
-    <configuration name="Server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="ver12.Server" />
+  <component name="RunManager" selected="Application.MinimaxTests">
+    <configuration name="DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.DB.DB" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.DB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sockets" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Sockets" />
-      <module name="ChessServerProj" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="PORT" value="1234" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
+    <configuration name="MinimaxTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StrUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.SharedClasses.Utils.StrUtils" />
+      <module name="ChessServerProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.SharedClasses.Utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -205,116 +269,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimaxTests.minimaxVsMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EvalTests.checkColors" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
-      <shortenClasspath name="NONE" />
-      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ver14.Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="ver14.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.EvalTests" />
+      <option name="METHOD_NAME" value="checkColors" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MinimaxTests.minimaxVsMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ChessServerProj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
       <option name="METHOD_NAME" value="minimaxVsMinimax" />
-      <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <envs>
-        <env name="PORT" value="1234" />
-      </envs>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MinimaxTests.minimaxVsStockfish" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <shortenClasspath name="NONE" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="minimaxVsStockfish" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <envs>
-        <env name="PORT" value="1234" />
-      </envs>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoveGenerationTest.perft" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <shortenClasspath name="NONE" />
-      <useClassPathOnly />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
-      <option name="METHOD_NAME" value="perft" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <envs>
-        <env name="PORT" value="1234" />
-      </envs>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <shortenClasspath name="NONE" />
-      <useClassPathOnly />
-      <option name="SUITE_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="GROUP_NAME" value="" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="PARAMETERS" value="" />
-      <option name="OUTPUT_DIRECTORY" value="" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="PROPERTIES_FILE" value="" />
-      <envs>
-        <env name="PORT" value="1234" />
-      </envs>
       <properties />
       <listeners />
       <method v="2">
@@ -323,20 +307,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Tests" />
+      <item itemvalue="Application.DB" />
+      <item itemvalue="Application.MinimaxTests" />
       <item itemvalue="TestNG.Tests" />
-      <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
-      <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
-      <item itemvalue="Application.Sockets" />
+      <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
+      <item itemvalue="Application.StrUtils" />
+      <item itemvalue="TestNG.EvalTests.checkColors" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Sockets" />
+        <item itemvalue="Application.MinimaxTests" />
+        <item itemvalue="TestNG.EvalTests.checkColors" />
+        <item itemvalue="Application.DB" />
+        <item itemvalue="Application.StrUtils" />
         <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
-        <item itemvalue="TestNG.MoveGenerationTest.perft" />
-        <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
-        <item itemvalue="Application.Tests" />
       </list>
     </recent_temporary>
   </component>
@@ -349,25 +334,49 @@
       <option name="presentableId" value="Default" />
       <updated>1636632021405</updated>
     </task>
-    <task id="LOCAL‎00001" summary="sadx">
-      <created>1647731988270</created>
+    <task id="LOCAL‎00001" summary="created error handling">
+      <created>1647589157621</created>
       <option name="number" value="LOCAL‎00001" />
       <option name="presentableId" value="LOCAL‎00001" />
-      <updated>1647731988270</updated>
+      <updated>1647589157621</updated>
     </task>
-    <task id="LOCAL‎00002" summary="sadx">
-      <created>1648018936204</created>
+    <task id="LOCAL‎00002" summary="created error handling">
+      <created>1647608263579</created>
       <option name="number" value="LOCAL‎00002" />
       <option name="presentableId" value="LOCAL‎00002" />
-      <updated>1648018936204</updated>
+      <updated>1647608263579</updated>
     </task>
-    <task id="LOCAL‎00003" summary="sadx">
-      <created>1648212837433</created>
+    <task id="LOCAL‎00003" summary="fixed Location">
+      <created>1647698466699</created>
       <option name="number" value="LOCAL‎00003" />
       <option name="presentableId" value="LOCAL‎00003" />
-      <updated>1648212837433</updated>
+      <updated>1647698466699</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎00004" summary="di">
+      <created>1648669985922</created>
+      <option name="number" value="LOCAL‎00004" />
+      <option name="presentableId" value="LOCAL‎00004" />
+      <updated>1648669985922</updated>
+    </task>
+    <task id="LOCAL‎00005" summary="FIXED THAT FREAKING LOCATION BUG (it was normal perspective in Direction)">
+      <created>1648870495253</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1648870495253</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="SidePanel mainly">
+      <created>1648943060219</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1648943060219</updated>
+    </task>
+    <task id="LOCAL‎00007" summary="הגשה">
+      <created>1649114338469</created>
+      <option name="number" value="LOCAL‎00007" />
+      <option name="presentableId" value="LOCAL‎00007" />
+      <updated>1649114338469</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -375,70 +384,97 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Error_Handling" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sadx" />
-    <option name="LAST_COMMIT_MESSAGE" value="sadx" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="created error handling" />
+    <MESSAGE value="fixed Location" />
+    <MESSAGE value=" v" />
+    <MESSAGE value="di" />
+    <MESSAGE value="FIXED THAT FREAKING LOCATION BUG (it was normal perspective in Direction)" />
+    <MESSAGE value="SidePanel mainly" />
+    <MESSAGE value="הגשה" />
+    <option name="LAST_COMMIT_MESSAGE" value="הגשה" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.io.NotSerializableException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.AssertionError" package="java.lang" />
+        <breakpoint type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang">
+            <option name="NOTIFY_CAUGHT" value="false" />
+          </properties>
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.util.EmptyStackException" package="java.util" />
           <option name="timeStamp" value="48" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.net.SocketException" package="java.net">
             <option name="NOTIFY_CAUGHT" value="false" />
           </properties>
           <option name="timeStamp" value="78" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
+          <properties class="java.lang.Error" package="java.lang">
+            <option name="NOTIFY_CAUGHT" value="false" />
+          </properties>
+          <option name="timeStamp" value="87" />
+        </breakpoint>
+        <breakpoint type="java-exception">
           <properties class="net.ucanaccess.jdbc.UcanaccessSQLException" package="net.ucanaccess.jdbc" />
           <option name="timeStamp" value="101" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang">
             <option name="NOTIFY_CAUGHT" value="false" />
           </properties>
           <option name="timeStamp" value="104" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang">
             <option name="NOTIFY_CAUGHT" value="false" />
           </properties>
           <option name="timeStamp" value="105" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.net.SocketTimeoutException" package="java.net" />
           <option name="timeStamp" value="106" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="142" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.io.InvalidClassException" package="java.io" />
           <option name="timeStamp" value="144" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.io.StreamCorruptedException" package="java.io" />
           <option name="timeStamp" value="145" />
         </breakpoint>
@@ -452,50 +488,88 @@
           </properties>
           <option name="timeStamp" value="151" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.util.ConcurrentModificationException" package="java.util">
             <option name="NOTIFY_CAUGHT" value="false" />
           </properties>
           <option name="timeStamp" value="154" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang">
             <option name="NOTIFY_CAUGHT" value="false" />
           </properties>
           <option name="timeStamp" value="157" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="169" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="189" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="198" />
         </breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/ver4/model_classes/Minimax.java</url>
           <line>204</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/ver7/server/players/PlayerNet.java</url>
           <line>54</line>
           <option name="timeStamp" value="155" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/ver13/Model/PiecesBBs.java</url>
           <line>45</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/src/ver14/Model/Model.java</url>
-          <line>259</line>
-          <option name="timeStamp" value="192" />
+          <line>202</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/Model/Model.java</url>
+          <line>252</line>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/networking/AppSocket.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="188" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <condition expression="bestEval==null" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/ver14/Model/minimax/Minimax.java</url>
-          <line>298</line>
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ver14/MyServerSocket.java</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java</url>
+          <line>112</line>
           <option name="timeStamp" value="195" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="java-exception">
+          <properties>
+            <option name="NOTIFY_CAUGHT" value="false" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
@@ -505,23 +579,15 @@
     <watches-manager>
       <configuration name="TestNG">
         <watch expression="print();" language="JAVA" />
-        <watch expression="board.print();" language="JAVA" />
-        <watch expression="model.getCurrentPlayer()" language="JAVA" />
-        <watch expression="parms.model.printBoard();" language="JAVA" />
-        <watch expression="MoveGenerator.generateMoves(parms.model)" language="JAVA" custom="ver14.Model.MoveGenerator.MoveGenerator" />
-        <watch expression="MoveGenerator.generateMoves(parms.model, GenerationSettings.anyLegalMove)" language="JAVA" custom="ver14.Model.MoveGenerator.MoveGenerator,ver14.Model.MoveGenerator.GenerationSettings" />
-        <watch expression="method.getName()" language="JAVA" />
-        <watch expression="ArrUtils.exists(testData,0)" language="JAVA" />
-        <watch expression="attackedSquares.prettyPrint();" language="JAVA" />
-        <watch expression="parms.model" />
-        <watch expression="Eval.getEvaluation(parms.model)" language="JAVA" />
-        <watch expression="parms.model.printBoard();" language="JAVA" />
-        <watch expression="parms" />
+        <watch expression="attackingPiecesBB.prettyPrint();" language="JAVA" />
+        <watch expression="model.printBoard();" language="JAVA" />
+        <watch expression="adjustedOpponent.prettyPrint()" language="JAVA" />
+        <watch expression="pieceBB.shift(attackingPlayerColor,direction.opposite()).prettyPrint()" language="JAVA" />
       </configuration>
       <configuration name="Application">
-        <watch expression="print();" language="JAVA" />
-        <watch expression="board.print();" language="JAVA" />
-        <watch expression="Thread.currentThread().interrupted" language="JAVA" />
+        <watch expression="player" language="JAVA" />
+        <watch expression="ErrorHandler.dontThrowIds" language="JAVA" />
+        <watch expression="StrUtils.clean(row[0])" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

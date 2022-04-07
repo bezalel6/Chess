@@ -11,6 +11,7 @@ import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.MessagesHandler;
+import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.View;
 
@@ -97,19 +98,22 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onInitGame() {
         return message -> {
             super.onInitGame().onMsg(message);
-            PlayerColor myColor = message.getPlayerColor();
-            client.setMyColor(myColor);
-            Stack<Move> moveStack = message.getMoveStack();
-            Board board = message.getBoard();
-            //if loading a prev game the board should start from the starting pos and make all moves
-            boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
-            if (isLoadingGame) {
-                board = Board.startingPos();
-            }
-            view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
-            if (isLoadingGame) {
-                for (Move move : moveStack)
-                    client.updateByMove(move);
+            client.soundManager.gameStart.play();
+            synchronized (view.boardLock) {
+                PlayerColor myColor = message.getPlayerColor();
+                client.setMyColor(myColor);
+                Stack<Move> moveStack = message.getMoveStack();
+                Board board = message.getBoard();
+                //if loading a prev game the board should start from the starting pos and make all moves
+                boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
+                if (isLoadingGame) {
+                    board = Board.startingPos();
+                }
+                view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
+                if (isLoadingGame) {
+                    for (Move move : moveStack)
+                        client.updateByMove(move, false);
+                }
             }
 
         };
@@ -127,11 +131,15 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onGetMove() {
         return message -> {
             super.onGetMove().onMsg(message);
-            client.setLatestGetMoveMsg(message);
-            client.unlockMovableSquares(message);
-            view.getWin().toFront();
-            client.startMyTime();
+
+            synchronized (view.boardLock) {
+                client.setLatestGetMoveMsg(message);
+                client.unlockMovableSquares(message);
+                view.getWin().toFront();
+                client.startMyTime();
+            }
         };
+
     }
 
     @Override
@@ -148,6 +156,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onGameOver().onMsg(message);
             client.stopRunningTime();
+            client.soundManager.gameEnd.play();
             GameStatus gameStatus = message.getGameStatus();
             view.gameOver(gameStatus.getDetailedStr());
 
@@ -158,7 +167,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onError() {
         return message -> {
             super.onError().onMsg(message);
-            client.closeClient(message.getSubject());
+            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ERROR);
         };
     }
 
@@ -167,8 +176,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onQuestion().onMsg(message);
             view.getSidePanel().askPlayerPnl.ask(message.getQuestion(), answer -> {
-                message.getQuestion().setAnswer(answer);
-                socket.writeMessage(Message.answerQuestion(message.getQuestion(), message));
+                socket.writeMessage(Message.answerQuestion(answer, message));
             });
         };
     }
@@ -177,7 +185,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onBye() {
         return message -> {
             super.onBye().onMsg(message);
-            client.closeClient(message.getSubject());
+            client.closeClient(message.getSubject(), "Bye", MessageCard.MessageType.INFO);
         };
     }
 

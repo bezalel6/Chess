@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Cards;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.messages.Message;
@@ -11,6 +12,7 @@ import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.BackOkInterface;
 import ver14.view.Dialog.Dialogs.BackOkPnl;
+import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Dialog.Verified;
 import ver14.view.Dialog.WinPnl;
@@ -25,27 +27,33 @@ import java.util.ArrayList;
 public abstract class DialogCard extends WinPnl implements BackOkInterface, Child, Parent, AncestorListener {
     private final static IDsGenerator cardIDs = new IDsGenerator();
     private static final boolean WIREFRAME = false;
+    private static final Font navigationBtnsFont = FontManager.normal;
     protected final Dialog parentDialog;
     private final CardHeader cardHeader;
     private final ArrayList<Verified> verifiedComponentsList;
     private final MyJButton navBtn;
     private final String cardID;
+    private final ArrayList<MyJButton> defaultValueBtns;
     private BackOkPnl backOkPnl;
+    private Header optionalHeader = null;
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
         setBackOk(this);
     }
 
+
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
         super(cardHeader);
         this.cardHeader = cardHeader;
         this.verifiedComponentsList = new ArrayList<>();
+        this.defaultValueBtns = new ArrayList<>();
         this.parentDialog = parentDialog;
         this.cardID = cardIDs.generate();
         setBackOk(backOk);
         addAncestorListener(this);
-        navBtn = new MyJButton(getCardName(), FontManager.normal, this::navToMe);
+        navBtn = new MyJButton(getCardName(), navigationBtnsFont, this::navToMe);
+        checkVerifiedComponents();
     }
 
     private void setBackOk(BackOkInterface backOk) {
@@ -64,10 +72,31 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         parentDialog.switchTo(this);
     }
 
+    /**
+     * @return Error message if any not verified, null otherwise
+     */
+    public String checkVerifiedComponents() {
+        String ret = null;
+        for (Verified comp : verifiedComponentsList) {
+            //keep verifying all components, but set the global error to the first one found
+            if (!comp.verify() && ret == null) {
+                ret = comp.errorDetails();
+//                break;
+            }
+        }
+        if (backOkPnl != null)
+            backOkPnl.enableOk(ret == null);
+        return ret;
+    }
+
 //    @Override
 //    public Dimension getPreferredSize() {
 //        return Size.max(super.getPreferredSize());
 //    }
+
+    public BackOkPnl getBackOkPnl() {
+        return backOkPnl;
+    }
 
     public String getCardID() {
         return cardID;
@@ -103,12 +132,21 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
     @Override
     public void onUpdate() {
-        parentDialog.onUpdate();
+        if (parentDialog != null)
+            parentDialog.onUpdate();
     }
 
     @Override
     public void addToNavText(String str) {
-        navBtn.setText(getCardName() + str);
+        setNavText(getCardName() + str);
+    }
+
+    private void setNavText(String s) {
+        if (optionalHeader == null) {
+            navBtn.setText(s);
+        } else {
+            optionalHeader.setText(s);
+        }
     }
 
     @Override
@@ -126,9 +164,14 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         return this;
     }
 
+    @Override
+    public void addOnClose(VoidCallback callback) {
+        parentDialog.addOnClose(callback);
+    }
+
     public void addNavigationTo(DialogCard card) {
         parentDialog.addCard(card);
-        add(card.navToMePnl());
+        add(card.createNavPnl());
     }
 
     @Override
@@ -144,10 +187,25 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         return super.add(comp);
     }
 
-    public JPanel navToMePnl() {
-        JPanel ret = new JPanel();
-        ret.add(navBtn);
+    public JPanel createNavPnl() {
+        WinPnl ret = new WinPnl();
+        if (!defaultValueBtns.isEmpty()) {
+            optionalHeader = new Header(navBtn.getText());
+            ret.setHeader(optionalHeader);
+
+            defaultValueBtns.forEach(ret::add);
+            navBtn.setText("Advanced Settings");
+            ret.add(navBtn);
+
+            ret.setBorder();
+        } else {
+            ret.add(navBtn);
+        }
         return ret;
+    }
+
+    public void addDefaultValueBtn(String txt, VoidCallback onClick) {
+        this.defaultValueBtns.add(new MyJButton(txt, navigationBtnsFont, onClick));
     }
 
     public boolean dialogWideErrors() {
@@ -156,23 +214,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
     public void addDialogComponent(DialogComponent component) {
         add(component);
-    }
-
-    /**
-     * @return Error message if any not verified, null otherwise
-     */
-    public String checkVerifiedComponents() {
-        String ret = null;
-        for (Verified comp : verifiedComponentsList) {
-            //keep verifying all components, but set the global error to the first one found
-            if (!comp.verify() && ret == null) {
-                ret = comp.errorDetails();
-//                break;
-            }
-        }
-        if (backOkPnl != null)
-            backOkPnl.enableOk(ret == null);
-        return ret;
     }
 
     @Override
@@ -190,7 +231,16 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
      */
     @Override
     public void onOk() {
-        parentDialog.closeDialog();
+        if (parentDialog != null)
+            parentDialog.closeDialog();
+        else {
+            Container parentContainer = getParent();
+            while (!(parentContainer instanceof Window) && parentContainer != null) {
+                parentContainer = getParent();
+            }
+            assert parentContainer != null;
+            ((Window) parentContainer).dispose();
+        }
     }
 
 

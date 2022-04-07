@@ -24,6 +24,15 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
             AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
             socket.messagesHandler.onDisconnected();
+
+        });
+        ErrorManager.setHandler(ErrorType.Disconnected, err -> {
+
+        });
+        ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
+            System.out.println();
+//            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
+//            socket.messagesHandler.onDisconnected();
         });
     }
 
@@ -34,7 +43,8 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
     private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
     private final ObjectInputStream msgIS;    // Input stream to GET Messages
     private MessagesHandler messagesHandler;
-    private volatile boolean keepReading;
+    private boolean keepReading;
+    private boolean didDisconnect = false;
 
     /**
      * Instantiates a new App socket.
@@ -58,6 +68,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         // Create MESSAGE streams. Output Stream must be created FIRST!
         // ------------------------------------------------------------
         msgOS = new ObjectOutputStream(socket.getOutputStream());
+        msgOS.flush();
         msgIS = new ObjectInputStream(socket.getInputStream());
     }
 
@@ -83,8 +94,10 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
             try {
                 Message msg = (Message) msgIS.readObject();
                 messagesHandler.receivedMessage(msg);
-            } catch (Throwable e) {
-                throw MyError.AppSocket(true, this, e);
+            } catch (Exception e) {
+                didDisconnect = true;
+                if (!messagesHandler.isBye())
+                    throw MyError.AppSocket(true, this, e);
             }
         }
     }
@@ -123,15 +136,29 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      *
      * @param msg the msg
      */
-    public void writeMessage(Message msg) {
+    public synchronized void writeMessage(Message msg) {
+        if (!isConnected())
+            return;
         try {
+            msg = new Message(msg);
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
-        } catch (Throwable e) {
+        } catch (Exception e) {
+            didDisconnect = true;
             throw MyError.AppSocket(false, this, e);
 //            ErrorHandler.thrown(ex);
         }
     }
+
+    /**
+     * Is connected boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isConnected() {
+        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
+    }
+
 
     /**
      * Close.
@@ -140,7 +167,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         ErrorHandler.ignore(() -> {
             keepReading = false;
             if (messagesHandler != null) {
-                messagesHandler.interruptBlocking();
+                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
             }
             msgSocket.close();  // will close the IS & OS streams
         });
@@ -162,15 +189,6 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public String getRemoteAddress() {
         return msgSocket.getRemoteSocketAddress().toString().substring(1);
-    }
-
-    /**
-     * Is connected boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isConnected() {
-        return msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
     }
 
     /**
@@ -198,15 +216,15 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public void stopReading() {
         keepReading = false;
-        interruptListener();
+        interruptListener(null);
     }
 
     /**
      * Interrupt listener.
      */
-    public void interruptListener() {
-        messagesHandler.interruptBlocking();
-        interrupt();
+    public void interruptListener(MyError err) {
+        messagesHandler.interruptBlocking(err);
+//        interrupt();
     }
 
     /**

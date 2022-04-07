@@ -1,7 +1,7 @@
 package ver14.view.Graph;
 
-import ver14.SharedClasses.DBActions.Graphable.GraphElement;
-import ver14.SharedClasses.DBActions.Graphable.GraphElementType;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.IconManager.IconManager;
@@ -20,7 +20,7 @@ public class UIGraphElement extends GraphElement {
         this(element.getNum(), element.getName(), element.getGraphElementType());
     }
 
-    public UIGraphElement(int num, String name, GraphElementType graphElementType) {
+    public UIGraphElement(double num, String name, GraphElementType graphElementType) {
         super(num, name, graphElementType);
         pnl = new JPanel();
         pnl.setLayout(new BorderLayout());
@@ -33,7 +33,7 @@ public class UIGraphElement extends GraphElement {
         return pnl;
     }
 
-    public void createStats(int avgValue) {
+    public void createStats(double avgValue) {
         innerPnl.add(new MyLbl(num + "", font));
 
         if (num > 0) {

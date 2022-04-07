@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Copyright (c) 18.3.2022, 10:40.
+# by Bezalel Avrahami
+#
+
 # check for errors under valgrind or sanitizers.
 
 error()

@@ -14,10 +14,10 @@ public class Header extends JPanel {
     //    public final static Insets insets = WinPnl.insets;
     public final static Insets insets = new Insets(10, 10, 10, 10);
     protected final static Size maximumSize = new Size(500);
-    private final String text;
     private final JLabel lbl;
     private final ImageIcon icon;
     private final boolean center;
+    private String text;
 
     public Header(String text) {
         this(text, true);
@@ -34,6 +34,9 @@ public class Header extends JPanel {
         this.center = center;
 
         lbl = createHeader();
+
+        setToolTipText(lbl.getText());
+
         add(lbl);
 
         Border border = getBorder();
@@ -53,6 +56,10 @@ public class Header extends JPanel {
         this(null, icon, center);
     }
 
+    public void spaceLblIcon() {
+        lbl.setIconTextGap(50);
+    }
+
     @Override
     public void setFont(Font font) {
         super.setFont(font);
@@ -68,4 +75,8 @@ public class Header extends JPanel {
         return text;
     }
 
+    public void setText(String s) {
+        this.text = s;
+        this.lbl.setText(text);
+    }
 }

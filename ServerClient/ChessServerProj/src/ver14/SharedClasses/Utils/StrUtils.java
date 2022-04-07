@@ -73,6 +73,8 @@ public class StrUtils {
                 word = formatDate(word);
             } else if (s.contains(RegEx.Prefixes.DONT_CAP_WORD)) {
                 word = word.replace(RegEx.Prefixes.DONT_CAP_WORD, "");
+            } else if (RegEx.URL.check(word)) {
+//                word = "<a href=\"%s\">%s</a>".formatted(word, word);
             } else if (!word.matches("^[A-Z]+$")) {
                 word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
             }
@@ -100,6 +102,18 @@ public class StrUtils {
 
     public static String formatDate(Date date, String format) {
         return new SimpleDateFormat(format, Locale.US).format(date);
+    }
+
+    public static String parseURLS(String str) {
+        StringBuilder bldr = new StringBuilder();
+        String[] arr = str.split("(<? )");
+        for (String s : arr) {
+            if (RegEx.URL.check(s)) {
+                s = "<a href=\"%s\">%s</a>".formatted(s, s);
+            }
+            bldr.append(s);
+        }
+        return bldr.toString();
     }
 
     public static String uppercase(String str) {
@@ -132,7 +146,7 @@ public class StrUtils {
 
     public static String fitInside(String str, JComponent comp) {
 //        return str;
-        return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 200), str);
+        return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 20), str);
     }
 
     //todo make recursive
@@ -154,14 +168,14 @@ public class StrUtils {
         return hours + minutes + seconds + micros;
     }
 
+    public static String wrapInHtml(String str) {
+        return str;
+    }
+
 //    public static String wrapInHtml(String str) {
 //        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
 ////        return str;
 //    }
-
-    public static String wrapInHtml(String str) {
-        return str;
-    }
 
     public static String strINN(Object... objs) {
         StringBuilder bldr = new StringBuilder();
@@ -204,8 +218,8 @@ public class StrUtils {
     }
 
     public static void main(String[] args) {
-
     }
+
 
     public static String awful(String og) {
         StringBuilder bldr = new StringBuilder();

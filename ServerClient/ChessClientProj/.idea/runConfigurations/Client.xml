@@ -2,10 +2,11 @@
   <configuration default="false" name="Client" type="Application" factoryName="Application" singleton="false">
     <option name="MAIN_CLASS_NAME" value="ver14.Client" />
     <module name="ChessClientProj" />
+    <option name="PROGRAM_PARAMETERS" value="-Dsun.io.serialization.extendedDebugInfo=true -Dsun.lang.ClassLoader.allowArraySyntax=true" />
     <option name="VM_PARAMETERS" value="-ea" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="ver14.*" />
+        <option name="PATTERN" value="ver14.Sound.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

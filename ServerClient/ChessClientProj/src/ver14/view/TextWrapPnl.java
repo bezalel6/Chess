@@ -1,5 +1,7 @@
 package ver14.view;
 
+import ver14.view.IconManager.Size;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,15 +16,19 @@ public class TextWrapPnl extends JPanel {
         this.textArea = new JTextArea(5, 40);
         initializeUI();
         setText(text);
+        setEditable(false);
     }
 
     private void initializeUI() {
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(500, 200));
 
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+//        textArea.setLineWrap(true);
+//        textArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(100);
 
         this.add(scrollPane, BorderLayout.CENTER);
     }
@@ -30,6 +36,18 @@ public class TextWrapPnl extends JPanel {
     public void setText(String text) {
         if (textArea != null)
             textArea.setText(text);
+    }
+
+    public void setEditable(boolean e) {
+        textArea.setEditable(e);
+    }
+
+    public void setHeight(int height) {
+        this.setPreferredSize(new Size(getPreferredSize().width, height));
+    }
+
+    public JTextArea getTextArea() {
+        return textArea;
     }
 
     @Override
@@ -49,10 +67,6 @@ public class TextWrapPnl extends JPanel {
     public void setFont(Font font) {
         if (textArea != null)
             textArea.setFont(font);
-    }
-
-    public void setEditable(boolean e) {
-        textArea.setEditable(e);
     }
 
 }

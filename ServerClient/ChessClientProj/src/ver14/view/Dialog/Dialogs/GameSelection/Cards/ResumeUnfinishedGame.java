@@ -13,5 +13,8 @@ public class ResumeUnfinishedGame extends SyncedGamesList implements BackOkInter
         super(new Header("Resume Unfinished Game vs Ai"), SyncedListType.RESUMABLE_GAMES, parent, gameSettings, GameSettings.GameType.RESUME);
     }
 
-
+    @Override
+    public String getOkText() {
+        return "OK";
+    }
 }

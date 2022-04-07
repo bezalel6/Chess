@@ -1,8 +1,8 @@
 package ver14.view.Graph;
 
-import ver14.SharedClasses.DBActions.Graphable.GraphElement;
-import ver14.SharedClasses.DBActions.Graphable.GraphElementType;
-import ver14.SharedClasses.DBActions.Graphable.Graphable;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
+import ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable;
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.ui.MyLbl;
 
@@ -24,8 +24,8 @@ public class Graph extends JPanel {
 
         int col = 0;
         int row = 0;
-        int max = 0;
-        int avg = 0;
+        double max = 0;
+        double avg = 0;
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = row++;
         add(new MyLbl(header, FontManager.statistics), gbc);

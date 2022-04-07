@@ -26,8 +26,8 @@ public abstract class GameCreationCard extends DialogCard {
     protected abstract void changeState(boolean state);
 
     @Override
-    public JPanel navToMePnl() {
-        JPanel pnl = super.navToMePnl();
+    public JPanel createNavPnl() {
+        JPanel pnl = super.createNavPnl();
         pnl.add(checkbox);
         return pnl;
     }

@@ -23,9 +23,14 @@ public class MyServerSocket extends ServerSocket {
             Socket socket = accept(); // blocking method
             socketToClient = new AppSocket(socket);
         } catch (Throwable exp) {
-            exp.printStackTrace();
+//            exp.printStackTrace();
         }
         return socketToClient;
     }
 
+    @Override
+    public void close() throws IOException {
+        System.out.println("closing socket!!!");
+        super.close();
+    }
 }

@@ -1,6 +1,7 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Semaphore;
 
 /**
  * The type Messages handler.
@@ -20,10 +22,12 @@ public abstract class MessagesHandler {
      * The Socket.
      */
     protected final AppSocket socket;
-    private final ArrayList<CompletableFuture<?>> waiting;
+    private final ArrayList<CompletableFuture<Message>> waiting;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
+    private final Semaphore chronologicalSemaphore = new Semaphore(1);
+    private boolean isBye = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -39,6 +43,7 @@ public abstract class MessagesHandler {
                 case INIT_GAME -> onInitGame();
                 case WAIT_TURN -> onWaitTurn();
                 case GET_MOVE -> onGetMove();
+                case THROW_ERROR -> onThrowError();
                 case UPDATE_BY_MOVE -> onUpdateByMove();
                 case GAME_OVER -> onGameOver();
                 case ERROR -> onError();
@@ -90,6 +95,14 @@ public abstract class MessagesHandler {
         synchronized (waiting) {
             waiting.remove(future);
         }
+
+        if (msg == null)
+            throw new MyError.DisconnectedError();
+
+        if (msg.getMessageType() == MessageType.THROW_ERROR) {
+            onThrowError().onMsg(msg);
+        }
+
         return msg;
     }
 
@@ -104,6 +117,12 @@ public abstract class MessagesHandler {
         socket.writeMessage(request);
     }
 
+    private MessageCallback onThrowError() {
+        return msg -> {
+            throw msg.getError();
+        };
+    }
+
     /**
      * Received message.
      *
@@ -116,14 +135,23 @@ public abstract class MessagesHandler {
                 example:
                     client received a login message.
                     client replying with the login info and waiting for a welcome\error response message.
-                    gets stuck. because the response message will never get read.
+                    gets stuck. because the response message will never get read, bc the reading thread is waiting for a response
                  */
-        if (message != null && !message.getMessageType().shouldBlock) {
+        if (message != null) {
             ThreadsManager.createThread(() -> {
+                if (message.getMessageType().chronologicalImportance) {
+                    System.out.println(message.getMessageType() + " acquiring semaphore");
+                    chronologicalSemaphore.acquire();
+                    System.out.println(message.getMessageType() + " acquired semaphore");
+                }
                 processMessage(message);
+                if (message.getMessageType().chronologicalImportance) {
+                    chronologicalSemaphore.release();
+                    System.out.println(message.getMessageType() + " released semaphore");
+                }
             }, true);
         } else
-            processMessage(message);
+            processMessage(null);
     }
 
     private void processMessage(Message message) {
@@ -146,7 +174,6 @@ public abstract class MessagesHandler {
      * On disconnected.
      */
     public void onDisconnected() {
-        interruptBlocking();
         socket.close();
     }
 
@@ -171,10 +198,17 @@ public abstract class MessagesHandler {
     /**
      * Interrupt blocking.
      */
-    public void interruptBlocking() {
+//    public void interruptBlocking() {
+//        interruptBlocking();
+//    }
+    public void interruptBlocking(MyError err) {
         synchronized (waiting) {
-            waiting.forEach(w -> w.complete(null));
+            waiting.forEach(w -> w.complete(Message.throwError(err)));
         }
+    }
+
+    protected MyError.DisconnectedError createDisconnectedError() {
+        return new MyError.DisconnectedError();
     }
 
     /**
@@ -338,8 +372,12 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
-
+            isBye = true;
         };
+    }
+
+    public boolean isBye() {
+        return isBye;
     }
 
     /**
