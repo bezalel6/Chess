@@ -70,25 +70,7 @@ public class AskPlayer extends JPanel {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        AskPlayer ask = new AskPlayer();
-        new JFrame() {{
-            setSize(500, 500);
-            add(ask);
-            setVisible(true);
-        }};
-        Thread.sleep(1000);
-        ask.ask(Question.Rematch, a -> {
-            System.out.println(a);
-            ask.ask(Question.Rematch, b -> {
-                System.out.println(b);
-                ask.ask(Question.Rematch, c -> {
-                    System.out.println(c);
-                });
-            });
-        });
-    }
-
+ 
     public void ask(Question question, QuestionCallback callback) {
         this.header.setText(question.questionStr);
         addLayout(question, callback);

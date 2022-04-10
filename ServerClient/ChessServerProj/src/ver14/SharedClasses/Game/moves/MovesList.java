@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class MovesList extends ArrayList<Move> {
 
-    protected boolean doneAdding = false;
 
     public MovesList() {
 
@@ -55,12 +54,6 @@ public class MovesList extends ArrayList<Move> {
 //        }
 //        return true;
 //    }
-
-
-    public void doneAdding() {
-        doneAdding = true;
-
-    }
 
 
 }

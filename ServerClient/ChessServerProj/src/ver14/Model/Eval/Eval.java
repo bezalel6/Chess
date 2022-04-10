@@ -22,12 +22,11 @@ public class Eval implements Serializable {
     //    public static final MyHashMap evaluationHashMap = new MyHashMap(HashManager.Size.EVALUATIONS);
 //    public static final MyHashMap gameOverHashMap = new MyHashMap(HashManager.Size.GAME_OVER);
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
-
+    private static final double KING_SAFETY_WEIGHT = -0.001;
     private final Model model;
     private final PlayerColor playerToMove;
     private PlayerColor evaluationFor;
     private PlayerColor opponentColor;
-
     private double egWeight;
     private Evaluation evaluation;
 
@@ -160,14 +159,14 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.PIECE_TABLES, res);
     }
 
-    private void compareForceKingToCorner() {
-        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
-    }
-
 //
 //    private double compareSquareControl(int player) {
 //        return squaresControl(player) - squaresControl(Player.getOpponent(player));
 //    }
+
+    private void compareForceKingToCorner() {
+        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
+    }
 
     private void compareKingSafety() {
         evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
@@ -198,6 +197,8 @@ public class Eval implements Serializable {
     }
 
     private double forceKingToCorner(double egWeight, PlayerColor playerColor) {
+        if (egWeight == 0)
+            return 0;
         double ret = 0;
         Location opK = model.getKing(playerColor.getOpponent());
 
@@ -220,11 +221,12 @@ public class Eval implements Serializable {
 //        return ret * 0.01 * egWeight;
         return ret * egWeight;
     }
+//    private static final double KING_SAFETY_WEIGHT = -0.01;
 
     private double kingSafety(PlayerColor playerColor) {
         double ret;
         int movesNum = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, model.getPieceBitBoard(playerColor, PieceType.KING), playerColor.getOpponent(), model).getSetLocs().size();
-        ret = movesNum * -0.01;
+        ret = movesNum * KING_SAFETY_WEIGHT;
         return ret;
     }
 

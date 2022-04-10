@@ -7,14 +7,17 @@ public class StatusResponse extends DBResponse {
      * optional
      */
     private String details;
+    private int updatedRows;
+//    private
 
-    public StatusResponse(Status status, DBRequest request) {
-        this(status, "Status: " + status.name(), request);
+    public StatusResponse(Status status, DBRequest request, int updatedRows) {
+        this(status, "Status: " + status.name() + " " + updatedRows + " Rows Updated", request, updatedRows);
     }
 
-    public StatusResponse(Status status, String details, DBRequest request) {
+    public StatusResponse(Status status, String details, DBRequest request, int updatedRows) {
         super(status, request);
         this.details = details;
+        this.updatedRows = updatedRows;
     }
 
 
@@ -29,6 +32,6 @@ public class StatusResponse extends DBResponse {
 
     @Override
     public DBResponse clean() {
-        return new StatusResponse(status, request);
+        return new StatusResponse(status, request, updatedRows);
     }
 }

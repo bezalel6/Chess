@@ -30,9 +30,6 @@ public class ModelMovesList extends MovesList {
     }
 
     public boolean add(Move adding, PieceType movingPiece) {
-        if (doneAdding) {
-            throw new Error("FINISHED ADDING TO THIS LIST");
-        }
         if (adding == null)
             return false;
 
@@ -42,7 +39,9 @@ public class ModelMovesList extends MovesList {
                 throw ListEx.FoundLegalMove;
             }
         } else {
-            super.add(adding);
+            if (generationSettings.legalize && generator.isLegal(adding)) {
+                super.add(adding);
+            }
         }
 //        addedMove(adding, movingPiece);
 
@@ -120,13 +119,11 @@ public class ModelMovesList extends MovesList {
         this.forEach(move -> ret.set(move.getMovingTo(), true));
         return ret;
     }
-
-    @Override
-    public void doneAdding() {
-        uniqueMoves.clear();
-        doneAdding = true;
-
-    }
+//
+//    @Override
+//    public void doneAdding() {
+//        uniqueMoves.clear();
+//    }
 
     public MovesList getCleanList() {
         return new MovesList(this);

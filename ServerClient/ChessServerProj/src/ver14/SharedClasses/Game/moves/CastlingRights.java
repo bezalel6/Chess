@@ -75,6 +75,10 @@ public class CastlingRights implements Serializable {
 
     }
 
+    public static PlayerColor whosCastling(byte castlingRights) {
+        return (PLAYER_MASKS[PlayerColor.WHITE.asInt] & castlingRights) != 0 ? PlayerColor.WHITE : PlayerColor.BLACK;
+    }
+
     @Override
     public String toString() {
         StringBuilder ret = new StringBuilder();

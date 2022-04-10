@@ -13,10 +13,21 @@ class GameActions extends JPanel {
     public GameActions(SidePanel sidePanel) {
         this.sidePanel = sidePanel;
         setLayout(new GridLayout(1, 0));
-        resignBtn = sidePanel.createBtn("Resign", sidePanel.client::resignBtnClicked);
-        offerDrawBtn = sidePanel.createBtn("Offer Draw", sidePanel.client::offerDrawBtnClicked);
+        resignBtn = sidePanel.createBtn("Resign", this::resignBtnClicked);
+        offerDrawBtn = sidePanel.createBtn("Offer Draw", this::offerDrawBtnCLicked);
+        offerDrawBtn.setToolTipText("You can only offer draw once per game");
         add(offerDrawBtn);
         add(resignBtn);
+    }
+
+    private void resignBtnClicked() {
+        resignBtn.setEnabled(false);
+        sidePanel.client.resignBtnClicked();
+    }
+
+    private void offerDrawBtnCLicked() {
+        offerDrawBtn.setEnabled(false);
+        sidePanel.client.offerDrawBtnClicked();
     }
 
     public void enableBtns(boolean e) {

@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Dialogs.SimpleDialogs;
 
 import ver14.SharedClasses.Utils.StrUtils;
+import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
@@ -12,7 +13,7 @@ public class MessageDialog extends Dialog {
         super(properties);
         setTitle(title);
         setIconImage(messageType.icon.getImage());
-        MessageCard card = new MessageCard(this, message, messageType);
+        MessageCard card = new MessageCard(this, new CardHeader(title), message, messageType);
         cardsSetup(null, card);
 //        setMinimumSize(new Size(250));
         setFocusOn(card.getBackOkPnl().getOk());

@@ -4,8 +4,9 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.pieces.Piece;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 public class Board implements Iterable<Square>, Serializable {
@@ -15,7 +16,9 @@ public class Board implements Iterable<Square>, Serializable {
     public static final Board example = new Board() {{
         fenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     }};
-    private final Square[] board;
+//    private final Square[] board;
+
+    private final Map<Location, Square> boardMap;
 
     public Board(Board other) {
         this();
@@ -25,9 +28,9 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     public Board() {
-        board = new Square[Location.NUM_OF_SQUARES];
-        for (int i = 0; i < board.length; i++) {
-            board[i] = new Square(Location.getLoc(i));
+        this.boardMap = new HashMap<>();
+        for (Location loc : Location.ALL_LOCS) {
+            boardMap.put(loc, new Square(loc));
         }
     }
 
@@ -37,7 +40,7 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     public Square getSquare(Location loc) {
-        return board[loc.asInt];
+        return boardMap.get(loc);
     }
 
     public Board(String fen) {
@@ -91,9 +94,9 @@ public class Board implements Iterable<Square>, Serializable {
         return ret;
     }
 
-    public Square[] getBoard() {
-        return board;
-    }
+//    public Square[] getBoard() {
+//        return board;
+//    }
 
     public Piece getPiece(Location loc, boolean notNull) {
         Piece ret = getPiece(loc);
@@ -111,7 +114,7 @@ public class Board implements Iterable<Square>, Serializable {
 
     @Override
     public Iterator<Square> iterator() {
-        return Arrays.stream(board).iterator();
+        return boardMap.values().iterator();
     }
 
     public void setSquareEmpty(Location loc) {

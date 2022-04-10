@@ -27,6 +27,8 @@ public class PreMadeRequest {
     public static final PreMadeRequest deleteUnfGames = new PreMadeRequest(RequestBuilder::deleteAllUnFinishedGames, AuthSettings.USER);
     public static final PreMadeRequest StatsByTimeOfDay = new PreMadeRequest(RequestBuilder::statsByTimeOfDay, AuthSettings.USER);
 
+    public static final PreMadeRequest ChangeProfilePic = new PreMadeRequest(RequestBuilder::changeProfilePic, AuthSettings.USER);
+
     public final static PreMadeRequest[] statistics = {TopPlayers, Games, StatsByTimeOfDay};
     public final @AuthSettings
     int authSettings;

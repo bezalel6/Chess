@@ -123,6 +123,7 @@ public class SidePanel extends JPanel {
             setFocusable(false);
         }};
 
+
     }
 
     public void syncAndStartTimer(GameTime gameTime) {

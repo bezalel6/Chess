@@ -1,6 +1,5 @@
 package ver14.players.PlayerAI;
 
-import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
@@ -85,7 +84,7 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public void drawOffered(Callback<Question.Answer> answerCallback) {
+    public void drawOffered(QuestionCallback answerCallback) {
         answerCallback.callback(Question.Answer.NO);
     }
 

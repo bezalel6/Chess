@@ -12,7 +12,7 @@ public class Bitboard implements Serializable {
 
     private long bitBoard;
     private long lastSet;
-    private LocsList setLocs = null;
+    private Locs setLocs = null;
     private VoidCallback onSet;
     private Location lastSetLoc;
 
@@ -58,7 +58,8 @@ public class Bitboard implements Serializable {
 
     private Bitboard(Bitboard other) {
         this(other.bitBoard);
-        this.setLocs = other.setLocs;
+        if (other.setLocs != null)
+            this.setLocs = new Locs(other.setLocs);
     }
 
     public Bitboard cp() {
@@ -135,7 +136,7 @@ public class Bitboard implements Serializable {
         return lastSetLoc;
     }
 
-    public LocsList getSetLocs() {
+    public Locs getSetLocs() {
         if (lastSet != bitBoard || setLocs == null)
             setSetLocs();
         return setLocs;
@@ -143,7 +144,7 @@ public class Bitboard implements Serializable {
 
     private void setSetLocs() {
         lastSet = bitBoard;
-        setLocs = new LocsList();
+        setLocs = new Locs();
         int position = 1;
         long num = bitBoard;
         while (num != 0) {
@@ -244,13 +245,13 @@ public class Bitboard implements Serializable {
      * @param l
      * @return myself
      */
-    public synchronized Bitboard andEqual(long l) {
+    public Bitboard andEqual(long l) {
         bitBoard &= l;
         lastSetLoc = null;
         return this;
     }
 
-    private synchronized Bitboard andEqual(Bitboard other) {
+    private Bitboard andEqual(Bitboard other) {
         return andEqual(other.bitBoard);
     }
 }

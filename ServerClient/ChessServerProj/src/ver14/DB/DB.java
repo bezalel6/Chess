@@ -5,6 +5,7 @@ package ver14.DB;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
@@ -56,15 +57,16 @@ public class DB {
     public static synchronized StatusResponse runUpdate(DBRequest request) {
         Connection con = getConnection();
         DBResponse.Status status;
+        int updatedRows = 0;
         try {
             Statement st = con.createStatement();
-            st.executeUpdate(request.getRequest());
+            updatedRows = st.executeUpdate(request.getRequest());
             status = DBResponse.Status.SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
             status = DBResponse.Status.ERROR;
         }
-        return new StatusResponse(status, request);
+        return new StatusResponse(status, request, updatedRows);
     }
 
     /**
@@ -153,11 +155,15 @@ public class DB {
     public static void main(String[] args) {
         try {
 
+            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
+
+//            clearGames();
+
 //            System.out.println(runQuery("SELECT format(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#),'short time') as a FROM Games where format(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#),'short time') between '16:00' AND '17:00'"));
 //            System.out.println(runQuery("SELECT WeekDay(DATEADD('s', CLng(Games.SAVEDDATETIME), #01/01/1970 00:00:00 AM#)) FROM Games"));
 //            System.out.println(runQuery("SELECT DATEADD('s', CLng(Games.SavedDateTime),#01/01/1970 00:00:00 AM#) FROM Games"));
 //            System.out.println(request(RequestBuilder.games().build("bezalel6", null, null)));
-            System.out.println(request(RequestBuilder.statsByTimeOfDay().build("bezalel5")));
+//            System.out.println(request(RequestBuilder.statsByTimeOfDay().build("bezalel5")));
 //            for (int i = 0; i < 24; i++) {
 //                System.out.println(String.format("%02d:00", i));
 //            }
@@ -315,13 +321,6 @@ public class DB {
         deleteGame(Table.UnfinishedGames, game.gameId);
     }
 
-    //todo PlayerOverview combination of wins,losses,ties
-//    public static PlayerStatistics getPlayersStatistics(String username) {
-//        if (RegEx.DontSaveGame.check(username))
-//            return new PlayerStatistics(username, 0, 0, 0);
-//        return new PlayerStatistics(username, getNumOfWins(username), getNumOfLosses(username), getNumOfTies(username));
-//    }
-
     public static void deleteGame(Table table, String gameId) {
         runUpdate("DELETE FROM %s WHERE GameID='%s'".formatted(table.name(), gameId));
     }
@@ -364,6 +363,11 @@ public class DB {
         }
 
 
+    }
+
+    public static String getProfilePic(String username) {
+        TableDBResponse response = (TableDBResponse) select(Table.Users, Condition.equals(Col.Username, username), Col.ProfilePic.colName());
+        return response.isAnyData() ? response.getFirstRow()[0] : null;
     }
 
     public static record UserDetails(String username, String password) {

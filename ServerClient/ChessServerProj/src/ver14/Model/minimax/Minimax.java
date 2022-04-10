@@ -3,6 +3,8 @@ package ver14.Model.minimax;
 import ver14.Model.Eval.Book;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Model;
+import ver14.Model.MoveGenerator.GenerationSettings;
+import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.moves.MinimaxMove;
@@ -30,7 +32,7 @@ public class Minimax {
     private final CpuUsages cpuUsageRecords;
     private final Timer minimaxTimer;
     private Model model;
-    private boolean log = false;
+    private boolean log = true;
     //    private int numOfThreads = 1;
     private int numOfThreads = 10;
     private ZonedDateTime minimaxStartedTime;
@@ -122,7 +124,7 @@ public class Minimax {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
                         return new MinimaxMove(move, Evaluation.book(), 0);
                 }
-                throw new Error();
+//                throw new Error();
             }
             stillTheory = false;
         }
@@ -176,7 +178,7 @@ public class Minimax {
             log("depth " + currentDepth + " move: " + minimaxMove);
             currentDepth++;
 
-            if (bestMoveSoFar == null || minimaxMove.isCompleteSearch() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
+            if (bestMoveSoFar == null || isCompleteSearch.get() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
                 bestMoveSoFar = minimaxMove;
             }
             assert bestMoveSoFar.getMove() != null && bestMoveSoFar.getMoveEvaluation() != null;
@@ -267,6 +269,7 @@ public class Minimax {
                 throw new Error("thread pool is acting up");
             }
         } catch (Exception e) {
+            System.out.println("is this it?????");
             e.printStackTrace();
         }
         return evals;
@@ -290,8 +293,9 @@ public class Minimax {
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
-        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
-        sortMoves(possibleMoves, true);
+        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, new GenerationSettings(true, false));
+//        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
+        sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
 
@@ -299,9 +303,7 @@ public class Minimax {
                 throw interrupt;
             }
             parms.model.applyMove(move);
-
             Evaluation eval = minimax(parms.nextDepth());
-
             parms.model.undoMove(move);
 
             move.setMoveEvaluation(eval);
@@ -322,6 +324,12 @@ public class Minimax {
         return cpuUsageRecords;
     }
 
+    private void sortMoves(ArrayList<Move> list, boolean isMax) {
+        Collections.sort(list);
+        if (isMax)
+            Collections.reverse(list);
+    }
+
 //    private Evaluation getTranspositionEval(MinimaxParameters parms, long hash) {
 //        if (transpositionsHashMap.containsKey(hash)) {
 //            Transposition transposition = transpositionsHashMap.get(hash);
@@ -333,18 +341,15 @@ public class Minimax {
 //        return null;
 //    }
 
-    private void sortMoves(ArrayList<Move> list, boolean isMax) {
-        Collections.sort(list);
-        if (isMax)
-            Collections.reverse(list);
-    }
-
     private boolean isOvertime() {
         return getElapsed(ChronoUnit.SECONDS) > scanTime + scanTimeFlexibility;
     }
 
     public void interrupt(MyError error) {
         this.interrupt = error;
+    }
+
+    public static class CapturingKing extends Error {
     }
 
     public static class CpuUsages {

@@ -2,6 +2,7 @@ package ver14.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
+import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
@@ -15,6 +16,7 @@ import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyLbl;
 import ver14.SharedClasses.ui.windows.MyJFrame;
@@ -132,12 +134,12 @@ public class View implements Iterable<BoardButton[]> {
         boardPnl = new BoardPanel(ROWS, COLS, this);
 
         topPnl = new JPanel();
-        bottomPnl = new JPanel();
+        bottomPnl = new JPanel(new GridLayout(0, 1));
         menuBar = new MenuBar(authorizedComponents, client, this);
 
         statusLbl = new MyLbl();
-
         statusLbl.setFont(FontManager.statusLbl);
+
         resetStatusLbl();
         bottomPnl.add(statusLbl);
 
@@ -166,6 +168,7 @@ public class View implements Iterable<BoardButton[]> {
         try {
             showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
         } catch (IllegalStateException e) {//that font err
+            System.out.println("the font err thing");
         }
 
     }
@@ -256,6 +259,7 @@ public class View implements Iterable<BoardButton[]> {
 
         gbc = new GridBagConstraints();
 
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
         win.add(bottomPnl, gbc);
 
 //        win.pack();
@@ -285,10 +289,6 @@ public class View implements Iterable<BoardButton[]> {
 
     public boolean isBoardFlipped() {
         return boardOrientation != PlayerColor.WHITE;
-    }
-
-    public SidePanel getSidePanel() {
-        return sidePanel;
     }
 
     public BoardPanel getBoardPnl() {
@@ -475,6 +475,15 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
+    public void askQuestion(Question question, QuestionCallback callback) {
+        sidePanel.askPlayerPnl.ask(question, callback);
+//        win.pack();
+    }
+
+    public SidePanel getSidePanel() {
+        return sidePanel;
+    }
+
     public void gameOver(String str) {
         enableAllSquares(false);
         setStatusLbl("Game Over " + str, statusLblHighlightClr);
@@ -487,13 +496,15 @@ public class View implements Iterable<BoardButton[]> {
         else
             str = StrUtils.format(str);
 //        str = StrUtils.wrapInHtml(str);
+        System.out.println("setting status lbl: " + str);
         statusLbl.setForeground(fg);
         statusLbl.setText(str);
+//        win.pack();
     }
 
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
-        JPanel pnl = new JPanel();
-        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
+        WinPnl pnl = new WinPnl(WinPnl.MAKE_SCROLLABLE);
+//        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
 
         respondingTo = StrUtils.format(respondingTo);
 

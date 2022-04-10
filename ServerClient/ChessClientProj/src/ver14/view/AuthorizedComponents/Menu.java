@@ -1,6 +1,7 @@
 package ver14.view.AuthorizedComponents;
 
 import ver14.SharedClasses.AuthSettings;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;
@@ -15,6 +16,12 @@ public class Menu extends JMenu implements AuthorizedComponent {
         super(StrUtils.format(s));
         this.authSettings = authSettings;
         setAuth(null);
+    }
+
+    public JMenuItem add(String text, VoidCallback onClick) {
+        return add(new MenuItem(text) {{
+            addActionListener(l -> onClick.callback());
+        }});
     }
 
     @Override

@@ -22,6 +22,11 @@ public abstract class DBResponse implements Serializable {
         return status;
     }
 
+    public boolean isSuccess() {
+        return status == Status.SUCCESS;
+    }
+
+
     public abstract boolean isAnyData();
 
     public DBResponse getAddedRes() {

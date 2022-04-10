@@ -7,11 +7,13 @@ import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Board.BoardOverlay;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class IconManager {
@@ -25,6 +27,7 @@ public class IconManager {
     public static final ImageIcon loadingIcon;
     public static final ImageIcon loginIcon;
     public static final ImageIcon userIcon;
+    public static final ImageIcon defaultUserIcon;
     public static final ImageIcon registerIcon;
     public static final ImageIcon randomColorIcon;
     public static final ImageIcon greenCheck;
@@ -33,12 +36,14 @@ public class IconManager {
     public static final ImageIcon hidePassword;
     public static final ImageIcon[] graphIcons;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
+    public final static Size PROFILE_PIC_SIZE = new Size(25);
+
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
-    public final static Size USER_ICON_SIZE = new Size(25);
     public final static Size ABOVE_BTNS_SIZES = new Size(10);
     public final static Size MESSAGES_ICONS = new Size(20);
     public static final ImageIcon infoIcon;
     public static final ImageIcon errorIcon;
+    public static final Size OG_SIZE = new Size(-1);
     private static final ImageIcon[][] gameOverIcons;
     private final static ImageIcon[][] piecesIcons;
     private static final int WON = 0;
@@ -72,7 +77,8 @@ public class IconManager {
 
         randomColorIcon = loadImage("random");
 
-        userIcon = loadImage("user", USER_ICON_SIZE);
+        userIcon = loadImage("user", PROFILE_PIC_SIZE);
+        defaultUserIcon = scaleImage(userIcon, PROFILE_PIC_SIZE);
 
         loginIcon = loadImage("login", LOGIN_PROCESS_SIZES);
         registerIcon = loadImage("register", LOGIN_PROCESS_SIZES);
@@ -118,10 +124,54 @@ public class IconManager {
     public static void main(String[] args) {
         new JFrame() {{
             setSize(500, 500);
-            add(new JLabel(getPieceIcon(Piece.B_N)));
+            add(new JLabel(loadOnline("https://cdn.tech.eu/uploads/2022/02/jan-meeus-7LsuYqkvIUM-unsplash-scaled.jpg")));
 
             setVisible(true);
         }};
+    }
+
+    public static MyIcon loadOnline(String relativePath, Size... _size) {
+        URL url = null;
+        try {
+            url = new URL(relativePath);
+        } catch (MalformedURLException e) {
+            return null;
+        }
+        ImageIcon ret = loadNoScale(url);
+        if (ret == null)
+            return null;
+        ret = scaleImage(ret, _size);
+        return new MyIcon(ret);
+    }
+
+    public static ImageIcon loadNoScale(URL url) {
+        ImageIcon icon = new ImageIcon(url, url.getPath());
+        return icon.getIconWidth() == -1 ? null : icon;
+    }
+
+    public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
+        Size size = Size.size(_size);
+        if (size == OG_SIZE)
+            return img;
+        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
+    }
+
+    public static MyIcon loadImage(String relativePath, Size... _size) {
+        ImageIcon ret = loadNoScale(relativePath);
+        ret = scaleImage(ret, _size);
+        return new MyIcon(ret);
+    }
+
+    public static ImageIcon loadNoScale(String relativePath) {
+        if (!RegEx.Icon.check(relativePath)) {
+            relativePath += ".png";
+        }
+        relativePath = "/assets/" + relativePath;
+        URL path = IconManager.class.getResource(relativePath);
+//        System.out.println(new File("./").getAbsolutePath());
+//        System.out.println(new File(IconManager.class.getCanonicalName()).getAbsolutePath());
+        assert path != null;
+        return loadNoScale(path);
     }
 
     public static ImageIcon getPieceIcon(Piece piece) {
@@ -156,11 +206,6 @@ public class IconManager {
         return null;
     }
 
-    public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
-        Size size = Size.size(_size);
-        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
-    }
-
     public static ImageIcon screenshot(BoardOverlay boardOverlay, Dimension... size) {
         return screenshot(boardOverlay, Size.size(size));
     }
@@ -189,19 +234,6 @@ public class IconManager {
         return relativePath.endsWith(".png") ? loadImage(relativePath, size) : loadGif(relativePath, size);
     }
 
-    /**
-     * size: [width,height]
-     *
-     * @param relativePath
-     * @param _size
-     * @return
-     */
-    public static MyIcon loadImage(String relativePath, Size... _size) {
-        ImageIcon ret = loadNoScale(relativePath);
-        ret = scaleImage(ret, _size);
-        return new MyIcon(ret);
-    }
-
     public static ImageIcon loadGif(String relativePath, Dimension... _size) {
         if (!relativePath.endsWith(".gif")) {
             relativePath += ".gif";
@@ -212,16 +244,11 @@ public class IconManager {
         return icon;
     }
 
-    public static ImageIcon loadNoScale(String relativePath) {
-        if (!RegEx.Icon.check(relativePath)) {
-            relativePath += ".png";
+    public static ImageIcon loadUserIcon(String url) {
+        if (StrUtils.isEmpty(url)) {
+            return defaultUserIcon;
         }
-        relativePath = "/assets/" + relativePath;
-        URL path = IconManager.class.getResource(relativePath);
-//        System.out.println(new File("./").getAbsolutePath());
-//        System.out.println(new File(IconManager.class.getCanonicalName()).getAbsolutePath());
-        assert path != null;
-        return new ImageIcon(path, path.getPath());
+        return loadOnline(url, PROFILE_PIC_SIZE);
     }
 
     public static class MyIcon extends ImageIcon {

@@ -27,6 +27,7 @@ public class GameSelect extends Dialog {
         navigationCardSetup(cards);
     }
 
+
     public GameSettings getGameSettings() {
         return gameSettings;
     }

@@ -40,6 +40,11 @@ public abstract class GameInfo implements Serializable, SyncableItem {
         return gameInfo.gameId.equals(gameId);
     }
 
+    @Override
+    public String toString() {
+        return getGameDesc();
+    }
+
     public abstract String getGameDesc();
 
     public PlayerColor getJoiningPlayerColor() {//no player's opp is itself

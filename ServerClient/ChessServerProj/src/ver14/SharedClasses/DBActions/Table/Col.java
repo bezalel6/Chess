@@ -17,6 +17,8 @@ public class Col implements Serializable {
     public static final Col Winner = new Col("Winner");
     public static final Col PlayerToMove = new Col("PlayerToMove");
     public static final Col SavedDateTime = new Col("SavedDateTime");
+    public static final Col ProfilePic = new Col("ProfilePic");
+
     private final String alias;
     private String colName;
     private boolean isWrapped = false;

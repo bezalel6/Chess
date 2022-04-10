@@ -140,7 +140,6 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         if (!isConnected())
             return;
         try {
-            msg = new Message(msg);
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {

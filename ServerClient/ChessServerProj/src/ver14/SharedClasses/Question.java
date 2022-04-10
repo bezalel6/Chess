@@ -4,6 +4,7 @@ import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 public class Question implements Serializable {
     public static final Question Threefold = new Question("Would you like to claim a Threefold repetition?", Answer.YES, Answer.NO);
@@ -53,7 +54,7 @@ public class Question implements Serializable {
         public final String answerStr;
 
         Answer() {
-            this.answerStr = StrUtils.format(name());
+            this.answerStr = StrUtils.format(name().replaceAll("_", " ").toLowerCase(Locale.ROOT));
         }
 
         Answer(String answerStr) {

@@ -10,12 +10,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MessageCard extends DialogCard {
-    public MessageCard(Dialog parentDialog, String message, MessageType messageType) {
-        super(messageType.header, parentDialog);
-        TextWrapPnl pnl = createMsgPnl(message, messageType);
-        pnl.getTextArea().setCaretPosition(0);
-        pnl.setEditable(false);
-        add(pnl);
+    public MessageCard(Dialog parentDialog, CardHeader header, String message, MessageType messageType) {
+        super(header, parentDialog);
+        if (!StrUtils.isEmpty(message)) {
+            TextWrapPnl pnl = createMsgPnl(message, messageType);
+            pnl.getTextArea().setCaretPosition(0);
+            pnl.setEditable(false);
+            add(pnl);
+        }
         getBackOkPnl().getOk().setEnabled(true);
     }
 
@@ -41,12 +43,10 @@ public class MessageCard extends DialogCard {
         ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED);
         public final ImageIcon icon;
         public final Font font;
-        public final CardHeader header;
         public final Color clr;
 
         MessageType(ImageIcon icon, Font font, Color clr) {
             this.icon = icon;
-            this.header = new CardHeader(name().toLowerCase(), null, true, name());
             this.font = font;
             this.clr = clr;
         }

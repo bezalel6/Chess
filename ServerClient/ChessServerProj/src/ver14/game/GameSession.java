@@ -129,7 +129,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
         getPlayers().forEach(player -> {
             player.askQuestion(Question.Rematch, ans -> {
                 synchronized (atomicBoolean) {
-                    if (atomicBoolean.get() && !ans.equals(Question.Answer.YES)) {
+                    if (!player.isConnected() || !player.getPartner().isConnected() || (atomicBoolean.get() && !ans.equals(Question.Answer.YES))) {
                         atomicBoolean.set(false);
                         rematch.complete(false);
                     }
