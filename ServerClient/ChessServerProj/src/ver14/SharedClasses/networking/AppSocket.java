@@ -4,6 +4,7 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Threads.ErrorHandling.*;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
+import ver14.SharedClasses.messages.MessageType;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -23,14 +24,14 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
 //        });
         ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
             AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-            socket.messagesHandler.onDisconnected();
+            if (!socket.messagesHandler.isBye())
+                socket.messagesHandler.onDisconnected();
 
         });
         ErrorManager.setHandler(ErrorType.Disconnected, err -> {
 
         });
         ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
-            System.out.println();
 //            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
 //            socket.messagesHandler.onDisconnected();
         });
@@ -139,12 +140,15 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
     public synchronized void writeMessage(Message msg) {
         if (!isConnected())
             return;
+        if (msg.getMessageType() == MessageType.BYE)
+            messagesHandler.setBye();
         try {
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {
             didDisconnect = true;
-            throw MyError.AppSocket(false, this, e);
+            if (!messagesHandler.isBye())
+                throw MyError.AppSocket(false, this, e);
 //            ErrorHandler.thrown(ex);
         }
     }

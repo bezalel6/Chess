@@ -39,7 +39,7 @@ public class ModelMovesList extends MovesList {
                 throw ListEx.FoundLegalMove;
             }
         } else {
-            if (generationSettings.legalize && generator.isLegal(adding)) {
+            if (!generationSettings.legalize || generator.isLegal(adding)) {
                 super.add(adding);
             }
         }

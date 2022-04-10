@@ -1,6 +1,7 @@
 package ver14.Model.MoveGenerator;
 
 import ver14.Model.*;
+import ver14.Model.Eval.Eval;
 import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -112,6 +113,14 @@ public class MoveGenerator {
             generateKingMoves();
         } catch (ModelMovesList.ListEx ex) {//throws when ur looking for any legal move and one is found
             return generatedMoves;
+        }
+
+        if (generationSettings.eval) {
+            for (Move move : generatedMoves) {
+                model.applyMove(move);
+                move.setMoveEvaluation(Eval.getEvaluation(model));
+                model.undoMove(move);
+            }
         }
 
 //        generatedMoves.doneAdding();
@@ -281,6 +290,10 @@ public class MoveGenerator {
         if (direction.getCombination().length != 1)
             return 1;
         return numSquaresToEdge[loc.asInt][direction.asInt];
+    }
+
+    public Model getModel() {
+        return model;
     }
 
     public void legalize() {

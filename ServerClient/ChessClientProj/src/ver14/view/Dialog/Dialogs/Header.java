@@ -2,6 +2,7 @@ package ver14.view.Dialog.Dialogs;
 
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
+import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.IconManager.Size;
 
 import javax.swing.*;
@@ -14,7 +15,7 @@ public class Header extends JPanel {
     //    public final static Insets insets = WinPnl.insets;
     public final static Insets insets = new Insets(10, 10, 10, 10);
     protected final static Size maximumSize = new Size(500);
-    private final JLabel lbl;
+    private final MyLbl lbl;
     private final boolean center;
     private ImageIcon icon;
     private String text;
@@ -45,8 +46,8 @@ public class Header extends JPanel {
         setMaximumSize(maximumSize);
     }
 
-    protected JLabel createHeader() {
-        return new JLabel(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {
+    protected MyLbl createHeader() {
+        return new MyLbl(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {
             {
                 setFont(FontManager.Dialogs.dialog);
             }
@@ -61,6 +62,10 @@ public class Header extends JPanel {
 
     public Header(ImageIcon icon, boolean center) {
         this(null, icon, center);
+    }
+
+    public MyLbl getLbl() {
+        return lbl;
     }
 
     public void spaceLblIcon() {

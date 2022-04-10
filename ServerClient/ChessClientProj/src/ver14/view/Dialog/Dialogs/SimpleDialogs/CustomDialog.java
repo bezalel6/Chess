@@ -56,13 +56,6 @@ public class CustomDialog extends Dialog implements CancelOk {
     }
 
     @Override
-    public void onUpdate() {
-        super.onUpdate();
-
-    }
-
-
-    @Override
     public void onBack() {
         noRes = true;
         closeDialog();

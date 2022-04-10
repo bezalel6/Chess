@@ -16,7 +16,7 @@ public class MessageDialog extends Dialog {
         MessageCard card = new MessageCard(this, new CardHeader(title), message, messageType);
         cardsSetup(null, card);
 //        setMinimumSize(new Size(250));
-        setFocusOn(card.getBackOkPnl().getOk());
+        setFocusOn(card.backOkPnl().getOk());
 
         this.messageType = messageType;
     }

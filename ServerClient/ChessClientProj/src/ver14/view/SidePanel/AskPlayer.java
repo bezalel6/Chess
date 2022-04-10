@@ -56,7 +56,6 @@ public class AskPlayer extends JPanel {
     }
 
     public void showPnl(boolean show) {
-
         for (Component component : getComponents()) {
             component.setVisible(show);
         }
@@ -70,7 +69,7 @@ public class AskPlayer extends JPanel {
         }
     }
 
- 
+
     public void ask(Question question, QuestionCallback callback) {
         this.header.setText(question.questionStr);
         addLayout(question, callback);

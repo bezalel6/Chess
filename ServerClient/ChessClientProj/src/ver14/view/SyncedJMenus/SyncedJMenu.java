@@ -8,6 +8,7 @@ import ver14.SharedClasses.messages.Message;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Components.SyncableListComponent;
+import ver14.view.Dialog.Dialogs.BackOkPnl;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Selectables.Button.MenuItem;
 import ver14.view.Dialog.Selectables.Button.SelectableBtn;
@@ -97,8 +98,13 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         }
 
         @Override
+        public BackOkPnl backOkPnl() {
+            return null;
+        }
+
+        @Override
         public void addOnClose(VoidCallback callback) {
-            
+
         }
     }
 }

@@ -33,14 +33,15 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     private final MyJButton navBtn;
     private final String cardID;
     private final ArrayList<MyJButton> defaultValueBtns;
-    private BackOkPnl backOkPnl;
+
+    //    private BackOkPnl backOkPnl;
     private Header optionalHeader = null;
+    private BackOkInterface backOkInterface;
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
         setBackOk(this);
     }
-
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
         super(1, cardHeader);
@@ -56,11 +57,12 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     }
 
     private void setBackOk(BackOkInterface backOk) {
-        if (backOk != null) {
-            this.backOkPnl = new BackOkPnl(backOk);
-            this.bottomPnl.add(backOkPnl);
+        backOkInterface = backOk;
+//        if (backOk != null) {
+//            this.backOkPnl = new BackOkPnl(backOk);
+//            this.bottomPnl.add(backOkPnl);
 //            parentDialog.setFocusOn(backOkPnl.getOk());
-        }
+//        }
     }
 
     public String getCardName() {
@@ -83,23 +85,23 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 //                break;
             }
         }
-        if (backOkPnl != null)
-            backOkPnl.enableOk(ret == null);
+        if (backOkPnl() != null)
+            backOkPnl().enableOk(ret == null);
         return ret;
+    }
+
+    public void shown() {
+
+    }
+
+    public String getCardID() {
+        return cardID;
     }
 
 //    @Override
 //    public Dimension getPreferredSize() {
 //        return Size.max(super.getPreferredSize());
 //    }
-
-    public BackOkPnl getBackOkPnl() {
-        return backOkPnl;
-    }
-
-    public String getCardID() {
-        return cardID;
-    }
 
     @Override
     public void ancestorAdded(AncestorEvent event) {
@@ -161,6 +163,11 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     @Override
     public DialogCard currentCard() {
         return this;
+    }
+
+    @Override
+    public BackOkPnl backOkPnl() {
+        return parentDialog.backOkPnl();
     }
 
     @Override
@@ -240,6 +247,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
 
     public boolean isOkEnabled() {
-        return backOkPnl != null && backOkPnl.getOk() != null && backOkPnl.getOk().isEnabled();
+        return backOkPnl() != null && backOkPnl().getOk() != null && backOkPnl().getOk().isEnabled();
     }
 }

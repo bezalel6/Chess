@@ -9,9 +9,9 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 
@@ -38,6 +38,7 @@ public class Game {
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
     private GameTime gameTime;
+    private GameTimer timer;
     private Player currentPlayer;
     private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
@@ -52,6 +53,7 @@ public class Game {
         this.moveStack = new Stack<>();
         this.model = new Model();
         this.gameView = showGameView ? new GameView() : null;
+        this.timer = new GameTimer();
         setPartners();
     }
 
@@ -115,12 +117,16 @@ public class Game {
     private GameStatus runGame() {
         GameStatus gameOverStatus;
         while (true) {
-            GameStatus gameStatus = playTurn();
-            if (gameStatus.isGameOver()) {
-                gameOverStatus = gameStatus;
-                break;
+            try {
+                GameStatus gameStatus = playTurn();
+                if (gameStatus.isGameOver()) {
+                    gameOverStatus = gameStatus;
+                    break;
+                }
+                switchTurn();
+            } catch (Exception e) {
+                System.out.println("ohno " + e);
             }
-            switchTurn();
         }
         onGameOver();
         session.log("game over. " + gameOverStatus);
@@ -187,9 +193,11 @@ public class Game {
 
     private Move getMove() {
         try {
+            timer.startRunning(currentPlayer.getPlayerColor());
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
+            timer.stopRunning();
             session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
             move.setMovingColor(currentPlayer.getPlayerColor());
@@ -211,7 +219,8 @@ public class Game {
         model.makeMove(move);
         moveStack.push(move);
 
-        forEachPlayer(player -> player.updateByMove(move));
+        currentPlayer.getPartner().updateByMove(move);
+
         return move.getMoveEvaluation().getGameStatus();
     }
 
@@ -256,8 +265,8 @@ public class Game {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
-            if (ans == Question.Answer.ACCEPT)
-                interruptRead(GameStatus.tieByAgreement());
+
+            interruptRead(GameStatus.tieByAgreement());
         });
     }
 
@@ -265,8 +274,7 @@ public class Game {
         MyError err = new Game.GameOverError(status);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
-        }
-//        else throw err;
+        } else throw err;
 
     }
 
@@ -290,6 +298,37 @@ public class Game {
             super(ErrorType.UnKnown);
 
             this.gameOverStatus = gameOverStatus;
+        }
+    }
+
+    class GameTimer extends ThreadsManager.MyThread {
+        private PlayerColor playerColor;
+
+        @Override
+        protected void handledRun() throws Throwable {
+            while (true) {
+                wait();
+                try {
+                    sleep(gameTime.getTimeLeft(playerColor));
+                    interruptRead(GameStatus.tieByAgreement());
+                } catch (InterruptedException e) {
+
+                }
+
+            }
+
+        }
+
+        public void startRunning(PlayerColor playerColor) {
+            this.playerColor = playerColor;
+            gameTime.startRunning(playerColor);
+            synchronized (this) {
+                notify();
+            }
+        }
+
+        public void stopRunning() {
+            interrupt();
         }
     }
 }

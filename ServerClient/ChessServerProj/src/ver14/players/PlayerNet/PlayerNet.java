@@ -1,6 +1,8 @@
 package ver14.players.PlayerNet;
 
 import ver14.DB.DB;
+import ver14.Model.MoveGenerator.GenerationSettings;
+import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
@@ -72,7 +74,7 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public Move getMove() {
         // with socket do...
-        ArrayList<Move> moves = game.getModel().generateAllMoves(playerColor).getCleanList();
+        ArrayList<Move> moves = MoveGenerator.generateMoves(game.getModel(), GenerationSettings.evalEachMove).getCleanList();
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {

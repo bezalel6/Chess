@@ -6,6 +6,7 @@ import ver14.SharedClasses.messages.Message;
 import ver14.view.Dialog.BackOk.CancelOk;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
+import ver14.view.Dialog.Dialogs.BackOkPnl;
 import ver14.view.Dialog.SyncableList;
 
 public interface Parent {
@@ -37,6 +38,8 @@ public interface Parent {
     }
 
     DialogCard currentCard();
+
+    BackOkPnl backOkPnl();
 
     default boolean tryOk(boolean verify) {
         DialogCard card = currentCard();

@@ -459,4 +459,7 @@ public abstract class MessagesHandler {
         };
     }
 
+    public void setBye() {
+        isBye = true;
+    }
 }

@@ -5,6 +5,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class GameStatus implements Serializable {
 
@@ -14,10 +15,10 @@ public class GameStatus implements Serializable {
     private Location checkedKingLoc = null;
     private GameStatusType gameStatusType;
 
-
     private GameStatus(SpecificStatus specificStatus) {
         this(null, specificStatus);
     }
+
 
     private GameStatus(PlayerColor winningPlayerColor, SpecificStatus specificStatus) {
         this.specificStatus = specificStatus;
@@ -71,6 +72,10 @@ public class GameStatus implements Serializable {
         return new GameStatus(resignedPlayer.getOpponent(), SpecificStatus.Resignation);
     }
 
+    public boolean isDisconnected() {
+        return specificStatus == SpecificStatus.PlayerDisconnectedVsAi || specificStatus == SpecificStatus.PlayerDisconnectedVsReal;
+    }
+
     public Location getCheckedKingLoc() {
         return checkedKingLoc;
     }
@@ -97,9 +102,13 @@ public class GameStatus implements Serializable {
     }
 
     public String getDetailedStr() {
+        return getDetailedStr(null);
+    }
+
+    public String getDetailedStr(Map<PlayerColor, String> playerUsernamesMap) {
         String winning = "";
         if (winningPlayerColor != null) {
-            winning = winningPlayerColor.getName();
+            winning = playerUsernamesMap == null ? winningPlayerColor.getName() : playerUsernamesMap.get(winningPlayerColor);
         }
 
         return winning + " " + gameStatusType.gameOverStr + " By " + specificStatus + (isGameOver() && depth != -1 ? " In " + depth : "");
