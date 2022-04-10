@@ -2,7 +2,6 @@ package ver14.view.Dialog.Dialogs.LoginProcess.Components.Register;
 
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.ui.LinkLabel;
 import ver14.view.Dialog.Components.Parent;
@@ -17,17 +16,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class RegisterUsernamePnl extends UsernamePnl {
     protected static final int minLoadTime = 500;
-    private final FetchingThread fetchingThread;
     private final Map<String, Boolean> availabilityMap = new HashMap<>();
     private final Map<String, ArrayList<String>> suggestionsMap = new HashMap<>();
     private final FetchVerify fetchVerifyPnl;
     private final WinPnl suggestionsPnl;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private ZonedDateTime lastCheckTime = null;
     private volatile boolean isLoading = false;
     private String lastCheckedStr = null;
+
 
     public RegisterUsernamePnl(LoginInfo loginInfo, Parent parent) {
         super(true, loginInfo, parent);
@@ -35,11 +37,9 @@ public class RegisterUsernamePnl extends UsernamePnl {
         addSecondaryComp(fetchVerifyPnl);
         this.suggestionsPnl = new WinPnl();
         bottomPnl.add(suggestionsPnl);
-        fetchingThread = new FetchingThread();
 
-        parent.addOnClose(fetchingThread::stopRun);
+        parent.addOnClose(executor::shutdown);
     }
-
 
     @Override
     public boolean verifyField() {
@@ -74,7 +74,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
             lastCheckTime = ZonedDateTime.now();
         lastCheckedStr = username;
 
-        fetchingThread.startFetch(username);
+        fetch(username);
 
         return false;
     }
@@ -108,20 +108,17 @@ public class RegisterUsernamePnl extends UsernamePnl {
         });
     }
 
+    private void fetch(String un) {
+        executor.submit(() -> {
+            lastCheckTime = ZonedDateTime.now();
+            parent.askServer(Message.checkUsernameAvailability(un), res -> serverResponded(res, un));
+        });
+    }
+
     private void removeSuggestions() {
         suggestionsPnl.removeContent();
         suggestionsPnl.setHeader(null);
     }
-
-    @Override
-    public String errorDetails() {
-        if (!super.verifyRegEx()) {
-            fetchVerifyPnl.nothing();
-            return super.errorDetails();
-        }
-        return isLoading ? "checking if username is available" : "username is not available";
-    }
-
 
     private void serverResponded(Message response, String username) {
         long ms = minLoadTime - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
@@ -147,26 +144,13 @@ public class RegisterUsernamePnl extends UsernamePnl {
         onUpdate();
     }
 
-    public class FetchingThread extends ThreadsManager.HandledThread {
-        private String fetching;
-
-        public FetchingThread() {
-            setRunnable(() -> {
-                while (!isInterrupted()) {
-                    synchronized (this) {
-                        wait();
-                        lastCheckTime = ZonedDateTime.now();
-                        parent.askServer(Message.checkUsernameAvailability(fetching), res -> serverResponded(res, fetching));
-                    }
-                }
-            });
-            start();
+    @Override
+    public String errorDetails() {
+        if (!super.verifyRegEx()) {
+            fetchVerifyPnl.nothing();
+            return super.errorDetails();
         }
-
-        public synchronized void startFetch(String username) {
-            fetching = username;
-            notify();
-        }
+        return isLoading ? "checking if username is available" : "username is not available";
     }
 
 }

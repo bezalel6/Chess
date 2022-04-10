@@ -16,6 +16,7 @@ public class WinPnl extends JPanel {
     protected final JPanel bottomPnl;
     private final JComponent contentPnl;
     protected Header header;
+    private Insets myInsets = insets;
     private int cols;
     private int currentRow;
     private int currentCol;
@@ -24,10 +25,10 @@ public class WinPnl extends JPanel {
         this((Header) null);
     }
 
-
     public WinPnl(Header header) {
         this(1, header);
     }
+
 
     public WinPnl(int cols, Header header) {
         super(new BorderLayout());
@@ -40,7 +41,8 @@ public class WinPnl extends JPanel {
         this.contentPnl = new JPanel(new GridBagLayout());
 
         if (cols == MAKE_SCROLLABLE) {
-            super.add(new Scrollable(contentPnl), BorderLayout.CENTER);
+//            super.add(new Scrollable(contentPnl), BorderLayout.CENTER);
+            super.add(contentPnl, BorderLayout.CENTER);
             this.cols = 1;
         } else {
             super.add(contentPnl, BorderLayout.CENTER);
@@ -69,6 +71,10 @@ public class WinPnl extends JPanel {
 
     public WinPnl(String header, boolean centerHeader) {
         this(1, new Header(header, centerHeader));
+    }
+
+    public void setInsets(Insets myInsets) {
+        this.myInsets = myInsets;
     }
 
     /**
@@ -120,7 +126,7 @@ public class WinPnl extends JPanel {
 
     public void add(Component comp, GridBagConstraints gbc) {
         if (gbc == null) gbc = new GridBagConstraints();
-        gbc.insets = insets;
+        gbc.insets = myInsets;
         gbc.gridx = currentCol++;
         gbc.gridy = currentRow;
         if (cols != ALL_IN_ONE_ROW && currentCol == cols) {
@@ -158,7 +164,8 @@ public class WinPnl extends JPanel {
 //            setPreferredSize(maxSize().createMinCombo(getPreferredSize()));
             setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            getVerticalScrollBar().setUnitIncrement(100);
+            getVerticalScrollBar().setUnitIncrement(50);
+            getVerticalScrollBar().setValue(0);
 
 //            todo forward scrolling to parent scrolling if vertical\horizonatal scrollbar is not visible
 

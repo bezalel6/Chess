@@ -18,7 +18,6 @@ public class MessageCard extends DialogCard {
             pnl.setEditable(false);
             add(pnl);
         }
-        getBackOkPnl().getOk().setEnabled(true);
     }
 
     public static TextWrapPnl createMsgPnl(String msg, MessageType type) {
@@ -27,10 +26,15 @@ public class MessageCard extends DialogCard {
         }};
     }
 
-
     @Override
     public String checkVerifiedComponents() {
         return null;
+    }
+
+    @Override
+    public void shown() {
+        super.shown();
+        backOkPnl().getOk().setEnabled(true);
     }
 
     @Override

@@ -4,7 +4,7 @@ import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable;
 import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.ui.MyLbl;
+import ver14.view.Dialog.Dialogs.Header;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +15,7 @@ public class Graph extends JPanel {
 
     public Graph(String header, GraphElement... graphElements) {
         setLayout(new GridBagLayout());
+        setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         assert graphElements.length != 0;
 
         ArrayList<UIGraphElement> uiGraphElements = new ArrayList<>();
@@ -28,7 +29,10 @@ public class Graph extends JPanel {
         double avg = 0;
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = row++;
-        add(new MyLbl(header, FontManager.statistics), gbc);
+        Header h = new Header(header);
+        h.setFont(FontManager.statistics);
+        h.getLbl().underline();
+        add(h, gbc);
         for (UIGraphElement graphElement : uiGraphElements) {
             gbc = new GridBagConstraints();
             gbc.insets = new Insets(10, 10, 10, 10);

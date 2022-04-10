@@ -38,6 +38,8 @@ import ver14.view.View;
 
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -68,6 +70,8 @@ public class Client implements EnvManager {
     private LoginInfo loginInfo;
     private ClientMessagesHandler msgHandler;
     private boolean isClosing = false;
+
+    private Map<PlayerColor, String> playerUsernames = new HashMap<>();
 
     /**
      * Constractor for Chat Client.
@@ -158,15 +162,6 @@ public class Client implements EnvManager {
     }
 
     /**
-     * Gets username.
-     *
-     * @return the username
-     */
-    public String getUsername() {
-        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
-    }
-
-    /**
      * Disconnected from server.
      */
     public void disconnectedFromServer() {
@@ -229,13 +224,8 @@ public class Client implements EnvManager {
         return msgHandler;
     }
 
-    /**
-     * Sets my color.
-     *
-     * @param myColor the my color
-     */
-    public void setMyColor(PlayerColor myColor) {
-        this.myColor = myColor;
+    public Map<PlayerColor, String> getPlayerUsernames() {
+        return playerUsernames;
     }
 
     /**
@@ -298,12 +288,12 @@ public class Client implements EnvManager {
         if (response == null) {
             return login("Error reading response from server", loginMessage);
         }
-        view.authChange(response.getLoginInfo());
         if (response.getMessageType() == MessageType.ERROR) {
             return login(response.getSubject(), response);
         }
         if (response.getMessageType() == MessageType.WELCOME_MESSAGE) {
             this.loginInfo = response.getLoginInfo();
+            view.authChange(response.getLoginInfo());
         }
         return this.loginInfo.getUsername();
     }
@@ -363,11 +353,6 @@ public class Client implements EnvManager {
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
     }
 
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
-
     /**
      * Update by move.
      *
@@ -376,6 +361,11 @@ public class Client implements EnvManager {
     public void updateByMove(Move move) {
         updateByMove(move, true);
     }
+
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
 
     /**
      * Update by move.
@@ -609,5 +599,20 @@ public class Client implements EnvManager {
     public void setProfilePic(String profilePic) {
         loginInfo.setProfilePic(profilePic);
         view.authChange(loginInfo);
+    }
+
+    public void mapPlayers(PlayerColor myColor, String otherPlayerUn) {
+        this.myColor = myColor;
+        playerUsernames.put(myColor, getUsername());
+        playerUsernames.put(myColor.getOpponent(), otherPlayerUn);
+    }
+
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
     }
 }

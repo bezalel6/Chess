@@ -102,7 +102,7 @@ public class ClientMessagesHandler extends MessagesHandler {
             synchronized (view.boardLock) {
                 PlayerColor myColor = message.getPlayerColor();
                 assert myColor != null;
-                client.setMyColor(myColor);
+                client.mapPlayers(myColor, message.getOtherPlayer());
                 Stack<Move> moveStack = message.getMoveStack();
                 Board board = message.getBoard();
                 //if loading a prev game the board should start from the starting pos and make all moves
@@ -159,7 +159,7 @@ public class ClientMessagesHandler extends MessagesHandler {
             client.stopRunningTime();
             client.soundManager.gameEnd.play();
             GameStatus gameStatus = message.getGameStatus();
-            view.gameOver(gameStatus.getDetailedStr());
+            view.gameOver(gameStatus);
 
         };
     }

@@ -12,6 +12,7 @@ import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.Piece;
@@ -109,8 +110,7 @@ public class View implements Iterable<BoardButton[]> {
                 setLocationRelativeTo(null);
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
-                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
-                //setAlwaysOnTop(true);
+//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
             }
 
             @Override
@@ -184,6 +184,7 @@ public class View implements Iterable<BoardButton[]> {
                 }
             });
         } catch (ConcurrentModificationException e) {
+            System.out.println(e);
         }
     }
 
@@ -198,7 +199,7 @@ public class View implements Iterable<BoardButton[]> {
         try {
             displayedDialogs.remove(dialog);
         } catch (ConcurrentModificationException e) {
-
+            System.out.println(e);
         }
     }
 
@@ -208,7 +209,6 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void resetBackground() {
-
         boardPnl.forEachBtnParallel(BoardButton::resetBackground);
     }
 
@@ -249,8 +249,11 @@ public class View implements Iterable<BoardButton[]> {
         //שורה תחתונה
 
         gbc = new GridBagConstraints();
-
+        gbc.gridx = 0;
+        gbc.weightx = 3;
+//        gbc.gridy =
         gbc.gridwidth = GridBagConstraints.REMAINDER;
+
         win.add(bottomPnl, gbc);
 
 //        win.pack();
@@ -469,16 +472,16 @@ public class View implements Iterable<BoardButton[]> {
 
     public void askQuestion(Question question, QuestionCallback callback) {
         sidePanel.askPlayerPnl.ask(question, callback);
-//        win.pack();
+        win.pack();
     }
 
     public SidePanel getSidePanel() {
         return sidePanel;
     }
 
-    public void gameOver(String str) {
+    public void gameOver(GameStatus gameOverStatus) {
         enableAllSquares(false);
-        setStatusLbl("Game Over " + str, statusLblHighlightClr);
+        setStatusLbl("Game Over " + gameOverStatus.getDetailedStr(client.getPlayerUsernames()), statusLblHighlightClr);
         sidePanel.enableBtns(false);
     }
 
@@ -495,6 +498,7 @@ public class View implements Iterable<BoardButton[]> {
 
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
         WinPnl pnl = new WinPnl(WinPnl.MAKE_SCROLLABLE);
+        pnl.setInsets(new Insets(10, 10, 10, 10));
 //        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
 
         respondingTo = StrUtils.format(respondingTo);
@@ -522,7 +526,7 @@ public class View implements Iterable<BoardButton[]> {
             table.fit();
             JScrollPane scrollPane = new JScrollPane() {{
                 setViewportView(table);
-                getVerticalScrollBar().setUnitIncrement(100);
+                getVerticalScrollBar().setUnitIncrement(50);
                 SwingUtilities.invokeLater(() -> {
                     Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
                     setMaximumSize(size);

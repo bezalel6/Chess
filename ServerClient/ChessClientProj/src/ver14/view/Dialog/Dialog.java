@@ -13,6 +13,8 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
+import ver14.view.Dialog.Dialogs.BackOkInterface;
+import ver14.view.Dialog.Dialogs.BackOkPnl;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
 import ver14.view.IconManager.Size;
@@ -28,6 +30,7 @@ import java.util.Stack;
 public abstract class Dialog extends JDialog implements Parent {
     protected final static Size maximumSize = new Size(600);
     protected final JPanel topPnl;
+    protected final JPanel bottomPnl;
     protected final Properties properties;
     private final Component parentWin;
     private final Container pane;
@@ -36,6 +39,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private final ErrorPnl errorPnl;
     private final JPanel cardsPnl;
     private final ArrayList<VoidCallback> onCloseCallbacks = new ArrayList<>();
+    private BackOkPnl backOkPnl = null;
     private Component focusOn;
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
@@ -58,9 +62,12 @@ public abstract class Dialog extends JDialog implements Parent {
         errorPnl = new ErrorPnl();
         topPnl.add(errorPnl);
 
+        bottomPnl = new JPanel(new BorderLayout());
+
         MyJFrame.debugAdapter(this);
 
         pane.add(topPnl, BorderLayout.PAGE_START);
+        pane.add(bottomPnl, BorderLayout.PAGE_END);
 
         this.properties = properties;
 
@@ -179,6 +186,11 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     @Override
+    public BackOkPnl backOkPnl() {
+        return backOkPnl;
+    }
+
+    @Override
     public void addOnClose(VoidCallback callback) {
         this.onCloseCallbacks.add(callback);
     }
@@ -196,6 +208,8 @@ public abstract class Dialog extends JDialog implements Parent {
         currentCard = card;
         if (!isCardExists(card))
             addCard(card);
+        setBackOk(card);
+        card.shown();
         getCardsLayout().show(cardsPnl, card.getCardID());
         onUpdate();
     }
@@ -208,6 +222,13 @@ public abstract class Dialog extends JDialog implements Parent {
         if (!isCardExists(card)) {
             cardsPnl.add(card, card.getCardID());
         }
+    }
+
+    protected void setBackOk(BackOkInterface backOkInterface) {
+        if (this.backOkPnl != null)
+            bottomPnl.remove(this.backOkPnl);
+        this.backOkPnl = new BackOkPnl(backOkInterface);
+        bottomPnl.add(backOkPnl, BorderLayout.SOUTH);
     }
 
     private CardLayout getCardsLayout() {
@@ -243,6 +264,8 @@ public abstract class Dialog extends JDialog implements Parent {
         cardsSetup(new NavigationCard(createHeader(), this, dialogCards), dialogCards);
     }
 
+//    protected void
+
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {
         assert dialogCards.length > 0;
         startingCard = startingCard == null ? dialogCards[0] : startingCard;
@@ -256,6 +279,7 @@ public abstract class Dialog extends JDialog implements Parent {
                 setPreferredSize(getPreferredSize());
                 setMaximumSize(getPreferredSize());
                 getVerticalScrollBar().setBlockIncrement(100);
+                getVerticalScrollBar().setValue(0);
             }
 
 //            @Override

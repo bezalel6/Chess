@@ -5,6 +5,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class GameStatus implements Serializable {
 
@@ -101,9 +102,13 @@ public class GameStatus implements Serializable {
     }
 
     public String getDetailedStr() {
+        return getDetailedStr(null);
+    }
+
+    public String getDetailedStr(Map<PlayerColor, String> playerUsernamesMap) {
         String winning = "";
         if (winningPlayerColor != null) {
-            winning = winningPlayerColor.getName();
+            winning = playerUsernamesMap == null ? winningPlayerColor.getName() : playerUsernamesMap.get(winningPlayerColor);
         }
 
         return winning + " " + gameStatusType.gameOverStr + " By " + specificStatus + (isGameOver() && depth != -1 ? " In " + depth : "");

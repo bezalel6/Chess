@@ -1,14 +1,13 @@
 package ver14.view;
 
 import org.jetbrains.annotations.NotNull;
-import ver14.view.Dialog.ScrollableComponent;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 
-public class FitWidthTable extends JTable implements ScrollableComponent {
+public class FitWidthTable extends JTable {
     private static final int minWidth = 30;
 
     public FitWidthTable(@NotNull Object[][] rowData, @NotNull Object[] columnNames) {
