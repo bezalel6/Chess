@@ -207,6 +207,13 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     @Override
     public int compareTo(Move o) {
+        if (moveEvaluation != null) {
+            if (o.moveEvaluation != null)
+                return Double.compare(moveEvaluation.getEval(), o.moveEvaluation.getEval());
+            return 1;
+        }
+        if (o.moveEvaluation != null)
+            return -1;
         return Double.compare(guessEval(), o.guessEval());
     }
 

@@ -69,6 +69,8 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
             saveGame(gameOver);
             GameStatus finalGameOver = gameOver;
             game.parallelForEachPlayer(player -> player.gameOver(finalGameOver));
+            if (gameOver.isDisconnected())
+                break;
         } while (askForRematch());
 
         server.endOfGameSession(this);

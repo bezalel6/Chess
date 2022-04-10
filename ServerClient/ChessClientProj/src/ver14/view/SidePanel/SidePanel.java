@@ -39,8 +39,8 @@ public class SidePanel extends JPanel {
 
         setLayout(new GridBagLayout());
 
-        bottom = new TimerPnl("White");
-        top = new TimerPnl("Black");
+        bottom = new TimerPnl("White", this);
+        top = new TimerPnl("Black", this);
 
         moveLog = new MoveLog();
 

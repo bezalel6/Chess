@@ -30,7 +30,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -262,12 +261,19 @@ public class Server implements ErrorContext, EnvManager {
                 player.disconnect(cause);
             });
         });
-        if (serverSocket != null && !serverSocket.isClosed())
-            stopServer();
+
+        if (serverSocket != null && !serverSocket.isClosed()) {
+            ErrorHandler.ignore(() -> {
+                serverSocket.close();
+            });
+        }
 
         log("Server Closed! " + cause);
         serverRunOK = false;
-        frmWin.dispose(); // close GUI
+        SwingUtilities.invokeLater(() -> {
+            frmWin.setVisible(false);
+            frmWin.dispose(); // close GUI
+        });
 
 //        😨
 //        ThreadsManager.stopAll();
@@ -280,19 +286,6 @@ public class Server implements ErrorContext, EnvManager {
         return ret.clean();
     }
 
-    private void stopServer() {
-        try {
-            // This will throw cause an Exception on serverSocket.accept() in waitForClient() method
-            serverSocket.close();
-
-            // close all threads & clients
-            players.forEachItem(netPlayer -> (netPlayer).disconnect("Server Closing"));
-
-            log("Server Stopped!");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
 
     /**
      * The entry point of the application.
@@ -463,7 +456,7 @@ public class Server implements ErrorContext, EnvManager {
      * @param session the session
      */
     public void endOfGameSession(GameSession session) {
-        gameSessions.remove(session.gameID);
+        gameSessions.remove(session.gameID, session);
         (session.getPlayers()).stream().parallel().forEach(player -> {
             if (player.isConnected()) {
                 gameSetup(player);

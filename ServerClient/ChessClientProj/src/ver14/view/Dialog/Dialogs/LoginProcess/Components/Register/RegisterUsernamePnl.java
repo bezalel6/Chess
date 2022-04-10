@@ -159,7 +159,6 @@ public class RegisterUsernamePnl extends UsernamePnl {
                         parent.askServer(Message.checkUsernameAvailability(fetching), res -> serverResponded(res, fetching));
                     }
                 }
-                System.out.println("fetching thread finishing");
             });
             start();
         }

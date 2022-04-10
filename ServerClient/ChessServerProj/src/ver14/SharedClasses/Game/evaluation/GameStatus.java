@@ -14,10 +14,10 @@ public class GameStatus implements Serializable {
     private Location checkedKingLoc = null;
     private GameStatusType gameStatusType;
 
-
     private GameStatus(SpecificStatus specificStatus) {
         this(null, specificStatus);
     }
+
 
     private GameStatus(PlayerColor winningPlayerColor, SpecificStatus specificStatus) {
         this.specificStatus = specificStatus;
@@ -69,6 +69,10 @@ public class GameStatus implements Serializable {
 
     public static GameStatus playerResigned(PlayerColor resignedPlayer) {
         return new GameStatus(resignedPlayer.getOpponent(), SpecificStatus.Resignation);
+    }
+
+    public boolean isDisconnected() {
+        return specificStatus == SpecificStatus.PlayerDisconnectedVsAi || specificStatus == SpecificStatus.PlayerDisconnectedVsReal;
     }
 
     public Location getCheckedKingLoc() {

@@ -13,7 +13,7 @@ public class SoundManager {
     public final Sound check = new Sound("check", this);
     public final Sound gameStart = new Sound("game-start", this);
     public final Sound gameEnd = new Sound("game-end", this);
-
+    public final Sound tenSeconds = new Sound("ten-seconds", this);
     private boolean soundEnabled = true;
 
     public boolean isSoundEnabled() {
@@ -25,10 +25,10 @@ public class SoundManager {
     }
 
     public void moved(Move move, PlayerColor myClr) {
-        if (move.isCapturing()) {
-            capture.play();
-        } else if (move.isCheck()) {
+        if (move.isCheck()) {
             check.play();
+        } else if (move.isCapturing()) {
+            capture.play();
         } else if (move.getMoveFlag().isCastling) {
             castle.play();
         } else if (move.getMoveFlag() == Move.MoveType.Promotion) {

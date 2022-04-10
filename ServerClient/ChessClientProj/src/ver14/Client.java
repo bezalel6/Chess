@@ -256,45 +256,6 @@ public class Client implements EnvManager {
         view.setGameTime(message.getGameTime());
     }
 
-    /**
-     * Update by move.
-     *
-     * @param move the move
-     */
-    public void updateByMove(Move move) {
-        updateByMove(move, true);
-    }
-
-    /**
-     * Update by move.
-     *
-     * @param move        the move
-     * @param moveEffects the move effects: sound and color
-     */
-    public void updateByMove(Move move, boolean moveEffects) {
-        view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
-            Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
-            view.setBtnPiece(move.getMovingFrom(), piece);
-        }
-        processGameStatus(move.getMoveEvaluation().getGameStatus());
-
-        view.updateByMove(move);
-
-        if (moveEffects) {
-            view.colorMove(move);
-            soundManager.moved(move, myColor);
-        }
-
-    }
-
-    private void processGameStatus(GameStatus gameStatus) {
-        if (gameStatus.isCheck()) {
-            view.inCheck(gameStatus.getCheckedKingLoc());
-        }
-
-    }
-
     void unlockMovableSquares(Message message) {
         possibleMoves = message.getPossibleMoves();
         unlockPossibleMoves();
@@ -377,11 +338,6 @@ public class Client implements EnvManager {
         }
     }
 
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
-
     private Move getMoveFromDest(ViewLocation clickedOn) {
         if (firstClickLoc == null)
             return null;
@@ -403,7 +359,52 @@ public class Client implements EnvManager {
     }
 
     private void returnMove(Move move) {
+        updateByMove(move);
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
+    }
+
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
+
+    /**
+     * Update by move.
+     *
+     * @param move the move
+     */
+    public void updateByMove(Move move) {
+        updateByMove(move, true);
+    }
+
+    /**
+     * Update by move.
+     *
+     * @param move        the move
+     * @param moveEffects the move effects: sound and color
+     */
+    public void updateByMove(Move move, boolean moveEffects) {
+        view.resetBackground();
+        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+            Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
+            view.setBtnPiece(move.getMovingFrom(), piece);
+        }
+        processGameStatus(move.getMoveEvaluation().getGameStatus());
+
+        view.updateByMove(move);
+
+        if (moveEffects) {
+            view.colorMove(move);
+            soundManager.moved(move, myColor);
+        }
+
+    }
+
+    private void processGameStatus(GameStatus gameStatus) {
+        if (gameStatus.isCheck()) {
+            view.inCheck(gameStatus.getCheckedKingLoc());
+        }
+
     }
 
     /**

@@ -16,7 +16,7 @@ public enum MessageType {
     GAME_OVER,
     ERROR,
     QUESTION,
-    BYE,
+    BYE(true),
     USERNAME_AVAILABILITY,
     DB_REQUEST,
     DB_RESPONSE,

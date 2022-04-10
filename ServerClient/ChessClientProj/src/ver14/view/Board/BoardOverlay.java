@@ -65,6 +65,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
         keyClrMap = new HashMap<>();
         keyClrMap.put(KeyEvent.VK_SHIFT, Color.decode("#9FC0A2"));
         keyClrMap.put(KeyEvent.VK_CONTROL, Color.decode("#d36d6d"));
+        keyClrMap.put(KeyEvent.VK_ALT, Color.decode("#E8A43F"));
     }
 
     private final View view;
@@ -73,6 +74,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private JLayer jlayer;
     private boolean blockBoard = false;
     private int pressedKey = NO_KEY;
+    private BoardButton currentDragging = null;
+
 
     public BoardOverlay(View view) {
         this.view = view;
@@ -130,8 +133,19 @@ public class BoardOverlay extends LayerUI<JPanel> {
     public void paint(Graphics g, JComponent c) {
         Graphics2D g2 = (Graphics2D) g.create();
         super.paint(g2, c);
+
         if (isInsideBoardPnl()) {
-            handleCurrentDrawings(g2);
+            if (isDragging()) {
+                int x = mouseCoordinates.x - currentDragging.getHeight() / 2;
+                int y = mouseCoordinates.y - currentDragging.getWidth() / 2;
+                currentDragging.getHiddenIcon().paintIcon(c, g, x, y);
+            }
+            g2.setStroke(new BasicStroke(10));
+
+            if (isDrawing) {
+                Arrow arrow = newArrow(startedAt, mouseCoordinates);
+                arrow.draw(g2);
+            }
         }
 
         for (Arrow arrow : arrows) {
@@ -144,6 +158,60 @@ public class BoardOverlay extends LayerUI<JPanel> {
             g2.setColor(new Color(0, 0, 0, 50));
             g2.fill(shape);
         }
+    }
+
+    private boolean isInsideBoardPnl() {
+        return mouseCoordinates != null;
+//        return mouseCoordinates == null || view.getBoardPnl().getBounds().contains(mouseCoordinates);
+    }
+
+    private boolean isDragging() {
+        return currentDragging != null;
+    }
+
+    private Arrow newArrow(Point start, Point end) {
+        return newArrow(start, end, currentColor());
+    }
+
+    private Arrow newArrow(Point start, Point end, Color clr) {
+        start = centerPoint(start);
+        end = centerPoint(end);
+        return new Arrow(start, end, clr);
+    }
+
+    public Color currentColor() {
+        return pressedKey == NO_KEY || !keyClrMap.containsKey(pressedKey) ? defaultColor : keyClrMap.get(pressedKey);
+    }
+
+    private Point centerPoint(Point point) {
+        BoardButton btn = getBtn(point);
+        assert btn != null;
+        point = btn.getLocation();
+        point.x += btn.getWidth() / 2;
+        point.y += btn.getHeight() / 2;
+        return point;
+    }
+
+    private BoardButton getBtn(Point point) {
+        return view.getBtn(createPointLoc(point));
+    }
+
+    private Location createPointLoc(Point point) {
+        Location loc = getLoc(point);
+        return loc;
+    }
+
+    public Location getLoc(Point point) {
+        if (point != null) {
+            int x = point.x;
+            int y = point.y;
+            int divYWidth = jlayer.getWidth() / 8;
+            int divXHeight = jlayer.getHeight() / 8;
+            int col = x / divYWidth;
+            int row = y / divXHeight;
+            return Location.getLoc(row, col, view.isBoardFlipped());
+        }
+        return null;
     }
 
     @Override
@@ -185,19 +253,31 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_ENTERED:
                 view.unHoverAllBtns();
                 btn.startHover();
+
                 break;
             case MouseEvent.MOUSE_EXITED:
-                btn.endHover();
+//                btn.endHover();
                 break;
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
+                    if (btn != null && !isDragging() && btn.isEnabled() && btn.getIcon() != null) {
+                        currentDragging = btn;
+                        btn.hideIcon();
+                        btn.clickMe();
+                    }
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
                     startDrawing();
                 }
                 break;
             case MouseEvent.MOUSE_RELEASED:
-                if (e.getButton() == MouseEvent.BUTTON3) {
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    BoardButton currentlyAbove = getBtn(mouseCoordinates);
+                    stopDragging(currentlyAbove);
+                    if (currentlyAbove.canMoveTo())
+                        currentlyAbove.clickMe();
+
+                } else if (e.getButton() == MouseEvent.BUTTON3) {
                     if (isSameBtn(btn) && isDrawing)
                         view.highLightButton(btn);
                     stopDrawingArrows();
@@ -233,6 +313,19 @@ public class BoardOverlay extends LayerUI<JPanel> {
         isDrawing = true;
     }
 
+    private void stopDragging(BoardButton currentlyHoveringOver) {
+        if (isDragging()) {
+            if (currentDragging != currentlyHoveringOver) {
+                if (currentlyHoveringOver.isEnabled())
+                    currentlyHoveringOver.clickMe();
+                else
+                    currentDragging.clickMe();
+            }
+            currentDragging.unHideIcon();
+            currentDragging = null;
+        }
+    }
+
     private boolean isSameBtn(JButton btn) {
         return btn.getBounds().contains(mouseCoordinates);
     }
@@ -241,60 +334,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         arrows = new ArrayList<>();
     }
 
-    private boolean isInsideBoardPnl() {
-        return mouseCoordinates != null;
-//        return mouseCoordinates == null || view.getBoardPnl().getBounds().contains(mouseCoordinates);
-    }
-
-    private void handleCurrentDrawings(Graphics2D g2) {
-        g2.setStroke(new BasicStroke(10));
-
-        if (isDrawing) {
-            Arrow arrow = newArrow(startedAt, mouseCoordinates);
-            arrow.draw(g2);
-        }
-    }
-
-    private Arrow newArrow(Point start, Point end) {
-        return newArrow(start, end, currentColor());
-    }
-
-    private Arrow newArrow(Point start, Point end, Color clr) {
-        start = centerPoint(start);
-        end = centerPoint(end);
-        return new Arrow(start, end, clr);
-    }
-
-    public Color currentColor() {
-        return pressedKey == NO_KEY || !keyClrMap.containsKey(pressedKey) ? defaultColor : keyClrMap.get(pressedKey);
-    }
-
-    private Point centerPoint(Point point) {
-        BoardButton btn = view.getBtn(createPointLoc(point));
-        assert btn != null;
-        point = btn.getLocation();
-        point.x += btn.getWidth() / 2;
-        point.y += btn.getHeight() / 2;
-        return point;
-    }
-
-    private Location createPointLoc(Point point) {
-        Location loc = getLoc(point);
-        return loc;
-    }
-
-    public Location getLoc(Point point) {
-        if (point != null) {
-            int x = point.x;
-            int y = point.y;
-            int divYWidth = jlayer.getWidth() / 8;
-            int divXHeight = jlayer.getHeight() / 8;
-            int col = x / divYWidth;
-            int row = y / divXHeight;
-            return Location.getLoc(row, col, view.isBoardFlipped());
-        }
-        return null;
-    }
 
     public JLayer getJlayer() {
         return jlayer;

@@ -15,6 +15,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -61,6 +62,8 @@ public class View implements Iterable<BoardButton[]> {
         winSize = new Dimension((int) (d.width / 3), (int) (d.height / 2));
 
         FlatLightLaf.setup();
+
+
     }
 
     public final Object boardLock = new Object();
@@ -88,37 +91,25 @@ public class View implements Iterable<BoardButton[]> {
         enableAllSquares(false);
     }
 
-    public static void main(String[] args) {
-//        JFrame f = new JFrame("Password Field Example");
-//        //Creating PasswordField and label
-//        JPasswordField value = new JPasswordField();
-//        value.setBounds(100, 100, 100, 30);
-//        value.setToolTipText("Enter your Password");
-//        JLabel l1 = new JLabel("Password:");
-//        l1.setBounds(20, 100, 80, 30);
-//        //Adding components to frame
-//        f.add(value);
-//        f.add(l1);
-//        f.setSize(300, 300);
-//        f.setLayout(null);
-//        f.setVisible(true);
-
-    }
-
     public void addListToRegister(SyncableList list) {
         listsToRegister.add(list);
+    }
+
+    private void setIcon(PlayerColor myClr) {
+        win.setIconImage(IconManager.getPieceIcon(myClr, PieceType.KING).getImage());
     }
 
     public void createGui() {
         win = new MyJFrame() {
             {
-                setIconImage(IconManager.getPieceIcon(Piece.W_K).getImage());
+
                 setLayout(new GridBagLayout());
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
+                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
                 //setAlwaysOnTop(true);
             }
 
@@ -130,7 +121,7 @@ public class View implements Iterable<BoardButton[]> {
             }
 
         };
-
+        setIcon(PlayerColor.WHITE);
         boardPnl = new BoardPanel(ROWS, COLS, this);
 
         topPnl = new JPanel();
@@ -304,6 +295,7 @@ public class View implements Iterable<BoardButton[]> {
             boardPnl.getBoardOverlay().clearAllArrows();
             sidePanel.initGame(playerColor, client.getUsername(), otherPlayer, gameTime);
             currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
+            setIcon(playerColor);
             updateTitle();
         }
 
@@ -496,7 +488,6 @@ public class View implements Iterable<BoardButton[]> {
         else
             str = StrUtils.format(str);
 //        str = StrUtils.wrapInHtml(str);
-        System.out.println("setting status lbl: " + str);
         statusLbl.setForeground(fg);
         statusLbl.setText(str);
 //        win.pack();

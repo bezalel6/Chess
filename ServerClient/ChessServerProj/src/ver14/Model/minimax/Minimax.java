@@ -243,6 +243,9 @@ public class Minimax {
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
                 try {
+                    Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
+//                        System.out.println(e);
+                    });
                     if (!isOvertime()) {
                         Model model1 = new Model(model);
                         model1.applyMove(move);
@@ -269,7 +272,6 @@ public class Minimax {
                 throw new Error("thread pool is acting up");
             }
         } catch (Exception e) {
-            System.out.println("is this it?????");
             e.printStackTrace();
         }
         return evals;
@@ -295,6 +297,7 @@ public class Minimax {
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, new GenerationSettings(true, false));
 //        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
+
         sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
