@@ -81,8 +81,8 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     protected void onXClick() {
-        tryOk(true);
-        
+        if (!tryCancel())
+            tryOk(true);
     }
 
     protected void recenter() {
@@ -99,7 +99,7 @@ public abstract class Dialog extends JDialog implements Parent {
 
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
-        pack();
+        repackWin();
 
         if (this.focusOn != null)
             SwingUtilities.invokeLater(() -> focusOn.requestFocus());
@@ -107,6 +107,10 @@ public abstract class Dialog extends JDialog implements Parent {
         setVisible(true);
 
         dispose();
+    }
+
+    public void repackWin() {
+        SwingUtilities.invokeLater(this::pack);
     }
 
     @Override
@@ -118,6 +122,15 @@ public abstract class Dialog extends JDialog implements Parent {
     public void dispose() {
         this.isDisposing = true;
         super.dispose();
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return maximumSize.createMinCombo(dialogSize());
+    }
+
+    protected Dimension dialogSize() {
+        return super.getPreferredSize();
     }
 
     @Override
@@ -208,10 +221,6 @@ public abstract class Dialog extends JDialog implements Parent {
         if (currentCard.dialogWideErrors()) {
             dialogWideErr(err);
         }
-    }
-
-    public void repackWin() {
-        SwingUtilities.invokeLater(this::pack);
     }
 
     public void closeDialog() {

@@ -80,33 +80,6 @@ public class Message implements Serializable {
         this.hideQuestion = messageType.hideQuestion();
     }
 
-    public Message(Message message) {
-        this.respondingToMsgId = message.respondingToMsgId;
-        this.messageID = message.messageID;
-        this.messageType = message.messageType;
-        this.subject = message.subject;
-        this.hideQuestion = message.hideQuestion;
-        this.error = message.error;
-        this.username = message.username;
-        this.otherPlayer = message.otherPlayer;
-        this.available = message.available;
-        this.usernameSuggestions = message.usernameSuggestions;
-        this.playerColor = message.playerColor;
-        this.gameTime = message.gameTime;
-        this.loginInfo = message.loginInfo;
-        this.move = message.move;
-        this.gameSettings = message.gameSettings;
-        this.possibleMoves = message.possibleMoves;
-        this.board = message.board;
-        this.gameStatus = message.gameStatus;
-        this.question = message.question;
-        this.answer = message.answer;
-        this.preMoves = message.preMoves;
-        this.syncedLists = message.syncedLists;
-        this.moveStack = message.moveStack;
-        this.dbResponse = message.dbResponse;
-        this.dbRequest = message.dbRequest;
-    }
 
     /**
      * Instantiates a new Message.
@@ -846,7 +819,7 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return getMessageType() + " (" + messageID + ") " + StrUtils.strINN(subject, respondingToMsgId, gameTime);
+        return getMessageType() + " (" + messageID + ") " + StrUtils.strINN(subject, respondingToMsgId);
     }
 
     /**
@@ -864,7 +837,7 @@ public class Message implements Serializable {
      * @return the boolean
      */
     public boolean isSubject() {
-        return subject != null && !subject.trim().equals("");
+        return !StrUtils.isEmpty(subject);
     }
 
     /**

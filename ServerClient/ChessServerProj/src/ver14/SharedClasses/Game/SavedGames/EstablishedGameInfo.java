@@ -27,12 +27,17 @@ public abstract class EstablishedGameInfo extends GameInfo {
         this.createdAt = createdAt;
     }
 
+    public Stack<Move> getMoveStack() {
+        return moveStack;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     @Override
     public String getGameDesc() {
         return "%s Playing vs %s".formatted(creatorUsername, opponentUsername);
-    }
-
-    public Stack<Move> getMoveStack() {
-        return moveStack;
     }
 }

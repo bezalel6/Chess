@@ -21,4 +21,9 @@ public abstract class LoginCard extends DialogCard {
         loginInfo.setLoginType(loginType);
         super.onOk();
     }
+
+//    @Override
+//    protected Size maxSize() {
+//        return new Size(200);
+//    }
 }

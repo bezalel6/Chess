@@ -139,14 +139,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.promotingTo = promotingTo;
     }
 
-    public MoveType getMoveFlag() {
-        return moveType;
-    }
-
-    public void setMoveFlag(MoveType moveType) {
-        this.moveType = moveType;
-    }
-
     public BasicMove getIntermediateMove() {
         return intermediateMove;
     }
@@ -154,7 +146,6 @@ public class Move extends BasicMove implements Comparable<Move> {
     public void setIntermediateMove(BasicMove intermediateMove) {
         this.intermediateMove = intermediateMove;
     }
-    //endregion
 
     public boolean isCheck() {
         return moveEvaluation != null && moveEvaluation.isCheck();
@@ -167,6 +158,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
         return moveEvaluation;
     }
+    //endregion
 
     public void setMoveEvaluation(Evaluation moveEvaluation) {
         if (moveEvaluation != null) {
@@ -215,32 +207,42 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     @Override
     public int compareTo(Move o) {
-        if (moveEvaluation != null) {
-            if (o.moveEvaluation != null) {
-                return Double.compare(moveEvaluation.getEval(), o.moveEvaluation.getEval());
-            }
-            return 1;
-        }
-        if (o.moveEvaluation != null) {
-            return -1;
-        }
         return Double.compare(guessEval(), o.guessEval());
     }
 
     private double guessEval() {
         double ret = 0;
+//        if (disabledCastling != 0 && movingPlayerColor != null) {
+//            int penalty = 100000;
+//            ret += (CastlingRights.whosCastling(disabledCastling) == movingPlayerColor && !getMoveFlag().isCastling) ? -penalty : penalty;
+//        }
+
         if (capturingPieceType != NOT_CAPTURING) {
             ret += 10 - capturingPieceType.value;
+            if (moveEvaluation != null && moveEvaluation.isCheck())
+                ret += 100000000;
         }
         if (moveType == MoveType.Promotion) {
             ret += 5 * promotingTo.value;
         } else if (moveType == MoveType.EnPassant) {
             ret += 0.00001;
         } else if (moveType.isCastling) {
-            ret += 10;
+            ret += 5;
         }
-        ret -= 100000;
+        ret /= 100000;
+        if (moveEvaluation != null) {
+            ret += moveEvaluation.getEval();
+        }
+
         return ret;
+    }
+
+    public MoveType getMoveFlag() {
+        return moveType;
+    }
+
+    public void setMoveFlag(MoveType moveType) {
+        this.moveType = moveType;
     }
 
     public Location getEnPassantLoc() {

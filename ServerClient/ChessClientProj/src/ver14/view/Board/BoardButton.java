@@ -43,20 +43,6 @@ public class BoardButton extends MyJButton {
 
         setActionCommand("");
         setUI(new BasicButtonUI());
-
-//        addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//                super.mouseEntered(e);
-//                startHover();
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//                super.mouseExited(e);
-//                endHover();
-//            }
-//        });
     }
 
     public void endHover() {
@@ -93,6 +79,7 @@ public class BoardButton extends MyJButton {
                     setBackground(canMoveToClr);
                 }
                 case CURRENT -> {
+                    
                 }
                 case PROMOTING -> {
                     setBackground(promotingColor);

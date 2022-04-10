@@ -17,18 +17,18 @@ public class Arg implements Serializable {
     public final String repInStr;
     public final boolean escape;
     public final ArgType argType;
-    public final Config config;
+    public final Config<?> config;
     private boolean isUserInput;
 
     public Arg(ArgType argType) {
         this(argType, null);
     }
 
-    public Arg(ArgType argType, Config config) {
+    public Arg(ArgType argType, Config<?> config) {
         this(argType, false, config);
     }
 
-    public Arg(ArgType argType, boolean escape, Config config) {
+    public Arg(ArgType argType, boolean escape, Config<?> config) {
         this.repInStr = wrap(ids.generate() + argType.name());
         this.escape = escape;
         this.isUserInput = argType.isUserInput;
@@ -67,7 +67,7 @@ public class Arg implements Serializable {
 //        String str = val.toString();
 
         assert val != null;
-        return switch (this.argType) {
+        String str = switch (this.argType) {
 
             case Date -> //mmddyyyy bc sql is dumb
                     "#" + (StrUtils.formatDateSQL((Date) val)) + "#";
@@ -75,6 +75,8 @@ public class Arg implements Serializable {
 
             default -> val.toString();
         };
-//        return str;
+        if (escape)
+            str = "'" + str + "'";
+        return str;
     }
 }

@@ -9,7 +9,6 @@ import ver14.SharedClasses.Game.BoardSetup.Board;
 import ver14.SharedClasses.Game.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.Game.moves.Move;
@@ -235,9 +234,21 @@ public class Model implements Serializable {
     }
 
     public boolean isInCheck(PlayerColor playerColor) {
-
         return isThreatened(getKing(playerColor), playerColor.getOpponent());
 
+    }
+
+    public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
+        return AttackedSquares.isAttacked(this, loc, threateningPlayer);
+    }
+
+    public Location getKing(PlayerColor playerColor) {
+        Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
+        return k.getLastSetLoc();
+    }
+
+    public Bitboard getPieceBitBoard(PlayerColor playerColor, PieceType pieceType) {
+        return getPlayersPieces(playerColor).getBB(pieceType);
     }
 
     private void Assert(boolean b, Object... message) {
@@ -257,21 +268,8 @@ public class Model implements Serializable {
         }
     }
 
-    public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
-        return AttackedSquares.isAttacked(this, loc, threateningPlayer);
-    }
-
     public Location getKing() {
         return getKing(currentPlayerColor);
-    }
-
-    public Location getKing(PlayerColor playerColor) {
-        Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
-        return k.getLastSetLoc();
-    }
-
-    public Bitboard getPieceBitBoard(PlayerColor playerColor, PieceType pieceType) {
-        return getPlayersPieces(playerColor).getBB(pieceType);
     }
 
     public boolean anyLegalMove(PlayerColor playerColor) {
@@ -296,6 +294,7 @@ public class Model implements Serializable {
         this.currentPlayerColor = currentPlayerColor;
     }
 
+
     public void applyMove(Move move) {
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
@@ -310,11 +309,10 @@ public class Model implements Serializable {
         makeIntermediateMove(move);
 
         if (move.getMoveFlag() == Move.MoveType.DoublePawnPush) {
-            setEnPassantTargetLoc(move.getEnPassantLoc());
-            setEnPassantActualLoc(movingTo);
+            enPassantTargetLoc = (move.getEnPassantLoc());
+            enPassantActualLoc = (movingTo);
         } else {
-            setEnPassantTargetLoc((Location) null);
-            setEnPassantActualLoc(null);
+            enPassantTargetLoc = enPassantActualLoc = null;
         }
         if (move.getMoveFlag() == Move.MoveType.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
@@ -336,10 +334,11 @@ public class Model implements Serializable {
                 disabled |= castlingRights.disableCastling(piecePlayerColor, side);
             }
         }
+
         if (move.isCapturing()) {
             Piece otherPiece = board.getPiece(movingTo);
             Assert(otherPiece != null, "eating on empty stomach", move);
-            Location lastSet = getKing(otherPiece.playerColor);
+//            Location lastSet = getKing(otherPiece.playerColor);
             Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
@@ -369,21 +368,17 @@ public class Model implements Serializable {
 
         setAttackedSquares();
 
-//todo remember ur in check
-        if (isInCheck()) {
-            Evaluation e = new Evaluation(currentPlayerColor);
-            e.getGameStatus().setInCheck(getKing(currentPlayerColor));
-            move.setMoveEvaluation(e);
-        }
     }
 
 
     public void undoMove(Move move) {
-//        Move move = moveStack.pop();
-        assert move == moveStack.pop();
 
-        setFullMoveClock(move.getPrevFullMoveClock());
-        setHalfMoveClock(move.getPrevHalfMoveClock());
+//        Move move = moveStack.pop();
+//        assert move == moveStack.pop();
+        moveStack.pop();
+
+        fullMoveClock = (move.getPrevFullMoveClock());
+        halfMoveClock = (move.getPrevHalfMoveClock());
 
         castlingRights.enable(move.getDisabledCastling());
 
@@ -398,8 +393,8 @@ public class Model implements Serializable {
             addPiece(oldPiece, movingFrom);
             piece = oldPiece;
         }
-        setEnPassantTargetLoc((Location) null);
-        setEnPassantActualLoc(null);
+        enPassantActualLoc = null;
+        enPassantTargetLoc = null;
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
             if (prevMove.getMoveFlag() == Move.MoveType.DoublePawnPush) {
@@ -417,8 +412,8 @@ public class Model implements Serializable {
 
         switchTurn();
 
-        setBoardHash();
-        setAttackedSquares();
+//        setBoardHash();
+//        setAttackedSquares();
     }
 
     private void updatePieceLoc(Piece piece, Location movingFrom, Location movingTo) {
@@ -468,7 +463,7 @@ public class Model implements Serializable {
     }
 
     private void movePiece(Location movingFrom, Location movingTo) {
-        Assert(isSquareEmpty(movingTo), "move piece is not intended for captures. prob smn wrong with castling", getSquare(movingFrom), getSquare(movingTo));//not intended for captures
+//        Assert(isSquareEmpty(movingTo), "move piece is not intended for captures. prob smn wrong with castling", getSquare(movingFrom), getSquare(movingTo));//not intended for captures
         Piece piece = board.getPiece(movingFrom, true);
         updatePieceLoc(piece, movingFrom, movingTo);
     }
@@ -479,6 +474,10 @@ public class Model implements Serializable {
 
     public boolean isSquareEmpty(Location loc) {
         return getSquare(loc).isEmpty();
+    }
+
+    public Square getSquare(Location loc) {
+        return board.getSquare(loc);
     }
 
     public void makeMove(Move move) {
@@ -508,9 +507,5 @@ public class Model implements Serializable {
     @Override
     public String toString() {
         return board.toString();
-    }
-
-    public Square getSquare(Location loc) {
-        return board.getSquare(loc);
     }
 }

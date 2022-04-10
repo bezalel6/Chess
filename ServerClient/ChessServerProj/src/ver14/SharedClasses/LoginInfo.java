@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class LoginInfo implements Serializable {
     private String username, password;
     private LoginType loginType;
+    private String profilePic;
 
     public LoginInfo() {
     }
@@ -17,6 +18,14 @@ public class LoginInfo implements Serializable {
 
     public LoginInfo(LoginType loginType) {
         this.loginType = loginType;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public boolean isGuest() {

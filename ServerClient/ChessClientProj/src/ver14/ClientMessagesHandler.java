@@ -101,6 +101,7 @@ public class ClientMessagesHandler extends MessagesHandler {
             client.soundManager.gameStart.play();
             synchronized (view.boardLock) {
                 PlayerColor myColor = message.getPlayerColor();
+                assert myColor != null;
                 client.setMyColor(myColor);
                 Stack<Move> moveStack = message.getMoveStack();
                 Board board = message.getBoard();
@@ -175,7 +176,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onQuestion() {
         return message -> {
             super.onQuestion().onMsg(message);
-            view.getSidePanel().askPlayerPnl.ask(message.getQuestion(), answer -> {
+            view.askQuestion(message.getQuestion(), answer -> {
                 socket.writeMessage(Message.answerQuestion(answer, message));
             });
         };

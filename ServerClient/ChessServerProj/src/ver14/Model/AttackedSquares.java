@@ -68,8 +68,6 @@ public class AttackedSquares {
         for (int i = 0, attackingDirectionsLength = attackingDirections.length; i < attackingDirectionsLength && (checkingAttacked == null || !attackedSquares.isSet(checkingAttacked)); i++) {
             Direction direction = attackingDirections[i];
 
-//            direction = pieceType == PieceType.PAWN && attackingPlayerColor == PlayerColor.WHITE ? direction.opposite() : direction;
-
             Bitboard pieceBB = attackingPiecesBB.cp();
             /*
              *moving the opponent in the attacking player direction, so it can be attacked and detected one step later.
@@ -129,7 +127,7 @@ public class AttackedSquares {
                 if (and.notEmpty()) {
                     PieceType pieceType = attackingPieces.getPieceType(and);
 //                    touncomment
-//                    if (pieceType.isAttack(direction)) {
+//                    if (pieceType.isAttack(direction,)) {
                     if (pieceType != PieceType.KNIGHT) {
                         Bitboard attck = new Bitboard(from, temp, direction, attackingPlayerColor);
                         if (pins != null) {

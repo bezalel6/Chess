@@ -35,6 +35,10 @@ public class GameStatus implements Serializable {
         return new GameStatus(SpecificStatus.GameGoesOn);
     }
 
+    public static GameStatus tieByAgreement() {
+        return new GameStatus(SpecificStatus.TieByAgreement);
+    }
+
     public static GameStatus stalemate() {
         return new GameStatus(SpecificStatus.Stalemate);
     }
@@ -127,6 +131,12 @@ public class GameStatus implements Serializable {
         Stalemate(GameStatusType.TIE),
         InsufficientMaterial(GameStatusType.TIE),
         FiftyMoveRule(GameStatusType.TIE),
+        TieByAgreement(GameStatusType.TIE) {
+            @Override
+            public String toString() {
+                return "Agreement";
+            }
+        },
         PlayerDisconnectedVsAi(GameStatusType.UNFINISHED) {
             @Override
             public String toString() {

@@ -1,6 +1,5 @@
 package ver14.players;
 
-import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -89,7 +88,7 @@ public abstract class Player {
 
     public abstract void waitForMatch();
 
-    public abstract void drawOffered(Callback<Question.Answer> answerCallback);
+    public abstract void drawOffered(QuestionCallback answerCallback);
 
     public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);
 

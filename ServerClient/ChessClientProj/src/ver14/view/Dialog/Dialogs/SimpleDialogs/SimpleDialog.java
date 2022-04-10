@@ -1,6 +1,5 @@
 package ver14.view.Dialog.Dialogs.SimpleDialogs;
 
-import ver14.SharedClasses.Callbacks.Callback;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
@@ -28,11 +27,5 @@ public class SimpleDialog extends Dialog {
             }
         };
         cardsSetup(null, card);
-    }
-
-    @Override
-    public void start(Callback<Dialog> onClose) {
-        pack();
-        super.start(onClose);
     }
 }

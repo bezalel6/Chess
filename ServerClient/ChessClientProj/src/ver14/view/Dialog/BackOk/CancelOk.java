@@ -7,4 +7,8 @@ public interface CancelOk extends BackOkInterface {
     default String getBackText() {
         return "cancel";
     }
+
+    default void onCancel() {
+        onBack();
+    }
 }

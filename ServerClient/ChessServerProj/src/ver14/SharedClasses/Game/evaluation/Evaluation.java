@@ -64,7 +64,7 @@ public class Evaluation implements Serializable {
     }
 
     public boolean isGreaterThan(Evaluation other) {
-        return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth > other.evaluationDepth) || (eval < 0 && evaluationDepth < other.evaluationDepth)));
+        return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth < other.evaluationDepth) || (eval < 0 && evaluationDepth > other.evaluationDepth)));
     }
 
     public void addDetail(EvaluationParameters parm, double value) {

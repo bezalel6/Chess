@@ -130,7 +130,7 @@ public abstract class MessagesHandler {
      */
     public void receivedMessage(Message message) {
             /*
-            some messages need to be processed in a new thread to free blocking requests
+            messages need to be processed in a new thread to free blocking requests
 
                 example:
                     client received a login message.

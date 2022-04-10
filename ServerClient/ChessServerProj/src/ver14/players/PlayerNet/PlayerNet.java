@@ -1,6 +1,6 @@
 package ver14.players.PlayerNet;
 
-import ver14.SharedClasses.Callbacks.Callback;
+import ver14.DB.DB;
 import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
@@ -29,6 +29,7 @@ import java.util.ArrayList;
  */
 public class PlayerNet extends Player implements SyncableItem {
     private final LoginInfo loginInfo;
+    private final String profilePic;
     private AppSocket socketToClient;
 
     public PlayerNet(AppSocket socketToClient, LoginInfo loginInfo) {
@@ -39,6 +40,7 @@ public class PlayerNet extends Player implements SyncableItem {
         super(id);
         this.loginInfo = loginInfo;
         this.socketToClient = socketToClient;
+        this.profilePic = isGuest() ? null : DB.getProfilePic(id);
     }
 
     public LoginInfo getLoginInfo() {
@@ -112,8 +114,7 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void
-    disconnect(String cause) {
+    public void disconnect(String cause) {
         ErrorHandler.ignore(() -> {
             if (socketToClient.isConnected()) {
                 socketToClient.writeMessage(Message.bye(cause));
@@ -132,8 +133,8 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void drawOffered(Callback<Question.Answer> answerCallback) {
-        socketToClient.requestMessage(Message.askQuestion(Question.drawOffer(getPartner().getUsername())), res -> answerCallback.callback(res.getQuestion().getAnswer()));
+    public void drawOffered(QuestionCallback answerCallback) {
+        socketToClient.requestMessage(Message.askQuestion(Question.drawOffer(getPartner().getUsername())), res -> answerCallback.callback(res.getAnswer()));
     }
 
     public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
@@ -159,7 +160,7 @@ public class PlayerNet extends Player implements SyncableItem {
 
     @Override
     public SyncableItem getSyncableItem() {
-        return new UserInfo(ID());
+        return new UserInfo(ID(), profilePic);
     }
 
     @Override

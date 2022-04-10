@@ -42,15 +42,8 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
     }
 
     public boolean isDeeperAndBetterThan(MinimaxMove other) {
-        return isBetterThan(other) && isDeeper(other);
-    }
-
-    public boolean isBetterThan(MinimaxMove other) {
-        return other == null || moveEvaluation.isGreaterThan(other.moveEvaluation);
-    }
-
-    public boolean isDeeper(MinimaxMove other) {
-        return other == null || moveDepth >= other.moveDepth;
+        System.out.println("checking is deeper and betterrrrrr!\n me:%s\n\n other:%s".formatted(this, other));
+        return other == null || (moveEvaluation != null && (moveEvaluation.isGreaterThan(other.moveEvaluation)) && moveDepth >= other.moveDepth);
     }
 
     public boolean isCompleteSearch() {

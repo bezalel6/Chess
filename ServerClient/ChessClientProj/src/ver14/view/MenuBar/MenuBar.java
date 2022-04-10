@@ -30,7 +30,8 @@ public class MenuBar extends JMenuBar {
         ArrayList<JComponent> start = new ArrayList<>();
         ArrayList<JComponent> middle = new ArrayList<>();
         ArrayList<JComponent> end = new ArrayList<>();
-
+        start.add(new ProfileMenu(authorizedComponents, client));
+        
         Menu settingsMenu = new Menu("settings", AuthSettings.NO_AUTH) {{
             setFont(menuFont);
             setChildrenFont(menuItemsFont);
@@ -78,21 +79,6 @@ public class MenuBar extends JMenuBar {
         IconManager.dynamicServerIcon.set(serverStatusMenu);
         start.add(serverStatusMenu);
 
-        Menu userSettings = new Menu("user settings", AuthSettings.USER) {{
-            setFont(menuFont);
-            setChildrenFont(menuItemsFont);
-        }};
-        authorizedComponents.add(userSettings);
-        settingsMenu.add(userSettings);
-
-        userSettings.add(new MenuItem("change password") {{
-            addActionListener(l -> MenuBar.this.client.changePassword());
-        }});
-
-        userSettings.add(new MenuItem("delete all unfinished games") {{
-            addActionListener(l -> MenuBar.this.client.delUnf());
-        }});
-
         statisticsMenu.setFont(menuFont);
         for (PreMadeRequest preMadeRequest : PreMadeRequest.statistics) {
             Menu currentMenu = statisticsMenu;
@@ -118,56 +104,13 @@ public class MenuBar extends JMenuBar {
 
         }
 
-//        // תת תפריטים עבור התפריט הראשי אודות
-//        // ----------------------------------------
-//        JMenuItem rulesMenuItem = new JMenuItem("Game & Rules");
-//        rulesMenuItem.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String title = "About Game & Rules";
-//
-//                String msg = "Tic-Tac-Toe is a game for two players,\n";
-//                msg += "X and O, who take turns marking the\n";
-//                msg += "spaces in a 3×3 grid.\n\n";
-//                msg += "The player who succeeds in placing\n";
-//                msg += "three of their marks in a horizontal,\n";
-//                msg += "vertical, or diagonal row wins the game.\n\n";
-//
-//                JOptionPane.showMessageDialog(win, msg, title, JOptionPane.PLAIN_MESSAGE);
-//            }
-//        });
-//
-//        // תת תפריט לקרדיטים
-//        JMenuItem creditsMenuItem = new JMenuItem("Credits");
-//        creditsMenuItem.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String title = "Credits";
-//
-//                String msg = "Programming:\n";
-//                msg += "1. \n";
-//                msg += "2. Kiryat Noaar Students.\n\n";
-//
-//                msg += "Sound & Music & Graphics:\n";
-//                msg += "1. freesound.org\n";
-//                msg += "2. UI Designer - Ilan Perets.\n";
-//                msg += "3. Icons & Images - www.flaticon.com\n\n";
-//
-//                msg += "All rights reserved (c) 2021\n";
-//
-//                JOptionPane.showMessageDialog(win, msg, title, JOptionPane.PLAIN_MESSAGE);
-//            }
-//        });
-
         SyncedJMenu connectedUsers = new ConnectedUsers();
         serverStatusMenu.add(connectedUsers.getJMenu());
         view.addListToRegister(connectedUsers);
-//        listsToRegister.add(connectedUsers);
 
         SyncedJMenu ongoingGames = new OngoingGames();
         serverStatusMenu.add(ongoingGames.getJMenu());
         view.addListToRegister(ongoingGames);
-//        listsToRegister.add(ongoingGames);
 
         start.forEach(this::add);
         if (!middle.isEmpty()) {

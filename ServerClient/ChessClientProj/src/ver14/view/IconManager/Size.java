@@ -39,6 +39,10 @@ public class Size extends Dimension {
         return new Size(Math.max(size.height, size.width));
     }
 
+    public static Dimension min(Dimension size1, Size size2) {
+        return size1.width + size1.height > size2.height + size2.width ? size1 : size2;
+    }
+
     @Override
     public String toString() {
         return super.toString();
@@ -52,11 +56,21 @@ public class Size extends Dimension {
         return new Size(width - (insets.left + insets.right), height - (insets.top + insets.bottom));
     }
 
+    public Dimension createMinCombo(Dimension other) {
+        return new Size(Math.min(width, other.width), Math.min(height, other.height));
+    }
+
     public Dimension min(Dimension other) {
         return (width + height <= other.height + other.width) ? this : other;
     }
 
-    public void multBy(double mult) {
+    public Size mult(double mult) {
+        return new Size(this) {{
+            multMe(mult);
+        }};
+    }
+
+    public void multMe(double mult) {
         width *= mult;
         height *= mult;
     }

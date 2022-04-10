@@ -44,29 +44,25 @@ public enum Location {
     private static final long blackSquares = ~whiteSquares;
 
     static {
-        for (Location p : values()) {
-            map.put(p.asInt, p);
-        }
+
         ALL_LOCS = Arrays.stream(values())
                 .filter(location -> location != NONE)
                 .collect(Collectors.toCollection(ArrayList::new));
+        for (Location p : ALL_LOCS) {
+            map.put(p.asInt, p);
+        }
     }
 
     public final long asLong;
     public final int asInt;
     public final int row;
     public final int col;
-    public final int viewRow;
-    public final int viewCol;
 
     Location() {
 //        int matRow = row(this);
 
         this.row = (row(this));
         this.col = (col(this));
-
-        this.viewRow = flip(row);
-        this.viewCol = flip(col);
 
         this.asInt = this.row * 8 + this.col;
         this.asLong = 1L << this.asInt;
@@ -79,10 +75,6 @@ public enum Location {
 
     private static int col(Location loc) {
         return loc.ordinal() & 7;
-    }
-
-    public static int flip(int num) {
-        return Math.abs(num - 7);
     }
 
     public static void main(String[] args) {
@@ -137,11 +129,7 @@ public enum Location {
     }
 
     public static Location getLoc(int loc) {
-        return isInBounds(loc) ? valueOf(loc) : null;
-    }
-
-    public static boolean isInBounds(int loc) {
-        return loc < NUM_OF_SQUARES && loc >= 0;
+        return valueOf(loc);
     }
 
     public static Location valueOf(int loc) {
@@ -166,8 +154,12 @@ public enum Location {
         return valueOf(row * 8 + col);
     }
 
+    public static int flip(int num) {
+        return Math.abs(num - 7);
+    }
+
     public static boolean isInBounds(Location loc) {
-        return loc != null && isInBounds(loc.asInt);
+        return loc != null;
     }
 
     public Location flip() {

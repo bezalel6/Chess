@@ -14,6 +14,7 @@ import ver14.view.Dialog.Components.DialogComponent;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.TextBasedFields.NumberField;
+import ver14.view.Dialog.DialogFields.TextBasedFields.PictureUrlField;
 import ver14.view.Dialog.DialogFields.TextBasedFields.TextField;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Verified;
@@ -49,10 +50,12 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
             return null;
 
         Header fieldHeader = new Header(arg.config.description, false);
-        DialogField<?> field = switch (arg.argType) {
+        DialogField field = switch (arg.argType) {
 
             case Date -> new DateField(fieldHeader, fieldParent);
             case Text -> new TextField(fieldHeader, fieldParent, RegEx.Any);
+            case Url -> new TextField(fieldHeader, fieldParent, RegEx.URL);
+            case PictureUrl -> new PictureUrlField(fieldHeader, fieldParent);
             case ServerAddress -> new TextField(fieldHeader, fieldParent, RegEx.IPPAddress);
             case Number -> new NumberField(fieldHeader, fieldParent);
 
@@ -104,6 +107,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         gbc.weightx = 2;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.gridwidth = GridBagConstraints.RELATIVE;
+        nextLine();
         add(comp, gbc);
     }
 

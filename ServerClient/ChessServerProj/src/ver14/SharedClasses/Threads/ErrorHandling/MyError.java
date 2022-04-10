@@ -40,7 +40,7 @@ public class MyError extends Error {
 
     public String getHandledStr() {
 //        return toString();
-        return type + "";
+        return type + (getCause() == null ? "" : "  " + getCause().getClass());
     }
 
 

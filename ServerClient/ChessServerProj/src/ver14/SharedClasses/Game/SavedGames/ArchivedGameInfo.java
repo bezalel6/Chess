@@ -16,4 +16,9 @@ public class ArchivedGameInfo extends EstablishedGameInfo {
     public String getWinner() {
         return winner;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

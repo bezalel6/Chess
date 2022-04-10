@@ -1,12 +1,12 @@
 package ver14;
 
-import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.Arg.Described;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -16,6 +16,7 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
@@ -37,6 +38,8 @@ import ver14.view.View;
 
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 /**
@@ -64,6 +67,7 @@ public class Client implements EnvManager {
     private Message lastGetMoveMsg;
     private LoginInfo loginInfo;
     private ClientMessagesHandler msgHandler;
+    private boolean isClosing = false;
 
     /**
      * Constractor for Chat Client.
@@ -115,7 +119,7 @@ public class Client implements EnvManager {
     public void setupClient() {
         try {
 
-            // set the Server Adress (DEFAULT IP&PORT)
+            // set the Server Address (DEFAULT IP&PORT)
             serverPort = SERVER_DEFAULT_PORT;
             serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
             Properties properties = dialogProperties("Server Address");
@@ -187,14 +191,19 @@ public class Client implements EnvManager {
      * @param closeType the close type
      */
     public void closeClient(String cause, String title, MessageCard.MessageType closeType) {
+        if (isClosing)
+            return;
+        isClosing = true;
         if (clientSocket != null) {
             clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
 
         }
+
         if (cause != null) {
             title = title == null ? "Closing" : title;
             view.showMessage(cause, title, closeType);
         }
+
         log("Client Closed!");
 
         // close GUI
@@ -475,9 +484,21 @@ public class Client implements EnvManager {
      * @return the game settings
      */
     public GameSettings showGameSettingsDialog() {
-        String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
-        Properties properties = dialogProperties(msg, "game selection");
-        return view.showDialog(new GameSelect(properties)).getGameSettings();
+        Question question = new Question("Would you like to play a game?", Question.Answer.YES, Question.Answer.NO);
+        CompletableFuture<Question.Answer> futureAns = new CompletableFuture<>();
+        view.askQuestion(question, futureAns::complete);
+        try {
+            Question.Answer answer = futureAns.get();
+            if (answer != Question.Answer.YES) {
+                return null;
+            }
+            String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
+            Properties properties = dialogProperties(msg, "game selection");
+            return view.showDialog(new GameSelect(properties)).getGameSettings();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -497,8 +518,8 @@ public class Client implements EnvManager {
         ChangePassword changePassword = view.showDialog(new ChangePassword(dialogProperties("change password"), loginInfo.getPassword()));
         String pw = changePassword.getPassword();
         if (pw != null) {
-            request(RequestBuilder.changePassword(), msg -> {
-                if (msg != null && msg.getDBResponse().getStatus() == TableDBResponse.Status.SUCCESS) {
+            request(RequestBuilder.changePassword(), res -> {
+                if (res != null && res.isSuccess()) {
                     loginInfo.setPassword(pw);
                 }
             }, null, pw);
@@ -513,11 +534,11 @@ public class Client implements EnvManager {
      * @param onResponse the on response
      * @param args       the args
      */
-    public void request(RequestBuilder builder, MessageCallback onResponse, Object... args) {
+    public void request(RequestBuilder builder, Callback<DBResponse> onResponse, Object... args) {
         if (args == null) {
             return;
         }
-        
+
         for (int i = 0; i < args.length; i++) {
             Arg arg = builder.getArgs()[i];
             Object argVal = args[i];
@@ -532,8 +553,10 @@ public class Client implements EnvManager {
             args[i] = argVal;
         }
         clientSocket.requestMessage(Message.dbRequest(builder.build(args)), msg -> {
+            if (msg == null)
+                return;
             if (onResponse != null)
-                onResponse.onMsg(msg);
+                onResponse.callback(msg.getDBResponse());
             view.showDBResponse(msg.getDBResponse(), builder.getName(), builder.getName());
         });
     }
@@ -549,13 +572,14 @@ public class Client implements EnvManager {
     }
 
     private void closeClient(String msg, Throwable ex) {
+        msg += "\n\n" + MyError.errToString(ex);
         String title = "Runtime Exception: " + msg;
 
         System.out.println("\n>> " + title);
         System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
 
         // popup dialog with the error message
-        closeClient(msg + "\n\n" + MyError.errToString(ex), "Exception Error", MessageCard.MessageType.ERROR);
+        closeClient(msg, "Exception Error", MessageCard.MessageType.ERROR);
     }
 
     public void delUnf() {
@@ -563,17 +587,26 @@ public class Client implements EnvManager {
 
     }
 
+    public void request(PreMadeRequest request) {
+        request(request, null);
+    }
+
     /**
      * Request.
      *
      * @param request the request
      */
-    public void request(PreMadeRequest request) {
+    public void request(PreMadeRequest request, Callback<DBResponse> onResponse) {
         RequestBuilder builder = request.createBuilder();
         Properties properties = dialogProperties(builder.getPreDescription(), builder.getName());
 //        Properties properties = new Properties(builder.getPreDescription(), builder.getName());
         CustomDialog customDialog = view.showDialog(new CustomDialog(properties, builder.getArgs()));
         Object[] args = customDialog.getResults();
-        request(builder, null, args);
+        request(builder, onResponse, args);
+    }
+
+    public void setProfilePic(String profilePic) {
+        loginInfo.setProfilePic(profilePic);
+        view.authChange(loginInfo);
     }
 }

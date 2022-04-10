@@ -9,6 +9,7 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.ui.GameView;
@@ -155,6 +156,7 @@ public class Game {
 
     private GameStatus playTurn() {
 //        gameTime.startRunning(currentPlayer.getPlayerColor());
+        currentPlayer.getPartner().waitTurn();
         try {
             Move move = getMove();
             return makeMove(move);
@@ -166,7 +168,6 @@ public class Game {
     private void switchTurn() {
         currentPlayer = currentPlayer.getPartner();
         gameTime.startRunning(currentPlayer.getPlayerColor());
-        currentPlayer.getPartner().waitTurn();
         updateDebugView();
     }
 
@@ -243,15 +244,6 @@ public class Game {
         return new Player[]{gameCreator, p2};
     }
 
-    void interruptRead(GameStatus status) {
-        MyError err = new Game.GameOverError(status);
-        if (isReadingMove) {
-            currentPlayer.interrupt(err);
-        }
-//        else throw err;
-
-    }
-
     @Override
     public String toString() {
         return "Game{" +
@@ -264,7 +256,18 @@ public class Game {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
+            if (ans == Question.Answer.ACCEPT)
+                interruptRead(GameStatus.tieByAgreement());
         });
+    }
+
+    void interruptRead(GameStatus status) {
+        MyError err = new Game.GameOverError(status);
+        if (isReadingMove) {
+            currentPlayer.interrupt(err);
+        }
+//        else throw err;
+
     }
 
     public static class PlayerDisconnectedError extends MyError.DisconnectedError {

@@ -71,7 +71,7 @@ public class PasswordPnl extends LoginField {
         int btnSize = (showPasswordBtn.getMinSize());
         int sizeNum = btnSize == 0 ? IconManager.SECONDARY_COMP_SIZE.width : btnSize;
         Size size = new Size(sizeNum);
-        size.multBy(iconRatio);
+        size.multMe(iconRatio);
         icon = IconManager.scaleImage(icon, size);
         showPasswordBtn.setIcon(icon);
     }

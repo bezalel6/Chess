@@ -428,6 +428,7 @@ public class Server implements ErrorContext, EnvManager {
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
                     if (!isLoggedIn(username)) {
+                        loginInfo.setProfilePic(DB.getProfilePic(username));
                         yield Message.welcomeMessage("Welcome " + username, loginInfo);
                     } else {
                         yield Message.error("User already connected");
@@ -464,9 +465,9 @@ public class Server implements ErrorContext, EnvManager {
     public void endOfGameSession(GameSession session) {
         gameSessions.remove(session.gameID);
         (session.getPlayers()).stream().parallel().forEach(player -> {
-//            if (player.isConnected()) {
-            gameSetup(player);
-//            }
+            if (player.isConnected()) {
+                gameSetup(player);
+            }
         });
     }
 

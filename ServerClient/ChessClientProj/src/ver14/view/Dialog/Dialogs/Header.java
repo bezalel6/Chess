@@ -15,8 +15,8 @@ public class Header extends JPanel {
     public final static Insets insets = new Insets(10, 10, 10, 10);
     protected final static Size maximumSize = new Size(500);
     private final JLabel lbl;
-    private final ImageIcon icon;
     private final boolean center;
+    private ImageIcon icon;
     private String text;
 
     public Header(String text) {
@@ -34,7 +34,6 @@ public class Header extends JPanel {
         this.center = center;
 
         lbl = createHeader();
-
         setToolTipText(lbl.getText());
 
         add(lbl);
@@ -47,9 +46,17 @@ public class Header extends JPanel {
     }
 
     protected JLabel createHeader() {
-        return new JLabel(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {{
-            setFont(FontManager.Dialogs.dialog);
-        }};
+        return new JLabel(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {
+            {
+                setFont(FontManager.Dialogs.dialog);
+            }
+
+            @Override
+            public void setText(String text) {
+                super.setText(text);
+                setToolTipText(text);
+            }
+        };
     }
 
     public Header(ImageIcon icon, boolean center) {
@@ -69,6 +76,11 @@ public class Header extends JPanel {
 
     public ImageIcon getIcon() {
         return icon;
+    }
+
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
+        lbl.setIcon(icon);
     }
 
     public String getText() {

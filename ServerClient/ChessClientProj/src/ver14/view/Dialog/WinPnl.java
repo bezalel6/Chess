@@ -9,10 +9,7 @@ import java.awt.*;
 
 public class WinPnl extends JPanel {
     public final static Insets insets = new Insets(5, 5, 5, 5);
-    public static final Size listSize = new Size(250);
-    public static final Size listItemSize = new Size(listSize) {{
-        multBy(0.7);
-    }};
+
     public static final int ALL_IN_ONE_ROW = -1;//used so currentCol will never be equal to cols
     public static final int MAKE_SCROLLABLE = -2;
     protected final JPanel topPnl;
@@ -27,6 +24,7 @@ public class WinPnl extends JPanel {
         this((Header) null);
     }
 
+
     public WinPnl(Header header) {
         this(1, header);
     }
@@ -40,6 +38,7 @@ public class WinPnl extends JPanel {
         setHeader(header);
 
         this.contentPnl = new JPanel(new GridBagLayout());
+
         if (cols == MAKE_SCROLLABLE) {
             super.add(new Scrollable(contentPnl), BorderLayout.CENTER);
             this.cols = 1;
@@ -72,6 +71,14 @@ public class WinPnl extends JPanel {
         this(1, new Header(header, centerHeader));
     }
 
+    /**
+     * only relevant when scrollable
+     *
+     * @return
+     */
+    protected Size maxSize() {
+        return new Size(500);
+    }
 
     public void setBorder() {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -89,7 +96,6 @@ public class WinPnl extends JPanel {
             topPnl.add(header, 0);
         topPnl.revalidate();
         topPnl.repaint();
-
     }
 
     public void setCols(int cols) {
@@ -142,16 +148,20 @@ public class WinPnl extends JPanel {
         contentPnl.removeAll();
     }
 
-    public static class Scrollable extends JScrollPane {
+    public class Scrollable extends JScrollPane {
         private final JComponent ogComp;
 
         public Scrollable(JComponent ogComp) {
             super(ogComp);
             this.ogComp = ogComp;
-            setPreferredSize(listSize);
+            setPreferredSize(maxSize());
+//            setPreferredSize(maxSize().createMinCombo(getPreferredSize()));
             setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
             getVerticalScrollBar().setUnitIncrement(100);
+
+//            todo forward scrolling to parent scrolling if vertical\horizonatal scrollbar is not visible
+
         }
 
         public void addToComponent(Component adding, Object constraints) {

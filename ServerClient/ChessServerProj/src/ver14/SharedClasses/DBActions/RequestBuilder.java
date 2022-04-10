@@ -36,6 +36,8 @@ public class RequestBuilder implements Serializable {
     protected String postDescription;
     protected String preDescription;
     protected RequestBuilder subBuilder = null;
+    private String[] builtArgsVals;
+
 
     public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
@@ -79,6 +81,15 @@ public class RequestBuilder implements Serializable {
         Update update = new Update(Table.Users, Condition.equals(Col.Username, username.repInStr), new Update.NewValue(Col.Password, pw.repInStr));
 
         return new RequestBuilder(update, "change password", "", username, pw);
+    }
+
+    public static RequestBuilder changeProfilePic() {
+        Arg username = new Arg(ArgType.Username);
+        Arg url = new Arg(ArgType.PictureUrl, true, new Config<>("Enter link to the new profile picture"));
+
+        Update update = new Update(Table.Users, Condition.equals(Col.Username, username), new Update.NewValue(Col.ProfilePic, url));
+
+        return new RequestBuilder(update, "change profile picture", "", username, url);
     }
 
     public static RequestBuilder deleteAllUnFinishedGames() {
@@ -207,7 +218,6 @@ public class RequestBuilder implements Serializable {
         return gamesStats(username, null);
     }
 
-
     public static RequestBuilder top() {
         Col winner = Col.Winner.of(Table.Games);
         Col username = Col.Username.of(Table.Users);
@@ -251,6 +261,10 @@ public class RequestBuilder implements Serializable {
         return builder;
     }
 
+    public String getArgVal(int index) {
+        return builtArgsVals[index];
+    }
+
     public DBResponse createResponse(ResultSet rs, DBRequest request) {
         try {
             String[] columns;
@@ -280,7 +294,7 @@ public class RequestBuilder implements Serializable {
             return new TableDBResponse(columns, rows, request);
         } catch (SQLException e) {
             e.printStackTrace();
-            return new StatusResponse(DBResponse.Status.ERROR, request);
+            return new StatusResponse(DBResponse.Status.ERROR, request, 0);
         }
     }
 
@@ -302,9 +316,11 @@ public class RequestBuilder implements Serializable {
 
     public DBRequest build(Object... argsVals) {
         assert this.args.length == argsVals.length;
+        this.builtArgsVals = new String[argsVals.length];
         for (int i = 0; i < args.length; i++) {
             Arg arg = args[i];
             String argVal = arg.createVal(argsVals[i]);
+            builtArgsVals[i] = argVal;
             statement.replace(arg.repInStr, argVal);
             postDescription = postDescription.replaceAll(arg.repInStr, argVal);
             preDescription = preDescription.replaceAll(arg.repInStr, argVal);
@@ -314,6 +330,15 @@ public class RequestBuilder implements Serializable {
         return ret;
     }
 
+//    /**
+//     * only relevant after requesting
+//     *
+//     * @param arg
+//     * @return
+//     */
+//    public String getArgVal(Arg arg) {
+//        return
+//    }
 
     public static class GraphableSelection extends RequestBuilder {
 
@@ -353,7 +378,7 @@ public class RequestBuilder implements Serializable {
 
                 @Override
                 public String header() {
-                    return name;
+                    return getPostDescription();
                 }
 
                 @Override
@@ -371,7 +396,7 @@ public class RequestBuilder implements Serializable {
             ResultSetMetaData rsmd = rs.getMetaData();
             for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 
-                GraphElement element = new GraphElement(rs.getDouble(i), rsmd.getColumnName(i), GraphElementType.GREEN);
+                GraphElement element = new GraphElement(rs.getDouble(i), rsmd.getColumnLabel(i), GraphElementType.GREEN);
 
                 elements.add(element);
             }

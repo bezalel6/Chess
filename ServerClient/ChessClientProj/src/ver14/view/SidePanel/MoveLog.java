@@ -225,6 +225,7 @@ public class MoveLog extends JPanel {
     }
 
     public synchronized void reset() {
+        currentRow = currentCol = 0;
         moveLogPnl.removeAll();
         currentMoveIndex = 0;
         movesBtns.clear();

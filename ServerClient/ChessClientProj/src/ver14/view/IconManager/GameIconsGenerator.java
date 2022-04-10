@@ -39,7 +39,7 @@ public class GameIconsGenerator {
         iconSize = Size.minSquare(iconSize);
 
         Size squareSize = new Size(iconSize);
-        squareSize.multBy((double) 1 / 8);
+        squareSize.multMe((double) 1 / 8);
 
 //        Font font = FontManager.small;
 //        int textHeight = font.getSize();
@@ -54,7 +54,7 @@ public class GameIconsGenerator {
         Graphics2D g2d = image.createGraphics();
 
         Size pieceSize = new Size(squareSize);
-        pieceSize.multBy(0.8);
+        pieceSize.multMe(0.8);
 
         Board board = new Board(fen);
 

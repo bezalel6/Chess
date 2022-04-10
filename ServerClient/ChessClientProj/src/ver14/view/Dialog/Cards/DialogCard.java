@@ -26,7 +26,6 @@ import java.util.ArrayList;
 
 public abstract class DialogCard extends WinPnl implements BackOkInterface, Child, Parent, AncestorListener {
     private final static IDsGenerator cardIDs = new IDsGenerator();
-    private static final boolean WIREFRAME = false;
     private static final Font navigationBtnsFont = FontManager.normal;
     protected final Dialog parentDialog;
     private final CardHeader cardHeader;
@@ -44,7 +43,7 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
 
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
-        super(cardHeader);
+        super(1, cardHeader);
         this.cardHeader = cardHeader;
         this.verifiedComponentsList = new ArrayList<>();
         this.defaultValueBtns = new ArrayList<>();
@@ -180,10 +179,6 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         if (comp instanceof Verified verified) {
             verifiedComponentsList.add(verified);
         }
-        if (WIREFRAME && comp instanceof JComponent jc) {
-            jc.setBorder(BorderFactory.createLineBorder(Color.MAGENTA));
-        }
-
         return super.add(comp);
     }
 
@@ -233,14 +228,14 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
     public void onOk() {
         if (parentDialog != null)
             parentDialog.closeDialog();
-        else {
-            Container parentContainer = getParent();
-            while (!(parentContainer instanceof Window) && parentContainer != null) {
-                parentContainer = getParent();
-            }
-            assert parentContainer != null;
-            ((Window) parentContainer).dispose();
-        }
+//        else {
+//            Container parentContainer = getParent();
+//            while (!(parentContainer instanceof Window) && parentContainer != null) {
+//                parentContainer = getParent();
+//            }
+//            assert parentContainer != null;
+//            ((Window) parentContainer).dispose();
+//        }
     }
 
 

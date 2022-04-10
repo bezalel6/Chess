@@ -19,7 +19,7 @@ public class SelectableUserInfo implements Selectable, SyncableItem {
 
     @Override
     public ImageIcon getIcon() {
-        return IconManager.userIcon;
+        return IconManager.loadUserIcon(userInfo.profilePic);
     }
 
     @Override

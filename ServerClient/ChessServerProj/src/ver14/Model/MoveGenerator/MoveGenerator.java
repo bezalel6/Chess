@@ -114,10 +114,10 @@ public class MoveGenerator {
             return generatedMoves;
         }
 
-        generatedMoves.doneAdding();
+//        generatedMoves.doneAdding();
 
-        if (generationSettings.legalize && !generationSettings.anyLegal)//!any legal bc it already checked legality before adding moves
-            legalize();
+//        if (generationSettings.legalize && !generationSettings.anyLegal)//!any legal bc it already checked legality before adding moves
+//            legalize();
 
         return generatedMoves;
     }
@@ -125,7 +125,7 @@ public class MoveGenerator {
     public void generatePawnMoves() {
         Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
         int mult = movingPlayerColor.diff;
-        LocsList setLocs = bitboard.getSetLocs();
+        Locs setLocs = bitboard.getSetLocs();
         for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
             Location pawnLoc = setLocs.get(i);
             int promotionRow = movingPlayerColor.getOpponent().startingRow;
@@ -135,9 +135,9 @@ public class MoveGenerator {
 
             if (model.isSquareEmpty(oneStep)) {
                 Move m = new Move(pawnLoc, oneStep);
-                boolean ad = generatedMoves.add(m, PieceType.PAWN);
+                boolean added = generatedMoves.add(m, PieceType.PAWN);
 
-                if (ad && !promoting && movingPlayerColor.startingRow + mult == pawnLoc.row) {
+                if (added && !promoting && movingPlayerColor.startingRow + mult == pawnLoc.row) {
                     Location doublePawnPush = Location.getLoc(pawnLoc.asInt + 8 * mult * 2);
                     if (model.isSquareEmpty(doublePawnPush)) {
                         m = new Move(pawnLoc, doublePawnPush) {{
@@ -233,10 +233,6 @@ public class MoveGenerator {
         }
     }
 
-    public void legalize() {
-        generatedMoves.removeIf(move -> !isLegal(move));
-    }
-
     private Move checkPawnCapture(Location movingFrom, Location capLoc) {
         if (capLoc == null || movingFrom.getMaxDistance(capLoc) > 1)
             return null;
@@ -281,6 +277,16 @@ public class MoveGenerator {
         }
     }
 
+    public static int numSquaresToEdge(Location loc, Direction direction) {
+        if (direction.getCombination().length != 1)
+            return 1;
+        return numSquaresToEdge[loc.asInt][direction.asInt];
+    }
+
+    public void legalize() {
+        generatedMoves.removeIf(move -> !isLegal(move));
+    }
+
     public boolean isLegal(Move move) {
         if (move.getMoveFlag().isCastling) {
             if (!canCastle(move)) {
@@ -306,12 +312,6 @@ public class MoveGenerator {
             }
         }
         return true;
-    }
-
-    public static int numSquaresToEdge(Location loc, Direction direction) {
-        if (direction.getCombination().length != 1)
-            return 1;
-        return numSquaresToEdge[loc.asInt][direction.asInt];
     }
 
     public void generateRookMoves() {
