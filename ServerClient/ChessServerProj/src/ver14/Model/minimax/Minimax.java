@@ -26,6 +26,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Minimax {
     private static final boolean USE_OPENING_BOOK = true;
     private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
+    private static final int moveOrderingDepthCutoff = 5;
     public static boolean SHOW_UI = false;
     private final long scanTimeInMillis;
     private final long scanTimeFlexibility;
@@ -49,6 +50,7 @@ public class Minimax {
     private boolean recordCpuUsage = false;
     private MyError interrupt = null;
 
+
     public Minimax(Model model, long scanTimeInMillis) {
         this(model, scanTimeInMillis, DEFAULT_FLEX);
     }
@@ -69,7 +71,6 @@ public class Minimax {
         }
         cpuUsageRecords = new CpuUsages();
     }
-
 
     long getElapsed() {
         return minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
@@ -246,7 +247,7 @@ public class Minimax {
                 try {
                     Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
 //                        System.out.println(e);
-                        
+
                     });
                     if (!isOvertime()) {
                         Model model1 = new Model(model);
@@ -297,10 +298,11 @@ public class Minimax {
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
-        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, new GenerationSettings(true, false));
+        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.defaultSettings);
 //        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
 
-        sortMoves(possibleMoves, parms.isMax);
+        if (parms.currentDepth <= moveOrderingDepthCutoff)
+            sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
 
