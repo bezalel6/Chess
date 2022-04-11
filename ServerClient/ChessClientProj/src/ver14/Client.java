@@ -460,7 +460,6 @@ public class Client implements EnvManager {
      * Disconnect from server.
      */
     public void disconnectFromServer() {
-
         if (clientSocket != null && clientSocket.isConnected()) {
             clientSocket.requestMessage(Message.bye(""), response -> {
                 view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);

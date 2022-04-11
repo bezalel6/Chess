@@ -246,6 +246,7 @@ public class Minimax {
                 try {
                     Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
 //                        System.out.println(e);
+                        
                     });
                     if (!isOvertime()) {
                         Model model1 = new Model(model);

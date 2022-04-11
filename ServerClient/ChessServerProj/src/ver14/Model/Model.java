@@ -302,7 +302,6 @@ public class Model implements Serializable {
 
         move.setPrevFullMoveClock(fullMoveClock);
         move.setPrevHalfMoveClock(halfMoveClock);
-        move.setReversible(piece);
 
         makeIntermediateMove(move);
 
@@ -312,6 +311,7 @@ public class Model implements Serializable {
         } else {
             enPassantTargetLoc = enPassantActualLoc = null;
         }
+
         if (move.getMoveFlag() == Move.MoveType.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
             delPiece(piece, movingFrom);
@@ -335,9 +335,9 @@ public class Model implements Serializable {
 
         if (move.isCapturing()) {
             Piece otherPiece = board.getPiece(movingTo);
-            Assert(otherPiece != null, "eating on empty stomach", move);
+//            Assert(otherPiece != null, "eating on empty stomach", move);
 //            Location lastSet = getKing(otherPiece.playerColor);
-            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
+//            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
                 CastlingRights.Side side = getSideRelativeToKing(this, capClr, movingTo);
@@ -350,21 +350,21 @@ public class Model implements Serializable {
         updatePieceLoc(piece, movingFrom, movingTo);
 
         move.setDisabledCastling(disabled);
-        if (disabled != 0) {
-            move.setNotReversible();
-        }
+        boolean incHalfMoveClock = !(move.isCapturing() || (piece.pieceType == PieceType.PAWN || move.getMoveFlag() == Move.MoveType.Promotion));
+
+        move.setReversible(incHalfMoveClock && disabled == 0);
 
         moveStack.push(move);
 
-        if (move.isReversible()) {
+        if (incHalfMoveClock) {
             this.halfMoveClock++;
         } else {
             this.halfMoveClock = 0;
         }
         switchTurn();
-        setBoardHash();
+//        setBoardHash();
 
-        setAttackedSquares();
+//        setAttackedSquares();
 
     }
 
@@ -488,7 +488,7 @@ public class Model implements Serializable {
         applyMove(move);
         move.setMoveEvaluation(Eval.getEvaluation(this));
         pgnBuilder.append(str);
-        System.out.println(pgnBuilder);
+//        System.out.println(pgnBuilder);
 
     }
 

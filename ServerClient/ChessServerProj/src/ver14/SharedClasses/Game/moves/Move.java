@@ -5,7 +5,6 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 
 
@@ -180,9 +179,10 @@ public class Move extends BasicMove implements Comparable<Move> {
         return isReversible;
     }
 
-    public void setReversible(Piece movingPiece) {
-        isReversible = !(isCapturing() || movingPiece.pieceType == PieceType.PAWN);
+    public void setReversible(boolean reversible) {
+        isReversible = reversible;
     }
+
 
     public boolean isCapturing() {
         return capturingPieceType != NOT_CAPTURING;
@@ -263,9 +263,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         enPassantLoc = epsnLoc;
     }
 
-    public void setNotReversible() {
-        isReversible = false;
-    }
 
     public ThreefoldStatus getThreefoldStatus() {
         return threefoldStatus;
