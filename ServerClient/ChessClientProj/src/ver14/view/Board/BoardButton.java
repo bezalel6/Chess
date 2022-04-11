@@ -227,7 +227,8 @@ public class BoardButton extends MyJButton {
                     }
                 }
                 case CURRENT -> {
-
+                    if (!isEnabled())
+                        setEnabled(true);
                 }
                 case PROMOTING -> {
                     setBackground(promotingColor);

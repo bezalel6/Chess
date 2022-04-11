@@ -6,8 +6,6 @@ import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
-import java.util.concurrent.TimeUnit;
-
 public class MyAi extends PlayerAI {
     private Minimax minimax = null;
 
@@ -17,7 +15,8 @@ public class MyAi extends PlayerAI {
 
     @Override
     public void initGame() {
-        minimax = new Minimax(game.getModel(), (int) (TimeUnit.MILLISECONDS.toSeconds(moveSearchTimeout.timeInMillis)));
+
+        minimax = new Minimax(game.getModel(), (int) moveSearchTimeout, 0);
     }
 
 

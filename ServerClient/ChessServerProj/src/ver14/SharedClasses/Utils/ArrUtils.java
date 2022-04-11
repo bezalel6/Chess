@@ -40,6 +40,7 @@ public class ArrUtils {
         return lst;
     }
 
+    
     public static <T> T exists(T[] arr, int... index) {
         int _index = index.length == 0 ? 0 : index[0];
 

@@ -12,6 +12,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -29,7 +30,8 @@ public class Model implements Serializable {
 //
 //        });
 //    }
-    private boolean finishSetup = false;
+    //    only used while the book is still working
+    private StringBuilder pgnBuilder = new StringBuilder();
     private Stack<Move> moveStack;
     private Board board;
     private PiecesBBs[] pieces;
@@ -40,21 +42,6 @@ public class Model implements Serializable {
     private Location enPassantTargetLoc;
     private Location enPassantActualLoc;
     private BoardHash boardHash;
-
-    public Model() {
-        createNewEmptyLogicBoard();
-    }
-
-    private void createNewEmptyLogicBoard() {
-        board = new Board();
-        pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
-        castlingRights = new CastlingRights();
-        piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
-        for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
-            Arrays.fill(piecesCount[playerColor.asInt], 0);
-            pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
-        }
-    }
 
     public Model(Model other) {
         this(other.genFenStr());
@@ -94,7 +81,17 @@ public class Model implements Serializable {
         FEN.loadFEN(fen, this);
         initPieces();
         this.boardHash = new BoardHash(this);
-        finishSetup = true;
+    }
+
+    private void createNewEmptyLogicBoard() {
+        board = new Board();
+        pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
+        castlingRights = new CastlingRights();
+        piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
+            Arrays.fill(piecesCount[playerColor.asInt], 0);
+            pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
+        }
     }
 
     private void initPieces() {
@@ -122,6 +119,10 @@ public class Model implements Serializable {
         return pieces[playerColor.asInt];
     }
 
+    public Model() {
+        createNewEmptyLogicBoard();
+    }
+
     public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
         CastlingRights.Side ret = CastlingRights.Side.QUEEN;
         Location kingLoc = model.getKing(playerColor);
@@ -129,6 +130,10 @@ public class Model implements Serializable {
             ret = CastlingRights.Side.KING;
         }
         return ret;
+    }
+
+    public String getPGN() {
+        return pgnBuilder.toString();
     }
 
     private void setBoardHash() {
@@ -205,6 +210,7 @@ public class Model implements Serializable {
         return null;
     }
 
+
     public ModelMovesList generateAllMoves() {
         return MoveGenerator.generateMoves(this);
     }
@@ -278,14 +284,6 @@ public class Model implements Serializable {
         return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
     }
 
-    public ModelMovesList generateAllMoves(PlayerColor player) {
-
-        if (player == currentPlayerColor) {
-            return generateAllMoves();
-        }
-        return new ModelMovesList(null, null);
-    }
-
     public PlayerColor getCurrentPlayer() {
         return currentPlayerColor;
     }
@@ -294,8 +292,8 @@ public class Model implements Serializable {
         this.currentPlayerColor = currentPlayerColor;
     }
 
-
     public void applyMove(Move move) {
+
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
 
@@ -369,7 +367,6 @@ public class Model implements Serializable {
         setAttackedSquares();
 
     }
-
 
     public void undoMove(Move move) {
 
@@ -481,8 +478,18 @@ public class Model implements Serializable {
     }
 
     public void makeMove(Move move) {
+        MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.annotate);
+        Move finalMove = move;
+        move = moves.stream().filter(m -> m.equals(finalMove)).findAny().orElse(null);
+        if (move == null) {
+            throw new Error();
+        }
+        String str = move.getAnnotation() + " ";
         applyMove(move);
         move.setMoveEvaluation(Eval.getEvaluation(this));
+        pgnBuilder.append(str);
+        System.out.println(pgnBuilder);
+
     }
 
     public Board getLogicBoard() {

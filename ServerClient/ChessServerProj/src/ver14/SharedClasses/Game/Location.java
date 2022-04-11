@@ -1,6 +1,7 @@
 package ver14.SharedClasses.Game;
 
 import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -78,7 +79,13 @@ public enum Location {
     }
 
     public static void main(String[] args) {
-        System.out.println(locsMatStr());
+        ALL_LOCS.forEach(l -> {
+            System.out.println(l.getColString());
+        });
+    }
+
+    public String getColString() {
+        return name().substring(0, 1);
     }
 
     public static String locsMatStr() {
@@ -175,12 +182,6 @@ public enum Location {
         return (whiteSquares >> asInt & 1) == 0;
     }
 
-    @Override
-    public String toString() {
-        return name().toLowerCase(Locale.ROOT);
-//        return getColString() + getRowString();
-    }
-
 //    public String getColString() {
 //        return Character.toString((char) ((flip_fen_locs ? flip(col) : col) + 'a'));
 //    }
@@ -193,8 +194,21 @@ public enum Location {
 //        return r + "";
 //    }
 
+    @Override
+    public String toString() {
+        return name().toLowerCase(Locale.ROOT);
+//        return getColString() + getRowString();
+    }
+
     public int getMaxDistance(Location other) {
         return other == null ? -1 : Math.max(Math.abs(row - other.row), Math.abs(col - other.col));
     }
 
+    public String getRowString() {
+        return name().substring(1);
+    }
+
+    public int hash(PieceType pieceType) {
+        return Objects.hash(asInt, pieceType.asInt);
+    }
 }

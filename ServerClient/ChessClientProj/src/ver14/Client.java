@@ -20,6 +20,7 @@ import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -37,6 +38,7 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
 import ver14.view.View;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +57,10 @@ public class Client implements EnvManager {
     private static final int SERVER_DEFAULT_PORT = 1234;
     private static final String teacherIP = "192.168.21.239";
     private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
+
+
+    private static String START_AT_ADDRESS = null;
+
     public final SoundManager soundManager;
     // for GUI
     private View view;
@@ -72,6 +78,7 @@ public class Client implements EnvManager {
     private boolean isClosing = false;
 
     private Map<PlayerColor, String> playerUsernames = new HashMap<>();
+    private boolean isPremoving = false;
 
     /**
      * Constractor for Chat Client.
@@ -90,6 +97,9 @@ public class Client implements EnvManager {
      */
 // main
     public static void main(String[] args) {
+        ArgsUtil util = ArgsUtil.create(args);
+        START_AT_ADDRESS = util.equalsSign("address").getString();
+
         Client client = new Client();
         client.runClient();
     }
@@ -117,25 +127,33 @@ public class Client implements EnvManager {
         view = new View(this);
     }
 
+    private String showServerAddressDialog() throws UnknownHostException {
+        // set the Server Address (DEFAULT IP&PORT)
+        serverPort = SERVER_DEFAULT_PORT;
+        serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
+        Properties properties = dialogProperties("Server Address");
+        String desc = "Enter SERVER Address";
+        Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
+        Config<String> config = new Config<>(desc, defaultValue);
+        config.addSuggestion(Described.d(teacherAddress, "teacher address"));
+        properties.setArgConfig(config);
+
+        InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
+        return inputDialog.getInput();
+    }
+
     /**
      * Sets client.
      */
     public void setupClient() {
         try {
 
-            // set the Server Address (DEFAULT IP&PORT)
-            serverPort = SERVER_DEFAULT_PORT;
-            serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
-            Properties properties = dialogProperties("Server Address");
-            String desc = "Enter SERVER Address";
-            Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
-            Config<String> config = new Config<>(desc, defaultValue);
-            config.addSuggestion(Described.d(teacherAddress, "teacher address"));
-            properties.setArgConfig(config);
-
-            InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
-
-            String serverAddress = inputDialog.getInput();
+            String serverAddress;
+            if (StrUtils.isEmpty(START_AT_ADDRESS)) {
+                serverAddress = showServerAddressDialog();
+            } else {
+                serverAddress = START_AT_ADDRESS;
+            }
 
             // check if Cancel button was pressed
             if (serverAddress == null) {
@@ -263,6 +281,15 @@ public class Client implements EnvManager {
         view.getSidePanel().askPlayerPnl.showPnl(false);
     }
 
+    public void enablePreMove() {
+//        isPremoving = true;
+//        view.enableSources(PremovesGenerator.generatePreMoves(view.getBoardPnl().createBoard(), getMyColor()));
+    }
+
+    public PlayerColor getMyColor() {
+        return myColor;
+    }
+
     /**
      * Login string.
      *
@@ -353,6 +380,11 @@ public class Client implements EnvManager {
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
     }
 
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
+
     /**
      * Update by move.
      *
@@ -361,11 +393,6 @@ public class Client implements EnvManager {
     public void updateByMove(Move move) {
         updateByMove(move, true);
     }
-
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
 
     /**
      * Update by move.
@@ -614,5 +641,9 @@ public class Client implements EnvManager {
      */
     public String getUsername() {
         return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
+    }
+
+    public void stopPremoving() {
+
     }
 }

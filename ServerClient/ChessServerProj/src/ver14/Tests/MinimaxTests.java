@@ -23,7 +23,7 @@ public class MinimaxTests extends Tests {
 
             @Override
             public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
-                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, parms, GameSettings.GameType.CREATE_NEW);
+                return new GameSettings(PlayerColor.WHITE, TimeFormat.RAPID, null, parms, GameSettings.GameType.CREATE_NEW);
             }
         };
 

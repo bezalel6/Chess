@@ -133,7 +133,12 @@ public class GameStatus implements Serializable {
 
     public enum SpecificStatus {
         Checkmate,
-        TimedOut,
+        TimedOut {
+            @Override
+            public String toString() {
+                return "Time Out";
+            }
+        },
         Resignation,
         GameGoesOn(GameStatusType.GAME_GOES_ON),
         ThreeFoldRepetition(GameStatusType.TIE),

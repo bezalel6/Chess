@@ -3,6 +3,7 @@ package ver14.SharedClasses.Game.pieces;
 
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.Direction;
+import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
@@ -14,6 +15,11 @@ public enum PieceType implements Serializable {
         public boolean isAttack(Direction direction, int maxDistance) {
             return maxDistance == 1 && super.isAttack(direction, maxDistance);
         }
+
+        @Override
+        public Direction[] getWalkingDirections() {
+            return ArrUtils.concat(super.getWalkingDirections(), Direction.U, Direction.U_U);
+        }
     },
     ROOK("♖", "♜", 5),
     BISHOP("♗", "♝", 3.2),
@@ -24,7 +30,7 @@ public enum PieceType implements Serializable {
         }
     },
     QUEEN("♕", "♛", 9),
-    KING("♔", "♚", 200, false) {
+    KING("♔", "♚", 200000000, false) {
         @Override
         public boolean isAttack(Direction direction, int maxDistance) {
             return maxDistance == 1 && super.isAttack(direction, maxDistance);
@@ -174,5 +180,9 @@ public enum PieceType implements Serializable {
 
     public Direction[] getAttackingDirections() {
         return ATTACKING_DIRECTIONS[asInt];
+    }
+
+    public Direction[] getWalkingDirections() {
+        return getAttackingDirections();
     }
 }

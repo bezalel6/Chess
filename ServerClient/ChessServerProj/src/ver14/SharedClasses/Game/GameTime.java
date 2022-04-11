@@ -6,14 +6,17 @@ import java.util.Arrays;
 public class GameTime implements Serializable {
     private static final int delay = 100;
     private final RunningTime[] gameTime;
+    private final TimeFormat[] timeFormats;
     private PlayerColor currentlyRunning = null;
 
     public GameTime(GameTime other) {
         this.gameTime = other.gameTime;
         this.currentlyRunning = other.currentlyRunning;
+        this.timeFormats = other.timeFormats;
     }
 
     public GameTime(TimeFormat... timeFormats) {
+        this.timeFormats = timeFormats;
         gameTime = new RunningTime[PlayerColor.NUM_OF_PLAYERS];
         if (timeFormats.length == 1) {
             for (int i = 0; i < PlayerColor.NUM_OF_PLAYERS; i++) {
@@ -25,6 +28,10 @@ public class GameTime implements Serializable {
             }
         }
 
+    }
+
+    public TimeFormat getTimeFormat(PlayerColor clr) {
+        return timeFormats.length > 1 ? timeFormats[clr.asInt] : timeFormats[0];
     }
 
     public void startRunning(PlayerColor playerColor) {
@@ -67,13 +74,11 @@ public class GameTime implements Serializable {
     }
 
     static public class RunningTime implements Serializable {
-        private final long incrementInMillis;
         private long timeInMillis;
         private long lastStarted;
 
         public RunningTime(TimeFormat timeFormat) {
             this.timeInMillis = timeFormat.timeInMillis;
-            this.incrementInMillis = timeFormat.incrementInMillis;
         }
 
         public void startRunning() {
@@ -81,7 +86,7 @@ public class GameTime implements Serializable {
         }
 
         public void stopRunning() {
-            timeInMillis -= System.currentTimeMillis() - lastStarted + incrementInMillis;
+            timeInMillis -= System.currentTimeMillis() - lastStarted;
         }
 
         public long getTimeInMillis() {
@@ -95,7 +100,6 @@ public class GameTime implements Serializable {
         @Override
         public String toString() {
             return "RunningTime{" +
-                    "incrementInMillis=" + incrementInMillis +
                     ", timeInMillis=" + timeInMillis +
                     '}';
         }

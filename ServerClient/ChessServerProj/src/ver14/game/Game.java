@@ -1,6 +1,8 @@
 package ver14.game;
 
 import ver14.Model.Model;
+import ver14.Model.MoveGenerator.GenerationSettings;
+import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
@@ -9,15 +11,18 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
-import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Stack;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Game.
@@ -38,7 +43,6 @@ public class Game {
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
     private GameTime gameTime;
-    private GameTimer timer;
     private Player currentPlayer;
     private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
@@ -53,7 +57,6 @@ public class Game {
         this.moveStack = new Stack<>();
         this.model = new Model();
         this.gameView = showGameView ? new GameView() : null;
-        this.timer = new GameTimer();
         setPartners();
     }
 
@@ -126,6 +129,8 @@ public class Game {
                 switchTurn();
             } catch (Exception e) {
                 System.out.println("ohno " + e);
+                e.printStackTrace();
+                return null;
             }
         }
         onGameOver();
@@ -193,14 +198,26 @@ public class Game {
 
     private Move getMove() {
         try {
-            timer.startRunning(currentPlayer.getPlayerColor());
+            ExecutorService exec = Executors.newSingleThreadExecutor();
+            exec.submit(() -> {
+                try {
+                    Thread.sleep(gameTime.getTimeLeft(currentPlayer.getPlayerColor()));
+                    if (!exec.isShutdown())
+                        interruptRead(GameStatus.timedOut(currentPlayer.getPlayerColor()));
+                } catch (InterruptedException e) {
+                }
+            });
+
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
-            timer.stopRunning();
+            exec.shutdown();
+
+            Move finalMove = move;
+            move = getMoves().stream().filter(m -> m.equals(finalMove)).findAny().orElse(null);
+
             session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
-            move.setMovingColor(currentPlayer.getPlayerColor());
             return move;
         } catch (PlayerDisconnectedError error) {
             isReadingMove = false;
@@ -222,6 +239,18 @@ public class Game {
         currentPlayer.getPartner().updateByMove(move);
 
         return move.getMoveEvaluation().getGameStatus();
+    }
+
+    void interruptRead(GameStatus status) {
+        MyError err = new Game.GameOverError(status);
+        if (isReadingMove) {
+            currentPlayer.interrupt(err);
+        } else throw err;
+
+    }
+
+    public MovesList getMoves() {
+        return MoveGenerator.generateMoves(model, GenerationSettings.annotate).getCleanList();
     }
 
     private boolean checkTimeOut() {
@@ -265,17 +294,10 @@ public class Game {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
-
-            interruptRead(GameStatus.tieByAgreement());
+            if (ans == Question.Answer.ACCEPT) {
+                interruptRead(GameStatus.tieByAgreement());
+            }
         });
-    }
-
-    void interruptRead(GameStatus status) {
-        MyError err = new Game.GameOverError(status);
-        if (isReadingMove) {
-            currentPlayer.interrupt(err);
-        } else throw err;
-
     }
 
     public static class PlayerDisconnectedError extends MyError.DisconnectedError {
@@ -301,34 +323,4 @@ public class Game {
         }
     }
 
-    class GameTimer extends ThreadsManager.MyThread {
-        private PlayerColor playerColor;
-
-        @Override
-        protected void handledRun() throws Throwable {
-            while (true) {
-                wait();
-                try {
-                    sleep(gameTime.getTimeLeft(playerColor));
-                    interruptRead(GameStatus.tieByAgreement());
-                } catch (InterruptedException e) {
-
-                }
-
-            }
-
-        }
-
-        public void startRunning(PlayerColor playerColor) {
-            this.playerColor = playerColor;
-            gameTime.startRunning(playerColor);
-            synchronized (this) {
-                notify();
-            }
-        }
-
-        public void stopRunning() {
-            interrupt();
-        }
-    }
 }

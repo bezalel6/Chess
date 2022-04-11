@@ -115,6 +115,10 @@ public class MoveGenerator {
             return generatedMoves;
         }
 
+        if (generationSettings == GenerationSettings.annotate) {
+            generatedMoves.initAnnotation();
+        }
+
         if (generationSettings.eval) {
             for (Move move : generatedMoves) {
                 model.applyMove(move);

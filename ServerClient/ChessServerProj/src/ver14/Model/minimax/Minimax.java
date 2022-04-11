@@ -3,6 +3,7 @@ package ver14.Model.minimax;
 import ver14.Model.Eval.Book;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Model;
+import ver14.Model.ModelMovesList;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -24,10 +25,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Minimax {
     private static final boolean USE_OPENING_BOOK = true;
-    private static final int DEFAULT_FLEX = 0;
+    private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
     public static boolean SHOW_UI = false;
-    private final int scanTime;
-    private final int scanTimeFlexibility;
+    private final long scanTimeInMillis;
+    private final long scanTimeFlexibility;
     private final MinimaxView minimaxUI;
     private final CpuUsages cpuUsageRecords;
     private final Timer minimaxTimer;
@@ -45,24 +46,23 @@ public class Minimax {
     //    private ForkJoinPool threadPool;
     private MinimaxMove bestMove;
     private AtomicBoolean isCompleteSearch;
-    private boolean interruptSearch;
     private boolean recordCpuUsage = false;
     private MyError interrupt = null;
 
-    public Minimax(Model model, int scanTime) {
-        this(model, scanTime, DEFAULT_FLEX);
+    public Minimax(Model model, long scanTimeInMillis) {
+        this(model, scanTimeInMillis, DEFAULT_FLEX);
     }
 
 
-    public Minimax(Model model, int scanTime, int flexibility) {
+    public Minimax(Model model, long scanTimeInMillis, long flexibility) {
         this.model = model;
         this.scanTimeFlexibility = flexibility;
-        this.scanTime = scanTime;
+        this.scanTimeInMillis = scanTimeInMillis;
         stillTheory = true;
         minimaxUI = new MinimaxView(SHOW_UI);
         if (SHOW_UI) {
             minimaxTimer = new Timer(150, l -> {
-                minimaxUI.setTime(getElapsed(ChronoUnit.MILLIS));
+                minimaxUI.setTime(getElapsed());
             });
         } else {
             minimaxTimer = null;
@@ -70,8 +70,9 @@ public class Minimax {
         cpuUsageRecords = new CpuUsages();
     }
 
-    long getElapsed(ChronoUnit unit) {
-        return minimaxStartedTime.until(ZonedDateTime.now(), unit);
+
+    long getElapsed() {
+        return minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
     }
 
     public void setModel(Model model) {
@@ -90,7 +91,6 @@ public class Minimax {
         if (minimaxTimer != null)
             minimaxTimer.stop();
         minimaxUI.dispose();
-        interruptSearch = true;
         if (threadPool != null)
             threadPool.shutdown();
     }
@@ -119,7 +119,8 @@ public class Minimax {
         if (USE_OPENING_BOOK && stillTheory) {
             String bookMove = Book.getBookMove(model);
             if (bookMove != null) {
-                ArrayList<Move> possibleMoves = model.generateAllMoves();
+                ModelMovesList possibleMoves = MoveGenerator.generateMoves(model, GenerationSettings.annotate);
+                possibleMoves.initAnnotation();
                 for (Move move : possibleMoves) {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
                         return new MinimaxMove(move, Evaluation.book(), 0);
@@ -154,13 +155,13 @@ public class Minimax {
         initMinimaxTime();
         if (minimaxTimer != null)
             minimaxTimer.start();
-        while (getElapsed(ChronoUnit.SECONDS) < scanTime && !stop) {
+        while (getElapsed() < scanTimeInMillis && !stop) {
             positionsReached = -1;
             leavesReached = 0;
 
             String s = "-------------";
             log("\n" + s + "Starting search on depth " + currentDepth + s);
-            minimaxUI.setCurrentDepth(currentDepth, getElapsed(ChronoUnit.MILLIS));
+            minimaxUI.setCurrentDepth(currentDepth, getElapsed());
 
             MinimaxMove minimaxMove = minimaxRoot(model, currentDepth);
 
@@ -345,11 +346,12 @@ public class Minimax {
 //    }
 
     private boolean isOvertime() {
-        return getElapsed(ChronoUnit.SECONDS) > scanTime + scanTimeFlexibility;
+        return getElapsed() > scanTimeInMillis + scanTimeFlexibility;
     }
 
     public void interrupt(MyError error) {
         this.interrupt = error;
+
     }
 
     public static class CapturingKing extends Error {

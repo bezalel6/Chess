@@ -149,33 +149,9 @@ public class StrUtils {
         return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 20), str);
     }
 
-    //todo make recursive
-    public static String createTimeStr(long millis) {
-        long h = TimeUnit.MILLISECONDS.toHours(millis);
-        long m = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(h);
-        long s = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
-        long xs = TimeUnit.MILLISECONDS.toMicros(millis) - TimeUnit.SECONDS.toMicros(TimeUnit.MILLISECONDS.toSeconds(millis));
-        String divider = ":";
-        //sorta decimal
-        String decimal = ".";
-        String hours = h == 0 ? "" : h + divider;
-        String minutes = m == 0 ? "" : m + divider;
-        String seconds = s + decimal;
-        String micros = xs + "";
-        int strEnd = Math.min(1, micros.length());
-        micros = micros.substring(0, strEnd);
-
-        return hours + minutes + seconds + micros;
-    }
-
     public static String wrapInHtml(String str) {
         return str;
     }
-
-//    public static String wrapInHtml(String str) {
-//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
-////        return str;
-//    }
 
     public static String strINN(Object... objs) {
         StringBuilder bldr = new StringBuilder();
@@ -186,6 +162,11 @@ public class StrUtils {
         }
         return bldr.toString();
     }
+
+//    public static String wrapInHtml(String str) {
+//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
+////        return str;
+//    }
 
     public static String splitArr(Object[] arr) {
         return splitArr(", ", arr);
@@ -218,8 +199,18 @@ public class StrUtils {
     }
 
     public static void main(String[] args) {
+        System.out.println(createTimeStr(TimeUnit.HOURS.toMillis(1) + TimeUnit.MINUTES.toMillis(12) + TimeUnit.SECONDS.toMillis(5) + 100));
     }
 
+    public static String createTimeStr(long millis) {
+        String format = "%02d";
+        long mins = TimeUnit.MILLISECONDS.toMinutes(millis);
+        long sec = TimeUnit.MILLISECONDS.toSeconds(millis - TimeUnit.MINUTES.toMillis(mins));
+        long xSec = millis % 1000;
+        xSec /= 100;
+
+        return (format + ":" + format + ".%01d").formatted(mins, sec, xSec);
+    }
 
     public static String awful(String og) {
         StringBuilder bldr = new StringBuilder();

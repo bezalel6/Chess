@@ -106,7 +106,7 @@ public class Evaluation implements Serializable {
     private String getDetailedEvalStr() {
         StringBuilder ret = new StringBuilder();
         for (var v : detailedEval) {
-            ret.append("\n").append(detailedEval);
+            ret.append("\n").append(v);
         }
         return ret.toString();
     }

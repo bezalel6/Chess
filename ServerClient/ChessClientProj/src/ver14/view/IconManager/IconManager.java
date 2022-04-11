@@ -1,7 +1,6 @@
 package ver14.view.IconManager;
 
 
-import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.pieces.Piece;
@@ -34,7 +33,6 @@ public class IconManager {
     public static final ImageIcon redX;
     public static final ImageIcon showPassword;
     public static final ImageIcon hidePassword;
-    public static final ImageIcon[] graphIcons;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
     public final static Size PROFILE_PIC_SIZE = new Size(25);
 
@@ -92,15 +90,7 @@ public class IconManager {
         dynamicStatisticsIcon = new DynamicIcon("Statistics/StatisticsIcon/", SECONDARY_COMP_SIZE);
 
         dynamicServerIcon = new DynamicIcon("/ServerIcon/", SECONDARY_COMP_SIZE);
-//        statisticsIcon = loadImage("statistics", SECONDARY_COMP_SIZE);
-        graphIcons = new ImageIcon[GraphElementType.values().length];
-        for (GraphElementType graphElementType : GraphElementType.values()) {
-            graphIcons[graphElementType.ordinal()] = loadImage("Statistics/" + graphElementType.iconName(), new Size(25, 1));
-        }
-    }
 
-    public static ImageIcon getStatisticsIcon(GraphElementType graphElementType) {
-        return graphIcons[graphElementType.ordinal()];
     }
 
     public static ImageIcon copyImage(Icon og) {

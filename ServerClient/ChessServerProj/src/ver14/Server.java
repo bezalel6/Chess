@@ -15,6 +15,7 @@ import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Threads.ErrorHandling.*;
 import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -294,16 +295,11 @@ public class Server implements ErrorContext, EnvManager {
      */
 // main
     public static void main(String[] args) {
-        if (args.length > 0) {
-            String port = Arrays.stream(args).filter(str -> str.startsWith("p=")).findAny().orElse(null);
-            if (port != null)
-                try {
-                    START_AT_PORT = Integer.parseInt(port.substring(port.indexOf('=') + 1));
-                } catch (NumberFormatException e) {
-                    START_AT_PORT = -1;
-                }
-            Minimax.SHOW_UI = Arrays.stream(args).anyMatch(str -> str.equalsIgnoreCase("DEBUG_MINIMAX"));
-        }
+        ArgsUtil util = ArgsUtil.create(args);
+
+        START_AT_PORT = util.equalsSign("p").getInt(-1);
+        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
+        
         Server server = new Server();
         server.runServer();
 

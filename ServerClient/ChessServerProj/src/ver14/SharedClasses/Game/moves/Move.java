@@ -13,7 +13,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     private static final PieceType NOT_CAPTURING = null;
     BasicMove intermediateMove;
 
-    //    private int flags;
+    private String moveAnnotation = null;
     private ThreefoldStatus threefoldStatus;
     private PieceType capturingPieceType;
     private Location enPassantLoc;
@@ -92,6 +92,10 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public static Move copyMove(Move move) {
         return new Move(move);
+    }
+
+    public void setMoveAnnotation(String moveAnnotation) {
+        this.moveAnnotation = moveAnnotation;
     }
 
     public byte getDisabledCastling() {
@@ -191,9 +195,8 @@ public class Move extends BasicMove implements Comparable<Move> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Move move = (Move) o;
-        return super.equals(move);
+        return o instanceof BasicMove basicMove && super.equals(basicMove);
+
     }
 
     @Override
@@ -202,7 +205,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public String getAnnotation() {
-        return MoveAnnotation.annotate(this);
+        return moveAnnotation == null ? MoveAnnotation.basicAnnotate(this) : moveAnnotation;
     }
 
     @Override
@@ -270,6 +273,10 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public void setThreefoldStatus(ThreefoldStatus threefoldStatus) {
         this.threefoldStatus = threefoldStatus;
+    }
+
+    public String getGameStatusStr() {
+        return moveEvaluation != null ? moveEvaluation.getGameStatus().getGameStatusType().annotation : "";
     }
 
     public enum ThreefoldStatus {

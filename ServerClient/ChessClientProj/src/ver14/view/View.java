@@ -403,13 +403,17 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void enableSources(ArrayList<Move> movableSquares) {
-        enableAllSquares(false);
-        if (movableSquares != null) {
-            for (Move move : movableSquares) {
-                Location movingTo = move.getMovingFrom();
-                enableSquare(movingTo, true);
+        synchronized (boardLock) {
+
+            enableAllSquares(false);
+            if (movableSquares != null) {
+                for (Move move : movableSquares) {
+                    Location movingFrom = move.getMovingFrom();
+//                    getBtn(movingFrom).setAsCurrent();
+                    enableSquare(movingFrom, true);
+                }
+                sidePanel.moveLog.resetCurrentBoard();
             }
-            sidePanel.moveLog.resetCurrentBoard();
         }
     }
 
@@ -417,9 +421,6 @@ public class View implements Iterable<BoardButton[]> {
         getBtn(kingLoc).setAsCheck();
     }
 
-    public void highLightButton(JButton btn) {
-        ((BoardButton) btn).toggleSelected();
-    }
 
     public void resetSelectedButtons() {
         for (BoardButton[] row : this) {

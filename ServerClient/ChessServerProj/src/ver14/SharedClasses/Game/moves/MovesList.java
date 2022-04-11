@@ -11,7 +11,8 @@ public class MovesList extends ArrayList<Move> {
 
     public MovesList(MovesList other) {
 //        this(other.pins, other.attacked, other.myKingLoc);
-        addAll(other);
+        other.stream().map(Move::new).forEach(this::add);
+//        addAll(other);
         //todo cp list
     }
 

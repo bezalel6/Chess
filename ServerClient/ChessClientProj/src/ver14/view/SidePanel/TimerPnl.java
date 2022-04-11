@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 class TimerPnl extends JPanel {
+    private static final Color tenSecondsClr = Color.RED;
     private final MyLbl timerLbl, nameLbl;
     private final SidePanel sidePanel;
     private boolean played10s = false;
@@ -21,6 +22,7 @@ class TimerPnl extends JPanel {
         this.sidePanel = sidePanel;
         this.timerLbl = new MyLbl();
         nameLbl.setFont(SidePanel.font);
+        timerLbl.setFont(SidePanel.font);
         setLayout(new BorderLayout());
         add(nameLbl, BorderLayout.NORTH);
         add(timerLbl, BorderLayout.SOUTH);
@@ -36,9 +38,13 @@ class TimerPnl extends JPanel {
             if (!played10s) {
                 played10s = true;
                 sidePanel.client.soundManager.tenSeconds.play();
+                timerLbl.setForeground(tenSecondsClr);
             }
-            ;
-        } else played10s = false;
+
+        } else {
+            played10s = false;
+            timerLbl.setForeground(Color.black);
+        }
     }
 
 }

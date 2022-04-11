@@ -12,7 +12,7 @@ public class TimeFormats extends ListComponent {
     private final GameSettings gameSettings;
 
     public TimeFormats(Dialog parent, GameSettings gameSettings) {
-        super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Time Format"), parent);
+        super(WinPnl.ALL_IN_ONE_ROW, new Header("Time Per Move"), parent);
         this.gameSettings = gameSettings;
         addComponents(SelectableTimeFormat.values());
     }
