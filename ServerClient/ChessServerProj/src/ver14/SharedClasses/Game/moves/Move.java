@@ -12,6 +12,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     private static final PieceType NOT_CAPTURING = null;
     BasicMove intermediateMove;
 
+    private MovesList creatorList = null;
     private String moveAnnotation = null;
     private ThreefoldStatus threefoldStatus;
     private PieceType capturingPieceType;
@@ -48,6 +49,8 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public Move(Move other) {
         super(other);
+        this.moveAnnotation = other.moveAnnotation;
+//        this.creatorList = other.creatorList;
         this.disabledCastling = other.disabledCastling;
         this.movingPlayerColor = other.movingPlayerColor;
         this.capturingPieceType = other.capturingPieceType;
@@ -91,6 +94,14 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public static Move copyMove(Move move) {
         return new Move(move);
+    }
+
+    public MovesList getCreatorList() {
+        return creatorList;
+    }
+
+    public void setCreatorList(MovesList creatorList) {
+        this.creatorList = creatorList;
     }
 
     public void setMoveAnnotation(String moveAnnotation) {
@@ -208,6 +219,18 @@ public class Move extends BasicMove implements Comparable<Move> {
         return moveAnnotation == null ? MoveAnnotation.basicAnnotate(this) : moveAnnotation;
     }
 
+    public boolean strictEquals(Move move) {
+        return super.equals(move) && move.getMoveFlag() == getMoveFlag();
+    }
+
+    public MoveType getMoveFlag() {
+        return moveType;
+    }
+
+    public void setMoveFlag(MoveType moveType) {
+        this.moveType = moveType;
+    }
+
     @Override
     public int compareTo(Move o) {
         if (moveEvaluation != null) {
@@ -245,14 +268,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
 
         return ret;
-    }
-
-    public MoveType getMoveFlag() {
-        return moveType;
-    }
-
-    public void setMoveFlag(MoveType moveType) {
-        this.moveType = moveType;
     }
 
     public Location getEnPassantLoc() {

@@ -71,4 +71,8 @@ public class BasicMove implements Serializable {
     public String getBasicMoveAnnotation() {
         return MoveAnnotation.basicAnnotate(this);
     }
+
+    public BasicMove cp() {
+        return new BasicMove(this);
+    }
 }

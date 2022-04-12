@@ -42,6 +42,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -644,5 +645,10 @@ public class Client implements EnvManager {
 
     public void stopPremoving() {
 
+    }
+
+    public void rndMove() {
+        var lst = lastGetMoveMsg.getPossibleMoves();
+        returnMove(lst.get(new Random().nextInt(lst.size())));
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MovesList extends ArrayList<Move> {
 
+    private long hash = 0;
 
     public MovesList() {
 
@@ -14,6 +15,16 @@ public class MovesList extends ArrayList<Move> {
         other.stream().map(Move::new).forEach(this::add);
 //        addAll(other);
         //todo cp list
+    }
+
+    @Override
+    public boolean add(Move move) {
+        hash ^= move.hashCode();
+        return super.add(move);
+    }
+
+    public long getHash() {
+        return hash;
     }
 
     public String createSimpleStr() {

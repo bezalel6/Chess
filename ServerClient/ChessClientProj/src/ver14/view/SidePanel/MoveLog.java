@@ -7,6 +7,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewSavedBoard;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
@@ -103,6 +104,7 @@ public class MoveLog extends JPanel {
         container.add(moves, gbc);
 
         moveLogScroll = new JScrollPane(container) {{
+            setPreferredSize(new Size(225, 104));
             setAutoscrolls(true);
             setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 //            setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -154,8 +156,17 @@ public class MoveLog extends JPanel {
      */
     public synchronized void addMove(Move move) {
         Font font = FontManager.sidePanel;
-        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font);
-//        moveBtn.setPreferredSize(new Size(30, 20));
+        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font) {
+            {
+                setSize(getPreferredSize());
+            }
+
+//            @Override
+//            public Dimension getPreferredSize() {
+//                return new Size(50, 20);
+//            }
+        };
+//        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
 
         ViewSavedBoard board = new ViewSavedBoard(boardPanel);

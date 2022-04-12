@@ -16,13 +16,13 @@ import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 
 public class Eval implements Serializable {
-    //    public static final MyHashMap evaluationHashMap = new MyHashMap(HashManager.Size.EVALUATIONS);
-//    public static final MyHashMap gameOverHashMap = new MyHashMap(HashManager.Size.GAME_OVER);
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
     private static final double KING_SAFETY_WEIGHT = -0.001;
+    public static boolean PRINT_REP_LIST = false;
     private final Model model;
     private final PlayerColor playerToMove;
     private PlayerColor evaluationFor;
@@ -118,8 +118,32 @@ public class Eval implements Serializable {
     }
 
     private boolean checkRepetition() {
+        var stack = model.getMoveStack();
 
+        ArrayList<Long> list = new ArrayList<>();
+        for (int i = stack.size() - 1; i >= 0; i -= 2) {
+            var move = stack.get(i);
+            if (!move.isReversible())
+                break;
+            long l = move.getCreatorList().getHash();
+            list.add(l);
+        }
+
+        if (PRINT_REP_LIST)
+            System.out.println(list);
+        for (int i = 0; i < list.size(); i++) {
+            int matches = 0;
+            long current = list.get(i);
+            for (int i1 = 0; i1 != i && i1 < list.size(); i1++) {
+                if (list.get(i1) == current) {
+                    if (++matches >= 2) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
+//        return count - set.size() >= 1;
     }
 
     private boolean checkForInsufficientMaterial() {

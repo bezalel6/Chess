@@ -212,9 +212,10 @@ public class Game {
             Move move = currentPlayer.getMove();
             isReadingMove = false;
             exec.shutdown();
+            exec.shutdownNow();
 
             Move finalMove = move;
-            move = getMoves().stream().filter(m -> m.equals(finalMove)).findAny().orElse(null);
+            move = getMoves().stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
 
             session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 

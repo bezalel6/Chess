@@ -23,8 +23,6 @@ import java.util.Stack;
 
 public class Model implements Serializable {
     private final static String startingPos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-
-
     //    static{
 //        ErrorManager.setHandler(ErrorType.Model,err -> {
 //
@@ -210,7 +208,6 @@ public class Model implements Serializable {
         return null;
     }
 
-
     public ModelMovesList generateAllMoves() {
         return MoveGenerator.generateMoves(this);
     }
@@ -293,7 +290,6 @@ public class Model implements Serializable {
     }
 
     public void applyMove(Move move) {
-
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
 
@@ -369,9 +365,6 @@ public class Model implements Serializable {
     }
 
     public void undoMove(Move move) {
-
-//        Move move = moveStack.pop();
-//        assert move == moveStack.pop();
         moveStack.pop();
 
         fullMoveClock = (move.getPrevFullMoveClock());
@@ -480,7 +473,7 @@ public class Model implements Serializable {
     public void makeMove(Move move) {
         MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.annotate);
         Move finalMove = move;
-        move = moves.stream().filter(m -> m.equals(finalMove)).findAny().orElse(null);
+        move = moves.stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
         if (move == null) {
             throw new Error();
         }

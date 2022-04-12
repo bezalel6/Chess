@@ -63,8 +63,6 @@ public class View implements Iterable<BoardButton[]> {
         winSize = new Dimension((int) (d.width / 3), (int) (d.height / 2));
 
         FlatLightLaf.setup();
-
-
     }
 
     public final Object boardLock = new Object();
@@ -111,6 +109,12 @@ public class View implements Iterable<BoardButton[]> {
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
 //                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
+            }
+
+            @Override
+            protected void onRnd() {
+                super.onRnd();
+                client.rndMove();
             }
 
             @Override
@@ -190,11 +194,18 @@ public class View implements Iterable<BoardButton[]> {
 
     public void drawFocus() {
         // bring the window into front (DeIconified)
-        win.setVisible(true);
+//        boolean fullscreen = false;
+//        win.setState(JFrame.ICONIFIED);
+//        win.setState(fullscreen ? JFrame.MAXIMIZED_BOTH : JFrame.NORMAL);
+        win.setAlwaysOnTop(true);
         win.toFront();
+        win.setVisible(true);
+        win.setAlwaysOnTop(false);
         win.setState(JFrame.NORMAL);
+        win.requestFocus();
     }
 
+    //fixme
     private void dialogClosed(Dialog dialog) {
         try {
             displayedDialogs.remove(dialog);

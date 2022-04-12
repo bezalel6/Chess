@@ -275,8 +275,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-                        if (currentlyAbove.canMoveTo())
-                            currentlyAbove.clickMe();
+//                        if (currentlyAbove.canMoveTo())
+//                            currentlyAbove.clickMe();
 
                         clearAllArrows();
                         view.resetSelectedButtons();

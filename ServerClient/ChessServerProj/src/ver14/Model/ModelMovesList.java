@@ -33,6 +33,7 @@ public class ModelMovesList extends MovesList {
     public boolean add(Move adding, PieceType movingPiece) {
         if (adding == null)
             return false;
+        adding.setCreatorList(this);
 
         adding.setMovingColor(generator.getModel().getCurrentPlayer());
 

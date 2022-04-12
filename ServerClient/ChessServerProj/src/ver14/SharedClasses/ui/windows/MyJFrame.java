@@ -30,6 +30,11 @@ public class MyJFrame extends JFrame {
             add(KeyEvent.VK_SHIFT);
             add(KeyEvent.VK_P);
         }};
+        final ArrayList<Integer> rndOn = new ArrayList<>() {{
+            add(KeyEvent.VK_CONTROL);
+            add(KeyEvent.VK_SHIFT);
+            add(KeyEvent.VK_R);
+        }};
         Vector<Integer> pressed = new Vector<>();
         KeyAdapter adapter = new KeyAdapter() {
             @Override
@@ -41,6 +46,9 @@ public class MyJFrame extends JFrame {
                 }
                 if (packOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
                     addTo.pack();
+                }
+                if (addTo instanceof MyJFrame myJFrame && rndOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
+                    myJFrame.onRnd();
                 }
 
             }
@@ -66,6 +74,10 @@ public class MyJFrame extends JFrame {
                 addBorderRec(jComponent);
             }
         }
+    }
+
+    protected void onRnd() {
+
     }
 
     public void setOnExit(VoidCallback onClose) {

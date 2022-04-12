@@ -8,9 +8,6 @@ public class MoveAnnotation {
     public static final int PIECE = 0, CAPTURE = 1, DESTINATION = 2, GAME_OVER = 3;
     private static final String CAPTURE_ANN = "x";
 
-    private MoveAnnotation() {
-    }
-
 
     public static String annotate(Move move, Piece movingPiece) {
         return annotate(move, movingPiece, "");
@@ -20,9 +17,9 @@ public class MoveAnnotation {
         if (movingPiece.pieceType == PieceType.PAWN) {
             String promotionStr = move.getMoveFlag() == Move.MoveType.Promotion ? "=" + move.getPromotingTo().getWhitePieceFen() : "";
             if (move.isCapturing()) {
-                return move.getMovingFrom().getColString().toLowerCase() + CAPTURE_ANN + move.getMovingTo() + promotionStr;
+                return StrUtils.dontCapFull(move.getMovingFrom().getColString().toLowerCase() + CAPTURE_ANN + move.getMovingTo() + promotionStr);
             }
-            return move.getMovingTo().toString() + promotionStr;
+            return StrUtils.dontCapFull(move.getMovingTo().toString() + promotionStr);
         }
         String pieceTypeNotation = movingPiece.pieceType.getWhitePieceFen();
         String completeButStatus;
@@ -33,7 +30,7 @@ public class MoveAnnotation {
             completeButStatus = pieceTypeNotation + unique + (move.isCapturing() ? CAPTURE_ANN : "") + move.getMovingTo();
         }
 
-        return completeButStatus + move.getGameStatusStr();
+        return StrUtils.dontCapFull(completeButStatus + move.getGameStatusStr());
     }
 
     public static String basicAnnotate(BasicMove move) {

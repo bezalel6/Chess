@@ -30,6 +30,7 @@ public class PromotionDialog extends SimpleDialog {
 
         @Override
         protected void onSelected() {
+            tryOk(false);
         }
     }
 }
