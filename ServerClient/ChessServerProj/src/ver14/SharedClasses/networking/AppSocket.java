@@ -1,10 +1,10 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.Threads.ErrorHandling.*;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.messages.MessageType;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,26 +16,7 @@ import java.net.Socket;
  * ---------------------------------------------------------------------------
  * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
  */
-public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
-    static {
-//        ErrorManager.setHandler(MyError.ErrorType.AppSocketWrite, err -> {
-//            AppSocket socket = (AppSocket) err.getContext(MyError.ContextType.AppSocket);
-//            socket.messagesHandler.receivedMessage(null);
-//        });
-        ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
-            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-            socket.messagesHandler.onDisconnected();
-            socket.close();
-
-        });
-        ErrorManager.setHandler(ErrorType.Disconnected, err -> {
-
-        });
-        ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
-//            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-//            socket.messagesHandler.onDisconnected();
-        });
-    }
+public class AppSocket extends ThreadsManager.MyThread {
 
     /**
      * The Msg socket.
@@ -67,6 +48,14 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
     public AppSocket(Socket socket) throws IOException {
         this.msgSocket = socket;
 
+        addHandler(AppSocketError.class, e -> {
+            didDisconnect = true;
+            keepReading = false;
+            if (messagesHandler != null) {
+                messagesHandler.onDisconnected();
+            }
+        });
+
         // Create MESSAGE streams. Output Stream must be created FIRST!
         // ------------------------------------------------------------
         msgOS = new ObjectOutputStream(socket.getOutputStream());
@@ -97,9 +86,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
                 Message msg = (Message) msgIS.readObject();
                 messagesHandler.receivedMessage(msg);
             } catch (Exception e) {
-                didDisconnect = true;
-                keepReading = false;
-                throw MyError.AppSocket(true, this, e);
+                throw new AppSocketError(e);
             }
         }
     }
@@ -141,15 +128,11 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
     public synchronized void writeMessage(Message msg) {
         if (!isConnected())
             return;
-        if (msg.getMessageType() == MessageType.BYE)
-            messagesHandler.setBye();
         try {
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {
-            didDisconnect = true;
-            throw MyError.AppSocket(false, this, e);
-//            ErrorHandler.thrown(ex);
+            throw new AppSocketError(e);
         }
     }
 
@@ -225,19 +208,15 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
         ErrorHandler.ignore(() -> {
             keepReading = false;
             if (messagesHandler != null) {
-                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
+                messagesHandler.interruptBlocking(new MyError(";;;"));
             }
             msgSocket.close();  // will close the IS & OS streams
         });
     }
 
-    /**
-     * Context type my error . context type.
-     *
-     * @return the my error . context type
-     */
-    @Override
-    public ContextType contextType() {
-        return ContextType.AppSocket;
+    public static class AppSocketError extends MyError.DisconnectedError {
+        public AppSocketError(Exception err) {
+            super(err);
+        }
     }
 }

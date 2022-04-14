@@ -1,35 +1,32 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
-import java.util.Vector;
-
 /**
  * The interface Error handler.
+ *
+ * @param <E> the type parameter
  */
-public interface ErrorHandler {
-    Vector<Long> dontThrowIds = new Vector<>();
+public interface ErrorHandler<E extends MyError> {
+
 
     /**
-     * catches anything that might get thrown
+     * Ignore boolean.
      *
      * @param runnable the runnable
-     * @return did the runnable throw
+     * @return true if the runnable threw, false otherwise
      */
     static boolean ignore(ThrowingRunnable runnable) {
-        boolean ret;
-        dontThrowIds.add(Thread.currentThread().getId());
         try {
             runnable.run();
-            ret = false;
+            return false;
         } catch (Throwable t) {
-            ret = true;
+            return true;
         }
-        dontThrowIds.remove(Thread.currentThread().getId());
-        return ret;
     }
 
-    static boolean canThrow() {
-        return !dontThrowIds.contains(Thread.currentThread().getId());
-    }
-
+    /**
+     * Handle.
+     *
+     * @param err the err
+     */
     void handle(MyError err);
 }

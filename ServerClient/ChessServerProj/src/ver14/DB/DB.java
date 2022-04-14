@@ -23,7 +23,6 @@ import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Utils.StrUtils;
 

@@ -13,7 +13,6 @@ import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.Question;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;

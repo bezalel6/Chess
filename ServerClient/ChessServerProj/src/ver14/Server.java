@@ -13,7 +13,9 @@ import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.*;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -41,7 +43,7 @@ import java.util.stream.Collectors;
 /**
  * The type Server.
  */
-public class Server implements ErrorContext, EnvManager {
+public class Server implements EnvManager {
     /**
      * The constant SERVER_WIN_TITLE.
      */
@@ -86,7 +88,7 @@ public class Server implements ErrorContext, EnvManager {
      * Constructor for ChatServer.
      */
     public Server() {
-        ErrorManager.setEnvManager(this);
+        ThreadsManager.MyThread.setEnvManager(this);
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
         });
@@ -588,17 +590,6 @@ public class Server implements ErrorContext, EnvManager {
     public ArrayList<String> createUsernameSuggestions(String username) {
 
         return UsernameSuggestions.createSuggestions(username);
-    }
-
-    /**
-     * Context type my error . context type.
-     *
-     * @return the my error . context type
-     */
-    @Override
-    public ContextType contextType() {
-        return null;
-//        return MyError.ContextType.Server;
     }
 
     /**

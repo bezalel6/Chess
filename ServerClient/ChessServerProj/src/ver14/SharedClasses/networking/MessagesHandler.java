@@ -19,9 +19,6 @@ import java.util.concurrent.Semaphore;
  */
 public abstract class MessagesHandler {
 
-    static {
-//        ErrorManager.setHandler();
-    }
 
     /**
      * The Socket.
@@ -456,6 +453,4 @@ public abstract class MessagesHandler {
         };
     }
 
-    public void setBye() {
-    }
 }

@@ -1,12 +1,13 @@
 package ver14.SharedClasses.Threads;
 
-import ver14.SharedClasses.Callbacks.Callback;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ThreadsManager {
     private final static ArrayList<MyThread> threads;
@@ -36,11 +37,8 @@ public class ThreadsManager {
         } catch (Throwable throwable) {
             err = new MyError(throwable);
         }
-
-//        if (err != null)
-//            throw err;
-        if (err != null && ErrorHandler.canThrow())
-            ErrorManager.handle(err);
+        if (err != null)
+            throw err;
     }
 
     public static MyThread createThread(ThrowingRunnable runnable, boolean start) {
@@ -52,6 +50,8 @@ public class ThreadsManager {
 
 
     public static abstract class MyThread extends Thread {
+        private static EnvManager envManager = null;
+        private final Map<Class<? extends MyError>, ErrorHandler<? extends MyError>> errorHandlers = new HashMap<>();
 
 
         public MyThread() {
@@ -60,18 +60,41 @@ public class ThreadsManager {
             setDaemon(false);
         }
 
-        protected <E extends MyError> void addHandler(Class<E> errClass, Callback<E> onErr) {
+        public static void setEnvManager(EnvManager manager) {
+
+            envManager = manager;
 
         }
 
+        protected <E extends MyError> void addHandler(Class<E> errClass, ErrorHandler<E> onErr) {
+            errorHandlers.put(errClass, onErr);
+        }
+
+        protected MyThread differErrs() {
+            return this;
+        }
+
+
         public void stopRun() {
-            ErrorHandler.ignore(this::interrupt);
+            this.interrupt();
+//            ErrorHandler.ignore(this::interrupt);
         }
 
 
         @Override
         public final void run() {
-            handleErrors(this::handledRun);
+            try {
+                handledRun();
+            } catch (MyError e) {
+                if (errorHandlers.containsKey(e.getClass())) {
+                    ErrorHandler<?> handler = errorHandlers.get(e.getClass());
+                    handler.handle(e);
+                } else {
+                    envManager.criticalErr(e);
+                }
+            } catch (Throwable t) {
+                envManager.criticalErr(new MyError(t));
+            }
         }
 
         protected abstract void handledRun() throws Throwable;
