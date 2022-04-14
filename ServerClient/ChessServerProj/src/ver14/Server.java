@@ -89,7 +89,6 @@ public class Server implements ErrorContext, EnvManager {
         ErrorManager.setEnvManager(this);
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
-            setupServer();
         });
 
     }
@@ -157,6 +156,64 @@ public class Server implements ErrorContext, EnvManager {
         });
     }
 
+    private void exitServer() {
+        closeServer("");
+    }
+
+    /**
+     * Log.
+     *
+     * @param msg the msg
+     */
+    public void log(String msg) {
+        msg = StrUtils.format(msg);
+        areaLog.append(msg + "\n");
+        areaLog.setCaretPosition(areaLog.getDocument().getLength());
+        System.out.println(msg);
+    }
+
+    private void closeServer(String cause) {
+        players.forEachItem(player -> {
+            ErrorHandler.ignore(() -> {
+                player.disconnect(cause);
+            });
+        });
+
+        if (serverSocket != null && !serverSocket.isClosed()) {
+            ErrorHandler.ignore(() -> {
+                serverSocket.close();
+            });
+        }
+
+        log("Server Closed! " + cause);
+        serverRunOK = false;
+        SwingUtilities.invokeLater(() -> {
+            frmWin.setVisible(false);
+            frmWin.dispose(); // close GUI
+        });
+
+//        😨
+//        ThreadsManager.stopAll();
+    }
+
+    /**
+     * The entry point of the application.
+     *
+     * @param args the input arguments
+     */
+// main
+    public static void main(String[] args) {
+        ArgsUtil util = ArgsUtil.create(args);
+
+        START_AT_PORT = util.equalsSign("p").getInt(-1);
+        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
+
+        Server server = new Server();
+        server.runServer();
+
+        System.out.println("**** ChatServer main() finished! ****");
+    }
+
     // setup Server Address(IP&Port) and create the ServerSocket
     private void setupServer() {
         try {
@@ -195,23 +252,6 @@ public class Server implements ErrorContext, EnvManager {
         }
 
         System.out.println("**** setupServer() finished! ****");
-    }
-
-
-    private void exitServer() {
-        closeServer("");
-    }
-
-    /**
-     * Log.
-     *
-     * @param msg the msg
-     */
-    public void log(String msg) {
-        msg = StrUtils.format(msg);
-        areaLog.append(msg + "\n");
-        areaLog.setCaretPosition(areaLog.getDocument().getLength());
-        System.out.println(msg);
     }
 
     /**
@@ -256,54 +296,11 @@ public class Server implements ErrorContext, EnvManager {
         }
     }
 
-    private void closeServer(String cause) {
-        players.forEachItem(player -> {
-            ErrorHandler.ignore(() -> {
-                player.disconnect(cause);
-            });
-        });
-
-        if (serverSocket != null && !serverSocket.isClosed()) {
-            ErrorHandler.ignore(() -> {
-                serverSocket.close();
-            });
-        }
-
-        log("Server Closed! " + cause);
-        serverRunOK = false;
-        SwingUtilities.invokeLater(() -> {
-            frmWin.setVisible(false);
-            frmWin.dispose(); // close GUI
-        });
-
-//        😨
-//        ThreadsManager.stopAll();
-    }
-
     //todo move to synceditems as a func
     private SyncedItems<?> prepareListForSend(SyncedItems<?> list) {
         SyncedItems<?> ret = new SyncedItems<>(list.syncedListType);
         ret.addAll(list.stream().map(SyncableItem::getSyncableItem).collect(Collectors.toList()));
         return ret.clean();
-    }
-
-
-    /**
-     * The entry point of the application.
-     *
-     * @param args the input arguments
-     */
-// main
-    public static void main(String[] args) {
-        ArgsUtil util = ArgsUtil.create(args);
-
-        START_AT_PORT = util.equalsSign("p").getInt(-1);
-        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
-        
-        Server server = new Server();
-        server.runServer();
-
-        System.out.println("**** ChatServer main() finished! ****");
     }
 
     private void sendAllSyncedLists(PlayerNet player, SyncedItems<?>... excludeLists) {

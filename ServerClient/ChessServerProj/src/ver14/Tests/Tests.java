@@ -43,8 +43,18 @@ public class Tests implements ITest {
     protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
-//        dummyPlayerNet();
-        minimaxVsStockfish();
+
+        Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
+            System.out.println(e.getMessage());
+        });
+        try {
+
+            throw new Error("hello");
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+//        minimaxVsStockfish();
     }
 
     private static void minimaxVsStockfish() {

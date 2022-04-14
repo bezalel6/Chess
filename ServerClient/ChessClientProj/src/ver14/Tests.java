@@ -15,6 +15,7 @@ public class Tests {
 
     }
 
+
     @Test
     public void boardTest() {
         Client client = new Client();

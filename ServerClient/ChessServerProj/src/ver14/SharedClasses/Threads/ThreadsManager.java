@@ -1,5 +1,6 @@
 package ver14.SharedClasses.Threads;
 
+import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
@@ -52,9 +53,15 @@ public class ThreadsManager {
 
     public static abstract class MyThread extends Thread {
 
+
         public MyThread() {
             threads.add(this);
+
             setDaemon(false);
+        }
+
+        protected <E extends MyError> void addHandler(Class<E> errClass, Callback<E> onErr) {
+
         }
 
         public void stopRun() {

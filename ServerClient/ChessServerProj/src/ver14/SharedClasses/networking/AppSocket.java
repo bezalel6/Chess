@@ -24,8 +24,8 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
 //        });
         ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
             AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-            if (!socket.messagesHandler.isBye())
-                socket.messagesHandler.onDisconnected();
+            socket.messagesHandler.onDisconnected();
+            socket.close();
 
         });
         ErrorManager.setHandler(ErrorType.Disconnected, err -> {
@@ -66,6 +66,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public AppSocket(Socket socket) throws IOException {
         this.msgSocket = socket;
+
         // Create MESSAGE streams. Output Stream must be created FIRST!
         // ------------------------------------------------------------
         msgOS = new ObjectOutputStream(socket.getOutputStream());
@@ -97,8 +98,8 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
                 messagesHandler.receivedMessage(msg);
             } catch (Exception e) {
                 didDisconnect = true;
-                if (!messagesHandler.isBye())
-                    throw MyError.AppSocket(true, this, e);
+                keepReading = false;
+                throw MyError.AppSocket(true, this, e);
             }
         }
     }
@@ -147,8 +148,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {
             didDisconnect = true;
-            if (!messagesHandler.isBye())
-                throw MyError.AppSocket(false, this, e);
+            throw MyError.AppSocket(false, this, e);
 //            ErrorHandler.thrown(ex);
         }
     }
@@ -159,21 +159,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      * @return the boolean
      */
     public boolean isConnected() {
-        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && !messagesHandler.isBye() && msgSocket.isConnected();
-    }
-
-
-    /**
-     * Close.
-     */
-    public void close() {
-        ErrorHandler.ignore(() -> {
-            keepReading = false;
-            if (messagesHandler != null) {
-                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
-            }
-            msgSocket.close();  // will close the IS & OS streams
-        });
+        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
     }
 
     /**
@@ -227,7 +213,22 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public void interruptListener(MyError err) {
         messagesHandler.interruptBlocking(err);
+        close();
+
 //        interrupt();
+    }
+
+    /**
+     * Close.
+     */
+    public void close() {
+        ErrorHandler.ignore(() -> {
+            keepReading = false;
+            if (messagesHandler != null) {
+                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
+            }
+            msgSocket.close();  // will close the IS & OS streams
+        });
     }
 
     /**

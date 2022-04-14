@@ -178,6 +178,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
         try {
             game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
         } catch (Exception e) {
+            System.out.println("in game session wtf am i doing here " + e);
         }
     }
 

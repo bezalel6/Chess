@@ -1,7 +1,6 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
@@ -21,7 +20,7 @@ import java.util.concurrent.Semaphore;
 public abstract class MessagesHandler {
 
     static {
-        ErrorManager.setHandler();
+//        ErrorManager.setHandler();
     }
 
     /**
@@ -33,7 +32,6 @@ public abstract class MessagesHandler {
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
     private final Semaphore chronologicalSemaphore = new Semaphore(1);
-    private boolean isBye = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -76,6 +74,18 @@ public abstract class MessagesHandler {
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
         waiting = new Vector<>();
+
+
+    }
+
+    /**
+     * Interrupt blocking.
+     */
+//    public void interruptBlocking() {
+//        interruptBlocking();
+//    }
+    public void interruptBlocking(MyError err) {
+        waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     /**
@@ -121,6 +131,7 @@ public abstract class MessagesHandler {
 
     private MessageCallback onThrowError() {
         return msg -> {
+            socket.close();
             throw msg.getError();
         };
     }
@@ -195,16 +206,6 @@ public abstract class MessagesHandler {
 //                throw new Error("IM GETTING WAY TOO MANY MSGS");
 //            }
 //        }
-    }
-
-    /**
-     * Interrupt blocking.
-     */
-//    public void interruptBlocking() {
-//        interruptBlocking();
-//    }
-    public void interruptBlocking(MyError err) {
-        waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {
@@ -372,13 +373,9 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
-            isBye = true;
         };
     }
 
-    public boolean isBye() {
-        return isBye;
-    }
 
     /**
      * On username availability message callback.
@@ -460,6 +457,5 @@ public abstract class MessagesHandler {
     }
 
     public void setBye() {
-        isBye = true;
     }
 }
