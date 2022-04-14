@@ -20,8 +20,6 @@ import ver14.SharedClasses.networking.AppSocket;
 import ver14.game.Game;
 import ver14.players.Player;
 
-import java.util.ArrayList;
-
 /**
  * PlayerNet.
  * ---------------------------------------------------------------------------
@@ -72,7 +70,7 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public Move getMove() {
         // with socket do...
-        ArrayList<Move> moves = game.getMoves();
+        var moves = game.getMoves();
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {

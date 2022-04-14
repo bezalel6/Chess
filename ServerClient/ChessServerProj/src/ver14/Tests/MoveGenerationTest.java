@@ -106,7 +106,7 @@ public class MoveGenerationTest extends Tests {
         startTime();
         Perft myPerf = compareMoves(depth);
         time += stopTime();
-        System.out.println(name + " Result: " + myPerf.shortStr() + " positions Time: " + time + " milliseconds");
+        System.out.println(name + " Result: " + myPerf.shortStr() + " positions. Time: " + time + " ms");
     }
 
     private Perft compareMoves(int depth) {

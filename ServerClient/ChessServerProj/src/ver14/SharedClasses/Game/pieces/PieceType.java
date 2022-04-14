@@ -44,7 +44,7 @@ public enum PieceType implements Serializable {
     public final static PieceType[] MINOR_PIECES = {BISHOP, KNIGHT};
     public final static PieceType[] MAJOR_PIECES = {QUEEN, ROOK};
     public final static PieceType[] CAN_PROMOTE_TO = {KNIGHT, ROOK, BISHOP, QUEEN};
-    public static final PieceType[] ATTACKING_PIECES_UNIQUE_DIRECTIONS = {ROOK, BISHOP, KNIGHT, PAWN};
+    public static final PieceType[] ATTACKING_PIECE_TYPES = {ROOK, BISHOP, KNIGHT, PAWN, QUEEN};
     private final static String[] COLORLESS_PIECES_FENS = new String[NUM_OF_PIECE_TYPES];
     private static final Direction[][] ATTACKING_DIRECTIONS = new Direction[NUM_OF_PIECE_TYPES][];
 

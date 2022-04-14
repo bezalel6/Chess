@@ -56,7 +56,7 @@ public abstract class DialogCard extends WinPnl implements BackOkInterface, Chil
         checkVerifiedComponents();
     }
 
-    private void setBackOk(BackOkInterface backOk) {
+    public void setBackOk(BackOkInterface backOk) {
         backOkInterface = backOk;
 //        if (backOk != null) {
 //            this.backOkPnl = new BackOkPnl(backOk);

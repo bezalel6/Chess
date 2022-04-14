@@ -127,16 +127,26 @@ public class Eval implements Serializable {
                 break;
             long l = move.getCreatorList().getHash();
             list.add(l);
+//            if (i == 0) {
+//                list.add(model.getFirstPositionMovesHash());
+//            }
         }
 
         if (PRINT_REP_LIST)
             System.out.println(list);
+
+//        if (list.size() < 4)
+//            return false;
         for (int i = 0; i < list.size(); i++) {
             int matches = 0;
             long current = list.get(i);
-            for (int i1 = 0; i1 != i && i1 < list.size(); i1++) {
-                if (list.get(i1) == current) {
-                    if (++matches >= 2) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j) == current) {
+                    matches++;
+//                    if (matches == 1 && j >= 2) {
+//                        return true;
+//                    }
+                    if (matches == 2) {
                         return true;
                     }
                 }

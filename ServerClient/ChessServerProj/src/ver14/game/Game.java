@@ -47,6 +47,7 @@ public class Game {
     private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
     private boolean clearMoveStack = true;
+    private GameOverError throwErr = null;
 
     public Game(Player gameCreator, Player p2, GameSettings gameSettings, GameSession session) {
         this.session = session;
@@ -120,18 +121,12 @@ public class Game {
     private GameStatus runGame() {
         GameStatus gameOverStatus;
         while (true) {
-            try {
-                GameStatus gameStatus = playTurn();
-                if (gameStatus.isGameOver()) {
-                    gameOverStatus = gameStatus;
-                    break;
-                }
-                switchTurn();
-            } catch (Exception e) {
-                System.out.println("ohno " + e);
-                e.printStackTrace();
-                return null;
+            GameStatus gameStatus = playTurn();
+            if (gameStatus.isGameOver()) {
+                gameOverStatus = gameStatus;
+                break;
             }
+            switchTurn();
         }
         onGameOver();
         session.log("game over. " + gameOverStatus);
@@ -170,7 +165,9 @@ public class Game {
         currentPlayer.getPartner().waitTurn();
         try {
             Move move = getMove();
-            return makeMove(move);
+            GameStatus status = makeMove(move);
+            checkThrow();
+            return status;
         } catch (GameOverError error) {
             return error.gameOverStatus;
         }
@@ -207,7 +204,7 @@ public class Game {
                 } catch (InterruptedException e) {
                 }
             });
-
+            checkThrow();
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
@@ -242,11 +239,17 @@ public class Game {
         return move.getMoveEvaluation().getGameStatus();
     }
 
+    private void checkThrow() throws GameOverError {
+        if (throwErr != null) {
+            throw throwErr;
+        }
+    }
+
     void interruptRead(GameStatus status) {
-        MyError err = new Game.GameOverError(status);
+        GameOverError err = new Game.GameOverError(status);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
-        } else throw err;
+        } else throwErr = err;
 
     }
 

@@ -40,6 +40,8 @@ public class Model implements Serializable {
     private Location enPassantTargetLoc;
     private Location enPassantActualLoc;
     private BoardHash boardHash;
+    private long firstPositionMovesHash;
+
 
     public Model(Model other) {
         this(other.genFenStr());
@@ -79,6 +81,7 @@ public class Model implements Serializable {
         FEN.loadFEN(fen, this);
         initPieces();
         this.boardHash = new BoardHash(this);
+        this.firstPositionMovesHash = generateAllMoves().getHash();
     }
 
     private void createNewEmptyLogicBoard() {
@@ -99,6 +102,10 @@ public class Model implements Serializable {
                 addPiece(piece, square.getLoc());
             }
         }
+    }
+
+    public ModelMovesList generateAllMoves() {
+        return MoveGenerator.generateMoves(this);
     }
 
     private void addPiece(Piece piece, Location currentLoc) {
@@ -128,6 +135,10 @@ public class Model implements Serializable {
             ret = CastlingRights.Side.KING;
         }
         return ret;
+    }
+
+    public long getFirstPositionMovesHash() {
+        return firstPositionMovesHash;
     }
 
     public String getPGN() {
@@ -206,10 +217,6 @@ public class Model implements Serializable {
             }
         }
         return null;
-    }
-
-    public ModelMovesList generateAllMoves() {
-        return MoveGenerator.generateMoves(this);
     }
 
     public int bothPlayersNumOfPieces(PieceType[] arr) {
@@ -301,14 +308,14 @@ public class Model implements Serializable {
 
         makeIntermediateMove(move);
 
-        if (move.getMoveFlag() == Move.MoveType.DoublePawnPush) {
+        if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
             enPassantTargetLoc = (move.getEnPassantLoc());
             enPassantActualLoc = (movingTo);
         } else {
             enPassantTargetLoc = enPassantActualLoc = null;
         }
 
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
             delPiece(piece, movingFrom);
             Piece newPiece = Piece.getPiece(promotingTo, piecePlayerColor);
@@ -346,7 +353,7 @@ public class Model implements Serializable {
         updatePieceLoc(piece, movingFrom, movingTo);
 
         move.setDisabledCastling(disabled);
-        boolean incHalfMoveClock = !(move.isCapturing() || (piece.pieceType == PieceType.PAWN || move.getMoveFlag() == Move.MoveType.Promotion));
+        boolean incHalfMoveClock = !(move.isCapturing() || (piece.pieceType == PieceType.PAWN || move.getMoveFlag() == Move.MoveFlag.Promotion));
 
         move.setReversible(incHalfMoveClock && disabled == 0);
 
@@ -377,7 +384,7 @@ public class Model implements Serializable {
 
         Piece piece = board.getPiece(movingFrom, true);
         PlayerColor piecePlayerColor = piece.playerColor;
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             delPiece(piece, movingFrom);
             Piece oldPiece = Piece.getPiece(PieceType.PAWN, piecePlayerColor);
             addPiece(oldPiece, movingFrom);
@@ -387,7 +394,7 @@ public class Model implements Serializable {
         enPassantTargetLoc = null;
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
-            if (prevMove.getMoveFlag() == Move.MoveType.DoublePawnPush) {
+            if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }

@@ -227,8 +227,13 @@ public abstract class Dialog extends JDialog implements Parent {
     protected void setBackOk(BackOkInterface backOkInterface) {
         if (this.backOkPnl != null)
             bottomPnl.remove(this.backOkPnl);
-        this.backOkPnl = new BackOkPnl(backOkInterface);
-        bottomPnl.add(backOkPnl, BorderLayout.SOUTH);
+
+        if (backOkInterface != null) {
+            this.backOkPnl = new BackOkPnl(backOkInterface);
+            bottomPnl.add(backOkPnl, BorderLayout.SOUTH);
+        } else this.backOkPnl = null;
+
+
     }
 
     private CardLayout getCardsLayout() {

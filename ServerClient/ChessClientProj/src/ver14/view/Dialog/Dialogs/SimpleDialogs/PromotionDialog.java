@@ -3,6 +3,7 @@ package ver14.view.Dialog.Dialogs.SimpleDialogs;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.view.Dialog.Components.ListComponent;
+import ver14.view.Dialog.Dialogs.BackOkInterface;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Selectables.SelectablePiece;
 import ver14.view.Dialog.WinPnl;
@@ -12,8 +13,8 @@ public class PromotionDialog extends SimpleDialog {
 
     public PromotionDialog(PlayerColor playerColor) {
         super(new Properties(new Properties.Details("promotion", "promotion")));
-        list = (new PromotionList(playerColor));
-        delayedSetup(list);
+        list = new PromotionList(playerColor);
+        delayedSetup(BackOkInterface.noInterface, list);
     }
 
     public Piece getResult() {

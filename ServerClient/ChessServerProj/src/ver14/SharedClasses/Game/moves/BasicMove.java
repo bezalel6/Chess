@@ -10,6 +10,7 @@ public class BasicMove implements Serializable {
     Location movingFrom;
     Location movingTo;
 
+
     public BasicMove(BasicMove other) {
         this(other.movingFrom, other.movingTo);
     }
@@ -21,6 +22,14 @@ public class BasicMove implements Serializable {
 
     public BasicMove(String move) {
         this(Location.getLoc(move.substring(0, 2)), Location.getLoc(move.substring(2, 4)));
+    }
+
+    public static BasicMove[] createBatch(Location... locs) {
+        BasicMove[] ret = new BasicMove[locs.length / 2];
+        for (int i = 0, j = 0; i < locs.length - 1; i += 2, j++) {
+            ret[j] = new BasicMove(locs[i], locs[i + 1]);
+        }
+        return ret;
     }
 
     public static BasicMove getFlipped(BasicMove basicMove) {

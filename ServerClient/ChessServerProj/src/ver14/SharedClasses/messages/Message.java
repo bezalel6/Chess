@@ -8,6 +8,7 @@ import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Question;
@@ -43,7 +44,7 @@ public class Message implements Serializable {
     private LoginInfo loginInfo = null;
     private Move move = null;
     private GameSettings gameSettings = null;
-    private ArrayList<Move> possibleMoves = null;
+    private MovesList possibleMoves = null;
     private Board board = null;
     private GameStatus gameStatus = null;
     private Question question = null;
@@ -170,7 +171,7 @@ public class Message implements Serializable {
         }};
     }
 
-    public static Message askForMove(ArrayList<Move> possibleMoves, GameTime gameTime) {
+    public static Message askForMove(MovesList possibleMoves, GameTime gameTime) {
         return new Message(MessageType.GET_MOVE, "Its your turn!") {{
             setPossibleMoves(possibleMoves);
             setGameTime(gameTime);
@@ -759,7 +760,7 @@ public class Message implements Serializable {
      *
      * @return the possible moves
      */
-    public ArrayList<Move> getPossibleMoves() {
+    public MovesList getPossibleMoves() {
         return possibleMoves;
     }
 
@@ -768,7 +769,7 @@ public class Message implements Serializable {
      *
      * @param possibleMoves the possible moves
      */
-    public void setPossibleMoves(ArrayList<Move> possibleMoves) {
+    public void setPossibleMoves(MovesList possibleMoves) {
         ArrayList<Move> add = new ArrayList<>();
         for (Iterator<Move> iterator = possibleMoves.iterator(); iterator.hasNext(); ) {
             Move move = iterator.next();

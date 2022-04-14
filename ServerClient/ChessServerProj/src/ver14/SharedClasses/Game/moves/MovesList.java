@@ -23,6 +23,14 @@ public class MovesList extends ArrayList<Move> {
         return super.add(move);
     }
 
+    public Move findMove(BasicMove basicMove) {
+        return findMove(basicMove, m -> true);
+    }
+
+    public Move findMove(BasicMove basicMove, CompareMoves compareMoves) {
+        return basicMove == null ? null : stream().filter(m -> m.equals(basicMove) && compareMoves.equals(m)).findAny().orElse(null);
+    }
+
     public long getHash() {
         return hash;
     }
@@ -31,6 +39,10 @@ public class MovesList extends ArrayList<Move> {
         return stream().map(BasicMove::getBasicMoveAnnotation).collect(StringBuilder::new, (stringBuilder, s) -> {
             stringBuilder.append(s).append("\n");
         }, StringBuilder::append) + "";
+    }
+
+    public interface CompareMoves {
+        boolean equals(Move comparingTo);
     }
 
 //    @Override

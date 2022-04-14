@@ -11,7 +11,9 @@ import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
@@ -71,7 +73,7 @@ public class Client implements EnvManager {
     private String serverIP;
     private AppSocket clientSocket;
     private PlayerColor myColor;
-    private ArrayList<Move> possibleMoves = null;
+    private MovesList possibleMoves = null;
     private ViewLocation firstClickLoc;
     private Message lastGetMoveMsg;
     private LoginInfo loginInfo;
@@ -329,41 +331,38 @@ public class Client implements EnvManager {
     /**
      * Board button pressed.
      *
-     * @param loc the loc
+     * @param clickedLoc the clickedLoc
      */
-    public void boardButtonPressed(ViewLocation loc) {
+    public void boardButtonPressed(ViewLocation clickedLoc) {
         if (possibleMoves != null) {
             view.resetBackground();
             view.enableAllSquares(false);
-            Move completeMove = getMoveFromDest(loc);
+            BasicMove basicMove = null;
+            Move completeMove = null;
+            if (firstClickLoc != null) {
+                basicMove = new BasicMove(firstClickLoc.originalLocation, clickedLoc.originalLocation);
+                completeMove = possibleMoves.findMove(basicMove);
+            }
             if (completeMove != null) {
-                if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
-                    completeMove.setPromotingTo(showPromotionDialog(myColor));
+                if (completeMove.getMoveFlag() == Move.MoveFlag.Promotion) {
+                    PieceType promotingTo = showPromotionDialog(myColor);
+                    completeMove = possibleMoves.findMove(basicMove, m -> m.getPromotingTo() == promotingTo);
+                    assert completeMove != null;
                 }
                 returnMove(completeMove);
                 firstClickLoc = null;
-            } else if (loc.equals(firstClickLoc)) {
+            } else if (clickedLoc.equals(firstClickLoc)) {
                 unlockPossibleMoves();
                 firstClickLoc = null;
             } else {
-                firstClickLoc = loc;
+                firstClickLoc = clickedLoc;
                 view.colorCurrentPiece(firstClickLoc.originalLocation);
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
-                        .filter(move -> move.getMovingFrom().equals(loc.originalLocation))
+                        .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))
                         .collect(Collectors.toCollection(ArrayList::new)));
             }
         }
-    }
-
-    private Move getMoveFromDest(ViewLocation clickedOn) {
-        if (firstClickLoc == null)
-            return null;
-        return possibleMoves.stream()
-                .filter(move ->
-                        move.getMovingFrom().equals(firstClickLoc.originalLocation) &&
-                                move.getMovingTo().equals(clickedOn.originalLocation))
-                .findAny().orElse(null);
     }
 
     /**
@@ -381,11 +380,6 @@ public class Client implements EnvManager {
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
     }
 
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
-
     /**
      * Update by move.
      *
@@ -395,6 +389,11 @@ public class Client implements EnvManager {
         updateByMove(move, true);
     }
 
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
+
     /**
      * Update by move.
      *
@@ -403,7 +402,7 @@ public class Client implements EnvManager {
      */
     public void updateByMove(Move move, boolean moveEffects) {
         view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
             view.setBtnPiece(move.getMovingFrom(), piece);
         }
@@ -424,6 +423,7 @@ public class Client implements EnvManager {
         }
 
     }
+
 
     /**
      * Resign btn clicked.

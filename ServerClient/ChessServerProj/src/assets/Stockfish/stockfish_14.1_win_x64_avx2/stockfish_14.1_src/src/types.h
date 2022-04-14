@@ -126,7 +126,7 @@ enum Move : int {
   MOVE_NULL = 65
 };
 
-enum MoveType {
+enum MoveFlag {
   NORMAL,
   PROMOTION = 1 << 14,
   EN_PASSANT = 2 << 14,
@@ -458,8 +458,8 @@ constexpr int from_to(Move m) {
  return m & 0xFFF;
 }
 
-constexpr MoveType type_of(Move m) {
-  return MoveType(m & (3 << 14));
+constexpr MoveFlag type_of(Move m) {
+  return MoveFlag(m & (3 << 14));
 }
 
 constexpr PieceType promotion_type(Move m) {
@@ -474,7 +474,7 @@ constexpr Move reverse_move(Move m) {
   return make_move(to_sq(m), from_sq(m));
 }
 
-template<MoveType T>
+template<MoveFlag T>
 constexpr Move make(Square from, Square to, PieceType pt = KNIGHT) {
   return Move(T + ((pt - KNIGHT) << 12) + (from << 6) + to);
 }

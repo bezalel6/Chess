@@ -20,7 +20,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     private PieceType promotingTo;
     private boolean isReversible;
     private Evaluation moveEvaluation;
-    private MoveType moveType;
+    private MoveFlag moveFlag;
     private PlayerColor movingPlayerColor;
     private byte disabledCastling;
     private int prevFullMoveClock;
@@ -37,7 +37,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.capturingPieceType = NOT_CAPTURING;
         this.intermediateMove = null;
         this.promotingTo = null;
-        this.moveType = MoveType.NormalMove;
+        this.moveFlag = MoveFlag.NormalMove;
         this.disabledCastling = 0;
         this.threefoldStatus = ThreefoldStatus.NONE;
     }
@@ -55,7 +55,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.movingPlayerColor = other.movingPlayerColor;
         this.capturingPieceType = other.capturingPieceType;
         this.promotingTo = other.promotingTo;
-        this.moveType = other.moveType;
+        this.moveFlag = other.moveFlag;
         this.isReversible = other.isReversible;
         this.prevHalfMoveClock = other.prevHalfMoveClock;
         this.prevFullMoveClock = other.prevFullMoveClock;
@@ -71,7 +71,7 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public static Move castling(Location movingFrom, Location movingTo, CastlingRights.Side side) {
         Move move = new Move(movingFrom, movingTo);
-        move.setMoveFlag(MoveType.CASTLING_FLAGS[side.asInt]);
+        move.setMoveFlag(MoveFlag.CASTLING_FLAGS[side.asInt]);
         Location rookOrigin = Location.getLoc(movingFrom.row, side.rookStartingCol);
         Location rookDestination = Location.getLoc(movingFrom.row, side.castledRookCol);
         assert rookOrigin != null && rookDestination != null;
@@ -149,7 +149,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public void setPromotingTo(PieceType promotingTo) {
-        this.moveType = MoveType.Promotion;
+        this.moveFlag = MoveFlag.Promotion;
         this.promotingTo = promotingTo;
     }
 
@@ -220,15 +220,15 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public boolean strictEquals(Move move) {
-        return super.equals(move) && move.getMoveFlag() == getMoveFlag();
+        return super.equals(move) && move.getMoveFlag().equals(this, move);
     }
 
-    public MoveType getMoveFlag() {
-        return moveType;
+    public MoveFlag getMoveFlag() {
+        return moveFlag;
     }
 
-    public void setMoveFlag(MoveType moveType) {
-        this.moveType = moveType;
+    public void setMoveFlag(MoveFlag moveFlag) {
+        this.moveFlag = moveFlag;
     }
 
     @Override
@@ -255,11 +255,11 @@ public class Move extends BasicMove implements Comparable<Move> {
             if (moveEvaluation != null && moveEvaluation.isCheck())
                 ret += 100000000;
         }
-        if (moveType == MoveType.Promotion) {
+        if (moveFlag == MoveFlag.Promotion) {
             ret += 5 * promotingTo.value;
-        } else if (moveType == MoveType.EnPassant) {
+        } else if (moveFlag == MoveFlag.EnPassant) {
             ret += 0.00001;
-        } else if (moveType.isCastling) {
+        } else if (moveFlag.isCastling) {
             ret += 5;
         }
         ret /= 100000;
@@ -295,12 +295,17 @@ public class Move extends BasicMove implements Comparable<Move> {
         NONE, CAN_CLAIM, CLAIMED;
     }
 
-    public enum MoveType {
-        NormalMove, EnPassant, DoublePawnPush, Promotion, ShortCastle(CastlingRights.Side.KING), LongCastle(CastlingRights.Side.QUEEN);
-        public final static MoveType[] CASTLING_FLAGS;
+    public enum MoveFlag {
+        NormalMove, EnPassant, DoublePawnPush, Promotion {
+            @Override
+            public boolean equals(Move myMove, Move otherMove) {
+                return super.equals(myMove, otherMove) && myMove.getPromotingTo() == otherMove.getPromotingTo();
+            }
+        }, ShortCastle(CastlingRights.Side.KING), LongCastle(CastlingRights.Side.QUEEN);
+        public final static MoveFlag[] CASTLING_FLAGS;
 
         static {
-            CASTLING_FLAGS = new MoveType[CastlingRights.Side.SIDES.length];
+            CASTLING_FLAGS = new MoveFlag[CastlingRights.Side.SIDES.length];
             for (CastlingRights.Side side : CastlingRights.Side.SIDES) {
                 CASTLING_FLAGS[side.asInt] = side == CastlingRights.Side.KING ? ShortCastle : LongCastle;
             }
@@ -309,14 +314,19 @@ public class Move extends BasicMove implements Comparable<Move> {
         public final boolean isCastling;
         public final CastlingRights.Side castlingSide;
 
-        MoveType() {
+        MoveFlag() {
             this(null);
         }
 
-        MoveType(CastlingRights.Side side) {
+        MoveFlag(CastlingRights.Side side) {
             this.isCastling = side != null;
             this.castlingSide = side;
         }
+
+        public boolean equals(Move myMove, Move otherMove) {
+            return otherMove.getMoveFlag() == this;
+        }
+
     }
 
 }

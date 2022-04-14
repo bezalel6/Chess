@@ -15,7 +15,7 @@ public class MoveAnnotation {
 
     public static String annotate(Move move, Piece movingPiece, String unique) {
         if (movingPiece.pieceType == PieceType.PAWN) {
-            String promotionStr = move.getMoveFlag() == Move.MoveType.Promotion ? "=" + move.getPromotingTo().getWhitePieceFen() : "";
+            String promotionStr = move.getMoveFlag() == Move.MoveFlag.Promotion ? "=" + move.getPromotingTo().getWhitePieceFen() : "";
             if (move.isCapturing()) {
                 return StrUtils.dontCapFull(move.getMovingFrom().getColString().toLowerCase() + CAPTURE_ANN + move.getMovingTo() + promotionStr);
             }

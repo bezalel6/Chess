@@ -159,7 +159,7 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      * @return the boolean
      */
     public boolean isConnected() {
-        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
+        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && !messagesHandler.isBye() && msgSocket.isConnected();
     }
 
 

@@ -56,7 +56,8 @@ public class StrUtils {
     public static String format(String str) {
         if (isEmpty(str)) return str;
         if (str.contains(RegEx.Prefixes.DONT_CAP_FULL)) {
-            return str.replace(RegEx.Prefixes.DONT_CAP_FULL, "");
+//            return str.replace(RegEx.Prefixes.DONT_CAP_FULL, "");
+            return str;
         }
         StringBuilder ret = new StringBuilder();
 

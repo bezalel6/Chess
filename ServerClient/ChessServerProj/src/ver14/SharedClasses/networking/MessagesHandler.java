@@ -1,15 +1,16 @@
 package ver14.SharedClasses.networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
@@ -18,11 +19,16 @@ import java.util.concurrent.Semaphore;
  * The type Messages handler.
  */
 public abstract class MessagesHandler {
+
+    static {
+        ErrorManager.setHandler();
+    }
+
     /**
      * The Socket.
      */
     protected final AppSocket socket;
-    private final ArrayList<CompletableFuture<Message>> waiting;
+    private final Vector<CompletableFuture<Message>> waiting;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
@@ -69,7 +75,7 @@ public abstract class MessagesHandler {
      */
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
-        waiting = new ArrayList<>();
+        waiting = new Vector<>();
     }
 
     /**
@@ -80,9 +86,7 @@ public abstract class MessagesHandler {
      */
     public Message blockTilRes(Message request) {
         CompletableFuture<Message> future = new CompletableFuture<>();
-        synchronized (waiting) {
-            waiting.add(future);
-        }
+        waiting.add(future);
 
         Message msg = null;
         noBlockRequest(request, future::complete);
@@ -92,9 +96,7 @@ public abstract class MessagesHandler {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        synchronized (waiting) {
-            waiting.remove(future);
-        }
+        waiting.remove(future);
 
         if (msg == null)
             throw new MyError.DisconnectedError();
@@ -202,9 +204,7 @@ public abstract class MessagesHandler {
 //        interruptBlocking();
 //    }
     public void interruptBlocking(MyError err) {
-        synchronized (waiting) {
-            waiting.forEach(w -> w.complete(Message.throwError(err)));
-        }
+        waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {

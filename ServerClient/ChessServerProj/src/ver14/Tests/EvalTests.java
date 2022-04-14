@@ -11,10 +11,13 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.PieceType;
+import ver14.SharedClasses.Utils.ArrUtils;
 
 import java.lang.reflect.Method;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
+
+import static ver14.SharedClasses.Game.Location.*;
 
 public class EvalTests extends Tests {
 
@@ -30,8 +33,7 @@ public class EvalTests extends Tests {
 
     @DataProvider(name = "repetitions")
     public Object[][] moveSequences() {
-
-        return new Object[][]{{crateRepeatingSequence(20, new BasicMove(Location.B1, Location.C3), new BasicMove(Location.B8, Location.C6)), true}, {new BasicMove[]{new BasicMove(Location.E2, Location.E4), new BasicMove(Location.E7, Location.E5), new BasicMove(Location.G1, Location.F3), new BasicMove(Location.B8, Location.C6), new BasicMove(Location.F3, Location.G1), new BasicMove(Location.C6, Location.B8), new BasicMove(Location.G1, Location.F3)}, false}};
+        return new Object[][]{{ArrUtils.concat(BasicMove.createBatch(E2, E4, E7, E5), crateRepeatingSequence(20, new BasicMove(B1, C3), new BasicMove(B8, C6))), 11}, {BasicMove.createBatch(E2, E4, E7, E5, G1, F3, B8, C6, F3, G1, C6, B8, G1, F3), -1}};
     }
 
     private BasicMove[] crateRepeatingSequence(int len, BasicMove white, BasicMove black) {
@@ -51,10 +53,11 @@ public class EvalTests extends Tests {
     }
 
     @Test(dataProvider = "repetitions")
-    public void testRepetition(BasicMove[] moves, boolean isRepetition) {
-        AtomicBoolean ret = new AtomicBoolean(false);
+    public void testRepetition(BasicMove[] moves, int findInPly) {
+        AtomicInteger foundInDepth = new AtomicInteger(-1);
+        System.out.println("model first pos moves hash = " + model.getFirstPositionMovesHash());
         IntStream.range(0, moves.length).forEach(i -> {
-            if (ret.get())
+            if (foundInDepth.get() != -1)
                 return;
 
             Move move = model.findMove(moves[i]);
@@ -62,10 +65,12 @@ public class EvalTests extends Tests {
             System.out.println("move: " + (i + 1));
             model.printBoard();
             Eval.PRINT_REP_LIST = true;
-            if (Eval.isGameOver(model)) ret.set(true);
+            if (Eval.isGameOver(model)) {
+                foundInDepth.set(i + 1);
+            }
             Eval.PRINT_REP_LIST = false;
         });
-        Assert.assertEquals(ret.get(), isRepetition);
+        Assert.assertEquals(foundInDepth.get(), findInPly);
     }
 
 }
