@@ -89,8 +89,10 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     protected void onXClick() {
-        if (!tryCancel())
-            tryOk(true);
+        if (!tryCancel() && !tryOk(true))
+            if (properties.parentWin() != null)
+                properties.parentWin().doXClick();
+
     }
 
     @Override

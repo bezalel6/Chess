@@ -16,6 +16,9 @@ public class MyJFrame extends JFrame {
 
     private final MyAdapter myAdapter;
     private boolean isSleeping = false;
+    private boolean confirmExit = false;
+    private VoidCallback onClose = () -> {
+    };
 
     public MyJFrame() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,14 +62,20 @@ public class MyJFrame extends JFrame {
     }
 
     public void setOnExit(boolean confirmExit, VoidCallback onClose) {
+        this.confirmExit = confirmExit;
+        this.onClose = onClose;
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                if (!confirmExit || ConfirmDialogs.confirm(MyJFrame.this, "Exit Confirmation", "Are You Sure You Want To Exit?", null))
-                    onClose.callback();
+                doXClick();
             }
         });
+    }
+
+    public void doXClick() {
+        if (!confirmExit || ConfirmDialogs.confirm(MyJFrame.this, "Exit Confirmation", "Are You Sure You Want To Exit?", null))
+            onClose.callback();
     }
 
     public void setOnResize(VoidCallback onResize) {

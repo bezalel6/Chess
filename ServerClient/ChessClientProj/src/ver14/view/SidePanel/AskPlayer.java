@@ -24,6 +24,7 @@ public class AskPlayer extends JPanel {
     private final Timer flashingTimer;
 
     public AskPlayer() {
+
         header = new MyLbl() {{
             setFont(SidePanel.font);
         }};
