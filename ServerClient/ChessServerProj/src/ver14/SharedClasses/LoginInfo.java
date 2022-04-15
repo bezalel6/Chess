@@ -69,4 +69,10 @@ public class LoginInfo implements Serializable {
     public boolean asUser() {
         return loginType.asUser();
     }
+
+    public void initDebugLoginValues() {
+        setLoginType(LoginType.LOGIN);
+        setUsername("testing");
+        setPassword("123456");
+    }
 }

@@ -1,5 +1,7 @@
 package ver14.view.Dialog.BackOk;
 
+import ver14.SharedClasses.Callbacks.VoidCallback;
+
 public interface BackOkInterface {
     BackOkInterface noInterface = new BackOkInterface() {
         @Override
@@ -22,6 +24,25 @@ public interface BackOkInterface {
 
         }
     };
+
+    static BackOkInterface createSimpleInterface(VoidCallback onOk) {
+        return new BackOkInterface() {
+            @Override
+            public String getBackText() {
+                return null;
+            }
+
+            @Override
+            public void onBack() {
+
+            }
+
+            @Override
+            public void onOk() {
+                onOk.callback();
+            }
+        };
+    }
 
     //override and return null if you dont want to create the button
     default String getBackText() {

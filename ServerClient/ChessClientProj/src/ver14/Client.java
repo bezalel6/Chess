@@ -82,6 +82,7 @@ public class Client implements EnvManager {
 
     private Map<PlayerColor, String> playerUsernames = new HashMap<>();
     private boolean isPremoving = false;
+    private boolean isGettingMove = false;
 
     /**
      * Constractor for Chat Client.
@@ -268,6 +269,7 @@ public class Client implements EnvManager {
     }
 
     void unlockMovableSquares(Message message) {
+        this.isGettingMove = true;
         possibleMoves = message.getPossibleMoves();
         unlockPossibleMoves();
     }
@@ -376,9 +378,15 @@ public class Client implements EnvManager {
     }
 
     private void returnMove(Move move) {
+        this.isGettingMove = false;
         updateByMove(move);
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
     }
+
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
 
     /**
      * Update by move.
@@ -388,11 +396,6 @@ public class Client implements EnvManager {
     public void updateByMove(Move move) {
         updateByMove(move, true);
     }
-
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
 
     /**
      * Update by move.
@@ -423,7 +426,6 @@ public class Client implements EnvManager {
         }
 
     }
-
 
     /**
      * Resign btn clicked.
@@ -601,7 +603,7 @@ public class Client implements EnvManager {
     }
 
     public void delUnf() {
-        request(PreMadeRequest.deleteUnfGames);
+        request(PreMadeRequest.DeleteUnfGames);
 
     }
 
@@ -647,7 +649,9 @@ public class Client implements EnvManager {
 
     }
 
-    public void rndMove() {
+    public void makeRandomMove() {
+        if (!isGettingMove)
+            return;
         var lst = lastGetMoveMsg.getPossibleMoves();
         returnMove(lst.get(new Random().nextInt(lst.size())));
     }

@@ -45,6 +45,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private Callback<Dialog> onClose;
     private boolean isDisposing;
     private JScrollPane cardsScrollPane;
+    private MyJFrame.MyAdapter myAdapter;
 
     public Dialog(Properties properties) {
 //        super((java.awt.Dialog) null);
@@ -65,7 +66,7 @@ public abstract class Dialog extends JDialog implements Parent {
 
         bottomPnl = new JPanel(new BorderLayout());
 
-        MyJFrame.debugAdapter(this);
+        myAdapter = MyJFrame.debugAdapter(this);
 
         pane.add(topPnl, BorderLayout.PAGE_START);
         pane.add(bottomPnl, BorderLayout.PAGE_END);
@@ -97,48 +98,9 @@ public abstract class Dialog extends JDialog implements Parent {
         setLocationRelativeTo(parentWin);
     }
 
-    public void setFocusOn(Component focusOn) {
-        this.focusOn = focusOn;
-    }
-
-    public void start() {
-        start(null);
-    }
-
-    public void start(Callback<Dialog> onClose) {
-        this.onClose = onClose;
-        repackWin();
-
-        if (this.focusOn != null)
-            SwingUtilities.invokeLater(() -> focusOn.requestFocus());
-
-        setVisible(true);
-
-        dispose();
-    }
-
-    public void repackWin() {
-        SwingUtilities.invokeLater(this::pack);
-    }
-
     @Override
-    public void setVisible(boolean b) {
-        super.setVisible(!isDisposing && b);
-    }
-
-    @Override
-    public void dispose() {
-        this.isDisposing = true;
-        super.dispose();
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        return maximumSize.createMinCombo(dialogSize());
-    }
-
-    protected Dimension dialogSize() {
-        return super.getPreferredSize();
+    public MyJFrame.MyAdapter keyAdapter() {
+        return myAdapter;
     }
 
     @Override
@@ -256,6 +218,10 @@ public abstract class Dialog extends JDialog implements Parent {
         }
     }
 
+    public void repackWin() {
+        SwingUtilities.invokeLater(this::pack);
+    }
+
     public void closeDialog() {
         if (!isDisposing) {
             dispose();
@@ -264,12 +230,52 @@ public abstract class Dialog extends JDialog implements Parent {
         System.gc();
     }
 
+    @Override
+    public void dispose() {
+        this.isDisposing = true;
+        super.dispose();
+    }
+
     protected void notifyClosed() {
 //        todo combine
         if (onClose != null) {
             onClose.callback(this);
         }
         onCloseCallbacks.forEach(VoidCallback::callback);
+    }
+
+    public void setFocusOn(Component focusOn) {
+        this.focusOn = focusOn;
+    }
+
+    public void start() {
+        start(null);
+    }
+
+    public void start(Callback<Dialog> onClose) {
+        this.onClose = onClose;
+        repackWin();
+
+        if (this.focusOn != null)
+            SwingUtilities.invokeLater(() -> focusOn.requestFocus());
+
+        setVisible(true);
+
+        dispose();
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        super.setVisible(!isDisposing && b);
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return maximumSize.createMinCombo(dialogSize());
+    }
+
+    protected Dimension dialogSize() {
+        return super.getPreferredSize();
     }
 
 //    protected void

@@ -115,14 +115,14 @@ public class ThreadsManager {
             errorHandlers.put(errClass, onErr);
         }
 
-        /**
-         * Differ errs my thread.
-         *
-         * @return the my thread
-         */
-        protected MyThread differErrs() {
-            return this;
-        }
+//        /**
+//         * Differ errs my thread.
+//         *
+//         * @return the my thread
+//         */
+//        protected MyThread differErrs() {
+//            return this;
+//        }
 
         /**
          * Stop run.

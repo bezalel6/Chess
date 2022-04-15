@@ -10,8 +10,11 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class SimpleDialog extends Dialog {
+
+
     public SimpleDialog(Properties properties, Component... components) {
-        this(properties, BackOkInterface.noInterface, components);
+        this(properties, (BackOkInterface) null);
+        delayedSetup(BackOkInterface.createSimpleInterface(this::closeDialog), components);
     }
 
     public SimpleDialog(Properties properties, BackOkInterface backOk, Component... components) {

@@ -6,61 +6,34 @@ import ver14.SharedClasses.ui.dialogs.ConfirmDialogs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Vector;
+import java.util.List;
+import java.util.*;
+
+import static java.awt.event.KeyEvent.*;
 
 public class MyJFrame extends JFrame {
     private static final int delayInMs = 100;
 
+    private final MyAdapter myAdapter;
     private boolean isSleeping = false;
 
     public MyJFrame() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        debugAdapter(this);
+        this.myAdapter = debugAdapter(this);
     }
 
-    public static void debugAdapter(Window addTo) {
-        final ArrayList<Integer> enableOn = new ArrayList<>() {{
-            add(KeyEvent.VK_CONTROL);
-            add(KeyEvent.VK_SHIFT);
-            add(KeyEvent.VK_D);
-        }};
-        final ArrayList<Integer> packOn = new ArrayList<>() {{
-            add(KeyEvent.VK_CONTROL);
-            add(KeyEvent.VK_SHIFT);
-            add(KeyEvent.VK_P);
-        }};
-        final ArrayList<Integer> rndOn = new ArrayList<>() {{
-            add(KeyEvent.VK_CONTROL);
-            add(KeyEvent.VK_SHIFT);
-            add(KeyEvent.VK_R);
-        }};
-        Vector<Integer> pressed = new Vector<>();
-        KeyAdapter adapter = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                super.keyPressed(e);
-                pressed.add(e.getKeyCode());
-                if (enableOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
-                    addBorderRec(addTo);
-                }
-                if (packOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
-                    addTo.pack();
-                }
-                if (addTo instanceof MyJFrame myJFrame && rndOn.stream().noneMatch(enable -> pressed.stream().noneMatch(press -> Objects.equals(press, enable)))) {
-                    myJFrame.onRnd();
-                }
+    public static MyAdapter debugAdapter(Window addTo) {
 
-            }
+        MyAdapter adapter = new MyAdapter() {{
+            addAction(() -> {
+                addBorderRec(addTo);
+            }, VK_CONTROL, VK_SHIFT, VK_D);
 
-            @Override
-            public void keyReleased(KeyEvent e) {
-                super.keyReleased(e);
-                pressed.remove((Integer) e.getKeyCode());
-            }
-        };
+            addAction(addTo::pack, VK_CONTROL, VK_SHIFT, VK_P);
+        }};
+
         addTo.addKeyListener(adapter);
+        return adapter;
     }
 
     private static void addBorderRec(Container container) {
@@ -77,8 +50,8 @@ public class MyJFrame extends JFrame {
         }
     }
 
-    protected void onRnd() {
-
+    public MyAdapter getMyAdapter() {
+        return myAdapter;
     }
 
     public void setOnExit(VoidCallback onClose) {
@@ -114,5 +87,47 @@ public class MyJFrame extends JFrame {
                 }).start();
             }
         });
+    }
+
+    public static class MyAdapter extends KeyAdapter {
+        private static final long coolDown = 1000;
+        private final Set<Integer> pressedKeys = new HashSet<>();
+        private final Map<Set<Integer>, VoidCallback> actions = new HashMap<>();
+        private Integer lastPressedKey = null;
+        private long lastPressedTime = 0;
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            super.keyPressed(e);
+            pressedKeys.add(e.getKeyCode());
+            if (lastPressedKey != null && e.getKeyCode() == lastPressedKey && System.currentTimeMillis() - lastPressedTime <= coolDown) {
+                return;
+            }
+            lastPressedTime = System.currentTimeMillis();
+            lastPressedKey = e.getKeyCode();
+            actions.forEach((set, callback) -> {
+                if (pressedKeys.containsAll(set))
+                    callback.callback();
+            });
+
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            super.keyReleased(e);
+            pressedKeys.remove(e.getKeyCode());
+        }
+
+        public Set<Integer> addAction(VoidCallback action, Integer... keys) {
+            Set<Integer> ret = new HashSet<>(List.of(keys));
+            actions.put(ret, action);
+            return ret;
+        }
+
+
+        public void removeAction(Set<Integer> action) {
+            actions.remove(action);
+        }
+
     }
 }

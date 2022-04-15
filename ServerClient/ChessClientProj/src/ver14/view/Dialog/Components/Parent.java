@@ -3,6 +3,7 @@ package ver14.view.Dialog.Components;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.messages.Message;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.BackOk.CancelOk;
 import ver14.view.Dialog.Cards.DialogCard;
@@ -10,6 +11,11 @@ import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.SyncableList;
 
 public interface Parent {
+
+    default MyJFrame.MyAdapter keyAdapter() {
+        throw new Error("key adapter not implemented");
+    }
+
     void registerSyncedList(SyncableList list);
 
     void askServer(Message msg, MessageCallback onRes);

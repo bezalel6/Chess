@@ -42,6 +42,7 @@ import ver14.view.SidePanel.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
@@ -108,13 +109,9 @@ public class View implements Iterable<BoardButton[]> {
                 setLocationRelativeTo(null);
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
-//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
-            }
 
-            @Override
-            protected void onRnd() {
-                super.onRnd();
-                client.rndMove();
+                getMyAdapter().addAction(client::makeRandomMove, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_R);
+//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
             }
 
             @Override
@@ -341,7 +338,7 @@ public class View implements Iterable<BoardButton[]> {
         return boardPnl.getBtn(loc);
     }
 
-    public JFrame getWin() {
+    public MyJFrame getWin() {
         return win;
     }
 
@@ -509,7 +506,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
-        WinPnl pnl = new WinPnl(WinPnl.MAKE_SCROLLABLE);
+        WinPnl pnl = new WinPnl();
         pnl.setInsets(new Insets(10, 10, 10, 10));
 //        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
 
