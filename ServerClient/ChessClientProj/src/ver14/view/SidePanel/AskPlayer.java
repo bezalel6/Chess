@@ -56,6 +56,8 @@ public class AskPlayer extends JPanel {
     }
 
     public void showPnl(boolean show) {
+//        if (!show)
+//            new Exception().printStackTrace();
         for (Component component : getComponents()) {
             component.setVisible(show);
         }

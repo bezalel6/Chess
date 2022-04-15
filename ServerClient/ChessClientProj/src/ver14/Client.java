@@ -41,13 +41,11 @@ import ver14.view.View;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
 /**
  * Client דוגמה ללקוח צאט פשוט .
@@ -362,7 +360,7 @@ public class Client implements EnvManager {
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
                         .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))
-                        .collect(Collectors.toCollection(ArrayList::new)));
+                        .toList());
             }
         }
     }

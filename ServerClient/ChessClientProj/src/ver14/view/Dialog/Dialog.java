@@ -86,16 +86,11 @@ public abstract class Dialog extends JDialog implements Parent {
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
         setTitle(StrUtils.format(properties.details().title()));
         dialogWideErr(properties.details().error());
-        recenter();
     }
 
     protected void onXClick() {
         if (!tryCancel())
             tryOk(true);
-    }
-
-    protected void recenter() {
-        setLocationRelativeTo(parentWin);
     }
 
     @Override
@@ -176,7 +171,6 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(card);
         setBackOk(card);
         card.shown();
-        System.out.println("showing " + card + " preferred size = " + card.getPreferredSize());
         cardsPnl.setPreferredSize(card.getPreferredSize());
         cardsScrollPane.setPreferredSize(Size.add(card.getPreferredSize(), 50));
         getCardsLayout().show(cardsPnl, card.getCardID());
@@ -197,7 +191,7 @@ public abstract class Dialog extends JDialog implements Parent {
         if (this.backOkPnl != null)
             bottomPnl.remove(this.backOkPnl);
 
-        if (backOkInterface != null) {
+        if (backOkInterface != null && backOkInterface != BackOkInterface.noInterface) {
             this.backOkPnl = new BackOkPnl(backOkInterface);
             bottomPnl.add(backOkPnl, BorderLayout.SOUTH);
         } else this.backOkPnl = null;
@@ -216,6 +210,10 @@ public abstract class Dialog extends JDialog implements Parent {
         if (currentCard.dialogWideErrors()) {
             dialogWideErr(err);
         }
+    }
+
+    protected void recenter() {
+        setLocationRelativeTo(parentWin);
     }
 
     public void repackWin() {
@@ -254,10 +252,11 @@ public abstract class Dialog extends JDialog implements Parent {
 
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
-        repackWin();
 
         if (this.focusOn != null)
             SwingUtilities.invokeLater(() -> focusOn.requestFocus());
+
+        SwingUtilities.invokeLater(this::onUpdate);
 
         setVisible(true);
 
@@ -297,7 +296,9 @@ public abstract class Dialog extends JDialog implements Parent {
                 setPreferredSize(getPreferredSize());
                 setMaximumSize(getPreferredSize());
                 getVerticalScrollBar().setBlockIncrement(100);
-                getVerticalScrollBar().setValue(0);
+                SwingUtilities.invokeLater(() -> {
+                    getVerticalScrollBar().setValue(0);
+                });
             }
 
         };

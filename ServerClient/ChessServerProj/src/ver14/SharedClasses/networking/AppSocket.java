@@ -69,37 +69,10 @@ public class AppSocket extends ThreadsManager.MyThread {
 
     public void close(MyError err) {
         ErrorHandler.ignore(() -> {
-            if (isConnected())
-                writeMessage(Message.throwError(err));
+//            if (isConnected())
+//                writeMessage(Message.throwError(err));
             msgSocket.close();  // will close the IS & OS streams
         });
-    }
-
-    /**
-     * Is connected boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isConnected() {
-        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
-    }
-
-    /**
-     * Write message.
-     *
-     * @param msg the msg
-     */
-    public synchronized void writeMessage(Message msg) {
-        if (!isConnected())
-            return;
-        if (messagesHandler != null && msg.getMessageType() == MessageType.BYE)
-            messagesHandler.prepareForDisconnect();
-        try {
-            msgOS.writeObject(msg);
-            msgOS.flush(); // send object now! (dont wait)
-        } catch (Exception e) {
-            throw new AppSocketError(e);
-        }
     }
 
     /**
@@ -156,6 +129,33 @@ public class AppSocket extends ThreadsManager.MyThread {
     public void respond(Message msg, Message respondingTo) {
         msg.setRespondingTo(respondingTo);
         writeMessage(msg);
+    }
+
+    /**
+     * Write message.
+     *
+     * @param msg the msg
+     */
+    public synchronized void writeMessage(Message msg) {
+        if (!isConnected())
+            return;
+        if (messagesHandler != null && msg.getMessageType() == MessageType.BYE)
+            messagesHandler.prepareForDisconnect();
+        try {
+            msgOS.writeObject(msg);
+            msgOS.flush(); // send object now! (dont wait)
+        } catch (Exception e) {
+            throw new AppSocketError(e);
+        }
+    }
+
+    /**
+     * Is connected boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isConnected() {
+        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
     }
 
     /**

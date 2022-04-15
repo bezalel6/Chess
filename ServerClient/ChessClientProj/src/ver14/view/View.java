@@ -43,10 +43,8 @@ import ver14.view.SidePanel.SidePanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
+import java.util.List;
+import java.util.*;
 
 
 public class View implements Iterable<BoardButton[]> {
@@ -365,7 +363,7 @@ public class View implements Iterable<BoardButton[]> {
         client.boardButtonPressed(viewLoc);
     }
 
-    public void highlightPath(ArrayList<Move> movableSquares) {
+    public void highlightPath(List<Move> movableSquares) {
         for (Move move : movableSquares) {
             Location movingTo = move.getMovingTo();
             BoardButton btn = getBtn(movingTo);

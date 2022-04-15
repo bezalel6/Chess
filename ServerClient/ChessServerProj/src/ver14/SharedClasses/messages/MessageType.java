@@ -37,7 +37,6 @@ public enum MessageType {
             System.out.print(t.name() + ",");
     }
 
-    //should block: init game. to make getMove wait for initialization
 
     public boolean hideQuestion() {
         return false;
