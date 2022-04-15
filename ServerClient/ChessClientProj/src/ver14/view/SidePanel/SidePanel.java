@@ -162,7 +162,7 @@ public class SidePanel extends JPanel {
     public void reset(GameTime gameTime) {
         sync(gameTime);
         moveLog.reset();
-        askPlayerPnl.showPnl(false);
+//        askPlayerPnl.showPnl(false);
     }
 
     public void sync(GameTime gameTime) {

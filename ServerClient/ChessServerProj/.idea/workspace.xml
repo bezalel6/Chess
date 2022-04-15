@@ -13,12 +13,15 @@
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/AskPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/AskPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/SidePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/QuestionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/AnswerCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

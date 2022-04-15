@@ -62,10 +62,7 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         if (message.isSubject())
             view.setStatusLbl(message.getSubject());
-
-        if (message.hideQuestion())
-            client.hideQuestionPnl();
-
+        
         client.updateGameTime(message);
 
     }

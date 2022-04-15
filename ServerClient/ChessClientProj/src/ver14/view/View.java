@@ -2,7 +2,7 @@ package ver14.view;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
-import ver14.SharedClasses.Callbacks.QuestionCallback;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
@@ -480,7 +480,7 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
-    public void askQuestion(Question question, QuestionCallback callback) {
+    public void askQuestion(Question question, AnswerCallback callback) {
         sidePanel.askPlayerPnl.ask(question, callback);
         win.pack();
     }

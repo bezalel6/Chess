@@ -21,6 +21,7 @@ public enum MessageType {
     DB_REQUEST,
     DB_RESPONSE,
     UPDATE_SYNCED_LIST,
+    CANCEL_QUESTION,
     INTERRUPT;
     public final boolean chronologicalImportance;
 
@@ -38,7 +39,4 @@ public enum MessageType {
     }
 
 
-    public boolean hideQuestion() {
-        return false;
-    }
 }

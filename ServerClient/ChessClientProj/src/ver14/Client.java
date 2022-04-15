@@ -273,17 +273,10 @@ public class Client implements EnvManager {
     }
 
     private void unlockPossibleMoves() {
-        hideQuestionPnl();
 //        view.enableSources(possibleMoves);
         view.enableMyPieces(myColor);
     }
 
-    /**
-     * Hide question pnl.
-     */
-    void hideQuestionPnl() {
-        view.getSidePanel().askPlayerPnl.showPnl(false);
-    }
 
     public void enablePreMove() {
 //        isPremoving = true;

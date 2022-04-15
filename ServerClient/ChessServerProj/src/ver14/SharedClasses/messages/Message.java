@@ -54,7 +54,6 @@ public class Message implements Serializable {
     private Stack<Move> moveStack = null;
     private DBResponse dbResponse = null;
     private DBRequest dbRequest = null;
-    private boolean hideQuestion;
     private MyError error;
 
     /**
@@ -78,7 +77,6 @@ public class Message implements Serializable {
         this.subject = subject;
         this.respondingToMsgId = respondingToMsgId;
         this.messageID = messagesIds.generate();
-        this.hideQuestion = messageType.hideQuestion();
     }
 
 
@@ -824,21 +822,5 @@ public class Message implements Serializable {
         return !StrUtils.isEmpty(subject);
     }
 
-    /**
-     * Sets hide question.
-     *
-     * @param hideQuestion the hide question
-     */
-    public void setHideQuestion(boolean hideQuestion) {
-        this.hideQuestion = hideQuestion;
-    }
 
-    /**
-     * Hide question boolean.
-     *
-     * @return the boolean
-     */
-    public boolean hideQuestion() {
-        return hideQuestion;
-    }
 }

@@ -15,7 +15,7 @@ public class WinPnl extends JPanel {
     public static final int MAKE_SCROLLABLE = -2;
     protected final JPanel topPnl;
     protected final JPanel bottomPnl;
-    private final JComponent contentPnl;
+    protected final JComponent contentPnl;
     protected Header header;
     private Insets myInsets = insets;
     private int cols;

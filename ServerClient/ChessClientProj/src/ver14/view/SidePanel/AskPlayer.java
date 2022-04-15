@@ -1,34 +1,34 @@
 package ver14.view.SidePanel;
 
-import ver14.SharedClasses.Callbacks.QuestionCallback;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.ui.MyJButton;
-import ver14.SharedClasses.ui.MyLbl;
+import ver14.view.Dialog.Dialogs.Header;
+import ver14.view.Dialog.WinPnl;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
-public class AskPlayer extends JPanel {
+public class AskPlayer extends WinPnl {
     //including empty flahses between
     private final static int numOfFlashes = 10;
     private final static int flashesDelay = 200;
     private final static int borderThickness = 3;
-    private final MyLbl header;
     //null is the empty flash
     private final Color[] flashes = {Color.WHITE, null};
 
     private final AtomicInteger currentClrIndex = new AtomicInteger();
     private final AtomicInteger numOfFlashesDone = new AtomicInteger();
     private final Timer flashingTimer;
+    private ArrayList<QuestionPnl> shownQuestions = new ArrayList<>();
 
     public AskPlayer() {
 
-        header = new MyLbl() {{
-            setFont(SidePanel.font);
-        }};
-        assert flashes.length > 0;
         this.flashingTimer = new Timer(flashesDelay, l -> {
             Color clr = flashes[currentClrIndex.getAndIncrement()];
             flash(clr);
@@ -38,15 +38,15 @@ public class AskPlayer extends JPanel {
                 stopFlashing();
             }
         });
-        showPnl(false);
+//        showPnl(false);
     }
 
     private void flash(Color clr) {
         setBackground(clr);
-        Border border = clr == null ? BorderFactory.createLineBorder(null, borderThickness) : BorderFactory.createLineBorder(clr.darker(), borderThickness);
+        clr = clr == null ? null : clr.darker();
+        Border border = BorderFactory.createLineBorder(clr, borderThickness);
         setBorder(border);
     }
-
 
     private void stopFlashing() {
         flash(null);
@@ -56,50 +56,86 @@ public class AskPlayer extends JPanel {
 
     }
 
-    public void showPnl(boolean show) {
-//        if (!show)
-//            new Exception().printStackTrace();
-        for (Component component : getComponents()) {
-            component.setVisible(show);
-        }
+    public static void main(String[] args) {
+        new JFrame() {{
+            setLayout(new GridBagLayout());
+            setSize(500, 500);
+            AskPlayer askPlayer = new AskPlayer();
+//            askPlayer.setPreferredSize(askPlayer.getPreferredSize());
+//            askPlayer.setPreferredSize(new Size(150));
+            var scrl = new JScrollPane(askPlayer) {
+
+            };
+            scrl.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+            scrl.setPreferredSize(new Size(300, 100));
+            add(scrl);
+            new Thread(() -> {
+                IntStream.range(0, 3).forEach(i -> {
+                    Question q = i % 2 == 0 ? Question.Rematch : Question.Threefold;
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    askPlayer.ask(q, System.out::println);
+                });
+                askPlayer.replaceWithMsg(Question.Rematch, "WTFFF");
+            }).start();
+            setVisible(true);
+        }};
+    }
+
+    public void ask(Question question, AnswerCallback callback) {
+        QuestionPnl pnl = new QuestionPnl(question, callback);
+        shownQuestions.add(pnl);
+        add(pnl);
+
+        numOfFlashesDone.set(0);
+        flashingTimer.start();
+    }
+
+    public void replaceWithMsg(Question replacing, String msg) {
+        shownQuestions.stream().filter(pnl -> pnl.question.equals(replacing)).findAny().ifPresent(pnl -> {
+            pnl.setReplacement(msg);
+        });
+    }
+
+    public void removeQuestion(QuestionPnl pnl) {
+        removeContentComponent(pnl);
+        shownQuestions.remove(pnl);
         revalidate();
         repaint();
-        if (show) {
-            numOfFlashesDone.set(0);
-            flashingTimer.start();
-        } else {
-            stopFlashing();
+
+    }
+
+    public class QuestionPnl extends WinPnl {
+        private final Question question;
+
+        public QuestionPnl(Question question, AnswerCallback callback) {
+            super(question.getPossibleAnswers().length, new Header(question.questionStr));
+            this.question = question;
+            for (Question.Answer answer : question.getPossibleAnswers()) {
+                add(createBtn(answer, callback));
+            }
         }
-    }
 
+        private MyJButton createBtn(Question.Answer answer, AnswerCallback onAns) {
+            return new MyJButton(answer.answerStr, SidePanel.font, () -> {
+                removeQuestion(this);
+                onAns.callback(answer);
+//                    showPnl(false);
+            });
+        }
 
-    public void ask(Question question, QuestionCallback callback) {
-        this.header.setText(question.questionStr);
-        addLayout(question, callback);
-        showPnl(true);
-    }
+        public void setReplacement(String headerMsg) {
+            header.setText(headerMsg);
+            removeContent();
+            add(createBtn(Question.Answer.OK));
+        }
 
-    private void addLayout(Question question, QuestionCallback callback) {
-        removeAll();
-        setLayout(new GridBagLayout());
-
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(3, 3, 3, 3);
-        gbc.gridheight = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        add(header, gbc);
-
-        gbc.gridheight = 1;
-        gbc.gridwidth = GridBagConstraints.RELATIVE;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridy = GridBagConstraints.RELATIVE;
-        gbc.weightx = 1;
-
-        for (Question.Answer answer : question.getPossibleAnswers()) {
-            add(new MyJButton(answer.answerStr, SidePanel.font, () -> {
-                callback.callback(answer);
-                showPnl(false);
-            }), gbc);
+        private MyJButton createBtn(Question.Answer answer) {
+            return createBtn(answer, ans -> {
+            });
         }
     }
 }
