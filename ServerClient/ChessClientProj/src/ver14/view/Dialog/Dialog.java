@@ -9,12 +9,12 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.SharedClasses.ui.windows.MyJFrame;
+import ver14.view.Dialog.BackOk.BackOkInterface;
+import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
-import ver14.view.Dialog.Dialogs.BackOkInterface;
-import ver14.view.Dialog.Dialogs.BackOkPnl;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
 import ver14.view.IconManager.Size;
@@ -44,6 +44,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
     private boolean isDisposing;
+    private JScrollPane cardsScrollPane;
 
     public Dialog(Properties properties) {
 //        super((java.awt.Dialog) null);
@@ -166,8 +167,11 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     public void dialogWideErr(String error) {
-        if (errorPnl != null)
+        if (errorPnl != null) {
             errorPnl.setText(error);
+        } else {
+
+        }
     }
 
     @Override
@@ -210,6 +214,9 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(card);
         setBackOk(card);
         card.shown();
+        System.out.println("showing " + card + " preferred size = " + card.getPreferredSize());
+        cardsPnl.setPreferredSize(card.getPreferredSize());
+        cardsScrollPane.setPreferredSize(Size.add(card.getPreferredSize(), 50));
         getCardsLayout().show(cardsPnl, card.getCardID());
         onUpdate();
     }
@@ -265,11 +272,11 @@ public abstract class Dialog extends JDialog implements Parent {
         onCloseCallbacks.forEach(VoidCallback::callback);
     }
 
+//    protected void
+
     protected void navigationCardSetup(DialogCard... dialogCards) {
         cardsSetup(new NavigationCard(createHeader(), this, dialogCards), dialogCards);
     }
-
-//    protected void
 
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {
         assert dialogCards.length > 0;
@@ -279,7 +286,7 @@ public abstract class Dialog extends JDialog implements Parent {
         }
         addCard(startingCard);
 
-        pane.add(new JScrollPane(cardsPnl) {
+        cardsScrollPane = new JScrollPane(cardsPnl) {
             {
                 setPreferredSize(getPreferredSize());
                 setMaximumSize(getPreferredSize());
@@ -287,11 +294,8 @@ public abstract class Dialog extends JDialog implements Parent {
                 getVerticalScrollBar().setValue(0);
             }
 
-//            @Override
-//            public Dimension getPreferredSize() {
-//                return maximumSize.min(super.getPreferredSize());
-//            }
-        }, BorderLayout.CENTER);
+        };
+        pane.add(cardsScrollPane, BorderLayout.CENTER);
 
         showCard(startingCard, false);
         pack();

@@ -1,5 +1,7 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
+import ver14.SharedClasses.Threads.ThreadsManager;
+
 /**
  * The interface Error handler.
  *
@@ -15,12 +17,26 @@ public interface ErrorHandler<E extends MyError> {
      * @return true if the runnable threw, false otherwise
      */
     static boolean ignore(ThrowingRunnable runnable) {
+
+        Thread currentThread = Thread.currentThread();
+        ThreadsManager.MyThread myThread = null;
+        if (currentThread instanceof ThreadsManager.MyThread m) {
+            myThread = m;
+            myThread.ignoreErrs();
+        }
+
+        boolean ret;
         try {
             runnable.run();
-            return false;
+            ret = false;
         } catch (Throwable t) {
-            return true;
+            ret = true;
         }
+        if (myThread != null)
+            myThread.reactivateErrs();
+        return ret;
+
+
     }
 
     /**

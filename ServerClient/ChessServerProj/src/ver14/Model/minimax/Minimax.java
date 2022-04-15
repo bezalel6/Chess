@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Minimax {
     private static final boolean USE_OPENING_BOOK = true;
@@ -124,7 +125,7 @@ public class Minimax {
                 possibleMoves.initAnnotation();
                 for (Move move : possibleMoves) {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
-                        return new MinimaxMove(move, Evaluation.book(), 0);
+                        return new MinimaxMove(move, Evaluation.book());
                 }
 //                throw new Error();
             }
@@ -220,64 +221,52 @@ public class Minimax {
 //        threadPool = Executors.newFixedThreadPool(numOfThreads);
         threadPool = new ForkJoinPool(numOfThreads);
 
-        Evaluation[] evals = startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
+        try {
+            startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         if (interrupt != null)
             throw interrupt;
 
-        ArrayList<Move> possibleMoves = model.generateAllMoves();
-        for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
-            Move move = possibleMoves.get(i);
-            move.setMoveEvaluation(evals[i]);
-        }
-        sortMoves(possibleMoves, true);
-        bestMove = new MinimaxMove(possibleMoves.get(0), possibleMoves.get(0).getMoveEvaluation(), 0);
-        bestMove.setCompleteSearch(isCompleteSearch.get());
-
         return bestMove;
     }
 
-    private Evaluation[] startMultithreaded(Model model, PlayerColor minimaxPlayerColor, int maxDepth) {
+    private void startMultithreaded(Model model, PlayerColor minimaxPlayerColor, int maxDepth) throws InterruptedException {
         ArrayList<Move> possibleMoves = model.generateAllMoves();
-        int numOfPossibleMoves = possibleMoves.size();
-        Evaluation[] evals = new Evaluation[numOfPossibleMoves];
+
+        final AtomicReference<MinimaxMove> atomicBestMove = new AtomicReference<>(null);
 
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
-                try {
-                    Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
-//                        System.out.println(e);
+                Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
+                    System.out.println("minimax threw " + e);
+                });
+                if (!isOvertime() && interrupt == null) {
+                    Model modelCopy = new Model(model);
+                    modelCopy.applyMove(move);
 
-                    });
-                    if (!isOvertime()) {
-                        Model model1 = new Model(model);
-                        model1.applyMove(move);
-                        Evaluation eval = minimax(new MinimaxParameters(model1, false, maxDepth, minimaxPlayerColor, move));
-                        model1.undoMove(move);
+                    Evaluation eval = minimax(new MinimaxParameters(modelCopy, false, maxDepth, minimaxPlayerColor, move));
 
-                        move.setMoveEvaluation(eval);
-
-                        evals[possibleMoves.indexOf(move)] = eval;
-                    } else {
-                        isCompleteSearch.set(false);
+                    synchronized (atomicBestMove) {
+                        if (atomicBestMove.get() == null || eval.isGreaterThan(atomicBestMove.get().getMoveEvaluation())) {
+                            atomicBestMove.set(new MinimaxMove(move, eval));
+                        }
                     }
-
-                } catch (Exception e) {
-
+                } else {
+                    isCompleteSearch.set(false);
                 }
-
             });
 
         });
         threadPool.shutdown();
-        try {
-            if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
-                throw new Error("thread pool is acting up");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
+            throw new Error("thread pool is acting up");
         }
-        return evals;
+
+        bestMove = atomicBestMove.get();
+
     }
 
     private Evaluation minimax(MinimaxParameters parms) {
@@ -289,7 +278,7 @@ public class Minimax {
         if (isOvertime() || Eval.isGameOver(parms.model) || parms.currentDepth >= parms.maxDepth) {
 //            leavesReached++;
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
-            evaluation.setEvaluationDepth(parms.currentDepth / 2);
+            evaluation.setEvaluationDepth(parms.currentDepth);
             return evaluation;
         }
 
@@ -299,8 +288,6 @@ public class Minimax {
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.defaultSettings);
-//        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
-
         if (parms.currentDepth <= moveOrderingDepthCutoff)
             sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {

@@ -29,6 +29,8 @@ public abstract class MessagesHandler {
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
     private final Semaphore chronologicalSemaphore = new Semaphore(1);
+    private boolean isExpectingDisconnect = false;
+    private boolean didDisconnect = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -92,6 +94,7 @@ public abstract class MessagesHandler {
      * @return the message
      */
     public Message blockTilRes(Message request) {
+
         CompletableFuture<Message> future = new CompletableFuture<>();
         waiting.add(future);
 
@@ -99,7 +102,7 @@ public abstract class MessagesHandler {
         noBlockRequest(request, future::complete);
         try {
             msg = future.get();
-        } catch (InterruptedException e) {//if interrupted, returning null is fine
+        } catch (InterruptedException e) {//if interrupted, null is fine
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
@@ -128,8 +131,7 @@ public abstract class MessagesHandler {
 
     private MessageCallback onThrowError() {
         return msg -> {
-            socket.close();
-            throw msg.getError();
+            throw (msg.getError());
         };
     }
 
@@ -183,7 +185,17 @@ public abstract class MessagesHandler {
     /**
      * On disconnected.
      */
-    public void onDisconnected() {
+    public final void onDisconnected() {
+        if (!didDisconnect)
+            onAnyDisconnection();
+        didDisconnect = true;
+
+        if (isExpectingDisconnect) {
+            onPlannedDisconnect();
+        } else {
+            onUnplannedDisconnect();
+        }
+
         socket.close();
     }
 
@@ -203,6 +215,17 @@ public abstract class MessagesHandler {
 //                throw new Error("IM GETTING WAY TOO MANY MSGS");
 //            }
 //        }
+    }
+
+    protected void onAnyDisconnection() {
+
+    }
+
+    protected void onPlannedDisconnect() {
+    }
+
+
+    protected void onUnplannedDisconnect() {
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {
@@ -230,6 +253,7 @@ public abstract class MessagesHandler {
 
         };
     }
+
 
     /**
      * On add time message callback.
@@ -370,7 +394,12 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
+            prepareForDisconnect();
         };
+    }
+
+    public void prepareForDisconnect() {
+        isExpectingDisconnect = true;
     }
 
 

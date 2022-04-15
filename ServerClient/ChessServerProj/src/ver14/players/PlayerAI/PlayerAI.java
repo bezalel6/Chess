@@ -49,7 +49,7 @@ public abstract class PlayerAI extends Player {
 
     @Override
     public void error(String error) {
-        interrupt(new MyError(error, ErrorType.UnKnown));
+        interrupt(new MyError(error));
     }
 
     @Override

@@ -38,13 +38,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         this.player = playerNet;
     }
 
-    /**
-     * On disconnected.
-     */
+
     @Override
-    public void onDisconnected() {
+    protected void onAnyDisconnection() {
         server.playerDisconnected(player, "");
-        super.onDisconnected();
+        super.onAnyDisconnection();
     }
 
     @Override

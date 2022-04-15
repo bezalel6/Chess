@@ -5,6 +5,7 @@ import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
@@ -90,12 +91,25 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
             updated();
 
         assert ret;
-        return ret;
+        return true;
     }
 
     private void updated() {
         if (onUpdate != null) {
             onUpdate.callback(this);
         }
+    }
+
+    public void batchRemove(Remover<E> remover) {
+        List<E> del = values()
+                .stream()
+                .filter(remover::remove)
+                .toList();
+        del.forEach(deleting -> super.remove(deleting.ID()));
+        updated();
+    }
+
+    public interface Remover<L> {
+        boolean remove(L item);
     }
 }

@@ -26,6 +26,6 @@ public abstract class LoginCard extends DialogCard {
 
     @Override
     public Size getPreferredSize() {
-        return new Size(500);
+        return new Size(300);
     }
 }

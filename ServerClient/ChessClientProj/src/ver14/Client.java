@@ -20,8 +20,8 @@ import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.LoginType;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
@@ -87,7 +87,7 @@ public class Client implements EnvManager {
      * Constractor for Chat Client.
      */
     public Client() {
-        ErrorManager.setEnvManager(this);
+        ThreadsManager.MyThread.setEnvManager(this);
         soundManager = new SoundManager();
         setupClientGui();
         setupClient();

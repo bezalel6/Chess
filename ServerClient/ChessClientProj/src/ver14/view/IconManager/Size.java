@@ -39,6 +39,10 @@ public class Size extends Dimension {
         return new Size(Math.max(size.height, size.width));
     }
 
+    public static Size add(Dimension d, int add) {
+        return new Size(d.width + add, d.height + add);
+    }
+
     public static Dimension min(Dimension size1, Size size2) {
         return size1.width + size1.height > size2.height + size2.width ? size1 : size2;
     }

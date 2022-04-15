@@ -1,12 +1,12 @@
 package ver14.view.Dialog.Dialogs.ChangePassword;
 
 import ver14.SharedClasses.LoginInfo;
+import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.BackOkInterface;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;

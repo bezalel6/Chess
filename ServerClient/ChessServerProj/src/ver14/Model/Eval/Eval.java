@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class Eval implements Serializable {
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
-    private static final double KING_SAFETY_WEIGHT = -0.001;
+    private static final double KING_SAFETY_WEIGHT = -0.1;
     public static boolean PRINT_REP_LIST = false;
     private final Model model;
     private final PlayerColor playerToMove;
@@ -135,8 +135,8 @@ public class Eval implements Serializable {
         if (PRINT_REP_LIST)
             System.out.println(list);
 
-//        if (list.size() < 4)
-//            return false;
+        if (list.size() < 4)
+            return false;
         for (int i = 0; i < list.size(); i++) {
             int matches = 0;
             long current = list.get(i);

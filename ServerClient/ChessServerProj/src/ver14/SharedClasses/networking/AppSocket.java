@@ -5,6 +5,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
+import ver14.SharedClasses.messages.MessageType;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,7 +26,6 @@ public class AppSocket extends ThreadsManager.MyThread {
     private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
     private final ObjectInputStream msgIS;    // Input stream to GET Messages
     private MessagesHandler messagesHandler;
-    private boolean keepReading;
     private boolean didDisconnect = false;
 
     /**
@@ -50,10 +50,10 @@ public class AppSocket extends ThreadsManager.MyThread {
 
         addHandler(AppSocketError.class, e -> {
             didDisconnect = true;
-            keepReading = false;
             if (messagesHandler != null) {
                 messagesHandler.onDisconnected();
             }
+            close();
         });
 
         // Create MESSAGE streams. Output Stream must be created FIRST!
@@ -61,6 +61,45 @@ public class AppSocket extends ThreadsManager.MyThread {
         msgOS = new ObjectOutputStream(socket.getOutputStream());
         msgOS.flush();
         msgIS = new ObjectInputStream(socket.getInputStream());
+    }
+
+    public void close() {
+        close(messagesHandler.createDisconnectedError());
+    }
+
+    public void close(MyError err) {
+        ErrorHandler.ignore(() -> {
+            if (isConnected())
+                writeMessage(Message.throwError(err));
+            msgSocket.close();  // will close the IS & OS streams
+        });
+    }
+
+    /**
+     * Is connected boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isConnected() {
+        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
+    }
+
+    /**
+     * Write message.
+     *
+     * @param msg the msg
+     */
+    public synchronized void writeMessage(Message msg) {
+        if (!isConnected())
+            return;
+        if (messagesHandler != null && msg.getMessageType() == MessageType.BYE)
+            messagesHandler.prepareForDisconnect();
+        try {
+            msgOS.writeObject(msg);
+            msgOS.flush(); // send object now! (dont wait)
+        } catch (Exception e) {
+            throw new AppSocketError(e);
+        }
     }
 
     /**
@@ -80,8 +119,7 @@ public class AppSocket extends ThreadsManager.MyThread {
     @Override
     protected void handledRun() {
         assert messagesHandler != null;
-        keepReading = true;
-        while (keepReading) {
+        while (!didDisconnect) {
             try {
                 Message msg = (Message) msgIS.readObject();
                 messagesHandler.receivedMessage(msg);
@@ -118,31 +156,6 @@ public class AppSocket extends ThreadsManager.MyThread {
     public void respond(Message msg, Message respondingTo) {
         msg.setRespondingTo(respondingTo);
         writeMessage(msg);
-    }
-
-    /**
-     * Write message.
-     *
-     * @param msg the msg
-     */
-    public synchronized void writeMessage(Message msg) {
-        if (!isConnected())
-            return;
-        try {
-            msgOS.writeObject(msg);
-            msgOS.flush(); // send object now! (dont wait)
-        } catch (Exception e) {
-            throw new AppSocketError(e);
-        }
-    }
-
-    /**
-     * Is connected boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isConnected() {
-        return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
     }
 
     /**
@@ -187,7 +200,8 @@ public class AppSocket extends ThreadsManager.MyThread {
      * Stop reading.
      */
     public void stopReading() {
-        keepReading = false;
+        System.out.println("stopping reading");
+        didDisconnect = true;
         interruptListener(null);
     }
 
@@ -196,22 +210,6 @@ public class AppSocket extends ThreadsManager.MyThread {
      */
     public void interruptListener(MyError err) {
         messagesHandler.interruptBlocking(err);
-        close();
-
-//        interrupt();
-    }
-
-    /**
-     * Close.
-     */
-    public void close() {
-        ErrorHandler.ignore(() -> {
-            keepReading = false;
-            if (messagesHandler != null) {
-                messagesHandler.interruptBlocking(new MyError(";;;"));
-            }
-            msgSocket.close();  // will close the IS & OS streams
-        });
     }
 
     public static class AppSocketError extends MyError.DisconnectedError {

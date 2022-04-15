@@ -36,7 +36,6 @@ import java.awt.event.KeyEvent;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -91,6 +90,7 @@ public class Server implements EnvManager {
         ThreadsManager.MyThread.setEnvManager(this);
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
+            setupServer();
         });
 
     }
@@ -158,64 +158,6 @@ public class Server implements EnvManager {
         });
     }
 
-    private void exitServer() {
-        closeServer("");
-    }
-
-    /**
-     * Log.
-     *
-     * @param msg the msg
-     */
-    public void log(String msg) {
-        msg = StrUtils.format(msg);
-        areaLog.append(msg + "\n");
-        areaLog.setCaretPosition(areaLog.getDocument().getLength());
-        System.out.println(msg);
-    }
-
-    private void closeServer(String cause) {
-        players.forEachItem(player -> {
-            ErrorHandler.ignore(() -> {
-                player.disconnect(cause);
-            });
-        });
-
-        if (serverSocket != null && !serverSocket.isClosed()) {
-            ErrorHandler.ignore(() -> {
-                serverSocket.close();
-            });
-        }
-
-        log("Server Closed! " + cause);
-        serverRunOK = false;
-        SwingUtilities.invokeLater(() -> {
-            frmWin.setVisible(false);
-            frmWin.dispose(); // close GUI
-        });
-
-//        😨
-//        ThreadsManager.stopAll();
-    }
-
-    /**
-     * The entry point of the application.
-     *
-     * @param args the input arguments
-     */
-// main
-    public static void main(String[] args) {
-        ArgsUtil util = ArgsUtil.create(args);
-
-        START_AT_PORT = util.equalsSign("p").getInt(-1);
-        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
-
-        Server server = new Server();
-        server.runServer();
-
-        System.out.println("**** ChatServer main() finished! ****");
-    }
-
     // setup Server Address(IP&Port) and create the ServerSocket
     private void setupServer() {
         try {
@@ -254,6 +196,22 @@ public class Server implements EnvManager {
         }
 
         System.out.println("**** setupServer() finished! ****");
+    }
+
+    private void exitServer() {
+        closeServer("");
+    }
+
+    /**
+     * Log.
+     *
+     * @param msg the msg
+     */
+    public void log(String msg) {
+        msg = StrUtils.format(msg);
+        areaLog.append(msg + "\n");
+        areaLog.setCaretPosition(areaLog.getDocument().getLength());
+        System.out.println(msg);
     }
 
     /**
@@ -298,11 +256,55 @@ public class Server implements EnvManager {
         }
     }
 
+    private void closeServer(String cause) {
+        if (players != null)
+            players.forEachItem(player -> {
+                ErrorHandler.ignore(() -> {
+                    player.disconnect(cause);
+                });
+            });
+
+        if (serverSocket != null && !serverSocket.isClosed()) {
+            ErrorHandler.ignore(() -> {
+                serverSocket.close();
+            });
+        }
+
+        log("Server Closed! " + cause);
+        serverRunOK = false;
+        if (frmWin != null)
+            SwingUtilities.invokeLater(() -> {
+                frmWin.setVisible(false);
+                frmWin.dispose(); // close GUI
+            });
+
+//        😨
+//        ThreadsManager.stopAll();
+    }
+
     //todo move to synceditems as a func
     private SyncedItems<?> prepareListForSend(SyncedItems<?> list) {
         SyncedItems<?> ret = new SyncedItems<>(list.syncedListType);
         ret.addAll(list.stream().map(SyncableItem::getSyncableItem).collect(Collectors.toList()));
         return ret.clean();
+    }
+
+    /**
+     * The entry point of the application.
+     *
+     * @param args the input arguments
+     */
+// main
+    public static void main(String[] args) {
+        ArgsUtil util = ArgsUtil.create(args);
+
+        START_AT_PORT = util.equalsSign("p").getInt(-1);
+        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
+
+        Server server = new Server();
+        server.runServer();
+
+        System.out.println("**** ChatServer main() finished! ****");
     }
 
     private void sendAllSyncedLists(PlayerNet player, SyncedItems<?>... excludeLists) {
@@ -350,14 +352,21 @@ public class Server implements EnvManager {
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         ThreadsManager.HandledThread.runInHandledThread(() -> {
+            ThreadsManager.MyThread.currentThread(t -> {
+                t.addHandler(MyError.DisconnectedError.class, e -> {
+                    playerSocket.stopReading();
+                });
+            });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
-            PlayerNet player = login(playerSocket);
-            if (player == null) {
-                playerSocket.stopReading();
-                return;
-            }
+            PlayerNet player;
+//            try {
+            player = login(playerSocket);
+//            } catch (MyError.DisconnectedError disconnectedError) {
+//                playerSocket.stopReading();
+//                return;
+//            }
 
             messagesHandler.setPlayer(player);
             players.add(player);
@@ -380,10 +389,8 @@ public class Server implements EnvManager {
     public PlayerNet login(AppSocket appSocket) {
         Message request = appSocket.requestMessage(Message.askForLogin());
         Message responseMessage = responseToLogin(request.getLoginInfo());
-        if (responseMessage == null)
-            return null;
-        while (responseMessage.getMessageType() == MessageType.ERROR) {
 
+        while (responseMessage.getMessageType() == MessageType.ERROR) {
             responseMessage.setRespondingTo(request);
             request = appSocket.requestMessage(responseMessage);
 
@@ -398,7 +405,7 @@ public class Server implements EnvManager {
         LoginInfo loginInfo = request.getLoginInfo();
 
         if (loginInfo.getLoginType() == LoginType.CANCEL)
-            return null;
+            throw new MyError.DisconnectedError();
 
         if (responseMessage.getMessageType() != MessageType.ERROR) {
             return new PlayerNet(appSocket, loginInfo);
@@ -408,7 +415,7 @@ public class Server implements EnvManager {
 
     private Message responseToLogin(LoginInfo loginInfo) {
         if (loginInfo == null)
-            return null;
+            throw new MyError.DisconnectedError();
         String username = loginInfo.getUsername();
         String password = loginInfo.getPassword();
 
@@ -551,11 +558,7 @@ public class Server implements EnvManager {
 //        }
 
         players.remove(player.getUsername());
-        List<GameInfo> del = gamePool.values()
-                .stream()
-                .filter(game -> game.creatorUsername.equals(player.getUsername()))
-                .toList();
-        del.forEach(deleting -> gamePool.remove(deleting.gameId));
+        gamePool.batchRemove(g -> g.creatorUsername.equals(player.getUsername()));
     }
 
     private void startGameVsAi(Player player, GameSettings gameSettings) {

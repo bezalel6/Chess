@@ -12,7 +12,6 @@ import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -113,13 +112,11 @@ public class PlayerNet extends Player implements SyncableItem {
 
     @Override
     public void disconnect(String cause) {
-        ErrorHandler.ignore(() -> {
-            if (socketToClient.isConnected()) {
-                socketToClient.writeMessage(Message.bye(cause));
+        if (socketToClient.isConnected()) {
+            socketToClient.writeMessage(Message.bye(cause));
 //                interrupt(new MyError.DisconnectedError(cause));
-            }
-            socketToClient.close();
-        });
+        }
+        socketToClient.close();
         if (gameSession != null) {
             gameSession.playerDisconnected(this);
         }

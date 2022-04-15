@@ -29,7 +29,6 @@ import java.util.concurrent.Executors;
  * by Ilan Peretz (ilanperets@gmail.com)  10/11/2021
  */
 
-//askilan move disconnected/resigned/... to game session
 public class Game {
     public static final int ROWS = 8;
     public static final int COLS = 8;
@@ -165,7 +164,7 @@ public class Game {
         try {
             Move move = getMove();
             GameStatus status = makeMove(move);
-            checkThrow();
+            checkStatus();
             return status;
         } catch (GameOverError error) {
             return error.gameOverStatus;
@@ -174,7 +173,6 @@ public class Game {
 
     private void switchTurn() {
         currentPlayer = currentPlayer.getPartner();
-        gameTime.startRunning(currentPlayer.getPlayerColor());
         updateDebugView();
     }
 
@@ -193,22 +191,21 @@ public class Game {
     }
 
     private Move getMove() {
+        ExecutorService gameTimeExecutor = Executors.newSingleThreadExecutor();
         try {
-            ExecutorService exec = Executors.newSingleThreadExecutor();
-            exec.submit(() -> {
+            gameTime.startRunning(currentPlayer.getPlayerColor());
+            gameTimeExecutor.submit(() -> {
                 try {
                     Thread.sleep(gameTime.getTimeLeft(currentPlayer.getPlayerColor()));
-                    if (!exec.isShutdown())
+                    if (!gameTimeExecutor.isShutdown())
                         interruptRead(GameStatus.timedOut(currentPlayer.getPlayerColor()));
                 } catch (InterruptedException e) {
                 }
             });
-            checkThrow();
+            checkStatus();
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
-            exec.shutdown();
-            exec.shutdownNow();
 
             Move finalMove = move;
             move = getMoves().stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
@@ -217,11 +214,11 @@ public class Game {
 
             return move;
         } catch (PlayerDisconnectedError error) {
+            throw new GameOverError(error.createGameStatus());
+        } finally {
             isReadingMove = false;
-            throw new GameOverError(GameStatus.playerDisconnected(error.getDisconnectedPlayer().getPlayerColor(), error.disconnectedPlayer.getPartner().isAi()));
-        } catch (MyError error) {
-            isReadingMove = false;
-            throw error;
+            gameTimeExecutor.shutdown();
+            gameTimeExecutor.shutdownNow();
         }
     }
 
@@ -238,7 +235,7 @@ public class Game {
         return move.getMoveEvaluation().getGameStatus();
     }
 
-    private void checkThrow() throws GameOverError {
+    private void checkStatus() throws GameOverError {
         if (throwErr != null) {
             throw throwErr;
         }
@@ -310,18 +307,21 @@ public class Game {
             this.disconnectedPlayer = disconnectedPlayer;
         }
 
+        public GameStatus createGameStatus() {
+            return GameStatus.playerDisconnected(disconnectedPlayer.getPlayerColor(), disconnectedPlayer.getPartner().isAi());
+        }
+
         public Player getDisconnectedPlayer() {
             return disconnectedPlayer;
         }
     }
 
+    //    todo change to throwable
     public static class GameOverError extends MyError {
 
         public final GameStatus gameOverStatus;
 
         public GameOverError(GameStatus gameOverStatus) {
-            super(ErrorType.UnKnown);
-
             this.gameOverStatus = gameOverStatus;
         }
     }

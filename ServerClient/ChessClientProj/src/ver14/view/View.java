@@ -108,7 +108,7 @@ public class View implements Iterable<BoardButton[]> {
                 setLocationRelativeTo(null);
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
-//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
+//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
             }
 
             @Override

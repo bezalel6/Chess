@@ -14,7 +14,6 @@ public class Evaluation implements Serializable {
     private PlayerColor evaluationFor;
     private Integer evaluationDepth = null;
 
-
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(0, gameStatus, evaluationFor);
         switch (gameStatus.getGameStatusType()) {
@@ -24,8 +23,6 @@ public class Evaluation implements Serializable {
         }
     }
 
-    ;
-
     public Evaluation(double eval, GameStatus gameStatus, PlayerColor evaluationFor) {
         this.eval = eval;
         this.gameStatus = gameStatus;
@@ -33,10 +30,11 @@ public class Evaluation implements Serializable {
         detailedEval = new ArrayList<>();
     }
 
+    ;
+
     public Evaluation(PlayerColor evaluationFor) {
         this(0, GameStatus.gameGoesOn(), evaluationFor);
     }
-
 
     public Evaluation(Evaluation other) {
         this(other.eval, other.gameStatus, other.evaluationFor);
@@ -44,19 +42,29 @@ public class Evaluation implements Serializable {
         this.evaluationDepth = other.evaluationDepth;
     }
 
-
     public static Evaluation book() {
         //fixme
-        return new Evaluation(PlayerColor.WHITE);
+        return new Evaluation(PlayerColor.WHITE) {{
+            addDetail(EvaluationParameters.STOCKFISH_SAYS, 1000000);
+        }};
     }
 
-    public boolean isGameOver() {
-        return gameStatus.isGameOver();
+    public void addDetail(EvaluationParameters parm, double value) {
+        eval += value;
+        detailedEval.add(new EvaluationDetail(parm, value));
+    }
+
+    public Integer getEvaluationDepth() {
+        return evaluationDepth;
     }
 
     public void setEvaluationDepth(Integer evaluationDepth) {
         this.evaluationDepth = evaluationDepth;
         gameStatus.setDepth(evaluationDepth);
+    }
+
+    public boolean isGameOver() {
+        return gameStatus.isGameOver();
     }
 
     public boolean isCheck() {
@@ -66,12 +74,6 @@ public class Evaluation implements Serializable {
     public boolean isGreaterThan(Evaluation other) {
         return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth < other.evaluationDepth) || (eval < 0 && evaluationDepth > other.evaluationDepth)));
     }
-
-    public void addDetail(EvaluationParameters parm, double value) {
-        eval += value;
-        detailedEval.add(new EvaluationDetail(parm, value));
-    }
-
 
     public double getEval() {
         return eval;

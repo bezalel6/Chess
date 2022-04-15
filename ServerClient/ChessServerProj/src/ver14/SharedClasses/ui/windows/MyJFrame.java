@@ -16,6 +16,7 @@ public class MyJFrame extends JFrame {
     private boolean isSleeping = false;
 
     public MyJFrame() throws HeadlessException {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         debugAdapter(this);
     }
 
@@ -85,6 +86,7 @@ public class MyJFrame extends JFrame {
     }
 
     public void setOnExit(boolean confirmExit, VoidCallback onClose) {
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

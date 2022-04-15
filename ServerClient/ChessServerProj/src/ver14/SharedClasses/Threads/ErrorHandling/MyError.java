@@ -1,7 +1,11 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
+import ver14.SharedClasses.Utils.StrUtils;
+
 public class MyError extends Error {
 
+    public MyError() {
+    }
 
     public MyError(Throwable throwable) {
         super(throwable);
@@ -23,9 +27,7 @@ public class MyError extends Error {
     public String toString() {
 
         return "MyError{" +
-                "" + getStackTrace()[0] + "\n" +
-//                "error=" + errToString(this) +
-                ", context=" + this.getMessage() +
+                "error=" + errToString(this) +
                 ", source=" + errToString(getCause()) +
                 '}';
     }
@@ -41,13 +43,18 @@ public class MyError extends Error {
         StringBuilder errMsg = new StringBuilder(">> " + toStr + "\n");
         for (StackTraceElement element : error.getStackTrace())
             errMsg.append(">>> ").append(element).append("\n");
-        return errMsg.toString();
+        return StrUtils.dontCapFull(errMsg.toString());
     }
 
     private String superToString() {
         return super.toString();
     }
 
+    public static class DBErr extends MyError {
+        public DBErr(Throwable throwable) {
+            super(throwable);
+        }
+    }
 
     public static class DisconnectedError extends MyError {
         public DisconnectedError() {

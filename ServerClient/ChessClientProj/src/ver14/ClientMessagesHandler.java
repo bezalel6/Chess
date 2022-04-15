@@ -51,12 +51,6 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     @Override
-    public void onDisconnected() {
-        client.disconnectedFromServer();
-        super.onDisconnected();
-    }
-
-    @Override
     public void onAnyMsg(Message message) {
         super.onAnyMsg(message);
         MessageType messageType = message.getMessageType();
@@ -74,6 +68,12 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         client.updateGameTime(message);
 
+    }
+
+    @Override
+    public void onUnplannedDisconnect() {
+        client.disconnectedFromServer();
+        super.onUnplannedDisconnect();
     }
 
     @Override

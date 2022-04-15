@@ -130,9 +130,7 @@ public class DB {
             return request.getBuilder().createResponse(rs, request);
         } catch (SQLException e) {
 //            e.printStackTrace();
-            throw new MyError(ErrorType.DB) {{
-                initCause(e);
-            }};
+            throw new MyError.DBErr(e);
         }
 
     }
