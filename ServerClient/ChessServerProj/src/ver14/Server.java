@@ -13,8 +13,11 @@ import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.*;
+import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -33,14 +36,13 @@ import java.awt.event.KeyEvent;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 
 /**
  * The type Server.
  */
-public class Server implements ErrorContext, EnvManager {
+public class Server implements EnvManager {
     /**
      * The constant SERVER_WIN_TITLE.
      */
@@ -85,7 +87,7 @@ public class Server implements ErrorContext, EnvManager {
      * Constructor for ChatServer.
      */
     public Server() {
-        ErrorManager.setEnvManager(this);
+        ThreadsManager.MyThread.setEnvManager(this);
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
             setupServer();
@@ -196,7 +198,6 @@ public class Server implements ErrorContext, EnvManager {
         System.out.println("**** setupServer() finished! ****");
     }
 
-
     private void exitServer() {
         closeServer("");
     }
@@ -256,11 +257,12 @@ public class Server implements ErrorContext, EnvManager {
     }
 
     private void closeServer(String cause) {
-        players.forEachItem(player -> {
-            ErrorHandler.ignore(() -> {
-                player.disconnect(cause);
+        if (players != null)
+            players.forEachItem(player -> {
+                ErrorHandler.ignore(() -> {
+                    player.disconnect(cause);
+                });
             });
-        });
 
         if (serverSocket != null && !serverSocket.isClosed()) {
             ErrorHandler.ignore(() -> {
@@ -270,10 +272,11 @@ public class Server implements ErrorContext, EnvManager {
 
         log("Server Closed! " + cause);
         serverRunOK = false;
-        SwingUtilities.invokeLater(() -> {
-            frmWin.setVisible(false);
-            frmWin.dispose(); // close GUI
-        });
+        if (frmWin != null)
+            SwingUtilities.invokeLater(() -> {
+                frmWin.setVisible(false);
+                frmWin.dispose(); // close GUI
+            });
 
 //        😨
 //        ThreadsManager.stopAll();
@@ -286,7 +289,6 @@ public class Server implements ErrorContext, EnvManager {
         return ret.clean();
     }
 
-
     /**
      * The entry point of the application.
      *
@@ -294,16 +296,11 @@ public class Server implements ErrorContext, EnvManager {
      */
 // main
     public static void main(String[] args) {
-        if (args.length > 0) {
-            String port = Arrays.stream(args).filter(str -> str.startsWith("p=")).findAny().orElse(null);
-            if (port != null)
-                try {
-                    START_AT_PORT = Integer.parseInt(port.substring(port.indexOf('=') + 1));
-                } catch (NumberFormatException e) {
-                    START_AT_PORT = -1;
-                }
-            Minimax.SHOW_UI = Arrays.stream(args).anyMatch(str -> str.equalsIgnoreCase("DEBUG_MINIMAX"));
-        }
+        ArgsUtil util = ArgsUtil.create(args);
+
+        START_AT_PORT = util.equalsSign("p").getInt(-1);
+        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
+
         Server server = new Server();
         server.runServer();
 
@@ -355,14 +352,21 @@ public class Server implements ErrorContext, EnvManager {
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         ThreadsManager.HandledThread.runInHandledThread(() -> {
+            ThreadsManager.MyThread.currentThread(t -> {
+                t.addHandler(MyError.DisconnectedError.class, e -> {
+                    playerSocket.stopReading();
+                });
+            });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
-            PlayerNet player = login(playerSocket);
-            if (player == null) {
-                playerSocket.stopReading();
-                return;
-            }
+            PlayerNet player;
+//            try {
+            player = login(playerSocket);
+//            } catch (MyError.DisconnectedError disconnectedError) {
+//                playerSocket.stopReading();
+//                return;
+//            }
 
             messagesHandler.setPlayer(player);
             players.add(player);
@@ -385,10 +389,8 @@ public class Server implements ErrorContext, EnvManager {
     public PlayerNet login(AppSocket appSocket) {
         Message request = appSocket.requestMessage(Message.askForLogin());
         Message responseMessage = responseToLogin(request.getLoginInfo());
-        if (responseMessage == null)
-            return null;
-        while (responseMessage.getMessageType() == MessageType.ERROR) {
 
+        while (responseMessage.getMessageType() == MessageType.ERROR) {
             responseMessage.setRespondingTo(request);
             request = appSocket.requestMessage(responseMessage);
 
@@ -403,7 +405,7 @@ public class Server implements ErrorContext, EnvManager {
         LoginInfo loginInfo = request.getLoginInfo();
 
         if (loginInfo.getLoginType() == LoginType.CANCEL)
-            return null;
+            throw new MyError.DisconnectedError();
 
         if (responseMessage.getMessageType() != MessageType.ERROR) {
             return new PlayerNet(appSocket, loginInfo);
@@ -413,7 +415,7 @@ public class Server implements ErrorContext, EnvManager {
 
     private Message responseToLogin(LoginInfo loginInfo) {
         if (loginInfo == null)
-            return null;
+            throw new MyError.DisconnectedError();
         String username = loginInfo.getUsername();
         String password = loginInfo.getPassword();
 
@@ -556,11 +558,7 @@ public class Server implements ErrorContext, EnvManager {
 //        }
 
         players.remove(player.getUsername());
-        List<GameInfo> del = gamePool.values()
-                .stream()
-                .filter(game -> game.creatorUsername.equals(player.getUsername()))
-                .toList();
-        del.forEach(deleting -> gamePool.remove(deleting.gameId));
+        gamePool.batchRemove(g -> g.creatorUsername.equals(player.getUsername()));
     }
 
     private void startGameVsAi(Player player, GameSettings gameSettings) {
@@ -595,17 +593,6 @@ public class Server implements ErrorContext, EnvManager {
     public ArrayList<String> createUsernameSuggestions(String username) {
 
         return UsernameSuggestions.createSuggestions(username);
-    }
-
-    /**
-     * Context type my error . context type.
-     *
-     * @return the my error . context type
-     */
-    @Override
-    public ContextType contextType() {
-        return null;
-//        return MyError.ContextType.Server;
     }
 
     /**

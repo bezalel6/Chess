@@ -51,12 +51,6 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     @Override
-    public void onDisconnected() {
-        client.disconnectedFromServer();
-        super.onDisconnected();
-    }
-
-    @Override
     public void onAnyMsg(Message message) {
         super.onAnyMsg(message);
         MessageType messageType = message.getMessageType();
@@ -74,6 +68,12 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         client.updateGameTime(message);
 
+    }
+
+    @Override
+    public void onUnplannedDisconnect() {
+        client.disconnectedFromServer();
+        super.onUnplannedDisconnect();
     }
 
     @Override
@@ -100,6 +100,8 @@ public class ClientMessagesHandler extends MessagesHandler {
             super.onInitGame().onMsg(message);
             client.soundManager.gameStart.play();
             synchronized (view.boardLock) {
+                view.drawFocus();
+
                 PlayerColor myColor = message.getPlayerColor();
                 assert myColor != null;
                 client.mapPlayers(myColor, message.getOtherPlayer());
@@ -125,6 +127,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onWaitTurn().onMsg(message);
             client.startOpponentTime();
+            client.enablePreMove();
         };
     }
 
@@ -133,10 +136,12 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onGetMove().onMsg(message);
 
+            client.stopPremoving();
+
             synchronized (view.boardLock) {
                 client.setLatestGetMoveMsg(message);
                 client.unlockMovableSquares(message);
-                view.getWin().toFront();
+                view.drawFocus();
                 client.startMyTime();
             }
         };
@@ -147,6 +152,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onUpdateByMove() {
         return message -> {
             super.onUpdateByMove().onMsg(message);
+            view.drawFocus();
             client.updateByMove(message.getMove());
             client.stopRunningTime();
         };

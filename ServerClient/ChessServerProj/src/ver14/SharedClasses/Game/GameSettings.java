@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class GameSettings implements Serializable {
-    public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
+    public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.ULTRA_BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
 
     private PlayerColor playerToMove;
     private TimeFormat timeFormat;
@@ -25,7 +25,7 @@ public class GameSettings implements Serializable {
     }
 
     public GameSettings(AiParameters aiParameters) {
-        this(PlayerColor.NO_PLAYER, TimeFormat.BULLET, aiParameters, GameType.CREATE_NEW);
+        this(PlayerColor.NO_PLAYER, TimeFormat.ULTRA_BULLET, aiParameters, GameType.CREATE_NEW);
     }
 
     public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, AiParameters aiParameters, GameType gameType) {
@@ -95,12 +95,12 @@ public class GameSettings implements Serializable {
 
     public void initDefault1vAi() {
         initDefault1v1();
-        setAiParameters(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(2000)));
+        setAiParameters(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(3500)));
     }
 
     public void initDefault1v1() {
         setPlayerToMove(PlayerColor.NO_PLAYER);
-        setTimeFormat(TimeFormat.NORMAl);
+        setTimeFormat(TimeFormat.RAPID);
         setGameType(GameSettings.GameType.CREATE_NEW);
         setAiParameters(null);
         setFen(null);

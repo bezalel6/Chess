@@ -1,6 +1,8 @@
 package ver14.game;
 
 import ver14.Model.Model;
+import ver14.Model.MoveGenerator.GenerationSettings;
+import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
@@ -9,15 +11,17 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
+import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
-import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Stack;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Game.
@@ -25,7 +29,6 @@ import java.util.Stack;
  * by Ilan Peretz (ilanperets@gmail.com)  10/11/2021
  */
 
-//askilan move disconnected/resigned/... to game session
 public class Game {
     public static final int ROWS = 8;
     public static final int COLS = 8;
@@ -38,11 +41,11 @@ public class Game {
     private Stack<Move> moveStack;
     private GameSettings gameSettings;
     private GameTime gameTime;
-    private GameTimer timer;
     private Player currentPlayer;
     private boolean isReadingMove = false;
     private PlayerColor creatorColor = null;
     private boolean clearMoveStack = true;
+    private GameOverError throwErr = null;
 
     public Game(Player gameCreator, Player p2, GameSettings gameSettings, GameSession session) {
         this.session = session;
@@ -53,7 +56,6 @@ public class Game {
         this.moveStack = new Stack<>();
         this.model = new Model();
         this.gameView = showGameView ? new GameView() : null;
-        this.timer = new GameTimer();
         setPartners();
     }
 
@@ -117,16 +119,12 @@ public class Game {
     private GameStatus runGame() {
         GameStatus gameOverStatus;
         while (true) {
-            try {
-                GameStatus gameStatus = playTurn();
-                if (gameStatus.isGameOver()) {
-                    gameOverStatus = gameStatus;
-                    break;
-                }
-                switchTurn();
-            } catch (Exception e) {
-                System.out.println("ohno " + e);
+            GameStatus gameStatus = playTurn();
+            if (gameStatus.isGameOver()) {
+                gameOverStatus = gameStatus;
+                break;
             }
+            switchTurn();
         }
         onGameOver();
         session.log("game over. " + gameOverStatus);
@@ -165,7 +163,9 @@ public class Game {
         currentPlayer.getPartner().waitTurn();
         try {
             Move move = getMove();
-            return makeMove(move);
+            GameStatus status = makeMove(move);
+            checkStatus();
+            return status;
         } catch (GameOverError error) {
             return error.gameOverStatus;
         }
@@ -173,7 +173,6 @@ public class Game {
 
     private void switchTurn() {
         currentPlayer = currentPlayer.getPartner();
-        gameTime.startRunning(currentPlayer.getPlayerColor());
         updateDebugView();
     }
 
@@ -192,22 +191,34 @@ public class Game {
     }
 
     private Move getMove() {
+        ExecutorService gameTimeExecutor = Executors.newSingleThreadExecutor();
         try {
-            timer.startRunning(currentPlayer.getPlayerColor());
+            gameTime.startRunning(currentPlayer.getPlayerColor());
+            gameTimeExecutor.submit(() -> {
+                try {
+                    Thread.sleep(gameTime.getTimeLeft(currentPlayer.getPlayerColor()));
+                    if (!gameTimeExecutor.isShutdown())
+                        interruptRead(GameStatus.timedOut(currentPlayer.getPlayerColor()));
+                } catch (InterruptedException e) {
+                }
+            });
+            checkStatus();
             isReadingMove = true;
             Move move = currentPlayer.getMove();
             isReadingMove = false;
-            timer.stopRunning();
+
+            Move finalMove = move;
+            move = getMoves().stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
+
             session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
-            move.setMovingColor(currentPlayer.getPlayerColor());
             return move;
         } catch (PlayerDisconnectedError error) {
+            throw new GameOverError(error.createGameStatus());
+        } finally {
             isReadingMove = false;
-            throw new GameOverError(GameStatus.playerDisconnected(error.getDisconnectedPlayer().getPlayerColor(), error.disconnectedPlayer.getPartner().isAi()));
-        } catch (MyError error) {
-            isReadingMove = false;
-            throw error;
+            gameTimeExecutor.shutdown();
+            gameTimeExecutor.shutdownNow();
         }
     }
 
@@ -222,6 +233,24 @@ public class Game {
         currentPlayer.getPartner().updateByMove(move);
 
         return move.getMoveEvaluation().getGameStatus();
+    }
+
+    private void checkStatus() throws GameOverError {
+        if (throwErr != null) {
+            throw throwErr;
+        }
+    }
+
+    void interruptRead(GameStatus status) {
+        GameOverError err = new Game.GameOverError(status);
+        if (isReadingMove) {
+            currentPlayer.interrupt(err);
+        } else throwErr = err;
+
+    }
+
+    public MovesList getMoves() {
+        return MoveGenerator.generateMoves(model, GenerationSettings.annotate).getCleanList();
     }
 
     private boolean checkTimeOut() {
@@ -265,17 +294,10 @@ public class Game {
         session.log(player + " offered a draw");
         player.getPartner().drawOffered(ans -> {
             session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
-
-            interruptRead(GameStatus.tieByAgreement());
+            if (ans == Question.Answer.ACCEPT) {
+                interruptRead(GameStatus.tieByAgreement());
+            }
         });
-    }
-
-    void interruptRead(GameStatus status) {
-        MyError err = new Game.GameOverError(status);
-        if (isReadingMove) {
-            currentPlayer.interrupt(err);
-        } else throw err;
-
     }
 
     public static class PlayerDisconnectedError extends MyError.DisconnectedError {
@@ -285,50 +307,23 @@ public class Game {
             this.disconnectedPlayer = disconnectedPlayer;
         }
 
+        public GameStatus createGameStatus() {
+            return GameStatus.playerDisconnected(disconnectedPlayer.getPlayerColor(), disconnectedPlayer.getPartner().isAi());
+        }
+
         public Player getDisconnectedPlayer() {
             return disconnectedPlayer;
         }
     }
 
+    //    todo change to throwable
     public static class GameOverError extends MyError {
 
         public final GameStatus gameOverStatus;
 
         public GameOverError(GameStatus gameOverStatus) {
-            super(ErrorType.UnKnown);
-
             this.gameOverStatus = gameOverStatus;
         }
     }
 
-    class GameTimer extends ThreadsManager.MyThread {
-        private PlayerColor playerColor;
-
-        @Override
-        protected void handledRun() throws Throwable {
-            while (true) {
-                wait();
-                try {
-                    sleep(gameTime.getTimeLeft(playerColor));
-                    interruptRead(GameStatus.tieByAgreement());
-                } catch (InterruptedException e) {
-
-                }
-
-            }
-
-        }
-
-        public void startRunning(PlayerColor playerColor) {
-            this.playerColor = playerColor;
-            gameTime.startRunning(playerColor);
-            synchronized (this) {
-                notify();
-            }
-        }
-
-        public void stopRunning() {
-            interrupt();
-        }
-    }
 }

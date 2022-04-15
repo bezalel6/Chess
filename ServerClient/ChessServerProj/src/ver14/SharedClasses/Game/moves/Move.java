@@ -5,7 +5,6 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 
 
@@ -13,14 +12,15 @@ public class Move extends BasicMove implements Comparable<Move> {
     private static final PieceType NOT_CAPTURING = null;
     BasicMove intermediateMove;
 
-    //    private int flags;
+    private MovesList creatorList = null;
+    private String moveAnnotation = null;
     private ThreefoldStatus threefoldStatus;
     private PieceType capturingPieceType;
     private Location enPassantLoc;
     private PieceType promotingTo;
     private boolean isReversible;
     private Evaluation moveEvaluation;
-    private MoveType moveType;
+    private MoveFlag moveFlag;
     private PlayerColor movingPlayerColor;
     private byte disabledCastling;
     private int prevFullMoveClock;
@@ -37,7 +37,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.capturingPieceType = NOT_CAPTURING;
         this.intermediateMove = null;
         this.promotingTo = null;
-        this.moveType = MoveType.NormalMove;
+        this.moveFlag = MoveFlag.NormalMove;
         this.disabledCastling = 0;
         this.threefoldStatus = ThreefoldStatus.NONE;
     }
@@ -49,11 +49,13 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public Move(Move other) {
         super(other);
+        this.moveAnnotation = other.moveAnnotation;
+//        this.creatorList = other.creatorList;
         this.disabledCastling = other.disabledCastling;
         this.movingPlayerColor = other.movingPlayerColor;
         this.capturingPieceType = other.capturingPieceType;
         this.promotingTo = other.promotingTo;
-        this.moveType = other.moveType;
+        this.moveFlag = other.moveFlag;
         this.isReversible = other.isReversible;
         this.prevHalfMoveClock = other.prevHalfMoveClock;
         this.prevFullMoveClock = other.prevFullMoveClock;
@@ -69,7 +71,7 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public static Move castling(Location movingFrom, Location movingTo, CastlingRights.Side side) {
         Move move = new Move(movingFrom, movingTo);
-        move.setMoveFlag(MoveType.CASTLING_FLAGS[side.asInt]);
+        move.setMoveFlag(MoveFlag.CASTLING_FLAGS[side.asInt]);
         Location rookOrigin = Location.getLoc(movingFrom.row, side.rookStartingCol);
         Location rookDestination = Location.getLoc(movingFrom.row, side.castledRookCol);
         assert rookOrigin != null && rookDestination != null;
@@ -92,6 +94,18 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     public static Move copyMove(Move move) {
         return new Move(move);
+    }
+
+    public MovesList getCreatorList() {
+        return creatorList;
+    }
+
+    public void setCreatorList(MovesList creatorList) {
+        this.creatorList = creatorList;
+    }
+
+    public void setMoveAnnotation(String moveAnnotation) {
+        this.moveAnnotation = moveAnnotation;
     }
 
     public byte getDisabledCastling() {
@@ -135,7 +149,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public void setPromotingTo(PieceType promotingTo) {
-        this.moveType = MoveType.Promotion;
+        this.moveFlag = MoveFlag.Promotion;
         this.promotingTo = promotingTo;
     }
 
@@ -176,9 +190,10 @@ public class Move extends BasicMove implements Comparable<Move> {
         return isReversible;
     }
 
-    public void setReversible(Piece movingPiece) {
-        isReversible = !(isCapturing() || movingPiece.pieceType == PieceType.PAWN);
+    public void setReversible(boolean reversible) {
+        isReversible = reversible;
     }
+
 
     public boolean isCapturing() {
         return capturingPieceType != NOT_CAPTURING;
@@ -191,9 +206,8 @@ public class Move extends BasicMove implements Comparable<Move> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Move move = (Move) o;
-        return super.equals(move);
+        return o instanceof BasicMove basicMove && super.equals(basicMove);
+
     }
 
     @Override
@@ -202,7 +216,19 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     public String getAnnotation() {
-        return MoveAnnotation.annotate(this);
+        return moveAnnotation == null ? MoveAnnotation.basicAnnotate(this) : moveAnnotation;
+    }
+
+    public boolean strictEquals(Move move) {
+        return super.equals(move) && move.getMoveFlag().equals(this, move);
+    }
+
+    public MoveFlag getMoveFlag() {
+        return moveFlag;
+    }
+
+    public void setMoveFlag(MoveFlag moveFlag) {
+        this.moveFlag = moveFlag;
     }
 
     @Override
@@ -229,11 +255,11 @@ public class Move extends BasicMove implements Comparable<Move> {
             if (moveEvaluation != null && moveEvaluation.isCheck())
                 ret += 100000000;
         }
-        if (moveType == MoveType.Promotion) {
+        if (moveFlag == MoveFlag.Promotion) {
             ret += 5 * promotingTo.value;
-        } else if (moveType == MoveType.EnPassant) {
+        } else if (moveFlag == MoveFlag.EnPassant) {
             ret += 0.00001;
-        } else if (moveType.isCastling) {
+        } else if (moveFlag.isCastling) {
             ret += 5;
         }
         ret /= 100000;
@@ -244,14 +270,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
-    public MoveType getMoveFlag() {
-        return moveType;
-    }
-
-    public void setMoveFlag(MoveType moveType) {
-        this.moveType = moveType;
-    }
-
     public Location getEnPassantLoc() {
         return enPassantLoc;
     }
@@ -260,9 +278,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         enPassantLoc = epsnLoc;
     }
 
-    public void setNotReversible() {
-        isReversible = false;
-    }
 
     public ThreefoldStatus getThreefoldStatus() {
         return threefoldStatus;
@@ -272,16 +287,25 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.threefoldStatus = threefoldStatus;
     }
 
+    public String getGameStatusStr() {
+        return moveEvaluation != null ? moveEvaluation.getGameStatus().getGameStatusType().annotation : "";
+    }
+
     public enum ThreefoldStatus {
         NONE, CAN_CLAIM, CLAIMED;
     }
 
-    public enum MoveType {
-        NormalMove, EnPassant, DoublePawnPush, Promotion, ShortCastle(CastlingRights.Side.KING), LongCastle(CastlingRights.Side.QUEEN);
-        public final static MoveType[] CASTLING_FLAGS;
+    public enum MoveFlag {
+        NormalMove, EnPassant, DoublePawnPush, Promotion {
+            @Override
+            public boolean equals(Move myMove, Move otherMove) {
+                return super.equals(myMove, otherMove) && myMove.getPromotingTo() == otherMove.getPromotingTo();
+            }
+        }, ShortCastle(CastlingRights.Side.KING), LongCastle(CastlingRights.Side.QUEEN);
+        public final static MoveFlag[] CASTLING_FLAGS;
 
         static {
-            CASTLING_FLAGS = new MoveType[CastlingRights.Side.SIDES.length];
+            CASTLING_FLAGS = new MoveFlag[CastlingRights.Side.SIDES.length];
             for (CastlingRights.Side side : CastlingRights.Side.SIDES) {
                 CASTLING_FLAGS[side.asInt] = side == CastlingRights.Side.KING ? ShortCastle : LongCastle;
             }
@@ -290,14 +314,19 @@ public class Move extends BasicMove implements Comparable<Move> {
         public final boolean isCastling;
         public final CastlingRights.Side castlingSide;
 
-        MoveType() {
+        MoveFlag() {
             this(null);
         }
 
-        MoveType(CastlingRights.Side side) {
+        MoveFlag(CastlingRights.Side side) {
             this.isCastling = side != null;
             this.castlingSide = side;
         }
+
+        public boolean equals(Move myMove, Move otherMove) {
+            return otherMove.getMoveFlag() == this;
+        }
+
     }
 
 }

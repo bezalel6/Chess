@@ -43,9 +43,15 @@ public class Tests implements ITest {
     protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
-//        dummyPlayerNet();
-        minimaxVsStockfish();
+        var x = new Object() {
+            void aa() {
+                System.out.println("yo mamma");
+            }
+        };
+        x.aa();
+//        minimaxVsStockfish();
     }
+
 
     private static void minimaxVsStockfish() {
         Game.showGameView = true;

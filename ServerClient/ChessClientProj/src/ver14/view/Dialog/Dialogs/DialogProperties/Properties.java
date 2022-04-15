@@ -4,14 +4,14 @@ import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.networking.AppSocket;
+import ver14.SharedClasses.ui.windows.MyJFrame;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class Properties {
     private final LoginInfo loginInfo;
     private final AppSocket socketToServer;
-    private final JFrame parentWin;
+    private final MyJFrame parentWin;
     private final Details details;
     private Container contentPane;
     private Config<?> argConfig;
@@ -20,7 +20,7 @@ public class Properties {
         this(null, null, null, details);
     }
 
-    public Properties(LoginInfo loginInfo, AppSocket socketToServer, JFrame parentWin,
+    public Properties(LoginInfo loginInfo, AppSocket socketToServer, MyJFrame parentWin,
                       Details details) {
         this.loginInfo = loginInfo;
         this.socketToServer = socketToServer;
@@ -52,7 +52,7 @@ public class Properties {
         return socketToServer;
     }
 
-    public JFrame parentWin() {
+    public MyJFrame parentWin() {
         return parentWin;
     }
 

@@ -5,7 +5,6 @@ package ver14.DB;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
@@ -23,7 +22,6 @@ import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.RegEx;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Utils.StrUtils;
 
@@ -131,9 +129,7 @@ public class DB {
             return request.getBuilder().createResponse(rs, request);
         } catch (SQLException e) {
 //            e.printStackTrace();
-            throw new MyError(ErrorType.DB) {{
-                initCause(e);
-            }};
+            throw new MyError.DBErr(e);
         }
 
     }
@@ -155,7 +151,9 @@ public class DB {
     public static void main(String[] args) {
         try {
 
-            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
+//            addUser("testing", "123456");
+
+//            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
 
 //            clearGames();
 
@@ -175,6 +173,22 @@ public class DB {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void addUser(String un, String pw) {
+        insert(Table.Users, un, pw);
+    }
+
+    private static void insert(Table table, String... values) {
+        insertAtDate(table, new Date(), values);
+    }
+
+    private static void insertAtDate(Table table, Date date, String... values) {
+        Object[] vals = new ArrayList<>(List.of(values)) {{
+            add((date.getTime() / 1000) + "");
+        }}.toArray();
+        assert vals.length == table.cols.length;
+        runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
     }
 
     public static void clearGames() {
@@ -260,22 +274,6 @@ public class DB {
 
     public static void printTable(Table table) {
         System.out.println(select(table, null));
-    }
-
-    public static void addUser(String un, String pw) {
-        insert(Table.Users, un, pw);
-    }
-
-    private static void insertAtDate(Table table, Date date, String... values) {
-        Object[] vals = new ArrayList<>(List.of(values)) {{
-            add((date.getTime() / 1000) + "");
-        }}.toArray();
-        assert vals.length == table.cols.length;
-        runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
-    }
-
-    private static void insert(Table table, String... values) {
-        insertAtDate(table, new Date(), values);
     }
 
     private static String stringify(Serializable obj) {

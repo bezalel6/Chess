@@ -24,7 +24,7 @@ public class PreMadeRequest {
         Arg un = builder.args[0];
         return new Variation("Games from last week", new Object[]{un.repInStr, new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), new Date()}, new Arg[]{un});
     });
-    public static final PreMadeRequest deleteUnfGames = new PreMadeRequest(RequestBuilder::deleteAllUnFinishedGames, AuthSettings.USER);
+    public static final PreMadeRequest DeleteUnfGames = new PreMadeRequest(RequestBuilder::deleteAllUnFinishedGames, AuthSettings.USER);
     public static final PreMadeRequest StatsByTimeOfDay = new PreMadeRequest(RequestBuilder::statsByTimeOfDay, AuthSettings.USER);
 
     public static final PreMadeRequest ChangeProfilePic = new PreMadeRequest(RequestBuilder::changeProfilePic, AuthSettings.USER);

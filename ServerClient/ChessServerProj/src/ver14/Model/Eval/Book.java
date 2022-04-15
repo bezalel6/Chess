@@ -1,14 +1,12 @@
 package ver14.Model.Eval;
 
 import ver14.Model.Model;
-import ver14.SharedClasses.Game.moves.Move;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Book {
     private final static String pathToBook = "src/assets/GameInfo/Book/Games.txt";
@@ -47,12 +45,7 @@ public class Book {
 
     public static String getBookMove(Model model) {
         try {
-            Stack<Move> moves = model.getMoveStack();
-            StringBuilder completePgn = new StringBuilder();
-            for (Move move : moves) {
-                String moveStr = move.getAnnotation().trim();
-                completePgn.append(moveStr).append(" ");
-            }
+            StringBuilder completePgn = new StringBuilder(model.getPGN());
             Scanner scanner = new Scanner(book);
             ArrayList<String> bookMoves = new ArrayList<>();
             while (scanner.hasNextLine()) {

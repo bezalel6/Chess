@@ -12,6 +12,7 @@ import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.players.Player;
@@ -29,7 +30,6 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     private final Game game;
     private final Player creator;
     private final Player p2;
-    private boolean isPlaying = false;
 
     public GameSession(UnfinishedGame unfinishedGame, Player creator, Player otherPlayer, Server server) {
         this((EstablishedGameInfo) unfinishedGame, creator, otherPlayer, server);
@@ -54,6 +54,12 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
         this.p2 = p2;
         game = new Game(creator, p2, gameSettings, this);
         game.forEachPlayer(p -> p.setGameSession(this));
+
+        addHandler(MyError.DisconnectedError.class, e -> {
+            if (e instanceof Game.PlayerDisconnectedError playerDisconnected) {
+                game.interruptRead(playerDisconnected.createGameStatus());
+            } else throw new MyError(e);
+        });
     }
 
     public Game getGame() {
@@ -175,10 +181,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
     }
 
     public void playerDisconnected(Player player) {
-        try {
-            game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
-        } catch (Exception e) {
-        }
+        game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
     }
 
     @Override

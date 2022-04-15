@@ -155,7 +155,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
         if (blockBoard) {
             Shape shape = new Rectangle(0, 0, jlayer.getWidth(), jlayer.getHeight());
             g2.setStroke(new BasicStroke(1));
-            g2.setColor(new Color(0, 0, 0, 50));
+            g2.setColor(new Color(0, 0, 0, (int) (255 * 0.2)));
             g2.fill(shape);
         }
     }
@@ -271,24 +271,26 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 }
                 break;
             case MouseEvent.MOUSE_RELEASED:
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    BoardButton currentlyAbove = getBtn(mouseCoordinates);
-                    stopDragging(currentlyAbove);
-                    if (currentlyAbove.canMoveTo())
-                        currentlyAbove.clickMe();
+                BoardButton currentlyAbove = getBtn(mouseCoordinates);
+                stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
+                switch (e.getButton()) {
+                    case MouseEvent.BUTTON1 -> {
+//                        if (currentlyAbove.canMoveTo())
+//                            currentlyAbove.clickMe();
 
-                } else if (e.getButton() == MouseEvent.BUTTON3) {
-                    if (isSameBtn(btn) && isDrawing)
-                        view.highLightButton(btn);
-                    stopDrawingArrows();
-
-                } else {
-                    clearAllArrows();
-                    view.resetSelectedButtons();
+                        clearAllArrows();
+                        view.resetSelectedButtons();
+                    }
+                    case MouseEvent.BUTTON3 -> {
+                        if (isSameBtn(btn) && isDrawing)
+                            btn.toggleSelected();
+                        stopDrawingArrows();
+                    }
                 }
                 break;
         }
     }
+
 
     public void stopDrawingArrows() {
         if (isDrawing) {
@@ -313,10 +315,10 @@ public class BoardOverlay extends LayerUI<JPanel> {
         isDrawing = true;
     }
 
-    private void stopDragging(BoardButton currentlyHoveringOver) {
+    private void stopDragging(BoardButton currentlyHoveringOver, boolean doClick) {
         if (isDragging()) {
             if (currentDragging != currentlyHoveringOver) {
-                if (currentlyHoveringOver.isEnabled())
+                if (currentlyHoveringOver.isEnabled() && doClick)
                     currentlyHoveringOver.clickMe();
                 else
                     currentDragging.clickMe();

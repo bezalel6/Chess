@@ -7,6 +7,7 @@ import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.RegisterUsernamePnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
+import ver14.view.IconManager.Size;
 
 public class Register extends LoginCard {
 
@@ -21,4 +22,9 @@ public class Register extends LoginCard {
 
     }
 
+
+    @Override
+    public Size getPreferredSize() {
+        return new Size(400, 300);
+    }
 }

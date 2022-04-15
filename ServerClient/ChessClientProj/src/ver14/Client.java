@@ -11,15 +11,18 @@ import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
+import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.LoginInfo;
 import ver14.SharedClasses.LoginType;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
@@ -37,9 +40,11 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
 import ver14.view.View;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -55,6 +60,10 @@ public class Client implements EnvManager {
     private static final int SERVER_DEFAULT_PORT = 1234;
     private static final String teacherIP = "192.168.21.239";
     private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
+
+
+    private static String START_AT_ADDRESS = null;
+
     public final SoundManager soundManager;
     // for GUI
     private View view;
@@ -64,7 +73,7 @@ public class Client implements EnvManager {
     private String serverIP;
     private AppSocket clientSocket;
     private PlayerColor myColor;
-    private ArrayList<Move> possibleMoves = null;
+    private MovesList possibleMoves = null;
     private ViewLocation firstClickLoc;
     private Message lastGetMoveMsg;
     private LoginInfo loginInfo;
@@ -72,12 +81,14 @@ public class Client implements EnvManager {
     private boolean isClosing = false;
 
     private Map<PlayerColor, String> playerUsernames = new HashMap<>();
+    private boolean isPremoving = false;
+    private boolean isGettingMove = false;
 
     /**
      * Constractor for Chat Client.
      */
     public Client() {
-        ErrorManager.setEnvManager(this);
+        ThreadsManager.MyThread.setEnvManager(this);
         soundManager = new SoundManager();
         setupClientGui();
         setupClient();
@@ -90,6 +101,9 @@ public class Client implements EnvManager {
      */
 // main
     public static void main(String[] args) {
+        ArgsUtil util = ArgsUtil.create(args);
+        START_AT_ADDRESS = util.equalsSign("address").getString();
+
         Client client = new Client();
         client.runClient();
     }
@@ -117,25 +131,33 @@ public class Client implements EnvManager {
         view = new View(this);
     }
 
+    private String showServerAddressDialog() throws UnknownHostException {
+        // set the Server Address (DEFAULT IP&PORT)
+        serverPort = SERVER_DEFAULT_PORT;
+        serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
+        Properties properties = dialogProperties("Server Address");
+        String desc = "Enter SERVER Address";
+        Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
+        Config<String> config = new Config<>(desc, defaultValue);
+        config.addSuggestion(Described.d(teacherAddress, "teacher address"));
+        properties.setArgConfig(config);
+
+        InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
+        return inputDialog.getInput();
+    }
+
     /**
      * Sets client.
      */
     public void setupClient() {
         try {
 
-            // set the Server Address (DEFAULT IP&PORT)
-            serverPort = SERVER_DEFAULT_PORT;
-            serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
-            Properties properties = dialogProperties("Server Address");
-            String desc = "Enter SERVER Address";
-            Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
-            Config<String> config = new Config<>(desc, defaultValue);
-            config.addSuggestion(Described.d(teacherAddress, "teacher address"));
-            properties.setArgConfig(config);
-
-            InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
-
-            String serverAddress = inputDialog.getInput();
+            String serverAddress;
+            if (StrUtils.isEmpty(START_AT_ADDRESS)) {
+                serverAddress = showServerAddressDialog();
+            } else {
+                serverAddress = START_AT_ADDRESS;
+            }
 
             // check if Cancel button was pressed
             if (serverAddress == null) {
@@ -247,6 +269,7 @@ public class Client implements EnvManager {
     }
 
     void unlockMovableSquares(Message message) {
+        this.isGettingMove = true;
         possibleMoves = message.getPossibleMoves();
         unlockPossibleMoves();
     }
@@ -261,6 +284,15 @@ public class Client implements EnvManager {
      */
     void hideQuestionPnl() {
         view.getSidePanel().askPlayerPnl.showPnl(false);
+    }
+
+    public void enablePreMove() {
+//        isPremoving = true;
+//        view.enableSources(PremovesGenerator.generatePreMoves(view.getBoardPnl().createBoard(), getMyColor()));
+    }
+
+    public PlayerColor getMyColor() {
+        return myColor;
     }
 
     /**
@@ -301,41 +333,38 @@ public class Client implements EnvManager {
     /**
      * Board button pressed.
      *
-     * @param loc the loc
+     * @param clickedLoc the clickedLoc
      */
-    public void boardButtonPressed(ViewLocation loc) {
+    public void boardButtonPressed(ViewLocation clickedLoc) {
         if (possibleMoves != null) {
             view.resetBackground();
             view.enableAllSquares(false);
-            Move completeMove = getMoveFromDest(loc);
+            BasicMove basicMove = null;
+            Move completeMove = null;
+            if (firstClickLoc != null) {
+                basicMove = new BasicMove(firstClickLoc.originalLocation, clickedLoc.originalLocation);
+                completeMove = possibleMoves.findMove(basicMove);
+            }
             if (completeMove != null) {
-                if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
-                    completeMove.setPromotingTo(showPromotionDialog(myColor));
+                if (completeMove.getMoveFlag() == Move.MoveFlag.Promotion) {
+                    PieceType promotingTo = showPromotionDialog(myColor);
+                    completeMove = possibleMoves.findMove(basicMove, m -> m.getPromotingTo() == promotingTo);
+                    assert completeMove != null;
                 }
                 returnMove(completeMove);
                 firstClickLoc = null;
-            } else if (loc.equals(firstClickLoc)) {
+            } else if (clickedLoc.equals(firstClickLoc)) {
                 unlockPossibleMoves();
                 firstClickLoc = null;
             } else {
-                firstClickLoc = loc;
+                firstClickLoc = clickedLoc;
                 view.colorCurrentPiece(firstClickLoc.originalLocation);
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
-                        .filter(move -> move.getMovingFrom().equals(loc.originalLocation))
+                        .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))
                         .collect(Collectors.toCollection(ArrayList::new)));
             }
         }
-    }
-
-    private Move getMoveFromDest(ViewLocation clickedOn) {
-        if (firstClickLoc == null)
-            return null;
-        return possibleMoves.stream()
-                .filter(move ->
-                        move.getMovingFrom().equals(firstClickLoc.originalLocation) &&
-                                move.getMovingTo().equals(clickedOn.originalLocation))
-                .findAny().orElse(null);
     }
 
     /**
@@ -349,17 +378,9 @@ public class Client implements EnvManager {
     }
 
     private void returnMove(Move move) {
+        this.isGettingMove = false;
         updateByMove(move);
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
-    }
-
-    /**
-     * Update by move.
-     *
-     * @param move the move
-     */
-    public void updateByMove(Move move) {
-        updateByMove(move, true);
     }
 
 //    private void initGame(Message message) {
@@ -370,12 +391,21 @@ public class Client implements EnvManager {
     /**
      * Update by move.
      *
+     * @param move the move
+     */
+    public void updateByMove(Move move) {
+        updateByMove(move, true);
+    }
+
+    /**
+     * Update by move.
+     *
      * @param move        the move
      * @param moveEffects the move effects: sound and color
      */
     public void updateByMove(Move move, boolean moveEffects) {
         view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
             view.setBtnPiece(move.getMovingFrom(), piece);
         }
@@ -433,7 +463,6 @@ public class Client implements EnvManager {
      * Disconnect from server.
      */
     public void disconnectFromServer() {
-
         if (clientSocket != null && clientSocket.isConnected()) {
             clientSocket.requestMessage(Message.bye(""), response -> {
                 view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
@@ -574,7 +603,7 @@ public class Client implements EnvManager {
     }
 
     public void delUnf() {
-        request(PreMadeRequest.deleteUnfGames);
+        request(PreMadeRequest.DeleteUnfGames);
 
     }
 
@@ -614,5 +643,16 @@ public class Client implements EnvManager {
      */
     public String getUsername() {
         return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
+    }
+
+    public void stopPremoving() {
+
+    }
+
+    public void makeRandomMove() {
+        if (!isGettingMove)
+            return;
+        var lst = lastGetMoveMsg.getPossibleMoves();
+        returnMove(lst.get(new Random().nextInt(lst.size())));
     }
 }

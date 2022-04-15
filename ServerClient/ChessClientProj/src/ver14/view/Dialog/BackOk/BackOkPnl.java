@@ -1,4 +1,4 @@
-package ver14.view.Dialog.Dialogs;
+package ver14.view.Dialog.BackOk;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.FontManager;
@@ -40,13 +40,15 @@ public class BackOkPnl extends JPanel {
     }
 
     public void enableOk(boolean enable) {
-        ok.setEnabled(enable);
+        if (ok != null)
+            ok.setEnabled(enable);
 //        if (enable)
 //            ok.requestFocus();
     }
 
     public void enableBack(boolean enable) {
-        back.setEnabled(enable);
+        if (back != null)
+            back.setEnabled(enable);
     }
 
 }

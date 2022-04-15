@@ -1,8 +1,6 @@
 package ver14.players.PlayerNet;
 
 import ver14.DB.DB;
-import ver14.Model.MoveGenerator.GenerationSettings;
-import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
@@ -14,15 +12,12 @@ import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 import ver14.SharedClasses.networking.AppSocket;
 import ver14.game.Game;
 import ver14.players.Player;
-
-import java.util.ArrayList;
 
 /**
  * PlayerNet.
@@ -74,7 +69,7 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public Move getMove() {
         // with socket do...
-        ArrayList<Move> moves = MoveGenerator.generateMoves(game.getModel(), GenerationSettings.evalEachMove).getCleanList();
+        var moves = game.getMoves();
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {
@@ -117,16 +112,14 @@ public class PlayerNet extends Player implements SyncableItem {
 
     @Override
     public void disconnect(String cause) {
-        ErrorHandler.ignore(() -> {
-            if (socketToClient.isConnected()) {
-                socketToClient.writeMessage(Message.bye(cause));
-                if (gameSession != null) {
-                    gameSession.playerDisconnected(this);
-                }
+        if (socketToClient.isConnected()) {
+            socketToClient.writeMessage(Message.bye(cause));
 //                interrupt(new MyError.DisconnectedError(cause));
-                socketToClient.close();
-            }
-        });
+        }
+        socketToClient.close();
+        if (gameSession != null) {
+            gameSession.playerDisconnected(this);
+        }
     }
 
     @Override

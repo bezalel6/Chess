@@ -91,7 +91,7 @@ public class AttackedSquares {
     }
 
     private boolean isAttacked(Location loc) {
-        PieceType[] piece_types = PieceType.PIECE_TYPES;
+        PieceType[] piece_types = PieceType.ATTACKING_PIECE_TYPES;
         this.checkingAttacked = loc;
         for (PieceType pieceType : piece_types) {
             attack(pieceType);

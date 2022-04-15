@@ -1,41 +1,48 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
-import java.util.ArrayList;
+import ver14.SharedClasses.Threads.ThreadsManager;
 
 /**
  * The interface Error handler.
+ *
+ * @param <E> the type parameter
  */
-public interface ErrorHandler {
-    ArrayList<Long> dontThrowIds = new ArrayList<>();
+public interface ErrorHandler<E extends MyError> {
+
 
     /**
-     * catches anything that might get thrown
+     * Ignore boolean.
      *
      * @param runnable the runnable
-     * @return did the runnable throw
+     * @return true if the runnable threw, false otherwise
      */
     static boolean ignore(ThrowingRunnable runnable) {
-        boolean ret;
-        synchronized (dontThrowIds) {
-            dontThrowIds.add(Thread.currentThread().getId());
+
+        Thread currentThread = Thread.currentThread();
+        ThreadsManager.MyThread myThread = null;
+        if (currentThread instanceof ThreadsManager.MyThread m) {
+            myThread = m;
+            myThread.ignoreErrs();
         }
+
+        boolean ret;
         try {
             runnable.run();
             ret = false;
         } catch (Throwable t) {
             ret = true;
         }
-        synchronized (dontThrowIds) {
-            dontThrowIds.remove(Thread.currentThread().getId());
-        }
+        if (myThread != null)
+            myThread.reactivateErrs();
         return ret;
+
+
     }
 
-    static boolean canThrow() {
-        synchronized (dontThrowIds) {
-            return !dontThrowIds.contains(Thread.currentThread().getId());
-        }
-    }
-
+    /**
+     * Handle.
+     *
+     * @param err the err
+     */
     void handle(MyError err);
 }

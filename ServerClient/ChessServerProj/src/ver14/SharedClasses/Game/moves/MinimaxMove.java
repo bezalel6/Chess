@@ -9,19 +9,12 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
     private Move move;
     private Evaluation moveEvaluation;
     private int moveDepth;
-    private boolean completeSearch = true;
-    private boolean isMax;
 
-    public MinimaxMove(Move move, Evaluation moveEvaluation, int moveDepth) {
-        this(move, moveEvaluation, moveDepth, true);
-    }
-
-    public MinimaxMove(Move move, Evaluation moveEvaluation, int moveDepth, boolean isMax) {
+    public MinimaxMove(Move move, Evaluation moveEvaluation) {
         if (moveEvaluation != null)
             this.moveEvaluation = new Evaluation(moveEvaluation);
         this.move = Move.copyMove(move);
-        this.moveDepth = moveDepth;
-        this.isMax = isMax;
+        this.moveDepth = moveEvaluation == null || moveEvaluation.getEvaluationDepth() == null ? -1 : moveEvaluation.getEvaluationDepth();
     }
 
     public MinimaxMove(Evaluation moveEvaluation) {
@@ -33,25 +26,11 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
         move = Move.copyMove(other.move);
         moveEvaluation = new Evaluation(other.moveEvaluation);
         moveDepth = other.moveDepth;
-        completeSearch = other.completeSearch;
-        this.isMax = other.isMax;
     }
 
-    public boolean isMax() {
-        return isMax;
-    }
 
     public boolean isDeeperAndBetterThan(MinimaxMove other) {
-        System.out.println("checking is deeper and betterrrrrr!\n me:%s\n\n other:%s".formatted(this, other));
         return other == null || (moveEvaluation != null && (moveEvaluation.isGreaterThan(other.moveEvaluation)) && moveDepth >= other.moveDepth);
-    }
-
-    public boolean isCompleteSearch() {
-        return completeSearch;
-    }
-
-    public void setCompleteSearch(boolean completeSearch) {
-        this.completeSearch = completeSearch;
     }
 
     public int getMoveDepth() {
@@ -76,7 +55,7 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(move, moveEvaluation, moveDepth, completeSearch);
+        return Objects.hash(move, moveEvaluation, moveDepth);
     }
 
     @Override
@@ -84,7 +63,7 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MinimaxMove that = (MinimaxMove) o;
-        return moveDepth == that.moveDepth && completeSearch == that.completeSearch && Objects.equals(move, that.move) && Objects.equals(moveEvaluation, that.moveEvaluation);
+        return moveDepth == that.moveDepth && Objects.equals(move, that.move) && Objects.equals(moveEvaluation, that.moveEvaluation);
     }
 
     @Override

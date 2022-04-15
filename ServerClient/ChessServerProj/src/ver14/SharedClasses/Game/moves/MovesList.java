@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MovesList extends ArrayList<Move> {
 
+    private long hash = 0;
 
     public MovesList() {
 
@@ -11,14 +12,37 @@ public class MovesList extends ArrayList<Move> {
 
     public MovesList(MovesList other) {
 //        this(other.pins, other.attacked, other.myKingLoc);
-        addAll(other);
+        other.stream().map(Move::new).forEach(this::add);
+//        addAll(other);
         //todo cp list
+    }
+
+    @Override
+    public boolean add(Move move) {
+        hash ^= move.hashCode();
+        return super.add(move);
+    }
+
+    public Move findMove(BasicMove basicMove) {
+        return findMove(basicMove, m -> true);
+    }
+
+    public Move findMove(BasicMove basicMove, CompareMoves compareMoves) {
+        return basicMove == null ? null : stream().filter(m -> m.equals(basicMove) && compareMoves.equals(m)).findAny().orElse(null);
+    }
+
+    public long getHash() {
+        return hash;
     }
 
     public String createSimpleStr() {
         return stream().map(BasicMove::getBasicMoveAnnotation).collect(StringBuilder::new, (stringBuilder, s) -> {
             stringBuilder.append(s).append("\n");
         }, StringBuilder::append) + "";
+    }
+
+    public interface CompareMoves {
+        boolean equals(Move comparingTo);
     }
 
 //    @Override

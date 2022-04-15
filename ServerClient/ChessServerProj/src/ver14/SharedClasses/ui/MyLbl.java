@@ -49,6 +49,14 @@ public class MyLbl extends JLabel {
         setText(getText());
     }
 
+    public void setAllSizes(Dimension size) {
+        this.setSize(size);
+        this.setPreferredSize(size);
+        this.setMaximumSize(size);
+        this.setMinimumSize(size);
+        this.invalidate();
+    }
+
     public interface StringModifier {
         String modify(String modifying);
     }

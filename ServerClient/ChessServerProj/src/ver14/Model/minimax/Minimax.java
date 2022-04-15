@@ -3,6 +3,7 @@ package ver14.Model.minimax;
 import ver14.Model.Eval.Book;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Model;
+import ver14.Model.ModelMovesList;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -21,13 +22,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Minimax {
     private static final boolean USE_OPENING_BOOK = true;
-    private static final int DEFAULT_FLEX = 0;
+    private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
+    private static final int moveOrderingDepthCutoff = 5;
     public static boolean SHOW_UI = false;
-    private final int scanTime;
-    private final int scanTimeFlexibility;
+    private final long scanTimeInMillis;
+    private final long scanTimeFlexibility;
     private final MinimaxView minimaxUI;
     private final CpuUsages cpuUsageRecords;
     private final Timer minimaxTimer;
@@ -45,24 +48,24 @@ public class Minimax {
     //    private ForkJoinPool threadPool;
     private MinimaxMove bestMove;
     private AtomicBoolean isCompleteSearch;
-    private boolean interruptSearch;
     private boolean recordCpuUsage = false;
     private MyError interrupt = null;
 
-    public Minimax(Model model, int scanTime) {
-        this(model, scanTime, DEFAULT_FLEX);
+
+    public Minimax(Model model, long scanTimeInMillis) {
+        this(model, scanTimeInMillis, DEFAULT_FLEX);
     }
 
 
-    public Minimax(Model model, int scanTime, int flexibility) {
+    public Minimax(Model model, long scanTimeInMillis, long flexibility) {
         this.model = model;
         this.scanTimeFlexibility = flexibility;
-        this.scanTime = scanTime;
+        this.scanTimeInMillis = scanTimeInMillis;
         stillTheory = true;
         minimaxUI = new MinimaxView(SHOW_UI);
         if (SHOW_UI) {
             minimaxTimer = new Timer(150, l -> {
-                minimaxUI.setTime(getElapsed(ChronoUnit.MILLIS));
+                minimaxUI.setTime(getElapsed());
             });
         } else {
             minimaxTimer = null;
@@ -70,8 +73,8 @@ public class Minimax {
         cpuUsageRecords = new CpuUsages();
     }
 
-    long getElapsed(ChronoUnit unit) {
-        return minimaxStartedTime.until(ZonedDateTime.now(), unit);
+    long getElapsed() {
+        return minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
     }
 
     public void setModel(Model model) {
@@ -90,7 +93,6 @@ public class Minimax {
         if (minimaxTimer != null)
             minimaxTimer.stop();
         minimaxUI.dispose();
-        interruptSearch = true;
         if (threadPool != null)
             threadPool.shutdown();
     }
@@ -119,10 +121,11 @@ public class Minimax {
         if (USE_OPENING_BOOK && stillTheory) {
             String bookMove = Book.getBookMove(model);
             if (bookMove != null) {
-                ArrayList<Move> possibleMoves = model.generateAllMoves();
+                ModelMovesList possibleMoves = MoveGenerator.generateMoves(model, GenerationSettings.annotate);
+                possibleMoves.initAnnotation();
                 for (Move move : possibleMoves) {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
-                        return new MinimaxMove(move, Evaluation.book(), 0);
+                        return new MinimaxMove(move, Evaluation.book());
                 }
 //                throw new Error();
             }
@@ -154,13 +157,13 @@ public class Minimax {
         initMinimaxTime();
         if (minimaxTimer != null)
             minimaxTimer.start();
-        while (getElapsed(ChronoUnit.SECONDS) < scanTime && !stop) {
+        while (getElapsed() < scanTimeInMillis && !stop) {
             positionsReached = -1;
             leavesReached = 0;
 
             String s = "-------------";
             log("\n" + s + "Starting search on depth " + currentDepth + s);
-            minimaxUI.setCurrentDepth(currentDepth, getElapsed(ChronoUnit.MILLIS));
+            minimaxUI.setCurrentDepth(currentDepth, getElapsed());
 
             MinimaxMove minimaxMove = minimaxRoot(model, currentDepth);
 
@@ -218,63 +221,52 @@ public class Minimax {
 //        threadPool = Executors.newFixedThreadPool(numOfThreads);
         threadPool = new ForkJoinPool(numOfThreads);
 
-        Evaluation[] evals = startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
+        try {
+            startMultithreaded(model, model.getCurrentPlayer(), maxDepth);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         if (interrupt != null)
             throw interrupt;
 
-        ArrayList<Move> possibleMoves = model.generateAllMoves();
-        for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
-            Move move = possibleMoves.get(i);
-            move.setMoveEvaluation(evals[i]);
-        }
-        sortMoves(possibleMoves, true);
-        bestMove = new MinimaxMove(possibleMoves.get(0), possibleMoves.get(0).getMoveEvaluation(), 0);
-        bestMove.setCompleteSearch(isCompleteSearch.get());
-
         return bestMove;
     }
 
-    private Evaluation[] startMultithreaded(Model model, PlayerColor minimaxPlayerColor, int maxDepth) {
+    private void startMultithreaded(Model model, PlayerColor minimaxPlayerColor, int maxDepth) throws InterruptedException {
         ArrayList<Move> possibleMoves = model.generateAllMoves();
-        int numOfPossibleMoves = possibleMoves.size();
-        Evaluation[] evals = new Evaluation[numOfPossibleMoves];
+
+        final AtomicReference<MinimaxMove> atomicBestMove = new AtomicReference<>(null);
 
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
-                try {
-                    Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
-//                        System.out.println(e);
-                    });
-                    if (!isOvertime()) {
-                        Model model1 = new Model(model);
-                        model1.applyMove(move);
-                        Evaluation eval = minimax(new MinimaxParameters(model1, false, maxDepth, minimaxPlayerColor, move));
-                        model1.undoMove(move);
+                Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
+                    System.out.println("minimax threw " + e);
+                });
+                if (!isOvertime() && interrupt == null) {
+                    Model modelCopy = new Model(model);
+                    modelCopy.applyMove(move);
 
-                        move.setMoveEvaluation(eval);
+                    Evaluation eval = minimax(new MinimaxParameters(modelCopy, false, maxDepth, minimaxPlayerColor, move));
 
-                        evals[possibleMoves.indexOf(move)] = eval;
-                    } else {
-                        isCompleteSearch.set(false);
+                    synchronized (atomicBestMove) {
+                        if (atomicBestMove.get() == null || eval.isGreaterThan(atomicBestMove.get().getMoveEvaluation())) {
+                            atomicBestMove.set(new MinimaxMove(move, eval));
+                        }
                     }
-
-                } catch (Exception e) {
-
+                } else {
+                    isCompleteSearch.set(false);
                 }
-
             });
 
         });
         threadPool.shutdown();
-        try {
-            if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
-                throw new Error("thread pool is acting up");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
+            throw new Error("thread pool is acting up");
         }
-        return evals;
+
+        bestMove = atomicBestMove.get();
+
     }
 
     private Evaluation minimax(MinimaxParameters parms) {
@@ -286,7 +278,7 @@ public class Minimax {
         if (isOvertime() || Eval.isGameOver(parms.model) || parms.currentDepth >= parms.maxDepth) {
 //            leavesReached++;
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
-            evaluation.setEvaluationDepth(parms.currentDepth / 2);
+            evaluation.setEvaluationDepth(parms.currentDepth);
             return evaluation;
         }
 
@@ -295,10 +287,9 @@ public class Minimax {
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
-        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, new GenerationSettings(true, false));
-//        ArrayList<Move> possibleMoves = parms.model.generateAllMoves();
-
-        sortMoves(possibleMoves, parms.isMax);
+        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.defaultSettings);
+        if (parms.currentDepth <= moveOrderingDepthCutoff)
+            sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
 
@@ -345,11 +336,12 @@ public class Minimax {
 //    }
 
     private boolean isOvertime() {
-        return getElapsed(ChronoUnit.SECONDS) > scanTime + scanTimeFlexibility;
+        return getElapsed() > scanTimeInMillis + scanTimeFlexibility;
     }
 
     public void interrupt(MyError error) {
         this.interrupt = error;
+
     }
 
     public static class CapturingKing extends Error {

@@ -42,6 +42,7 @@ import ver14.view.SidePanel.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
@@ -63,8 +64,6 @@ public class View implements Iterable<BoardButton[]> {
         winSize = new Dimension((int) (d.width / 3), (int) (d.height / 2));
 
         FlatLightLaf.setup();
-
-
     }
 
     public final Object boardLock = new Object();
@@ -110,7 +109,9 @@ public class View implements Iterable<BoardButton[]> {
                 setLocationRelativeTo(null);
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
-//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.getPieceIcon(Piece.W_K).getImage(), new Point(0, 0), "My Cursor"));
+
+                getMyAdapter().addAction(client::makeRandomMove, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_R);
+//                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
             }
 
             @Override
@@ -190,11 +191,18 @@ public class View implements Iterable<BoardButton[]> {
 
     public void drawFocus() {
         // bring the window into front (DeIconified)
-        win.setVisible(true);
+//        boolean fullscreen = false;
+//        win.setState(JFrame.ICONIFIED);
+//        win.setState(fullscreen ? JFrame.MAXIMIZED_BOTH : JFrame.NORMAL);
+        win.setAlwaysOnTop(true);
         win.toFront();
+        win.setVisible(true);
+        win.setAlwaysOnTop(false);
         win.setState(JFrame.NORMAL);
+        win.requestFocus();
     }
 
+    //fixme
     private void dialogClosed(Dialog dialog) {
         try {
             displayedDialogs.remove(dialog);
@@ -330,7 +338,7 @@ public class View implements Iterable<BoardButton[]> {
         return boardPnl.getBtn(loc);
     }
 
-    public JFrame getWin() {
+    public MyJFrame getWin() {
         return win;
     }
 
@@ -366,7 +374,7 @@ public class View implements Iterable<BoardButton[]> {
             else
                 btn.setAsMovable();
 
-            if (move.getMoveFlag() == Move.MoveType.Promotion)
+            if (move.getMoveFlag() == Move.MoveFlag.Promotion)
                 btn.setAsPromotion();
 
             enableSquare(movingTo, true);
@@ -403,13 +411,17 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void enableSources(ArrayList<Move> movableSquares) {
-        enableAllSquares(false);
-        if (movableSquares != null) {
-            for (Move move : movableSquares) {
-                Location movingTo = move.getMovingFrom();
-                enableSquare(movingTo, true);
+        synchronized (boardLock) {
+
+            enableAllSquares(false);
+            if (movableSquares != null) {
+                for (Move move : movableSquares) {
+                    Location movingFrom = move.getMovingFrom();
+//                    getBtn(movingFrom).setAsCurrent();
+                    enableSquare(movingFrom, true);
+                }
+                sidePanel.moveLog.resetCurrentBoard();
             }
-            sidePanel.moveLog.resetCurrentBoard();
         }
     }
 
@@ -417,9 +429,6 @@ public class View implements Iterable<BoardButton[]> {
         getBtn(kingLoc).setAsCheck();
     }
 
-    public void highLightButton(JButton btn) {
-        ((BoardButton) btn).toggleSelected();
-    }
 
     public void resetSelectedButtons() {
         for (BoardButton[] row : this) {
@@ -497,7 +506,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
-        WinPnl pnl = new WinPnl(WinPnl.MAKE_SCROLLABLE);
+        WinPnl pnl = new WinPnl();
         pnl.setInsets(new Insets(10, 10, 10, 10));
 //        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
 

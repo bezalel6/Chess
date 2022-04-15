@@ -28,7 +28,7 @@ public class SelectableTimeFormat implements Selectable {
 
     @Override
     public String getText() {
-        return StrUtils.createTimeStr(timeFormat.timeInMillis) + "+" + StrUtils.createTimeStr(timeFormat.incrementInMillis);
+        return StrUtils.createTimeStr(timeFormat.timeInMillis);
     }
 
     @Override

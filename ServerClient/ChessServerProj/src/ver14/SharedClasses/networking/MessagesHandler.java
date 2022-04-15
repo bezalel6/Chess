@@ -6,10 +6,10 @@ import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
@@ -18,16 +18,19 @@ import java.util.concurrent.Semaphore;
  * The type Messages handler.
  */
 public abstract class MessagesHandler {
+
+
     /**
      * The Socket.
      */
     protected final AppSocket socket;
-    private final ArrayList<CompletableFuture<Message>> waiting;
+    private final Vector<CompletableFuture<Message>> waiting;
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     private final Stack<Message> receivedMessages = new Stack<>();
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
     private final Semaphore chronologicalSemaphore = new Semaphore(1);
-    private boolean isBye = false;
+    private boolean isExpectingDisconnect = false;
+    private boolean didDisconnect = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -54,8 +57,6 @@ public abstract class MessagesHandler {
                 case DB_RESPONSE -> onDBResponse();
                 case UPDATE_SYNCED_LIST -> onUpdateSyncedList();
                 case INTERRUPT -> onInterrupt();
-                case IS_ALIVE -> onIsAlive();
-                case ALIVE -> onAlive();
             };
             defaultCallbacks.put(messageType, callback);
         }
@@ -69,7 +70,19 @@ public abstract class MessagesHandler {
      */
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
-        waiting = new ArrayList<>();
+        waiting = new Vector<>();
+
+
+    }
+
+    /**
+     * Interrupt blocking.
+     */
+//    public void interruptBlocking() {
+//        interruptBlocking();
+//    }
+    public void interruptBlocking(MyError err) {
+        waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     /**
@@ -79,22 +92,19 @@ public abstract class MessagesHandler {
      * @return the message
      */
     public Message blockTilRes(Message request) {
+
         CompletableFuture<Message> future = new CompletableFuture<>();
-        synchronized (waiting) {
-            waiting.add(future);
-        }
+        waiting.add(future);
 
         Message msg = null;
         noBlockRequest(request, future::complete);
         try {
             msg = future.get();
-        } catch (InterruptedException e) {//if interrupted, returning null is fine
+        } catch (InterruptedException e) {//if interrupted, null is fine
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        synchronized (waiting) {
-            waiting.remove(future);
-        }
+        waiting.remove(future);
 
         if (msg == null)
             throw new MyError.DisconnectedError();
@@ -119,7 +129,7 @@ public abstract class MessagesHandler {
 
     private MessageCallback onThrowError() {
         return msg -> {
-            throw msg.getError();
+            throw (msg.getError());
         };
     }
 
@@ -173,7 +183,17 @@ public abstract class MessagesHandler {
     /**
      * On disconnected.
      */
-    public void onDisconnected() {
+    public final void onDisconnected() {
+        if (!didDisconnect)
+            onAnyDisconnection();
+        didDisconnect = true;
+
+        if (isExpectingDisconnect) {
+            onPlannedDisconnect();
+        } else {
+            onUnplannedDisconnect();
+        }
+
         socket.close();
     }
 
@@ -183,9 +203,7 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void onAnyMsg(Message message) {
-        boolean log = message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE;
-        if (log)
-            System.out.println("received  " + message);
+        System.out.println("received  " + message);
 
 //        if (message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE) {
 //            receivedMessages.push(message);
@@ -195,16 +213,15 @@ public abstract class MessagesHandler {
 //        }
     }
 
-    /**
-     * Interrupt blocking.
-     */
-//    public void interruptBlocking() {
-//        interruptBlocking();
-//    }
-    public void interruptBlocking(MyError err) {
-        synchronized (waiting) {
-            waiting.forEach(w -> w.complete(Message.throwError(err)));
-        }
+    protected void onAnyDisconnection() {
+
+    }
+
+    protected void onPlannedDisconnect() {
+    }
+
+
+    protected void onUnplannedDisconnect() {
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {
@@ -232,6 +249,7 @@ public abstract class MessagesHandler {
 
         };
     }
+
 
     /**
      * On add time message callback.
@@ -372,13 +390,14 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
-            isBye = true;
+            prepareForDisconnect();
         };
     }
 
-    public boolean isBye() {
-        return isBye;
+    public void prepareForDisconnect() {
+        isExpectingDisconnect = true;
     }
+
 
     /**
      * On username availability message callback.
@@ -459,7 +478,4 @@ public abstract class MessagesHandler {
         };
     }
 
-    public void setBye() {
-        isBye = true;
-    }
 }

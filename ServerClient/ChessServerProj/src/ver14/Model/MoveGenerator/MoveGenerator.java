@@ -115,6 +115,10 @@ public class MoveGenerator {
             return generatedMoves;
         }
 
+        if (generationSettings == GenerationSettings.annotate) {
+            generatedMoves.initAnnotation();
+        }
+
         if (generationSettings.eval) {
             for (Move move : generatedMoves) {
                 model.applyMove(move);
@@ -151,7 +155,7 @@ public class MoveGenerator {
                     if (model.isSquareEmpty(doublePawnPush)) {
                         m = new Move(pawnLoc, doublePawnPush) {{
                             setEnPassantLoc(oneStep);
-                            setMoveFlag(MoveType.DoublePawnPush);
+                            setMoveFlag(MoveFlag.DoublePawnPush);
                         }};
                         generatedMoves.add(m, PieceType.PAWN);
                     }
@@ -250,7 +254,7 @@ public class MoveGenerator {
             if (model.getEnPassantTargetLoc() == capLoc)
                 return new Move(movingFrom, capLoc) {{
                     setCapturing(PieceType.PAWN);
-                    setMoveFlag(MoveType.EnPassant);
+                    setMoveFlag(MoveFlag.EnPassant);
                     setIntermediateMove(new BasicMove(model.getEnPassantActualLoc(), capLoc));
                 }};
             return null;

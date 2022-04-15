@@ -2,27 +2,28 @@ package ver14.Model;
 
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
-import ver14.Model.hashing.Zobrist;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MoveAnnotation;
 import ver14.SharedClasses.Game.moves.MovesList;
+import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ModelMovesList extends MovesList {
-    private final static boolean UNIQUE_STRS = false;
-    private final HashMap<Long, ArrayList<Move>> uniqueMoves = new HashMap<>();
     private final MoveGenerator generator;
     private final GenerationSettings generationSettings;
+    private HashMap<Integer, ArrayList<Move>> uniqueMoves = null;
+    private ArrayList<Move> rejectedPseudoLegal = new ArrayList<>();
+
 
     public ModelMovesList(MoveGenerator generator, GenerationSettings generationSettings) {
         this.generator = generator;
         this.generationSettings = generationSettings;
     }
-
 
     public void addAll(ModelMovesList other, PieceType pieceType) {
         for (Move move : other)
@@ -32,6 +33,9 @@ public class ModelMovesList extends MovesList {
     public boolean add(Move adding, PieceType movingPiece) {
         if (adding == null)
             return false;
+        adding.setCreatorList(this);
+
+        adding.setMovingColor(generator.getModel().getCurrentPlayer());
 
         if (generationSettings.anyLegal) {
             if (generator.isLegal(adding)) {
@@ -41,48 +45,57 @@ public class ModelMovesList extends MovesList {
         } else {
             if (!generationSettings.legalize || generator.isLegal(adding)) {
                 super.add(adding);
+            } else if (rejectedPseudoLegal != null) {
+                rejectedPseudoLegal.add(adding);
             }
         }
-//        addedMove(adding, movingPiece);
 
         return true;
     }
 
-    private void addedMove(Move added, PieceType movingPiece) {
-        if (!UNIQUE_STRS || movingPiece == PieceType.PAWN)
-            return;
-        long hash = Zobrist.combineHashes(Zobrist.hash(added.getMovingTo()), Zobrist.hash(movingPiece));
+    public void initAnnotation() {
+        uniqueMoves = new HashMap<>();
+        Stream.concat(this.stream(), rejectedPseudoLegal.stream()).forEach(move -> {
+            Piece movingPiece = generator.getModel().getSquare(move.getMovingFrom()).getPiece();
+            assert movingPiece != null;
+//            if (movingPiece.pieceType == PieceType.PAWN) {
+//                return;
+//            }
+            int hash = move.getMovingTo().hash(movingPiece.pieceType);
+            if (movingPiece.pieceType != PieceType.PAWN && uniqueMoves.containsKey(hash)) {
+                ArrayList<Move> moves = uniqueMoves.get(hash);
+                moves.add(move);
+                for (Move unUniqueMove : moves) {
+                    Location movingFrom = unUniqueMove.getMovingFrom();
+                    String uniqueStr = movingFrom.toString();
+                    boolean uniqueRow = true;
+                    boolean uniqueCol = true;
+                    for (Move other : moves.stream().filter(m -> !m.equals(unUniqueMove)).toList()) {
+                        Location otherMovingFrom = other.getMovingFrom();
+                        if (otherMovingFrom.row == movingFrom.row) {
+                            uniqueRow = false;
+                        }
+                        if (otherMovingFrom.col == movingFrom.col) {
+                            uniqueCol = false;
+                        }
+                    }
 
-        if (uniqueMoves.containsKey(hash)) {
-            ArrayList<Move> moves = uniqueMoves.get(hash);
-            moves.add(added);
-            for (Move move : moves) {
-                Location movingFrom = move.getMovingFrom();
-                String uniqueStr = movingFrom.toString();
-                boolean uniqueRow = true;
-                boolean uniqueCol = true;
-                for (Move other : moves.stream().filter(m -> !m.equals(added)).collect(Collectors.toCollection(ArrayList::new))) {
-                    Location otherMovingFrom = other.getMovingFrom();
-                    if (otherMovingFrom.row == movingFrom.row) {
-                        uniqueRow = false;
+                    if (uniqueCol) {
+                        uniqueStr = movingFrom.getColString();
+                    } else if (uniqueRow) {
+                        uniqueStr = movingFrom.getRowString();
                     }
-                    if (otherMovingFrom.col == movingFrom.col) {
-                        uniqueCol = false;
-                    }
+                    uniqueStr = uniqueStr.toLowerCase();
+                    unUniqueMove.setMoveAnnotation(MoveAnnotation.annotate(unUniqueMove, movingPiece, uniqueStr));
                 }
-//                    touncomment
-//                if (uniqueCol) {
-//                    uniqueStr = movingFrom.getColString();
-//                } else if (uniqueRow) {
-//                    uniqueStr = movingFrom.getRowString();
-//                }
-////                move.getMoveAnnotation().setUniqueStr(uniqueStr);
+            } else {
+                uniqueMoves.put(hash, new ArrayList<>() {{
+                    add(move);
+                }});
+                move.setMoveAnnotation(MoveAnnotation.annotate(move, movingPiece));
             }
-        } else {
-            ArrayList<Move> putting = new ArrayList<>();
-            putting.add(added);
-            uniqueMoves.put(hash, putting);
-        }
+        });
+
     }
 
     public void prettyPrint() {

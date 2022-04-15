@@ -17,6 +17,7 @@ public class JoinExistingGame extends SyncedGamesList {
     @Override
     public DialogCard createCard() {
         DialogCard card = super.createCard();
+        card.setAdvancedSettingsStr("Join Specific Game");
         card.addDefaultValueBtn("Join Random Game", () -> {
             Selectable val = getRandom();
             if (val == null) {

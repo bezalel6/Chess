@@ -21,9 +21,7 @@ public enum MessageType {
     DB_REQUEST,
     DB_RESPONSE,
     UPDATE_SYNCED_LIST,
-    INTERRUPT,
-    IS_ALIVE,
-    ALIVE;
+    INTERRUPT;
     public final boolean chronologicalImportance;
 
     MessageType() {

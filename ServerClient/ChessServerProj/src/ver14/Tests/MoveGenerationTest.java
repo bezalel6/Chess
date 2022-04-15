@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 import ver14.Model.AttackedSquares;
 import ver14.Model.FEN;
 import ver14.Model.Model;
+import ver14.Model.ModelMovesList;
+import ver14.Model.MoveGenerator.GenerationSettings;
+import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.Model.Perft.Perft;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -14,7 +17,9 @@ import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -66,6 +71,26 @@ public class MoveGenerationTest extends Tests {
         return list.toArray(new Object[0][]);
     }
 
+    @DataProvider(name = "annotationProv")
+    private Object[][] annotationProv() {
+        return new Object[][]{{1 + "", "r1bqkb1r/pPpp1ppp/2n1n2p/8/3N1N2/4Q3/P1PPPPPP/R1B1KB1R b KQkq - 0 1"}};
+    }
+
+    @Test(dataProvider = "annotationProv")
+    private void annotation(String name, String fen) {
+        ModelMovesList moves = MoveGenerator.generateMoves(model, GenerationSettings.evalEachMove);
+
+        moves.initAnnotation();
+
+        Set<String> strs = new HashSet<>(moves.stream().map(Move::getAnnotation).toList());
+
+        model.printBoard();
+        System.out.println(moves);
+
+        Assert.assertEquals(strs.size(), moves.size());
+    }
+
+
     /**
      * Perft.
      * <p>
@@ -81,7 +106,7 @@ public class MoveGenerationTest extends Tests {
         startTime();
         Perft myPerf = compareMoves(depth);
         time += stopTime();
-        System.out.println(name + " Result: " + myPerf.shortStr() + " positions Time: " + time + " milliseconds");
+        System.out.println(name + " Result: " + myPerf.shortStr() + " positions. Time: " + time + " ms");
     }
 
     private Perft compareMoves(int depth) {

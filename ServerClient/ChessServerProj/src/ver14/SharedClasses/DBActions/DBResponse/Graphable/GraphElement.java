@@ -27,10 +27,6 @@ public class GraphElement implements Serializable {
 
     @Override
     public String toString() {
-        return "GraphElement{" +
-                "num=" + num +
-                ", graphElementType=" + graphElementType +
-                ", name='" + name + '\'' +
-                '}';
+        return name + ": " + num;
     }
 }

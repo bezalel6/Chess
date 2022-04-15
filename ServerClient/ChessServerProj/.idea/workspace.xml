@@ -10,35 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="done profile pic">
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/ten-seconds.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/assets/SoundEffects/tenSeconds.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/CardHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/CardHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Cards/LoginCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Cards/LoginCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/RegisterUsernamePnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/LoginProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/LoginProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FitWidthTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/FitWidthTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MessageItems/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MenuBar/MessageItems/Credits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/AskPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/AskPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SyncedJMenus/SyncedJMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElementType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/GameStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/evaluation/GameStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyLbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/ui/MyLbl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/messages/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="main" />
+        <entry key="$PROJECT_DIR$/../.." value="move_log" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -200,9 +175,15 @@
       </method>
     </configuration>
     <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver13.Tests.Tests" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -214,7 +195,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvalTests.checkColors" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EvalTests.testRepetition" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <extension name="coverage">
         <pattern>
@@ -224,7 +205,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.EvalTests" />
-      <option name="METHOD_NAME" value="checkColors" />
+      <option name="METHOD_NAME" value="testRepetition" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -232,7 +213,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimaxTests.minimaxVsMinimax" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MoveGenerationTest.annotation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <extension name="coverage">
         <pattern>
@@ -241,20 +222,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="minimaxVsMinimax" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.positionsCountRoot" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.Tests" />
-      <option name="METHOD_NAME" value="positionsCountRoot" />
+      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MoveGenerationTest" />
+      <option name="METHOD_NAME" value="annotation" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -264,22 +233,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Tests" />
-      <item itemvalue="Application.DB" />
       <item itemvalue="Application.MinimaxTests" />
+      <item itemvalue="Application.Tests" />
       <item itemvalue="TestNG.Tests" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
-      <item itemvalue="TestNG.Tests.positionsCountRoot" />
-      <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
-      <item itemvalue="TestNG.EvalTests.checkColors" />
+      <item itemvalue="TestNG.MoveGenerationTest.annotation" />
+      <item itemvalue="TestNG.EvalTests.testRepetition" />
+      <item itemvalue="Application.DB" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MinimaxTests" />
         <item itemvalue="Application.DB" />
-        <item itemvalue="TestNG.MinimaxTests.minimaxVsMinimax" />
-        <item itemvalue="TestNG.EvalTests.checkColors" />
-        <item itemvalue="TestNG.Tests.positionsCountRoot" />
+        <item itemvalue="Application.Tests" />
+        <item itemvalue="TestNG.EvalTests.testRepetition" />
+        <item itemvalue="Application.MinimaxTests" />
+        <item itemvalue="TestNG.MoveGenerationTest.annotation" />
       </list>
     </recent_temporary>
   </component>
@@ -481,9 +449,9 @@
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ver14/game/Game.java</url>
-          <line>311</line>
-          <option name="timeStamp" value="221" />
+          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/networking/MessagesHandler.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="174" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -498,10 +466,9 @@
         <watch expression="print();" language="JAVA" />
       </configuration>
       <configuration name="Application">
-        <watch expression="player" language="JAVA" />
-        <watch expression="ErrorHandler.dontThrowIds" language="JAVA" />
-        <watch expression="StrUtils.clean(row[0])" language="JAVA" />
-        <watch expression="new String(value)" language="JAVA" />
+        <watch expression="MyError.class.isAssignableFrom(clazz.getSuperclass())" language="JAVA" />
+        <watch expression="model.printBoard();" language="JAVA" />
+        <watch expression="generator.model.moveStack" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

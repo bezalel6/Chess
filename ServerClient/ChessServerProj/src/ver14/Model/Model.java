@@ -12,6 +12,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.BasicMove;
 import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Game.moves.MovesList;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -22,14 +23,13 @@ import java.util.Stack;
 
 public class Model implements Serializable {
     private final static String startingPos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-
-
     //    static{
 //        ErrorManager.setHandler(ErrorType.Model,err -> {
 //
 //        });
 //    }
-    private boolean finishSetup = false;
+    //    only used while the book is still working
+    private StringBuilder pgnBuilder = new StringBuilder();
     private Stack<Move> moveStack;
     private Board board;
     private PiecesBBs[] pieces;
@@ -40,21 +40,8 @@ public class Model implements Serializable {
     private Location enPassantTargetLoc;
     private Location enPassantActualLoc;
     private BoardHash boardHash;
+    private long firstPositionMovesHash;
 
-    public Model() {
-        createNewEmptyLogicBoard();
-    }
-
-    private void createNewEmptyLogicBoard() {
-        board = new Board();
-        pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
-        castlingRights = new CastlingRights();
-        piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
-        for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
-            Arrays.fill(piecesCount[playerColor.asInt], 0);
-            pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
-        }
-    }
 
     public Model(Model other) {
         this(other.genFenStr());
@@ -94,7 +81,18 @@ public class Model implements Serializable {
         FEN.loadFEN(fen, this);
         initPieces();
         this.boardHash = new BoardHash(this);
-        finishSetup = true;
+        this.firstPositionMovesHash = generateAllMoves().getHash();
+    }
+
+    private void createNewEmptyLogicBoard() {
+        board = new Board();
+        pieces = new PiecesBBs[PlayerColor.NUM_OF_PLAYERS];
+        castlingRights = new CastlingRights();
+        piecesCount = new int[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
+            Arrays.fill(piecesCount[playerColor.asInt], 0);
+            pieces[playerColor.asInt] = new PiecesBBs(PieceType.NUM_OF_PIECE_TYPES);
+        }
     }
 
     private void initPieces() {
@@ -104,6 +102,10 @@ public class Model implements Serializable {
                 addPiece(piece, square.getLoc());
             }
         }
+    }
+
+    public ModelMovesList generateAllMoves() {
+        return MoveGenerator.generateMoves(this);
     }
 
     private void addPiece(Piece piece, Location currentLoc) {
@@ -122,6 +124,10 @@ public class Model implements Serializable {
         return pieces[playerColor.asInt];
     }
 
+    public Model() {
+        createNewEmptyLogicBoard();
+    }
+
     public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
         CastlingRights.Side ret = CastlingRights.Side.QUEEN;
         Location kingLoc = model.getKing(playerColor);
@@ -129,6 +135,14 @@ public class Model implements Serializable {
             ret = CastlingRights.Side.KING;
         }
         return ret;
+    }
+
+    public long getFirstPositionMovesHash() {
+        return firstPositionMovesHash;
+    }
+
+    public String getPGN() {
+        return pgnBuilder.toString();
     }
 
     private void setBoardHash() {
@@ -205,10 +219,6 @@ public class Model implements Serializable {
         return null;
     }
 
-    public ModelMovesList generateAllMoves() {
-        return MoveGenerator.generateMoves(this);
-    }
-
     public int bothPlayersNumOfPieces(PieceType[] arr) {
         return getNumOfPieces(PlayerColor.WHITE, arr) + getNumOfPieces(PlayerColor.BLACK, arr);
     }
@@ -278,14 +288,6 @@ public class Model implements Serializable {
         return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
     }
 
-    public ModelMovesList generateAllMoves(PlayerColor player) {
-
-        if (player == currentPlayerColor) {
-            return generateAllMoves();
-        }
-        return new ModelMovesList(null, null);
-    }
-
     public PlayerColor getCurrentPlayer() {
         return currentPlayerColor;
     }
@@ -293,7 +295,6 @@ public class Model implements Serializable {
     public void setCurrentPlayer(PlayerColor currentPlayerColor) {
         this.currentPlayerColor = currentPlayerColor;
     }
-
 
     public void applyMove(Move move) {
         Location movingFrom = move.getMovingFrom();
@@ -304,17 +305,17 @@ public class Model implements Serializable {
 
         move.setPrevFullMoveClock(fullMoveClock);
         move.setPrevHalfMoveClock(halfMoveClock);
-        move.setReversible(piece);
 
         makeIntermediateMove(move);
 
-        if (move.getMoveFlag() == Move.MoveType.DoublePawnPush) {
+        if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
             enPassantTargetLoc = (move.getEnPassantLoc());
             enPassantActualLoc = (movingTo);
         } else {
             enPassantTargetLoc = enPassantActualLoc = null;
         }
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
             delPiece(piece, movingFrom);
             Piece newPiece = Piece.getPiece(promotingTo, piecePlayerColor);
@@ -337,9 +338,9 @@ public class Model implements Serializable {
 
         if (move.isCapturing()) {
             Piece otherPiece = board.getPiece(movingTo);
-            Assert(otherPiece != null, "eating on empty stomach", move);
+//            Assert(otherPiece != null, "eating on empty stomach", move);
 //            Location lastSet = getKing(otherPiece.playerColor);
-            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
+//            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
                 CastlingRights.Side side = getSideRelativeToKing(this, capClr, movingTo);
@@ -352,29 +353,25 @@ public class Model implements Serializable {
         updatePieceLoc(piece, movingFrom, movingTo);
 
         move.setDisabledCastling(disabled);
-        if (disabled != 0) {
-            move.setNotReversible();
-        }
+        boolean incHalfMoveClock = !(move.isCapturing() || (piece.pieceType == PieceType.PAWN || move.getMoveFlag() == Move.MoveFlag.Promotion));
+
+        move.setReversible(incHalfMoveClock && disabled == 0);
 
         moveStack.push(move);
 
-        if (move.isReversible()) {
+        if (incHalfMoveClock) {
             this.halfMoveClock++;
         } else {
             this.halfMoveClock = 0;
         }
         switchTurn();
-        setBoardHash();
+//        setBoardHash();
 
-        setAttackedSquares();
+//        setAttackedSquares();
 
     }
 
-
     public void undoMove(Move move) {
-
-//        Move move = moveStack.pop();
-//        assert move == moveStack.pop();
         moveStack.pop();
 
         fullMoveClock = (move.getPrevFullMoveClock());
@@ -387,7 +384,7 @@ public class Model implements Serializable {
 
         Piece piece = board.getPiece(movingFrom, true);
         PlayerColor piecePlayerColor = piece.playerColor;
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             delPiece(piece, movingFrom);
             Piece oldPiece = Piece.getPiece(PieceType.PAWN, piecePlayerColor);
             addPiece(oldPiece, movingFrom);
@@ -397,7 +394,7 @@ public class Model implements Serializable {
         enPassantTargetLoc = null;
         if (!moveStack.empty()) {
             Move prevMove = moveStack.peek();
-            if (prevMove.getMoveFlag() == Move.MoveType.DoublePawnPush) {
+            if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }
@@ -481,8 +478,18 @@ public class Model implements Serializable {
     }
 
     public void makeMove(Move move) {
+        MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.annotate);
+        Move finalMove = move;
+        move = moves.stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
+        if (move == null) {
+            throw new Error();
+        }
+        String str = move.getAnnotation() + " ";
         applyMove(move);
         move.setMoveEvaluation(Eval.getEvaluation(this));
+        pgnBuilder.append(str);
+//        System.out.println(pgnBuilder);
+
     }
 
     public Board getLogicBoard() {

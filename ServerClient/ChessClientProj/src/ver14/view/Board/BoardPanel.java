@@ -178,6 +178,26 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resizeIcons();
     }
 
+    public Board createBoard() {
+        Board board = new Board();
+        for (var loc : Location.ALL_LOCS) {
+            board.setPiece(loc, getBtn(loc).getPiece());
+        }
+        return board;
+    }
+
+    public BoardButton getBtn(Location loc) {
+        return getBtn(new ViewLocation(loc));
+    }
+
+    public BoardButton getBtn(ViewLocation loc) {
+        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
+    }
+
+    public BoardButton getBtn(int r, int c) {
+        return btnMat[r][c];
+    }
+
     public void resetOrientation() {
         ViewSavedBoard savedBoard = new ViewSavedBoard(this);
         setCoordinates(false);
@@ -231,18 +251,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resetAllButtons(true);
         savedBoard.savedSquares.forEach(square -> square.restore(getBtn(square.getLoc())));
         resizeIcons();
-    }
-
-    public BoardButton getBtn(Location loc) {
-        return getBtn(new ViewLocation(loc));
-    }
-
-    public BoardButton getBtn(ViewLocation loc) {
-        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
-    }
-
-    public BoardButton getBtn(int r, int c) {
-        return btnMat[r][c];
     }
 
     public void resetAllButtons(boolean resetIcons) {

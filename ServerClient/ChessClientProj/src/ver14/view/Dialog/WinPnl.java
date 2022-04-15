@@ -6,6 +6,7 @@ import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class WinPnl extends JPanel {
     public final static Insets insets = new Insets(5, 5, 5, 5);
@@ -143,6 +144,10 @@ public class WinPnl extends JPanel {
             comp = new Scrollable((JComponent) comp);
         }
         contentPnl.add(comp, gbc);
+    }
+
+    public void addAll(Component... comps) {
+        Arrays.stream(comps).forEach(this::add);
     }
 
     protected void removeContentComponent(Component comp) {

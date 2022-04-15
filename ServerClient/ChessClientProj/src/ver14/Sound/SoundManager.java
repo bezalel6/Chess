@@ -31,7 +31,7 @@ public class SoundManager {
             capture.play();
         } else if (move.getMoveFlag().isCastling) {
             castle.play();
-        } else if (move.getMoveFlag() == Move.MoveType.Promotion) {
+        } else if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             promotion.play();
         } else if (move.getMovingColor() == myClr) {
             selfMove.play();
