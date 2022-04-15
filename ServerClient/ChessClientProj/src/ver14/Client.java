@@ -274,7 +274,8 @@ public class Client implements EnvManager {
 
     private void unlockPossibleMoves() {
         hideQuestionPnl();
-        view.enableSources(possibleMoves);
+//        view.enableSources(possibleMoves);
+        view.enableMyPieces(myColor);
     }
 
     /**

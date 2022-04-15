@@ -64,7 +64,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
     static {
         keyClrMap = new HashMap<>();
         keyClrMap.put(KeyEvent.VK_SHIFT, Color.decode("#9FC0A2"));
-        keyClrMap.put(KeyEvent.VK_CONTROL, Color.decode("#d36d6d"));
+        keyClrMap.put(KeyEvent.VK_CONTROL, Color.decode("#D36D6D"));
         keyClrMap.put(KeyEvent.VK_ALT, Color.decode("#E8A43F"));
     }
 
@@ -75,7 +75,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private boolean blockBoard = false;
     private int pressedKey = NO_KEY;
     private BoardButton currentDragging = null;
-
+    private BoardButton hoveredBtn = null;
 
     public BoardOverlay(View view) {
         this.view = view;
@@ -251,12 +251,14 @@ public class BoardOverlay extends LayerUI<JPanel> {
         BoardButton btn = (BoardButton) e.getSource();
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
-                view.unHoverAllBtns();
+                if (hoveredBtn != null)
+                    hoveredBtn.endHover();
+                hoveredBtn = btn;
                 btn.startHover();
-
                 break;
             case MouseEvent.MOUSE_EXITED:
-//                btn.endHover();
+                btn.endHover();
+                hoveredBtn = null;
                 break;
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
@@ -275,8 +277,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-//                        if (currentlyAbove.canMoveTo())
-//                            currentlyAbove.clickMe();
+                        if (currentlyAbove.canMoveTo())
+                            currentlyAbove.clickMe();
 
                         clearAllArrows();
                         view.resetSelectedButtons();

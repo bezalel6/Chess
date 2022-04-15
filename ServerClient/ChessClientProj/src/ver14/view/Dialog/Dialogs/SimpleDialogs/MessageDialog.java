@@ -27,7 +27,6 @@ public class MessageDialog extends Dialog {
 
     @Override
     protected void onXClick() {
-        super.onXClick();
         tryOk(false);
     }
 

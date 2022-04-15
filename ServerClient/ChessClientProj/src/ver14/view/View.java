@@ -164,14 +164,12 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public <D extends Dialog> D showDialog(D dialog) {
-        if (dialog instanceof MessageDialog messageDialog && messageDialog.getMessageType() == MessageCard.MessageType.ERROR) {
+        if (dialog instanceof MessageDialog messageDialog) {
             closeOpenDialogs();
         }
-        synchronized (displayedDialogs) {
-            displayedDialogs.add(dialog);
-            drawFocus();
-            dialog.start(this::dialogClosed);
-        }
+        displayedDialogs.add(dialog);
+        drawFocus();
+        dialog.start(this::dialogClosed);
         return dialog;
     }
 
@@ -183,7 +181,8 @@ public class View implements Iterable<BoardButton[]> {
                 }
             });
         } catch (ConcurrentModificationException e) {
-            System.out.println(e);
+            e.printStackTrace();
+//            System.out.println(e);
         }
     }
 
@@ -202,11 +201,11 @@ public class View implements Iterable<BoardButton[]> {
 
     //fixme
     private void dialogClosed(Dialog dialog) {
-        try {
-            displayedDialogs.remove(dialog);
-        } catch (ConcurrentModificationException e) {
-            System.out.println(e);
-        }
+//        try {
+//            displayedDialogs.remove(dialog);
+//        } catch (ConcurrentModificationException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void resetStatusLbl() {
@@ -383,13 +382,6 @@ public class View implements Iterable<BoardButton[]> {
         getBtn(loc).setEnabled(enabled);
     }
 
-    public void unHoverAllBtns() {
-        for (var row : this) {
-            for (var btn : row)
-                btn.endHover();
-        }
-    }
-
     public void enablePath(ArrayList<Move> movableSquares) {
         enableAllSquares(false);
         if (movableSquares != null) {
@@ -408,20 +400,31 @@ public class View implements Iterable<BoardButton[]> {
         }
     }
 
-    public void enableSources(ArrayList<Move> movableSquares) {
+    public void enableMyPieces(PlayerColor clr) {
         synchronized (boardLock) {
-
-            enableAllSquares(false);
-            if (movableSquares != null) {
-                for (Move move : movableSquares) {
-                    Location movingFrom = move.getMovingFrom();
-//                    getBtn(movingFrom).setAsCurrent();
-                    enableSquare(movingFrom, true);
+            for (var row : this) {
+                for (var btn : row) {
+                    btn.setEnabled(btn.getPiece() != null && btn.getPiece().isOnMyTeam(clr));
                 }
-                sidePanel.moveLog.resetCurrentBoard();
             }
+            sidePanel.moveLog.resetCurrentBoard();
         }
     }
+
+//    public void enableSources(ArrayList<Move> movableSquares) {
+//        synchronized (boardLock) {
+//
+//            enableAllSquares(false);
+//            if (movableSquares != null) {
+//                for (Move move : movableSquares) {
+//                    Location movingFrom = move.getMovingFrom();
+////                    getBtn(movingFrom).setAsCurrent();
+//                    enableSquare(movingFrom, true);
+//                }
+//                sidePanel.moveLog.resetCurrentBoard();
+//            }
+//        }
+//    }
 
     public void inCheck(Location kingLoc) {
         getBtn(kingLoc).setAsCheck();

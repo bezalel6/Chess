@@ -127,7 +127,7 @@ public class Game {
             switchTurn();
         }
         onGameOver();
-        session.log("game over. " + gameOverStatus);
+        session.log("game over. " + gameOverStatus.getDetailedStr());
         return gameOverStatus;
     }
 
