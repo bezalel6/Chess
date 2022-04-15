@@ -57,8 +57,6 @@ public abstract class MessagesHandler {
                 case DB_RESPONSE -> onDBResponse();
                 case UPDATE_SYNCED_LIST -> onUpdateSyncedList();
                 case INTERRUPT -> onInterrupt();
-                case IS_ALIVE -> onIsAlive();
-                case ALIVE -> onAlive();
             };
             defaultCallbacks.put(messageType, callback);
         }
@@ -205,9 +203,7 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void onAnyMsg(Message message) {
-        boolean log = message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE;
-        if (log)
-            System.out.println("received  " + message);
+        System.out.println("received  " + message);
 
 //        if (message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE) {
 //            receivedMessages.push(message);

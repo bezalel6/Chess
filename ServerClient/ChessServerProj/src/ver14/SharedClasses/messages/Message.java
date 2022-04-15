@@ -392,23 +392,6 @@ public class Message implements Serializable {
         }};
     }
 
-    /**
-     * Is alive message.
-     *
-     * @return the message
-     */
-    public static Message isAlive() {
-        return new Message(MessageType.IS_ALIVE);
-    }
-
-    /**
-     * Alive message.
-     *
-     * @return the message
-     */
-    public static Message alive() {
-        return new Message(MessageType.ALIVE);
-    }
 
     /**
      * Sync lists message.
