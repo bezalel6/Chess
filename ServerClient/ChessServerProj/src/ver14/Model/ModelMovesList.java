@@ -37,7 +37,7 @@ public class ModelMovesList extends MovesList {
 
         adding.setMovingColor(generator.getModel().getCurrentPlayer());
 
-        if ((generationSettings & GenerationSettings.ANY_LEGAL) != 0) {
+        if ((generationSettings == GenerationSettings.ANY_LEGAL)) {
             if (generator.isLegal(adding)) {
                 super.add(adding);
                 throw new FoundLegalMove();
