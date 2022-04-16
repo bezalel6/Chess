@@ -72,14 +72,15 @@ public class MoveGenerator {
 
     }
 
-    private GenerationSettings generationSettings;
-    private PiecesBBs myPieces;
-    private Model model;
-    private PlayerColor movingPlayerColor;
-    private Board logicBoard;
-    private ModelMovesList generatedMoves;
+    private final @GenerationSettings
+    int generationSettings;
+    private final PiecesBBs myPieces;
+    private final Model model;
+    private final PlayerColor movingPlayerColor;
+    private final Board logicBoard;
+    private final ModelMovesList generatedMoves;
 
-    private MoveGenerator(Model model, GenerationSettings generationSettings) {
+    private MoveGenerator(Model model, @GenerationSettings int generationSettings) {
 //        long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
 //        if (moveGenerationHashMap.containsKey(hash)) {
 //            generatedMoves = moveGenerationHashMap.get(hash);
@@ -97,10 +98,10 @@ public class MoveGenerator {
     }
 
     public static ModelMovesList generateMoves(Model model) {
-        return generateMoves(model, GenerationSettings.defaultSettings);
+        return generateMoves(model, GenerationSettings.LEGALIZE);
     }
 
-    public static ModelMovesList generateMoves(Model model, GenerationSettings generationSettings) {
+    public static ModelMovesList generateMoves(Model model, @GenerationSettings int generationSettings) {
         MoveGenerator mvg = new MoveGenerator(model, generationSettings);
         return mvg.getGeneratedMoves();
     }
@@ -111,15 +112,15 @@ public class MoveGenerator {
             generateSlidingMoves();
             generateKnightMoves();
             generateKingMoves();
-        } catch (ModelMovesList.ListEx ex) {//throws when ur looking for any legal move and one is found
+        } catch (ModelMovesList.FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
             return generatedMoves;
         }
 
-        if (generationSettings == GenerationSettings.annotate) {
+        if ((generationSettings & GenerationSettings.ANNOTATE) != 0) {
             generatedMoves.initAnnotation();
         }
 
-        if (generationSettings.eval) {
+        if ((generationSettings & GenerationSettings.EVAL) != 0) {
             for (Move move : generatedMoves) {
                 model.applyMove(move);
                 move.setMoveEvaluation(Eval.getEvaluation(model));
@@ -135,7 +136,7 @@ public class MoveGenerator {
         return generatedMoves;
     }
 
-    public void generatePawnMoves() {
+    public void generatePawnMoves() throws ModelMovesList.FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
         int mult = movingPlayerColor.diff;
         Locs setLocs = bitboard.getSetLocs();
@@ -184,7 +185,7 @@ public class MoveGenerator {
         }
     }
 
-    public void generateSlidingMoves() {
+    public void generateSlidingMoves() throws ModelMovesList.FoundLegalMove {
         for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
             generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
         }
@@ -196,7 +197,7 @@ public class MoveGenerator {
         }
     }
 
-    public void generateKnightMoves() {
+    public void generateKnightMoves() throws ModelMovesList.FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.KNIGHT);
         for (Location knightLoc : bitboard.getSetLocs()) {
             for (Location loc : knightMoves[knightLoc.asInt]) {
@@ -210,7 +211,7 @@ public class MoveGenerator {
         }
     }
 
-    public void generateKingMoves() {
+    public void generateKingMoves() throws ModelMovesList.FoundLegalMove {
         Location kingLoc = myPieces.getBB(PieceType.KING).getLastSetLoc();
         if (kingLoc == null)
             return;
@@ -265,7 +266,7 @@ public class MoveGenerator {
         return new Move(movingFrom, capLoc, dest.pieceType);
     }
 
-    public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) {
+    public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) throws ModelMovesList.FoundLegalMove {
         for (Direction direction : movingPieceType.getAttackingDirections()) {
             for (int n = 1; n <= numSquaresToEdge[pieceLocation.asInt][direction.asInt]; n++) {
                 Location targetSquare = Location.getLoc(pieceLocation, n, direction);
@@ -331,22 +332,22 @@ public class MoveGenerator {
         return true;
     }
 
-    public void generateRookMoves() {
-        for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
-            generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
-        }
-    }
-
-    public void generateBishopMoves() {
-        for (Location bishopLoc : myPieces.getBB(PieceType.BISHOP).getSetLocs()) {
-            generateSlidingPieceMoves(bishopLoc, PieceType.BISHOP);
-        }
-    }
-
-    public void generateQueenMoves() {
-        for (Location queenLoc : myPieces.getBB(PieceType.QUEEN).getSetLocs()) {
-            generateSlidingPieceMoves(queenLoc, PieceType.QUEEN);
-        }
-    }
+//    public void generateRookMoves() {
+//        for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
+//            generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
+//        }
+//    }
+//
+//    public void generateBishopMoves() {
+//        for (Location bishopLoc : myPieces.getBB(PieceType.BISHOP).getSetLocs()) {
+//            generateSlidingPieceMoves(bishopLoc, PieceType.BISHOP);
+//        }
+//    }
+//
+//    public void generateQueenMoves() {
+//        for (Location queenLoc : myPieces.getBB(PieceType.QUEEN).getSetLocs()) {
+//            generateSlidingPieceMoves(queenLoc, PieceType.QUEEN);
+//        }
+//    }
 
 }

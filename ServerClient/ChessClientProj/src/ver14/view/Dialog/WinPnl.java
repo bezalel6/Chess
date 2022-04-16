@@ -150,7 +150,7 @@ public class WinPnl extends JPanel {
         Arrays.stream(comps).forEach(this::add);
     }
 
-    protected void removeContentComponent(Component comp) {
+    public void removeContentComponent(Component comp) {
         contentPnl.remove(comp);
     }
 

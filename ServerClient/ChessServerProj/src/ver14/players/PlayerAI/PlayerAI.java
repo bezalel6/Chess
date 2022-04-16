@@ -68,7 +68,7 @@ public abstract class PlayerAI extends Player {
     @Override
     public void askQuestion(Question question, AnswerCallback onAns) {
         if (qNa.containsKey(question.questionType)) {
-            onAns.callback(qNa.get(question));
+            onAns.callback(qNa.get(question.questionType));
         } else {
             super.askQuestion(question, onAns);
         }

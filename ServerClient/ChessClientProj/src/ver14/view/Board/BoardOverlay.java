@@ -155,7 +155,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
         if (blockBoard) {
             Shape shape = new Rectangle(0, 0, jlayer.getWidth(), jlayer.getHeight());
             g2.setStroke(new BasicStroke(1));
-            g2.setColor(new Color(0, 0, 0, (int) (255 * 0.2)));
+            g2.setColor(new Color(0, 0, 0, (int) (255 * 0.1)));
             g2.fill(shape);
         }
     }

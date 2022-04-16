@@ -249,7 +249,7 @@ public class Game {
     }
 
     public MovesList getMoves() {
-        return MoveGenerator.generateMoves(model, GenerationSettings.annotate).getCleanList();
+        return MoveGenerator.generateMoves(model, GenerationSettings.ANNOTATE).getCleanList();
     }
 
     private boolean checkTimeOut() {

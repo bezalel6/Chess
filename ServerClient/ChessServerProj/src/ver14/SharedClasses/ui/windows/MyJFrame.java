@@ -23,6 +23,9 @@ public class MyJFrame extends JFrame {
     public MyJFrame() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.myAdapter = debugAdapter(this);
+        myAdapter.addAction(() -> {
+            setExtendedState(getExtendedState() ^ JFrame.MAXIMIZED_BOTH);
+        }, VK_F11);
     }
 
     public static MyAdapter debugAdapter(Window addTo) {
@@ -125,6 +128,7 @@ public class MyJFrame extends JFrame {
         public void keyReleased(KeyEvent e) {
             super.keyReleased(e);
             pressedKeys.remove(e.getKeyCode());
+            lastPressedKey = null;
         }
 
         public Set<Integer> addAction(VoidCallback action, Integer... keys) {

@@ -3,7 +3,6 @@ package ver14.Model.hashing;
 
 import ver14.Model.Bitboard;
 import ver14.Model.Model;
-import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.PiecesBBs;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -102,9 +101,6 @@ public class Zobrist {
         return zPlayers[playerColor.asInt];
     }
 
-    public static long hash(GenerationSettings generationSettings) {
-        return Zobrist.hash(generationSettings.legalize);
-    }
 
     public static long hash(boolean bool) {
         return bool ? zBoolean : 0;

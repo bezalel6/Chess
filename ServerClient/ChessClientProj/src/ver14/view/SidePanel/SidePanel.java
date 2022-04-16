@@ -113,7 +113,10 @@ public class SidePanel extends JPanel {
 
         gbc.gridx = 0;
         gbc.gridy = bottomY + 3;
-        gbc.gridwidth = GridBagConstraints.NONE;
+//        gbc.gridwidth = GridBagConstraints.NONE;
+        gbc.gridheight = GridBagConstraints.REMAINDER;
+        gbc.gridwidth = 4;
+        gbc.fill = GridBagConstraints.BOTH;
         add(askPlayerPnl, gbc);
 
     }

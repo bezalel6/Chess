@@ -121,7 +121,7 @@ public class Minimax {
         if (USE_OPENING_BOOK && stillTheory) {
             String bookMove = Book.getBookMove(model);
             if (bookMove != null) {
-                ModelMovesList possibleMoves = MoveGenerator.generateMoves(model, GenerationSettings.annotate);
+                ModelMovesList possibleMoves = MoveGenerator.generateMoves(model, GenerationSettings.ANNOTATE);
                 possibleMoves.initAnnotation();
                 for (Move move : possibleMoves) {
                     if (move.getAnnotation().trim().equals(bookMove.trim()))
@@ -291,7 +291,7 @@ public class Minimax {
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
-        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.defaultSettings);
+        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.LEGALIZE);
         if (parms.currentDepth <= moveOrderingDepthCutoff)
             sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {

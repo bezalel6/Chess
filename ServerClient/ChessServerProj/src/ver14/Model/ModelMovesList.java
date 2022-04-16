@@ -15,35 +15,35 @@ import java.util.stream.Stream;
 
 public class ModelMovesList extends MovesList {
     private final MoveGenerator generator;
-    private final GenerationSettings generationSettings;
+    private final int generationSettings;
     private HashMap<Integer, ArrayList<Move>> uniqueMoves = null;
     private ArrayList<Move> rejectedPseudoLegal = new ArrayList<>();
 
 
-    public ModelMovesList(MoveGenerator generator, GenerationSettings generationSettings) {
+    public ModelMovesList(MoveGenerator generator, int generationSettings) {
         this.generator = generator;
         this.generationSettings = generationSettings;
     }
 
-    public void addAll(ModelMovesList other, PieceType pieceType) {
+    public void addAll(ModelMovesList other, PieceType pieceType) throws FoundLegalMove {
         for (Move move : other)
             add(move, pieceType);
     }
 
-    public boolean add(Move adding, PieceType movingPiece) {
+    public boolean add(Move adding, PieceType movingPiece) throws FoundLegalMove {
         if (adding == null)
             return false;
         adding.setCreatorList(this);
 
         adding.setMovingColor(generator.getModel().getCurrentPlayer());
 
-        if (generationSettings.anyLegal) {
+        if ((generationSettings & GenerationSettings.ANY_LEGAL) != 0) {
             if (generator.isLegal(adding)) {
                 super.add(adding);
-                throw ListEx.FoundLegalMove;
+                throw new FoundLegalMove();
             }
         } else {
-            if (!generationSettings.legalize || generator.isLegal(adding)) {
+            if ((generationSettings & GenerationSettings.LEGALIZE) == 0 || generator.isLegal(adding)) {
                 super.add(adding);
             } else if (rejectedPseudoLegal != null) {
                 rejectedPseudoLegal.add(adding);
@@ -142,12 +142,7 @@ public class ModelMovesList extends MovesList {
         return new MovesList(this);
     }
 
-    public static class ListEx extends RuntimeException {
-        public static ListEx FoundLegalMove = new ListEx("found legal move");
-
-        public ListEx(String message) {
-            super(message);
-        }
+    public static class FoundLegalMove extends Throwable {
     }
 
 }

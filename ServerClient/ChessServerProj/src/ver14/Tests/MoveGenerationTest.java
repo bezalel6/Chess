@@ -78,7 +78,7 @@ public class MoveGenerationTest extends Tests {
 
     @Test(dataProvider = "annotationProv")
     private void annotation(String name, String fen) {
-        ModelMovesList moves = MoveGenerator.generateMoves(model, GenerationSettings.evalEachMove);
+        ModelMovesList moves = MoveGenerator.generateMoves(model, GenerationSettings.EVAL);
 
         moves.initAnnotation();
 

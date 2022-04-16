@@ -43,12 +43,7 @@ public class Tests implements ITest {
     protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
-        var x = new Object() {
-            void aa() {
-                System.out.println("yo mamma");
-            }
-        };
-        x.aa();
+        System.out.println(0b1 ^ 0b0);
 //        minimaxVsStockfish();
     }
 

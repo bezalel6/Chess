@@ -248,7 +248,7 @@ public class View implements Iterable<BoardButton[]> {
         gbc.gridy = 2;
         gbc.gridx = 3;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         win.add(sidePanel, gbc);
 
         //שורה תחתונה

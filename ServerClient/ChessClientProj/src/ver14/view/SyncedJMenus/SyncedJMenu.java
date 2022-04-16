@@ -36,7 +36,7 @@ public abstract class SyncedJMenu extends SyncableListComponent {
     }
 
     @Override
-    protected void removeContentComponent(Component comp) {
+    public void removeContentComponent(Component comp) {
         super.removeContentComponent(comp);
         getJMenu().remove(comp);
     }

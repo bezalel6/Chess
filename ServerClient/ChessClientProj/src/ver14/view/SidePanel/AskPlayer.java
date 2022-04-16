@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-public class AskPlayer extends WinPnl {
+public class AskPlayer extends JScrollPane {
     //including empty flahses between
     private final static int numOfFlashes = 10;
     private final static int flashesDelay = 200;
@@ -25,10 +25,14 @@ public class AskPlayer extends WinPnl {
     private final AtomicInteger currentClrIndex = new AtomicInteger();
     private final AtomicInteger numOfFlashesDone = new AtomicInteger();
     private final Timer flashingTimer;
+    private final WinPnl content;
     private ArrayList<QuestionPnl> shownQuestions = new ArrayList<>();
+    private boolean justAdded = false;
 
     public AskPlayer() {
-
+        super(new WinPnl());
+        setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.content = (WinPnl) getViewport().getView();
         this.flashingTimer = new Timer(flashesDelay, l -> {
             Color clr = flashes[currentClrIndex.getAndIncrement()];
             flash(clr);
@@ -39,6 +43,17 @@ public class AskPlayer extends WinPnl {
             }
         });
         stopFlashing();
+
+        getVerticalScrollBar().addAdjustmentListener(e -> {
+            if (justAdded) {
+                SwingUtilities.invokeLater(() -> {
+                    verticalScrollBar.revalidate();
+                    e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+                    justAdded = false;
+                });
+            }
+        });
+
 //        showPnl(false);
     }
 
@@ -64,12 +79,13 @@ public class AskPlayer extends WinPnl {
             AskPlayer askPlayer = new AskPlayer();
 //            askPlayer.setPreferredSize(askPlayer.getPreferredSize());
 //            askPlayer.setPreferredSize(new Size(150));
-            var scrl = new JScrollPane(askPlayer) {
-
-            };
-            scrl.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-            scrl.setPreferredSize(new Size(300, 100));
-            add(scrl);
+//            var scrl = new JScrollPane(askPlayer) {
+//
+//            };
+//            scrl.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+//            scrl.setPreferredSize(new Size(300, 100));
+//            add(scrl);
+            add(askPlayer);
             new Thread(() -> {
                 IntStream.range(0, 3).forEach(i -> {
                     Question q = i % 2 == 0 ? Question.Rematch : Question.Threefold;
@@ -89,8 +105,8 @@ public class AskPlayer extends WinPnl {
     public void ask(Question question, AnswerCallback callback) {
         QuestionPnl pnl = new QuestionPnl(question, callback);
         shownQuestions.add(pnl);
-        add(pnl);
-
+        content.add(pnl);
+        justAdded = true;
         numOfFlashesDone.set(0);
         flashingTimer.start();
     }
@@ -101,8 +117,13 @@ public class AskPlayer extends WinPnl {
         });
     }
 
+    @Override
+    public Dimension getPreferredSize() {
+        return new Size(300, 120);
+    }
+
     public void removeQuestion(QuestionPnl pnl) {
-        removeContentComponent(pnl);
+        content.removeContentComponent(pnl);
         shownQuestions.remove(pnl);
         revalidate();
         repaint();
@@ -126,6 +147,11 @@ public class AskPlayer extends WinPnl {
                 onAns.callback(answer);
 //                    showPnl(false);
             });
+        }
+
+        @Override
+        public Dimension getPreferredSize() {
+            return Size.add(new Size(AskPlayer.this.getPreferredSize().width, super.getPreferredSize().height), -10);
         }
 
         public void setReplacement(String headerMsg) {

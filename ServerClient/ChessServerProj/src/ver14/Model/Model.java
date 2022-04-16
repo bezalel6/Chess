@@ -285,7 +285,7 @@ public class Model implements Serializable {
     public boolean anyLegalMove(PlayerColor playerColor) {
         assert playerColor == currentPlayerColor;
 
-        return !MoveGenerator.generateMoves(this, GenerationSettings.anyLegalMove).isEmpty();
+        return !MoveGenerator.generateMoves(this, GenerationSettings.ANY_LEGAL).isEmpty();
     }
 
     public PlayerColor getCurrentPlayer() {
@@ -478,7 +478,7 @@ public class Model implements Serializable {
     }
 
     public void makeMove(Move move) {
-        MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.annotate);
+        MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.ANNOTATE);
         Move finalMove = move;
         move = moves.stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
         if (move == null) {

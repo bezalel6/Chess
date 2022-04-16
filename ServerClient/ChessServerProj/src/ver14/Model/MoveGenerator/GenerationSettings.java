@@ -1,23 +1,12 @@
 package ver14.Model.MoveGenerator;
 
-public final class GenerationSettings {
+import org.intellij.lang.annotations.MagicConstant;
 
-    public static final GenerationSettings defaultSettings = new GenerationSettings(true, false);
-    public static final GenerationSettings anyLegalMove = new GenerationSettings(true, true);
-    public static final GenerationSettings evalEachMove = new GenerationSettings(true, false, true);
-    public static final GenerationSettings annotate = new GenerationSettings(true, false, true);
-    public final boolean legalize;
-    public final boolean anyLegal;
-    public final boolean eval;
+@MagicConstant(valuesFromClass = GenerationSettings.class)
+public @interface GenerationSettings {
 
-
-    public GenerationSettings(boolean legalize, boolean anyLegal) {
-        this(legalize, anyLegal, false);
-    }
-
-    public GenerationSettings(boolean legalize, boolean anyLegal, boolean eval) {
-        this.legalize = legalize;
-        this.anyLegal = anyLegal;
-        this.eval = eval;
-    }
+    int LEGALIZE = 1;
+    int ANY_LEGAL = 2;
+    int EVAL = 4 | LEGALIZE;
+    int ANNOTATE = 8 | EVAL | LEGALIZE;
 }
