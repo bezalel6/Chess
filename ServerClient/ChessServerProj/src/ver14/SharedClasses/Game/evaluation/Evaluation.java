@@ -117,14 +117,19 @@ public class Evaluation implements Serializable {
         return evaluationFor;
     }
 
-    public void setPerspective(PlayerColor playerColor) {
+    public Evaluation setPerspective(PlayerColor playerColor) {
         if (evaluationFor != playerColor)
             flipEval();
         evaluationFor = playerColor;
+        return this;
     }
 
     public void flipEval() {
         eval = -eval;
+    }
+
+    public void print() {
+        System.out.println(this);
     }
 
     public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {

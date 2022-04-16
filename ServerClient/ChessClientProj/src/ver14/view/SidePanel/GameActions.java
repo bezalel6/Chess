@@ -1,5 +1,6 @@
 package ver14.view.SidePanel;
 
+import ver14.SharedClasses.Question;
 import ver14.SharedClasses.ui.MyJButton;
 
 import javax.swing.*;
@@ -26,12 +27,17 @@ class GameActions extends JPanel {
     }
 
     private void offerDrawBtnCLicked() {
-        offerDrawBtn.setEnabled(false);
+        offerDrawBtn.replaceWithCancel(() -> {
+            sidePanel.client.cancelQuestion(Question.QuestionType.DRAW_OFFER);
+            offerDrawBtn.resetState(true);
+        });
+//        offerDrawBtn.setEnabled(false);
         sidePanel.client.offerDrawBtnClicked();
     }
 
     public void enableBtns(boolean e) {
-        resignBtn.setEnabled(e);
-        offerDrawBtn.setEnabled(e);
+        resignBtn.resetState(e);
+        offerDrawBtn.resetState(e);
+
     }
 }

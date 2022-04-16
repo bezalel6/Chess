@@ -1,7 +1,7 @@
 package ver14.players.PlayerNet;
 
 import ver14.DB.DB;
-import ver14.SharedClasses.Callbacks.QuestionCallback;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameTime;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
@@ -90,7 +90,7 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void askQuestion(Question question, QuestionCallback onAns) {
+    public void askQuestion(Question question, AnswerCallback onAns) {
         socketToClient.requestMessage(Message.askQuestion(question), msg -> onAns.callback(msg.getAnswer()));
     }
 
@@ -101,8 +101,9 @@ public class PlayerNet extends Player implements SyncableItem {
 
     @Override
     public void cancelQuestion(Question question, String cause) {
+        socketToClient.writeMessage(Message.cancelQuestion(question, cause));
 //        sendInterrupt();
-        socketToClient.writeMessage(Message.interrupt());
+//        socketToClient.writeMessage(Message.interrupt());
     }
 
     @Override
@@ -125,11 +126,6 @@ public class PlayerNet extends Player implements SyncableItem {
     @Override
     public void waitForMatch() {
         socketToClient.writeMessage(Message.waitForMatch());
-    }
-
-    @Override
-    public void drawOffered(QuestionCallback answerCallback) {
-        socketToClient.requestMessage(Message.askQuestion(Question.drawOffer(getPartner().getUsername())), res -> answerCallback.callback(res.getAnswer()));
     }
 
     public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {

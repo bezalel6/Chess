@@ -1,6 +1,5 @@
 package ver14.players.PlayerNet;
 
-import ver14.SharedClasses.Callbacks.QuestionCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
@@ -62,11 +61,6 @@ public class DummyPlayerNet extends Player {
 
     @Override
     public void waitForMatch() {
-
-    }
-
-    @Override
-    public void drawOffered(QuestionCallback answerCallback) {
 
     }
 

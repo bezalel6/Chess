@@ -61,7 +61,7 @@ public class Tests implements ITest {
             int num = 0;
 
             {
-                setAnswer(Question.Rematch, Question.Answer.NO);
+                setAnswer(Question.QuestionType.REMATCH, Question.Answer.NO);
             }
 
             @Override

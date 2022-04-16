@@ -4,7 +4,6 @@ public enum MessageType {
     LOGIN,
     RESIGN,
     ADD_TIME,
-    OFFER_DRAW,
     WELCOME_MESSAGE,
     GET_GAME_SETTINGS,
     WAIT_FOR_MATCH,

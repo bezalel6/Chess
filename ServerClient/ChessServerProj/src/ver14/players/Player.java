@@ -1,6 +1,6 @@
 package ver14.players;
 
-import ver14.SharedClasses.Callbacks.QuestionCallback;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
@@ -74,7 +74,10 @@ public abstract class Player {
 
     public abstract void gameOver(GameStatus gameStatus);
 
-    public void askQuestion(Question question, QuestionCallback onAns) {
+//    public abstract void cancelQuestion(Question question, String cancelMsg);
+
+
+    public void askQuestion(Question question, AnswerCallback onAns) {
         onAns.callback(question.getDefaultAnswer());
     }
 
@@ -87,8 +90,6 @@ public abstract class Player {
     public abstract void disconnect(String cause);
 
     public abstract void waitForMatch();
-
-    public abstract void drawOffered(QuestionCallback answerCallback);
 
     public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);
 

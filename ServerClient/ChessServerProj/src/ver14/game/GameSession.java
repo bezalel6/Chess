@@ -2,6 +2,7 @@ package ver14.game;
 
 import ver14.DB.DB;
 import ver14.Server;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
@@ -205,5 +206,25 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
 
     public String sessionsDesc() {
         return "Session(%s) %s vs %s".formatted(gameID, StrUtils.dontCapWord(creator.getUsername()), StrUtils.dontCapWord(p2.getUsername()));
+    }
+
+    public void askedQuestion(Player player, Question question) {
+        log(player.getUsername() + " asked " + question);
+        player.getPartner().askQuestion(question, ans -> {
+            log(player.getPartner() + " responded with a " + ans + " to " + question);
+            getAnswerHandler(question).callback(ans);
+        });
+    }
+
+    private AnswerCallback getAnswerHandler(Question question) {
+        return switch (question.questionType) {
+            case DRAW_OFFER -> ans -> {
+                if (ans == Question.Answer.ACCEPT) {
+                    game.interruptRead(GameStatus.tieByAgreement());
+                }
+            };
+            case THREEFOLD -> null;
+            default -> null;
+        };
     }
 }

@@ -51,6 +51,20 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     @Override
+    public MessageCallback onCancelQuestion() {
+        return message -> {
+            super.onCancelQuestion().onMsg(message);
+            client.getView().getSidePanel().askPlayerPnl.replaceWithMsg(message.getQuestion(), message.getCancelingQuestionCause());
+        };
+    }
+
+    @Override
+    public void onUnplannedDisconnect() {
+        client.disconnectedFromServer();
+        super.onUnplannedDisconnect();
+    }
+
+    @Override
     public void onAnyMsg(Message message) {
         super.onAnyMsg(message);
         MessageType messageType = message.getMessageType();
@@ -62,15 +76,9 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         if (message.isSubject())
             view.setStatusLbl(message.getSubject());
-        
+
         client.updateGameTime(message);
 
-    }
-
-    @Override
-    public void onUnplannedDisconnect() {
-        client.disconnectedFromServer();
-        super.onUnplannedDisconnect();
     }
 
     @Override

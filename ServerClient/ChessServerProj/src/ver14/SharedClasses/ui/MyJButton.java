@@ -8,7 +8,9 @@ import java.awt.*;
 
 public class MyJButton extends JButton {
 
-    private int numOfSetCallbacks = 0;
+    private String ogTxt = null;
+    private VoidCallback ogOnClick = null;
+    private VoidCallback onClick = null;
 
     public MyJButton(String text, VoidCallback callback) {
         this(text);
@@ -22,7 +24,7 @@ public class MyJButton extends JButton {
     }
 
     public void setOnClick(VoidCallback onClick) {
-        addActionListener(e -> onClick.callback());
+        this.onClick = onClick;
     }
 
     @Override
@@ -43,6 +45,9 @@ public class MyJButton extends JButton {
     public MyJButton(String text, Font font, VoidCallback onClick) {
         this(text, font);
         setOnClick(onClick);
+        addActionListener(l -> {
+            onClick();
+        });
     }
 
     public MyJButton(String text, Font font) {
@@ -50,13 +55,39 @@ public class MyJButton extends JButton {
         setFont(font);
     }
 
+    private void onClick() {
+        if (this.onClick != null)
+            onClick.callback();
+    }
+
     @Override
     public void setFont(Font font) {
         super.setFont(font);
     }
 
-
     public int getMinSize() {
         return Math.min(getHeight(), getWidth());
+    }
+
+    public void replaceWithCancel(VoidCallback onCancelled) {
+        replaceText("Cancel");
+        ogOnClick = onClick;
+        setOnClick(onCancelled);
+    }
+
+    private void replaceText(String replacement) {
+        ogTxt = getText();
+        setText(replacement);
+    }
+
+    public void resetState(boolean e) {
+        setEnabled(e);
+        if (ogTxt != null && ogOnClick != null) {
+            setText(ogTxt);
+            onClick = ogOnClick;
+            ogOnClick = null;
+            ogTxt = null;
+        }
+
     }
 }

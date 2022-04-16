@@ -1,6 +1,6 @@
 package ver14.players.PlayerAI;
 
-import ver14.SharedClasses.Callbacks.QuestionCallback;
+import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
@@ -22,13 +22,18 @@ import java.util.Map;
 public abstract class PlayerAI extends Player {
     private final static long safetyNet = 500;
     private final AiParameters aiParameters;
-    protected Map<Question, Question.Answer> qNa = new HashMap<>();
+    protected Map<Question.QuestionType, Question.Answer> qNa = new HashMap<>();
     long moveSearchTimeout;
 
     public PlayerAI(AiParameters aiParameters) {
         super(aiParameters.getAiType().toString());
         this.aiParameters = aiParameters;
+        setAnswer(Question.QuestionType.REMATCH, Question.Answer.YES);
+        setAnswer(Question.QuestionType.DRAW_OFFER, Question.Answer.DO_NOT_ACCEPT);
+    }
 
+    protected void setAnswer(Question.QuestionType questionType, Question.Answer answer) {
+        qNa.put(questionType, answer);
     }
 
     public static PlayerAI createPlayerAi(AiParameters aiParameters) {
@@ -61,8 +66,8 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public void askQuestion(Question question, QuestionCallback onAns) {
-        if (qNa.containsKey(question)) {
+    public void askQuestion(Question question, AnswerCallback onAns) {
+        if (qNa.containsKey(question.questionType)) {
             onAns.callback(qNa.get(question));
         } else {
             super.askQuestion(question, onAns);
@@ -90,11 +95,6 @@ public abstract class PlayerAI extends Player {
     }
 
     @Override
-    public void drawOffered(QuestionCallback answerCallback) {
-        answerCallback.callback(Question.Answer.NO);
-    }
-
-    @Override
     public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
         return null;
     }
@@ -107,9 +107,5 @@ public abstract class PlayerAI extends Player {
     @Override
     public boolean isAi() {
         return true;
-    }
-
-    protected void setAnswer(Question question, Question.Answer answer) {
-        qNa.put(question, answer);
     }
 }

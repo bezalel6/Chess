@@ -305,7 +305,7 @@ public class Client implements EnvManager {
         Message response = clientSocket.requestMessage(Message.returnLogin(loginInfo, loginMessage));
 
         if (this.loginInfo.getLoginType() == LoginType.CANCEL) {
-            closeClient("canceled", "");
+            closeClient();
             return null;
         }
 
@@ -430,7 +430,16 @@ public class Client implements EnvManager {
      * Offer draw btn clicked.
      */
     public void offerDrawBtnClicked() {
-        clientSocket.writeMessage(new Message(MessageType.OFFER_DRAW));
+        clientSocket.writeMessage(Message.askQuestion(Question.drawOffer(getUsername())));
+    }
+
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
     }
 
     /**
@@ -628,15 +637,6 @@ public class Client implements EnvManager {
         playerUsernames.put(myColor.getOpponent(), otherPlayerUn);
     }
 
-    /**
-     * Gets username.
-     *
-     * @return the username
-     */
-    public String getUsername() {
-        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
-    }
-
     public void stopPremoving() {
 
     }
@@ -646,5 +646,9 @@ public class Client implements EnvManager {
             return;
         var lst = lastGetMoveMsg.getPossibleMoves();
         returnMove(lst.get(new Random().nextInt(lst.size())));
+    }
+
+    public void cancelQuestion(Question.QuestionType questionType) {
+        clientSocket.writeMessage(Message.cancelQuestion(new Question("", questionType), getUsername() + " cancelled"));
     }
 }

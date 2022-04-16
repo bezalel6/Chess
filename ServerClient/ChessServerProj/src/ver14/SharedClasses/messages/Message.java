@@ -36,6 +36,7 @@ public class Message implements Serializable {
     private final String subject;
     private String respondingToMsgId;
     private String username = null;
+    private String cancelingQuestionCause = null;
     private String otherPlayer = null;
     private Boolean available = null;
     private ArrayList<String> usernameSuggestions = null;
@@ -79,7 +80,6 @@ public class Message implements Serializable {
         this.messageID = messagesIds.generate();
     }
 
-
     /**
      * Instantiates a new Message.
      *
@@ -119,6 +119,13 @@ public class Message implements Serializable {
     public static Message returnLogin(LoginInfo loginInfo, Message respondingTo) {
         return new Message(MessageType.LOGIN, respondingTo) {{
             setLoginInfo(loginInfo);
+        }};
+    }
+
+    public static Message cancelQuestion(Question question, String cause) {
+        return new Message(MessageType.CANCEL_QUESTION) {{
+            setQuestion(question);
+            setCancelingQuestionCause(cause);
         }};
     }
 
@@ -390,7 +397,6 @@ public class Message implements Serializable {
         }};
     }
 
-
     /**
      * Sync lists message.
      *
@@ -401,6 +407,14 @@ public class Message implements Serializable {
         return new Message(MessageType.UPDATE_SYNCED_LIST) {{
             setSyncedLists(syncedLists);
         }};
+    }
+
+    public String getCancelingQuestionCause() {
+        return cancelingQuestionCause;
+    }
+
+    public void setCancelingQuestionCause(String cancelingQuestionCause) {
+        this.cancelingQuestionCause = cancelingQuestionCause;
     }
 
     public Question.Answer getAnswer() {

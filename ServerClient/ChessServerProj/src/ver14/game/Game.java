@@ -12,7 +12,6 @@ import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Game.evaluation.GameStatus;
 import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Game.moves.MovesList;
-import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.ui.GameView;
 import ver14.players.Player;
@@ -290,15 +289,6 @@ public class Game {
                 '}';
     }
 
-    public void drawOffered(Player player) {
-        session.log(player + " offered a draw");
-        player.getPartner().drawOffered(ans -> {
-            session.log(player.getPartner() + " responded with a " + ans + " to the draw offer");
-            if (ans == Question.Answer.ACCEPT) {
-                interruptRead(GameStatus.tieByAgreement());
-            }
-        });
-    }
 
     public static class PlayerDisconnectedError extends MyError.DisconnectedError {
         private final Player disconnectedPlayer;

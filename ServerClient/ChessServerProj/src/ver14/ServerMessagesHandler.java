@@ -38,6 +38,13 @@ public class ServerMessagesHandler extends MessagesHandler {
         this.player = playerNet;
     }
 
+    @Override
+    public MessageCallback onCancelQuestion() {
+        return message -> {
+            super.onCancelQuestion().onMsg(message);
+            player.getPartner().cancelQuestion(message.getQuestion(), message.getCancelingQuestionCause());
+        };
+    }
 
     @Override
     protected void onAnyDisconnection() {
@@ -63,20 +70,12 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
-    /**
-     * On offer draw message callback.
-     *
-     * @return the message callback
-     */
     @Override
-    public MessageCallback onOfferDraw() {
+    public MessageCallback onQuestion() {
         return message -> {
-            super.onOfferDraw().onMsg(message);
-            if (player != null) {
-                Game game = player.getOnGoingGame();
-                if (game != null) {
-                    game.drawOffered(player);
-                }
+            super.onQuestion().onMsg(message);
+            if (player != null && player.getGameSession() != null) {
+                player.getGameSession().askedQuestion(player, message.getQuestion());
             }
         };
     }

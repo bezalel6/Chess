@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Minimax {
     private static final boolean USE_OPENING_BOOK = true;
     private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
-    private static final int moveOrderingDepthCutoff = 5;
+    private static final int moveOrderingDepthCutoff = 3;
     public static boolean SHOW_UI = false;
     private final long scanTimeInMillis;
     private final long scanTimeFlexibility;
@@ -141,6 +141,10 @@ public class Minimax {
         minimaxUI.setBestMoveSoFar();
         minimaxUI.setChosenMove(move.getAnnotation());
         return move;
+    }
+
+    public Evaluation getEvaluation(PlayerColor evaluatingFor) {
+        return getBestMoveUsingMinimax().getMoveEvaluation().setPerspective(evaluatingFor);
     }
 
     private MinimaxMove getBestMoveUsingMinimax() {

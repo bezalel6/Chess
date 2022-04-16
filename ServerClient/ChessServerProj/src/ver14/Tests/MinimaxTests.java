@@ -1,6 +1,7 @@
 package ver14.Tests;
 
 import org.testng.annotations.Test;
+import ver14.Model.minimax.Minimax;
 import ver14.Server;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
@@ -31,6 +32,19 @@ public class MinimaxTests extends Tests {
         Server server = new Server();
         server.gameSetup(ai);
         server.runServer();
+    }
+
+    @Test
+    private void testEval() {
+//        should be mate in 12
+
+        String fen = "8/5k2/4p3/7P/5KP1/8/8/8 w - - 0 1";
+        model.setup(fen);
+
+        Minimax.SHOW_UI = true;
+        Minimax minimax = new Minimax(model, Long.MAX_VALUE);
+
+        minimax.getEvaluation(PlayerColor.WHITE).print();
     }
 
     @Test(testName = "minimax vs stockfish")

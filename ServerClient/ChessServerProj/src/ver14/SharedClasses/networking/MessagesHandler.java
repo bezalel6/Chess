@@ -39,7 +39,6 @@ public abstract class MessagesHandler {
                 case LOGIN -> onLogin();
                 case RESIGN -> onResign();
                 case ADD_TIME -> onAddTime();
-                case OFFER_DRAW -> onOfferDraw();
                 case WELCOME_MESSAGE -> onWelcomeMessage();
                 case GET_GAME_SETTINGS -> onGetGameSettings();
                 case WAIT_FOR_MATCH -> onWaitForMatch();
@@ -57,6 +56,8 @@ public abstract class MessagesHandler {
                 case DB_RESPONSE -> onDBResponse();
                 case UPDATE_SYNCED_LIST -> onUpdateSyncedList();
                 case INTERRUPT -> onInterrupt();
+                case CANCEL_QUESTION -> onCancelQuestion();
+                default -> throw new IllegalStateException("Unexpected value: " + messageType);
             };
             defaultCallbacks.put(messageType, callback);
         }
@@ -73,6 +74,11 @@ public abstract class MessagesHandler {
         waiting = new Vector<>();
 
 
+    }
+
+    public MessageCallback onCancelQuestion() {
+        return msg -> {
+        };
     }
 
     /**
@@ -139,6 +145,10 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void receivedMessage(Message message) {
+        if (message == null) {
+            onDisconnected();
+            return;
+        }
             /*
             messages need to be processed in a new thread to free blocking requests
 
@@ -147,37 +157,18 @@ public abstract class MessagesHandler {
                     client replying with the login info and waiting for a welcome\error response message.
                     gets stuck. because the response message will never get read, bc the reading thread is waiting for a response
                  */
-        if (message != null) {
-            ThreadsManager.createThread(() -> {
-                if (message.getMessageType().chronologicalImportance) {
-                    System.out.println(message.getMessageType() + " acquiring semaphore");
-                    chronologicalSemaphore.acquire();
-                    System.out.println(message.getMessageType() + " acquired semaphore");
-                }
-                processMessage(message);
-                if (message.getMessageType().chronologicalImportance) {
-                    chronologicalSemaphore.release();
-                    System.out.println(message.getMessageType() + " released semaphore");
-                }
-            }, true);
-        } else
-            processMessage(null);
-    }
-
-    private void processMessage(Message message) {
-        if (message == null) {
-            onDisconnected();
-            return;
-        }
-        onAnyMsg(message);
-        String respondingTo = message.getRespondingToMsgId();
-        MessageCallback callback;
-        if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
-            callback = customCallbacks.remove(respondingTo);
-        } else {
-            callback = defaultCallbacks.get(message.getMessageType());
-        }
-        callback.onMsg(message);
+        ThreadsManager.createThread(() -> {
+            if (message.getMessageType().chronologicalImportance) {
+                System.out.println(message.getMessageType() + " acquiring semaphore");
+                chronologicalSemaphore.acquire();
+                System.out.println(message.getMessageType() + " acquired semaphore");
+            }
+            processMessage(message);
+            if (message.getMessageType().chronologicalImportance) {
+                chronologicalSemaphore.release();
+                System.out.println(message.getMessageType() + " released semaphore");
+            }
+        }, true);
     }
 
     /**
@@ -197,6 +188,28 @@ public abstract class MessagesHandler {
         socket.close();
     }
 
+    private void processMessage(Message message) {
+        onAnyMsg(message);
+        String respondingTo = message.getRespondingToMsgId();
+        MessageCallback callback;
+        if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
+            callback = customCallbacks.remove(respondingTo);
+        } else {
+            callback = defaultCallbacks.get(message.getMessageType());
+        }
+        callback.onMsg(message);
+    }
+
+    protected void onAnyDisconnection() {
+
+    }
+
+    protected void onPlannedDisconnect() {
+    }
+
+    protected void onUnplannedDisconnect() {
+    }
+
     /**
      * On any msg.
      *
@@ -211,17 +224,6 @@ public abstract class MessagesHandler {
 //                throw new Error("IM GETTING WAY TOO MANY MSGS");
 //            }
 //        }
-    }
-
-    protected void onAnyDisconnection() {
-
-    }
-
-    protected void onPlannedDisconnect() {
-    }
-
-
-    protected void onUnplannedDisconnect() {
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {

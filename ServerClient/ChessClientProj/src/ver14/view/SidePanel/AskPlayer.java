@@ -19,9 +19,9 @@ public class AskPlayer extends WinPnl {
     private final static int numOfFlashes = 10;
     private final static int flashesDelay = 200;
     private final static int borderThickness = 3;
+    private static final Border noBorder = BorderFactory.createLineBorder(Color.WHITE, borderThickness);
     //null is the empty flash
     private final Color[] flashes = {Color.WHITE, null};
-
     private final AtomicInteger currentClrIndex = new AtomicInteger();
     private final AtomicInteger numOfFlashesDone = new AtomicInteger();
     private final Timer flashingTimer;
@@ -38,6 +38,7 @@ public class AskPlayer extends WinPnl {
                 stopFlashing();
             }
         });
+        stopFlashing();
 //        showPnl(false);
     }
 
@@ -50,7 +51,7 @@ public class AskPlayer extends WinPnl {
 
     private void stopFlashing() {
         flash(null);
-        setBorder(null);
+        setBorder(noBorder);
         if (this.flashingTimer.isRunning())
             this.flashingTimer.stop();
 
@@ -112,7 +113,7 @@ public class AskPlayer extends WinPnl {
         private final Question question;
 
         public QuestionPnl(Question question, AnswerCallback callback) {
-            super(question.getPossibleAnswers().length, new Header(question.questionStr));
+            super(WinPnl.ALL_IN_ONE_ROW, new Header(question.questionStr));
             this.question = question;
             for (Question.Answer answer : question.getPossibleAnswers()) {
                 add(createBtn(answer, callback));
