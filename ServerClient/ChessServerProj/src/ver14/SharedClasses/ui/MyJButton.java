@@ -8,6 +8,7 @@ import java.awt.*;
 
 public class MyJButton extends JButton {
 
+
     private String ogTxt = null;
     private VoidCallback ogOnClick = null;
     private VoidCallback onClick = null;
@@ -21,6 +22,10 @@ public class MyJButton extends JButton {
         text = StrUtils.format(text);
         setText(text);
         setFocusable(false);
+
+        addActionListener(l -> {
+            onClick();
+        });
     }
 
     public void setOnClick(VoidCallback onClick) {
@@ -31,6 +36,11 @@ public class MyJButton extends JButton {
     public void setText(String text) {
         super.setText(StrUtils.format(text));
 
+    }
+
+    private void onClick() {
+        if (this.onClick != null)
+            onClick.callback();
     }
 
     public MyJButton() {
@@ -45,19 +55,12 @@ public class MyJButton extends JButton {
     public MyJButton(String text, Font font, VoidCallback onClick) {
         this(text, font);
         setOnClick(onClick);
-        addActionListener(l -> {
-            onClick();
-        });
+
     }
 
     public MyJButton(String text, Font font) {
         this(text);
         setFont(font);
-    }
-
-    private void onClick() {
-        if (this.onClick != null)
-            onClick.callback();
     }
 
     @Override

@@ -120,7 +120,7 @@ public class MoveGenerator {
             generatedMoves.initAnnotation();
         }
 
-        if (generationSettings == GenerationSettings.EVAL) {
+        if (generationSettings == GenerationSettings.EVAL || generationSettings == GenerationSettings.ANNOTATE) {
             for (Move move : generatedMoves) {
                 model.applyMove(move);
                 move.setMoveEvaluation(Eval.getEvaluation(model));

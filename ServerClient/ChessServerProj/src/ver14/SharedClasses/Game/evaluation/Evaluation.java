@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Evaluation implements Serializable {
-    public static final double WIN_EVAL = Double.MAX_VALUE, TIE_EVAL = 0;
+    public static final double TIE_EVAL = 0;
+    public static final double WIN_EVAL = Integer.MAX_VALUE;
+    public static final double LOSS_EVAL = Integer.MIN_VALUE;
     public static final int WINNING_SIDE = 0, LOSING_SIDE = 1;
     private final ArrayList<EvaluationDetail> detailedEval;
     private double eval;
@@ -17,7 +19,7 @@ public class Evaluation implements Serializable {
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(0, gameStatus, evaluationFor);
         switch (gameStatus.getGameStatusType()) {
-            case WIN_OR_LOSS -> eval = -WIN_EVAL;
+            case WIN_OR_LOSS -> eval = LOSS_EVAL;
             case TIE -> eval = TIE_EVAL;
             default -> eval = 0;
         }
@@ -97,11 +99,12 @@ public class Evaluation implements Serializable {
 
     @Override
     public String toString() {
-        return "Eval{" +
-                "eval=" + eval +
+        return "Evaluation{" +
+                "detailedEval=" + detailedEval +
+                ", eval=" + eval +
                 ", gameStatus=" + gameStatus +
-                ", detailedEval= " + getDetailedEvalStr() +
-                ", evaluation for= " + evaluationFor.getName() +
+                ", evaluationFor=" + evaluationFor +
+                ", evaluationDepth=" + evaluationDepth +
                 '}';
     }
 
@@ -138,5 +141,4 @@ public class Evaluation implements Serializable {
             return parm + ": " + eval;
         }
     }
-
 }

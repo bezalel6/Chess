@@ -44,7 +44,7 @@ public abstract class Dialog extends JDialog implements Parent {
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
     private boolean isDisposing;
-    private JScrollPane cardsScrollPane;
+    private Scrollable cardsScrollPane;
     private MyJFrame.MyAdapter myAdapter;
 
     public Dialog(Properties properties) {
@@ -111,7 +111,6 @@ public abstract class Dialog extends JDialog implements Parent {
 
     @Override
     public void askServer(Message msg, MessageCallback onRes) {
-        System.out.println("asking server " + msg);
         if (socketToServer != null) {
             socketToServer.requestMessage(msg, onRes);
         }
@@ -293,15 +292,7 @@ public abstract class Dialog extends JDialog implements Parent {
         }
         addCard(startingCard);
 
-        cardsScrollPane = new JScrollPane(cardsPnl) {
-            {
-                setPreferredSize(getPreferredSize());
-                setMaximumSize(getPreferredSize());
-                getVerticalScrollBar().setBlockIncrement(100);
-                SwingUtilities.invokeLater(() -> {
-                    getVerticalScrollBar().setValue(0);
-                });
-            }
+        cardsScrollPane = new Scrollable(cardsPnl) {
 
         };
         pane.add(cardsScrollPane, BorderLayout.CENTER);

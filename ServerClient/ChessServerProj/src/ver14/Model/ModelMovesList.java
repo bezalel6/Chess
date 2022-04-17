@@ -43,7 +43,7 @@ public class ModelMovesList extends MovesList {
                 throw new FoundLegalMove();
             }
         } else {
-            if ((generationSettings & GenerationSettings.LEGALIZE) == 0 || generator.isLegal(adding)) {
+            if ((generationSettings & GenerationSettings.LEGALIZE) == 0 || (generator.isLegal(adding) && (generationSettings != GenerationSettings.QUIESCE || isQuiescence(adding, movingPiece)))) {
                 super.add(adding);
             } else if (rejectedPseudoLegal != null) {
                 rejectedPseudoLegal.add(adding);
@@ -51,6 +51,10 @@ public class ModelMovesList extends MovesList {
         }
 
         return true;
+    }
+
+    private boolean isQuiescence(Move move, PieceType moving) {
+        return move.isCapturing();
     }
 
     public void initAnnotation() {

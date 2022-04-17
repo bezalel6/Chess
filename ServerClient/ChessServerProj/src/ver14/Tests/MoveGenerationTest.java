@@ -29,8 +29,8 @@ import java.util.stream.IntStream;
  * The type Move generation test.
  */
 public class MoveGenerationTest extends Tests {
-    private static final int POSITIONS_COUNT_DEPTH = 6;
-    private static final boolean PRINT_POSITIONS_MOVES = false;
+    private static final int POSITIONS_COUNT_DEPTH = 7;
+    private static final boolean PRINT_POSITIONS_MOVES = POSITIONS_COUNT_DEPTH > 6;
     private static final boolean MULTITHREADING_POS = true;
 
     @Test(dataProvider = "attackedPositions")

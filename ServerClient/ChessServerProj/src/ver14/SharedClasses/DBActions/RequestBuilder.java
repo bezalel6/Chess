@@ -195,7 +195,7 @@ public class RequestBuilder implements Serializable {
 
         Selection stats = gamesStats(username.repInStr, condition);
 
-        RequestBuilder builder = new GraphableSelection(stats,
+        RequestBuilder builder = new RequestBuilder(stats,
                 "Stats By Time Of Day",
                 "%02d:00 - %02d:00".formatted(hour - 2, hour - 1),
                 "",
@@ -204,7 +204,7 @@ public class RequestBuilder implements Serializable {
         hour -= 2;
         RequestBuilder current = builder;
         for (; hour > 1; hour -= 2) {
-            current.setSubBuilder(new GraphableSelection(gamesStats(username, betweenHours(hour - 2, hour - 1)), "", "%02d:00 - %02d:00".formatted(hour - 2, hour - 1), "", username));
+            current.setSubBuilder(new RequestBuilder(gamesStats(username, betweenHours(hour - 2, hour - 1)), "", "%02d:00 - %02d:00".formatted(hour - 2, hour - 1), "", username));
             current = current.subBuilder;
         }
         return builder;

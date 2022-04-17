@@ -200,10 +200,10 @@ public class Minimax {
             minimaxTimer.stop();
         log("\nminimax move: " + bestMoveSoFar);
         log("max depth reached: " + (currentDepth - 1));
-//        log("num of positions reached: " + positionsReached);
-//        log("num of leaves reached: " + leavesReached);
-//        log("num of branches pruned: " + branchesPruned);
-//        log("num of transpositions hits: " + transpositionHits);
+        log("num of positions reached: " + positionsReached);
+        log("num of leaves reached: " + leavesReached);
+        log("num of branches pruned: " + branchesPruned);
+        log("num of transpositions hits: " + transpositionHits);
 
         return bestMoveSoFar;
     }
@@ -245,7 +245,7 @@ public class Minimax {
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
                 Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
-                    System.out.println("minimax threw " + e);
+//                    System.out.println("minimax threw " + e);
                 });
                 if (!isOvertime() && interrupt == null) {
                     Model modelCopy = new Model(model);
@@ -253,6 +253,7 @@ public class Minimax {
 
                     Evaluation eval = minimax(new MinimaxParameters(modelCopy, false, maxDepth, minimaxPlayerColor, move));
 
+                    modelCopy.undoMove(move);
                     synchronized (atomicBestMove) {
                         if (atomicBestMove.get() == null || eval.isGreaterThan(atomicBestMove.get().getMoveEvaluation())) {
                             atomicBestMove.set(new MinimaxMove(move, eval));
@@ -282,7 +283,7 @@ public class Minimax {
         if (isOvertime() || Eval.isGameOver(parms.model) || parms.currentDepth >= parms.maxDepth) {
 //            leavesReached++;
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
-            evaluation.setEvaluationDepth(parms.currentDepth);
+            evaluation.setEvaluationDepth(parms.currentDepth / 2);
             return evaluation;
         }
 
@@ -291,8 +292,8 @@ public class Minimax {
 
     private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
-        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.LEGALIZE);
-        if (parms.currentDepth <= moveOrderingDepthCutoff)
+        ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, parms.genSettings);
+        if (parms.currentDepth < moveOrderingDepthCutoff)
             sortMoves(possibleMoves, parms.isMax);
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
@@ -311,6 +312,7 @@ public class Minimax {
             }
 
             if (parms.prune(bestEval)) {
+//                branchesPruned++;
                 break;
             }
 

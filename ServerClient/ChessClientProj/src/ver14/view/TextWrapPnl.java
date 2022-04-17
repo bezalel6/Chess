@@ -1,5 +1,6 @@
 package ver14.view;
 
+import ver14.view.Dialog.Scrollable;
 import ver14.view.IconManager.Size;
 
 import javax.swing.*;
@@ -25,10 +26,9 @@ public class TextWrapPnl extends JPanel {
 
 //        textArea.setLineWrap(true);
 //        textArea.setWrapStyleWord(true);
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        JScrollPane scrollPane = new Scrollable(textArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(100);
 
         this.add(scrollPane, BorderLayout.CENTER);
     }

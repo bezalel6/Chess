@@ -52,6 +52,11 @@ public class Question implements Serializable {
         return questionType == question.questionType;
     }
 
+    @Override
+    public String toString() {
+        return questionType + " " + questionStr;
+    }
+
     public enum QuestionType {
         DRAW_OFFER, THREEFOLD, REMATCH, NO_TYPE
     }

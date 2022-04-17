@@ -145,9 +145,8 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void receivedMessage(Message message) {
-        if (message == null) {
-            onDisconnected();
-            return;
+        if (message.getMessageType() == MessageType.BYE) {
+            prepareForDisconnect();
         }
             /*
             messages need to be processed in a new thread to free blocking requests
@@ -171,21 +170,8 @@ public abstract class MessagesHandler {
         }, true);
     }
 
-    /**
-     * On disconnected.
-     */
-    public final void onDisconnected() {
-        if (!didDisconnect)
-            onAnyDisconnection();
-        didDisconnect = true;
-
-        if (isExpectingDisconnect) {
-            onPlannedDisconnect();
-        } else {
-            onUnplannedDisconnect();
-        }
-
-        socket.close();
+    public void prepareForDisconnect() {
+        isExpectingDisconnect = true;
     }
 
     private void processMessage(Message message) {
@@ -198,16 +184,6 @@ public abstract class MessagesHandler {
             callback = defaultCallbacks.get(message.getMessageType());
         }
         callback.onMsg(message);
-    }
-
-    protected void onAnyDisconnection() {
-
-    }
-
-    protected void onPlannedDisconnect() {
-    }
-
-    protected void onUnplannedDisconnect() {
     }
 
     /**
@@ -224,6 +200,35 @@ public abstract class MessagesHandler {
 //                throw new Error("IM GETTING WAY TOO MANY MSGS");
 //            }
 //        }
+    }
+
+    /**
+     * On disconnected.
+     */
+    public final void onDisconnected() {
+        System.out.println("on disconnected");
+        if (!didDisconnect)
+            onAnyDisconnection();
+        else return;
+        didDisconnect = true;
+
+        if (isExpectingDisconnect) {
+            onPlannedDisconnect();
+        } else {
+            onUnplannedDisconnect();
+        }
+
+        socket.close();
+    }
+
+    protected void onAnyDisconnection() {
+
+    }
+
+    protected void onPlannedDisconnect() {
+    }
+
+    protected void onUnplannedDisconnect() {
     }
 
     protected MyError.DisconnectedError createDisconnectedError() {
@@ -251,7 +256,6 @@ public abstract class MessagesHandler {
 
         };
     }
-
 
     /**
      * On add time message callback.
@@ -395,11 +399,6 @@ public abstract class MessagesHandler {
             prepareForDisconnect();
         };
     }
-
-    public void prepareForDisconnect() {
-        isExpectingDisconnect = true;
-    }
-
 
     /**
      * On username availability message callback.

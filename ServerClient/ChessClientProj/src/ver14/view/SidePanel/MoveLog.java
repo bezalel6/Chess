@@ -7,6 +7,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewSavedBoard;
+import ver14.view.Dialog.Scrollable;
 import ver14.view.IconManager.Size;
 
 import javax.swing.*;
@@ -22,9 +23,8 @@ public class MoveLog extends JPanel {
     private final ArrayList<MyJButton> movesBtns;
     private final JPanel whiteMoves, blackMoves;
     private BoardPanel boardPanel;
-    private JScrollPane moveLogScroll;
+    private Scrollable moveLogScroll;
     private int currentMoveIndex = 0;
-    private boolean justAddedMove = false;
 
     public MoveLog() {
         movesBtns = new ArrayList<>();
@@ -92,33 +92,14 @@ public class MoveLog extends JPanel {
 //        moves.setInsets(new Insets(0, 0, 0, 0));
         moves.add(whiteMoves);
         moves.add(blackMoves);
-        JPanel container = new JPanel(new GridBagLayout()) {{
-            setAutoscrolls(true);
-//            setInsets(new Insets(0, 0, 0, 0));
-        }};
+        JPanel container = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-//        gbc.weightx = 10;
         gbc.gridx = 1;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.fill = GridBagConstraints.VERTICAL;
         container.add(moves, gbc);
 
-        moveLogScroll = new JScrollPane(container) {{
-            setPreferredSize(new Size(225, 104));
-            setAutoscrolls(true);
-            setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//            setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-            setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-//            setPreferredSize(getPreferredSize());
-            JScrollBar scrollBar = getVerticalScrollBar();
-            scrollBar.setBlockIncrement(100);
-            scrollBar.addAdjustmentListener(e -> {
-                if (justAddedMove) {
-                    e.getAdjustable().setValue(e.getAdjustable().getMaximum());
-                    justAddedMove = false;
-                }
-            });
-        }};
+        moveLogScroll = new Scrollable(container, new Size(225, 104));
     }
 
     public void preAdding() {
@@ -156,16 +137,9 @@ public class MoveLog extends JPanel {
      */
     public synchronized void addMove(Move move) {
         Font font = FontManager.sidePanel;
-        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font) {
-            {
-                setSize(getPreferredSize());
-            }
-
-//            @Override
-//            public Dimension getPreferredSize() {
-//                return new Size(50, 20);
-//            }
-        };
+        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font);
+        Size btnSize = new Size(getWidth() / 2, moveBtn.getPreferredSize().height);
+        moveBtn.setSize(btnSize);
 //        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
 
@@ -178,7 +152,7 @@ public class MoveLog extends JPanel {
             moveBtn.setText(move.getPrevFullMoveClock() + ". " + moveBtn.getText());
 //            lbl.setSize(10, lbl.getHeight());
         }
-        justAddedMove = true;
+        moveLogScroll.scrollToBottom();
         (move.getMovingColor() == PlayerColor.WHITE ? whiteMoves : blackMoves).add(moveBtn);
         boardsList.add(board);
 
@@ -216,9 +190,10 @@ public class MoveLog extends JPanel {
     }
 
     private void scroll() {
-        int row = currentMoveIndex / 2;
-        row = (row - 1) * movesBtns.get(0).getHeight();
-        moveLogScroll.getVerticalScrollBar().setValue(row);
+//        int row = currentMoveIndex / 2;
+//        row = (row - 1) * movesBtns.get(0).getHeight();
+//        moveLogScroll.getVerticalScrollBar().setValue(row);
+        moveLogScroll.scrollToBottom();
     }
 
     public synchronized void switchToCurrentIndex() {

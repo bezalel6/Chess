@@ -101,6 +101,7 @@ public class Server implements EnvManager {
             setSize(SERVER_WIN_SIZE);
             setTitle(SERVER_WIN_TITLE);
             setOnExit(Server.this::exitServer);
+
 //            setAlwaysOnTop(true);
         }};
         JPanel bottomPnl = new JPanel();
@@ -120,6 +121,14 @@ public class Server implements EnvManager {
             log("Users Details:");
             DB.getAllUserDetails().forEach(userDetails -> log(StrUtils.dontCapFull(userDetails.toString())));
         });
+
+//        region debug
+        bottomPnl.add(new MyJButton("Print Fens", () -> {
+            gameSessions.forEachItem(session -> {
+                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
+            });
+        }));
+//        endregion
 
         bottomPnl.add(connectedUsersBtn);
         bottomPnl.add(gameSessionsBtn);
@@ -353,20 +362,12 @@ public class Server implements EnvManager {
     private void handleClient(AppSocket playerSocket) {
         ThreadsManager.HandledThread.runInHandledThread(() -> {
             ThreadsManager.MyThread.currentThread(t -> {
-                t.addHandler(MyError.DisconnectedError.class, e -> {
-                    playerSocket.stopReading();
-                });
+                t.addHandler(MyError.DisconnectedError.class, playerSocket::close);
             });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
-            PlayerNet player;
-//            try {
-            player = login(playerSocket);
-//            } catch (MyError.DisconnectedError disconnectedError) {
-//                playerSocket.stopReading();
-//                return;
-//            }
+            PlayerNet player = login(playerSocket);
 
             messagesHandler.setPlayer(player);
             players.add(player);
@@ -395,9 +396,6 @@ public class Server implements EnvManager {
             request = appSocket.requestMessage(responseMessage);
 
             responseMessage = responseToLogin(request.getLoginInfo());
-
-            if (responseMessage == null)
-                return null;
         }
 
         appSocket.respond(responseMessage, request);
@@ -545,17 +543,13 @@ public class Server implements EnvManager {
      *
      * @param player the player
      */
-    public void playerDisconnected(Player player, String message) {
-        if (player == null)
+    public synchronized void playerDisconnected(Player player, String message) {
+        if (player == null || players.stream().noneMatch(p -> p.equals(player)))
             return;
 
         log(player.getUsername() + " disconnected");
+        message = StrUtils.isEmpty(message) ? "bye " + player.getUsername() : message;
         player.disconnect(message);
-
-//        Game ongoingGame = player.getOnGoingGame();
-//        if (ongoingGame != null) {
-//            ongoingGame.playerDisconnected(player);
-//        }
 
         players.remove(player.getUsername());
         gamePool.batchRemove(g -> g.creatorUsername.equals(player.getUsername()));

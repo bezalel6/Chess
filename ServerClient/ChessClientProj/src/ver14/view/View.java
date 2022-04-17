@@ -32,6 +32,7 @@ import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
+import ver14.view.Dialog.Scrollable;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.Graph.Graph;
@@ -49,7 +50,6 @@ import java.util.*;
 
 public class View implements Iterable<BoardButton[]> {
     public static final String CLIENT_WIN_TITLE = "Chess Client";
-    private final static boolean WIREFRAME = false;
     private final static Dimension winSize;
     private final static Color statusLblNormalClr = Color.BLACK;
     private final static Color statusLblHighlightClr = Color.BLUE;
@@ -108,15 +108,12 @@ public class View implements Iterable<BoardButton[]> {
                 setOnExit(client::disconnectFromServer);
                 setOnResize(View.this::winResized);
 
+                getMyAdapter().addAction(() -> {
+
+                }, KeyEvent.VK_CONTROL, KeyEvent.VK_F, KeyEvent.VK_E, KeyEvent.VK_N);
+
                 getMyAdapter().addAction(client::makeRandomMove, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_R);
 //                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
-            }
-
-            @Override
-            public void add(Component comp, Object constraints) {
-                if (WIREFRAME && comp instanceof JComponent jcomp)
-                    jcomp.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 1));
-                super.add(comp, constraints);
             }
 
         };
@@ -164,7 +161,7 @@ public class View implements Iterable<BoardButton[]> {
     }
 
     public <D extends Dialog> D showDialog(D dialog) {
-        if (dialog instanceof MessageDialog messageDialog) {
+        if (dialog instanceof MessageDialog) {
             closeOpenDialogs();
         }
         displayedDialogs.add(dialog);
@@ -534,9 +531,8 @@ public class View implements Iterable<BoardButton[]> {
             table.setFont(FontManager.dbResponseTable);
             table.setEnabled(false);
             table.fit();
-            JScrollPane scrollPane = new JScrollPane() {{
+            JScrollPane scrollPane = new Scrollable() {{
                 setViewportView(table);
-                getVerticalScrollBar().setUnitIncrement(50);
                 SwingUtilities.invokeLater(() -> {
                     Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
                     setMaximumSize(size);

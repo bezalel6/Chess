@@ -140,9 +140,6 @@ public class WinPnl extends JPanel {
             gbc.weightx = 2;
         }
 
-        if (comp instanceof ScrollableComponent) {
-            comp = new Scrollable((JComponent) comp);
-        }
         contentPnl.add(comp, gbc);
     }
 
@@ -159,27 +156,4 @@ public class WinPnl extends JPanel {
         contentPnl.removeAll();
     }
 
-    public class Scrollable extends JScrollPane {
-        private final JComponent ogComp;
-
-        public Scrollable(JComponent ogComp) {
-            super(ogComp);
-            this.ogComp = ogComp;
-            setPreferredSize(maxSize());
-//            setPreferredSize(maxSize().createMinCombo(getPreferredSize()));
-            setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-            setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            getVerticalScrollBar().setUnitIncrement(50);
-            getVerticalScrollBar().setValue(0);
-
-//            todo forward scrolling to parent scrolling if vertical\horizonatal scrollbar is not visible
-
-        }
-
-        public void addToComponent(Component adding, Object constraints) {
-            ogComp.add(adding, constraints);
-        }
-
-
-    }
 }

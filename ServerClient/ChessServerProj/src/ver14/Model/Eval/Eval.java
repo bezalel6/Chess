@@ -112,12 +112,14 @@ public class Eval implements Serializable {
 //        retEval.addDetail(MOVEMENT_ABILITY, compareMovementAbility(player));
 
         //King Safety
-        compareKingSafety();
+//        compareKingSafety();
 
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
     }
 
     private boolean checkRepetition() {
+        if (true)
+            return false;
         var stack = model.getMoveStack();
 
         ArrayList<Long> list = new ArrayList<>();
@@ -202,10 +204,6 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
     }
 
-    private void compareKingSafety() {
-        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
-    }
-
     private boolean insufficientMaterial(PlayerColor playerColor) {
         return model.getNumOfPieces(playerColor, PieceType.KING) < 1 || (
                 model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
@@ -255,18 +253,11 @@ public class Eval implements Serializable {
 //        return ret * 0.01 * egWeight;
         return ret * egWeight;
     }
-//    private static final double KING_SAFETY_WEIGHT = -0.01;
-
-    private double kingSafety(PlayerColor playerColor) {
-        double ret;
-        int movesNum = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, model.getPieceBitBoard(playerColor, PieceType.KING), playerColor.getOpponent(), model).getSetLocs().size();
-        ret = movesNum * KING_SAFETY_WEIGHT;
-        return ret;
-    }
 
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
         return new Eval(model, playerColor).evaluation;
     }
+//    private static final double KING_SAFETY_WEIGHT = -0.01;
 
     /**
      * evaluation for current player
@@ -291,6 +282,16 @@ public class Eval implements Serializable {
         return num + "".length();
     }
 
+    private void compareKingSafety() {
+        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
+    }
+
+    private double kingSafety(PlayerColor playerColor) {
+        double ret;
+        int movesNum = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, model.getPieceBitBoard(playerColor, PieceType.KING), playerColor.getOpponent(), model).getSetLocs().size();
+        ret = movesNum * KING_SAFETY_WEIGHT;
+        return ret;
+    }
 
     private double squaresControl(int player) {
         double ret = 0;

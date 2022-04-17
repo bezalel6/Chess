@@ -1,6 +1,7 @@
 package ver14.Model.minimax;
 
 import ver14.Model.Model;
+import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.evaluation.Evaluation;
 import ver14.SharedClasses.Game.moves.Move;
@@ -11,14 +12,17 @@ public class MinimaxParameters {
     public final PlayerColor minimaxPlayerColor;
     public final int currentDepth, maxDepth;
     public final Move rootMove;
+    public @GenerationSettings
+    int genSettings;
     public double a, b;
 
     public MinimaxParameters(Model model, boolean isMax, int maxDepth, PlayerColor minimaxPlayerColor, Move rootMove) {
-        this(model, isMax, 1, maxDepth, minimaxPlayerColor, -Evaluation.WIN_EVAL, Evaluation.WIN_EVAL, rootMove);
+        this(model, isMax, 1, maxDepth, minimaxPlayerColor, Evaluation.LOSS_EVAL, Evaluation.WIN_EVAL, GenerationSettings.LEGALIZE, rootMove);
     }
 
-    public MinimaxParameters(Model model, boolean isMax, int currentDepth, int maxDepth, PlayerColor minimaxPlayerColor, double a, double b, Move rootMove) {
+    public MinimaxParameters(Model model, boolean isMax, int currentDepth, int maxDepth, PlayerColor minimaxPlayerColor, double a, double b, @GenerationSettings int genSettings, Move rootMove) {
         this.model = model;
+        this.genSettings = genSettings;
         this.isMax = isMax;
         this.maxDepth = maxDepth;
         this.minimaxPlayerColor = minimaxPlayerColor;
@@ -29,6 +33,7 @@ public class MinimaxParameters {
 
     }
 
+
     public boolean prune(Evaluation bestEval) {
         if (isMax) {
             a = Math.max(a, bestEval.getEval());
@@ -37,6 +42,8 @@ public class MinimaxParameters {
         }
         return b <= a;
     }
+
+//    private static final int
 
 
     public boolean isMax() {
@@ -64,6 +71,6 @@ public class MinimaxParameters {
     }
 
     public MinimaxParameters nextDepth() {
-        return new MinimaxParameters(model, !isMax, currentDepth + 1, maxDepth, minimaxPlayerColor, a, b, rootMove);
+        return new MinimaxParameters(model, !isMax, currentDepth + 1, maxDepth, minimaxPlayerColor, a, b, genSettings, rootMove);
     }
 }

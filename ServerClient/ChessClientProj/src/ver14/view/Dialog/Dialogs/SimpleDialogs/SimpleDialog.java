@@ -6,11 +6,11 @@ import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
 public class SimpleDialog extends Dialog {
-
 
     public SimpleDialog(Properties properties, Component... components) {
         this(properties, (BackOkInterface) null);
@@ -31,6 +31,10 @@ public class SimpleDialog extends Dialog {
             }
         };
         cardsSetup(null, card);
+    }
+
+    public static void main(String[] args) {
+        new SimpleDialog(new Properties(new Properties.Details("")), new JLabel("ello")).start();
     }
 
 

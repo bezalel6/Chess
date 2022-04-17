@@ -49,6 +49,7 @@ public class AppSocket extends ThreadsManager.MyThread {
         this.msgSocket = socket;
 
         addHandler(AppSocketError.class, e -> {
+//            System.out.println("threw " + e + " at " + System.currentTimeMillis());
             didDisconnect = true;
             if (messagesHandler != null) {
                 messagesHandler.onDisconnected();
@@ -139,6 +140,7 @@ public class AppSocket extends ThreadsManager.MyThread {
     public synchronized void writeMessage(Message msg) {
         if (!isConnected())
             return;
+        System.out.println("writing " + msg);
         if (messagesHandler != null && msg.getMessageType() == MessageType.BYE)
             messagesHandler.prepareForDisconnect();
         try {

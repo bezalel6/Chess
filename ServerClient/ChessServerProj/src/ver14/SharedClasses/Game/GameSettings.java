@@ -1,11 +1,12 @@
 package ver14.SharedClasses.Game;
 
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.TimeFormatSettable;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class GameSettings implements Serializable {
+public class GameSettings implements Serializable, TimeFormatSettable {
     public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.ULTRA_BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
 
     private PlayerColor playerToMove;
@@ -110,6 +111,7 @@ public class GameSettings implements Serializable {
         return timeFormat;
     }
 
+    @Override
     public void setTimeFormat(TimeFormat timeFormat) {
         this.timeFormat = timeFormat;
     }

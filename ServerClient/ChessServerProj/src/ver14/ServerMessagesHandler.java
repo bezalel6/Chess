@@ -47,9 +47,9 @@ public class ServerMessagesHandler extends MessagesHandler {
     }
 
     @Override
-    protected void onAnyDisconnection() {
-        server.playerDisconnected(player, "");
-        super.onAnyDisconnection();
+    protected void onUnplannedDisconnect() {
+        super.onUnplannedDisconnect();
+        server.playerDisconnected(player, "unexpectedly disconnected");
     }
 
     @Override
@@ -89,13 +89,10 @@ public class ServerMessagesHandler extends MessagesHandler {
     public MessageCallback onBye() {
         return message -> {
             super.onBye().onMsg(message);
-
             String response = "bye";
             if (player != null) {
                 response += " " + player.getUsername();
-
-//                GameSession gameSession = player.getGameSession();
-//                player.disconnect(response);
+                System.out.println(response);
                 server.playerDisconnected(player, response);
 
             } else
