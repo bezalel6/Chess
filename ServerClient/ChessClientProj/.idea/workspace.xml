@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="dragging and overlay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/MenuBar/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/MenuBar/ProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/AskPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/AskPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,6 +4,7 @@ import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.ui.MyJButton;
 import ver14.view.Dialog.Dialogs.Header;
+import ver14.view.Dialog.Scrollable;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.IconManager.Size;
 
@@ -11,10 +12,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
-public class AskPlayer extends JScrollPane {
+public class AskPlayer extends Scrollable {
     //including empty flahses between
     private final static int numOfFlashes = 8;
     private final static int flashesDelay = 200;
@@ -22,10 +22,10 @@ public class AskPlayer extends JScrollPane {
     private static final Border noBorder = BorderFactory.createLineBorder(null, borderThickness);
     //null is the empty flash
     private final Color[] flashes = {Color.WHITE, null};
-    private final AtomicInteger currentClrIndex = new AtomicInteger();
-    private final AtomicInteger numOfFlashesDone = new AtomicInteger();
     private final Timer flashingTimer;
     private final WinPnl content;
+    private int currentClrIndex = 0;
+    private int numOfFlashesDone = 0;
     private ArrayList<QuestionPnl> shownQuestions = new ArrayList<>();
     private boolean justAdded = false;
 
@@ -34,11 +34,11 @@ public class AskPlayer extends JScrollPane {
         setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         this.content = (WinPnl) getViewport().getView();
         this.flashingTimer = new Timer(flashesDelay, l -> {
-            Color clr = flashes[currentClrIndex.getAndIncrement()];
+            Color clr = flashes[currentClrIndex++];
             flash(clr);
-            currentClrIndex.set(currentClrIndex.intValue() % flashes.length);
-            numOfFlashesDone.getAndIncrement();
-            if (numOfFlashesDone.get() >= numOfFlashes) {
+            currentClrIndex = (currentClrIndex % flashes.length);
+            numOfFlashesDone++;
+            if (numOfFlashesDone >= numOfFlashes) {
                 stopFlashing();
             }
         });
@@ -107,7 +107,7 @@ public class AskPlayer extends JScrollPane {
         shownQuestions.add(pnl);
         content.add(pnl);
         justAdded = true;
-        numOfFlashesDone.set(0);
+        numOfFlashesDone = (0);
         flashingTimer.start();
     }
 
