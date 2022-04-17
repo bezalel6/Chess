@@ -16,10 +16,10 @@ import java.util.stream.IntStream;
 
 public class AskPlayer extends JScrollPane {
     //including empty flahses between
-    private final static int numOfFlashes = 10;
+    private final static int numOfFlashes = 8;
     private final static int flashesDelay = 200;
     private final static int borderThickness = 3;
-    private static final Border noBorder = BorderFactory.createLineBorder(Color.WHITE, borderThickness);
+    private static final Border noBorder = BorderFactory.createLineBorder(null, borderThickness);
     //null is the empty flash
     private final Color[] flashes = {Color.WHITE, null};
     private final AtomicInteger currentClrIndex = new AtomicInteger();

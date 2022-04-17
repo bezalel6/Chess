@@ -262,6 +262,8 @@ public class RequestBuilder implements Serializable {
     }
 
     public String getArgVal(int index) {
+        if (args[index].escape)
+            return builtArgsVals[index] != null ? builtArgsVals[index].replaceAll("^'(.*)'$", "$1") : null;
         return builtArgsVals[index];
     }
 

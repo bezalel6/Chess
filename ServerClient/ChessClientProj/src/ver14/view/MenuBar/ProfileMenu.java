@@ -55,7 +55,7 @@ public class ProfileMenu extends Menu {
     public boolean setAuth(LoginInfo loginInfo) {
         boolean ret = super.setAuth(loginInfo);
 //        setText(loginInfo == null ? "Profile" : loginInfo.getUsername());
-        setIcon(loginInfo == null ? null : IconManager.loadUserIcon(loginInfo.getProfilePic()));
+        setIcon(IconManager.loadUserIcon(loginInfo == null ? null : loginInfo.getProfilePic()));
         return ret;
     }
 }
