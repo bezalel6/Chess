@@ -34,7 +34,7 @@ public class SimpleDialog extends Dialog {
     }
 
     public static void main(String[] args) {
-        new SimpleDialog(new Properties(new Properties.Details("")), new JLabel("ello")).start();
+        new SimpleDialog(new Properties(new Properties.Details("")), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello"), new JLabel("ello")).start();
     }
 
 

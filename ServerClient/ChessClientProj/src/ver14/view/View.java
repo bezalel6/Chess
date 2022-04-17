@@ -32,7 +32,6 @@ import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
-import ver14.view.Dialog.Scrollable;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.Graph.Graph;
@@ -531,16 +530,29 @@ public class View implements Iterable<BoardButton[]> {
             table.setFont(FontManager.dbResponseTable);
             table.setEnabled(false);
             table.fit();
-            JScrollPane scrollPane = new Scrollable() {{
+
+            JScrollPane scrollPane = new JScrollPane() {{
                 setViewportView(table);
                 SwingUtilities.invokeLater(() -> {
                     Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
                     setMaximumSize(size);
                     setPreferredSize(size);
                 });
+//               enable
             }};
+
+//            JScrollPane scrollPane = new Scrollable() {{
+//                setViewportView(table);
+//                SwingUtilities.invokeLater(() -> {
+//                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
+//                    setMaximumSize(size);
+//                    setPreferredSize(size);
+//                });
+//            }};
             return new WinPnl(header) {{
+//                add(scrollPane);
                 add(scrollPane);
+
             }};
         } else if (_response instanceof GraphableDBResponse response) {
             return Graph.createGraph(response);

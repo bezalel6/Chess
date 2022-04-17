@@ -16,21 +16,23 @@ import java.util.stream.IntStream;
 
 public class AskPlayer extends Scrollable {
     //including empty flahses between
+
+    private final static Size size = new Size(300, 120);
     private final static int numOfFlashes = 8;
     private final static int flashesDelay = 200;
     private final static int borderThickness = 3;
-    private static final Border noBorder = BorderFactory.createLineBorder(null, borderThickness);
+    private final Border noBorder;
     //null is the empty flash
     private final Color[] flashes = {Color.WHITE, null};
     private final Timer flashingTimer;
     private final WinPnl content;
+    private final ArrayList<QuestionPnl> shownQuestions = new ArrayList<>();
     private int currentClrIndex = 0;
     private int numOfFlashesDone = 0;
-    private ArrayList<QuestionPnl> shownQuestions = new ArrayList<>();
     private boolean justAdded = false;
 
     public AskPlayer() {
-        super(new WinPnl());
+        super(new WinPnl(), size);
         setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         this.content = (WinPnl) getViewport().getView();
         this.flashingTimer = new Timer(flashesDelay, l -> {
@@ -55,6 +57,7 @@ public class AskPlayer extends Scrollable {
         });
 
 //        showPnl(false);
+        noBorder = BorderFactory.createLineBorder(getBackground(), borderThickness);
     }
 
     private void flash(Color clr) {
@@ -87,6 +90,8 @@ public class AskPlayer extends Scrollable {
 //            add(scrl);
             add(askPlayer);
             new Thread(() -> {
+                pack();
+
                 IntStream.range(0, 3).forEach(i -> {
                     Question q = i % 2 == 0 ? Question.Rematch : Question.Threefold;
                     try {
@@ -119,7 +124,7 @@ public class AskPlayer extends Scrollable {
 
     @Override
     public Dimension getPreferredSize() {
-        return new Size(300, 120);
+        return size;
     }
 
     public void removeQuestion(QuestionPnl pnl) {

@@ -22,14 +22,16 @@ public class Scrollable extends JScrollPane {
             Dimension s = size;
             try {
                 s = s == null ? getPreferredSize() : s;
-
+                setSize(s);
             } catch (Exception e) {
+                System.out.println(e);
                 return;
             }
             setPreferredSize(s);
             setMaximumSize(s);
         });
         getVerticalScrollBar().setBlockIncrement(100);
+        getVerticalScrollBar().setUnitIncrement(100);
         setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 

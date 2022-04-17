@@ -19,10 +19,10 @@ public class PreMadeRequest {
 
     public static final PreMadeRequest Games = new PreMadeRequest(RequestBuilder::games, AuthSettings.USER, builder -> {
         Arg un = builder.args[0];
-        return new Variation("All Games", new Object[]{un.repInStr, new Date(0), new Date()}, new Arg[]{un});
+        return new Variation("All Games", new Object[]{un.repInStr, new Date(0), (ObjCallback<Date>) Date::new}, new Arg[]{un});
     }, builder -> {
         Arg un = builder.args[0];
-        return new Variation("Games from last week", new Object[]{un.repInStr, new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), new Date()}, new Arg[]{un});
+        return new Variation("Games from last week", new Object[]{un.repInStr, (ObjCallback<Date>) () -> new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), (ObjCallback<Date>) Date::new}, new Arg[]{un});
     });
     public static final PreMadeRequest DeleteUnfGames = new PreMadeRequest(RequestBuilder::deleteAllUnFinishedGames, AuthSettings.USER);
     public static final PreMadeRequest StatsByTimeOfDay = new PreMadeRequest(RequestBuilder::statsByTimeOfDay, AuthSettings.USER);

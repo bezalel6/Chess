@@ -283,10 +283,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game{" +
-                "p1=" + gameCreator.getUsername() +
-                ", p2=" + p2.getUsername() +
-                '}';
+        return "%s vs %s".formatted(gameCreator.getUsername(), p2.getUsername());
     }
 
 

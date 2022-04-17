@@ -130,7 +130,8 @@ public class ServerMessagesHandler extends MessagesHandler {
     public MessageCallback onDBRequest() {
         return message -> {
             super.onDBRequest().onMsg(message);
-            socket.writeMessage(Message.returnDBResponse(DB.request(message.getDBRequest()), message));
+
+            socket.writeMessage(Message.returnDBResponse(server.dbRequest(message.getDBRequest()), message));
         };
     }
 }

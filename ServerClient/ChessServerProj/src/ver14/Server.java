@@ -2,6 +2,8 @@ package ver14;
 
 import ver14.DB.DB;
 import ver14.Model.minimax.Minimax;
+import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.CreatedGame;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
@@ -608,6 +610,23 @@ public class Server implements EnvManager {
     @Override
     public void criticalErr(MyError err) {
         closeServer("critical error: " + err);
+    }
+
+    public DBResponse dbRequest(DBRequest request) {
+        DBResponse response = DB.request(request);
+        request.getBuilder().getShouldSync().forEach(this::syncedListUpdated);
+        return response;
+    }
+
+    private void syncedListUpdated(SyncedListType type) {
+        syncedListUpdated(switch (type) {
+            case RESUMABLE_GAMES -> {
+                throw new IllegalStateException("");
+            }
+            case CONNECTED_USERS -> players;
+            case JOINABLE_GAMES -> gamePool;
+            case ONGOING_GAMES -> gameSessions;
+        });
     }
 }
 

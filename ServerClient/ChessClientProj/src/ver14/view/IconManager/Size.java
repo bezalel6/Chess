@@ -52,10 +52,6 @@ public class Size extends Dimension {
         return super.toString();
     }
 
-    public boolean isValid() {
-        return width > 0 || height > 0;
-    }
-
     public Size padding(Insets insets) {
         return new Size(width - (insets.left + insets.right), height - (insets.top + insets.bottom));
     }
@@ -81,5 +77,37 @@ public class Size extends Dimension {
 
     public int maxDiff(Dimension size) {
         return Math.max(Math.abs(width - size.width), Math.abs(height - size.height));
+    }
+
+    public void keepRatio(Size size) {
+        if (size.isValid()) {
+            width *= (double) size.width / size.height;
+            height *= (double) size.height / size.width;
+        }
+    }
+
+    public boolean isValid() {
+        return width > 0 && height > 0;
+    }
+
+    public static class RatioSize extends Size {
+        public RatioSize() {
+        }
+
+        public RatioSize(int size) {
+            super(size);
+        }
+
+        public RatioSize(int width, int height) {
+            super(width, height);
+        }
+
+        public RatioSize(Size size) {
+            super(size);
+        }
+
+        public RatioSize(Dimension size) {
+            super(size);
+        }
     }
 }

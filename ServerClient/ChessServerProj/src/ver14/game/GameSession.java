@@ -24,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class GameSession extends ThreadsManager.HandledThread implements SyncableItem {
     public final String gameID;
@@ -135,12 +136,15 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
 
         CompletableFuture<Boolean> rematch = new CompletableFuture<>();
 
+        AtomicReference<Player> canceledPlayer = new AtomicReference<>();
         getPlayers().forEach(player -> {
             player.askQuestion(Question.Rematch, ans -> {
                 synchronized (atomicBoolean) {
                     if (!player.isConnected() || !player.getPartner().isConnected() || (atomicBoolean.get() && !ans.equals(Question.Answer.YES))) {
                         atomicBoolean.set(false);
                         rematch.complete(false);
+                        if (canceledPlayer.get() == null)
+                            canceledPlayer.set(player);
                     }
 
                     if (numOfRes.incrementAndGet() >= 2) {
@@ -156,7 +160,7 @@ public class GameSession extends ThreadsManager.HandledThread implements Syncabl
             log("rematch = " + res);
             if (!res) {
                 getPlayers().forEach(player ->
-                        player.cancelQuestion(Question.Rematch, player.getUsername() + " didnt want to rematch")
+                        player.cancelQuestion(Question.Rematch, canceledPlayer.get().getUsername() + " didnt want to rematch")
                 );
             }
             return res;

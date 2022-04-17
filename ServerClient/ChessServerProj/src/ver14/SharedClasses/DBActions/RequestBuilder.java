@@ -20,6 +20,7 @@ import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Math;
 import ver14.SharedClasses.DBActions.Table.SwitchCase;
 import ver14.SharedClasses.DBActions.Table.Table;
+import ver14.SharedClasses.Sync.SyncedListType;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -33,11 +34,11 @@ public class RequestBuilder implements Serializable {
     public final Arg[] args;
     protected final SQLStatement statement;
     protected final String name;
+    private final ArrayList<SyncedListType> shouldSync = new ArrayList<>();
     protected String postDescription;
     protected String preDescription;
     protected RequestBuilder subBuilder = null;
     private String[] builtArgsVals;
-
 
     public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
@@ -46,6 +47,7 @@ public class RequestBuilder implements Serializable {
     public RequestBuilder(SQLStatement statement, String name, Arg... args) {
         this(statement, name, name, args);
     }
+
 
     public RequestBuilder(SQLStatement statement, String name, String desc, Arg... args) {
         this(statement, name, desc, desc, args);
@@ -89,7 +91,13 @@ public class RequestBuilder implements Serializable {
 
         Update update = new Update(Table.Users, Condition.equals(Col.Username, username), new Update.NewValue(Col.ProfilePic, url));
 
-        return new RequestBuilder(update, "change profile picture", "", username, url);
+        return new RequestBuilder(update, "change profile picture", "", username, url) {{
+            addShouldSync(SyncedListType.CONNECTED_USERS);
+        }};
+    }
+
+    protected void addShouldSync(SyncedListType listType) {
+        shouldSync.add(listType);
     }
 
     public static RequestBuilder deleteAllUnFinishedGames() {
@@ -259,6 +267,10 @@ public class RequestBuilder implements Serializable {
                 topNum);
         builder.setSubBuilder(new RequestBuilder(summery, "sub", topNum));
         return builder;
+    }
+
+    public ArrayList<SyncedListType> getShouldSync() {
+        return shouldSync;
     }
 
     public String getArgVal(int index) {

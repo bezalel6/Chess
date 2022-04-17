@@ -1,5 +1,6 @@
 package ver14.SharedClasses.DBActions.Arg;
 
+import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.IDsGenerator;
 import ver14.SharedClasses.Utils.StrUtils;
 
@@ -67,12 +68,13 @@ public class Arg implements Serializable {
 //        String str = val.toString();
 
         assert val != null;
+
+        if (val instanceof ObjCallback<?> callback)
+            val = callback.get();
         String str = switch (this.argType) {
 
             case Date -> //mmddyyyy bc sql is dumb
                     "#" + (StrUtils.formatDateSQL((Date) val)) + "#";
-//            case Date -> ((Date) val).getTime() + "";
-
             default -> val.toString();
         };
         if (escape)

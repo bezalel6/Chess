@@ -18,7 +18,7 @@ public class ProfilePnl extends WinPnl implements AuthorizedComponent {
         this.loginInfo = loginInfo;
         Header header = getHeader();
         header.setText(loginInfo.getUsername());
-        header.setIcon(IconManager.loadUserIcon(loginInfo.getProfilePic()));
+        header.setIcon(IconManager.loadUserIcon(loginInfo.getProfilePic(), IconManager.PROFILE_PIC_BIG_SIZE));
         return AuthorizedComponent.super.setAuth(loginInfo);
     }
 

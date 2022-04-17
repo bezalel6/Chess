@@ -18,9 +18,9 @@ public class PictureUrlField extends TextField {
     private final JLabel displayLbl;
 
 
-    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    private Map<String, ImageIcon> map = new HashMap<>();
+    private final Map<String, ImageIcon> map = new HashMap<>();
 
     public PictureUrlField(Header dialogLabel, Parent parent) {
         super(dialogLabel, parent, RegEx.URL);

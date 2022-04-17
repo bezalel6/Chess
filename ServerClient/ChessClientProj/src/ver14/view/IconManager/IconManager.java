@@ -35,6 +35,7 @@ public class IconManager {
     public static final ImageIcon hidePassword;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
     public final static Size PROFILE_PIC_SIZE = new Size(25);
+    public final static Size PROFILE_PIC_BIG_SIZE = new Size(50);
 
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
     public final static Size ABOVE_BTNS_SIZES = new Size(10);
@@ -141,15 +142,21 @@ public class IconManager {
 
     public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
         Size size = Size.size(_size);
+        if (size instanceof Size.RatioSize)
+            size.keepRatio(new Size(img.getIconWidth(), img.getIconHeight()));
+
         if (size == OG_SIZE)
             return img;
-        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
-    }
+        ImageIcon noScale;
+        try {
 
-    public static MyIcon loadImage(String relativePath, Size... _size) {
-        ImageIcon ret = loadNoScale(relativePath);
-        ret = scaleImage(ret, _size);
-        return new MyIcon(ret);
+            noScale = loadNoScale(img.getDescription());
+            assert noScale != null && noScale.getIconWidth() != 0;
+            img = noScale;
+        } catch (Exception | AssertionError e) {
+        }
+
+        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
     }
 
     public static ImageIcon loadNoScale(String relativePath) {
@@ -162,6 +169,12 @@ public class IconManager {
 //        System.out.println(new File(IconManager.class.getCanonicalName()).getAbsolutePath());
         assert path != null;
         return loadNoScale(path);
+    }
+
+    public static MyIcon loadImage(String relativePath, Size... _size) {
+        ImageIcon ret = loadNoScale(relativePath);
+        ret = scaleImage(ret, _size);
+        return new MyIcon(ret);
     }
 
     public static ImageIcon getPieceIcon(Piece piece) {
@@ -235,10 +248,16 @@ public class IconManager {
     }
 
     public static ImageIcon loadUserIcon(String url) {
+        return loadUserIcon(url, PROFILE_PIC_SIZE);
+    }
+
+    public static ImageIcon loadUserIcon(String url, Size size) {
+        size = Size.size(size);
+        size = new Size.RatioSize(size);
         if (StrUtils.isEmpty(url)) {
-            return defaultUserIcon;
+            return scaleImage(defaultUserIcon, size);
         }
-        return loadOnline(url, PROFILE_PIC_SIZE);
+        return loadOnline(url, size);
     }
 
     public static class MyIcon extends ImageIcon {
