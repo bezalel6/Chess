@@ -1,6 +1,6 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
-import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Threads.MyThread;
 
 /**
  * The interface Error handler.
@@ -19,8 +19,8 @@ public interface ErrorHandler<E extends MyError> {
     static boolean ignore(ThrowingRunnable runnable) {
 
         Thread currentThread = Thread.currentThread();
-        ThreadsManager.MyThread myThread = null;
-        if (currentThread instanceof ThreadsManager.MyThread m) {
+        MyThread myThread = null;
+        if (currentThread instanceof MyThread m) {
             myThread = m;
             myThread.ignoreErrs();
         }

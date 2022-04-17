@@ -14,7 +14,7 @@ import ver14.SharedClasses.Game.moves.Move;
 import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
-import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Threads.HandledThread;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.players.Player;
 
@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class GameSession extends ThreadsManager.HandledThread implements SyncableItem {
+public class GameSession extends HandledThread implements SyncableItem {
     public final String gameID;
     private final Server server;
     private final Game game;

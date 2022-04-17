@@ -21,6 +21,8 @@ import ver14.SharedClasses.DBActions.Table.Math;
 import ver14.SharedClasses.DBActions.Table.SwitchCase;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Sync.SyncedListType;
+import ver14.SharedClasses.Utils.ArrUtils;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -141,7 +143,7 @@ public class RequestBuilder implements Serializable {
         games.orderBy(date, Selection.Order.DESC);
 
         Selection selection = gamesStats(username.repInStr, condition);
-        RequestBuilder sub = new RequestBuilder(selection, "sub", username, start, end);
+        RequestBuilder sub = new RequestBuilder(selection, "", username, start, end);
 
         return new RequestBuilder(games,
                 "Games",
@@ -177,7 +179,6 @@ public class RequestBuilder implements Serializable {
                 countLosses,
                 countTies
         };
-//        selection.join(Selection.Join.LEFT, Table.Games, p1_Or_p2(username), username);
 
         Col gamesPlayed = Col.sum("total games played", countWins, countLosses, countTies);
 
@@ -186,8 +187,8 @@ public class RequestBuilder implements Serializable {
         winLossTieRatio.math(Math.Plus, countWins);
         winLossTieRatio.math(Math.Div, gamesPlayed.colName());
         Selection selection = new Selection(Table.Games, condition, cols);
-        selection = selection.nestMe(gamesPlayed, winLossTieRatio);
-//        selection = selection.nestMe(ArrUtils.concat(cols, gamesPlayed, winLossTieRatio));
+//        selection = selection.nestMe(gamesPlayed, winLossTieRatio);
+        selection = selection.nestMe(ArrUtils.concat(new Col[]{gamesPlayed, winLossTieRatio}, cols));
         return selection;
     }
 
@@ -265,7 +266,7 @@ public class RequestBuilder implements Serializable {
                 "Top %s Players".formatted(topNum.repInStr),
                 "Get Top Players",
                 topNum);
-        builder.setSubBuilder(new RequestBuilder(summery, "sub", topNum));
+        builder.setSubBuilder(new RequestBuilder(summery, "", topNum));
         return builder;
     }
 
@@ -300,6 +301,7 @@ public class RequestBuilder implements Serializable {
                 for (int i = 1; i <= colsNum; i++) {
                     String str = rs.getString(i);
 //                    str = StrUtils.dontCapWord(str);
+                    str = StrUtils.isEmpty(str) ? "0" : str;
                     strs[i - 1] = str;
                 }
                 rowsList.add(strs);

@@ -22,7 +22,7 @@ public class TextWrapPnl extends JPanel {
 
     private void initializeUI() {
         this.setLayout(new BorderLayout());
-        this.setPreferredSize(new Dimension(500, 200));
+        this.setPreferredSize(new Dimension(400, 200));
 
 //        textArea.setLineWrap(true);
 //        textArea.setWrapStyleWord(true);

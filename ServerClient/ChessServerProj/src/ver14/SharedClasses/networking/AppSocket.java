@@ -3,7 +3,7 @@ package ver14.SharedClasses.networking;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
-import ver14.SharedClasses.Threads.ThreadsManager;
+import ver14.SharedClasses.Threads.MyThread;
 import ver14.SharedClasses.messages.Message;
 import ver14.SharedClasses.messages.MessageType;
 
@@ -17,7 +17,7 @@ import java.net.Socket;
  * ---------------------------------------------------------------------------
  * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
  */
-public class AppSocket extends ThreadsManager.MyThread {
+public class AppSocket extends MyThread {
 
     /**
      * The Msg socket.

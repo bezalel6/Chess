@@ -18,6 +18,8 @@ import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.HandledThread;
+import ver14.SharedClasses.Threads.MyThread;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -89,7 +91,7 @@ public class Server implements EnvManager {
      * Constructor for ChatServer.
      */
     public Server() {
-        ThreadsManager.MyThread.setEnvManager(this);
+        MyThread.setEnvManager(this);
         ThreadsManager.handleErrors(() -> {
             createServerGUI();
             setupServer();
@@ -290,7 +292,7 @@ public class Server implements EnvManager {
             });
 
 //        😨
-//        ThreadsManager.stopAll();
+        ThreadsManager.stopAll();
     }
 
     //todo move to synceditems as a func
@@ -332,7 +334,7 @@ public class Server implements EnvManager {
      */
 // Run the server - wait for clients to connect & handle them
     public void runServer() {
-        ThreadsManager.HandledThread.runInHandledThread(() -> {
+        HandledThread.runInHandledThread(() -> {
             if (serverSetupOK) {
                 String serverAddress = "(" + serverIP + ":" + serverPort + ")";
                 log("SERVER" + serverAddress + " Setup & Running!");
@@ -362,8 +364,8 @@ public class Server implements EnvManager {
 
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
-        ThreadsManager.HandledThread.runInHandledThread(() -> {
-            ThreadsManager.MyThread.currentThread(t -> {
+        HandledThread.runInHandledThread(() -> {
+            MyThread.currentThread(t -> {
                 t.addHandler(MyError.DisconnectedError.class, playerSocket::close);
             });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);

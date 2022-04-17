@@ -32,6 +32,7 @@ import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
+import ver14.view.Dialog.Scrollable;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.Graph.Graph;
@@ -243,8 +244,8 @@ public class View implements Iterable<BoardButton[]> {
         gbc = new GridBagConstraints();
         gbc.gridy = 2;
         gbc.gridx = 3;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.NONE;
         win.add(sidePanel, gbc);
 
         //שורה תחתונה
@@ -255,6 +256,7 @@ public class View implements Iterable<BoardButton[]> {
 //        gbc.gridy =
         gbc.gridwidth = GridBagConstraints.REMAINDER;
 
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         win.add(bottomPnl, gbc);
 
 //        win.pack();
@@ -533,22 +535,14 @@ public class View implements Iterable<BoardButton[]> {
 
             JScrollPane scrollPane = new JScrollPane() {{
                 setViewportView(table);
-                SwingUtilities.invokeLater(() -> {
-                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
-                    setMaximumSize(size);
-                    setPreferredSize(size);
-                });
-//               enable
-            }};
-
-//            JScrollPane scrollPane = new Scrollable() {{
-//                setViewportView(table);
 //                SwingUtilities.invokeLater(() -> {
 //                    Size size = new Size(getPreferredSize().width, table.getPreferredSize().height + 100);
 //                    setMaximumSize(size);
 //                    setPreferredSize(size);
 //                });
-//            }};
+            }};
+            int spacing = -25;
+            Scrollable.applyDefaults(scrollPane, table.getComputedSize().padding(new Insets(spacing, spacing, spacing, spacing)));
             return new WinPnl(header) {{
 //                add(scrollPane);
                 add(scrollPane);

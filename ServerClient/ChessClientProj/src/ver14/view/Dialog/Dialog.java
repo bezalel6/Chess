@@ -291,7 +291,7 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(dialogCard);
         }
         addCard(startingCard);
-
+        
         cardsScrollPane = new Scrollable(cardsPnl);
         pane.add(cardsScrollPane, BorderLayout.CENTER);
 

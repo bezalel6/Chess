@@ -61,7 +61,7 @@ public class AskPlayer extends Scrollable {
     }
 
     private void flash(Color clr) {
-        setBackground(clr);
+//        setBackground(clr);
         clr = clr == null ? null : clr.darker();
         Border border = BorderFactory.createLineBorder(clr, borderThickness);
         setBorder(border);

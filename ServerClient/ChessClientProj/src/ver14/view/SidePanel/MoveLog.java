@@ -190,10 +190,11 @@ public class MoveLog extends JPanel {
     }
 
     private void scroll() {
-//        int row = currentMoveIndex / 2;
-//        row = (row - 1) * movesBtns.get(0).getHeight();
-//        moveLogScroll.getVerticalScrollBar().setValue(row);
-        moveLogScroll.scrollToBottom();
+        int row = currentMoveIndex / 2;
+        row = (row - 1) * movesBtns.get(0).getHeight();
+        moveLogScroll.getVerticalScrollBar().revalidate();
+        moveLogScroll.getVerticalScrollBar().setValue(row);
+//        moveLogScroll.scrollToBottom();
     }
 
     public synchronized void switchToCurrentIndex() {

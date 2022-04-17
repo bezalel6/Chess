@@ -18,24 +18,29 @@ public class Scrollable extends JScrollPane {
     public Scrollable(JComponent ogComp, Dimension size) {
         super(ogComp);
         this.ogComp = ogComp;
+        applyDefaults(this, size == null ? ogComp.getPreferredSize() : size);
+        scrollToTop();
+    }
+
+    public static void applyDefaults(JScrollPane scrollPane, Dimension size) {
         SwingUtilities.invokeLater(() -> {
-            Dimension s = size;
             try {
-                s = s == null ? getPreferredSize() : s;
-                setSize(s);
+                scrollPane.setSize(size);
+                scrollPane.setPreferredSize(size);
+                scrollPane.setMaximumSize(size);
+
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
                 return;
             }
-            setPreferredSize(s);
-            setMaximumSize(s);
-        });
-        getVerticalScrollBar().setBlockIncrement(100);
-        getVerticalScrollBar().setUnitIncrement(100);
-        setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        scrollToTop();
+        });
+
+        scrollPane.getVerticalScrollBar().setBlockIncrement(100);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(100);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
     }
 
     public void scrollToTop() {

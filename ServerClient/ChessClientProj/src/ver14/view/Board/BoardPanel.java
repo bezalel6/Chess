@@ -45,7 +45,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         btnMat = new BoardButton[rows][cols];
         buttonsPnl.setLayout(new GridLayout(rows, cols));
         setCoordinates();
-
     }
 
     private void setCoordinates() {
@@ -263,19 +262,22 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     public void onResize() {
-        int diff = lastResize.maxDiff(getSize());
-        if (diff < 5) {
-            return;
-        }
-        lastResize = new Size(getSize());
-        int size = Math.min(getWidth(), getHeight());
-        setAllSizes(me, size, size);
+//        int diff = lastResize.maxDiff(getSize());
+//        if (diff < 5) {
+//            return;
+//        }
+        SwingUtilities.invokeLater(() -> {
+            lastResize = new Size(getSize());
+            int size = Math.min(getWidth(), getHeight());
+            setAllSizes(me, size, size);
 
-        setAllSizes(this, getSize());
+            setAllSizes(this, getSize());
 
-        view.getWin().pack();
-        resizeIcons();
-        repaint();
+            view.getWin().pack();
+            resizeIcons();
+            repaint();
+            view.getWin().pack();
+        });
 
     }
 

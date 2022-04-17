@@ -5,6 +5,7 @@ package ver14.DB;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
@@ -151,6 +152,7 @@ public class DB {
     public static void main(String[] args) {
         try {
 
+            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
 //            addUser("testing", "123456");
 
 //            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
