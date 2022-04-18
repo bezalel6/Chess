@@ -63,7 +63,7 @@ public abstract class MyThread extends Thread {
      * Stop run.
      */
     public void stopRun() {
-        if (threadStatus != ThreadStatus.RUNNING) {
+        if (threadStatus == ThreadStatus.RUNNING) {
             System.out.println(this + " was still running");
             this.interrupt();
         }

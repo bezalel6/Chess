@@ -8,6 +8,7 @@ public class LoginInfo implements Serializable {
     private String profilePic;
 
     public LoginInfo() {
+        this.loginType = LoginType.NOT_SET_YET;
     }
 
     public LoginInfo(String username, String password, LoginType loginType) {

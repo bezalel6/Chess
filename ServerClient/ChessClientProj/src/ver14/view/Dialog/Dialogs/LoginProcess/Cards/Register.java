@@ -24,6 +24,6 @@ public class Register extends LoginCard {
 
     @Override
     public Size getPreferredSize() {
-        return new Size(400, 700);
+        return new Size(400, 520);
     }
 }

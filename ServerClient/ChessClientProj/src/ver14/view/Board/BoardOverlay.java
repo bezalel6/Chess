@@ -58,7 +58,7 @@ class Arrow {
 public class BoardOverlay extends LayerUI<JPanel> {
     final static Color defaultColor = Color.BLACK;
     private static final Map<Integer, Color> keyClrMap;
-    private final static int NO_KEY = -1;
+    private final static Integer NO_KEY = null;
     public static Point mouseCoordinates, startedAt;
 
     static {
@@ -73,13 +73,14 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private ArrayList<Arrow> arrows;
     private JLayer jlayer;
     private boolean blockBoard = false;
-    private int pressedKey = NO_KEY;
+    private Integer pressedKey = NO_KEY;
     private BoardButton currentDragging = null;
     private BoardButton hoveredBtn = null;
 
     public BoardOverlay(View view) {
         this.view = view;
         arrows = new ArrayList<>();
+
     }
 
     public static Polygon createPolygon(int... pointPairs) {
@@ -263,7 +264,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
-                    if (btn != null && !isDragging() && btn.isEnabled() && btn.getIcon() != null) {
+                    if (btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
                         currentDragging = btn;
                         btn.hideIcon();
                         btn.clickMe();
@@ -274,6 +275,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 break;
             case MouseEvent.MOUSE_RELEASED:
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
+
                 stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
@@ -320,10 +322,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private void stopDragging(BoardButton currentlyHoveringOver, boolean doClick) {
         if (isDragging()) {
             if (currentDragging != currentlyHoveringOver) {
-                if (currentlyHoveringOver.isEnabled() && doClick)
-                    currentlyHoveringOver.clickMe();
-                else
+                if (!doClick)
                     currentDragging.clickMe();
+//                if (currentlyHoveringOver.canMoveTo() && doClick)
+//                    currentlyHoveringOver.clickMe();
+//                else
+//                    currentDragging.clickMe();
             }
             currentDragging.unHideIcon();
             currentDragging = null;

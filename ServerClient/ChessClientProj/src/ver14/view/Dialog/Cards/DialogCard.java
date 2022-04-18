@@ -113,7 +113,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     }
 
     public void shown() {
-
+        SwingUtilities.invokeLater(() -> {
+            onUpdate();
+            scrollToTop();
+            onUpdate();
+        });
     }
 
 //    @Override

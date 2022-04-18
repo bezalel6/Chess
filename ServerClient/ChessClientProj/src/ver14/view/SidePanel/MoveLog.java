@@ -138,8 +138,6 @@ public class MoveLog extends JPanel {
     public synchronized void addMove(Move move) {
         Font font = FontManager.sidePanel;
         MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font);
-        Size btnSize = new Size(getWidth() / 2, moveBtn.getPreferredSize().height);
-        moveBtn.setSize(btnSize);
 //        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
 
@@ -188,6 +186,7 @@ public class MoveLog extends JPanel {
             }
         }
     }
+
 
     private void scroll() {
         int row = currentMoveIndex / 2;

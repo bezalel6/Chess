@@ -23,7 +23,6 @@ public class ThreadsManager {
 
 
     public static void stopAll() {
-
         new Thread(() -> {
             int ms = 1500;
             System.out.println("pausing for " + ms + " ms before stopping all threads");

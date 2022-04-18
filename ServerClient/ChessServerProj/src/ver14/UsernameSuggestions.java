@@ -14,6 +14,7 @@ public class UsernameSuggestions {
     private static final int maxSuggestions = 10;
     private static final int numOfIterationsPerOptionGroup = 10;
     private static final MatchIterations preUnderscore = ((result, iteration) -> "_" + result.group());
+    //    todo add rand nums
     private static final MatchIterations postUnderscore = ((result, iteration) -> result.group() + "_");
     private static final MatchIterations bothUnderscore = ((result, iteration) -> "_" + result.group() + "_");
     private static final MatchIterations upper = (matchGroup, i) -> matchGroup.group().toUpperCase();
@@ -31,6 +32,8 @@ public class UsernameSuggestions {
         }, preUnderscore, postUnderscore, bothUnderscore));
         options.addAll(createOptions("([A-Z])", username, preUnderscore, postUnderscore, bothUnderscore));
         options.addAll(createOptions("(^[a-z])|(([0-9]|_)[a-z])", username, upper, lower));
+
+//        options.addAll(createOptions("(.*$)",username,))
 
         return createResults(options);
     }

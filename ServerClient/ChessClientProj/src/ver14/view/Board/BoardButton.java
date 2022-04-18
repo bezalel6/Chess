@@ -266,7 +266,7 @@ public class BoardButton extends MyJButton {
     }
 
     public void clickMe() {
-
+        System.out.println("clicking " + piece);
         view.boardButtonPressed(btnLoc);
 //        System.out.println(Thread.currentThread().getStackTrace()[2] + "clicked me");
 //        super.doClick();

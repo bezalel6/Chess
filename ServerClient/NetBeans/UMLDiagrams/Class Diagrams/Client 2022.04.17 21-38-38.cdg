@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Client">
+  <ClassDiagramComponents>
+    <Class name="Client" package="ver14" visibility="public" xPosition="920.0" yPosition="2420.0">
+      <Fields>
+        <Field name="SERVER_DEFAULT_PORT" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="teacherIP" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="teacherAddress" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="view" type="View" visibility="private"/>
+        <Field name="clientSetupOK" type="boolean" visibility="private"/>
+        <Field name="serverPort" type="int" visibility="private"/>
+        <Field name="serverIP" type="String" visibility="private"/>
+        <Field name="clientSocket" type="AppSocket" visibility="private"/>
+        <Field name="myColor" type="PlayerColor" visibility="private"/>
+        <Field name="possibleMoves" type="ArrayList&lt;Move&gt;" visibility="private"/>
+        <Field name="firstClickLoc" type="ViewLocation" visibility="private"/>
+        <Field name="lastGetMoveMsg" type="Message" visibility="private"/>
+        <Field name="loginInfo" type="LoginInfo" visibility="private"/>
+        <Field name="msgHandler" type="ClientMessagesHandler" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="runClient" returnType="void" visibility="public"/>
+        <Method name="log" returnType="void" visibility="private">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="setupClientGui" returnType="void" visibility="private"/>
+        <Method name="setupClient" returnType="void" visibility="public"/>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="disconnectedFromServer" returnType="void" visibility="public"/>
+        <Method name="closeClient" returnType="void" visibility="public">
+          <Argument type="String" name="cause"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="closeClient" returnType="void" visibility="public">
+          <Argument type="String" name="cause"/>
+          <Argument type="String" name="title"/>
+          <Argument type="MessageCard.MessageType" name="closeType"/>
+        </Method>
+        <Method name="closeGui" returnType="void" visibility="public"/>
+        <Method name="getMessagesHandler" returnType="ClientMessagesHandler" visibility="public"/>
+        <Method name="setMyColor" returnType="void" visibility="public">
+          <Argument type="PlayerColor" name="myColor"/>
+        </Method>
+        <Method name="getClientSocket" returnType="AppSocket" visibility="public"/>
+        <Method name="updateGameTime" returnType="void" visibility="public">
+          <Argument type="Message" name="message"/>
+        </Method>
+        <Method name="updateByMove" returnType="void" visibility="public">
+          <Argument type="Move" name="move"/>
+        </Method>
+        <Method name="updateByMove" returnType="void" visibility="public">
+          <Argument type="Move" name="move"/>
+          <Argument type="boolean" name="moveEffects"/>
+        </Method>
+        <Method name="processGameStatus" returnType="void" visibility="private">
+          <Argument type="GameStatus" name="gameStatus"/>
+        </Method>
+        <Method name="unlockMovableSquares" returnType="void" visibility="package">
+          <Argument type="Message" name="message"/>
+        </Method>
+        <Method name="unlockPossibleMoves" returnType="void" visibility="private"/>
+        <Method name="hideQuestionPnl" returnType="void" visibility="package"/>
+        <Method name="login" returnType="String" visibility="package">
+          <Argument type="Message" name="loginMessage"/>
+        </Method>
+        <Method name="login" returnType="String" visibility="private">
+          <Argument type="String" name="err"/>
+          <Argument type="Message" name="loginMessage"/>
+        </Method>
+        <Method name="boardButtonPressed" returnType="void" visibility="public">
+          <Argument type="ViewLocation" name="loc"/>
+        </Method>
+        <Method name="getMoveFromDest" returnType="Move" visibility="private">
+          <Argument type="ViewLocation" name="clickedOn"/>
+        </Method>
+        <Method name="showPromotionDialog" returnType="PieceType" visibility="public">
+          <Argument type="PlayerColor" name="clr"/>
+        </Method>
+        <Method name="returnMove" returnType="void" visibility="private">
+          <Argument type="Move" name="move"/>
+        </Method>
+        <Method name="resignBtnClicked" returnType="void" visibility="public"/>
+        <Method name="offerDrawBtnClicked" returnType="void" visibility="public"/>
+        <Method name="getView" returnType="View" visibility="public"/>
+        <Method name="setLatestGetMoveMsg" returnType="void" visibility="public">
+          <Argument type="Message" name="lastGetMoveMsg"/>
+        </Method>
+        <Method name="disconnectFromServer" returnType="void" visibility="public"/>
+        <Method name="closeClient" returnType="void" visibility="private"/>
+        <Method name="stopRunningTime" returnType="void" visibility="public"/>
+        <Method name="startMyTime" returnType="void" visibility="public"/>
+        <Method name="startOpponentTime" returnType="void" visibility="public"/>
+        <Method name="showGameSettingsDialog" returnType="GameSettings" visibility="public"/>
+        <Method name="dialogProperties" returnType="Properties" visibility="public">
+          <Argument type="String" name="properties"/>
+        </Method>
+        <Method name="changePassword" returnType="void" visibility="public"/>
+        <Method name="request" returnType="void" visibility="public">
+          <Argument type="RequestBuilder" name="builder"/>
+          <Argument type="MessageCallback" name="onResponse"/>
+          <Argument type="Object" name="args"/>
+        </Method>
+        <Method name="handledErr" returnType="void" visibility="public">
+          <Argument type="MyError" name="err"/>
+        </Method>
+        <Method name="criticalErr" returnType="void" visibility="public">
+          <Argument type="MyError" name="err"/>
+        </Method>
+        <Method name="closeClient" returnType="void" visibility="private">
+          <Argument type="String" name="msg"/>
+          <Argument type="Throwable" name="ex"/>
+        </Method>
+        <Method name="delUnf" returnType="void" visibility="public"/>
+        <Method name="request" returnType="void" visibility="public">
+          <Argument type="PreMadeRequest" name="request"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ver14.Client" target="ver14.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

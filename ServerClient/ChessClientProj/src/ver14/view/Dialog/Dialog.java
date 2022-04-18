@@ -52,8 +52,10 @@ public abstract class Dialog extends JDialog implements Parent {
         super(properties.parentWin());
         this.parentWin = properties.parentWin();
         this.isDisposing = false;
+
         if (properties.getContentPane() != null)
             setContentPane(properties.getContentPane());
+
         this.pane = getContentPane();
         this.socketToServer = properties.socketToServer();
 
@@ -120,8 +122,10 @@ public abstract class Dialog extends JDialog implements Parent {
         if (currentCard != null) {
             verifyCurrentCard();
         }
-        recenter();
-        repackWin();
+        SwingUtilities.invokeLater(() -> {
+            repackWin();
+            recenter();
+        });
     }
 
     public void dialogWideErr(String error) {
@@ -140,6 +144,13 @@ public abstract class Dialog extends JDialog implements Parent {
     @Override
     public void back() {
         popCard();
+    }
+
+    @Override
+    public void scrollToTop() {
+        Parent.super.scrollToTop();
+        System.out.println("scrolling");
+        cardsScrollPane.scrollToTop();
     }
 
     @Override
@@ -213,12 +224,12 @@ public abstract class Dialog extends JDialog implements Parent {
         }
     }
 
-    protected void recenter() {
-        setLocationRelativeTo(parentWin);
-    }
-
     public void repackWin() {
         SwingUtilities.invokeLater(this::pack);
+    }
+
+    protected void recenter() {
+        setLocationRelativeTo(parentWin);
     }
 
     public void closeDialog() {
@@ -291,7 +302,7 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(dialogCard);
         }
         addCard(startingCard);
-        
+
         cardsScrollPane = new Scrollable(cardsPnl);
         pane.add(cardsScrollPane, BorderLayout.CENTER);
 

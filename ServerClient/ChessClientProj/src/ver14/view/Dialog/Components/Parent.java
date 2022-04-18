@@ -37,6 +37,12 @@ public interface Parent {
 
     void back();
 
+    default void scrollToTop() {
+        if (this instanceof Child child)
+            child.parent().scrollToTop();
+        System.out.println("im trying");
+    }
+
     default boolean tryCancel() {
         DialogCard card = currentCard();
         if (card instanceof CancelOk cancelOk) {

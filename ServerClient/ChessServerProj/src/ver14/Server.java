@@ -127,11 +127,11 @@ public class Server implements EnvManager {
         });
 
 //        region debug
-        bottomPnl.add(new MyJButton("Print Fens", () -> {
-            gameSessions.forEachItem(session -> {
-                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
-            });
-        }));
+//        bottomPnl.add(new MyJButton("Print Fens", () -> {
+//            gameSessions.forEachItem(session -> {
+//                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
+//            });
+//        }));
 //        endregion
 
         bottomPnl.add(connectedUsersBtn);
@@ -178,7 +178,7 @@ public class Server implements EnvManager {
             players = new SyncedItems<>(SyncedListType.CONNECTED_USERS, this::syncedListUpdated);
             gamePool = new SyncedItems<>(SyncedListType.JOINABLE_GAMES, this::syncedListUpdated);
             gameSessions = new SyncedItems<>(SyncedListType.ONGOING_GAMES, this::syncedListUpdated);
-
+//todo custom port in use err
             this.syncedLists = new ArrayList<>() {{
                 add(players);
                 add(gamePool);
@@ -393,6 +393,7 @@ public class Server implements EnvManager {
      */
     public PlayerNet login(AppSocket appSocket) {
         Message request = appSocket.requestMessage(Message.askForLogin());
+
         Message responseMessage = responseToLogin(request.getLoginInfo());
 
         while (responseMessage.getMessageType() == MessageType.ERROR) {
@@ -422,6 +423,9 @@ public class Server implements EnvManager {
         String password = loginInfo.getPassword();
 
         return switch (loginInfo.getLoginType()) {
+            case NOT_SET_YET -> {
+                throw new MyError.DisconnectedError();
+            }
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
                     if (!isLoggedIn(username)) {
