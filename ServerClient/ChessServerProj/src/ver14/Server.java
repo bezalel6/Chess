@@ -68,9 +68,7 @@ public class Server implements EnvManager {
         gameIDGenerator = new IDsGenerator() {
             @Override
             public boolean canUseId(String id) {
-                if (!super.canUseId(id))
-                    return false;
-                return !DB.isGameIdExists(id);
+                return super.canUseId(id) && !DB.isGameIdExists(id);
             }
         };
     }
@@ -160,7 +158,6 @@ public class Server implements EnvManager {
                 }
             });
         }};
-        // panel for send message
         frmWin.add(new JScrollPane(areaLog), BorderLayout.CENTER);
         frmWin.add(bottomPnl, BorderLayout.SOUTH);
 
@@ -208,7 +205,6 @@ public class Server implements EnvManager {
             log("Can't setup Server Socket on " + serverAddress + "\n" + "Fix the problem & restart the server.", exp, frmWin);
         }
 
-        System.out.println("**** setupServer() finished! ****");
     }
 
     private void exitServer() {

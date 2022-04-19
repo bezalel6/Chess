@@ -4,7 +4,10 @@ import org.testng.ITest;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ver14.Model.*;
+import ver14.Model.AttackedSquares;
+import ver14.Model.FEN;
+import ver14.Model.Model;
+import ver14.Model.Stockfish;
 import ver14.Model.minimax.Minimax;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
@@ -114,7 +117,7 @@ public class Tests implements ITest {
     private static void fastAttacked() {
         rerunOnInput(fen -> {
             Model model = model(fen);
-            boolean b = FastAttackedSquares.isAttacked(model.getLogicBoard(), model.getKing(PlayerColor.WHITE), PlayerColor.BLACK);
+//            boolean b = FastAttackedSquares.isAttacked(model.getLogicBoard(), model.getKing(PlayerColor.WHITE), PlayerColor.BLACK);
 //            System.out.println(b);
         }, ArrUtils.createList(FEN::rndFen, attackedFensNum).toArray(new String[0]));
     }

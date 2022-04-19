@@ -56,7 +56,7 @@ class Arrow {
 }
 
 public class BoardOverlay extends LayerUI<JPanel> {
-    final static Color defaultColor = Color.BLACK;
+    final static Color defaultColor = new Color(0, 0, 0, 255 / 2);
     private static final Map<Integer, Color> keyClrMap;
     private final static Integer NO_KEY = null;
     public static Point mouseCoordinates, startedAt;
@@ -130,12 +130,13 @@ public class BoardOverlay extends LayerUI<JPanel> {
         repaintLayer();
     }
 
+
     @Override
     public void paint(Graphics g, JComponent c) {
         Graphics2D g2 = (Graphics2D) g.create();
         super.paint(g2, c);
 
-        if (isInsideBoardPnl()) {
+        if (mouseCoordinates != null) {
             if (isDragging()) {
                 int x = mouseCoordinates.x - currentDragging.getHeight() / 2;
                 int y = mouseCoordinates.y - currentDragging.getWidth() / 2;
@@ -322,12 +323,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private void stopDragging(BoardButton currentlyHoveringOver, boolean doClick) {
         if (isDragging()) {
             if (currentDragging != currentlyHoveringOver) {
-                if (!doClick)
-                    currentDragging.clickMe();
-//                if (currentlyHoveringOver.canMoveTo() && doClick)
-//                    currentlyHoveringOver.clickMe();
-//                else
+//                if (!doClick)
 //                    currentDragging.clickMe();
+                if (currentlyHoveringOver.canMoveTo() && doClick)
+                    currentlyHoveringOver.clickMe();
+                else
+                    currentDragging.clickMe();
             }
             currentDragging.unHideIcon();
             currentDragging = null;
