@@ -4,32 +4,45 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Evaluation implements Serializable {
-    public static final double TIE_EVAL = 0;
-    public static final double WIN_EVAL = Integer.MAX_VALUE;
-    public static final double LOSS_EVAL = Integer.MIN_VALUE;
-    public static final int WINNING_SIDE = 0, LOSING_SIDE = 1;
+    public static final int TIE_EVAL = 0;
+    public static final int WIN_EVAL = Integer.MAX_VALUE;
+    public static final int LOSS_EVAL = Integer.MIN_VALUE;
+    private static final Map<GameStatus.GameStatusType, Integer> gameStatusEvalMap;
+
+    static {
+        gameStatusEvalMap = new HashMap<>();
+
+        for (var type : GameStatus.GameStatusType.values()) {
+            gameStatusEvalMap.put(type, switch (type) {
+                case WIN_OR_LOSS -> LOSS_EVAL;
+                case TIE -> TIE_EVAL;
+                default -> 0;
+            });
+        }
+
+    }
+
+    private final static boolean MAKE_DETAILED = false;
     private final ArrayList<EvaluationDetail> detailedEval;
-    private double eval;
-    private GameStatus gameStatus;
+    private int eval;
+    private final GameStatus gameStatus;
     private PlayerColor evaluationFor;
     private Integer evaluationDepth = null;
 
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
-        this(0, gameStatus, evaluationFor);
-        switch (gameStatus.getGameStatusType()) {
-            case WIN_OR_LOSS -> eval = LOSS_EVAL;
-            case TIE -> eval = TIE_EVAL;
-            default -> eval = 0;
-        }
+        this(gameStatusEvalMap.get(gameStatus.getGameStatusType()), gameStatus, evaluationFor);
+
     }
 
-    public Evaluation(double eval, GameStatus gameStatus, PlayerColor evaluationFor) {
+    public Evaluation(int eval, GameStatus gameStatus, PlayerColor evaluationFor) {
         this.eval = eval;
         this.gameStatus = gameStatus;
         this.evaluationFor = evaluationFor;
-        detailedEval = new ArrayList<>();
+        detailedEval = MAKE_DETAILED ? new ArrayList<>() : null;
     }
 
     ;
@@ -40,8 +53,10 @@ public class Evaluation implements Serializable {
 
     public Evaluation(Evaluation other) {
         this(other.eval, other.gameStatus, other.evaluationFor);
-        detailedEval.addAll(other.detailedEval);
         this.evaluationDepth = other.evaluationDepth;
+        if (MAKE_DETAILED)
+
+            detailedEval.addAll(other.detailedEval);
     }
 
     public static Evaluation book() {
@@ -53,7 +68,8 @@ public class Evaluation implements Serializable {
 
     public void addDetail(EvaluationParameters parm, double value) {
         eval += value;
-        detailedEval.add(new EvaluationDetail(parm, value));
+        if (MAKE_DETAILED)
+            detailedEval.add(new EvaluationDetail(parm, value));
     }
 
     public Integer getEvaluationDepth() {
@@ -81,7 +97,7 @@ public class Evaluation implements Serializable {
         return eval;
     }
 
-    public void setEval(double eval) {
+    public void setEval(int eval) {
         this.eval = eval;
     }
 

@@ -94,7 +94,7 @@ public class Eval implements Serializable {
         }
 
         //Material
-        compareMaterial();
+        evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(evaluationFor) - materialSum(opponentColor));
 
         //Piece Tables
         comparePieceTables();
@@ -175,7 +175,6 @@ public class Eval implements Serializable {
     }
 
     private void compareMaterial() {
-        evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(evaluationFor) - materialSum(opponentColor));
     }
 
     private void comparePieceTables() {

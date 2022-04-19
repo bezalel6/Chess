@@ -266,6 +266,7 @@ public class Server implements EnvManager {
     }
 
     private void closeServer(String cause) {
+//        todo make sure only run once
         if (players != null)
             players.forEachItem(player -> {
                 ErrorHandler.ignore(() -> {

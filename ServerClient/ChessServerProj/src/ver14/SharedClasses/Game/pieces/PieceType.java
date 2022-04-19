@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public enum PieceType implements Serializable {
-    PAWN("♙", "♟", 1, false) {
+    PAWN("♙", "♟", 100, false) {
         @Override
         public boolean isAttack(Direction direction, int maxDistance) {
             return maxDistance == 1 && super.isAttack(direction, maxDistance);
@@ -21,15 +21,15 @@ public enum PieceType implements Serializable {
             return ArrUtils.concat(super.getWalkingDirections(), Direction.U, Direction.U_U);
         }
     },
-    ROOK("♖", "♜", 5),
-    BISHOP("♗", "♝", 3.2),
-    KNIGHT("♘", "♞", 3.1, false) {
+    ROOK("♖", "♜", 500),
+    BISHOP("♗", "♝", 320),
+    KNIGHT("♘", "♞", 310, false) {
         @Override
         public boolean isAttack(Direction direction, int maxDistance) {
             return maxDistance == 2 && super.isAttack(direction, maxDistance);
         }
     },
-    QUEEN("♕", "♛", 9),
+    QUEEN("♕", "♛", 900),
     KING("♔", "♚", 200000000, false) {
         @Override
         public boolean isAttack(Direction direction, int maxDistance) {
@@ -119,15 +119,15 @@ public enum PieceType implements Serializable {
 
     public final String whiteIcon;
     public final String blackIcon;
-    public final double value;
+    public final int value;
     public final boolean isSliding;
     public final int asInt;
 
-    PieceType(String whiteIcon, String blackIcon, double value) {
+    PieceType(String whiteIcon, String blackIcon, int value) {
         this(whiteIcon, blackIcon, value, true);
     }
 
-    PieceType(String whiteIcon, String blackIcon, double value, boolean isSliding) {
+    PieceType(String whiteIcon, String blackIcon, int value, boolean isSliding) {
         this.whiteIcon = whiteIcon;
         this.blackIcon = blackIcon;
         this.value = value;

@@ -56,7 +56,7 @@ class Arrow {
 }
 
 public class BoardOverlay extends LayerUI<JPanel> {
-    final static Color defaultColor = new Color(0, 0, 0, 255 / 2);
+    final static Color defaultColor = new Color(0, 0, 0, (int) (255 * 0.9));
     private static final Map<Integer, Color> keyClrMap;
     private final static Integer NO_KEY = null;
     public static Point mouseCoordinates, startedAt;

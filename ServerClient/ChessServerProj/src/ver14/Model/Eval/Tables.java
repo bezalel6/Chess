@@ -184,16 +184,10 @@ public class Tables {
             return ret;
         }
 
-        public double getValue(double egWeight, PlayerColor player, Location loc) {
-            double mg = convertFromCentiPawns(MIDDLE_GAME, player, loc);
-            double eg = convertFromCentiPawns(ENDGAME, player, loc);
-            return mg + eg * egWeight;
-        }
-
-        public double convertFromCentiPawns(int phase, PlayerColor player, Location loc) {
-            double ret = tables[phase][player.asInt][loc.row][loc.col];
-            ret /= 100;
-            return ret;
+        public int getValue(double egWeight, PlayerColor player, Location loc) {
+            int mg = tables[MIDDLE_GAME][player.asInt][loc.row][loc.col];
+            int eg = egWeight == 0 ? 0 : (int) (egWeight * tables[ENDGAME][player.asInt][loc.row][loc.col]);
+            return mg + eg;
         }
     }
 }
