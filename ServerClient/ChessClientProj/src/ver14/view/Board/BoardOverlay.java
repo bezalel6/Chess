@@ -71,11 +71,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private final View view;
     public boolean isDrawing = false;
     private ArrayList<Arrow> arrows;
-    private JLayer jlayer;
+    private JLayer<?> jlayer;
     private boolean blockBoard = false;
     private Integer pressedKey = NO_KEY;
     private BoardButton currentDragging = null;
     private BoardButton hoveredBtn = null;
+    private BoardButton clickingBtn = null;
 
     public BoardOverlay(View view) {
         this.view = view;
@@ -130,7 +131,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         repaintLayer();
     }
 
-
     @Override
     public void paint(Graphics g, JComponent c) {
         Graphics2D g2 = (Graphics2D) g.create();
@@ -160,11 +160,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
             g2.setColor(new Color(0, 0, 0, (int) (255 * 0.1)));
             g2.fill(shape);
         }
-    }
-
-    private boolean isInsideBoardPnl() {
-        return mouseCoordinates != null;
-//        return mouseCoordinates == null || view.getBoardPnl().getBounds().contains(mouseCoordinates);
     }
 
     private boolean isDragging() {
@@ -249,6 +244,11 @@ public class BoardOverlay extends LayerUI<JPanel> {
         super.uninstallUI(c);
     }
 
+    private boolean isInsideBoardPnl() {
+        return mouseCoordinates != null;
+//        return mouseCoordinates == null || view.getBoardPnl().getBounds().contains(mouseCoordinates);
+    }
+
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
         switch (e.getID()) {
@@ -265,7 +265,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
-                    if (btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
+                    if (clickingBtn == null && btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
+                        System.out.println("started dragging " + btn.getPiece());
                         currentDragging = btn;
                         btn.hideIcon();
                         btn.clickMe();
@@ -277,11 +278,57 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_RELEASED:
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
 
-                stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
+                if (isDragging()) {
+                    currentDragging.unHideIcon();
+                    if (currentlyAbove == currentDragging) {
+                        if (clickingBtn == null)
+                            clickingBtn = currentlyAbove;
+                        else {
+                            currentlyAbove.clickMe();
+                            clickingBtn = null;
+                        }
+//                        currentlyAbove.clickMe();
+                    } else if (currentlyAbove.canMoveTo()) {
+                        currentlyAbove.clickMe();
+                    } else {
+                        currentDragging.clickMe();
+                    }
+                    currentDragging = null;
+                } else if (clickingBtn == null) {
+                    System.out.println("clicking btn = null");
+                    clickingBtn = currentDragging == null ? currentlyAbove : currentDragging;
+                } else if (clickingBtn == currentlyAbove) {
+                    System.out.println("clicking btn = currently above");
+                    clickingBtn.clickMe();
+                    clickingBtn = null;
+                } else if (currentlyAbove.canMoveTo()) {
+                    System.out.println("can move to currently above");
+                    currentlyAbove.clickMe();
+                    clickingBtn = null;
+                }
+
+//                if (currentlyAbove == currentDragging)//if ur clicking a button and its the first time ur clicking it than you started a click
+//                    isClicking = !isClicking;
+
+//                stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
+
+//                if (isDragging()) {
+//                    if (currentDragging != currentlyHoveringOver) {
+////                if (!doClick)
+////                    currentDragging.clickMe();
+//                        if (currentlyHoveringOver.canMoveTo() && doClick)
+//                            currentlyHoveringOver.clickMe();
+//                        else
+//                            currentDragging.clickMe();
+//                    }
+//                    currentDragging.unHideIcon();
+//                    currentDragging = null;
+//                }
+
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-                        if (currentlyAbove.canMoveTo())
-                            currentlyAbove.clickMe();
+//                        if (currentlyAbove.canMoveTo())
+//                            currentlyAbove.clickMe();
 
                         clearAllArrows();
                         view.resetSelectedButtons();
