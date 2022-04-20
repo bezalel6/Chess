@@ -18,7 +18,7 @@ public class NumberField extends TextBasedField<Integer> {
     }
 
     @Override
-    protected void setValue(Integer value) {
+    public void setValue(Integer value) {
         textField.setText(value + "");
     }
 

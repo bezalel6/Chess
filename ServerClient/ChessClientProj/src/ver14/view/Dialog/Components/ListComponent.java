@@ -126,7 +126,7 @@ public abstract class ListComponent extends DialogField<Selectable> {
     }
 
     @Override
-    protected void setValue(Selectable value) {
+    public void setValue(Selectable value) {
         onSelect.callback(value);
     }
 }

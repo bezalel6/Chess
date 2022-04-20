@@ -15,13 +15,17 @@ import java.util.Set;
 public class Login extends LoginCard {
 
 
+    private final UsernamePnl usernamePnl;
+    private final PasswordPnl passwordPnl;
     private ArrayList<Set<Integer>> removeAdapters = new ArrayList<>();
 
     public Login(LoginProcess parentDialog, LoginInfo loginInfo) {
         super(new CardHeader("Login"), parentDialog, loginInfo, LoginType.LOGIN);
 
-        addDialogComponent(new UsernamePnl(false, loginInfo, parentDialog));
-        addDialogComponent(new PasswordPnl(false, loginInfo, parentDialog));
+        this.usernamePnl = new UsernamePnl(false, loginInfo, parentDialog);
+        this.passwordPnl = new PasswordPnl(false, loginInfo, parentDialog);
+        addDialogComponent(usernamePnl);
+        addDialogComponent(passwordPnl);
     }
 
     @Override
@@ -29,7 +33,9 @@ public class Login extends LoginCard {
         super.shown();
         removeAdapters.add(parentDialog.keyAdapter().addAction(() -> {
             ((LoginProcess) parentDialog).getLoginInfo().initDebugLoginValues();
-            onOk();
+            usernamePnl.setValue(((LoginProcess) parentDialog).getLoginInfo().getUsername());
+            passwordPnl.setValue(((LoginProcess) parentDialog).getLoginInfo().getPassword());
+//            onOk();
         }, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_F));
     }
 

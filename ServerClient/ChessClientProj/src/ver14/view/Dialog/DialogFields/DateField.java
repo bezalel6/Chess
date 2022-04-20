@@ -87,7 +87,7 @@ public class DateField extends DialogField<Date> {
     }
 
     @Override
-    protected void setValue(Date value) {
+    public void setValue(Date value) {
         jCalendar.setDate(value);
     }
 

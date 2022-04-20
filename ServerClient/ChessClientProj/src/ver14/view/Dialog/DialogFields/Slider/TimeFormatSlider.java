@@ -63,7 +63,7 @@ public class TimeFormatSlider extends DialogField<TimeFormat> {
     }
 
     @Override
-    protected void setValue(TimeFormat value) {
+    public void setValue(TimeFormat value) {
         slider.setValue((int) (value.timeInMillis / 1000));
     }
 

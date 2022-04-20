@@ -135,7 +135,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     protected abstract boolean verifyField();
 
-    protected abstract void setValue(T value);
+    public abstract void setValue(T value);
 
     public T getResult() {
         if (noRes)

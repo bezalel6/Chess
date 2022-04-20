@@ -19,7 +19,7 @@ public class TextField extends TextBasedField<String> {
     }
 
     @Override
-    protected void setValue(String value) {
+    public void setValue(String value) {
         textField.setText(value);
     }
 }
