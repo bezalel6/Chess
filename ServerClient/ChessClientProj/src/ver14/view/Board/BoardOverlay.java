@@ -251,6 +251,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
+//        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
+//            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
                 if (hoveredBtn != null)
@@ -287,24 +289,23 @@ public class BoardOverlay extends LayerUI<JPanel> {
                             currentlyAbove.clickMe();
                             clickingBtn = null;
                         }
-//                        currentlyAbove.clickMe();
-                    } else if (currentlyAbove.canMoveTo()) {
+                    } else if (currentlyAbove.isEnabled()) {
                         currentlyAbove.clickMe();
                     } else {
                         currentDragging.clickMe();
                     }
-                    currentDragging = null;
-                } else if (clickingBtn == null) {
-                    System.out.println("clicking btn = null");
-                    clickingBtn = currentDragging == null ? currentlyAbove : currentDragging;
-                } else if (clickingBtn == currentlyAbove) {
-                    System.out.println("clicking btn = currently above");
-                    clickingBtn.clickMe();
-                    clickingBtn = null;
-                } else if (currentlyAbove.canMoveTo()) {
-                    System.out.println("can move to currently above");
-                    currentlyAbove.clickMe();
-                    clickingBtn = null;
+                } else if (currentlyAbove.isEnabled()) {
+                    if (clickingBtn == null) {
+                        clickingBtn = currentlyAbove;
+                    } else if (clickingBtn == currentlyAbove) {
+                        clickingBtn.clickMe();
+                        clickingBtn = null;
+                    } else {
+                        currentlyAbove.clickMe();
+                        clickingBtn = null;
+                    }
+                } else {
+                    clickingBtn = currentDragging = null;
                 }
 
 //                if (currentlyAbove == currentDragging)//if ur clicking a button and its the first time ur clicking it than you started a click
@@ -325,13 +326,15 @@ public class BoardOverlay extends LayerUI<JPanel> {
 //                    currentDragging = null;
 //                }
 
+                currentDragging = null;
+
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
 //                        if (currentlyAbove.canMoveTo())
 //                            currentlyAbove.clickMe();
-
                         clearAllArrows();
                         view.resetSelectedButtons();
+//                        currentDragging = null;
                     }
                     case MouseEvent.BUTTON3 -> {
                         if (isSameBtn(btn) && isDrawing)
@@ -343,6 +346,10 @@ public class BoardOverlay extends LayerUI<JPanel> {
         }
     }
 
+
+    private void debugCurrentMouseInfo(MouseEvent e) {
+        System.out.printf("current dragging: %s\ncurrent clicking: %s\nevent: %s", currentDragging, clickingBtn, MouseEvent.getMouseModifiersText(e.getModifiersEx()));
+    }
 
     public void stopDrawingArrows() {
         if (isDrawing) {

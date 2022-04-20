@@ -82,6 +82,11 @@ public class Model implements Serializable {
         initPieces();
         this.boardHash = new BoardHash(this);
         this.firstPositionMovesHash = generateAllMoves().getHash();
+
+    }
+
+    public void setLoadedFen(String loadedFen) {
+        this.loadedFen = loadedFen;
     }
 
     private void createNewEmptyLogicBoard() {
@@ -174,13 +179,13 @@ public class Model implements Serializable {
     }
 
     public void setEnPassantTargetLoc(String enPassantTargetLocStr) {
-        if (enPassantTargetLocStr.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
+        if (StrUtils.isEmpty(enPassantTargetLocStr) || enPassantTargetLocStr.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
             this.enPassantTargetLoc = null;
         } else {
             this.enPassantTargetLoc = Location.getLoc(enPassantTargetLocStr);
             int row = enPassantTargetLoc.row;
-            int diff = (row == (PlayerColor.WHITE.startingRow + 3)) ? PlayerColor.WHITE.diff : PlayerColor.BLACK.diff;
-            row -= diff;
+            int diff = (row == (PlayerColor.WHITE.startingRow + 3 * PlayerColor.WHITE.diff)) ? PlayerColor.WHITE.diff : PlayerColor.BLACK.diff;
+            row += diff;
             this.enPassantActualLoc = Location.getLoc(row, enPassantTargetLoc.col);
         }
     }
@@ -371,6 +376,8 @@ public class Model implements Serializable {
 
     }
 
+    private String loadedFen = null;
+
     public void undoMove(Move move) {
         moveStack.pop();
 
@@ -398,6 +405,8 @@ public class Model implements Serializable {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
                 setEnPassantActualLoc(prevMove.getMovingTo());
             }
+        } else {
+            setEnPassantTargetLoc(FEN.extractEnPassantTargetLoc(loadedFen));
         }
         updatePieceLoc(piece, movingFrom, movingTo);
 

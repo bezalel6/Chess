@@ -7,9 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="dragging and overlay">
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Tests/FenTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/BoardButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/BoardButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/view/Board/BoardOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/Board/BoardOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/FEN.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/FEN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/minimax/MinimaxParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Model/minimax/MinimaxParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Game/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Game/GameSettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +265,7 @@
       <workItem from="1650318081230" duration="933000" />
       <workItem from="1650319032621" duration="593000" />
       <workItem from="1650322827310" duration="434000" />
-      <workItem from="1650334844944" duration="11204000" />
+      <workItem from="1650334844944" duration="16877000" />
     </task>
     <task id="LOCAL‎00001" summary="created message dialogs">
       <created>1647575755850</created>
@@ -317,7 +325,9 @@
           <option name="timeStamp" value="5" />
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.AssertionError" package="java.lang" />
+          <properties class="java.lang.AssertionError" package="java.lang">
+            <option name="NOTIFY_CAUGHT" value="false" />
+          </properties>
           <option name="timeStamp" value="13" />
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
@@ -393,6 +403,11 @@
           <url>file://$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/networking/MessagesHandler.java</url>
           <line>214</line>
           <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/view/Board/BoardOverlay.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

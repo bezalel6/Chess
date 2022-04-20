@@ -57,6 +57,14 @@ public class BoardButton extends MyJButton {
         setIcon(null);
     }
 
+    @Override
+    public String toString() {
+        return "BoardButton{" +
+                "btnLoc=" + btnLoc +
+                ", piece=" + piece +
+                '}';
+    }
+
     public Icon getHiddenIcon() {
         return hiddenIcon;
     }

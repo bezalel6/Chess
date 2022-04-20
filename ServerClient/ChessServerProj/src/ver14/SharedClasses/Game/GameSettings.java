@@ -100,7 +100,7 @@ public class GameSettings implements Serializable, TimeFormatSettable {
     }
 
     public void initDefault1v1() {
-        setPlayerToMove(PlayerColor.NO_PLAYER);
+        setPlayerToMove(PlayerColor.WHITE);
         setTimeFormat(TimeFormat.RAPID);
         setGameType(GameSettings.GameType.CREATE_NEW);
         setAiParameters(null);

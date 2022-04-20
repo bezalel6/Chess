@@ -7,6 +7,7 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.moves.CastlingRights;
 import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import java.util.Random;
 
@@ -113,6 +114,15 @@ public class FEN {
         return RegEx.Fen.check(fen);
     }
 
+
+    public static String extractEnPassantTargetLoc(String fen) {
+        if (StrUtils.isEmpty(fen))
+            return null;
+        String[] segments = fen.split(" ");
+
+        return segments[3];
+    }
+
     /**
      * Load fen.
      *
@@ -147,5 +157,6 @@ public class FEN {
         //fullmove clock setup
         model.setFullMoveClock(Integer.parseInt(fullMoveCLock));
 
+        model.setLoadedFen(fen);
     }
 }

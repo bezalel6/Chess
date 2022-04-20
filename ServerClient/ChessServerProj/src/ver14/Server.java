@@ -125,11 +125,11 @@ public class Server implements EnvManager {
         });
 
 //        region debug
-//        bottomPnl.add(new MyJButton("Print Fens", () -> {
-//            gameSessions.forEachItem(session -> {
-//                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
-//            });
-//        }));
+        bottomPnl.add(new MyJButton("Print Fens", () -> {
+            gameSessions.forEachItem(session -> {
+                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
+            });
+        }));
 //        endregion
 
         bottomPnl.add(connectedUsersBtn);
