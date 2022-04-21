@@ -4,7 +4,7 @@ import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Properties;
 
 import java.awt.*;
 import java.util.Arrays;

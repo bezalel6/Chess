@@ -1,8 +1,8 @@
 package ver14.Model.Eval;
 
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.pieces.PieceType;
 
 public class Tables {
     private static final int MIDDLE_GAME = 0, ENDGAME = 1;
@@ -187,7 +187,7 @@ public class Tables {
         public int getValue(double egWeight, PlayerColor player, Location loc) {
             int mg = tables[MIDDLE_GAME][player.asInt][loc.row][loc.col];
             int eg = egWeight == 0 ? 0 : (int) (egWeight * tables[ENDGAME][player.asInt][loc.row][loc.col]);
-            return mg + eg;
+            return (mg + eg);
         }
     }
 }

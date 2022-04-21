@@ -1,9 +1,10 @@
-package com.github.vertical_blank.sqlformatter;
+package ver14.SharedClasses.Utils.sqlformatter;
 
 import com.github.vertical_blank.sqlformatter.core.AbstractFormatter;
 import com.github.vertical_blank.sqlformatter.core.DialectConfig;
 import com.github.vertical_blank.sqlformatter.core.FormatConfig;
 import com.github.vertical_blank.sqlformatter.languages.Dialect;
+import ver14.SharedClasses.Utils.sqlformatter.core.DialectConfig;
 
 import java.util.List;
 import java.util.Map;

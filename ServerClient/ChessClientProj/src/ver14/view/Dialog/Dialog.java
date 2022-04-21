@@ -15,7 +15,6 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
 import ver14.view.IconManager.Size;
 

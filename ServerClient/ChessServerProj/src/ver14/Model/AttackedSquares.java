@@ -1,9 +1,9 @@
 package ver14.Model;
 
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Direction;
-import ver14.SharedClasses.Game.pieces.PieceType;
 
 public class AttackedSquares {
 //    public static final MyHashMap<Bitboard> hashMap = new MyHashMap<>(HashManager.Size.ATTACKED_SQUARES);

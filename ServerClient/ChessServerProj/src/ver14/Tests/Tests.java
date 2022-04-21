@@ -4,26 +4,26 @@ import org.testng.ITest;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ver14.Game.Game;
 import ver14.Model.AttackedSquares;
 import ver14.Model.FEN;
+import ver14.Model.Minimax.Minimax;
 import ver14.Model.Model;
-import ver14.Model.Stockfish;
-import ver14.Model.minimax.Minimax;
+import ver14.Players.PlayerAI.MyAi;
+import ver14.Players.PlayerAI.Stockfish.Stockfish;
+import ver14.Players.PlayerNet.DummyPlayerNet;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.TimeFormat;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.TimeFormat;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Question;
+import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.ThreadsUtil;
-import ver14.game.Game;
-import ver14.players.PlayerAI.MyAi;
-import ver14.players.PlayerNet.DummyPlayerNet;
 
 import java.lang.reflect.Method;
 import java.time.ZonedDateTime;
@@ -195,7 +195,7 @@ public class Tests implements ITest {
     private static void minimaxThreadsTest(int time) {
         Minimax minimax = new Minimax(null, time);
         minimax.setRecordCpuUsage(true);
-        minimax.setLog(false);
+        minimax.setLOG(false);
         for (int threads = 1; threads <= numOfThreads; threads++) {
             Model model = new Model();
             model.setup(null);

@@ -12,12 +12,12 @@ import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Components.DialogComponent;
 import ver14.view.Dialog.Components.Parent;
+import ver14.view.Dialog.Components.Verified;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.TextBasedFields.NumberField;
 import ver14.view.Dialog.DialogFields.TextBasedFields.PictureUrlField;
 import ver14.view.Dialog.DialogFields.TextBasedFields.TextField;
 import ver14.view.Dialog.Dialogs.Header;
-import ver14.view.Dialog.Verified;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.ErrorPnl;
 

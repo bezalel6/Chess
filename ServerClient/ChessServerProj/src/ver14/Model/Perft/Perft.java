@@ -1,6 +1,6 @@
 package ver14.Model.Perft;
 
-import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.SharedClasses.Game.Moves.BasicMove;
 
 import java.util.HashMap;
 import java.util.Map;

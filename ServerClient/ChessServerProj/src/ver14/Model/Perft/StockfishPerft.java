@@ -1,7 +1,7 @@
 package ver14.Model.Perft;
 
-import ver14.Model.Stockfish;
-import ver14.SharedClasses.Game.moves.BasicMove;
+import ver14.Players.PlayerAI.Stockfish.Stockfish;
+import ver14.SharedClasses.Game.Moves.BasicMove;
 
 import javax.swing.*;
 

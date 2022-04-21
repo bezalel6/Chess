@@ -1,13 +1,13 @@
 package ver14;
 
 import ver14.DB.DB;
+import ver14.Game.Game;
+import ver14.Players.PlayerNet.PlayerNet;
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Networking.AppSocket;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.Networking.MessagesHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.networking.MessagesHandler;
-import ver14.game.Game;
-import ver14.players.PlayerNet.PlayerNet;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,7 @@ package ver14.view;
 
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.view.Dialog.Verified;
+import ver14.view.Dialog.Components.Verified;
 
 import javax.swing.*;
 import java.awt.*;

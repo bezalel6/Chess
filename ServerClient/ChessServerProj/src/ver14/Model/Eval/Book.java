@@ -43,17 +43,26 @@ public class Book {
 //        return positionsHashMap.get(hash).get(new Random().nextInt(positionsHashMap.get(hash).size()));
 //    }
 
+    /**
+     * looks for a game matching the current game inside the book games database.
+     * if one is found, the next move is saved.
+     * after going through all games in the database, if any matching game was found, a random move from the saved moves is returned.
+     * if no matching game was found, null is returned.
+     *
+     * @param model - current game position
+     * @return a random move from every game found in the games database if one is found. null otherwise
+     */
     public static String getBookMove(Model model) {
         try {
-            StringBuilder completePgn = new StringBuilder(model.getPGN());
+            String completePgn = (model.getPGN());
             Scanner scanner = new Scanner(book);
             ArrayList<String> bookMoves = new ArrayList<>();
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                if (line.startsWith(completePgn.toString())) {
-                    String s = line.substring(line.indexOf(completePgn.toString()) + completePgn.length());
+                if (line.startsWith(completePgn)) {
+                    String s = line.substring(line.indexOf(completePgn) + completePgn.length());
                     bookMoves.add(s.substring(0, s.indexOf(' ')).trim());
-                    return bookMoves.get(0);
+//                    return bookMoves.get(0);
                 }
             }
             if (!bookMoves.isEmpty())

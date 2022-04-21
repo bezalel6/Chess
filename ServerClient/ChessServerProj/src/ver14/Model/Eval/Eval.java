@@ -7,13 +7,12 @@ import ver14.Model.AttackedSquares;
 import ver14.Model.Bitboard;
 import ver14.Model.Model;
 import ver14.Model.PiecesBBs;
+import ver14.SharedClasses.Game.Evaluation.Evaluation;
+import ver14.SharedClasses.Game.Evaluation.EvaluationParameters;
+import ver14.SharedClasses.Game.Evaluation.GameStatus;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.Evaluation;
-import ver14.SharedClasses.Game.evaluation.EvaluationParameters;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -68,9 +67,9 @@ public class Eval implements Serializable {
         } else if (model.getHalfMoveClock() >= 100) {
             return new Evaluation(GameStatus.fiftyMoveRule(), playerToMove);
         }
-        if (checkRepetition()) {
-            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
-        }
+//        if (checkRepetition()) {
+//            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
+//        }
         if (checkForInsufficientMaterial()) {
             return new Evaluation(GameStatus.insufficientMaterial(), playerToMove);
         }
@@ -100,7 +99,7 @@ public class Eval implements Serializable {
         comparePieceTables();
 
 //        force king to corner
-        compareForceKingToCorner();
+        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
 
         //Hanging Pieces
 //        retEval.addDetail(HANGING_PIECES, calcHangingPieces(player));
@@ -112,7 +111,7 @@ public class Eval implements Serializable {
 //        retEval.addDetail(MOVEMENT_ABILITY, compareMovementAbility(player));
 
         //King Safety
-//        compareKingSafety();
+//        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
 
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
     }
@@ -174,11 +173,9 @@ public class Eval implements Serializable {
         return ret;
     }
 
-    private void compareMaterial() {
-    }
 
     private void comparePieceTables() {
-        double res = 0;
+        int res = 0;
         for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
             int mult = currentlyChecking == evaluationFor ? 1 : -1;
             PiecesBBs playersPieces = model.getPlayersPieces(currentlyChecking);
@@ -186,8 +183,9 @@ public class Eval implements Serializable {
             for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
                 Bitboard bb = bitboards[i];
                 for (Location loc : bb.getSetLocs()) {
-                    Piece piece = Piece.getPiece(PieceType.getPieceType(i), currentlyChecking);
-                    res += getTableData(piece, loc) * mult;
+                    Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
+
+                    res += table.getValue(egWeight, currentlyChecking, loc) * mult;
                 }
             }
         }
@@ -199,9 +197,6 @@ public class Eval implements Serializable {
 //        return squaresControl(player) - squaresControl(Player.getOpponent(player));
 //    }
 
-    private void compareForceKingToCorner() {
-        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
-    }
 
     private boolean insufficientMaterial(PlayerColor playerColor) {
         return model.getNumOfPieces(playerColor, PieceType.KING) < 1 || (
@@ -211,8 +206,8 @@ public class Eval implements Serializable {
 
     }
 
-    private double materialSum(PlayerColor playerColor) {
-        double ret = 0;
+    private int materialSum(PlayerColor playerColor) {
+        int ret = 0;
         int[] piecesCount = model.getPiecesCount(playerColor);
         for (int i = 0, piecesCountLength = piecesCount.length; i < piecesCountLength; i++) {
             int count = piecesCount[i];
@@ -222,15 +217,11 @@ public class Eval implements Serializable {
         return ret;
     }
 
-    private double getTableData(Piece piece, Location loc) {
-        Tables.PieceTable table = Tables.getPieceTable(piece.pieceType);
-        return table.getValue(egWeight, piece.playerColor, loc);
-    }
 
-    private double forceKingToCorner(double egWeight, PlayerColor playerColor) {
+    private int forceKingToCorner(double egWeight, PlayerColor playerColor) {
         if (egWeight == 0)
             return 0;
-        double ret = 0;
+        int ret = 0;
         Location opK = model.getKing(playerColor.getOpponent());
 
         int opRow = opK.row, opCol = opK.col;
@@ -250,7 +241,7 @@ public class Eval implements Serializable {
         ret += 14 - kingsDst;
 
 //        return ret * 0.01 * egWeight;
-        return ret * egWeight;
+        return (int) (ret * egWeight);
     }
 
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
@@ -281,9 +272,6 @@ public class Eval implements Serializable {
         return num + "".length();
     }
 
-    private void compareKingSafety() {
-        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
-    }
 
     private double kingSafety(PlayerColor playerColor) {
         double ret;

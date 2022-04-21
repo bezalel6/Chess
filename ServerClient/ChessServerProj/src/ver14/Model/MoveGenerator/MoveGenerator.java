@@ -2,15 +2,15 @@ package ver14.Model.MoveGenerator;
 
 import ver14.Model.*;
 import ver14.Model.Eval.Eval;
-import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.BasicMove;
+import ver14.SharedClasses.Game.Moves.CastlingRights;
+import ver14.SharedClasses.Game.Moves.Direction;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.BasicMove;
-import ver14.SharedClasses.Game.moves.CastlingRights;
-import ver14.SharedClasses.Game.moves.Direction;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
 
 import java.util.ArrayList;
 

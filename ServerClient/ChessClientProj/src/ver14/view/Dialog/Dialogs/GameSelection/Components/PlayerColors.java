@@ -15,6 +15,7 @@ public class PlayerColors extends ListComponent {
         super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Player Color"), parent);
         this.gameSettings = gameSettings;
         addComponents(SelectablePlayerColor.values());
+        setValue(SelectablePlayerColor.WHITE);
     }
 
     @Override

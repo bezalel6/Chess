@@ -140,7 +140,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
             if (isDragging()) {
                 int x = mouseCoordinates.x - currentDragging.getHeight() / 2;
                 int y = mouseCoordinates.y - currentDragging.getWidth() / 2;
-                currentDragging.getHiddenIcon().paintIcon(c, g, x, y);
+                if (currentDragging.getHiddenIcon() != null)
+                    currentDragging.getHiddenIcon().paintIcon(c, g, x, y);
             }
             g2.setStroke(new BasicStroke(10));
 
@@ -280,63 +281,41 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_RELEASED:
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
 
-                if (isDragging()) {
-                    currentDragging.unHideIcon();
-                    if (currentlyAbove == currentDragging) {
-                        if (clickingBtn == null)
-                            clickingBtn = currentlyAbove;
-                        else {
-                            currentlyAbove.clickMe();
-                            clickingBtn = null;
-                        }
-                    } else if (currentlyAbove.isEnabled()) {
-                        currentlyAbove.clickMe();
-                    } else {
-                        currentDragging.clickMe();
-                    }
-                } else if (currentlyAbove.isEnabled()) {
-                    if (clickingBtn == null) {
-                        clickingBtn = currentlyAbove;
-                    } else if (clickingBtn == currentlyAbove) {
-                        clickingBtn.clickMe();
-                        clickingBtn = null;
-                    } else {
-                        currentlyAbove.clickMe();
-                        clickingBtn = null;
-                    }
-                } else {
-                    clickingBtn = currentDragging = null;
-                }
-
-//                if (currentlyAbove == currentDragging)//if ur clicking a button and its the first time ur clicking it than you started a click
-//                    isClicking = !isClicking;
-
-//                stopDragging(currentlyAbove, e.getButton() == MouseEvent.BUTTON1);
-
-//                if (isDragging()) {
-//                    if (currentDragging != currentlyHoveringOver) {
-////                if (!doClick)
-////                    currentDragging.clickMe();
-//                        if (currentlyHoveringOver.canMoveTo() && doClick)
-//                            currentlyHoveringOver.clickMe();
-//                        else
-//                            currentDragging.clickMe();
-//                    }
-//                    currentDragging.unHideIcon();
-//                    currentDragging = null;
-//                }
-
-                currentDragging = null;
-
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-//                        if (currentlyAbove.canMoveTo())
-//                            currentlyAbove.clickMe();
+                        if (isDragging()) {
+                            currentDragging.unHideIcon();
+                            if (currentlyAbove == currentDragging) {
+                                if (clickingBtn == null)
+                                    clickingBtn = currentlyAbove;
+                                else {
+                                    currentlyAbove.clickMe();
+                                    clickingBtn = null;
+                                }
+                            } else if (currentlyAbove.isEnabled()) {
+                                currentlyAbove.clickMe();
+                            } else {
+                                currentDragging.clickMe();
+                            }
+                        } else if (currentlyAbove.isEnabled()) {
+                            if (clickingBtn == null) {
+                                clickingBtn = currentlyAbove;
+                            } else if (clickingBtn == currentlyAbove) {
+                                clickingBtn.clickMe();
+                                clickingBtn = null;
+                            } else {
+                                currentlyAbove.clickMe();
+                                clickingBtn = null;
+                            }
+                        } else {
+                            clickingBtn = currentDragging = null;
+                        }
+                        currentDragging = null;
                         clearAllArrows();
                         view.resetSelectedButtons();
-//                        currentDragging = null;
                     }
                     case MouseEvent.BUTTON3 -> {
+                        currentDragging = null;
                         if (isSameBtn(btn) && isDrawing)
                             btn.toggleSelected();
                         stopDrawingArrows();

@@ -12,10 +12,10 @@ import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.Components.Child;
 import ver14.view.Dialog.Components.DialogComponent;
 import ver14.view.Dialog.Components.Parent;
+import ver14.view.Dialog.Components.Verified;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.SyncableList;
-import ver14.view.Dialog.Verified;
 import ver14.view.Dialog.WinPnl;
 
 import javax.swing.*;

@@ -6,7 +6,7 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.DialogField;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Properties;
 
 import java.util.ArrayList;
 import java.util.HashMap;

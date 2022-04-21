@@ -2,12 +2,12 @@ package ver14.Model;
 
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.moves.MoveAnnotation;
-import ver14.SharedClasses.Game.moves.MovesList;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
+import ver14.SharedClasses.Game.Moves.Move;
+import ver14.SharedClasses.Game.Moves.MoveAnnotation;
+import ver14.SharedClasses.Game.Moves.MovesList;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -4,7 +4,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.pieces.Piece;
 import ver14.SharedClasses.ui.windows.MyJFrame;
 import ver14.view.Dialog.Components.ListComponent;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Properties;
 import ver14.view.Dialog.Selectables.SelectablePiece;
 import ver14.view.Dialog.WinPnl;
 

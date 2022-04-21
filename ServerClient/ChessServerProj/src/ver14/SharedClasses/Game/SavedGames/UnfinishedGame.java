@@ -1,8 +1,8 @@
 package ver14.SharedClasses.Game.SavedGames;
 
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Move;
 
 import java.util.Stack;
 

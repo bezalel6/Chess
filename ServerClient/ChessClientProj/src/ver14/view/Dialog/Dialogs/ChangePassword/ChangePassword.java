@@ -7,9 +7,9 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;
+import ver14.view.Dialog.Properties;
 
 public class ChangePassword extends Dialog implements BackOkInterface {
     private final LoginInfo newInfo;
@@ -41,11 +41,6 @@ public class ChangePassword extends Dialog implements BackOkInterface {
         cardsSetup(null, card);
     }
 
-    public static void main(String[] args) {
-//        ChangePassword changePassword = new ChangePassword(null, Properties.example, null, "123456");
-//        changePassword.start();
-//        System.out.println("new pass = " + changePassword.getPassword());
-    }
 
     public String getPassword() {
         return password;

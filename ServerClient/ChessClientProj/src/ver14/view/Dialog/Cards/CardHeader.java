@@ -2,8 +2,8 @@ package ver14.view.Dialog.Cards;
 
 import ver14.SharedClasses.FontManager;
 import ver14.SharedClasses.ui.MyLbl;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
+import ver14.view.Dialog.Properties;
 
 import javax.swing.*;
 

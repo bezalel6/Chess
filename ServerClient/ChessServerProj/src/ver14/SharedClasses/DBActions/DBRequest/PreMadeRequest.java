@@ -1,9 +1,9 @@
 package ver14.SharedClasses.DBActions.DBRequest;
 
-import ver14.SharedClasses.AuthSettings;
 import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.RequestBuilder;
+import ver14.SharedClasses.Login.AuthSettings;
 
 import java.util.Arrays;
 import java.util.Date;

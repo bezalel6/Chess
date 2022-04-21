@@ -1,4 +1,4 @@
-package com.github.vertical_blank.sqlformatter.core;
+package ver14.SharedClasses.Utils.sqlformatter.core;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class FormatConfig {
 
   public final String indent;
   public final int maxColumnLength;
-  public final Params params;
+  public final com.github.vertical_blank.sqlformatter.core.Params params;
   public final boolean uppercase;
   public final Integer linesBetweenQueries;
 

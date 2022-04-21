@@ -1,17 +1,17 @@
 package ver14.Model.hashing;
 
 
+import ver14.Game.Game;
 import ver14.Model.Bitboard;
 import ver14.Model.Model;
 import ver14.Model.PiecesBBs;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.CastlingRights;
+import ver14.SharedClasses.Game.Moves.Direction;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.CastlingRights;
-import ver14.SharedClasses.Game.moves.Direction;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
-import ver14.game.Game;
 
 import java.util.Arrays;
 import java.util.Random;

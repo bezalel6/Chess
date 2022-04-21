@@ -2,15 +2,17 @@ package ver14.Tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ver14.Model.minimax.Minimax;
+import ver14.Game.Game;
+import ver14.Model.Minimax.Minimax;
+import ver14.Players.PlayerAI.MyAi;
 import ver14.Server;
-import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.TimeFormat;
+import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.BasicMove;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.TimeFormat;
 import ver14.SharedClasses.Sync.SyncedItems;
-import ver14.game.Game;
-import ver14.players.PlayerAI.MyAi;
 
 import java.lang.reflect.Method;
 
@@ -70,5 +72,12 @@ public class MinimaxTests extends Tests {
         Minimax minimax = new Minimax(model, Long.MAX_VALUE);
 
         minimax.getEvaluation(PlayerColor.WHITE).print();
+    }
+
+    @Test
+    private void testStarting() {
+        model.applyMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
+        Minimax minimax = new Minimax(model, 3000);
+        System.out.println(minimax.getBestMove());
     }
 }

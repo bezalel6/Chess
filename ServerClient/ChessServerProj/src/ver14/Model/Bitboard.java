@@ -2,8 +2,8 @@ package ver14.Model;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Direction;
 
 import java.io.Serializable;
 import java.util.Objects;

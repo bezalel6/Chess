@@ -22,19 +22,19 @@ import ver14.SharedClasses.Question;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.SharedClasses.ui.MyLbl;
 import ver14.SharedClasses.ui.windows.MyJFrame;
+import ver14.Sound.SoundManager;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
+import ver14.view.Dialog.Properties;
 import ver14.view.Dialog.Scrollable;
-import ver14.view.Dialog.SyncableList;
-import ver14.view.Dialog.WinPnl;
+import ver14.view.Dialog.*;
 import ver14.view.Graph.Graph;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.*;
 
 
-public class View implements Iterable<BoardButton[]> {
+public class View extends SoundManager implements Iterable<BoardButton[]> {
     public static final String CLIENT_WIN_TITLE = "Chess Client";
     private final static Dimension winSize;
     private final static Color statusLblNormalClr = Color.BLACK;

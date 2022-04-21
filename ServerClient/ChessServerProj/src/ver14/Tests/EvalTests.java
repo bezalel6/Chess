@@ -6,11 +6,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Eval.Tables;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.BasicMove;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.BasicMove;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.SharedClasses.Utils.ArrUtils;
 
 import java.lang.reflect.Method;

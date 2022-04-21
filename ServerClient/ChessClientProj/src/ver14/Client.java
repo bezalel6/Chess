@@ -31,12 +31,12 @@ import ver14.Sound.SoundManager;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
+import ver14.view.Dialog.Properties;
 import ver14.view.View;
 
 import java.net.InetAddress;

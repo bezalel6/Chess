@@ -32,6 +32,11 @@ public class StartFromPosition extends GameCreationCard {
         add(pnl);
     }
 
+    @Override
+    public Dimension getPreferredSize() {
+        return new Size(500);
+    }
+
     protected void changeState(boolean state) {
         if (!state)
             gameSettings.setFen(null);

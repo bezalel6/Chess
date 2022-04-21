@@ -14,7 +14,9 @@ public class GameVsAi extends GameCreationCard {
         super(new CardHeader("Game vs Ai"), parentDialog, gameSettings);
         aiParameters = new AiParameters();
         addDialogComponent(new AiTypes(this, aiParameters));
-        addDialogComponent(new TimeFormatSlider(this, aiParameters));
+        addDialogComponent(new TimeFormatSlider(this, aiParameters) {{
+            setToMinValue();
+        }});
     }
 
     protected void changeState(boolean state) {

@@ -1,6 +1,6 @@
 package ver14;
 
-import ver14.SharedClasses.networking.AppSocket;
+import ver14.SharedClasses.Networking.AppSocket;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,7 +1,7 @@
 package ver14.SharedClasses.Game;
 
-import ver14.SharedClasses.Game.moves.Direction;
-import ver14.SharedClasses.Game.pieces.PieceType;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
+import ver14.SharedClasses.Game.Moves.Direction;
 
 import java.util.*;
 import java.util.stream.Collectors;

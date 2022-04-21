@@ -1,7 +1,5 @@
 package ver14.SharedClasses.Game.GameSetup;
 
-import ver14.SharedClasses.Game.TimeFormat;
-
 import java.io.Serializable;
 
 public class AiParameters implements Serializable, TimeFormatSettable {

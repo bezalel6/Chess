@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Arg;
 
 import ver14.SharedClasses.Callbacks.ObjCallback;
-import ver14.SharedClasses.IDsGenerator;
+import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
