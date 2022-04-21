@@ -1,9 +1,9 @@
 package ver14.view.Dialog.BackOk;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.MyJButton;
 
 import javax.swing.*;
 

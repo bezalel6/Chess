@@ -1,4 +1,4 @@
-package ver14.SharedClasses.UI;
+package ver14.SharedClasses.UI.Buttons;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Utils.StrUtils;

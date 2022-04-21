@@ -1,8 +1,8 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Login;
 
-import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.RegEx;
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;

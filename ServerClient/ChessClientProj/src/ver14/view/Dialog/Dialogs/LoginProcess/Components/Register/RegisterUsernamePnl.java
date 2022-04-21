@@ -1,9 +1,9 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Register;
 
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.ui.LinkLabel;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.LinkLabel;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.UsernamePnl;

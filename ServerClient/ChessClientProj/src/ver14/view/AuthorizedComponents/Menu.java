@@ -1,7 +1,7 @@
 package ver14.view.AuthorizedComponents;
 
-import ver14.SharedClasses.AuthSettings;
 import ver14.SharedClasses.Callbacks.VoidCallback;
+import ver14.SharedClasses.Login.AuthSettings;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;

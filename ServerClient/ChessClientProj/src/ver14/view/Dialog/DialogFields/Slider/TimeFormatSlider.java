@@ -1,12 +1,12 @@
 package ver14.view.Dialog.DialogFields.Slider;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Game.GameSetup.TimeFormatSettable;
-import ver14.SharedClasses.Game.TimeFormat;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.DialogField;
 import ver14.view.Dialog.Dialogs.Header;

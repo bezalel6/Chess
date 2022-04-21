@@ -1,7 +1,7 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.DialogField;
 import ver14.view.Dialog.Dialogs.Header;

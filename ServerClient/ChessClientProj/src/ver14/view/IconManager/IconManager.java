@@ -1,11 +1,11 @@
 package ver14.view.IconManager;
 
 
+import ver14.SharedClasses.Game.Evaluation.GameStatus;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Board.BoardOverlay;
 

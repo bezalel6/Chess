@@ -1,7 +1,7 @@
 package ver14.Sound;
 
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Move;
 
 public class SoundManager {
 

@@ -1,7 +1,7 @@
 package ver14.view.Dialog.DialogFields;
 
 import com.toedter.calendar.JCalendar;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.IconManager.Size;

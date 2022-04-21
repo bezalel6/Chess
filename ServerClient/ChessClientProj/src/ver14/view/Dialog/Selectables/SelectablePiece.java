@@ -1,8 +1,8 @@
 package ver14.view.Dialog.Selectables;
 
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
 import ver14.view.IconManager.IconManager;
 
 import javax.swing.*;

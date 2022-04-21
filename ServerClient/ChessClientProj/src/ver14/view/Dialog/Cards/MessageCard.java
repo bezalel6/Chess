@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Cards;
 
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.Dialog;
 import ver14.view.IconManager.IconManager;

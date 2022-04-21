@@ -3,8 +3,8 @@ package ver14.view.Graph;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.ui.MyLbl;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.IconManager.Size;
 

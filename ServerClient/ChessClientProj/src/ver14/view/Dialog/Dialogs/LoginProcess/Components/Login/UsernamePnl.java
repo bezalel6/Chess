@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Login;
 
-import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 
 public class UsernamePnl extends LoginField {

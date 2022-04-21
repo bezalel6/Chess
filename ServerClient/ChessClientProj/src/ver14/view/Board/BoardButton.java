@@ -1,8 +1,8 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
 import ver14.view.Shapes.ShapesHelper;

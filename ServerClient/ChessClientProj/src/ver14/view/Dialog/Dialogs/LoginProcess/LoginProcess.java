@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.LoginProcess;
 
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.LoginProcess.Cards.CancelAndExit;

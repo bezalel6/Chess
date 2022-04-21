@@ -1,10 +1,10 @@
 package ver14.view.Dialog;
 
 import ver14.SharedClasses.DBActions.Arg.Config;
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.Networking.AppSocket;
+import ver14.SharedClasses.UI.MyJFrame;
 import ver14.SharedClasses.Utils.ArrUtils;
-import ver14.SharedClasses.networking.AppSocket;
-import ver14.SharedClasses.ui.windows.MyJFrame;
 
 import java.awt.*;
 

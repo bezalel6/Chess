@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Selectables.Button;
 
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.Dialog.Selectables.Selectable;
 
 import javax.swing.*;

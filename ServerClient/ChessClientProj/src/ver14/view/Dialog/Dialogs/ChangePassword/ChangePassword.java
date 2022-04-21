@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.ChangePassword;
 
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.CardHeader;

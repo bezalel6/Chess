@@ -1,7 +1,7 @@
 package ver14.view;
 
-import ver14.SharedClasses.AuthSettings;
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.AuthSettings;
+import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.WinPnl;

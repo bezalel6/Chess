@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Register;
 
 import ver14.SharedClasses.Callbacks.ObjCallback;
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 

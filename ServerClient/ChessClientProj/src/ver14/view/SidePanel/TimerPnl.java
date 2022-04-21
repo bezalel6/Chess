@@ -1,7 +1,7 @@
 package ver14.view.SidePanel;
 
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.MyLbl;
 
 import javax.swing.*;
 import java.awt.*;

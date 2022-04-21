@@ -1,7 +1,7 @@
 package ver14.view;
 
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.ui.MyLbl;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.IconManager.IconManager;
 
 import javax.swing.*;
@@ -35,7 +35,7 @@ public class FetchVerify extends MyLbl {
     }
 
     public void verify(boolean verified) {
-        
+
         setIcon(verified ? verifiedIcon : notVerifiedIcon);
     }
 

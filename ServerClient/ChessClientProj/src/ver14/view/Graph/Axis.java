@@ -1,6 +1,6 @@
 package ver14.view.Graph;
 
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
 
 import javax.swing.*;
 import java.awt.*;

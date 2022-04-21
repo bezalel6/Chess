@@ -3,10 +3,10 @@ package ver14.view.Dialog.DialogFields;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.Arg.Described;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.UI.Buttons.ValueBtn;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.ObjBtn;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
@@ -81,8 +81,8 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     }
 
-    private ObjBtn<T> createValBtn(Described<T> desc) {
-        return new ObjBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
+    private ValueBtn<T> createValBtn(Described<T> desc) {
+        return new ValueBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
     }
 
     public void valueBtnPresses(T val) {

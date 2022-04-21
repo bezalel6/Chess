@@ -1,8 +1,8 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation;
 
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.UI.LinkLabel;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.LinkLabel;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.GameSelection.Components.FenField;

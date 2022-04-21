@@ -1,6 +1,6 @@
 package ver14.view.SidePanel;
 
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
 
 import javax.swing.*;
 import java.awt.*;

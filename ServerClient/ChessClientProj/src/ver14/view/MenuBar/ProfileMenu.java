@@ -1,10 +1,10 @@
 package ver14.view.MenuBar;
 
 import ver14.Client;
-import ver14.SharedClasses.AuthSettings;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.AuthSettings;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.AuthorizedComponents.Menu;
 import ver14.view.AuthorizedComponents.MenuItem;

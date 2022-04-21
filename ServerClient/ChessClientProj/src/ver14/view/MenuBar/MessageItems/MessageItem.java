@@ -1,7 +1,7 @@
 package ver14.view.MenuBar.MessageItems;
 
 import ver14.Client;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.Cards.MessageCard;
 

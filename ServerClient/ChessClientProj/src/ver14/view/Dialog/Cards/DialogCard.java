@@ -2,10 +2,10 @@ package ver14.view.Dialog.Cards;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.IDsGenerator;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.Misc.IDsGenerator;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.Dialog.BackOk.BackOkContainer;
 import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.BackOk.BackOkPnl;

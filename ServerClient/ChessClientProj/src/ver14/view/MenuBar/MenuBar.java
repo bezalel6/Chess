@@ -1,9 +1,9 @@
 package ver14.view.MenuBar;
 
 import ver14.Client;
-import ver14.SharedClasses.AuthSettings;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.Login.AuthSettings;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.AuthorizedComponents.Menu;
 import ver14.view.AuthorizedComponents.MenuItem;
@@ -31,7 +31,7 @@ public class MenuBar extends JMenuBar {
         ArrayList<JComponent> middle = new ArrayList<>();
         ArrayList<JComponent> end = new ArrayList<>();
         start.add(new ProfileMenu(authorizedComponents, client));
-        
+
         Menu settingsMenu = new Menu("settings", AuthSettings.NO_AUTH) {{
             setFont(menuFont);
             setChildrenFont(menuItemsFont);
