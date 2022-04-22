@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class Eval implements Serializable {
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
-    private static final double KING_SAFETY_WEIGHT = -0.1;
     public static boolean PRINT_REP_LIST = false;
     private final Model model;
     private final PlayerColor playerToMove;
@@ -54,6 +53,8 @@ public class Eval implements Serializable {
         calcEvaluation();
 //            evaluationHashMap.put(hash, evaluation);
 //        }
+
+        evaluation.assertNotGameOver();
 
     }
 
@@ -260,7 +261,7 @@ public class Eval implements Serializable {
     }
 
     public static boolean isGameOver(Model model) {
-        return new Eval(model, null, true).evaluation.isGameOver();
+        return new Eval(model, model.getCurrentPlayer(), true).evaluation.isGameOver();
     }
 
     private static double calcClose(int distance) {
@@ -273,10 +274,10 @@ public class Eval implements Serializable {
     }
 
 
-    private double kingSafety(PlayerColor playerColor) {
-        double ret;
+    private int kingSafety(PlayerColor playerColor) {
+        int ret;
         int movesNum = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, model.getPieceBitBoard(playerColor, PieceType.KING), playerColor.getOpponent(), model).getSetLocs().size();
-        ret = movesNum * KING_SAFETY_WEIGHT;
+        ret = movesNum * -1;
         return ret;
     }
 

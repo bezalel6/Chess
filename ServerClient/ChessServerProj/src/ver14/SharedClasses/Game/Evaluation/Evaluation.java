@@ -10,7 +10,7 @@ import java.util.Map;
 public class Evaluation implements Serializable {
     public static final int TIE_EVAL = 0;
     public static final int WIN_EVAL = Integer.MAX_VALUE;
-    public static final int LOSS_EVAL = Integer.MIN_VALUE;
+    public static final int LOSS_EVAL = -WIN_EVAL;//חייב להיות כדי להמנע מגלישה כשכופלים ב-1
     private static final Map<GameStatus.GameStatusType, Integer> gameStatusEvalMap;
 
     static {
@@ -26,7 +26,7 @@ public class Evaluation implements Serializable {
 
     }
 
-    private final static boolean MAKE_DETAILED = false;
+    private final static boolean MAKE_DETAILED = true;
     private final ArrayList<EvaluationDetail> detailedEval;
     private int eval;
     private final GameStatus gameStatus;
@@ -57,6 +57,11 @@ public class Evaluation implements Serializable {
         if (MAKE_DETAILED)
 
             detailedEval.addAll(other.detailedEval);
+    }
+
+
+    public void assertNotGameOver() {
+        assert eval > LOSS_EVAL && eval < WIN_EVAL;
     }
 
     public static Evaluation book() {
@@ -93,7 +98,7 @@ public class Evaluation implements Serializable {
         return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth < other.evaluationDepth) || (eval < 0 && evaluationDepth > other.evaluationDepth)));
     }
 
-    public double getEval() {
+    public int getEval() {
         return eval;
     }
 
@@ -149,6 +154,10 @@ public class Evaluation implements Serializable {
 
     public void print() {
         System.out.println(this);
+    }
+
+    public float getAdjusted() {
+        return ((float) eval) / 100;
     }
 
     public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {

@@ -87,6 +87,8 @@ public class DB {
         // dbURL: Access DB Driver Name + dbPath
         String dbURL = "jdbc:ucanaccess://" + new File(dbPath).getAbsolutePath();
 
+        System.out.println(dbURL);
+
         // create the connection object to db
 
         try {

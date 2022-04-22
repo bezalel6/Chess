@@ -35,7 +35,7 @@ public class Minimax {
     private final CpuUsages cpuUsageRecords;
     private final Timer minimaxUITimer;
     private Model model;
-    private boolean LOG = true;
+    private static boolean LOG = false;
     //    private int numOfThreads = 1;
     private int numOfThreads = 10;
     private ZonedDateTime minimaxStartedTime;
@@ -269,7 +269,7 @@ public class Minimax {
         ArrayList<Move> possibleMoves = model.generateAllMoves();
 
         AtomicReference<MinimaxMove> atomicBestMove = new AtomicReference<>(null);
-
+        log("minimax player clr = " + minimaxPlayerColor);
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
                 Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
@@ -285,6 +285,7 @@ public class Minimax {
                             atomicBestMove.set(new MinimaxMove(move, eval));
                         }
                     }
+                    log("move: %s eval: %s".formatted(move, eval));
                 } else {
                     isCompleteSearch.set(false);
                 }

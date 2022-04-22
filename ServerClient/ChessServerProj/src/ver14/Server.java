@@ -27,7 +27,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.HandledThread;
 import ver14.SharedClasses.Threads.MyThread;
 import ver14.SharedClasses.Threads.ThreadsManager;
-import ver14.SharedClasses.UI.MyJButton;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.MyJFrame;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.RegEx;

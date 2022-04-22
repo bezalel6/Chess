@@ -149,6 +149,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 Arrow arrow = newArrow(startedAt, mouseCoordinates);
                 arrow.draw(g2);
             }
+        } else {
+            if (isDragging()) {
+                currentDragging.unHideIcon();
+                currentDragging.clickMe();
+                currentDragging = null;
+            }
         }
 
         for (Arrow arrow : arrows) {
@@ -252,8 +258,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
-//        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
-//            debugCurrentMouseInfo(e);
+        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
+            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
                 if (hoveredBtn != null)
@@ -266,10 +272,14 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 hoveredBtn = null;
                 break;
             case MouseEvent.MOUSE_PRESSED:
+                if (clickingBtn != null && btn != null && clickingBtn != btn) {
+                    if (!clickingBtn.canMoveTo())
+                        clickingBtn.clickMe();
+                    clickingBtn = null;
+                }
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
                     if (clickingBtn == null && btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
-                        System.out.println("started dragging " + btn.getPiece());
                         currentDragging = btn;
                         btn.hideIcon();
                         btn.clickMe();
@@ -281,10 +291,11 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_RELEASED:
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
 
+                if (isDragging())
+                    currentDragging.unHideIcon();
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
                         if (isDragging()) {
-                            currentDragging.unHideIcon();
                             if (currentlyAbove == currentDragging) {
                                 if (clickingBtn == null)
                                     clickingBtn = currentlyAbove;

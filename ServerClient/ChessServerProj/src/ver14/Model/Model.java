@@ -2,9 +2,9 @@ package ver14.Model;
 
 
 import ver14.Model.Eval.Eval;
+import ver14.Model.Hashing.BoardHash;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
-import ver14.Model.hashing.BoardHash;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
@@ -82,6 +82,8 @@ public class Model implements Serializable {
         initPieces();
         this.boardHash = new BoardHash(this);
         this.firstPositionMovesHash = generateAllMoves().getHash();
+        if (!StrUtils.isEmpty(fen) && !fen.equals(startingPos))
+            this.pgnBuilder = new StringBuilder("null");
 
     }
 

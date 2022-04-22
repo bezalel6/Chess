@@ -10,8 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="done profile pic">
+      <change afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/MinimaxParametersAdjuster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/PromotionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/PromotionDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_04_2022_13_24_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_04_2022_13_24__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/hashing/BoardHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Hashing/BoardHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/hashing/HashManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Hashing/HashManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/hashing/Transposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Hashing/Transposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/hashing/Zobrist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Hashing/Zobrist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/hashing/my_hash_maps/MyHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Hashing/my_hash_maps/MyHashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/EvaluationParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/EvaluationParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/MinimaxTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UMLS/Server/Minimax.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UMLS/Server/Minimax.graphml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UMLS/Server/Model.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UMLS/Server/Model.graphml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,14 +98,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "E:/SharedCo/Chess/UMLS/Server/SharedClasses",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/SharedCo/Chess/ServerClient/ChessServerProj/src/libs/ucanaccess-5.0.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;,
+      &quot;java.sql.Driver&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="ReaderModeSettings">
     <option name="showLigatures" value="true" />
   </component>
@@ -123,27 +156,37 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Server">
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration name="DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.DB.DB" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ver14.DB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvalTests.checkColors" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MinimaxParametersAdjuster" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.Model.Minimax.MinimaxParametersAdjuster" />
       <module name="ChessServerProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="PATTERN" value="ver14.Model.Minimax.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.EvalTests" />
-      <option name="METHOD_NAME" value="checkColors" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <module name="ChessServerProj" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,7 +209,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimaxTests.minimaxVsStockfish" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MinimaxTests.testM1" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <extension name="coverage">
         <pattern>
@@ -176,25 +219,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="minimaxVsStockfish" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MinimaxTests.testEval" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ChessServerProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ver14.Tests" />
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="testEval" />
+      <option name="METHOD_NAME" value="testM1" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -222,21 +247,21 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
+      <item itemvalue="Application.MinimaxParametersAdjuster" />
+      <item itemvalue="Application.DB" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
       <item itemvalue="TestNG.Tests" />
+      <item itemvalue="TestNG.MinimaxTests.testM1" />
       <item itemvalue="TestNG.FenTests.test" />
       <item itemvalue="TestNG.MinimaxTests.testStarting" />
-      <item itemvalue="TestNG.EvalTests.checkColors" />
-      <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
-      <item itemvalue="TestNG.MinimaxTests.testEval" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MinimaxParametersAdjuster" />
+        <item itemvalue="TestNG.MinimaxTests.testM1" />
+        <item itemvalue="Application.DB" />
         <item itemvalue="TestNG.MinimaxTests.testStarting" />
         <item itemvalue="TestNG.FenTests.test" />
-        <item itemvalue="TestNG.MinimaxTests.testEval" />
-        <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
-        <item itemvalue="TestNG.EvalTests.checkColors" />
       </list>
     </recent_temporary>
   </component>
@@ -252,6 +277,9 @@
       <workItem from="1650319032187" duration="691000" />
       <workItem from="1650322837140" duration="424000" />
       <workItem from="1650334863690" duration="14438000" />
+      <workItem from="1650545549377" duration="143000" />
+      <workItem from="1650545706424" duration="6817000" />
+      <workItem from="1650615865958" duration="2650000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>
@@ -446,6 +474,11 @@
           <url>file://$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java</url>
           <line>134</line>
           <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="169" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -281,7 +281,7 @@ public class BoardButton extends MyJButton {
     }
 
     public boolean canMoveTo() {
-        return btnStates.contains(State.CAN_MOVE_TO);
+        return btnStates.contains(State.CAN_MOVE_TO) || btnStates.contains(State.CAPTURE);
     }
 
     public void reset() {

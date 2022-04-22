@@ -1,5 +1,6 @@
 package ver14.Tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ver14.Game.Game;
@@ -79,5 +80,13 @@ public class MinimaxTests extends Tests {
         model.applyMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
         Minimax minimax = new Minimax(model, 3000);
         System.out.println(minimax.getBestMove());
+    }
+
+    @Test
+    private void testM1() {
+//        model.applyMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
+        model.setup("r1b2knr/pp3pp1/2pPq3/5B2/2P5/2PR1QPp/P4P1P/R1B3K1 b - - 0 19");
+        Minimax minimax = new Minimax(model, 3000);
+        Assert.assertEquals(minimax.getBestMove(), new BasicMove(Location.E6, Location.E1));
     }
 }
