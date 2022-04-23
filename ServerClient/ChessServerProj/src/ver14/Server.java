@@ -42,15 +42,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-
 /**
  * The type Server.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Server implements EnvManager {
     /**
      * The constant SERVER_WIN_TITLE.
      */
-    public static final String SERVER_WIN_TITLE = "Chat Server";
+    public static final String SERVER_WIN_TITLE = "Chess Server";
     /**
      * The constant SERVER_LOG_FONT.
      */
@@ -83,10 +84,10 @@ public class Server implements EnvManager {
     private int serverPort;
     private boolean serverSetupOK, serverRunOK;
     private MyServerSocket serverSocket;
-    private int autoChatterID;
+    private int autoGuestID;
 
     /**
-     * Constructor for ChatServer.
+     * Constructor for ChessServer.
      */
     public Server() {
         MyThread.setEnvManager(this);
@@ -171,7 +172,7 @@ public class Server implements EnvManager {
     // setup Server Address(IP&Port) and create the ServerSocket
     private void setupServer() {
         try {
-            autoChatterID = 0;
+            autoGuestID = 0;
             players = new SyncedItems<>(SyncedListType.CONNECTED_USERS, this::syncedListUpdated);
             gamePool = new SyncedItems<>(SyncedListType.JOINABLE_GAMES, this::syncedListUpdated);
             gameSessions = new SyncedItems<>(SyncedListType.ONGOING_GAMES, this::syncedListUpdated);
@@ -208,7 +209,7 @@ public class Server implements EnvManager {
     }
 
     private void exitServer() {
-        closeServer("");
+        closeServer("Server Closing!!!");
     }
 
     /**
@@ -309,12 +310,12 @@ public class Server implements EnvManager {
         ArgsUtil util = ArgsUtil.create(args);
 
         START_AT_PORT = util.equalsSign("p").getInt(-1);
-        Minimax.SHOW_UI = util.plainTextIgnoreCase("DEBUG_MINIMAX").exists();
+        Minimax.SHOW_UI = util.plainTextIgnoreCase(Minimax.DEBUG_MINIMAX).exists();
 
         Server server = new Server();
         server.runServer();
 
-        System.out.println("**** ChatServer main() finished! ****");
+        System.out.println("**** ChessServer main() finished! ****");
     }
 
     private void sendAllSyncedLists(PlayerNet player, SyncedItems<?>... excludeLists) {
@@ -327,9 +328,8 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Run server.
+     * Run the server - wait for clients to connect & handle them
      */
-// Run the server - wait for clients to connect & handle them
     public void runServer() {
         HandledThread.runInHandledThread(() -> {
             if (serverSetupOK) {
@@ -436,7 +436,7 @@ public class Server implements EnvManager {
                 }
             }
             case GUEST -> {
-                loginInfo.setUsername(RegEx.Prefixes.GUEST_PREFIX + "#" + autoChatterID++);
+                loginInfo.setUsername(RegEx.Prefixes.GUEST_PREFIX + "#" + autoGuestID++);
                 yield Message.welcomeMessage("Welcome " + loginInfo.getUsername(), loginInfo);
             }
             case CANCEL -> Message.bye("");
@@ -546,7 +546,8 @@ public class Server implements EnvManager {
     /**
      * Player disconnected.
      *
-     * @param player the player
+     * @param player  the player
+     * @param message the message
      */
     public synchronized void playerDisconnected(Player player, String message) {
         if (player == null || players.stream().noneMatch(p -> p.equals(player)))
@@ -615,6 +616,12 @@ public class Server implements EnvManager {
         closeServer("critical error: " + err);
     }
 
+    /**
+     * Db request db response.
+     *
+     * @param request the request
+     * @return the db response
+     */
     public DBResponse dbRequest(DBRequest request) {
         DBResponse response = DB.request(request);
         request.getBuilder().getShouldSync().forEach(this::syncedListUpdated);

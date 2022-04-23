@@ -4,6 +4,25 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Utils.StrUtils;
 
+/*
+ * MoveAnnotation
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MoveAnnotation -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MoveAnnotation -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MoveAnnotation {
     public static final int PIECE = 0, CAPTURE = 1, DESTINATION = 2, GAME_OVER = 3;
     private static final String CAPTURE_ANN = "x";

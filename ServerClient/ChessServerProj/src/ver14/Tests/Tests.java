@@ -34,6 +34,25 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+/*
+ * Tests
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Tests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Tests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 @Test
 public class Tests implements ITest {
     protected static final int numOfThreads = ThreadsUtil.NUM_OF_THREADS;
@@ -195,7 +214,7 @@ public class Tests implements ITest {
     private static void minimaxThreadsTest(int time) {
         Minimax minimax = new Minimax(null, time);
         minimax.setRecordCpuUsage(true);
-        minimax.setLOG(false);
+        Minimax.LOG = false;
         for (int threads = 1; threads <= numOfThreads; threads++) {
             Model model = new Model();
             model.setup(null);

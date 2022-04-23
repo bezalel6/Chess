@@ -19,6 +19,25 @@ import java.util.stream.IntStream;
 
 import static ver14.SharedClasses.Game.Location.*;
 
+/*
+ * EvalTests
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * EvalTests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * EvalTests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class EvalTests extends Tests {
 
     public void checkColors() {
@@ -55,7 +74,6 @@ public class EvalTests extends Tests {
     @Test(dataProvider = "repetitions")
     public void testRepetition(BasicMove[] moves, int findInPly) {
         AtomicInteger foundInDepth = new AtomicInteger(-1);
-        System.out.println("model first pos moves hash = " + model.getFirstPositionMovesHash());
         IntStream.range(0, moves.length).forEach(i -> {
             if (foundInDepth.get() != -1)
                 return;

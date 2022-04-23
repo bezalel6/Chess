@@ -5,6 +5,25 @@ import ver14.SharedClasses.Callbacks.ObjCallback;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/*
+ * ArrUtils
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * ArrUtils -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * ArrUtils -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * The type Arr utils.
  */

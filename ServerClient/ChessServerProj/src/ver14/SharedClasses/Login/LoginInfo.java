@@ -2,6 +2,25 @@ package ver14.SharedClasses.Login;
 
 import java.io.Serializable;
 
+/*
+ * LoginInfo
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * LoginInfo -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * LoginInfo -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class LoginInfo implements Serializable {
     private String username, password;
     private LoginType loginType;

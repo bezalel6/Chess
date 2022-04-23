@@ -5,6 +5,25 @@ import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 import java.util.ArrayList;
 
+/*
+ * ThreadsManager
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * ThreadsManager -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * ThreadsManager -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * The type Threads manager.
  */

@@ -3,6 +3,25 @@ package ver14.SharedClasses.UI;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+ * FontManager
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * FontManager -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * FontManager -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class FontManager {
 
     public static final Font statusLbl = Base.normal;

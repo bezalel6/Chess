@@ -11,6 +11,25 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 
+/*
+ * Stockfish
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Stockfish -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Stockfish -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * <a href="https://github.com/rahular/chess-misc/blob/master/JavaStockfish/src/com/rahul/stockfish/Stockfish.java">modified version of</a>
  */
@@ -173,7 +192,7 @@ public class Stockfish {
      * @param waitTime in milliseconds
      * @return evalScore
      */
-    public float getEvalScore(String fen, int waitTime) {
+    public synchronized float getEvalScore(String fen, int waitTime) {
         sendCommand("position fen " + fen);
         sendCommand("go movetime " + waitTime);
 

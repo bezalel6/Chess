@@ -9,6 +9,25 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Locale;
 
+/*
+ * CastlingRights
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * CastlingRights -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * CastlingRights -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class CastlingRights implements Serializable {
     public static final String NO_CASTLING_ABILITY = "-";
 

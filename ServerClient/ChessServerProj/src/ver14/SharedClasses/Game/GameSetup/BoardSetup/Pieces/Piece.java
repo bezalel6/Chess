@@ -3,6 +3,25 @@ package ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces;
 import ver14.SharedClasses.Game.PlayerColor;
 
 
+/*
+ * Piece
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Piece -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Piece -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public enum Piece {
 
     W_P(PieceType.PAWN, PlayerColor.WHITE),

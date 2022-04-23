@@ -11,6 +11,25 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 import java.util.ArrayList;
 
+/*
+ * ServerMessagesHandler
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * ServerMessagesHandler -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * ServerMessagesHandler -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * The type Server messages handler.
  */

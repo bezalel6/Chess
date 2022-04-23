@@ -6,6 +6,25 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/*
+ * MyServerSocket
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyServerSocket -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyServerSocket -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MyServerSocket extends ServerSocket {
 
 

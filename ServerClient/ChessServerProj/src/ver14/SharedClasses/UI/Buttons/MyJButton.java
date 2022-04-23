@@ -6,6 +6,25 @@ import ver14.SharedClasses.Utils.StrUtils;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+ * MyJButton
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyJButton -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyJButton -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MyJButton extends JButton {
 
 

@@ -3,13 +3,20 @@ package Global_Classes;
 import java.io.*;
 import java.util.ArrayList;
 
+/*
+ * Positions
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
 public class Positions {
     private static final String storageRoot = Positions.class.getResource("../assets/GameInfo/").getFile();
     private static final String positionsStoragePath = storageRoot + "Positions/";
-    public static ArrayList<Position> allPositions = new ArrayList<>();
     private static final String positionsExtensions = ".pos";
+    public static ArrayList<Position> allPositions = new ArrayList<>();
 
-    static{
+    static {
         for (File file : getAllFiles(positionsStoragePath)) {
             Position position = readPosition(file.getName());
             assert position != null;
@@ -30,6 +37,19 @@ public class Positions {
         System.out.println(allPositions);
     }
 
+    private static void writePosition(String name, String fen) {
+        writePosition(new Position(name, fen));
+    }
+
+    private static void writePosition(Position position) {
+        try (FileOutputStream fos = new FileOutputStream(positionsStoragePath + position.name + positionsExtensions);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(position);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public static int addNewPosition(String name, String fen) {
         if (positionExists(name, fen))
             return -1;
@@ -37,6 +57,10 @@ public class Positions {
         writePosition(newPosition);
         allPositions.add(newPosition);
         return allPositions.size() - 1;
+    }
+
+    public static boolean positionExists(String name, String fen) {
+        return getIndexOfFen(fen) != -1;
     }
 
     public static int getIndexOfFen(String fen) {
@@ -51,23 +75,6 @@ public class Positions {
 
     public static boolean positionExists(String fen) {
         return positionExists("", fen);
-    }
-
-    public static boolean positionExists(String name, String fen) {
-        return getIndexOfFen(fen) != -1;
-    }
-
-    private static void writePosition(String name, String fen) {
-        writePosition(new Position(name, fen));
-    }
-
-    private static void writePosition(Position position) {
-        try (FileOutputStream fos = new FileOutputStream(positionsStoragePath + position.name + positionsExtensions);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(position);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
 
     private static File[] getAllFiles(String dirPath) {

@@ -6,6 +6,25 @@ import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
+/*
+ * MyAi
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyAi -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyAi -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MyAi extends PlayerAI {
     private Minimax minimax = null;
 

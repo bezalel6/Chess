@@ -5,6 +5,25 @@ import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 
 import java.io.Serializable;
 
+/*
+ * SQLStatement
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * SQLStatement -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * SQLStatement -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public abstract class SQLStatement implements Serializable {
 
     public final DBRequest.Type type;

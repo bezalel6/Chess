@@ -8,6 +8,25 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * MyThread
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyThread -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyThread -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * The type My thread.
  */

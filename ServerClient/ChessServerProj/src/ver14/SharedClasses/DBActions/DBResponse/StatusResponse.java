@@ -2,6 +2,25 @@ package ver14.SharedClasses.DBActions.DBResponse;
 
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 
+/*
+ * StatusResponse
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * StatusResponse -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * StatusResponse -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class StatusResponse extends DBResponse {
     /**
      * optional

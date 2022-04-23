@@ -6,6 +6,25 @@ import ver14.SharedClasses.Game.Location;
 
 import java.io.Serializable;
 
+/*
+ * Square
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Square -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Square -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Square implements Serializable {
     public static final Piece EMPTY_PIECE = null;
     private static final String EMPTY_PIECE_STR = "\u2003";

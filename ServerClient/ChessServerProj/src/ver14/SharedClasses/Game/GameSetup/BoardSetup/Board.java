@@ -9,6 +9,25 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+/*
+ * Board
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Board -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Board -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Board implements Iterable<Square>, Serializable {
 
     //    todo turn into a hashmap
@@ -64,9 +83,9 @@ public class Board implements Iterable<Square>, Serializable {
             for (char currentChar : row.toCharArray()) {
                 if (Character.isLetter(currentChar)) {
                     Location currentLoc = Location.getLoc(rowIndex, col);
-                    if (Location.flip_fen_load_locs) {
-                        currentLoc = currentLoc.flip();
-                    }
+//                    if (Location.flip_fen_load_locs) {
+//                    currentLoc = currentLoc.flip();
+//                    }
                     Piece piece = Piece.getPieceFromFen(currentChar);
                     setPiece(currentLoc, piece);
 

@@ -5,6 +5,25 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
 
+/*
+ * AttackedSquares
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * AttackedSquares -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * AttackedSquares -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class AttackedSquares {
 //    public static final MyHashMap<Bitboard> hashMap = new MyHashMap<>(HashManager.Size.ATTACKED_SQUARES);
 

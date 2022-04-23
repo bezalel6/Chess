@@ -36,7 +36,7 @@ public class TimeFormatSlider extends DialogField<TimeFormat> {
         });
         addInNewLine(timeLbl);
         addInNewLine(slider);
-        setValue(new TimeFormat(10000));
+        setValue(new TimeFormat(50000));
     }
 
     public void setToMinValue() {

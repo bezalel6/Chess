@@ -5,6 +5,25 @@ import ver14.Model.Minimax.MinimaxParameters;
 import ver14.SharedClasses.Game.Evaluation.Evaluation;
 import ver14.SharedClasses.Game.PlayerColor;
 
+/*
+ * Transposition
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Transposition -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Transposition -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Transposition {
     private final int maxDepth;
     private final PlayerColor playerColor;

@@ -11,9 +11,9 @@ import ver14.SharedClasses.Game.Moves.MinimaxMove;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.ThreadsUtil;
 
-import javax.swing.*;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -24,116 +24,204 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+
+/**
+ * The type Minimax.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Minimax {
+    public final static String DEBUG_MINIMAX = "DEBUG_MINIMAX";
     private static final boolean USE_OPENING_BOOK = true;
     private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
     private static final int moveOrderingDepthCutoff = 3;
+    /**
+     * if set to true the debugging ui will show up in the server while the minimax is running
+     */
     public static boolean SHOW_UI = false;
+    /**
+     * The constant LOG.
+     */
+    public static boolean LOG = false;
+    /**
+     * the scan time in milliseconds
+     */
     private final long scanTimeInMillis;
+    /**
+     * the scan time flexibility in milliseconds. the time a search can continue (only trying to complete a depth, not starting a new one) after timing out
+     */
     private final long scanTimeFlexibility;
+    /**
+     * useful debugging information window. will show up if the server is ran with the DEBUG_MINIMAX parameter
+     */
     private final MinimaxView minimaxUI;
+    /**
+     * records for cpu usage analysis
+     */
     private final CpuUsages cpuUsageRecords;
-    private final Timer minimaxUITimer;
+    /**
+     * the model for the search's starting position
+     */
     private Model model;
-    private static boolean LOG = false;
-    //    private int numOfThreads = 1;
+    /**
+     * the number of threads the minimax's Thread Pool will run on
+     */
     private int numOfThreads = 10;
+    /**
+     * before starting the search the time is being captured so the elapsed time could be measured
+     */
     private ZonedDateTime minimaxStartedTime;
+
+    //    region some statistics that are disabled for performance's sake
     private long positionsReached;
     private long leavesReached;
     private long branchesPruned;
     private long transpositionHits;
+    //endregion
+
+    /**
+     * keeping track of the book's ability to generate moves. once a move isnt found in the book, we're out of theory. since the current line isnt on the book
+     */
     private boolean stillTheory;
+    /**
+     * the thread pool for the multithreading minimax
+     */
     private ExecutorService threadPool;
-    //    private ForkJoinPool threadPool;
+    /**
+     * the best move found
+     */
     private MinimaxMove bestMove;
+    /**
+     * this boolean is needed so the root can tell weather or not the move returned from the minimax is the result of a full search
+     */
     private AtomicBoolean isCompleteSearch;
+    /**
+     * should record the cpu usages
+     */
     private boolean recordCpuUsage = false;
+    /**
+     * an interrupting error
+     */
     private MyError interrupt = null;
 
 
+    /**
+     * Instantiates a new Minimax.
+     *
+     * @param model            the model
+     * @param scanTimeInMillis the scan time in millis
+     */
     public Minimax(Model model, long scanTimeInMillis) {
         this(model, scanTimeInMillis, DEFAULT_FLEX);
     }
 
 
+    /**
+     * Instantiates a new Minimax.
+     *
+     * @param model            the model
+     * @param scanTimeInMillis the scan time in millis
+     * @param flexibility      the flexibility
+     */
     public Minimax(Model model, long scanTimeInMillis, long flexibility) {
         this.model = model;
         this.scanTimeFlexibility = flexibility;
         this.scanTimeInMillis = scanTimeInMillis;
         stillTheory = true;
-        minimaxUI = new MinimaxView(SHOW_UI);
-        if (SHOW_UI) {
-            minimaxUITimer = new Timer(150, l -> {
-                minimaxUI.setTime(getElapsed());
-            });
-        } else {
-            minimaxUITimer = null;
-        }
+        minimaxUI = new MinimaxView(SHOW_UI, this);
         cpuUsageRecords = new CpuUsages();
     }
 
-    long getElapsed() {
+    /**
+     * Gets elapsed from minimax start time in ms
+     *
+     * @return the elapsed
+     */
+    public long getElapsed() {
         return minimaxStartedTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
     }
 
+    /**
+     * Sets model.
+     *
+     * @param model the model
+     */
     public void setModel(Model model) {
         this.model = model;
     }
 
-    public void setLOG(boolean LOG) {
-        this.LOG = LOG;
-    }
-
+    /**
+     * Sets record cpu usage.
+     *
+     * @param recordCpuUsage the record cpu usage
+     */
     public void setRecordCpuUsage(boolean recordCpuUsage) {
         this.recordCpuUsage = recordCpuUsage;
     }
 
+    /**
+     * End.
+     */
     public void end() {
-        if (minimaxUITimer != null)
-            minimaxUITimer.stop();
-        minimaxUI.dispose();
+        minimaxUI.stop();
         if (threadPool != null)
             threadPool.shutdown();
+        quietInterrupt();
     }
 
+    /**
+     * Quiet interrupt.
+     */
+    public void quietInterrupt() {
+        interrupt(new MyError(new QuietInterrupt()));
+
+    }
+
+    /**
+     * Interrupt.
+     *
+     * @param error the error
+     */
+    public void interrupt(MyError error) {
+        this.interrupt = error;
+    }
+
+    /**
+     * Gets positions reached.
+     *
+     * @return the positions reached
+     */
     public long getPositionsReached() {
         return positionsReached;
     }
 
-    public boolean isStillTheory() {
-        return stillTheory;
-    }
 
-    public void setStillTheory(boolean stillTheory) {
-        this.stillTheory = stillTheory;
-    }
-
+    /**
+     * Sets num of threads.
+     *
+     * @param numOfThreads the num of threads
+     */
     public void setNumOfThreads(int numOfThreads) {
         this.numOfThreads = numOfThreads;
-    }
-
-    void initMinimaxTime() {
-        minimaxStartedTime = ZonedDateTime.now();
     }
 
     /**
      * looks for a book move to play
      *
-     * @return the book move if one is found null otherwise
+     * @return the book move if one is found. null otherwise
      */
     private MinimaxMove getBookMove() {
         if (USE_OPENING_BOOK && stillTheory) {
-            String bookMove = Book.getBookMove(model);
-            if (bookMove != null) {
+            String bookMoveStr = Book.getBookMove(model);
+            if (bookMoveStr != null) {
                 ModelMovesList possibleMoves = MoveGenerator.generateMoves(model, GenerationSettings.ANNOTATE);
                 possibleMoves.initAnnotation();
-                for (Move move : possibleMoves) {
-                    if (move.getAnnotation().trim().equals(bookMove.trim()))
-                        return new MinimaxMove(move, Evaluation.book());
+                Move m = possibleMoves.stream().filter(m1 -> StrUtils.clean(m1.getAnnotation()).equals(bookMoveStr)).findAny().orElse(null);
+                if (m != null) {
+                    return new MinimaxMove(m, Evaluation.book());
+                } else {
+                    System.out.println("book move not found");
                 }
-                System.out.println("book move not found");
-//                throw new Error();
             }
             stillTheory = false;
         }
@@ -141,6 +229,8 @@ public class Minimax {
     }
 
     /**
+     * Gets best move.
+     *
      * @return the best move the minimax found
      */
     public Move getBestMove() {
@@ -152,37 +242,65 @@ public class Minimax {
         return move;
     }
 
+    /**
+     * Gets evaluation.
+     *
+     * @param evaluatingFor the evaluating for
+     * @return the evaluation
+     */
     public Evaluation getEvaluation(PlayerColor evaluatingFor) {
         return getBestMoveUsingMinimax().getMoveEvaluation().setPerspective(evaluatingFor);
     }
 
-    private MinimaxMove getBestMoveUsingMinimax() {
+    private void initSearch() {
         log("Current eval:\n" + Eval.getEvaluation(model));
+        cpuUsageRecords.clear();
+        minimaxUI.setNumOfThreads(numOfThreads);
+        minimaxUI.startTime();
+        initMinimaxTime();
+    }
+
+    private void log(String str) {
+        if (LOG)
+            System.out.println("minimax->" + str);
+    }
+
+    /**
+     * Init minimax time.
+     */
+    void initMinimaxTime() {
+        minimaxStartedTime = ZonedDateTime.now();
+    }
+
+
+    private MinimaxMove checkInterrupt(MinimaxMove returnedMove, MinimaxMove bestMoveSoFar) {
+        if (interrupt != null) {
+            System.out.println("interrupt = " + interrupt);
+            if (!(interrupt.getCause() instanceof QuietInterrupt))
+                throw interrupt;
+            return bestMoveSoFar;
+        }
+        return returnedMove;
+    }
+
+    private MinimaxMove getBestMoveUsingMinimax() {
+        initSearch();
         MinimaxMove bookMove = getBookMove();
         if (bookMove != null)
             return bookMove;
-        cpuUsageRecords.clear();
+
         MinimaxMove bestMoveSoFar = null;
-        resetCounters();
-        minimaxUI.setNumOfThreads(numOfThreads);
+
         int currentDepth = 1;
         boolean stop = false;
-        if (minimaxUITimer != null)
-            minimaxUITimer.start();
 
-        initMinimaxTime();
         while (getElapsed() < scanTimeInMillis && !stop) {
-            positionsReached = -1;
-            leavesReached = 0;
+            log("\n--------Starting search on depth " + currentDepth + "--------------");
 
-            String s = "-------------";
-            log("\n" + s + "Starting search on depth " + currentDepth + s);
             minimaxUI.setCurrentDepth(currentDepth, getElapsed());
 
             MinimaxMove minimaxMove = minimaxRoot(model, currentDepth);
-
-            if (interrupt != null)
-                throw interrupt;
+            minimaxMove = checkInterrupt(minimaxMove, bestMoveSoFar);
 
             if (recordCpuUsage) {
                 recordCpuUsage(currentDepth);
@@ -194,33 +312,16 @@ public class Minimax {
             if (bestMoveSoFar == null || isCompleteSearch.get() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
                 bestMoveSoFar = minimaxMove;
             }
+            stop = bestMoveSoFar.getMoveEvaluation().isGameOver();
 
-            assert bestMoveSoFar.getMove() != null && bestMoveSoFar.getMoveEvaluation() != null;
+            minimaxUI.update(bestMoveSoFar);
 
-            if (bestMoveSoFar.getMoveEvaluation().isGameOver()) {
-                stop = true;
-            }
-
-            minimaxUI.setBestMoveSoFar(bestMoveSoFar.getMove());
-            minimaxUI.setMoveEval(bestMoveSoFar.getMoveEvaluation());
         }
-        if (minimaxUITimer != null)
-            minimaxUITimer.stop();
+        minimaxUI.stopTimer();
         log("\nminimax move: " + bestMoveSoFar);
         log("max depth reached: " + (currentDepth - 1));
-        log("num of positions reached: " + positionsReached);
-        log("num of leaves reached: " + leavesReached);
-        log("num of branches pruned: " + branchesPruned);
-        log("num of transpositions hits: " + transpositionHits);
 
         return bestMoveSoFar;
-    }
-
-    private void resetCounters() {
-        positionsReached = -1;
-        leavesReached = 0;
-        branchesPruned = 0;
-        transpositionHits = 0;
     }
 
     private void recordCpuUsage(int depth) {
@@ -231,19 +332,13 @@ public class Minimax {
         }).start();
     }
 
-    private void log(String str) {
-        if (LOG)
-            System.out.println("minimax->" + str);
-    }
-
     /**
      * @param model    - current game position
      * @param maxDepth - the maximum depth the minimax can reach
-     * @return best move for the current player
+     * @return best move for the current player to move
      */
     private MinimaxMove minimaxRoot(Model model, int maxDepth) {
         isCompleteSearch = new AtomicBoolean(true);
-//        threadPool = Executors.newFixedThreadPool(numOfThreads);
         threadPool = new ForkJoinPool(numOfThreads);
 
         try {
@@ -269,7 +364,6 @@ public class Minimax {
         ArrayList<Move> possibleMoves = model.generateAllMoves();
 
         AtomicReference<MinimaxMove> atomicBestMove = new AtomicReference<>(null);
-        log("minimax player clr = " + minimaxPlayerColor);
         threadPool.execute(() -> {
             possibleMoves.stream().parallel().forEach(move -> {
                 Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
@@ -301,13 +395,11 @@ public class Minimax {
     }
 
     private Evaluation minimax(MinimaxParameters parms) {
-//        positionsReached++;
 
         if (interrupt != null) {
             throw interrupt;
         }
         if (isOvertime() || Eval.isGameOver(parms.model) || parms.currentDepth >= parms.maxDepth) {
-//            leavesReached++;
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
             evaluation.setEvaluationDepth(parms.currentDepth);
             return evaluation;
@@ -339,7 +431,6 @@ public class Minimax {
             }
 
             if (parms.prune(bestEval)) {
-//                branchesPruned++;
                 break;
             }
 
@@ -347,6 +438,11 @@ public class Minimax {
         return bestEval;
     }
 
+    /**
+     * Gets cpu usage records.
+     *
+     * @return the cpu usage records
+     */
     public CpuUsages getCpuUsageRecords() {
         return cpuUsageRecords;
     }
@@ -357,51 +453,64 @@ public class Minimax {
             Collections.reverse(list);
     }
 
-//    private Evaluation getTranspositionEval(MinimaxParameters parms, long hash) {
-//        if (transpositionsHashMap.containsKey(hash)) {
-//            Transposition transposition = transpositionsHashMap.get(hash);
-//            if (transposition.getMaxDepth() >= parms.maxDepth) {
-//                transpositionHits++;
-//                return new Evaluation(transposition.getEvaluation());
-//            }
-//        }
-//        return null;
-//    }
 
     private boolean isOvertime() {
         return getElapsed() > scanTimeInMillis + scanTimeFlexibility;
     }
 
-    public void interrupt(MyError error) {
-        this.interrupt = error;
+    private static class QuietInterrupt extends Throwable {
 
     }
 
-//    public static class CapturingKing extends Error {
-//    }
-
+    /**
+     * The type Cpu usages.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class CpuUsages {
         private final ArrayList<Double> usages;
         private final ArrayList<Integer> depths;
 
+        /**
+         * Instantiates a new Cpu usages.
+         */
         public CpuUsages() {
             depths = new ArrayList<>();
             usages = new ArrayList<>();
         }
 
+        /**
+         * Add.
+         *
+         * @param usage the usage
+         * @param depth the depth
+         */
         public void add(double usage, int depth) {
             usages.add(usage);
             depths.add(depth);
         }
 
+        /**
+         * Gets usages.
+         *
+         * @return the usages
+         */
         public ArrayList<Double> getUsages() {
             return usages;
         }
 
+        /**
+         * Gets depths.
+         *
+         * @return the depths
+         */
         public ArrayList<Integer> getDepths() {
             return depths;
         }
 
+        /**
+         * Clear.
+         */
         public void clear() {
             usages.clear();
             depths.clear();

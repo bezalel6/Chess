@@ -31,6 +31,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+ * RequestBuilder
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * RequestBuilder -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * RequestBuilder -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class RequestBuilder implements Serializable {
     public static final String TIE_STR = "----tie----";
     public final Arg[] args;
@@ -128,7 +147,7 @@ public class RequestBuilder implements Serializable {
 
         Condition condition = p1_OR_p2(username.repInStr);
 
-        Col date = Col.SavedDateTime.as().of(Table.Games).date();
+        Col date = Col.CreatedDateTime.as().of(Table.Games).date();
         condition = condition.and(Condition.between(date.colName(), start.repInStr, end.repInStr));
 
         Selection games = new Selection(
@@ -220,7 +239,7 @@ public class RequestBuilder implements Serializable {
     }
 
     private static Condition betweenHours(int start, int end) {
-        return Condition.between(Col.SavedDateTime.time(), "'%02d:00'".formatted(start), "'%02d:00'".formatted(end));
+        return Condition.between(Col.CreatedDateTime.time(), "'%02d:00'".formatted(start), "'%02d:00'".formatted(end));
     }
 
     private static Selection gamesStats(Object username) {

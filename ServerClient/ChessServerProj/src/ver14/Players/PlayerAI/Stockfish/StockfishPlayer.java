@@ -8,6 +8,25 @@ import ver14.SharedClasses.Game.Moves.BasicMove;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
 
+/*
+ * StockfishPlayer
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * StockfishPlayer -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * StockfishPlayer -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class StockfishPlayer extends PlayerAI {
     private final Stockfish stockfish;
 

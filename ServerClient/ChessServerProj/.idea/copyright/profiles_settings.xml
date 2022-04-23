@@ -1,10 +1,12 @@
 <component name="CopyrightManager">
-  <settings default="MyProf">
+  <settings>
     <module2copyright>
-      <element module="MyScope" copyright="MyProf" />
+      <element module="All" copyright="MyProf" />
+      <element module="Open Files" copyright="MyProf" />
     </module2copyright>
     <LanguageOptions name="JAVA">
-      <option name="fileTypeOverride" value="1" />
+      <option name="fileTypeOverride" value="3" />
+      <option name="fileLocation" value="3" />
     </LanguageOptions>
   </settings>
 </component>

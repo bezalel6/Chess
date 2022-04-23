@@ -6,6 +6,25 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 import java.util.Locale;
 
+/*
+ * Question
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Question -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Question -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Question implements Serializable {
     public static final Question Threefold = new Question("Would you like to claim a Threefold repetition?", QuestionType.THREEFOLD, Answer.YES, Answer.NO);
     public static final Question Rematch = new Question("rematch", QuestionType.REMATCH, Answer.YES, Answer.NO);

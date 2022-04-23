@@ -5,6 +5,25 @@ import ver14.SharedClasses.Game.Evaluation.Evaluation;
 import java.io.Serializable;
 import java.util.Objects;
 
+/*
+ * MinimaxMove
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MinimaxMove -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MinimaxMove -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
     private Move move;
     private Evaluation moveEvaluation;

@@ -1,5 +1,24 @@
 package ver14.SharedClasses.DBActions.Table;
 
+/*
+ * Math -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
+/*
+ * Math -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Math
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
 public enum Math {
     Plus {
         @Override

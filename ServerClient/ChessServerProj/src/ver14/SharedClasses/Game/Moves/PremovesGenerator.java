@@ -6,6 +6,25 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 
+/*
+ * PremovesGenerator
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * PremovesGenerator -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * PremovesGenerator -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class PremovesGenerator {
     public static void main(String[] args) {
         System.out.println(generatePreMoves(Board.startingPos(), PlayerColor.WHITE));

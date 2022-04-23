@@ -7,6 +7,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Evaluation
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Evaluation -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Evaluation -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Evaluation implements Serializable {
     public static final int TIE_EVAL = 0;
     public static final int WIN_EVAL = Integer.MAX_VALUE;
@@ -156,7 +175,7 @@ public class Evaluation implements Serializable {
         System.out.println(this);
     }
 
-    public float getAdjusted() {
+    public float convertFromCentipawns() {
         return ((float) eval) / 100;
     }
 

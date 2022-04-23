@@ -17,6 +17,25 @@ import ver14.SharedClasses.Sync.SyncedItems;
 
 import java.lang.reflect.Method;
 
+/*
+ * MinimaxTests
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MinimaxTests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MinimaxTests -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MinimaxTests extends Tests {
 
     public static void main(String[] args) {
@@ -63,6 +82,14 @@ public class MinimaxTests extends Tests {
     }
 
     @Test
+    private void t() {
+        model.setup("r4k1r/1q6/4pNp1/p3PbQ1/5N1p/1p5P/2p3P1/2R1R2K w - - 0 1");
+        Minimax minimax = new Minimax(model, 500);
+        System.out.println(minimax.getEvaluation(PlayerColor.WHITE));
+        System.out.println(minimax.getBestMove());
+    }
+
+    @Test
     private void testEval() {
 //        should be mate in 12
 
@@ -77,7 +104,7 @@ public class MinimaxTests extends Tests {
 
     @Test
     private void testStarting() {
-        model.applyMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
+//        model.makeMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
         Minimax minimax = new Minimax(model, 3000);
         System.out.println(minimax.getBestMove());
     }

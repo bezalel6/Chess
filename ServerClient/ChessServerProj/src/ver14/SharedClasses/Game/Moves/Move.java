@@ -8,6 +8,25 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 
 
+/*
+ * Move
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Move -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Move -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Move extends BasicMove implements Comparable<Move> {
     private static final PieceType NOT_CAPTURING = null;
     BasicMove intermediateMove;

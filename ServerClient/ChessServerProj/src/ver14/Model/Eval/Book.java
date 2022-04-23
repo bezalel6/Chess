@@ -8,6 +8,25 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+ * Book
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Book -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Book -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Book {
     private final static String pathToBook = "src/assets/GameInfo/Book/Games.txt";
     private final static File book = new File(pathToBook);

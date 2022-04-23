@@ -1,7 +1,9 @@
 #!/bin/bash
 #
-# Copyright (c) 18.3.2022, 10:40.
-# by Bezalel Avrahami
+# instrumented.sh
+#
+# 23.4.2022, 2:02
+# author: Bezalel Avrahami
 #
 
 # check for errors under valgrind or sanitizers.

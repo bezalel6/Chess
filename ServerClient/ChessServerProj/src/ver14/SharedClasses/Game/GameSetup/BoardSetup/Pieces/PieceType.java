@@ -9,6 +9,25 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 import java.util.Arrays;
 
+/*
+ * PieceType
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * PieceType -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * PieceType -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public enum PieceType implements Serializable {
     PAWN("♙", "♟", 100, false) {
         @Override

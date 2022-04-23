@@ -6,6 +6,25 @@ import ver14.SharedClasses.Utils.StrUtils;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+ * MyDialogs
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyDialogs -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyDialogs -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MyDialogs {
     public static void main(String[] args) {
         showInfoMessage(null, "hello", "ti", null);

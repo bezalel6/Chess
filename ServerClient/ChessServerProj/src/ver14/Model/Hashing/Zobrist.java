@@ -17,6 +17,25 @@ import java.util.Arrays;
 import java.util.Random;
 
 
+/*
+ * Zobrist
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Zobrist -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Zobrist -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class Zobrist {
     public static final Random rnd = new Random();
     private static final long[][][] zPieces = new long[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES][Location.NUM_OF_SQUARES];

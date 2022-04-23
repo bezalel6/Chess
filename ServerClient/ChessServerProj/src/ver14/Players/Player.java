@@ -11,6 +11,25 @@ import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
+/*
+ * Player
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Player -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Player -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * Player.
  * ---------------------------------------------------------------------------

@@ -12,6 +12,25 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.IntStream;
 
+/*
+ * SocketThingy
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * SocketThingy -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * SocketThingy -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class SocketThingy {
     private static final ExecutorService pool = Executors.newFixedThreadPool(2);
     private final static AtomicBoolean threw = new AtomicBoolean(false);

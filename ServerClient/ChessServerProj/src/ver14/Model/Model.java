@@ -21,74 +21,127 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Stack;
 
+/*
+ * Model
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * Model -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * Model -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
+/**
+ * The type Model.
+ */
 public class Model implements Serializable {
-    private final static String startingPos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-    //    static{
-//        ErrorManager.setHandler(ErrorType.Model,err -> {
-//
-//        });
-//    }
     //    only used while the book is still working
     private StringBuilder pgnBuilder = new StringBuilder();
+    /**
+     * stack to keep track of the applied moves
+     */
     private Stack<Move> moveStack;
+    /**
+     * the current position board
+     */
     private Board board;
+    /**
+     * bitboards to keep track of pieces locations by their types.
+     */
     private PiecesBBs[] pieces;
+    /**
+     * keeping track of the number of pieces by piece type and color
+     */
     private int[][] piecesCount;
+    /**
+     * the current player to move
+     */
     private PlayerColor currentPlayerColor;
-    private int halfMoveClock, fullMoveClock;
+    /**
+     * number of plies since the last reversible move. used for the fifty move rule
+     *
+     * @see <a href="https://www.chessprogramming.org/Halfmove_Clock">more info about the fifty move rule</a>
+     */
+    private int halfMoveClock;
+    /**
+     * number of the full moves in game. incremented after each black's moves
+     *
+     * @see <a href="www.chessprogramming.org/Forsyth-Edwards_Notation#:~:text=The%20number%20of%20the%20full%20moves%20in%20a%20game.%20It%20starts%20at%201%2C%20and%20is%20incremented%20after%20each%20Black%27s%20move">...</a>.
+     */
+    private int fullMoveCounter;
+    /**
+     * current position castling rights for both sides
+     */
     private CastlingRights castlingRights;
+    /**
+     * where the en passant capture is done(somewhere on the 3rd or 6th row)
+     */
     private Location enPassantTargetLoc;
+    /**
+     * where an en passant captured piece is actually on(somewhere on the 4th or 5th row)
+     */
     private Location enPassantActualLoc;
+    /**
+     * current position hash
+     */
     private BoardHash boardHash;
-    private long firstPositionMovesHash;
+    /**
+     * the position this model first setup
+     */
+    private String loadedFen = null;
 
-
+    /**
+     * Instantiates a new Model.
+     *
+     * @param other the other
+     */
     public Model(Model other) {
         this(other.genFenStr());
-
-//        other.moveStack.forEach(this::applyMove);
-//        this.moveStack = new Stack<>();
-//        for (Move move : other.moveStack) {
-//            moveStack.push(Move.copyMove(move));
-//        }
-//        createNewEmptyLogicBoard();
-//        this.board = new Board(other.board);
-//        initPieces();
-//        this.currentPlayerColor = other.currentPlayerColor;
-//        this.fullMoveClock = other.fullMoveClock;
-//        this.halfMoveClock = other.halfMoveClock;
-//        this.castlingRights = new CastlingRights(other.castlingRights);
-//
-//        this.enPassantActualLoc = other.enPassantActualLoc;
-//        this.enPassantTargetLoc = other.enPassantTargetLoc;
-//        this.finishSetup = other.finishSetup;
-//        this.boardHash = new BoardHash(this);
     }
 
+    /**
+     * Instantiates a new Model.
+     *
+     * @param fen the fen
+     */
     public Model(String fen) {
         setup(fen);
     }
 
+    /**
+     * Generates a fen string of the current position.
+     *
+     * @return the fen
+     */
     public String genFenStr() {
         return FEN.generateFEN(this);
     }
 
+    /**
+     * Sets .
+     *
+     * @param fen the fen
+     */
     public void setup(String fen) {
         createNewEmptyLogicBoard();
         if (fen == null)
-            fen = startingPos;
+            fen = Board.startingFen;
         moveStack = new Stack<>();
         FEN.loadFEN(fen, this);
         initPieces();
         this.boardHash = new BoardHash(this);
-        this.firstPositionMovesHash = generateAllMoves().getHash();
-        if (!StrUtils.isEmpty(fen) && !fen.equals(startingPos))
-            this.pgnBuilder = new StringBuilder("null");
+        if (!StrUtils.isEmpty(fen) && !fen.equals(Board.startingFen))
+            this.pgnBuilder = new StringBuilder("n");
 
-    }
-
-    public void setLoadedFen(String loadedFen) {
-        this.loadedFen = loadedFen;
     }
 
     private void createNewEmptyLogicBoard() {
@@ -111,10 +164,6 @@ public class Model implements Serializable {
         }
     }
 
-    public ModelMovesList generateAllMoves() {
-        return MoveGenerator.generateMoves(this);
-    }
-
     private void addPiece(Piece piece, Location currentLoc) {
         if (piece == null) return;
         piecesCount[piece.playerColor.asInt][piece.pieceType.asInt]++;
@@ -127,14 +176,31 @@ public class Model implements Serializable {
         return getPlayersPieces(piece.playerColor).getBB(piece.pieceType);
     }
 
+    /**
+     * Gets players pieces.
+     *
+     * @param playerColor the player color
+     * @return the players pieces
+     */
     public PiecesBBs getPlayersPieces(PlayerColor playerColor) {
         return pieces[playerColor.asInt];
     }
 
+    /**
+     * Instantiates a new Model.
+     */
     public Model() {
         createNewEmptyLogicBoard();
     }
 
+    /**
+     * Gets side relative to king.
+     *
+     * @param model       the model
+     * @param playerColor the player color
+     * @param rookLoc     the rook loc
+     * @return the side relative to king
+     */
     public static CastlingRights.Side getSideRelativeToKing(Model model, PlayerColor playerColor, Location rookLoc) {
         CastlingRights.Side ret = CastlingRights.Side.QUEEN;
         Location kingLoc = model.getKing(playerColor);
@@ -144,12 +210,22 @@ public class Model implements Serializable {
         return ret;
     }
 
-    public long getFirstPositionMovesHash() {
-        return firstPositionMovesHash;
+    /**
+     * Sets loaded fen.
+     *
+     * @param loadedFen the loaded fen
+     */
+    public void setLoadedFen(String loadedFen) {
+        this.loadedFen = loadedFen;
     }
 
+    /**
+     * Gets pgn.
+     *
+     * @return the pgn
+     */
     public String getPGN() {
-        return pgnBuilder.toString();
+        return StrUtils.clean(pgnBuilder.toString());
     }
 
     private void setBoardHash() {
@@ -164,22 +240,47 @@ public class Model implements Serializable {
 
     }
 
+    /**
+     * Gets castling rights.
+     *
+     * @return the castling rights
+     */
     public CastlingRights getCastlingRights() {
         return castlingRights;
     }
 
+    /**
+     * Sets castling abilities.
+     *
+     * @param castlingRights the castling rights
+     */
     public void setCastlingAbilities(CastlingRights castlingRights) {
         this.castlingRights = castlingRights;
     }
 
+    /**
+     * Gets en passant target loc.
+     *
+     * @return the en passant target loc
+     */
     public Location getEnPassantTargetLoc() {
         return enPassantTargetLoc;
     }
 
+    /**
+     * Sets en passant target loc.
+     *
+     * @param enPassantTargetLoc the en passant target loc
+     */
     public void setEnPassantTargetLoc(Location enPassantTargetLoc) {
         this.enPassantTargetLoc = enPassantTargetLoc;
     }
 
+    /**
+     * Sets en passant target loc.
+     *
+     * @param enPassantTargetLocStr the en passant target loc str
+     */
     public void setEnPassantTargetLoc(String enPassantTargetLocStr) {
         if (StrUtils.isEmpty(enPassantTargetLocStr) || enPassantTargetLocStr.replaceAll("\\s+", "").equalsIgnoreCase("-")) {
             this.enPassantTargetLoc = null;
@@ -192,30 +293,66 @@ public class Model implements Serializable {
         }
     }
 
+    /**
+     * Gets en passant actual loc.
+     *
+     * @return the en passant actual loc
+     */
     public Location getEnPassantActualLoc() {
         return enPassantActualLoc;
     }
 
+    /**
+     * Sets en passant actual loc.
+     *
+     * @param enPassantActualLoc the en passant actual loc
+     */
     public void setEnPassantActualLoc(Location enPassantActualLoc) {
         this.enPassantActualLoc = enPassantActualLoc;
     }
 
+    /**
+     * Gets half move clock.
+     *
+     * @return the half move clock
+     */
     public int getHalfMoveClock() {
         return halfMoveClock;
     }
 
+    /**
+     * Sets half move clock.
+     *
+     * @param num the num
+     */
     public void setHalfMoveClock(int num) {
         this.halfMoveClock = num;
     }
 
-    public int getFullMoveClock() {
-        return fullMoveClock;
+    /**
+     * Gets full move clock.
+     *
+     * @return the full move clock
+     */
+    public int getFullMoveCounter() {
+        return fullMoveCounter;
     }
 
-    public void setFullMoveClock(int fullMoveClock) {
-        this.fullMoveClock = fullMoveClock;
+    /**
+     * Sets full move clock.
+     *
+     * @param fullMoveCounter the full move clock
+     */
+    public void setFullMoveCounter(int fullMoveCounter) {
+        this.fullMoveCounter = fullMoveCounter;
     }
 
+    /**
+     * Find move move.
+     *
+     * @param basicMove the basic move
+     * @return the move
+     */
     public Move findMove(BasicMove basicMove) {
 //        basicMove.flip();
         for (Move move : generateAllMoves()) {
@@ -226,10 +363,32 @@ public class Model implements Serializable {
         return null;
     }
 
+    /**
+     * Generate all moves model moves list.
+     *
+     * @return the model moves list
+     */
+    public ModelMovesList generateAllMoves() {
+        return MoveGenerator.generateMoves(this);
+    }
+
+    /**
+     * Both players num of pieces int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     public int bothPlayersNumOfPieces(PieceType[] arr) {
         return getNumOfPieces(PlayerColor.WHITE, arr) + getNumOfPieces(PlayerColor.BLACK, arr);
     }
 
+    /**
+     * Gets num of pieces.
+     *
+     * @param playerColor the player color
+     * @param arr         the arr
+     * @return the num of pieces
+     */
     public int getNumOfPieces(PlayerColor playerColor, PieceType[] arr) {
         int ret = 0;
         for (PieceType pieceType : arr) {
@@ -238,32 +397,76 @@ public class Model implements Serializable {
         return ret;
     }
 
+    /**
+     * Gets num of pieces.
+     *
+     * @param playerColor the player color
+     * @param pieceType   the piece type
+     * @return the num of pieces
+     */
     public int getNumOfPieces(PlayerColor playerColor, PieceType pieceType) {
         return piecesCount[playerColor.asInt][pieceType.asInt];
     }
 
+    /**
+     * Both players num of pieces int.
+     *
+     * @param pieceType the piece type
+     * @return the int
+     */
     public int bothPlayersNumOfPieces(PieceType pieceType) {
         return getNumOfPieces(PlayerColor.WHITE, pieceType) + getNumOfPieces(PlayerColor.BLACK, pieceType);
     }
 
+    /**
+     * Is in check boolean.
+     *
+     * @return the boolean
+     */
     public boolean isInCheck() {
         return isInCheck(currentPlayerColor);
     }
 
+    /**
+     * Is in check boolean.
+     *
+     * @param playerColor the player color
+     * @return the boolean
+     */
     public boolean isInCheck(PlayerColor playerColor) {
         return isThreatened(getKing(playerColor), playerColor.getOpponent());
 
     }
 
+    /**
+     * Is threatened boolean.
+     *
+     * @param loc               the loc
+     * @param threateningPlayer the threatening player
+     * @return the boolean
+     */
     public boolean isThreatened(Location loc, PlayerColor threateningPlayer) {
         return AttackedSquares.isAttacked(this, loc, threateningPlayer);
     }
 
+    /**
+     * Gets king.
+     *
+     * @param playerColor the player color
+     * @return the king
+     */
     public Location getKing(PlayerColor playerColor) {
         Bitboard k = getPieceBitBoard(playerColor, PieceType.KING);
         return k.getLastSetLoc();
     }
 
+    /**
+     * Gets piece bit board.
+     *
+     * @param playerColor the player color
+     * @param pieceType   the piece type
+     * @return the piece bit board
+     */
     public Bitboard getPieceBitBoard(PlayerColor playerColor, PieceType pieceType) {
         return getPlayersPieces(playerColor).getBB(pieceType);
     }
@@ -285,24 +488,50 @@ public class Model implements Serializable {
         }
     }
 
+    /**
+     * Gets king.
+     *
+     * @return the king
+     */
     public Location getKing() {
         return getKing(currentPlayerColor);
     }
 
+    /**
+     * Any legal move boolean.
+     *
+     * @param playerColor the player color
+     * @return the boolean
+     */
     public boolean anyLegalMove(PlayerColor playerColor) {
         assert playerColor == currentPlayerColor;
 
         return !MoveGenerator.generateMoves(this, GenerationSettings.ANY_LEGAL).isEmpty();
     }
 
+    /**
+     * Gets current player.
+     *
+     * @return the current player
+     */
     public PlayerColor getCurrentPlayer() {
         return currentPlayerColor;
     }
 
+    /**
+     * Sets current player.
+     *
+     * @param currentPlayerColor the current player color
+     */
     public void setCurrentPlayer(PlayerColor currentPlayerColor) {
         this.currentPlayerColor = currentPlayerColor;
     }
 
+    /**
+     * Apply move.
+     *
+     * @param move the move
+     */
     public void applyMove(Move move) {
         Location movingFrom = move.getMovingFrom();
         Location movingTo = move.getMovingTo();
@@ -310,7 +539,7 @@ public class Model implements Serializable {
         Piece piece = board.getPiece(movingFrom, true);
         PlayerColor piecePlayerColor = piece.playerColor;
 
-        move.setPrevFullMoveClock(fullMoveClock);
+        move.setPrevFullMoveClock(fullMoveCounter);
         move.setPrevHalfMoveClock(halfMoveClock);
 
         makeIntermediateMove(move);
@@ -331,7 +560,7 @@ public class Model implements Serializable {
         }
 
         if (currentPlayerColor == PlayerColor.BLACK)
-            fullMoveClock++;
+            fullMoveCounter++;
 
         byte disabled = 0;
         if (castlingRights.hasAny(piecePlayerColor)) {
@@ -378,12 +607,15 @@ public class Model implements Serializable {
 
     }
 
-    private String loadedFen = null;
-
+    /**
+     * Undo move.
+     *
+     * @param move the move
+     */
     public void undoMove(Move move) {
         moveStack.pop();
 
-        fullMoveClock = (move.getPrevFullMoveClock());
+        fullMoveCounter = (move.getPrevFullMoveClock());
         halfMoveClock = (move.getPrevHalfMoveClock());
 
         castlingRights.enable(move.getDisabledCastling());
@@ -444,6 +676,11 @@ public class Model implements Serializable {
         makeIntermediateMove(move, false);
     }
 
+    /**
+     * Gets move stack.
+     *
+     * @return the move stack
+     */
     public Stack<Move> getMoveStack() {
         return moveStack;
     }
@@ -458,10 +695,19 @@ public class Model implements Serializable {
         }
     }
 
+    /**
+     * Switch turn.
+     */
     public void switchTurn() {
         currentPlayerColor = currentPlayerColor.getOpponent();
     }
 
+    /**
+     * Get pieces count int [ ].
+     *
+     * @param playerColor the player color
+     * @return the int [ ]
+     */
     public int[] getPiecesCount(PlayerColor playerColor) {
         return piecesCount[playerColor.asInt];
     }
@@ -476,18 +722,38 @@ public class Model implements Serializable {
         updatePieceLoc(piece, movingFrom, movingTo);
     }
 
+    /**
+     * Print board.
+     */
     public void printBoard() {
         System.out.println(this);
     }
 
+    /**
+     * Is square empty boolean.
+     *
+     * @param loc the loc
+     * @return the boolean
+     */
     public boolean isSquareEmpty(Location loc) {
         return getSquare(loc).isEmpty();
     }
 
+    /**
+     * Gets square.
+     *
+     * @param loc the loc
+     * @return the square
+     */
     public Square getSquare(Location loc) {
         return board.getSquare(loc);
     }
 
+    /**
+     * Make move.
+     *
+     * @param move the move
+     */
     public void makeMove(Move move) {
         MovesList moves = MoveGenerator.generateMoves(this, GenerationSettings.ANNOTATE);
         Move finalMove = move;
@@ -503,19 +769,41 @@ public class Model implements Serializable {
 
     }
 
+    /**
+     * Gets logic board.
+     *
+     * @return the logic board
+     */
     public Board getLogicBoard() {
         return board;
     }
 
+    /**
+     * Get pieces pieces b bs [ ].
+     *
+     * @return the pieces b bs [ ]
+     */
     public PiecesBBs[] getPieces() {
         return pieces;
     }
 
+    /**
+     * Gets board hash.
+     *
+     * @return the board hash
+     */
     public BoardHash getBoardHash() {
 //        return new BoardHash(this);
         return boardHash;
     }
 
+    /**
+     * Is same player boolean.
+     *
+     * @param loc1 the loc 1
+     * @param loc2 the loc 2
+     * @return the boolean
+     */
     public boolean isSamePlayer(Location loc1, Location loc2) {
         if (board.isSquareEmpty(loc1) || board.isSquareEmpty(loc2))
             return false;

@@ -7,6 +7,25 @@ import ver14.SharedClasses.Sync.SyncableItem;
 import java.io.Serializable;
 import java.util.Random;
 
+/*
+ * GameInfo
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * GameInfo -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * GameInfo -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public abstract class GameInfo implements Serializable, SyncableItem {
 
     public final String gameId;

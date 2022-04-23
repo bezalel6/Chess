@@ -5,6 +5,25 @@ import ver14.SharedClasses.Game.PlayerColor;
 import java.io.Serializable;
 import java.util.Arrays;
 
+/*
+ * GameTime
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * GameTime -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * GameTime -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class GameTime implements Serializable {
     private static final int delay = 100;
     private final RunningTime[] gameTime;

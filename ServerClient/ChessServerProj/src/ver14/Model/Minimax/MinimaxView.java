@@ -1,13 +1,20 @@
 package ver14.Model.Minimax;
 
 import ver14.SharedClasses.Game.Evaluation.Evaluation;
+import ver14.SharedClasses.Game.Moves.MinimaxMove;
 import ver14.SharedClasses.Game.Moves.Move;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
 
+/**
+ * Minimax view - .
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MinimaxView extends JFrame {
     private static final Font font = new Font(null, Font.BOLD, 30);
     private static final DecimalFormat format = new DecimalFormat("#.###");
@@ -20,8 +27,16 @@ public class MinimaxView extends JFrame {
     private final JLabel moveEvaluationLbl;
     private final JLabel numOfThreadsLbl;
     private final JLabel cpuUsageLbl;
+    private final Timer timer;
 
-    public MinimaxView(boolean show) {
+    /**
+     * Instantiates a new Minimax view.
+     *
+     * @param show    the show
+     * @param minimax the minimax
+     */
+    public MinimaxView(boolean show, Minimax minimax) {
+        setLayout(new GridLayout(0, 1));
         moveEvaluationLbl = emptyLbl("move evaluation");
         bestMoveSoFarLbl = emptyLbl("best move so far");
         chosenMoveLbl = emptyLbl("chosen move");
@@ -30,10 +45,11 @@ public class MinimaxView extends JFrame {
         reachedDepthTimeLbl = emptyTimeLbl("time to reach current depth");
         numOfThreadsLbl = emptyLbl("Number of threads");
         cpuUsageLbl = emptyLbl("cpu usage");
-
+        add(new MyJButton("Stop", minimax::quietInterrupt));
         setSize(800, 200);
-        setLayout(new GridLayout(0, 1));
-
+        timer = show ? new Timer(150, l -> {
+            setTime(minimax.getElapsed());
+        }) : null;
         pack();
 
         setVisible(show);
@@ -55,6 +71,15 @@ public class MinimaxView extends JFrame {
         return lbl;
     }
 
+    /**
+     * Sets time.
+     *
+     * @param millis the millis
+     */
+    public void setTime(long millis) {
+        timeLbl.setText(StrUtils.createTimeStr(millis));
+    }
+
     private void add(String desc, JLabel comp) {
         JPanel pnl = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -67,23 +92,62 @@ public class MinimaxView extends JFrame {
         add(pnl);
     }
 
-    public void setTime(long millis) {
-        timeLbl.setText(StrUtils.createTimeStr(millis));
+    /**
+     * Stop.
+     */
+    public void stop() {
+        stopTimer();
+        dispose();
     }
 
+    /**
+     * Stop timer.
+     */
+    public void stopTimer() {
+        if (timer != null)
+            timer.stop();
+    }
+
+    /**
+     * Start time.
+     */
+    public void startTime() {
+        if (timer != null) {
+            timer.start();
+        }
+    }
+
+    /**
+     * Reset best moves.
+     */
     public void resetBestMoves() {
         setBestMoveSoFar(EMPTY);
         setChosenMove(EMPTY);
     }
 
+    /**
+     * Sets best move so far.
+     *
+     * @param str the str
+     */
     public void setBestMoveSoFar(String str) {
         bestMoveSoFarLbl.setText(str);
     }
 
+    /**
+     * Sets chosen move.
+     *
+     * @param str the str
+     */
     public void setChosenMove(String str) {
         chosenMoveLbl.setText(str);
     }
 
+    /**
+     * Sets cpu usage.
+     *
+     * @param usage the usage
+     */
     public void setCpuUsage(double usage) {
         cpuUsageLbl.setText(formatValue(usage) + "%");
     }
@@ -92,25 +156,58 @@ public class MinimaxView extends JFrame {
         return format.format(value);
     }
 
-    public void setBestMoveSoFar(Move move) {
-        setBestMoveSoFar(move.getAnnotation());
-    }
-
+    /**
+     * Sets best move so far.
+     */
     public void setBestMoveSoFar() {
         setBestMoveSoFar(EMPTY);
     }
 
+    /**
+     * Sets num of threads.
+     *
+     * @param num the num
+     */
     public void setNumOfThreads(int num) {
         numOfThreadsLbl.setText(num + "");
     }
 
+    /**
+     * Sets current depth.
+     *
+     * @param depth     the depth
+     * @param reachedIn the reached in
+     */
     public void setCurrentDepth(int depth, long reachedIn) {
         currentDepthLbl.setText(depth + "");
         reachedDepthTimeLbl.setText(StrUtils.createTimeStr(reachedIn));
     }
 
+    /**
+     * Update.
+     *
+     * @param bestMoveSoFar the best move so far
+     */
+    public void update(MinimaxMove bestMoveSoFar) {
+        setBestMoveSoFar(bestMoveSoFar.getMove());
+        setMoveEval(bestMoveSoFar.getMoveEvaluation());
+    }
+
+    /**
+     * Sets best move so far.
+     *
+     * @param move the move
+     */
+    public void setBestMoveSoFar(Move move) {
+        setBestMoveSoFar(move.getAnnotation());
+    }
+
+    /**
+     * Sets move eval.
+     *
+     * @param eval the eval
+     */
     public void setMoveEval(Evaluation eval) {
         moveEvaluationLbl.setText(formatValue(eval.getEval()));
     }
-
 }

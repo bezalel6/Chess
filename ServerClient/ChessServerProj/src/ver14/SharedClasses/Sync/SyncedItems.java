@@ -9,6 +9,25 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
+/*
+ * SyncedItems
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * SyncedItems -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * SyncedItems -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<String, E> {
     public final static SyncedItems<UserInfo> exampleUsers1 = new SyncedItems<>(SyncedListType.CONNECTED_USERS) {{
         for (int i = 1; i <= 5; i++) {

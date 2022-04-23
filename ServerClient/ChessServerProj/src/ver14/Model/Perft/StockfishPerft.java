@@ -5,6 +5,25 @@ import ver14.SharedClasses.Game.Moves.BasicMove;
 
 import javax.swing.*;
 
+/*
+ * StockfishPerft
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * StockfishPerft -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * StockfishPerft -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class StockfishPerft extends Perft {
     private final Stockfish stockfish;
     protected long sum = 0;

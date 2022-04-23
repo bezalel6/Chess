@@ -11,6 +11,25 @@ import java.util.*;
 
 import static java.awt.event.KeyEvent.*;
 
+/*
+ * MyJFrame
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * MyJFrame -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * MyJFrame -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class MyJFrame extends JFrame {
     private static final int delayInMs = 100;
 

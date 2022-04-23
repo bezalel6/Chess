@@ -32,6 +32,12 @@ import java.sql.*;
 import java.util.Date;
 import java.util.*;
 
+/*
+ * DB -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 /**
  * DB - SQLמחלקת שירות לביצוע חיבור למסד נתונים מסוג אקסס וביצוע משפטי .
  * ---------------------------------------------------------------------------
@@ -86,8 +92,6 @@ public class DB {
 
         // dbURL: Access DB Driver Name + dbPath
         String dbURL = "jdbc:ucanaccess://" + new File(dbPath).getAbsolutePath();
-
-        System.out.println(dbURL);
 
         // create the connection object to db
 
@@ -154,7 +158,7 @@ public class DB {
     public static void main(String[] args) {
         try {
 
-            System.out.println(request(PreMadeRequest.TopPlayers.createBuilder().build(5)));
+            System.out.println(request(PreMadeRequest.DeleteUnfGames.createBuilder().build("bezalel6")));
 //            addUser("testing", "123456");
 
 //            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));

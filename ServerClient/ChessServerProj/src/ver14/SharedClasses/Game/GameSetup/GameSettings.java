@@ -5,6 +5,25 @@ import ver14.SharedClasses.Game.PlayerColor;
 import java.io.Serializable;
 import java.util.Objects;
 
+/*
+ * GameSettings
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * GameSettings -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * GameSettings -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class GameSettings implements Serializable, TimeFormatSettable {
     public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.ULTRA_BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
 

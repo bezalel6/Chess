@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="MyScope" pattern="src:ver14..*" />
+  <scope name="MyScope" pattern="src:ver14..*||src:*..*" />
 </component>

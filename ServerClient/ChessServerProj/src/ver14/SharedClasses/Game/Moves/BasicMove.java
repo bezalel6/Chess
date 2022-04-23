@@ -6,6 +6,25 @@ import ver14.SharedClasses.Game.Location;
 import java.io.Serializable;
 import java.util.Objects;
 
+/*
+ * BasicMove
+ *
+ * 23.4.2022, 2:02
+ * author: Bezalel Avrahami
+ */
+
+/*
+ * BasicMove -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com)
+ */
+
+/*
+ * BasicMove -
+ * ---------------------------------------------------------------
+ * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
+ */
+
 public class BasicMove implements Serializable {
     Location movingFrom;
     Location movingTo;
