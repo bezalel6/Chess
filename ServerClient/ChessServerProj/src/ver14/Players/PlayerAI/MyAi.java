@@ -46,7 +46,7 @@ public class MyAi extends PlayerAI {
     }
 
     @Override
-    public void disconnect(String cause) {
+    public void disconnect(String cause, boolean notifyGameSession) {
         minimax.end();
     }
 

@@ -136,6 +136,122 @@ public class Eval implements Serializable {
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
     }
 
+    private boolean checkForInsufficientMaterial() {
+        return insufficientMaterial(PlayerColor.WHITE, model) &&
+                insufficientMaterial(PlayerColor.BLACK, model);
+    }
+
+    private double materialSumWithoutPandK() {
+        double ret = 0;
+
+        int[] pieces = ArrayUtils.addAll(model.getPiecesCount(evaluationFor), model.getPiecesCount(opponentColor));
+        for (PieceType type : PieceType.PIECE_TYPES) {
+            if (type != PieceType.PAWN && type != PieceType.KING)
+                ret += pieces[type.asInt] * type.value;
+        }
+        return ret;
+    }
+
+    private int materialSum(PlayerColor playerColor) {
+        int ret = 0;
+        int[] piecesCount = model.getPiecesCount(playerColor);
+        for (int i = 0, piecesCountLength = piecesCount.length; i < piecesCountLength; i++) {
+            int count = piecesCount[i];
+            ret += count * PieceType.getPieceType(i).value;
+
+        }
+        return ret;
+    }
+
+    private void comparePieceTables() {
+        int res = 0;
+        for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
+            int mult = currentlyChecking == evaluationFor ? 1 : -1;
+            PiecesBBs playersPieces = model.getPlayersPieces(currentlyChecking);
+            Bitboard[] bitboards = playersPieces.getBitboards();
+            for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
+                Bitboard bb = bitboards[i];
+                for (Location loc : bb.getSetLocs()) {
+                    Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
+
+                    res += table.getValue(egWeight, currentlyChecking, loc) * mult;
+                }
+            }
+        }
+        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, res);
+    }
+
+    private int forceKingToCorner(double egWeight, PlayerColor playerColor) {
+        if (egWeight == 0)
+            return 0;
+        int ret = 0;
+        Location opK = model.getKing(playerColor.getOpponent());
+
+        int opRow = opK.row, opCol = opK.col;
+
+        int opDstToCenterCol = Math.max(3 - opCol, opCol - 4);
+        int opDstToCenterRow = Math.max(3 - opRow, opRow - 4);
+        int opKDstFromCenter = opDstToCenterCol + opDstToCenterRow;
+        ret += opKDstFromCenter;
+
+        Location myK = model.getKing(playerColor);
+
+        int myRow = myK.row, myCol = myK.col;
+
+        int kingsColDst = Math.abs(myCol - opCol);
+        int kingsRowDst = Math.abs(myRow - opRow);
+        int kingsDst = kingsColDst + kingsRowDst;
+        ret += 14 - kingsDst;
+
+//        return ret * 0.01 * egWeight;
+        return (int) (ret * egWeight);
+    }
+
+//
+//    private double compareSquareControl(int player) {
+//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
+//    }
+
+    private static boolean insufficientMaterial(PlayerColor playerColor, Model model) {
+        return (
+                model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
+                        model.getNumOfPieces(playerColor, PieceType.MINOR_PIECES) <= 1 &&
+                        model.getNumOfPieces(playerColor, PieceType.MAJOR_PIECES) == 0);
+
+    }
+
+    public static boolean isSufficientMaterial(PlayerColor checkingFor, Model model) {
+        return !insufficientMaterial(checkingFor, model);
+    }
+
+    public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
+        return new Eval(model, playerColor).evaluation;
+    }
+
+    /**
+     * evaluation for current player
+     *
+     * @param model
+     * @return
+     */
+    public static Evaluation getEvaluation(Model model) {
+        return new Eval(model, model.getCurrentPlayer()).evaluation;
+    }
+//    private static final double KING_SAFETY_WEIGHT = -0.01;
+
+    public static boolean isGameOver(Model model) {
+        return new Eval(model, model.getCurrentPlayer(), true).evaluation.isGameOver();
+    }
+
+    private static double calcClose(int distance) {
+        double num = Math.exp(distance);
+        if (distance <= 4) {
+            num = Math.exp(distance);
+        }
+        num = Math.floor(num);
+        return num + "".length();
+    }
+
     private boolean checkRepetition() {
         if (true)
             return false;
@@ -176,122 +292,6 @@ public class Eval implements Serializable {
         return false;
 //        return count - set.size() >= 1;
     }
-
-    private boolean checkForInsufficientMaterial() {
-        return insufficientMaterial(PlayerColor.WHITE) &&
-                insufficientMaterial(PlayerColor.BLACK);
-    }
-
-    private double materialSumWithoutPandK() {
-        double ret = 0;
-
-        int[] pieces = ArrayUtils.addAll(model.getPiecesCount(evaluationFor), model.getPiecesCount(opponentColor));
-        for (PieceType type : PieceType.PIECE_TYPES) {
-            if (type != PieceType.PAWN && type != PieceType.KING)
-                ret += pieces[type.asInt] * type.value;
-        }
-        return ret;
-    }
-
-
-    private void comparePieceTables() {
-        int res = 0;
-        for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
-            int mult = currentlyChecking == evaluationFor ? 1 : -1;
-            PiecesBBs playersPieces = model.getPlayersPieces(currentlyChecking);
-            Bitboard[] bitboards = playersPieces.getBitboards();
-            for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
-                Bitboard bb = bitboards[i];
-                for (Location loc : bb.getSetLocs()) {
-                    Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
-
-                    res += table.getValue(egWeight, currentlyChecking, loc) * mult;
-                }
-            }
-        }
-        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, res);
-    }
-
-//
-//    private double compareSquareControl(int player) {
-//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
-//    }
-
-
-    private boolean insufficientMaterial(PlayerColor playerColor) {
-        return model.getNumOfPieces(playerColor, PieceType.KING) < 1 || (
-                model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
-                        model.getNumOfPieces(playerColor, PieceType.MINOR_PIECES) <= 1 &&
-                        model.getNumOfPieces(playerColor, PieceType.MAJOR_PIECES) == 0);
-
-    }
-
-    private int materialSum(PlayerColor playerColor) {
-        int ret = 0;
-        int[] piecesCount = model.getPiecesCount(playerColor);
-        for (int i = 0, piecesCountLength = piecesCount.length; i < piecesCountLength; i++) {
-            int count = piecesCount[i];
-            ret += count * PieceType.getPieceType(i).value;
-
-        }
-        return ret;
-    }
-
-
-    private int forceKingToCorner(double egWeight, PlayerColor playerColor) {
-        if (egWeight == 0)
-            return 0;
-        int ret = 0;
-        Location opK = model.getKing(playerColor.getOpponent());
-
-        int opRow = opK.row, opCol = opK.col;
-
-        int opDstToCenterCol = Math.max(3 - opCol, opCol - 4);
-        int opDstToCenterRow = Math.max(3 - opRow, opRow - 4);
-        int opKDstFromCenter = opDstToCenterCol + opDstToCenterRow;
-        ret += opKDstFromCenter;
-
-        Location myK = model.getKing(playerColor);
-
-        int myRow = myK.row, myCol = myK.col;
-
-        int kingsColDst = Math.abs(myCol - opCol);
-        int kingsRowDst = Math.abs(myRow - opRow);
-        int kingsDst = kingsColDst + kingsRowDst;
-        ret += 14 - kingsDst;
-
-//        return ret * 0.01 * egWeight;
-        return (int) (ret * egWeight);
-    }
-
-    public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
-        return new Eval(model, playerColor).evaluation;
-    }
-//    private static final double KING_SAFETY_WEIGHT = -0.01;
-
-    /**
-     * evaluation for current player
-     *
-     * @param model
-     * @return
-     */
-    public static Evaluation getEvaluation(Model model) {
-        return new Eval(model, model.getCurrentPlayer()).evaluation;
-    }
-
-    public static boolean isGameOver(Model model) {
-        return new Eval(model, model.getCurrentPlayer(), true).evaluation.isGameOver();
-    }
-
-    private static double calcClose(int distance) {
-        double num = Math.exp(distance);
-        if (distance <= 4) {
-            num = Math.exp(distance);
-        }
-        num = Math.floor(num);
-        return num + "".length();
-    }
-
 
     private int kingSafety(PlayerColor playerColor) {
         int ret;

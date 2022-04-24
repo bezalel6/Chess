@@ -29,8 +29,9 @@ import java.util.Map;
 public class Evaluation implements Serializable {
     public static final int TIE_EVAL = 0;
     public static final int WIN_EVAL = Integer.MAX_VALUE;
-    public static final int LOSS_EVAL = -WIN_EVAL;//חייב להיות כדי להמנע מגלישה כשכופלים ב-1
+    public static final int LOSS_EVAL = -WIN_EVAL;//חייב להיות -WIN כדי להמנע מגלישה כשכופלים ב-1
     private static final Map<GameStatus.GameStatusType, Integer> gameStatusEvalMap;
+    private final static boolean MAKE_DETAILED = true;
 
     static {
         gameStatusEvalMap = new HashMap<>();
@@ -45,10 +46,9 @@ public class Evaluation implements Serializable {
 
     }
 
-    private final static boolean MAKE_DETAILED = true;
     private final ArrayList<EvaluationDetail> detailedEval;
-    private int eval;
     private final GameStatus gameStatus;
+    private int eval;
     private PlayerColor evaluationFor;
     private Integer evaluationDepth = null;
 
@@ -78,11 +78,6 @@ public class Evaluation implements Serializable {
             detailedEval.addAll(other.detailedEval);
     }
 
-
-    public void assertNotGameOver() {
-        assert eval > LOSS_EVAL && eval < WIN_EVAL;
-    }
-
     public static Evaluation book() {
         //fixme
         return new Evaluation(PlayerColor.WHITE) {{
@@ -94,6 +89,10 @@ public class Evaluation implements Serializable {
         eval += value * parm.weight;
         if (MAKE_DETAILED)
             detailedEval.add(new EvaluationDetail(parm, value));
+    }
+
+    public void assertNotGameOver() {
+        assert eval > LOSS_EVAL && eval < WIN_EVAL;
     }
 
     public Integer getEvaluationDepth() {

@@ -26,7 +26,7 @@ import java.awt.event.MouseEvent;
  * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
  */
 
-public class LinkLabel extends JLabel {
+public class LinkLabel extends MyLbl {
     private final static Color normalClr = Color.BLUE.darker();
     private final static Color hoverClr = normalClr.brighter();
 
@@ -62,5 +62,11 @@ public class LinkLabel extends JLabel {
             }));
             setVisible(true);
         }};
+    }
+
+    @Override
+    public void setText(String text) {
+        super.setText(text);
+        setToolTipText(text);
     }
 }

@@ -2,16 +2,17 @@ package ver14.DB;
 
 //import org.apache.commons.lang.SerializationUtils;
 
+import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Statements.CustomStatement;
 import ver14.SharedClasses.DBActions.Statements.Selection;
+import ver14.SharedClasses.DBActions.Statements.Update;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
@@ -42,15 +43,35 @@ import java.util.*;
  * DB - SQLמחלקת שירות לביצוע חיבור למסד נתונים מסוג אקסס וביצוע משפטי .
  * ---------------------------------------------------------------------------
  * by Ilan Peretz(ilanperets@gmail.com) 5/11/2021
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class DB {
+    /**
+     * The constant APP_DB_FILE_PATH.
+     */
     public static final String APP_DB_FILE_PATH = "/assets/db.accdb";
+    /**
+     * The constant TIE_STR.
+     */
     public static final String TIE_STR = RequestBuilder.TIE_STR;
 
+    /**
+     * Del user.
+     *
+     * @param un the un
+     * @param pw the pw
+     */
     public static void delUser(String un, String pw) {
         runUpdate("DELETE FROM users WHERE 'un'='%s' AND 'pw'='%s'".formatted(un, pw));
     }
 
+    /**
+     * Run update status response.
+     *
+     * @param sql the sql
+     * @return the status response
+     */
     public static synchronized StatusResponse runUpdate(String sql) {
         sql = StrUtils.clean(sql);
         return runUpdate(new DBRequest(new CustomStatement(DBRequest.Type.Update, sql)));
@@ -58,6 +79,9 @@ public class DB {
 
     /**
      * Run SQL Update Statement - INSERT, DELETE, UPDATE הפעולה מריצה משפט עדכון
+     *
+     * @param request the request
+     * @return the status response
      */
     public static synchronized StatusResponse runUpdate(DBRequest request) {
         Connection con = getConnection();
@@ -107,6 +131,12 @@ public class DB {
     // CUSTOM METHODS HERE . . .
     // =======================================================================
 
+    /**
+     * Is username exists boolean.
+     *
+     * @param un the un
+     * @return the boolean
+     */
     public static boolean isUsernameExists(String un) {
         return select(Table.Users, Condition.equals(Col.Username, un)).isAnyData();
     }
@@ -127,6 +157,12 @@ public class DB {
 
     }
 
+    /**
+     * Run query db response.
+     *
+     * @param request the request
+     * @return the db response
+     */
     public static synchronized DBResponse runQuery(DBRequest request) {
         try {
             Connection con = getConnection();
@@ -142,6 +178,11 @@ public class DB {
     }
 
 
+    /**
+     * Gets all user details.
+     *
+     * @return the all user details
+     */
     public static ArrayList<UserDetails> getAllUserDetails() {
         DBRequest request = new DBRequest(new Selection(Table.Users, new Object[]{Col.Username, Col.Password}));
 
@@ -155,10 +196,15 @@ public class DB {
         return ret;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         try {
 
-            System.out.println(request(PreMadeRequest.DeleteUnfGames.createBuilder().build("bezalel6")));
+            System.out.println(request(new DBRequest(new Update.Delete(Table.UnfinishedGames, null))));
 //            addUser("testing", "123456");
 
 //            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
@@ -183,6 +229,12 @@ public class DB {
         }
     }
 
+    /**
+     * Add user.
+     *
+     * @param un the un
+     * @param pw the pw
+     */
     public static void addUser(String un, String pw) {
         insert(Table.Users, un, pw);
     }
@@ -199,11 +251,20 @@ public class DB {
         runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
     }
 
+    /**
+     * Clear games.
+     */
     public static void clearGames() {
         runUpdate("DELETE FROM " + Table.UnfinishedGames.name());
         runUpdate("DELETE FROM " + Table.Games.name());
     }
 
+    /**
+     * Request db response.
+     *
+     * @param request the request
+     * @return the db response
+     */
     public static DBResponse request(DBRequest request) {
         DBResponse response;
 //        System.out.println("requesting " + SqlFormatter.format(request.getRequest()).replaceAll("\\[ ", "[").replaceAll(" ]", "]"));
@@ -247,6 +308,12 @@ public class DB {
         createRndGames(20);
     }
 
+    /**
+     * Gets unfinished games.
+     *
+     * @param username the username
+     * @return the unfinished games
+     */
     public static SyncedItems<GameInfo> getUnfinishedGames(String username) {
         SyncedItems<GameInfo> gameInfos = new SyncedItems<>(SyncedListType.RESUMABLE_GAMES);
         if (RegEx.DontSaveGame.check(username))
@@ -271,7 +338,11 @@ public class DB {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = Byte.parseByte(split[i].trim());
         }
-        return (T) SerializationUtils.deserialize(arr);
+        try {
+            return (T) SerializationUtils.deserialize(arr);
+        } catch (SerializationException e) {
+            throw new MyError.DBErr("Serialization Exception!", e);
+        }
     }
 
     private static void printAllTables() {
@@ -280,6 +351,11 @@ public class DB {
         }
     }
 
+    /**
+     * Print table.
+     *
+     * @param table the table
+     */
     public static void printTable(Table table) {
         System.out.println(select(table, null));
     }
@@ -298,12 +374,22 @@ public class DB {
         }
     }
 
+    /**
+     * Save game result.
+     *
+     * @param gameInfo the game info
+     */
     public static void saveGameResult(ArchivedGameInfo gameInfo) {
         if (isGameIdExists(gameInfo.gameId, Table.Games))
             deleteGame(Table.Games, gameInfo.gameId);
         insertAtDate(Table.Games, gameInfo.getCreatedAt(), gameInfo.gameId, gameInfo.creatorUsername, gameInfo.opponentUsername, stringify(gameInfo), gameInfo.getWinner());
     }
 
+    /**
+     * Save un finished game.
+     *
+     * @param gameInfo the game info
+     */
     public static void saveUnFinishedGame(UnfinishedGame gameInfo) {
         if (isGameIdExists(gameInfo.gameId, Table.UnfinishedGames))
             deleteGame(Table.UnfinishedGames, gameInfo.gameId);
@@ -311,26 +397,61 @@ public class DB {
 
     }
 
+    /**
+     * Is game id exists boolean.
+     *
+     * @param gameID the game id
+     * @return the boolean
+     */
     public static boolean isGameIdExists(String gameID) {
         return isGameIdExists(gameID, Table.Games) || isGameIdExists(gameID, Table.UnfinishedGames);
     }
 
+    /**
+     * Is game id exists boolean.
+     *
+     * @param gameID     the game id
+     * @param gamesTable the games table
+     * @return the boolean
+     */
     public static boolean isGameIdExists(String gameID, Table gamesTable) {
         return select(gamesTable, Condition.equals(Col.GameID, gameID)).isAnyData();
     }
 
+    /**
+     * Load unfinished game unfinished game.
+     *
+     * @param gameID the game id
+     * @return the unfinished game
+     */
     public static UnfinishedGame loadUnfinishedGame(String gameID) {
         return unstringify(((TableDBResponse) select(Table.UnfinishedGames, Condition.equals(Col.GameID, gameID))).getCell(0, Col.SavedGame));
     }
 
+    /**
+     * Delete unfinished game.
+     *
+     * @param game the game
+     */
     public static void deleteUnfinishedGame(UnfinishedGame game) {
         deleteGame(Table.UnfinishedGames, game.gameId);
     }
 
+    /**
+     * Delete game.
+     *
+     * @param table  the table
+     * @param gameId the game id
+     */
     public static void deleteGame(Table table, String gameId) {
         runUpdate("DELETE FROM %s WHERE GameID='%s'".formatted(table.name(), gameId));
     }
 
+    /**
+     * Create rnd games.
+     *
+     * @param numOfGames the num of games
+     */
     public static void createRndGames(int numOfGames) {
         ArrayList<UserDetails> details = getAllUserDetails();
         IDsGenerator generator = new IDsGenerator();
@@ -371,13 +492,29 @@ public class DB {
 
     }
 
+    /**
+     * Gets profile pic.
+     *
+     * @param username the username
+     * @return the profile pic
+     */
     public static String getProfilePic(String username) {
         TableDBResponse response = (TableDBResponse) select(Table.Users, Condition.equals(Col.Username, username), Col.ProfilePic.colName());
         return response.isAnyData() ? response.getFirstRow()[0] : null;
     }
 
+    /**
+     * User details - .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static record UserDetails(String username, String password) {
 
+        /**
+         * To string string.
+         *
+         * @return the string
+         */
         @Override
         public String toString() {
             return

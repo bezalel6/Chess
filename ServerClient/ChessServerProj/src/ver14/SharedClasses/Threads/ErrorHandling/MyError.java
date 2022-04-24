@@ -35,6 +35,10 @@ public class MyError extends Error {
         super(message);
     }
 
+    public MyError(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 
     public String getHandledStr() {
 //        return toString();
@@ -72,6 +76,10 @@ public class MyError extends Error {
     public static class DBErr extends MyError {
         public DBErr(Throwable throwable) {
             super(throwable);
+        }
+
+        public DBErr(String message, Throwable cause) {
+            super(message, cause);
         }
     }
 

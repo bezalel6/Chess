@@ -131,13 +131,13 @@ public class PlayerNet extends Player implements SyncableItem {
     }
 
     @Override
-    public void disconnect(String cause) {
+    public void disconnect(String cause, boolean notifyGameSession) {
         if (socketToClient.isConnected()) {
             socketToClient.writeMessage(Message.bye(cause));
 //                interrupt(new MyError.DisconnectedError(cause));
         }
         socketToClient.close();
-        if (gameSession != null) {
+        if (gameSession != null && notifyGameSession) {
             gameSession.playerDisconnected(this);
         }
     }

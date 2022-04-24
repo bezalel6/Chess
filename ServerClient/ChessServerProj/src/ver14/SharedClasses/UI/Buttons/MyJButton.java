@@ -6,25 +6,11 @@ import ver14.SharedClasses.Utils.StrUtils;
 import javax.swing.*;
 import java.awt.*;
 
-/*
- * MyJButton
+/**
+ * MyJButton- represents a button.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
-/*
- * MyJButton -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * MyJButton -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class MyJButton extends JButton {
 
 
@@ -32,11 +18,22 @@ public class MyJButton extends JButton {
     private VoidCallback ogOnClick = null;
     private VoidCallback onClick = null;
 
+    /**
+     * Instantiates a new My j button.
+     *
+     * @param text     the text
+     * @param callback the callback
+     */
     public MyJButton(String text, VoidCallback callback) {
         this(text);
         setOnClick(callback);
     }
 
+    /**
+     * Instantiates a new My j button.
+     *
+     * @param text the text
+     */
     public MyJButton(String text) {
         text = StrUtils.format(text);
         setText(text);
@@ -47,10 +44,20 @@ public class MyJButton extends JButton {
         });
     }
 
+    /**
+     * Sets on click.
+     *
+     * @param onClick the on click
+     */
     public void setOnClick(VoidCallback onClick) {
         this.onClick = onClick;
     }
 
+    /**
+     * Sets text.
+     *
+     * @param text the text
+     */
     @Override
     public void setText(String text) {
         super.setText(StrUtils.format(text));
@@ -62,35 +69,74 @@ public class MyJButton extends JButton {
             onClick.callback();
     }
 
+    /**
+     * Instantiates a new My j button.
+     */
     public MyJButton() {
         this("");
     }
 
+    /**
+     * Instantiates a new My j button.
+     *
+     * @param text    the text
+     * @param font    the font
+     * @param onClick the on click
+     * @param addTo   the add to
+     */
     public MyJButton(String text, Font font, VoidCallback onClick, JPanel addTo) {
         this(text, font, onClick);
         addTo.add(this);
     }
 
+    /**
+     * Instantiates a new My j button.
+     *
+     * @param text    the text
+     * @param font    the font
+     * @param onClick the on click
+     */
     public MyJButton(String text, Font font, VoidCallback onClick) {
         this(text, font);
         setOnClick(onClick);
 
     }
 
+    /**
+     * Instantiates a new My j button.
+     *
+     * @param text the text
+     * @param font the font
+     */
     public MyJButton(String text, Font font) {
         this(text);
         setFont(font);
     }
 
+    /**
+     * Sets font.
+     *
+     * @param font the font
+     */
     @Override
     public void setFont(Font font) {
         super.setFont(font);
     }
 
+    /**
+     * Gets min size.
+     *
+     * @return the min size
+     */
     public int getMinSize() {
         return Math.min(getHeight(), getWidth());
     }
 
+    /**
+     * Replace with cancel.
+     *
+     * @param onCancelled the on cancelled
+     */
     public void replaceWithCancel(VoidCallback onCancelled) {
         replaceText("Cancel");
         ogOnClick = onClick;
@@ -102,6 +148,11 @@ public class MyJButton extends JButton {
         setText(replacement);
     }
 
+    /**
+     * Reset state.
+     *
+     * @param e the e
+     */
     public void resetState(boolean e) {
         setEnabled(e);
         if (ogTxt != null && ogOnClick != null) {

@@ -40,14 +40,16 @@ import java.awt.event.KeyEvent;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 /**
- * The type Server.
+ * Server - represents an instance of the chess server
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Server implements EnvManager {
+    // constants
     /**
      * The constant SERVER_WIN_TITLE.
      */
@@ -56,9 +58,17 @@ public class Server implements EnvManager {
      * The constant SERVER_LOG_FONT.
      */
     public static final Font SERVER_LOG_FONT = new Font("Consolas", Font.PLAIN, 16); // Font.MONOSPACED
-    // constants
+    /**
+     * the default server port
+     */
     private static final int SERVER_DEFAULT_PORT = 1234;
+    /**
+     * the server window size
+     */
     private static final Dimension SERVER_WIN_SIZE = new Dimension(580, 400);
+    /**
+     * the server log backgroung color
+     */
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
     private final static IDsGenerator gameIDGenerator;
@@ -74,6 +84,8 @@ public class Server implements EnvManager {
         };
     }
 
+    private final ArrayList<AppSocket> appSockets = new ArrayList<>();
+    private final AtomicReference<Player> waitingPlayer = new AtomicReference<>();
     private SyncedItems<PlayerNet> players;
     private SyncedItems<GameSession> gameSessions;
     private SyncedItems<GameInfo> gamePool;
@@ -98,12 +110,24 @@ public class Server implements EnvManager {
 
     }
 
-    // create server GUI
+    /**
+     * create server GUI
+     */
     private void createServerGUI() {
         frmWin = new MyJFrame() {{
             setSize(SERVER_WIN_SIZE);
             setTitle(SERVER_WIN_TITLE);
-            setOnExit(Server.this::exitServer);
+            setOnExit(new StringClosing() {
+                @Override
+                public String initialValue() {
+                    return "Closing Server For maintenance";
+                }
+
+                @Override
+                public void closing(String val) {
+                    exitServer(val);
+                }
+            });
 
 //            setAlwaysOnTop(true);
         }};
@@ -208,8 +232,8 @@ public class Server implements EnvManager {
 
     }
 
-    private void exitServer() {
-        closeServer("Server Closing!!!");
+    private void exitServer(String cause) {
+        closeServer(cause);
     }
 
     /**
@@ -225,14 +249,12 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Synced list updated.
+     * notifies all players of a change in a synchronized list .
      *
      * @param list the list
      */
     public void syncedListUpdated(SyncedItems<?> list) {
         list = prepareListForSend(list);
-        if (list.isEmpty())
-            return;
         SyncedItems<?> finalList = list;
         players.forEachItem(playerNet -> playerNet.getSocketToClient().writeMessage(Message.syncLists(finalList)));
     }
@@ -266,15 +288,24 @@ public class Server implements EnvManager {
         }
     }
 
-    private void closeServer(String cause) {
+    private synchronized void closeServer(String cause) {
 //        todo make sure only run once
-        if (players != null)
-            players.forEachItem(player -> {
-                ErrorHandler.ignore(() -> {
-                    player.disconnect(cause);
-                });
+        if (gameSessions != null) {
+            gameSessions.forEachItem(session -> {
+                session.serverStop(cause);
             });
+        }
+//
+//        if (players != null)
+//            players.forEachItem(player -> {
+//                ErrorHandler.ignore(() -> {
+//                    player.disconnect(cause, false);
+//                });
+//            });
 
+        for (var socket : appSockets) {
+            socket.writeMessage(Message.bye(cause));
+        }
         if (serverSocket != null && !serverSocket.isClosed()) {
             ErrorHandler.ignore(() -> {
                 serverSocket.close();
@@ -289,7 +320,6 @@ public class Server implements EnvManager {
                 frmWin.dispose(); // close GUI
             });
 
-//        😨
         ThreadsManager.stopAll();
     }
 
@@ -328,7 +358,7 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Run the server - wait for clients to connect & handle them
+     * Run the server - wait for clients to connect and handle them
      */
     public void runServer() {
         HandledThread.runInHandledThread(() -> {
@@ -362,12 +392,14 @@ public class Server implements EnvManager {
     // handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         HandledThread.runInHandledThread(() -> {
+
             MyThread.currentThread(t -> {
                 t.addHandler(MyError.DisconnectedError.class, playerSocket::close);
             });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
             playerSocket.start();
+            appSockets.add(playerSocket);
             PlayerNet player = login(playerSocket);
 
             messagesHandler.setPlayer(player);
@@ -461,6 +493,7 @@ public class Server implements EnvManager {
      * @param session the session
      */
     public void endOfGameSession(GameSession session) {
+        log("game session " + session + " over");
         gameSessions.remove(session.gameID, session);
         (session.getPlayers()).stream().parallel().forEach(player -> {
             if (player.isConnected()) {
@@ -488,31 +521,47 @@ public class Server implements EnvManager {
             playerDisconnected(player, "");
             return;
         }
-//        if (gameSettings == null) {
-//            playerDisconnected(player);
-//            return;
-//        }
+        if (gameSettings.getGameType() == GameSettings.GameType.QUICK_MATCH) {
+            if (gameSettings.isVsAi())
+                gameSettings.setGameType(GameSettings.GameType.CREATE_NEW);
+            else {
+                synchronized (gamePool) {
+                    if (!gamePool.values().isEmpty()) {
+                        gameSettings.setGameType(GameSettings.GameType.JOIN_EXISTING);
+                        gameSettings.setGameID(((GameInfo) gamePool.values().toArray()[0]).gameId);
+                    } else {
+                        waitingPlayer.set(player);
+                        gameSettings.setGameType(GameSettings.GameType.CREATE_NEW);
+                    }
+                }
+            }
+        }
         switch (gameSettings.getGameType()) {
             case CREATE_NEW -> {
                 if (gameSettings.isVsAi()) {
                     startGameVsAi(player, gameSettings);
                 } else {
                     String id = gameIDGenerator.generate();
+                    player.setCreatedGameID(id);
                     CreatedGame gameInfo = new CreatedGame(id, player.getUsername(), gameSettings);
-                    gamePool.put(id, gameInfo);
-                    player.waitForMatch();
+                    synchronized (gamePool) {
+                        if (waitingPlayer.get() != null && waitingPlayer.get() != player) {
+                            startGameSession(gameInfo, player, waitingPlayer.get());
+                            waitingPlayer.set(null);
+                        } else {
+                            gamePool.put(id, gameInfo);
+                            player.waitForMatch();
+                        }
+                    }
                 }
             }
             case JOIN_EXISTING -> {
-                GameInfo gameInfo = gamePool.get(gameSettings.getGameID());
+                GameInfo gameInfo;
+                gameInfo = removeFromGamePool(gameSettings.getGameID());
                 if (gameInfo == null) {
-//                    throw new Error("user should get an error");
                     player.error("game does not exist");
                 } else {
-                    GameSession gameSession = new GameSession(gameInfo, getPlayerNet(gameInfo.creatorUsername), player, this);
-                    gameSession.start();
-                    gameSessions.add(gameSession);
-                    gamePool.remove(gameSettings.getGameID());
+                    startGameSession(gameInfo, getPlayerNet(gameInfo.creatorUsername), player);
                 }
             }
             case RESUME -> {
@@ -552,13 +601,18 @@ public class Server implements EnvManager {
     public synchronized void playerDisconnected(Player player, String message) {
         if (player == null || players.stream().noneMatch(p -> p.equals(player)))
             return;
-
+        synchronized (waitingPlayer) {
+            if (waitingPlayer.get() != null && waitingPlayer.get() == player) {
+                waitingPlayer.set(null);
+            }
+        }
         log(player.getUsername() + " disconnected");
         message = StrUtils.isEmpty(message) ? "bye " + player.getUsername() : message;
-        player.disconnect(message);
+        player.disconnect(message, true);
 
         players.remove(player.getUsername());
         gamePool.batchRemove(g -> g.creatorUsername.equals(player.getUsername()));
+
     }
 
     private void startGameVsAi(Player player, GameSettings gameSettings) {
@@ -573,8 +627,19 @@ public class Server implements EnvManager {
             PlayerAI ai = PlayerAI.createPlayerAi(resumingGame.gameSettings.getAiParameters());
             gameSession = new GameSession(resumingGame, player, ai, this);
         }
+        player.setCreatedGameID(gameSession.gameID);
         gameSessions.add(gameSession);
         gameSession.start();
+    }
+
+    private void startGameSession(GameInfo gameInfo, Player creator, Player p2) {
+        GameSession gameSession = new GameSession(gameInfo, creator, p2, this);
+        gameSessions.add(gameSession);
+        gameSession.start();
+    }
+
+    private GameInfo removeFromGamePool(String gameID) {
+        return gamePool.remove(gameID);
     }
 
     private PlayerNet getPlayerNet(String username) {
@@ -609,7 +674,7 @@ public class Server implements EnvManager {
     /**
      * Critical err.
      *
-     * @param err the err
+     * @param err the error
      */
     @Override
     public void criticalErr(MyError err) {

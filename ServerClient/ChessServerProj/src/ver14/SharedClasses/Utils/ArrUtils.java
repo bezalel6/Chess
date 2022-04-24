@@ -5,27 +5,11 @@ import ver14.SharedClasses.Callbacks.ObjCallback;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
- * ArrUtils
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * ArrUtils -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * ArrUtils -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 /**
- * The type Arr utils.
+ * Array Utility Class.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class ArrUtils {
     /**
@@ -59,7 +43,15 @@ public class ArrUtils {
         return lst;
     }
 
-    
+
+    /**
+     * Exists t.
+     *
+     * @param <T>   the type parameter
+     * @param arr   the arr
+     * @param index the index
+     * @return the t
+     */
     public static <T> T exists(T[] arr, int... index) {
         int _index = index.length == 0 ? 0 : index[0];
 

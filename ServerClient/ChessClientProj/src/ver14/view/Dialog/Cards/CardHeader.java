@@ -43,7 +43,7 @@ public class CardHeader extends Header {
     }
 
     public String getCardName() {
-        return cardName;
+        return (cardName);
     }
 
     @Override

@@ -9,29 +9,21 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-/*
- * Board
+/**
+ * Board - represents the logic board of the model
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
-/*
- * Board -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Board -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class Board implements Iterable<Square>, Serializable {
 
-    //    todo turn into a hashmap
+    /**
+     * The constant startingFen.
+     */
+//    todo turn into a hashmap
     public final static String startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+    /**
+     * The constant example.
+     */
     public static final Board example = new Board() {{
         fenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     }};
@@ -39,6 +31,11 @@ public class Board implements Iterable<Square>, Serializable {
 
     private final Map<Location, Square> boardMap;
 
+    /**
+     * Instantiates a new Board.
+     *
+     * @param other the other
+     */
     public Board(Board other) {
         this();
         for (Square square : other) {
@@ -46,6 +43,9 @@ public class Board implements Iterable<Square>, Serializable {
         }
     }
 
+    /**
+     * Instantiates a new Board.
+     */
     public Board() {
         this.boardMap = new HashMap<>();
         for (Location loc : Location.ALL_LOCS) {
@@ -53,20 +53,42 @@ public class Board implements Iterable<Square>, Serializable {
         }
     }
 
+    /**
+     * Sets piece.
+     *
+     * @param loc   the loc
+     * @param piece the piece
+     */
     public void setPiece(Location loc, Piece piece) {
 //        if (Location.isInBounds(loc))
         getSquare(loc).setPiece(piece);
     }
 
+    /**
+     * Gets square.
+     *
+     * @param loc the loc
+     * @return the square
+     */
     public Square getSquare(Location loc) {
         return boardMap.get(loc);
     }
 
+    /**
+     * Instantiates a new Board.
+     *
+     * @param fen the fen
+     */
     public Board(String fen) {
         this();
         fenSetup(fen);
     }
 
+    /**
+     * Fen setup.
+     *
+     * @param fen the fen
+     */
     public void fenSetup(String fen) {
         if (fen == null || fen.trim().equals("")) {
             fen = startingFen;
@@ -97,12 +119,24 @@ public class Board implements Iterable<Square>, Serializable {
         }
     }
 
+    /**
+     * Starting pos board.
+     *
+     * @return the board
+     */
     public static Board startingPos() {
         return new Board() {{
             fenSetup(startingFen);
         }};
     }
 
+    /**
+     * Get row square [ ].
+     *
+     * @param row      the row
+     * @param flipLocs the flip locs
+     * @return the square [ ]
+     */
     public Square[] getRow(int row, boolean flipLocs) {
         Square[] ret = new Square[8];
         IntStream.range(0, 8).forEach(col -> {
@@ -117,33 +151,70 @@ public class Board implements Iterable<Square>, Serializable {
 //        return board;
 //    }
 
+    /**
+     * Gets piece.
+     *
+     * @param loc     the loc
+     * @param notNull the not null
+     * @return the piece
+     */
     public Piece getPiece(Location loc, boolean notNull) {
         Piece ret = getPiece(loc);
         assert !notNull || ret != null;
         return ret;
     }
 
+    /**
+     * Gets piece.
+     *
+     * @param loc the loc
+     * @return the piece
+     */
     public Piece getPiece(Location loc) {
         return getSquare(loc).getPiece();
     }
 
+    /**
+     * Print.
+     */
     public void print() {
         System.out.println(this);
     }
 
+    /**
+     * Iterator iterator.
+     *
+     * @return the iterator
+     */
     @Override
     public Iterator<Square> iterator() {
         return boardMap.values().iterator();
     }
 
+    /**
+     * Sets square empty.
+     *
+     * @param loc the loc
+     */
     public void setSquareEmpty(Location loc) {
         getSquare(loc).setEmpty();
     }
 
+    /**
+     * Is square empty boolean.
+     *
+     * @param loc the loc
+     * @return the boolean
+     */
     public boolean isSquareEmpty(Location loc) {
         return getSquare(loc).isEmpty();
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         String divider = "|";
@@ -151,7 +222,9 @@ public class Board implements Iterable<Square>, Serializable {
 
         ret.append(" ");
         for (int j = 0; j < 8; j++) {
-            ret.append(" ").append((char) ('ａ' + j)).append(" ");
+            char a = 'a';
+            a += j;
+            ret.append(" ").append(a).append(" ");
         }
         ret.append("\n");
 

@@ -25,6 +25,7 @@ public class Scrollable extends JScrollPane {
     public static void applyDefaults(JScrollPane scrollPane, Dimension size) {
         SwingUtilities.invokeLater(() -> {
             try {
+                System.out.println("applying " + size);
                 scrollPane.setSize(size);
                 scrollPane.setPreferredSize(size);
                 scrollPane.setMaximumSize(size);
@@ -38,6 +39,8 @@ public class Scrollable extends JScrollPane {
 
         scrollPane.getVerticalScrollBar().setBlockIncrement(100);
         scrollPane.getVerticalScrollBar().setUnitIncrement(100);
+        scrollPane.getHorizontalScrollBar().setBlockIncrement(100);
+        scrollPane.getHorizontalScrollBar().setUnitIncrement(100);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
@@ -51,6 +54,21 @@ public class Scrollable extends JScrollPane {
         SwingUtilities.invokeLater(() -> {
             verticalScrollBar.revalidate();
             verticalScrollBar.setValue(position);
+        });
+    }
+
+    public void mySetSize(Dimension size) {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                setSize(size);
+                setPreferredSize(size);
+                setMaximumSize(size);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+
         });
     }
 

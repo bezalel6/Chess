@@ -205,10 +205,16 @@ public class BoardButton extends MyJButton {
 
     public synchronized void scaleIcon() {
         if (getIcon() == null || ogQualityIcon == null) return;
+        if (getIcon().getIconWidth() == getIconWidth() && getIcon().getIconHeight() == getIconHeight())
+            return;
         ImageIcon newIcon = IconManager.copyImage(ogQualityIcon);
-        newIcon = IconManager.scaleImage(newIcon, new Size(getIconWidth(), getIconHeight()));
+        newIcon = IconManager.scaleImage(newIcon, getIconSize());
         super.setIcon(newIcon);
         super.setDisabledIcon(newIcon);
+    }
+
+    private Size getIconSize() {
+        return new Size(getIconWidth(), getIconHeight());
     }
 
     @Override

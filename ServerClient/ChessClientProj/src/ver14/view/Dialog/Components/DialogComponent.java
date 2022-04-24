@@ -22,7 +22,8 @@ public abstract class DialogComponent extends WinPnl implements Child {
     }
 
     protected void onUpdate() {
-        parent.onUpdate();
+        if (parent != null)
+            parent.onUpdate();
     }
 
 

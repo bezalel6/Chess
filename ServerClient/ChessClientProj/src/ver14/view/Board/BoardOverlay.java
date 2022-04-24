@@ -2,6 +2,7 @@ package ver14.view.Board;
 
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.Move;
+import ver14.SharedClasses.UI.MyJFrame;
 import ver14.view.View;
 
 import javax.swing.*;
@@ -104,12 +105,47 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return new Polygon(xpoints, ypoints, points.length);
     }
 
+    public ArrayList<MyJFrame.MyAdapter.HeldDown> createClrs() {
+
+        var list = new ArrayList<MyJFrame.MyAdapter.HeldDown>() {
+        };
+
+        keyClrMap.forEach((k, clr) -> list.add(adapter(k)));
+        return list;
+    }
+
+    private MyJFrame.MyAdapter.HeldDown adapter(int key) {
+        return new MyJFrame.MyAdapter.HeldDown() {
+            @Override
+            public void startPress() {
+                pressedKey = key();
+                repaintLayer();
+            }
+
+            @Override
+            public void endPress() {
+                pressedKey = NO_KEY;
+                repaintLayer();
+            }
+
+            @Override
+            public int key() {
+                return key;
+            }
+        };
+    }
+
+    public void repaintLayer() {
+        jlayer.repaint();
+    }
+
     public KeyAdapter createKeyAdapter() {
         return new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 pressedKey = e.getKeyCode();
+                System.out.println("pressed key " + e);
                 repaintLayer();
             }
 
@@ -117,13 +153,10 @@ public class BoardOverlay extends LayerUI<JPanel> {
             public void keyReleased(KeyEvent e) {
                 super.keyReleased(e);
                 pressedKey = NO_KEY;
+                System.out.println("released key " + e);
                 repaintLayer();
             }
         };
-    }
-
-    public void repaintLayer() {
-        jlayer.repaint();
     }
 
     public void setBlockBoard(boolean blockBoard) {
@@ -184,7 +217,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
     }
 
     public Color currentColor() {
-        return pressedKey == NO_KEY || !keyClrMap.containsKey(pressedKey) ? defaultColor : keyClrMap.get(pressedKey);
+        return ((pressedKey == NO_KEY) || !keyClrMap.containsKey(pressedKey)) ? defaultColor : keyClrMap.get(pressedKey);
     }
 
     private Point centerPoint(Point point) {
@@ -258,8 +291,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
-        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
-            debugCurrentMouseInfo(e);
+//        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
+//            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
                 if (hoveredBtn != null)
@@ -272,18 +305,18 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 hoveredBtn = null;
                 break;
             case MouseEvent.MOUSE_PRESSED:
-                if (clickingBtn != null && btn != null && clickingBtn != btn) {
-                    if (!clickingBtn.canMoveTo())
-                        clickingBtn.clickMe();
-                    clickingBtn = null;
-                }
+//                if (clickingBtn != null && btn != null && clickingBtn != btn) {
+//                    if (!clickingBtn.canMoveTo())
+//                        clickingBtn.clickMe();
+//                    clickingBtn = null;
+//                }
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
-                    if (clickingBtn == null && btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
-                        currentDragging = btn;
-                        btn.hideIcon();
-                        btn.clickMe();
-                    }
+//                    if (clickingBtn == null && btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
+//                        currentDragging = btn;
+//                        btn.hideIcon();
+//                        btn.clickMe();
+//                    }
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
                     startDrawing();
                 }
@@ -295,33 +328,35 @@ public class BoardOverlay extends LayerUI<JPanel> {
                     currentDragging.unHideIcon();
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-                        if (isDragging()) {
-                            if (currentlyAbove == currentDragging) {
-                                if (clickingBtn == null)
-                                    clickingBtn = currentlyAbove;
-                                else {
-                                    currentlyAbove.clickMe();
-                                    clickingBtn = null;
-                                }
-                            } else if (currentlyAbove.isEnabled()) {
-                                currentlyAbove.clickMe();
-                            } else {
-                                currentDragging.clickMe();
-                            }
-                        } else if (currentlyAbove.isEnabled()) {
-                            if (clickingBtn == null) {
-                                clickingBtn = currentlyAbove;
-                            } else if (clickingBtn == currentlyAbove) {
-                                clickingBtn.clickMe();
-                                clickingBtn = null;
-                            } else {
-                                currentlyAbove.clickMe();
-                                clickingBtn = null;
-                            }
-                        } else {
-                            clickingBtn = currentDragging = null;
-                        }
-                        currentDragging = null;
+//                        if (isDragging()) {
+//                            if (currentlyAbove == currentDragging) {
+//                                if (clickingBtn == null)
+//                                    clickingBtn = currentlyAbove;
+//                                else {
+//                                    currentlyAbove.clickMe();
+//                                    clickingBtn = null;
+//                                }
+//                            } else if (currentlyAbove.isEnabled()) {
+//                                currentlyAbove.clickMe();
+//                            } else {
+//                                currentDragging.clickMe();
+//                            }
+//                        } else if (currentlyAbove.isEnabled()) {
+//                            if (clickingBtn == null) {
+//                                clickingBtn = currentlyAbove;
+//                            } else if (clickingBtn == currentlyAbove) {
+//                                clickingBtn.clickMe();
+//                                clickingBtn = null;
+//                            } else {
+//                                currentlyAbove.clickMe();
+//                                clickingBtn = null;
+//                            }
+//                        } else {
+//                            clickingBtn = currentDragging = null;
+//                        }
+//                        currentDragging = null;
+                        if (btn.isEnabled())
+                            btn.clickMe();
                         clearAllArrows();
                         view.resetSelectedButtons();
                     }

@@ -505,13 +505,28 @@ public class Client implements EnvManager {
      * @return the game settings
      */
     public GameSettings showGameSettingsDialog() {
-        Question question = new Question("Would you like to play a game?", Question.Answer.YES, Question.Answer.NO);
+        Question.Answer quickMatchVsAi = new Question.Answer("Play Game vs AI");
+        Question.Answer quickMatchVsReal = new Question.Answer("Play Game");
+
+        Question.Answer matchSettings = new Question.Answer("Settings");
+        Question match = new Question("Play Game", quickMatchVsReal, quickMatchVsAi, matchSettings);
+
         CompletableFuture<Question.Answer> futureAns = new CompletableFuture<>();
-        view.askQuestion(question, futureAns::complete);
+        view.askQuestion(match, futureAns::complete);
+
         try {
             Question.Answer answer = futureAns.get();
-            if (answer != Question.Answer.YES) {
-                return null;
+            if (answer.equals(quickMatchVsAi)) {
+                GameSettings settings = new GameSettings();
+                settings.initDefault1vAi();
+                return settings;
+            }
+            if (answer.equals(quickMatchVsReal)) {
+                GameSettings settings = new GameSettings();
+                settings.initDefault1v1();
+                settings.setGameType(GameSettings.GameType.QUICK_MATCH);
+                return settings;
+
             }
             String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
             Properties properties = dialogProperties(msg, "game selection");

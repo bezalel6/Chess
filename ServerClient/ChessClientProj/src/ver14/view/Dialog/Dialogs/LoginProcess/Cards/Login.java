@@ -17,7 +17,7 @@ public class Login extends LoginCard {
 
     private final UsernamePnl usernamePnl;
     private final PasswordPnl passwordPnl;
-    private ArrayList<Set<Integer>> removeAdapters = new ArrayList<>();
+    private final ArrayList<Set<Integer>> removeAdapters = new ArrayList<>();
 
     public Login(LoginProcess parentDialog, LoginInfo loginInfo) {
         super(new CardHeader("Login"), parentDialog, loginInfo, LoginType.LOGIN);
@@ -26,27 +26,29 @@ public class Login extends LoginCard {
         this.passwordPnl = new PasswordPnl(false, loginInfo, parentDialog);
         addDialogComponent(usernamePnl);
         addDialogComponent(passwordPnl);
+
+        setPreferredSize(new Size(300, 400));
     }
 
+
     @Override
-    public void shown() {
-        super.shown();
+    public void displayed() {
+        super.displayed();
         removeAdapters.add(parentDialog.keyAdapter().addAction(() -> {
             ((LoginProcess) parentDialog).getLoginInfo().initDebugLoginValues();
-            usernamePnl.setValue(((LoginProcess) parentDialog).getLoginInfo().getUsername());
-            passwordPnl.setValue(((LoginProcess) parentDialog).getLoginInfo().getPassword());
+            refreshValues((LoginProcess) parentDialog);
 //            onOk();
         }, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_F));
+    }
+
+    protected void refreshValues(LoginProcess loginProcess) {
+        usernamePnl.setValue(loginProcess.getLoginInfo().getUsername());
+        passwordPnl.setValue(loginProcess.getLoginInfo().getPassword());
     }
 
     @Override
     public void onBack() {
         removeAdapters.forEach(parentDialog.keyAdapter()::removeAction);
         super.onBack();
-    }
-
-    @Override
-    public Size getPreferredSize() {
-        return new Size(300);
     }
 }

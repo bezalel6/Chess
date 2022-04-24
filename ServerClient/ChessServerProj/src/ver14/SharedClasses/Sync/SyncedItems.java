@@ -62,7 +62,7 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
         this.onUpdate = onUpdate;
     }
 
-    public void forEachItem(Callback<E> action) {
+    public synchronized void forEachItem(Callback<E> action) {
         values().forEach(action::callback);
     }
 
@@ -80,34 +80,33 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
         adding.forEach(val -> add((E) val));
     }
 
-    public void add(E value) {
+    public synchronized void add(E value) {
         put(value);
     }
 
-    public SyncableItem put(E value) {
+    public synchronized SyncableItem put(E value) {
         return put(value.ID(), value);
     }
 
     @Override
-    public E put(@NotNull String key, @NotNull E value) {
+    public synchronized E put(@NotNull String key, @NotNull E value) {
         E ret = super.put(key, value);
         updated();
         return ret;
     }
 
     @Override
-    public E remove(Object key) {
+    public synchronized E remove(Object key) {
         E ret = super.remove(key);
         if (ret != null) updated();
         return ret;
     }
 
     @Override
-    public boolean remove(Object key, Object value) {
+    public synchronized boolean remove(Object key, Object value) {
 
         boolean ret = super.remove(key, value);
-        if (ret)
-            updated();
+        updated();
 
         assert ret;
         return true;

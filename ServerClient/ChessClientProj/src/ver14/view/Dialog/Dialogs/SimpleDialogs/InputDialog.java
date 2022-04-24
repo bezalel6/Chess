@@ -32,7 +32,9 @@ public class InputDialog extends CustomDialog {
     }
 
     @Override
-    protected Dimension dialogSize() {
+    public Dimension getPreferredSize() {
         return new Size(450);
+
     }
+
 }

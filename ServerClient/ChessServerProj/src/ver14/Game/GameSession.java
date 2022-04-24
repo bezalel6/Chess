@@ -78,7 +78,7 @@ public class GameSession extends HandledThread implements SyncableItem {
 
         addHandler(MyError.DisconnectedError.class, e -> {
             if (e instanceof Game.PlayerDisconnectedError playerDisconnected) {
-                game.interruptRead(playerDisconnected.createGameStatus());
+                game.interrupt(playerDisconnected.createGameStatus());
             } else throw new MyError(e);
         });
     }
@@ -89,13 +89,10 @@ public class GameSession extends HandledThread implements SyncableItem {
 
     @Override
     public void handledRun() {
-        GameStatus gameOver;
-
         do {
-            gameOver = game.startNewGame();
+            GameStatus gameOver = game.startNewGame();
             saveGame(gameOver);
-            GameStatus finalGameOver = gameOver;
-            game.parallelForEachPlayer(player -> player.gameOver(finalGameOver));
+            game.parallelForEachPlayer(player -> player.gameOver(gameOver));
             if (gameOver.isDisconnected())
                 break;
         } while (askForRematch());
@@ -157,6 +154,7 @@ public class GameSession extends HandledThread implements SyncableItem {
         CompletableFuture<Boolean> rematch = new CompletableFuture<>();
 
         AtomicReference<Player> canceledPlayer = new AtomicReference<>();
+        log("asking rematch");
         getPlayers().forEach(player -> {
             player.askQuestion(Question.Rematch, ans -> {
                 synchronized (atomicBoolean) {
@@ -206,7 +204,7 @@ public class GameSession extends HandledThread implements SyncableItem {
     }
 
     public void playerDisconnected(Player player) {
-        game.interruptRead(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
+        game.interrupt(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
     }
 
     @Override
@@ -225,7 +223,7 @@ public class GameSession extends HandledThread implements SyncableItem {
     }
 
     public void resigned(Player player) {
-        game.interruptRead(GameStatus.playerResigned(player.getPlayerColor()));
+        game.interrupt(GameStatus.playerResigned(player.getPlayerColor()));
     }
 
     public String sessionsDesc() {
@@ -243,12 +241,16 @@ public class GameSession extends HandledThread implements SyncableItem {
     private AnswerCallback getAnswerHandler(Question question) {
         return switch (question.questionType) {
             case DRAW_OFFER -> ans -> {
-                if (ans == Question.Answer.ACCEPT) {
-                    game.interruptRead(GameStatus.tieByAgreement());
+                if (ans.equals(Question.Answer.ACCEPT)) {
+                    game.interrupt(GameStatus.tieByAgreement());
                 }
             };
             case THREEFOLD -> null;
             default -> null;
         };
+    }
+
+    public void serverStop(String cause) {
+        game.interrupt(GameStatus.serverStoppedGame(cause));
     }
 }

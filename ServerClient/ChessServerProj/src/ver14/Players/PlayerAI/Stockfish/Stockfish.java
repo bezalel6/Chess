@@ -76,6 +76,7 @@ public class Stockfish {
      */
     public boolean startEngine() {
         try {
+            System.out.println("stockfish starting");
             engineProcess = Runtime.getRuntime().exec(PATH);
             processReader = new BufferedReader(new InputStreamReader(
                     engineProcess.getInputStream()));

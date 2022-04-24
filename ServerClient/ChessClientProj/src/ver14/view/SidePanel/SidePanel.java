@@ -78,13 +78,8 @@ public class SidePanel extends JPanel {
 
         int wY, bY;
         int bottomY = 6;
-//        if (isFlipped) {
-//            wY = 0;
-//            bY = bottomY;
-//        } else {
         wY = bottomY;
         bY = 0;
-//        }
 
         gbc.gridx = 0;
         gbc.gridy = bY;
@@ -92,11 +87,8 @@ public class SidePanel extends JPanel {
 
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(gameActions, gbc);
-
-//        gbc.gridx = 2;
-//        gbc.gridy = 1;
-//        add(addTimeBtn, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -196,6 +188,10 @@ public class SidePanel extends JPanel {
             currentTimer.stop();
         }
         currentlyRunningClr = null;
+    }
+
+    public GameActions getGameActions() {
+        return gameActions;
     }
 
 }

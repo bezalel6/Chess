@@ -5,7 +5,6 @@ import ver14.SharedClasses.Login.LoginType;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.IconManager.Size;
 
 public abstract class LoginCard extends DialogCard {
     protected final LoginInfo loginInfo;
@@ -23,9 +22,4 @@ public abstract class LoginCard extends DialogCard {
         super.onOk();
     }
 
-
-    @Override
-    public Size getPreferredSize() {
-        return new Size(300);
-    }
 }

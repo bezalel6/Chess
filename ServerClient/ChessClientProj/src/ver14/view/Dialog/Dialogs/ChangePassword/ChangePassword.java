@@ -10,6 +10,7 @@ import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;
 import ver14.view.Dialog.Properties;
+import ver14.view.IconManager.Size;
 
 public class ChangePassword extends Dialog implements BackOkInterface {
     private final LoginInfo newInfo;
@@ -39,6 +40,8 @@ public class ChangePassword extends Dialog implements BackOkInterface {
 
         DialogCard card = SimpleDialogCard.create(new CardHeader("change password"), this, this, confirmCurrentPassword, newPwPnl, confirmNewPassword);
         cardsSetup(null, card);
+
+        setPreferredSize(new Size(350, 400));
     }
 
 

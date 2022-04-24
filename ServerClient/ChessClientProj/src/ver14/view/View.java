@@ -59,7 +59,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
     static {
         GraphicsEnvironment gbd = GraphicsEnvironment.getLocalGraphicsEnvironment();
         Dimension d = gbd.getScreenDevices()[0].getDefaultConfiguration().getBounds().getSize();
-        winSize = new Dimension((int) (d.width / 3), (int) (d.height / 2));
+        int div = 2;
+        winSize = new Dimension((int) (d.width / 2.5), (int) (d.height / div));
 
         FlatLightLaf.setup();
     }
@@ -105,12 +106,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
                 setForeground(Color.BLACK);
                 setSize(winSize);
                 setLocationRelativeTo(null);
-                setOnExit(client::disconnectFromServer);
+                setOnExit((BooleanClosing) client::disconnectFromServer);
                 setOnResize(View.this::winResized);
-
-                getMyAdapter().addAction(() -> {
-
-                }, KeyEvent.VK_CONTROL, KeyEvent.VK_F, KeyEvent.VK_E, KeyEvent.VK_N);
 
                 getMyAdapter().addAction(client::makeRandomMove, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_R);
 //                setCursor(Toolkit.getDefaultToolkit().createCustomCursor(IconManager.dynamicStatisticsIcon.getHover().getImage(), new Point(0, 0), "My Cursor"));
@@ -144,7 +141,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
     private void addWinListeners() {
         win.addKeyListener(sidePanel.moveLog.createNavAdapter());
-        win.addKeyListener(boardPnl.getBoardOverlay().createKeyAdapter());
+        boardPnl.getBoardOverlay().createClrs().forEach(win.getMyAdapter()::addHeldDown);
+//        win.addKeyListener(boardPnl.getBoardOverlay().createKeyAdapter());
     }
 
     private void winResized() {
@@ -488,6 +486,9 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
     }
 
     public void gameOver(GameStatus gameOverStatus) {
+        sidePanel.stopRunningTime();
+        sidePanel.askPlayerPnl.removeQuestion(Question.QuestionType.DRAW_OFFER);
+
         enableAllSquares(false);
         setStatusLbl("Game Over " + gameOverStatus.getDetailedStr(client.getPlayerUsernames()), statusLblHighlightClr);
         sidePanel.enableBtns(false);
@@ -506,7 +507,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
         WinPnl pnl = new WinPnl();
-        pnl.setInsets(new Insets(10, 10, 10, 10));
+//        pnl.setInsets(new Insets(10, 10, 10, 10));
 //        pnl.setLayout(new BoxLayout(pnl, BoxLayout.Y_AXIS));
 
         respondingTo = StrUtils.format(respondingTo);
@@ -524,6 +525,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
     private JComponent createSingleComp(DBResponse _response) {
         if (_response instanceof TableDBResponse response) {
+//            System.out.println(response);
             Header header = new Header(response.getRequest().getBuilder().getPostDescription());
             String[][] rowData = response.getRows();
             String[] colsNames = StrUtils.format(response.getColumns());
@@ -542,7 +544,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 //                });
             }};
             int spacing = -25;
-            Scrollable.applyDefaults(scrollPane, table.getComputedSize().padding(new Insets(spacing, spacing, spacing, spacing)));
+            Scrollable.applyDefaults(scrollPane, table.getComputedSize().padding(spacing));
             return new WinPnl(header) {{
 //                add(scrollPane);
                 add(scrollPane);
@@ -551,7 +553,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         } else if (_response instanceof GraphableDBResponse response) {
             return Graph.createGraph(response);
         } else if (_response instanceof StatusResponse response) {
-            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageCard.MessageType.INFO : MessageCard.MessageType.ERROR);
+            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageCard.MessageType.INFO : MessageCard.MessageType.ERROR, new Size(400));
         }
         return null;
     }

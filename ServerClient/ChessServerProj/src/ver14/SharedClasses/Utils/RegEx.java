@@ -9,26 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-/*
- * RegEx
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * RegEx -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * RegEx -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
-//ew
 public class RegEx implements Serializable {
     public static final RegEx Fen = new RegEx("^$|\\s*([rnbqkpRNBQKP1-8]+\\/){7}([rnbqkpRNBQKP1-8]+)\\s[bw-]\\s(([a-hkqA-HKQ]{1,4})|(-))\\s(([a-h][36])|(-))\\s\\d+\\s\\d+\\s*", "standard fen");
 
@@ -57,7 +37,7 @@ public class RegEx implements Serializable {
 
 
     public static final RegEx Any = new RegEx("", "");
-    
+
     public final String[] dontMatch;
     private final String details;
     private final @Language("RegExp")

@@ -27,17 +27,17 @@ import java.util.Map;
  */
 
 public class GameStatus implements Serializable {
-
     private final PlayerColor winningPlayerColor;
     private final SpecificStatus specificStatus;
     private int depth = -1;
     private Location checkedKingLoc = null;
     private GameStatusType gameStatusType;
+    private String customStr = null;
+
 
     private GameStatus(SpecificStatus specificStatus) {
         this(null, specificStatus);
     }
-
 
     private GameStatus(PlayerColor winningPlayerColor, SpecificStatus specificStatus) {
         this.specificStatus = specificStatus;
@@ -67,8 +67,14 @@ public class GameStatus implements Serializable {
         return new GameStatus(SpecificStatus.FiftyMoveRule);
     }
 
-    public static GameStatus serverStoppedGame() {
-        return new GameStatus(SpecificStatus.ServerStoppedGame);
+    public static GameStatus serverStoppedGame(String cause) {
+        return new GameStatus(SpecificStatus.ServerStoppedGame) {{
+            setCustomStr("Game Stopped By Server! " + cause);
+        }};
+    }
+
+    public void setCustomStr(String customStr) {
+        this.customStr = customStr;
     }
 
     public static GameStatus threeFoldRepetition() {
@@ -83,8 +89,8 @@ public class GameStatus implements Serializable {
         return new GameStatus(disconnectedPlayer.getOpponent(), isVsAi ? SpecificStatus.PlayerDisconnectedVsAi : SpecificStatus.PlayerDisconnectedVsReal);
     }
 
-    public static GameStatus timedOut(PlayerColor timedOutPlayer) {
-        return new GameStatus(timedOutPlayer.getOpponent(), SpecificStatus.TimedOut);
+    public static GameStatus timedOut(PlayerColor timedOutPlayer, boolean isSufficientMaterial) {
+        return new GameStatus(timedOutPlayer.getOpponent(), isSufficientMaterial ? SpecificStatus.TimedOut : SpecificStatus.TimedOutVsInsufficientMaterial);
     }
 
     public static GameStatus playerResigned(PlayerColor resignedPlayer) {
@@ -92,7 +98,7 @@ public class GameStatus implements Serializable {
     }
 
     public boolean isDisconnected() {
-        return specificStatus == SpecificStatus.PlayerDisconnectedVsAi || specificStatus == SpecificStatus.PlayerDisconnectedVsReal;
+        return specificStatus == SpecificStatus.ServerStoppedGame || specificStatus == SpecificStatus.PlayerDisconnectedVsAi || specificStatus == SpecificStatus.PlayerDisconnectedVsReal;
     }
 
     public Location getCheckedKingLoc() {
@@ -125,6 +131,8 @@ public class GameStatus implements Serializable {
     }
 
     public String getDetailedStr(Map<PlayerColor, String> playerUsernamesMap) {
+        if (!StrUtils.isEmpty(customStr))
+            return customStr;
         String winning = "";
         if (winningPlayerColor != null) {
             winning = playerUsernamesMap == null ? winningPlayerColor.getName() : playerUsernamesMap.get(winningPlayerColor);
@@ -158,6 +166,12 @@ public class GameStatus implements Serializable {
                 return "Time Out";
             }
         },
+        TimedOutVsInsufficientMaterial(GameStatusType.TIE) {
+            @Override
+            public String toString() {
+                return "Time Out vs Insufficient Material";
+            }
+        },
         Resignation,
         GameGoesOn(GameStatusType.GAME_GOES_ON),
         ThreeFoldRepetition(GameStatusType.TIE),
@@ -173,7 +187,7 @@ public class GameStatus implements Serializable {
         PlayerDisconnectedVsAi(GameStatusType.UNFINISHED) {
             @Override
             public String toString() {
-                return "Disconnected";
+                return "Player Disconnected";
             }
         },
         PlayerDisconnectedVsReal {
@@ -182,7 +196,7 @@ public class GameStatus implements Serializable {
                 return "Other Player Disconnected";
             }
         },
-        ServerStoppedGame(GameStatusType.UNFINISHED);
+        ServerStoppedGame(GameStatusType.TIE);
         public final GameStatusType gameStatusType;
 
         SpecificStatus() {

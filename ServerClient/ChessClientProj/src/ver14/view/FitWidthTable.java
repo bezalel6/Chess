@@ -46,6 +46,7 @@ public class FitWidthTable extends JTable {
         }
         h = getRowCount() * getRowHeight();
         computedSize = new Size(w, h);
+        System.out.println("table computed size = " + computedSize);
     }
 
     private int calcWidth(TableCellRenderer renderer, int r, int c, int currentW) {

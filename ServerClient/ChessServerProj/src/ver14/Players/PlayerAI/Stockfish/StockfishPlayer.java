@@ -48,7 +48,7 @@ public class StockfishPlayer extends PlayerAI {
     }
 
     @Override
-    public void disconnect(String cause) {
+    public void disconnect(String cause, boolean notifyGameSession) {
         stockfish.stopEngine();
     }
 

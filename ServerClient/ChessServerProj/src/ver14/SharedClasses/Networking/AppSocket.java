@@ -89,10 +89,16 @@ public class AppSocket extends MyThread {
 
     public void close(MyError err) {
         ErrorHandler.ignore(() -> {
-//            if (isConnected())
-//                writeMessage(Message.throwError(err));
+            interruptListener(err);
             msgSocket.close();  // will close the IS & OS streams
         });
+    }
+
+    /**
+     * Interrupt listener.
+     */
+    public void interruptListener(MyError err) {
+        messagesHandler.interruptBlocking(err);
     }
 
     /**
@@ -224,13 +230,6 @@ public class AppSocket extends MyThread {
         System.out.println("stopping reading");
         didDisconnect = true;
         interruptListener(null);
-    }
-
-    /**
-     * Interrupt listener.
-     */
-    public void interruptListener(MyError err) {
-        messagesHandler.interruptBlocking(err);
     }
 
     public static class AppSocketError extends MyError.DisconnectedError {

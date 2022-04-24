@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 public class AskPlayer extends Scrollable {
     //including empty flahses between
 
-    private final static Size size = new Size(300, 120);
+    private final static Size size = new Size(200, 200);
     private final static int numOfFlashes = 8;
     private final static int flashesDelay = 200;
     private final static int borderThickness = 3;
@@ -127,6 +127,10 @@ public class AskPlayer extends Scrollable {
         return size;
     }
 
+    public void removeQuestion(Question.QuestionType questionType) {
+        shownQuestions.stream().filter(p -> p.question.questionType.equals(questionType)).findAny().ifPresent(this::removeQuestion);
+    }
+
     public void removeQuestion(QuestionPnl pnl) {
         content.removeContentComponent(pnl);
         shownQuestions.remove(pnl);
@@ -135,11 +139,15 @@ public class AskPlayer extends Scrollable {
 
     }
 
+    public void removeQuestion(Question question) {
+        shownQuestions.stream().filter(p -> p.question.equals(question)).findAny().ifPresent(this::removeQuestion);
+    }
+
     public class QuestionPnl extends WinPnl {
         private final Question question;
 
         public QuestionPnl(Question question, AnswerCallback callback) {
-            super(WinPnl.ALL_IN_ONE_ROW, new Header(question.questionStr));
+            super(1, new Header(question.questionStr));
             this.question = question;
             for (Question.Answer answer : question.getPossibleAnswers()) {
                 add(createBtn(answer, callback));
@@ -147,7 +155,7 @@ public class AskPlayer extends Scrollable {
         }
 
         private MyJButton createBtn(Question.Answer answer, AnswerCallback onAns) {
-            return new MyJButton(answer.answerStr, SidePanel.font, () -> {
+            return new MyJButton(answer.answerStr(), SidePanel.font, () -> {
                 removeQuestion(this);
                 onAns.callback(answer);
 //                    showPnl(false);

@@ -41,6 +41,7 @@ public abstract class Player {
     protected PlayerColor playerColor;
     protected Player partner = null;
     private String username;
+    private String createdGameID;
 
     public Player(String id) {
         this.username = id;
@@ -85,6 +86,14 @@ public abstract class Player {
 
     protected abstract void initGame();
 
+    public String getCreatedGameID() {
+        return createdGameID;
+    }
+
+    public void setCreatedGameID(String createdGameID) {
+        this.createdGameID = createdGameID;
+    }
+
     public abstract void error(String error);
 
     public abstract Move getMove();
@@ -106,7 +115,7 @@ public abstract class Player {
 
     public abstract void interrupt(MyError error);
 
-    public abstract void disconnect(String cause);
+    public abstract void disconnect(String cause, boolean notifyGameSession);
 
     public abstract void waitForMatch();
 
@@ -139,5 +148,9 @@ public abstract class Player {
 
     public boolean isConnected() {
         return true;
+    }
+
+    public boolean isPlaying() {
+        return gameSession != null;
     }
 }

@@ -160,7 +160,7 @@ public class GameSettings implements Serializable, TimeFormatSettable {
     }
 
     public enum GameType {
-        JOIN_EXISTING, RESUME, CREATE_NEW;
+        JOIN_EXISTING, RESUME, CREATE_NEW, QUICK_MATCH;
 
     }
 }

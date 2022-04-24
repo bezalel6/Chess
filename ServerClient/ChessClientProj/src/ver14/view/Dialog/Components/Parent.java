@@ -40,7 +40,6 @@ public interface Parent {
     default void scrollToTop() {
         if (this instanceof Child child)
             child.parent().scrollToTop();
-        System.out.println("im trying");
     }
 
     default boolean tryCancel() {
@@ -67,4 +66,7 @@ public interface Parent {
     BackOkPnl backOkPnl();
 
     void addOnClose(VoidCallback callback);
+
+    default void enableNavBtn(boolean b) {
+    }
 }

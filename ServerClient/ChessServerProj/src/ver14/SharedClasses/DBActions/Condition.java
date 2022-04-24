@@ -67,7 +67,7 @@ public class Condition implements Serializable {
     }
 
     /**
-     * @return <h1>THIS</h1>
+     * @return THIS
      */
     public Condition add(Condition condition, Relation relation, boolean wrap) {
         str += " " + relation + " " + condition.str;

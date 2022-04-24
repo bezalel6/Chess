@@ -1,24 +1,11 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
-/*
- * EnvManager -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
-/*
- * EnvManager -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * EnvManager
+/**
+ * Env manager - an object that can handle errors as they occur.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public interface EnvManager {
     /**
      * notifies manager of a managed error

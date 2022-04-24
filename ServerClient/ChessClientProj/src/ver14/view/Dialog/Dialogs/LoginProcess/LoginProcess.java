@@ -8,6 +8,7 @@ import ver14.view.Dialog.Dialogs.LoginProcess.Cards.Guest;
 import ver14.view.Dialog.Dialogs.LoginProcess.Cards.Login;
 import ver14.view.Dialog.Dialogs.LoginProcess.Cards.Register;
 import ver14.view.Dialog.Properties;
+import ver14.view.IconManager.Size;
 
 public class LoginProcess extends Dialog {
     private final LoginInfo loginInfo;
@@ -24,10 +25,10 @@ public class LoginProcess extends Dialog {
                 new CancelAndExit(this, loginInfo)
         };
 
-        navigationCardSetup(cards);
+        navigationCardSetup(new Size(300, 350), cards);
     }
 
-//    @Override
+    //    @Override
 //    public BackOkPnl backOkPnl() {
 //        return null;
 //    }

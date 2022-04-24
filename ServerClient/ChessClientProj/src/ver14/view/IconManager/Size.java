@@ -35,7 +35,7 @@ public class Size extends Dimension {
         return new Size(Math.min(size.height, size.width));
     }
 
-    public static Dimension max(Dimension size) {
+    public static Size max(Dimension size) {
         return new Size(Math.max(size.height, size.width));
     }
 
@@ -43,8 +43,12 @@ public class Size extends Dimension {
         return new Size(d.width + add, d.height + add);
     }
 
-    public static Dimension min(Dimension size1, Size size2) {
-        return size1.width + size1.height > size2.height + size2.width ? size1 : size2;
+    public static Size min(Dimension size1, Dimension size2) {
+        return new Size(size1.width + size1.height > size2.height + size2.width ? size2 : size1);
+    }
+
+    public static Size maxCombo(Dimension size1, Dimension size2) {
+        return new Size(Math.max(size1.width, size2.width), Math.max(size1.height, size2.height));
     }
 
     @Override
@@ -52,8 +56,22 @@ public class Size extends Dimension {
         return super.toString();
     }
 
+    public Size padding(int padding) {
+        return padding(MyInsets.insets(padding));
+    }
+
     public Size padding(Insets insets) {
         return new Size(width - (insets.left + insets.right), height - (insets.top + insets.bottom));
+    }
+
+    public Size add(Dimension size) {
+        return new Size(width + size.width, height + size.height);
+    }
+
+    public static class MyInsets {
+        public static Insets insets(int a) {
+            return new Insets(a, a, a, a);
+        }
     }
 
     public Dimension createMinCombo(Dimension other) {

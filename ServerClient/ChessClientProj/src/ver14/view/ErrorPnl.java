@@ -34,11 +34,7 @@ public class ErrorPnl extends JPanel {
 
         add(jTextArea, BorderLayout.CENTER);
     }
-
-    @Override
-    public Dimension getPreferredSize() {
-        return super.getPreferredSize();
-    }
+    
 
     public boolean verify(Verified comp) {
         boolean verified = comp.verify();

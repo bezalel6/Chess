@@ -6,6 +6,7 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.Networking.Messages.MessageType;
 import ver14.SharedClasses.Networking.MessagesHandler;
@@ -59,12 +60,6 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     @Override
-    public void onUnplannedDisconnect() {
-        client.disconnectedFromServer();
-        super.onUnplannedDisconnect();
-    }
-
-    @Override
     public void onAnyMsg(Message message) {
         super.onAnyMsg(message);
         MessageType messageType = message.getMessageType();
@@ -79,6 +74,12 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         client.updateGameTime(message);
 
+    }
+
+    @Override
+    public void onUnplannedDisconnect() {
+        client.disconnectedFromServer();
+        super.onUnplannedDisconnect();
     }
 
     @Override
@@ -179,7 +180,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onError() {
         return message -> {
             super.onError().onMsg(message);
-            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ERROR);
+            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ServerError);
         };
     }
 
@@ -187,8 +188,17 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onQuestion() {
         return message -> {
             super.onQuestion().onMsg(message);
-            view.askQuestion(message.getQuestion(), answer -> {
+            Question question = message.getQuestion();
+            Boolean drawOfferBtn = null;
+            if (question.questionType == Question.QuestionType.DRAW_OFFER) {
+                drawOfferBtn = view.getSidePanel().getGameActions().enableDrawOfferBtn(false);
+            }
+            Boolean finalDrawOfferBtn = drawOfferBtn;
+            view.askQuestion(question, answer -> {
                 socket.writeMessage(Message.answerQuestion(answer, message));
+                if (finalDrawOfferBtn != null && answer != Question.Answer.ACCEPT) {
+                    view.getSidePanel().getGameActions().enableDrawOfferBtn(finalDrawOfferBtn);
+                }
             });
         };
     }

@@ -8,37 +8,29 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static java.awt.event.KeyEvent.*;
 
-/*
- * MyJFrame
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
 
-/*
- * MyJFrame -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
+/**
+ * The type My j frame.
  */
-
-/*
- * MyJFrame -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class MyJFrame extends JFrame {
-    private static final int delayInMs = 100;
+    private static final int resizeDelayInMs = 100;
 
     private final MyAdapter myAdapter;
-    private boolean isSleeping = false;
-    private boolean confirmExit = false;
-    private VoidCallback onClose = () -> {
-    };
+    /**
+     * The On close.
+     */
+    protected Closing<?> onClose = null;
 
+    /**
+     * Instantiates a new My j frame.
+     *
+     * @throws HeadlessException the headless exception
+     */
     public MyJFrame() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.myAdapter = debugAdapter(this);
@@ -47,6 +39,12 @@ public class MyJFrame extends JFrame {
         }, VK_F11);
     }
 
+    /**
+     * Debug adapter my adapter.
+     *
+     * @param addTo the add to
+     * @return the my adapter
+     */
     public static MyAdapter debugAdapter(Window addTo) {
 
         MyAdapter adapter = new MyAdapter() {{
@@ -75,16 +73,22 @@ public class MyJFrame extends JFrame {
         }
     }
 
+    /**
+     * Gets my adapter.
+     *
+     * @return the my adapter
+     */
     public MyAdapter getMyAdapter() {
         return myAdapter;
     }
 
-    public void setOnExit(VoidCallback onClose) {
-        setOnExit(true, onClose);
-    }
 
-    public void setOnExit(boolean confirmExit, VoidCallback onClose) {
-        this.confirmExit = confirmExit;
+    /**
+     * Sets on exit.
+     *
+     * @param onClose the on close
+     */
+    public void setOnExit(Closing<?> onClose) {
         this.onClose = onClose;
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -95,41 +99,186 @@ public class MyJFrame extends JFrame {
         });
     }
 
+    /**
+     * Do x click.
+     */
     public void doXClick() {
-        if (!confirmExit || ConfirmDialogs.confirm(MyJFrame.this, "Exit Confirmation", "Are You Sure You Want To Exit?", null))
-            onClose.callback();
+        if (onClose != null)
+            onClose.tryClose();
     }
 
+    /**
+     * Sets on resize.
+     *
+     * @param onResize the on resize
+     */
     public void setOnResize(VoidCallback onResize) {
-        getRootPane().addComponentListener(new ComponentAdapter() {
-            public void componentResized(ComponentEvent e) {
-                if (isSleeping)
-                    return;
-                isSleeping = true;
+        addResizeEvent(getRootPane(), onResize);
+    }
 
-                new Thread(() -> {
+    public static void addResizeEvent(JRootPane rootPane, VoidCallback onResize) {
+        final boolean[] isSleeping = {false};
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        rootPane.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                if (isSleeping[0])
+                    return;
+                isSleeping[0] = true;
+
+                executor.submit(() -> {
                     try {
-                        Thread.sleep(delayInMs);
+                        Thread.sleep(resizeDelayInMs);
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
                     onResize.callback();
-                    isSleeping = false;
-                }).start();
+                    isSleeping[0] = false;
+                });
             }
         });
     }
 
+    /**
+     * The interface Closing.
+     *
+     * @param <T> the type parameter
+     */
+    public interface Closing<T> {
+        /**
+         * The constant title.
+         */
+        String title = "Exit Confirmation";
+        /**
+         * The constant header.
+         */
+        String header = "Are You Sure You Want To Exit?";
+        /**
+         * The constant icon.
+         */
+        ImageIcon icon = null;
+
+        /**
+         * Try close.
+         */
+        default void tryClose() {
+            T t = show();
+            if (checkClosingVal(t))
+                closing(t);
+        }
+
+        /**
+         * Show t.
+         *
+         * @return the t
+         */
+        T show();
+
+        /**
+         * Check closing val boolean.
+         *
+         * @param val the val
+         * @return the boolean
+         */
+        boolean checkClosingVal(T val);
+
+        /**
+         * Closing.
+         *
+         * @param val the val
+         */
+        void closing(T val);
+    }
+
+    /**
+     * The interface Boolean closing.
+     */
+    public interface BooleanClosing extends Closing<Boolean> {
+
+        /**
+         * Show boolean.
+         *
+         * @return the boolean
+         */
+        default Boolean show() {
+            return ConfirmDialogs.confirm(null, title, header, icon);
+        }
+
+        ;
+
+        /**
+         * Check closing val boolean.
+         *
+         * @param val the val
+         * @return the boolean
+         */
+        @Override
+        default boolean checkClosingVal(Boolean val) {
+            return val;
+        }
+
+        @Override
+        default void closing(Boolean val) {
+            if (val)
+                closing();
+        }
+
+        /**
+         * Closing.
+         */
+        void closing();
+    }
+
+    /**
+     * The interface String closing.
+     */
+    public interface StringClosing extends Closing<String> {
+
+        /**
+         * Show string.
+         *
+         * @return the string
+         */
+        default String show() {
+            return ConfirmDialogs.confirm(null, title, header, "Enter closing reason", icon, initialValue());
+        }
+
+        /**
+         * Check closing val boolean.
+         *
+         * @param val the val
+         * @return the boolean
+         */
+        @Override
+        default boolean checkClosingVal(String val) {
+            return val != null;
+        }
+
+        String initialValue();
+    }
+
+
+    /**
+     * The type My adapter.
+     */
     public static class MyAdapter extends KeyAdapter {
         private static final long coolDown = 1000;
         private final Set<Integer> pressedKeys = new HashSet<>();
+        private final Map<Integer, HeldDown> heldDownMap = new HashMap<>();
         private final Map<Set<Integer>, VoidCallback> actions = new HashMap<>();
         private Integer lastPressedKey = null;
         private long lastPressedTime = 0;
 
+        /**
+         * Key pressed.
+         *
+         * @param e the e
+         */
         @Override
         public void keyPressed(KeyEvent e) {
             super.keyPressed(e);
+            if (!pressedKeys.contains(e.getKeyCode()) && heldDownMap.containsKey(e.getKeyCode())) {
+                heldDownMap.get(e.getKeyCode()).startPress();
+            }
             pressedKeys.add(e.getKeyCode());
             if (lastPressedKey != null && e.getKeyCode() == lastPressedKey && System.currentTimeMillis() - lastPressedTime <= coolDown) {
                 return;
@@ -143,22 +292,73 @@ public class MyJFrame extends JFrame {
 
         }
 
+        /**
+         * Key released.
+         *
+         * @param e the e
+         */
         @Override
         public void keyReleased(KeyEvent e) {
             super.keyReleased(e);
+            if (pressedKeys.contains(e.getKeyCode()) && heldDownMap.containsKey(e.getKeyCode())) {
+                heldDownMap.get(e.getKeyCode()).endPress();
+            }
             pressedKeys.remove(e.getKeyCode());
-            lastPressedKey = e.getKeyCode() == lastPressedKey ? null : lastPressedKey;
+            lastPressedKey = (lastPressedKey != null && e.getKeyCode() == lastPressedKey) ? null : lastPressedKey;
         }
 
+        /**
+         * Add held down.
+         *
+         * @param heldDown the held down
+         */
+        public void addHeldDown(HeldDown heldDown) {
+            heldDownMap.put(heldDown.key(), heldDown);
+        }
+
+        /**
+         * Add action set.
+         *
+         * @param action the action
+         * @param keys   the keys
+         * @return the set
+         */
         public Set<Integer> addAction(VoidCallback action, Integer... keys) {
             Set<Integer> ret = new HashSet<>(List.of(keys));
             actions.put(ret, action);
             return ret;
         }
 
-
+        /**
+         * Remove action.
+         *
+         * @param action the action
+         */
         public void removeAction(Set<Integer> action) {
             actions.remove(action);
+        }
+
+
+        /**
+         * The interface Held down.
+         */
+        public interface HeldDown {
+            /**
+             * Start press.
+             */
+            void startPress();
+
+            /**
+             * End press.
+             */
+            void endPress();
+
+            /**
+             * Key int.
+             *
+             * @return the int
+             */
+            int key();
         }
 
     }

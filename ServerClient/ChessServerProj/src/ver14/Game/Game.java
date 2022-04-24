@@ -1,5 +1,6 @@
 package ver14.Game;
 
+import ver14.Model.Eval.Eval;
 import ver14.Model.Model;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
@@ -216,7 +217,7 @@ public class Game {
                 try {
                     Thread.sleep(gameTime.getTimeLeft(currentPlayer.getPlayerColor()));
                     if (!gameTimeExecutor.isShutdown())
-                        interruptRead(GameStatus.timedOut(currentPlayer.getPlayerColor()));
+                        interrupt(GameStatus.timedOut(currentPlayer.getPlayerColor(), Eval.isSufficientMaterial(currentPlayer.getPlayerColor().getOpponent(), model)));
                 } catch (InterruptedException e) {
                 }
             });
@@ -259,8 +260,8 @@ public class Game {
         }
     }
 
-    void interruptRead(GameStatus status) {
-        GameOverError err = new Game.GameOverError(status);
+    void interrupt(GameStatus gameOverStatus) {
+        GameOverError err = new Game.GameOverError(gameOverStatus);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
         } else throwErr = err;
@@ -295,6 +296,7 @@ public class Game {
     public void parallelForEachPlayer(Callback<Player> callback) {
         Arrays.stream(getPlayers()).parallel().forEach(callback::callback);
     }
+
 
     public Player[] getPlayers() {
         return new Player[]{gameCreator, p2};

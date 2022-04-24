@@ -1,30 +1,51 @@
 package ver14.SharedClasses.DBActions.Arg;
 
 
-/*
- * ArgType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
-
-/*
- * ArgType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-
-/*
- * ArgType
+/**
+ * Arg type - .
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
-//askilan creating generic class instances
 public enum ArgType {
-    Date, DateRange, Text, ServerAddress, Number, Username(false), Password, Url, PictureUrl;
+    /**
+     * Date arg type.
+     */
+    Date,
+    /**
+     * Date range arg type.
+     */
+    DateRange,
+    /**
+     * Text arg type.
+     */
+    Text,
+    /**
+     * Server address arg type.
+     */
+    ServerAddress,
+    /**
+     * Number arg type.
+     */
+    Number,
+    /**
+     * Username arg type.
+     */
+    Username(false),
+    /**
+     * Password arg type.
+     */
+    Password,
+    /**
+     * Url arg type.
+     */
+    Url,
+    /**
+     * Picture url arg type.
+     */
+    PictureUrl;
+    /**
+     * The Is user input.
+     */
     final boolean isUserInput;
 
     ArgType() {

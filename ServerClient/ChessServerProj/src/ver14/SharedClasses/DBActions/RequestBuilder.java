@@ -63,6 +63,9 @@ public class RequestBuilder implements Serializable {
 
     public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
+        RequestBuilder builder = request.getBuilder();
+        postDescription = builder.postDescription;
+        preDescription = builder.preDescription;
     }
 
     public RequestBuilder(SQLStatement statement, String name, Arg... args) {
@@ -162,11 +165,12 @@ public class RequestBuilder implements Serializable {
         games.orderBy(date, Selection.Order.DESC);
 
         Selection selection = gamesStats(username.repInStr, condition);
-        RequestBuilder sub = new RequestBuilder(selection, "", username, start, end);
+        RequestBuilder sub = new RequestBuilder(selection, "Games Stats", username, start, end);
 
         return new RequestBuilder(games,
-                "Games",
-                "All Games For %s between %s and %s".formatted(username.repInStr, start.repInStr, end.repInStr),
+                "Games In Range",
+                "All Games For %s in selected range".formatted(username.repInStr),
+//                "All Games For %s between %s and %s".formatted(username.repInStr, start.repInStr, end.repInStr),
                 "Get Your Games In Range",
                 username,
                 start,

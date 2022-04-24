@@ -43,6 +43,7 @@ public class IconManager {
     public static final ImageIcon infoIcon;
     public static final ImageIcon errorIcon;
     public static final Size OG_SIZE = new Size(-1);
+    public static final ImageIcon serverError;
     private static final ImageIcon[][] gameOverIcons;
     private final static ImageIcon[][] piecesIcons;
     private static final int WON = 0;
@@ -64,6 +65,8 @@ public class IconManager {
             gameOverIcons[player.asInt][LOST] = loadImage("GameOverIcons/Lost/" + player.getName());
             gameOverIcons[player.asInt][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
+
+        serverError = loadImage("StatusIcons/serverError", MESSAGES_ICONS);
 
         infoIcon = loadImage("StatusIcons/Info", MESSAGES_ICONS);
         errorIcon = loadImage("StatusIcons/Error", MESSAGES_ICONS);

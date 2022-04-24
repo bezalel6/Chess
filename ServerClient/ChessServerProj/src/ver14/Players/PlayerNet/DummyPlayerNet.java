@@ -74,7 +74,7 @@ public class DummyPlayerNet extends Player {
     }
 
     @Override
-    public void disconnect(String cause) {
+    public void disconnect(String cause, boolean notifyGameSession) {
 
     }
 

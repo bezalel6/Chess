@@ -225,7 +225,6 @@ public abstract class MessagesHandler {
      * On disconnected.
      */
     public final void onDisconnected() {
-        System.out.println("on disconnected");
         if (!didDisconnect)
             onAnyDisconnection();
         else return;
@@ -237,11 +236,10 @@ public abstract class MessagesHandler {
             onUnplannedDisconnect();
         }
 
-        socket.close();
     }
 
     protected void onAnyDisconnection() {
-
+        socket.close();
     }
 
     protected void onPlannedDisconnect() {

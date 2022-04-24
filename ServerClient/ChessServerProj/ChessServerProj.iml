@@ -5,22 +5,9 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/ver1" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/ver2login" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver3" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver4" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver5" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver7" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver8" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver9" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver10" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver11" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver12" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver6" />
-      <excludeFolder url="file://$MODULE_DIR$/src/ver13" />
       <excludeFolder url="file://$MODULE_DIR$/src/ver14/SharedClasses/Utils/sqlformatter" />
     </content>
+    <content url="file://$MODULE_DIR$/../../UMLS" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

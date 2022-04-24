@@ -11,25 +11,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*
- * StrUtils
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * StrUtils -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * StrUtils -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class StrUtils {
 
 
@@ -92,7 +73,7 @@ public class StrUtils {
                 word = formatDate(word);
             } else if (s.contains(RegEx.Prefixes.DONT_CAP_WORD)) {
                 word = word.replace(RegEx.Prefixes.DONT_CAP_WORD, "");
-            } else if (RegEx.URL.check(word)) {
+            } else if (RegEx.URL.check(word) || word.equals("vs")) {
 //                word = "<a href=\"%s\">%s</a>".formatted(word, word);
             } else if (!word.matches("^[A-Z]+$")) {
                 word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
@@ -122,6 +103,7 @@ public class StrUtils {
     public static String formatDate(Date date, String format) {
         return new SimpleDateFormat(format, Locale.US).format(date);
     }
+
 
     public static String parseURLS(String str) {
         StringBuilder bldr = new StringBuilder();
@@ -168,7 +150,12 @@ public class StrUtils {
         return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 20), str);
     }
 
-    public static String wrapInHtml(String str) {
+
+    public static String fixHtml(String str) {
+        if (!isEmpty(str) && str.contains("</html>") && str.split("</html>").length > 1) {
+            String after = str.split("</html>")[1];
+            return str.split("</html>")[0] + after + "</html>";
+        }
         return str;
     }
 

@@ -37,7 +37,10 @@ public abstract class SyncableListComponent extends ListComponent implements Syn
     @Override
     protected void onUpdate() {
         super.onUpdate();
-        parent.addToNavText(" (" + listSize() + ")");
+        if (parent != null) {
+            parent.addToNavText(" (" + listSize() + ")");
+            parent.enableNavBtn(listSize() > 0);
+        }
     }
 
     @Override

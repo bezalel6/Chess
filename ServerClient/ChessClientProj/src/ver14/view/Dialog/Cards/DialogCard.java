@@ -6,6 +6,7 @@ import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.BackOk.BackOkContainer;
 import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.BackOk.BackOkPnl;
@@ -38,6 +39,7 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     //    private BackOkPnl backOkPnl;
     private Header optionalHeader = null;
     private BackOkInterface backOkInterface;
+    private String navText = getCardName();
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
@@ -47,14 +49,16 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
         super(1, cardHeader);
         this.cardHeader = cardHeader;
+        navText = getCardName();
         this.verifiedComponentsList = new ArrayList<>();
         this.defaultValueBtns = new ArrayList<>();
         this.parentDialog = parentDialog;
         this.cardID = cardIDs.generate();
         setBackOk(backOk);
         addAncestorListener(this);
-        navBtn = new MyJButton(getCardName(), navigationBtnsFont, this::navToMe);
+        navBtn = new MyJButton(navText, navigationBtnsFont, this::navToMe);
         checkVerifiedComponents();
+//        onUpdate();
     }
 
     public void setBackOk(BackOkInterface backOk) {
@@ -83,7 +87,10 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     }
 
     public String getCardName() {
-        return cardHeader.getCardName();
+        if (cardHeader != null)
+            return cardHeader.getCardName();
+        return "";
+
     }
 
     public void navToMe() {
@@ -112,18 +119,12 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         return backOkInterface;
     }
 
-    public void shown() {
+    public void displayed() {
         SwingUtilities.invokeLater(() -> {
             onUpdate();
             scrollToTop();
-            onUpdate();
         });
     }
-
-//    @Override
-//    public Dimension getPreferredSize() {
-//        return Size.max(super.getPreferredSize());
-//    }
 
     public String getCardID() {
         return cardID;
@@ -169,6 +170,8 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     }
 
     private void setNavText(String s) {
+        s = StrUtils.fixHtml(s);
+        navText = s;
         if (optionalHeader == null) {
             navBtn.setText(s);
         } else {
@@ -201,6 +204,12 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         parentDialog.addOnClose(callback);
     }
 
+    @Override
+    public void enableNavBtn(boolean b) {
+        Parent.super.enableNavBtn(b);
+        navBtn.setEnabled(b);
+    }
+
     public void addNavigationTo(DialogCard card) {
         parentDialog.addCard(card);
         add(card.createNavPnl());
@@ -213,12 +222,13 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
             verifiedComponentsList.add(verified);
         }
         return super.add(comp);
+
     }
 
-    public JPanel createNavPnl() {
-        WinPnl ret = new WinPnl();
+    public WinPnl createNavPnl() {
+        WinPnl ret = new WinPnl(navCols());
         if (!defaultValueBtns.isEmpty()) {
-            optionalHeader = new Header(navBtn.getText());
+            optionalHeader = new Header(navText);
             ret.setHeader(optionalHeader);
 
             defaultValueBtns.forEach(ret::add);
@@ -230,6 +240,10 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
             ret.add(navBtn);
         }
         return ret;
+    }
+
+    protected int navCols() {
+        return 1;
     }
 
     public void setAdvancedSettingsStr(String advancedSettingsStr) {

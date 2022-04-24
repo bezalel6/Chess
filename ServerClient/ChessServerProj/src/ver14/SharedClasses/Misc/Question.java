@@ -4,7 +4,6 @@ import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
-import java.util.Locale;
 
 /*
  * Question
@@ -68,7 +67,7 @@ public class Question implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Question question)) return false;
-        return questionType == question.questionType;
+        return questionType == question.questionType && questionStr.equals(question.questionStr);
     }
 
     @Override
@@ -80,16 +79,11 @@ public class Question implements Serializable {
         DRAW_OFFER, THREEFOLD, REMATCH, NO_TYPE
     }
 
-    public enum Answer {
-        YES, NO, ACCEPT, DO_NOT_ACCEPT, OK;
-        public final String answerStr;
-
-        Answer() {
-            this.answerStr = StrUtils.format(name().replaceAll("_", " ").toLowerCase(Locale.ROOT));
-        }
-
-        Answer(String answerStr) {
-            this.answerStr = answerStr;
-        }
+    public record Answer(String answerStr) implements Serializable {
+        public static final Answer YES = new Answer("YES");
+        public static final Answer NO = new Answer("NO");
+        public static final Answer ACCEPT = new Answer("ACCEPT");
+        public static final Answer DO_NOT_ACCEPT = new Answer("DO NOT ACCEPT");
+        public static final Answer OK = new Answer("OK");
     }
 }

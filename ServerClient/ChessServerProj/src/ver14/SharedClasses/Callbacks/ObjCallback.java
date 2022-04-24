@@ -1,24 +1,10 @@
 package ver14.SharedClasses.Callbacks;
 
-/*
- * ObjCallback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
-/*
- * ObjCallback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
+import java.util.function.Supplier;
 
-/*
- * ObjCallback
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+/**
+ * @param <T> the type
  */
-
-public interface ObjCallback<T> {
-    T get();
+public interface ObjCallback<T> extends Supplier<T> {
 }

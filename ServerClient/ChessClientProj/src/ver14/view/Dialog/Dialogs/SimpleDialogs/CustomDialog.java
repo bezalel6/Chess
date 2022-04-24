@@ -9,6 +9,7 @@ import ver14.view.Dialog.DialogFields.DialogField;
 import ver14.view.Dialog.Properties;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +27,12 @@ public class CustomDialog extends Dialog implements CancelOk {
         super(properties);
         this.resultsArrSize = args.length;
         ArrayList<DialogField<?>> fields = new ArrayList<>();
+        int numOfUserInputs = (int) Arrays.stream(args).filter(Arg::isUserInput).count();
         for (int i = 0; i < args.length; i++) {
             Arg arg = args[i];
             DialogField<?> field = DialogField.createField(arg, this);
             if (field != null) {
+                field.setOnDefaultClickOk(numOfUserInputs == 1);
                 fields.add(field);
                 map.put(field, i);
             }

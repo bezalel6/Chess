@@ -27,7 +27,8 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public abstract class Dialog extends JDialog implements Parent {
-    protected final static Size maximumSize = new Size(600);
+    protected final static Size MAX_DIALOG_SIZE = new Size(600);
+    protected final static Size DEFAULT_DIALOG_SIZE = new Size(450);
     protected final JPanel topPnl;
     protected final JPanel bottomPnl;
     protected final Properties properties;
@@ -68,7 +69,7 @@ public abstract class Dialog extends JDialog implements Parent {
         bottomPnl = new JPanel(new BorderLayout());
 
         myAdapter = MyJFrame.debugAdapter(this);
-
+        MyJFrame.addResizeEvent(getRootPane(), this::onUpdate);
         pane.add(topPnl, BorderLayout.PAGE_START);
         pane.add(bottomPnl, BorderLayout.PAGE_END);
 
@@ -94,6 +95,25 @@ public abstract class Dialog extends JDialog implements Parent {
             if (properties.parentWin() != null)
                 properties.parentWin().doXClick();
 
+    }
+
+    private void verifyCurrentCard() {
+        if (currentCard == null)
+            return;
+        String err = currentCard.checkVerifiedComponents();
+        if (currentCard.dialogWideErrors()) {
+            dialogWideErr(err);
+        }
+    }
+
+    public void repackWin() {
+        SwingUtilities.invokeLater(this::pack);
+    }
+
+    protected void recenter() {
+        SwingUtilities.invokeLater(() -> {
+            setLocationRelativeTo(parentWin);
+        });
     }
 
     @Override
@@ -124,6 +144,7 @@ public abstract class Dialog extends JDialog implements Parent {
         SwingUtilities.invokeLater(() -> {
             repackWin();
             recenter();
+
         });
     }
 
@@ -148,7 +169,6 @@ public abstract class Dialog extends JDialog implements Parent {
     @Override
     public void scrollToTop() {
         Parent.super.scrollToTop();
-        System.out.println("scrolling");
         cardsScrollPane.scrollToTop();
     }
 
@@ -181,10 +201,17 @@ public abstract class Dialog extends JDialog implements Parent {
         if (!isCardExists(card))
             addCard(card);
         setBackOk(card);
-        card.shown();
-        cardsPnl.setPreferredSize(card.getPreferredSize());
-        cardsScrollPane.setPreferredSize(Size.add(card.getPreferredSize(), 50));
+        Size cardSize = new Size(card.getPreferredSize());
+        Size dialogSize = new Size(cardSize).padding(-30);
+        cardsScrollPane.mySetSize(dialogSize);
+        cardsPnl.setPreferredSize(cardSize);
+        dialogSize = Size.min(dialogSize, MAX_DIALOG_SIZE);
+        if (card instanceof OverrideableSize) {
+            dialogSize = new Size(DEFAULT_DIALOG_SIZE);
+        }
+        setPreferredSize(dialogSize);
         getCardsLayout().show(cardsPnl, card.getCardID());
+        card.displayed();
         onUpdate();
     }
 
@@ -212,23 +239,6 @@ public abstract class Dialog extends JDialog implements Parent {
 
     private CardLayout getCardsLayout() {
         return (CardLayout) (cardsPnl.getLayout());
-    }
-
-    private void verifyCurrentCard() {
-        if (currentCard == null)
-            return;
-        String err = currentCard.checkVerifiedComponents();
-        if (currentCard.dialogWideErrors()) {
-            dialogWideErr(err);
-        }
-    }
-
-    public void repackWin() {
-        SwingUtilities.invokeLater(this::pack);
-    }
-
-    protected void recenter() {
-        setLocationRelativeTo(parentWin);
     }
 
     public void closeDialog() {
@@ -279,20 +289,22 @@ public abstract class Dialog extends JDialog implements Parent {
         super.setVisible(!isDisposing && b);
     }
 
-    @Override
-    public Dimension getPreferredSize() {
-        return maximumSize.createMinCombo(dialogSize());
+    protected NavigationCard navigationCardSetup(Size navCardSize, DialogCard... dialogCards) {
+        NavigationCard nav = new NavigationCard(createHeader(), this, dialogCards);
+        nav.setPreferredSize(navCardSize);
+        cardsSetup(nav, dialogCards);
+        return nav;
     }
 
-    protected Dimension dialogSize() {
-        return super.getPreferredSize();
+    protected CardHeader createHeader() {
+        return new CardHeader(properties.details().header());
     }
+
+//    protected Dimension dialogSize() {
+//        return new Size(300);
+//    }
 
 //    protected void
-
-    protected void navigationCardSetup(DialogCard... dialogCards) {
-        cardsSetup(new NavigationCard(createHeader(), this, dialogCards), dialogCards);
-    }
 
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {
         assert dialogCards.length > 0;
@@ -310,10 +322,6 @@ public abstract class Dialog extends JDialog implements Parent {
         recenter();
     }
 
-    protected CardHeader createHeader() {
-        return new CardHeader(properties.details().header());
-    }
-
     public void switchTo(DialogCard card) {
         showCard(card);
     }
@@ -326,4 +334,8 @@ public abstract class Dialog extends JDialog implements Parent {
         dispose();
         notifyClosed();
     }
+
+    public interface OverrideableSize {
+    }
+
 }

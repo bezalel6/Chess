@@ -19,11 +19,7 @@ public class Register extends LoginCard {
         PasswordPnl passwordPnl = new PasswordPnl(true, loginInfo, this);
         addDialogComponent(passwordPnl);
         addDialogComponent(new ConfirmPasswordPnl(loginInfo, passwordPnl::getPassword, this));
-
+        setPreferredSize(new Size(400, 520));
     }
 
-    @Override
-    public Size getPreferredSize() {
-        return new Size(400, 520);
-    }
 }
