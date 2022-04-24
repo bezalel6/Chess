@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Condition::Relation</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Condition.Relation.AND</definition>
+        <argsstring></argsstring>
+        <name>AND</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.Relation.AND</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>And relation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="210" column="1" bodyfile="DBActions/Condition.java" bodystart="210" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e" compoundref="_condition_8java" startline="169" endline="171">ver14.SharedClasses.DBActions.Condition.and</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4" compoundref="_condition_8java" startline="69" endline="80">ver14.SharedClasses.DBActions.Condition.noNulls</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ab76b9ff26b985a3f0c50db05669240b2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Condition.Relation.OR</definition>
+        <argsstring></argsstring>
+        <name>OR</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.Relation.OR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Or relation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="215" column="1" bodyfile="DBActions/Condition.java" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" kindref="compound">Relation</ref> - relations between conditions.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DBActions/Condition.java" line="206" column="11" bodyfile="DBActions/Condition.java" bodystart="206" bodyend="215"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition::Relation</scope><name>AND</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ab76b9ff26b985a3f0c50db05669240b2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition::Relation</scope><name>OR</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

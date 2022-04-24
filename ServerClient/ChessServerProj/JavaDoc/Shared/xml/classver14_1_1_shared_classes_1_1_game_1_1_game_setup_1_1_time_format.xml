@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::GameSetup::TimeFormat</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1adcaed9944cfc1c4076b1443eec8a1570" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>final TimeFormat ver14.SharedClasses.Game.GameSetup.TimeFormat.RAPID</definition>
+        <argsstring></argsstring>
+        <name>RAPID</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.RAPID</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(10))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="8" column="36" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a62aa2e8e4abb9270d4f3f14209a3075b" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>final TimeFormat ver14.SharedClasses.Game.GameSetup.TimeFormat.ULTRA_BULLET</definition>
+        <argsstring></argsstring>
+        <name>ULTRA_BULLET</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.ULTRA_BULLET</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.SECONDS.toMillis(2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="9" column="36" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ae373273caf9de583d57e3dab892c182b" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>final TimeFormat ver14.SharedClasses.Game.GameSetup.TimeFormat.BULLET</definition>
+        <argsstring></argsstring>
+        <name>BULLET</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.BULLET</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="10" column="36" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1acf56e69f42cc6fddf84eae7a1417be8c" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>final TimeFormat ver14.SharedClasses.Game.GameSetup.TimeFormat.BULLET2</definition>
+        <argsstring></argsstring>
+        <name>BULLET2</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.BULLET2</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="11" column="36" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a4809e06789b95d09781d6f309661ab31" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>[]</type>
+        <definition>final TimeFormat [] ver14.SharedClasses.Game.GameSetup.TimeFormat.PRESETS</definition>
+        <argsstring></argsstring>
+        <name>PRESETS</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.PRESETS</qualifiedname>
+        <initializer>= {RAPID, ULTRA_BULLET, BULLET, BULLET2}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="12" column="36" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a080ec5d516442aca6e56c4e8adaf834d" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.GameSetup.TimeFormat.numOfFields</definition>
+        <argsstring></argsstring>
+        <name>numOfFields</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.numOfFields</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="13" column="29" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a19bf11ffa8cc078a3067b187793e73d2" prot="public" static="no" mutable="no">
+        <type>final long</type>
+        <definition>final long ver14.SharedClasses.Game.GameSetup.TimeFormat.timeInMillis</definition>
+        <argsstring></argsstring>
+        <name>timeInMillis</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.timeInMillis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="14" column="23" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a868abd97de769ad898971f2cc2689ac1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.TimeFormat.TimeFormat</definition>
+        <argsstring>(TimeFormat other)</argsstring>
+        <name>TimeFormat</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.TimeFormat</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="16" column="12" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a1ab03e11afe11123324069b8703cc0dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.TimeFormat.TimeFormat</definition>
+        <argsstring>(long timeInMillis)</argsstring>
+        <name>TimeFormat</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.TimeFormat</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>timeInMillis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="20" column="12" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ad2463033f48f9fdac9655e3bb8e6309d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.TimeFormat.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.TimeFormat.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/TimeFormat.java" line="26" column="19" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="26" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormat</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormat</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BULLET</edgelabel>
+          <edgelabel>BULLET2</edgelabel>
+          <edgelabel>PRESETS</edgelabel>
+          <edgelabel>RAPID</edgelabel>
+          <edgelabel>ULTRA_BULLET</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormat</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BULLET</edgelabel>
+          <edgelabel>BULLET2</edgelabel>
+          <edgelabel>PRESETS</edgelabel>
+          <edgelabel>RAPID</edgelabel>
+          <edgelabel>ULTRA_BULLET</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/GameSetup/TimeFormat.java" line="7" column="7" bodyfile="Game/GameSetup/TimeFormat.java" bodystart="7" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ae373273caf9de583d57e3dab892c182b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>BULLET</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1acf56e69f42cc6fddf84eae7a1417be8c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>BULLET2</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a080ec5d516442aca6e56c4e8adaf834d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>numOfFields</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a4809e06789b95d09781d6f309661ab31" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>PRESETS</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1adcaed9944cfc1c4076b1443eec8a1570" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>RAPID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a868abd97de769ad898971f2cc2689ac1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>TimeFormat</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a1ab03e11afe11123324069b8703cc0dd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>TimeFormat</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a19bf11ffa8cc078a3067b187793e73d2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>timeInMillis</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ad2463033f48f9fdac9655e3bb8e6309d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a62aa2e8e4abb9270d4f3f14209a3075b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::TimeFormat</scope><name>ULTRA_BULLET</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

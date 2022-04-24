@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" xml:lang="en-US">
+<title>ver14.SharedClasses.Callbacks.ObjCallback&lt; T &gt; Interface Template Reference</title>
+<indexterm><primary>ver14.SharedClasses.Callbacks.ObjCallback&lt; T &gt;</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Callbacks.ObjCallback&lt; T &gt;:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<section>
+<title>Detailed Description</title>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>&lt;T&gt;</entry><entry>
+<para>the type </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+The documentation for this interface was generated from the following file:</para>
+Callbacks/ObjCallback.java</section>
+</section>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_game_view" xml:lang="en-US">
+<title>ver14.SharedClasses.UI.GameView Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.UI.GameView</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.UI.GameView:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_u_i_1_1_game_view.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_game_view_1a7f79fc4e7b6e2a97fd6ad00f7bd6db54"/>void <emphasis role="strong">update</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board">Board</link> board)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/GameView.java</section>

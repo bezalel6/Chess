@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" prot="public" virt="non-virtual">ver14.SharedClasses.DBActions.DBResponse.DBResponse</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8aaf5a66bb655089ba688f6e397c48a8" prot="private" static="no" mutable="no">
+        <type>final int[]</type>
+        <definition>final int [] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.calcedLengths</definition>
+        <argsstring></argsstring>
+        <name>calcedLengths</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.calcedLengths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Calced lengths. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="16" column="23" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" prot="protected" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</definition>
+        <argsstring></argsstring>
+        <name>columns</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Columns. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="20" column="22" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" compoundref="_table_d_b_response_8java" startline="163" endline="167">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a5f18db009325410be8253d8c7e512c34" compoundref="_table_d_b_response_8java" startline="120" endline="126">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab27609acd6a2fb3475bf9501d1b8a2d3" compoundref="_table_d_b_response_8java" startline="229" endline="231">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumns</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ace514f6f24d7bd00fc9fdbbdd6199b39" compoundref="_table_d_b_response_8java" startline="33" endline="35">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285" compoundref="_table_d_b_response_8java" startline="175" endline="195">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.toString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" prot="protected" static="no" mutable="no">
+        <type>String[][]</type>
+        <definition>String [][] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Rows. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="24" column="22" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="24" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" compoundref="_table_d_b_response_8java" startline="163" endline="167">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1aa214f1e7144c0fa178b7ff89ade9fa17" compoundref="_table_d_b_response_8java" startline="110" endline="112">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab6cf5f390e368ba8fe6b921db7c8bee1" compoundref="_table_d_b_response_8java" startline="98" endline="101">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getFirstRow</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a4fdea328d60ec129caded1c40967506b" compoundref="_table_d_b_response_8java" startline="238" endline="240">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getRows</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a291c5cf0b0f01272849517758982815e" compoundref="_table_d_b_response_8java" startline="154" endline="156">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.isAnyData</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a057e32d41c14b9d66e11682d8900a3a7" compoundref="_table_d_b_response_8java" startline="89" endline="91">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.numOfRows</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ace514f6f24d7bd00fc9fdbbdd6199b39" compoundref="_table_d_b_response_8java" startline="33" endline="35">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285" compoundref="_table_d_b_response_8java" startline="175" endline="195">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.toString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ace514f6f24d7bd00fc9fdbbdd6199b39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</definition>
+        <argsstring>(String[] columns, String[][] rows, DBRequest request)</argsstring>
+        <name>TableDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>rows</declname>
+          <array>[][]</array>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Table db response.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>columns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the columns </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the rows </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="33" column="12" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="33" bodyend="35"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb" compoundref="_d_b_response_8java" startline="21">ver14.SharedClasses.DBActions.DBResponse.DBResponse.request</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1a1e6bba61311b744061fbd3449ef405ce" compoundref="_d_b_response_8java" startline="127">ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.SUCCESS</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1af57745cded9b105c6e50f61f6ddba740" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</definition>
+        <argsstring>(String[] columns, String[][] rows, Status status, DBRequest request)</argsstring>
+        <name>TableDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>rows</declname>
+          <array>[][]</array>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status" kindref="compound">Status</ref></type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Table db response.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>columns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the columns </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the rows </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the status </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="45" column="12" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="45" bodyend="53"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb" compoundref="_d_b_response_8java" startline="21">ver14.SharedClasses.DBActions.DBResponse.DBResponse.request</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995" compoundref="_d_b_response_8java" startline="17">ver14.SharedClasses.DBActions.DBResponse.DBResponse.status</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a057e32d41c14b9d66e11682d8900a3a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.numOfRows</definition>
+        <argsstring>()</argsstring>
+        <name>numOfRows</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.numOfRows</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Num of rows int.</para>
+<para><simplesect kind="return"><para>the int </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="89" column="16" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="89" bodyend="91"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab6cf5f390e368ba8fe6b921db7c8bee1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getFirstRow</definition>
+        <argsstring>()</argsstring>
+        <name>getFirstRow</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getFirstRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get first row string [ ].</para>
+<para><simplesect kind="return"><para>the string [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="98" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="98" bodyend="101"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1aa214f1e7144c0fa178b7ff89ade9fa17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</definition>
+        <argsstring>(int row, String col)</argsstring>
+        <name>getCell</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets cell.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the row </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the cell </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="110" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="110" bodyend="112"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a5f18db009325410be8253d8c7e512c34" compoundref="_table_d_b_response_8java" startline="120" endline="126">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a562acce3ae48c19f3467376f7a7fdf21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</definition>
+        <argsstring>(int row, Col col)</argsstring>
+        <name>getCell</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets cell.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the row </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the cell </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="135" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="135" bodyend="137"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a5f18db009325410be8253d8c7e512c34" compoundref="_table_d_b_response_8java" startline="120" endline="126">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a291c5cf0b0f01272849517758982815e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.isAnyData</definition>
+        <argsstring>()</argsstring>
+        <name>isAnyData</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.isAnyData</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ae6a8a0c163a12d7840ae6a038e9613">isAnyData</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is any data boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="154" column="20" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="154" bodyend="156"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response" kindref="compound">TableDBResponse</ref></type>
+        <definition>TableDBResponse ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</definition>
+        <argsstring>()</argsstring>
+        <name>clean</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a6a5c546947dde5c8dc19cf1c917855ba">clean</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clean table db response.</para>
+<para><simplesect kind="return"><para>the table db response </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="163" column="28" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="163" bodyend="167"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72" compoundref="_d_b_response_8java" startline="25">ver14.SharedClasses.DBActions.DBResponse.DBResponse.addedRes</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a6a5c546947dde5c8dc19cf1c917855ba">ver14.SharedClasses.DBActions.DBResponse.DBResponse.clean</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" compoundref="_table_d_b_response_8java" startline="163" endline="167">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb" compoundref="_d_b_response_8java" startline="21">ver14.SharedClasses.DBActions.DBResponse.DBResponse.request</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a46f54660d9d61001cd227b4513fff3b6" compoundref="_d_b_response_8java" startline="87" endline="89">ver14.SharedClasses.DBActions.DBResponse.DBResponse.setAddedRes</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995" compoundref="_d_b_response_8java" startline="17">ver14.SharedClasses.DBActions.DBResponse.DBResponse.status</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7200989bdaeb86f4e7c4a54d5cc03ca0" compoundref="_table_d_b_response_8java" startline="79" endline="82">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" compoundref="_table_d_b_response_8java" startline="163" endline="167">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.toString</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ab08156c4593d8c537f7c55b587fbe9">toString</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="175" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="175" bodyend="195"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72" compoundref="_d_b_response_8java" startline="25">ver14.SharedClasses.DBActions.DBResponse.DBResponse.addedRes</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a96be407178f673b4485496528991ec34" compoundref="_table_d_b_response_8java" startline="213" endline="221">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rowToString</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a96be407178f673b4485496528991ec34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rowToString</definition>
+        <argsstring>(String[] row)</argsstring>
+        <name>rowToString</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rowToString</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Row to string string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the row </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="213" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="213" bodyend="221"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285" compoundref="_table_d_b_response_8java" startline="175" endline="195">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.toString</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab27609acd6a2fb3475bf9501d1b8a2d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumns</definition>
+        <argsstring>()</argsstring>
+        <name>getColumns</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get columns string [ ].</para>
+<para><simplesect kind="return"><para>the string [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="229" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="229" bodyend="231"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a4fdea328d60ec129caded1c40967506b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[][]</type>
+        <definition>String[][] ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getRows</definition>
+        <argsstring>()</argsstring>
+        <name>getRows</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getRows</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get rows string [ ] [ ].</para>
+<para><simplesect kind="return"><para>the string [ ] [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="238" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="238" bodyend="240"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" compoundref="_table_d_b_response_8java" startline="24">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.rows</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1afaddee9fd1cc2ab92da86ee7a287cafa" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.calcMaxLength</definition>
+        <argsstring>(int colIndex)</argsstring>
+        <name>calcMaxLength</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.calcMaxLength</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>colIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calc max length int.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>colIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the int </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="61" column="17" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="61" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ae266db8b3cf0bd84715f73072a23c2a1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</definition>
+        <argsstring>(Col col)</argsstring>
+        <name>getColumnIndex</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets column index.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the column index </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="145" column="17" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="145" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1acf98ecb55a23df6ecada73a109d76462" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.maxLength</definition>
+        <argsstring>(int colIndex)</argsstring>
+        <name>maxLength</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.maxLength</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>colIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Max length int.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>colIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the int </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="203" column="17" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="203" bodyend="205"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7200989bdaeb86f4e7c4a54d5cc03ca0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</definition>
+        <argsstring>()</argsstring>
+        <name>TableDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Table db response. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="79" column="15" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="79" bodyend="82"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1a1e6bba61311b744061fbd3449ef405ce" compoundref="_d_b_response_8java" startline="127">ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.SUCCESS</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" compoundref="_table_d_b_response_8java" startline="163" endline="167">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a5f18db009325410be8253d8c7e512c34" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</definition>
+        <argsstring>(String column)</argsstring>
+        <name>getColumnIndex</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getColumnIndex</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets column index.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>column</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the column </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the column index </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/TableDBResponse.java" line="120" column="19" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="120" bodyend="126"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" compoundref="_table_d_b_response_8java" startline="20">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.columns</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1aa214f1e7144c0fa178b7ff89ade9fa17" compoundref="_table_d_b_response_8java" startline="110" endline="112">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.getCell</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Table db response - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.DBResponse.DBResponse</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBResponse.TableDBResponse</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest.Type</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type"/>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.DBResponse.DBResponse</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>status</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>request</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>addedRes</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status"/>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/DBResponse/TableDBResponse.java" line="12" column="7" bodyfile="DBActions/DBResponse/TableDBResponse.java" bodystart="12" bodyend="242"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>addedRes</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8aaf5a66bb655089ba688f6e397c48a8" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>calcedLengths</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1afaddee9fd1cc2ab92da86ee7a287cafa" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>calcMaxLength</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>clean</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7a63a724db06d8b6adcb07abab6a00af" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>columns</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae00743dd2231d1343ebf50a77c10fd7e" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>DBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad4e837a94c14b8fd170f7d907945f8bc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getAddedRes</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1aa214f1e7144c0fa178b7ff89ade9fa17" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getCell</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a562acce3ae48c19f3467376f7a7fdf21" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getCell</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a5f18db009325410be8253d8c7e512c34" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getColumnIndex</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ae266db8b3cf0bd84715f73072a23c2a1" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getColumnIndex</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab27609acd6a2fb3475bf9501d1b8a2d3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getColumns</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ab6cf5f390e368ba8fe6b921db7c8bee1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getFirstRow</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae2a7e224609cd893476a70c5a6173346" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a4fdea328d60ec129caded1c40967506b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getRows</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a34ed53e642351772ca1f6626615b83a2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>getStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a291c5cf0b0f01272849517758982815e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>isAnyData</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a812bdb3b236815a8fde4aab99d66b879" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>isSuccess</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1acf98ecb55a23df6ecada73a109d76462" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>maxLength</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a057e32d41c14b9d66e11682d8900a3a7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>numOfRows</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1aa716686748331f1fa10a96789027975e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>print</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>request</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a957c63398d5879cff637806c92a4bb61" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>rows</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a96be407178f673b4485496528991ec34" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>rowToString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a46f54660d9d61001cd227b4513fff3b6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>setAddedRes</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>status</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ace514f6f24d7bd00fc9fdbbdd6199b39" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>TableDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1af57745cded9b105c6e50f61f6ddba740" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>TableDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a7200989bdaeb86f4e7c4a54d5cc03ca0" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>TableDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

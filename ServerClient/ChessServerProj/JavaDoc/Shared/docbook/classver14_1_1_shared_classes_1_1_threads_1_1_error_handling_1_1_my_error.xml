@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" xml:lang="en-US">
+<title>ver14.SharedClasses.Threads.ErrorHandling.MyError Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Threads.ErrorHandling.MyError:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">DBErr</emphasis></para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">DisconnectedError</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a284a7a0d3898f0147ad4d526610d5a1c">MyError</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1adf4906938b013d47fbc2dfa11ae65919">MyError</link> (Throwable throwable)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a200d859c20363248fa34ce23cc781118">MyError</link> (String message)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1ab803240e28605d3579d85f1b657286f5">MyError</link> (String message, Throwable cause)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a3ce59063e6d59e57ecc0317fcea7dc5e">getHandledStr</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a46afb046e92e43de36f0786ed90996e4">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static String <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1aafdaf5936a8855692b308d39a78a5c60">errToString</link> (Throwable error)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>My error - .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a284a7a0d3898f0147ad4d526610d5a1c"/><section>
+    <title>MyError()<computeroutput>[1/4]</computeroutput></title>
+<indexterm><primary>MyError</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>MyError</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError ( )</computeroutput></para>
+<para>Instantiates a new My error. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1adf4906938b013d47fbc2dfa11ae65919"/><section>
+    <title>MyError()<computeroutput>[2/4]</computeroutput></title>
+<indexterm><primary>MyError</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>MyError</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError (Throwable throwable)</computeroutput></para>
+<para>Instantiates a new My error.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>throwable</entry><entry>
+<para>the throwable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a200d859c20363248fa34ce23cc781118"/><section>
+    <title>MyError()<computeroutput>[3/4]</computeroutput></title>
+<indexterm><primary>MyError</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>MyError</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError (String message)</computeroutput></para>
+<para>Instantiates a new My error.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1ab803240e28605d3579d85f1b657286f5"/><section>
+    <title>MyError()<computeroutput>[4/4]</computeroutput></title>
+<indexterm><primary>MyError</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>MyError</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError (String message, Throwable cause)</computeroutput></para>
+<para>Instantiates a new My error.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the message </para>
+</entry>
+                            </row>
+                            <row>
+<entry>cause</entry><entry>
+<para>the cause </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1aafdaf5936a8855692b308d39a78a5c60"/><section>
+    <title>errToString()</title>
+<indexterm><primary>errToString</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>errToString</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Threads.ErrorHandling.MyError.errToString (Throwable error)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Err to string string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>error</entry><entry>
+<para>the error </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a3ce59063e6d59e57ecc0317fcea7dc5e"/><section>
+    <title>getHandledStr()</title>
+<indexterm><primary>getHandledStr</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>getHandledStr</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Threads.ErrorHandling.MyError.getHandledStr ( )</computeroutput></para>
+<para>Gets handled str.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the handled str </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a46afb046e92e43de36f0786ed90996e4"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Threads.ErrorHandling.MyError</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.ErrorHandling.MyError</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Threads.ErrorHandling.MyError.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Threads/ErrorHandling/MyError.java</section>
+</section>

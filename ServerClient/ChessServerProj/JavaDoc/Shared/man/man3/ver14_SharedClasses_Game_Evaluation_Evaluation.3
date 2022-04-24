@@ -1,0 +1,342 @@
+.TH "ver14.SharedClasses.Game.Evaluation.Evaluation" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.Evaluation.Evaluation
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEvaluation\fP (\fBGameStatus\fP gameStatus, \fBPlayerColor\fP evaluationFor)"
+.br
+.ti -1c
+.RI "\fBEvaluation\fP (int eval, \fBGameStatus\fP gameStatus, \fBPlayerColor\fP evaluationFor)"
+.br
+.ti -1c
+.RI "\fBEvaluation\fP (\fBPlayerColor\fP evaluationFor)"
+.br
+.ti -1c
+.RI "\fBEvaluation\fP (\fBEvaluation\fP other)"
+.br
+.ti -1c
+.RI "void \fBaddDetail\fP (\fBEvaluationParameters\fP parm, int value)"
+.br
+.ti -1c
+.RI "void \fBassertNotGameOver\fP ()"
+.br
+.ti -1c
+.RI "Integer \fBgetEvaluationDepth\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetEvaluationDepth\fP (Integer evaluationDepth)"
+.br
+.ti -1c
+.RI "boolean \fBisGameOver\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisCheck\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisGreaterThan\fP (\fBEvaluation\fP other)"
+.br
+.ti -1c
+.RI "int \fBgetEval\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetEval\fP (int eval)"
+.br
+.ti -1c
+.RI "\fBGameStatus\fP \fBgetGameStatus\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "\fBPlayerColor\fP \fBgetEvaluationFor\fP ()"
+.br
+.ti -1c
+.RI "\fBEvaluation\fP \fBsetPerspective\fP (\fBPlayerColor\fP playerColor)"
+.br
+.ti -1c
+.RI "void \fBflipEval\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint\fP ()"
+.br
+.ti -1c
+.RI "float \fBconvertFromCentipawns\fP ()"
+.br
+.ti -1c
+.RI "record \fBEvaluationDetail\fP (\fBEvaluationParameters\fP parm, double eval) implements Serializable"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBEvaluation\fP \fBbook\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBTIE_EVAL\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBWIN_EVAL\fP = Integer\&.MAX_VALUE"
+.br
+.ti -1c
+.RI "static final int \fBLOSS_EVAL\fP = \-\fBWIN_EVAL\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBEvaluation\fP\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.Evaluation (\fBGameStatus\fP gameStatus, \fBPlayerColor\fP evaluationFor)"
+Instantiates a new \fBEvaluation\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIgameStatus\fP the game status 
+.br
+\fIevaluationFor\fP the evaluation for 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.Evaluation (int eval, \fBGameStatus\fP gameStatus, \fBPlayerColor\fP evaluationFor)"
+Instantiates a new \fBEvaluation\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIeval\fP the eval 
+.br
+\fIgameStatus\fP the game status 
+.br
+\fIevaluationFor\fP the evaluation for 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.Evaluation (\fBPlayerColor\fP evaluationFor)"
+Instantiates a new \fBEvaluation\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIevaluationFor\fP the evaluation for 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.Evaluation (\fBEvaluation\fP other)"
+Instantiates a new \fBEvaluation\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.addDetail (\fBEvaluationParameters\fP parm, int value)"
+Add detail\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIparm\fP the parm 
+.br
+\fIvalue\fP the value 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.assertNotGameOver ()"
+Assert not game over\&. 
+.SS "static \fBEvaluation\fP ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.book ()\fC [static]\fP"
+Book evaluation\&.
+.PP
+\fBReturns\fP
+.RS 4
+the evaluation 
+.RE
+.PP
+
+.SS "float ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.convertFromCentipawns ()"
+Convert from centipawns float\&.
+.PP
+\fBReturns\fP
+.RS 4
+the float 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.equals (Object o)"
+Equals boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "record ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.EvaluationDetail (\fBEvaluationParameters\fP parm, double eval)"
+\fBEvaluation\fP detail\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.flipEval ()"
+Flip eval\&. 
+.SS "int ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.getEval ()"
+Gets eval\&.
+.PP
+\fBReturns\fP
+.RS 4
+the eval 
+.RE
+.PP
+
+.SS "Integer ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.getEvaluationDepth ()"
+Gets evaluation depth\&.
+.PP
+\fBReturns\fP
+.RS 4
+the evaluation depth 
+.RE
+.PP
+
+.SS "\fBPlayerColor\fP ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.getEvaluationFor ()"
+Gets evaluation for\&.
+.PP
+\fBReturns\fP
+.RS 4
+the evaluation for 
+.RE
+.PP
+
+.SS "\fBGameStatus\fP ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.getGameStatus ()"
+Gets game status\&.
+.PP
+\fBReturns\fP
+.RS 4
+the game status 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.isCheck ()"
+Is check boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.isGameOver ()"
+Is game over boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.isGreaterThan (\fBEvaluation\fP other)"
+Is greater than boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.print ()"
+Print\&. 
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.setEval (int eval)"
+Sets eval\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIeval\fP the eval 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.setEvaluationDepth (Integer evaluationDepth)"
+Sets evaluation depth\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIevaluationDepth\fP the evaluation depth 
+.RE
+.PP
+
+.SS "\fBEvaluation\fP ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.setPerspective (\fBPlayerColor\fP playerColor)"
+Sets perspective\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIplayerColor\fP the player color 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the perspective 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.LOSS_EVAL = \-\fBWIN_EVAL\fP\fC [static]\fP"
+The constant LOSS_EVAL\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.TIE_EVAL = 0\fC [static]\fP"
+The constant TIE_EVAL\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Evaluation\&.Evaluation\&.WIN_EVAL = Integer\&.MAX_VALUE\fC [static]\fP"
+The constant WIN_EVAL\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

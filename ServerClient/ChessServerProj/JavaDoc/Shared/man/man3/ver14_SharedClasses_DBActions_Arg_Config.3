@@ -1,0 +1,202 @@
+.TH "ver14.SharedClasses.DBActions.Arg.Config< V >" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Arg.Config< V >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConfig\fP ()"
+.br
+.ti -1c
+.RI "\fBConfig\fP (String \fBdescription\fP)"
+.br
+.ti -1c
+.RI "\fBConfig\fP (String \fBdescription\fP, boolean \fBcanUseDefault\fP, Described< V > defaultValue)"
+.br
+.ti -1c
+.RI "\fBConfig\fP (String \fBdescription\fP, V defVal)"
+.br
+.ti -1c
+.RI "\fBConfig\fP (String \fBdescription\fP, V defVal, String defDesc)"
+.br
+.ti -1c
+.RI "\fBConfig\fP (String \fBdescription\fP, Described< V > defaultValue)"
+.br
+.ti -1c
+.RI "void \fBaddSuggestion\fP (Described< V > suggestion)"
+.br
+.ti -1c
+.RI "ArrayList< Described< V > > \fBgetValuesSuggestion\fP ()"
+.br
+.ti -1c
+.RI "Described< V > \fBgetDescribedDefault\fP ()"
+.br
+.ti -1c
+.RI "V \fBgetDefault\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetDefaultDesc\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final boolean \fBcanUseDefault\fP"
+.br
+.ti -1c
+.RI "final String \fBdescription\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBConfig\fP - an argument's configuration\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI<V>\fP the type 
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP ()"
+Instantiates a new \fBConfig\fP\&. 
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP (String description)"
+Instantiates a new \fBConfig\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdescription\fP the description 
+.RE
+.PP
+
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP (String description, boolean canUseDefault, Described< V > defaultValue)"
+Instantiates a new \fBConfig\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdescription\fP the description 
+.br
+\fIcanUseDefault\fP the can use default 
+.br
+\fIdefaultValue\fP the default value 
+.RE
+.PP
+
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP (String description, V defVal)"
+Instantiates a new \fBConfig\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdescription\fP the description 
+.br
+\fIdefVal\fP the def val 
+.RE
+.PP
+
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP (String description, V defVal, String defDesc)"
+Instantiates a new \fBConfig\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdescription\fP the description 
+.br
+\fIdefVal\fP the def val 
+.br
+\fIdefDesc\fP the def desc 
+.RE
+.PP
+
+.SS "\fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.\fBConfig\fP (String description, Described< V > defaultValue)"
+Instantiates a new \fBConfig\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdescription\fP the description 
+.br
+\fIdefaultValue\fP the default value 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.addSuggestion (Described< V > suggestion)"
+Add suggestion\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsuggestion\fP the suggestion 
+.RE
+.PP
+
+.SS "V \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.getDefault ()"
+Gets default\&.
+.PP
+\fBReturns\fP
+.RS 4
+the default 
+.RE
+.PP
+
+.SS "String \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.getDefaultDesc ()"
+Gets default desc\&.
+.PP
+\fBReturns\fP
+.RS 4
+the default desc 
+.RE
+.PP
+
+.SS "Described< V > \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.getDescribedDefault ()"
+Gets described default\&.
+.PP
+\fBReturns\fP
+.RS 4
+the described default 
+.RE
+.PP
+
+.SS "ArrayList< Described< V > > \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.getValuesSuggestion ()"
+Gets values suggestion\&.
+.PP
+\fBReturns\fP
+.RS 4
+the values suggestion 
+.RE
+.PP
+
+.SS "String \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final boolean \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.canUseDefault"
+The Can use default\&. 
+.SS "final String \fBver14\&.SharedClasses\&.DBActions\&.Arg\&.Config\fP< V >\&.description"
+The Description\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

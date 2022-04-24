@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type" xml:lang="en-US">
+<title>ver14.SharedClasses.Misc.Question.QuestionType Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Misc.Question.QuestionType</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a61fa3af6038bf7515255d1bbe07775dd">DRAW_OFFER</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a9b6022e79827e33c834dd437803126ad">THREEFOLD</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a129e7b42b09b70bd03e39f2097f85c2b">REMATCH</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a5768d39969ab304731edd646ef704790">NO_TYPE</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> type.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a61fa3af6038bf7515255d1bbe07775dd"/><section>
+    <title>DRAW_OFFER</title>
+<indexterm><primary>DRAW_OFFER</primary><secondary>ver14.SharedClasses.Misc.Question.QuestionType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question.QuestionType</primary><secondary>DRAW_OFFER</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.QuestionType.DRAW_OFFER</computeroutput></para>
+<para>Draw offer question type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a5768d39969ab304731edd646ef704790"/><section>
+    <title>NO_TYPE</title>
+<indexterm><primary>NO_TYPE</primary><secondary>ver14.SharedClasses.Misc.Question.QuestionType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question.QuestionType</primary><secondary>NO_TYPE</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.QuestionType.NO_TYPE</computeroutput></para>
+<para>No type question type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a129e7b42b09b70bd03e39f2097f85c2b"/><section>
+    <title>REMATCH</title>
+<indexterm><primary>REMATCH</primary><secondary>ver14.SharedClasses.Misc.Question.QuestionType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question.QuestionType</primary><secondary>REMATCH</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.QuestionType.REMATCH</computeroutput></para>
+<para>Rematch question type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a9b6022e79827e33c834dd437803126ad"/><section>
+    <title>THREEFOLD</title>
+<indexterm><primary>THREEFOLD</primary><secondary>ver14.SharedClasses.Misc.Question.QuestionType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question.QuestionType</primary><secondary>THREEFOLD</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.QuestionType.THREEFOLD</computeroutput></para>
+<para>Threefold question type. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Misc/Question.java</section>
+</section>

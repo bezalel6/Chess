@@ -9,10 +9,27 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 
+/**
+ * Condition - represents a condition.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Condition implements Serializable {
+    /**
+     * The condition parameters.
+     */
     private final Object[] parms;
+    /**
+     * The Str.
+     */
     private String str;
 
+    /**
+     * Instantiates a new Condition.
+     *
+     * @param str   the str
+     * @param parms the parms
+     */
     public Condition(String str, Object... parms) {
         assert parms.length == StrUtils.countMatches(str, "%([sd])");
         this.parms = parms;
@@ -20,6 +37,12 @@ public class Condition implements Serializable {
         assert StrUtils.countMatches(this.str, "\\(") == StrUtils.countMatches(this.str, "\\)");
     }
 
+    /**
+     * Create value str string.
+     *
+     * @param value the value
+     * @return the string
+     */
     private static String createValueStr(Object value) {
         if (value instanceof Col col) {
             return col.colName();
@@ -27,10 +50,22 @@ public class Condition implements Serializable {
         return "'%s'".formatted(value);
     }
 
+    /**
+     * Equals condition.
+     *
+     * @param col   the col
+     * @param value the value
+     * @return the condition
+     */
     public static Condition equals(Object col, Object value) {
         return new Condition("StrComp(%s, %s, 0)=0", col, value).noNulls();
     }
 
+    /**
+     * No nulls condition.
+     *
+     * @return the condition
+     */
     public Condition noNulls() {
         Object[] colsParms = Arrays.stream(parms)
                 .filter(parm -> parm instanceof Col)
@@ -44,12 +79,24 @@ public class Condition implements Serializable {
         return condition;
     }
 
+    /**
+     * Add condition.
+     *
+     * @param condition the condition
+     * @param relation  the relation
+     * @return the condition
+     */
     public Condition add(Condition condition, Relation relation) {
         return add(condition, relation, true);
     }
 
     /**
-     * @return THIS
+     * Add condition.
+     *
+     * @param condition the condition
+     * @param relation  the relation
+     * @param wrap      the wrap
+     * @return THIS condition
      */
     public Condition add(Condition condition, Relation relation, boolean wrap) {
         str += " " + relation + " " + condition.str;
@@ -58,10 +105,21 @@ public class Condition implements Serializable {
         return this;
     }
 
+    /**
+     * Wrap.
+     */
     public void wrap() {
         str = "(" + str + ")";
     }
 
+    /**
+     * Math condition.
+     *
+     * @param col       the col
+     * @param operation the operation
+     * @param value     the value
+     * @return the condition
+     */
     public static Condition math(Object col, @MagicConstant(stringValues = {">", ">=", "<", "<="}) String operation, Object value) {
         //is casting necessary?
         col = new Col(Math.asFloat(col));
@@ -72,6 +130,14 @@ public class Condition implements Serializable {
         }};
     }
 
+    /**
+     * Between condition.
+     *
+     * @param col   the col
+     * @param start the start
+     * @param end   the end
+     * @return the condition
+     */
     public static Condition between(Object col, Object start, Object end) {
 
         col = new Col(col + "");
@@ -83,6 +149,13 @@ public class Condition implements Serializable {
         }};
     }
 
+    /**
+     * Not equals condition.
+     *
+     * @param col   the col
+     * @param value the value
+     * @return the condition
+     */
     public static Condition notEquals(Object col, Object value) {
         return new Condition("StrComp(%s, %s, 0)<>0", col, value).noNulls();
     }
@@ -90,28 +163,55 @@ public class Condition implements Serializable {
     /**
      * wraps
      *
-     * @param condition
-     * @return
+     * @param condition the condition
+     * @return condition
      */
     public Condition and(Condition condition) {
         return add(condition, Relation.AND, true);
     }
 
+    /**
+     * Gets str.
+     *
+     * @return the str
+     */
     public String getStr() {
         return str;
     }
 
+    /**
+     * Sets str.
+     *
+     * @param str the str
+     */
     public void setStr(String str) {
         this.str = str;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return str;
     }
 
+    /**
+     * Relation - relations between conditions.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public enum Relation {
-        AND, OR
+        /**
+         * And relation.
+         */
+        AND,
+        /**
+         * Or relation.
+         */
+        OR
     }
 
 

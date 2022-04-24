@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Misc::Question::QuestionType</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a61fa3af6038bf7515255d1bbe07775dd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.QuestionType.DRAW_OFFER</definition>
+        <argsstring></argsstring>
+        <name>DRAW_OFFER</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.QuestionType.DRAW_OFFER</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Draw offer question type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="142" column="1" bodyfile="Misc/Question.java" bodystart="142" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046" compoundref="_question_8java" startline="70" endline="72">ver14.SharedClasses.Misc.Question.drawOffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a9b6022e79827e33c834dd437803126ad" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.QuestionType.THREEFOLD</definition>
+        <argsstring></argsstring>
+        <name>THREEFOLD</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.QuestionType.THREEFOLD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Threefold question type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="146" column="1" bodyfile="Misc/Question.java" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a129e7b42b09b70bd03e39f2097f85c2b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.QuestionType.REMATCH</definition>
+        <argsstring></argsstring>
+        <name>REMATCH</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.QuestionType.REMATCH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rematch question type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="150" column="1" bodyfile="Misc/Question.java" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a5768d39969ab304731edd646ef704790" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.QuestionType.NO_TYPE</definition>
+        <argsstring></argsstring>
+        <name>NO_TYPE</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.QuestionType.NO_TYPE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>No type question type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="155" column="1" bodyfile="Misc/Question.java" bodystart="154" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2" compoundref="_question_8java" startline="46" endline="48">ver14.SharedClasses.Misc.Question.Question</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref> type.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Misc/Question.java" line="138" column="11" bodyfile="Misc/Question.java" bodystart="138" bodyend="155"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a61fa3af6038bf7515255d1bbe07775dd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question::QuestionType</scope><name>DRAW_OFFER</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a5768d39969ab304731edd646ef704790" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question::QuestionType</scope><name>NO_TYPE</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a129e7b42b09b70bd03e39f2097f85c2b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question::QuestionType</scope><name>REMATCH</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a9b6022e79827e33c834dd437803126ad" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question::QuestionType</scope><name>THREEFOLD</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

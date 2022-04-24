@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_b159b5ad74b50d79c53dd562542ceda4" kind="dir">
+    <compoundname>DBActions</compoundname>
+    <innerdir refid="dir_4e4604c4da8a36ded01537cc9870b65a">DBActions/Arg</innerdir>
+    <innerdir refid="dir_9aad723e7c3a24d825ae3e367f5ed480">DBActions/DBRequest</innerdir>
+    <innerdir refid="dir_1c52295a17769c8608ee8534e45aa8f8">DBActions/DBResponse</innerdir>
+    <innerdir refid="dir_1abb610890f48ca2871ff3099563bd74">DBActions/Statements</innerdir>
+    <innerdir refid="dir_fbee5da756d99349a4347eef23863ad4">DBActions/Table</innerdir>
+    <innerfile refid="_condition_8java">Condition.java</innerfile>
+    <innerfile refid="_request_builder_8java">RequestBuilder.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DBActions/"/>
+  </compounddef>
+</doxygen>

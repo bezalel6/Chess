@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response_1a126cfbf5ef09d2a484351c1d5f951080">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response_1a058db4c8e4d99c2161ad47966f72a243"/><emphasis role="strong">GraphableDBResponse</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995">status</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb">request</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response_1a126cfbf5ef09d2a484351c1d5f951080"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ab08156c4593d8c537f7c55b587fbe9">ver14.SharedClasses.DBActions.DBResponse.DBResponse</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/DBResponse/Graphable/GraphableDBResponse.java</section>
+</section>

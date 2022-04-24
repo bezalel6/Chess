@@ -1,0 +1,21 @@
+digraph "ver14.SharedClasses.Game.GameSetup.GameSettings.initDefault1vAi"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.initDefault1vAi",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.initDefault1v1",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#a430bd8f0849f51c373b16a964d5b4bef",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.setAiParameters",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#aeccf0eed29f48d4a79a786597fdcfee7",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.setFen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#a878e66fea0bac64d896cfde84c8f71f3",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.setGameType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#afeb8cc95de571b19e9f94bb8ae88a250",tooltip=" "];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.setPlayer\lToMove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#a77e6af1e7f7f5fba07e295b7f70c0389",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.setTime\lFormat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.html#a91cfa15685290b5b05cf4875f7f2ca53",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

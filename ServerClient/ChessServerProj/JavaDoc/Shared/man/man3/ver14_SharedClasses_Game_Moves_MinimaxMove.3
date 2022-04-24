@@ -1,0 +1,217 @@
+.TH "ver14.SharedClasses.Game.Moves.MinimaxMove" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.Moves.MinimaxMove
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Comparable< MinimaxMove >, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMinimaxMove\fP (\fBMove\fP move, \fBEvaluation\fP moveEvaluation)"
+.br
+.ti -1c
+.RI "\fBMinimaxMove\fP (\fBEvaluation\fP moveEvaluation)"
+.br
+.ti -1c
+.RI "\fBMinimaxMove\fP (\fBMinimaxMove\fP other)"
+.br
+.ti -1c
+.RI "boolean \fBisDeeperAndBetterThan\fP (\fBMinimaxMove\fP other)"
+.br
+.ti -1c
+.RI "int \fBgetMoveDepth\fP ()"
+.br
+.ti -1c
+.RI "\fBMove\fP \fBgetMove\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMove\fP (\fBMove\fP move)"
+.br
+.ti -1c
+.RI "\fBEvaluation\fP \fBgetMoveEvaluation\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMoveEvaluation\fP (\fBEvaluation\fP moveEvaluation)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetShortPrintingStr\fP ()"
+.br
+.ti -1c
+.RI "int \fBcompareTo\fP (\fBMinimaxMove\fP o)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Minimax move\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.MinimaxMove (\fBMove\fP move, \fBEvaluation\fP moveEvaluation)"
+Instantiates a new Minimax move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImove\fP the move 
+.br
+\fImoveEvaluation\fP the move evaluation 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.MinimaxMove (\fBEvaluation\fP moveEvaluation)"
+Instantiates a new Minimax move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveEvaluation\fP the move evaluation 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.MinimaxMove (\fBMinimaxMove\fP other)"
+Instantiates a new Minimax move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.compareTo (\fBMinimaxMove\fP o)"
+Compare to int\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the int 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.equals (Object o)"
+Equals boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "\fBMove\fP ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.getMove ()"
+Gets move\&.
+.PP
+\fBReturns\fP
+.RS 4
+the move 
+.RE
+.PP
+
+.SS "int ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.getMoveDepth ()"
+Gets move depth\&.
+.PP
+\fBReturns\fP
+.RS 4
+the move depth 
+.RE
+.PP
+
+.SS "\fBEvaluation\fP ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.getMoveEvaluation ()"
+Gets move evaluation\&.
+.PP
+\fBReturns\fP
+.RS 4
+the move evaluation 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.getShortPrintingStr ()"
+Gets short printing str\&.
+.PP
+\fBReturns\fP
+.RS 4
+the short printing str 
+.RE
+.PP
+
+.SS "int ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.hashCode ()"
+Hash code int\&.
+.PP
+\fBReturns\fP
+.RS 4
+the int 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.isDeeperAndBetterThan (\fBMinimaxMove\fP other)"
+Is deeper and better than given minimax move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.setMove (\fBMove\fP move)"
+Sets move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImove\fP the move 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.setMoveEvaluation (\fBEvaluation\fP moveEvaluation)"
+Sets move evaluation\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImoveEvaluation\fP the move evaluation 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.Moves\&.MinimaxMove\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

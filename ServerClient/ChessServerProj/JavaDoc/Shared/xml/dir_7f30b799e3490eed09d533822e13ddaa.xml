@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_7f30b799e3490eed09d533822e13ddaa" kind="dir">
+    <compoundname>UI/Buttons</compoundname>
+    <innerfile refid="_my_j_button_8java">MyJButton.java</innerfile>
+    <innerfile refid="_value_btn_8java">ValueBtn.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UI/Buttons/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils" xml:lang="en-US">
+<title>ver14.SharedClasses.Utils.ArrUtils Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Utils.ArrUtils</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static&lt; T &gt; T[] <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a36723361204a91f5afc241d44723a891">concat</link> (T[] array1, T... array2)</para>
+</listitem>
+            <listitem><para>static&lt; T &gt; ArrayList&lt; T &gt; <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a943bfef505fee91113cfc59a9ee87fb1">createList</link> (<link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback">ObjCallback</link>&lt; T &gt; objCreator, int size)</para>
+</listitem>
+            <listitem><para>static&lt; T &gt; T <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a019478be6d43e03b3b679aaa3fb26ea3">exists</link> (T[] arr, int... index)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Array Utility Class.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a36723361204a91f5afc241d44723a891"/><section>
+    <title>concat()</title>
+<indexterm><primary>concat</primary><secondary>ver14.SharedClasses.Utils.ArrUtils</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArrUtils</primary><secondary>concat</secondary></indexterm>
+<para><computeroutput>static&lt; T &gt; T[] ver14.SharedClasses.Utils.ArrUtils.concat (T[] array1, T... array2)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><link xlink:href="https://www.baeldung.com/java-concatenate-arrays#:~:text=static%20%3CT%3E%20T%5B%5D%20concatWithArrayCopy(T%5B%5D%20array1%2C%20T%5B%5D%20array2)%20%7B%0A%20%20%20%20T%5B%5D%20result%20%3D%20Arrays.copyOf(array1%2C%20array1.length%20%2B%20array2.length)%3B%0A%20%20%20%20System.arraycopy(array2%2C%200%2C%20result%2C%20array1.length%2C%20array2.length)%3B%0A%20%20%20%20return%20result%3B%0A%7D">credit</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>&lt;T&gt;</entry><entry>
+<para>the type parameter </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array1</entry><entry>
+<para>the array 1 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array2</entry><entry>
+<para>the array 2 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>t [ ] </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a943bfef505fee91113cfc59a9ee87fb1"/><section>
+    <title>createList()</title>
+<indexterm><primary>createList</primary><secondary>ver14.SharedClasses.Utils.ArrUtils</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArrUtils</primary><secondary>createList</secondary></indexterm>
+<para><computeroutput>static&lt; T &gt; ArrayList&lt; T &gt; ver14.SharedClasses.Utils.ArrUtils.createList (<link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback">ObjCallback</link>&lt; T &gt; objCreator, int size)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create list array list.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>&lt;T&gt;</entry><entry>
+<para>the type parameter </para>
+</entry>
+                            </row>
+                            <row>
+<entry>objCreator</entry><entry>
+<para>the obj creator </para>
+</entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry>
+<para>the size </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the array list </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a019478be6d43e03b3b679aaa3fb26ea3"/><section>
+    <title>exists()</title>
+<indexterm><primary>exists</primary><secondary>ver14.SharedClasses.Utils.ArrUtils</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArrUtils</primary><secondary>exists</secondary></indexterm>
+<para><computeroutput>static&lt; T &gt; T ver14.SharedClasses.Utils.ArrUtils.exists (T[] arr, int... index)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Exists t.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>&lt;T&gt;</entry><entry>
+<para>the type parameter </para>
+</entry>
+                            </row>
+                            <row>
+<entry>arr</entry><entry>
+<para>the arr </para>
+</entry>
+                            </row>
+                            <row>
+<entry>index</entry><entry>
+<para>the index </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the t </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Utils/ArrUtils.java</section>
+</section>

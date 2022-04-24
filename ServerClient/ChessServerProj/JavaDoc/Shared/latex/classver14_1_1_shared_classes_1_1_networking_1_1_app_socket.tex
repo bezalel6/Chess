@@ -1,0 +1,300 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket}{}\doxysection{ver14.\+Shared\+Classes.\+Networking.\+App\+Socket Class Reference}
+\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket}\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+Inheritance diagram for ver14.\+Shared\+Classes.\+Networking.\+App\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries App\+Socket\+Error}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a7934b48d8e768b818748d68feff1ce2f}{App\+Socket}} (String ip, int port)  throws IOException 
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a009b1b62771be8d71cda8fcf10beb587}{App\+Socket}} (Socket socket)  throws IOException 
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a112a2ffdc865d1b76ace4ed469941e0a}{close}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0a51fdd973f49e53abddaffb62c1c34e}{close}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}} err)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2890314fd1880334a5ec37ccbf251275}{interrupt\+Listener}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}} err)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aea78a70af57035a823d1bfc6ed34d4df}{request\+Message}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} request\+Msg, \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback}{Message\+Callback}} on\+Res)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler}{Messages\+Handler}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a4665d2a1fa80fc2f58d7d2c1dd7432e3}{get\+Messages\+Handler}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab3e0938b82ed002f08457a2a17ea72b0}{set\+Messages\+Handler}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler}{Messages\+Handler}} messages\+Handler)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_afb813a2398cf0e09b2a1a71b63db9460}{respond}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} msg, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} responding\+To)
+\item 
+synchronized void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0ee109e7b2a045c5f1cc04b4495667f9}{write\+Message}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} msg)
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac789d5f83e72b5f760b782a6e2f737c0}{is\+Connected}} ()
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab2941c7b2a4827fd05eae0295b96fd6e}{get\+Local\+Address}} ()
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2763fc99e41537cf891d42614eacac2c}{get\+Remote\+Address}} ()
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac4b4fb1096efdbade2f7baff80247acf}{is\+Closed}} ()
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a8c85c45621e0fd21ff99dca6dd67160f}{request\+Message}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} request\+Msg)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a45d1fba87885712053955f4454ed825a}{stop\+Reading}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aa64ec201c3558cb554dde39e14e49f77}{handled\+Run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Socket \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a1dc7078612701bac3db0b79207e5bc48}{msg\+Socket}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+App socket -\/ represents a communications socket able to send and receive messages from the client to the server and vice versa.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a7934b48d8e768b818748d68feff1ce2f}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a7934b48d8e768b818748d68feff1ce2f}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!AppSocket@{AppSocket}}
+\index{AppSocket@{AppSocket}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{AppSocket()}{AppSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+App\+Socket (\begin{DoxyParamCaption}\item[{String}]{ip,  }\item[{int}]{port }\end{DoxyParamCaption}) throws IOException}
+
+Instantiates a new App socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & the ip \\
+\hline
+{\em port} & the port \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & the io exception \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a009b1b62771be8d71cda8fcf10beb587}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a009b1b62771be8d71cda8fcf10beb587}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!AppSocket@{AppSocket}}
+\index{AppSocket@{AppSocket}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{AppSocket()}{AppSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+App\+Socket (\begin{DoxyParamCaption}\item[{Socket}]{socket }\end{DoxyParamCaption}) throws IOException}
+
+Instantiates a new App socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the socket \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & the io exception \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a112a2ffdc865d1b76ace4ed469941e0a}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a112a2ffdc865d1b76ace4ed469941e0a}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!close@{close}}
+\index{close@{close}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0a51fdd973f49e53abddaffb62c1c34e}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0a51fdd973f49e53abddaffb62c1c34e}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!close@{close}}
+\index{close@{close}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+Close.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab2941c7b2a4827fd05eae0295b96fd6e}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab2941c7b2a4827fd05eae0295b96fd6e}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!getLocalAddress@{getLocalAddress}}
+\index{getLocalAddress@{getLocalAddress}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{getLocalAddress()}{getLocalAddress()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+get\+Local\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets local address.
+
+\begin{DoxyReturn}{Returns}
+the local address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a4665d2a1fa80fc2f58d7d2c1dd7432e3}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a4665d2a1fa80fc2f58d7d2c1dd7432e3}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!getMessagesHandler@{getMessagesHandler}}
+\index{getMessagesHandler@{getMessagesHandler}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{getMessagesHandler()}{getMessagesHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler}{Messages\+Handler}} ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+get\+Messages\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets messages handler.
+
+\begin{DoxyReturn}{Returns}
+the messages handler 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2763fc99e41537cf891d42614eacac2c}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2763fc99e41537cf891d42614eacac2c}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!getRemoteAddress@{getRemoteAddress}}
+\index{getRemoteAddress@{getRemoteAddress}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{getRemoteAddress()}{getRemoteAddress()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+get\+Remote\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets remote address.
+
+\begin{DoxyReturn}{Returns}
+the remote address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aa64ec201c3558cb554dde39e14e49f77}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aa64ec201c3558cb554dde39e14e49f77}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!handledRun@{handledRun}}
+\index{handledRun@{handledRun}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{handledRun()}{handledRun()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+handled\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Handled run. 
+
+Reimplemented from \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a4ec95833704d274ff8d6b21250bcf652}{ver14.\+Shared\+Classes.\+Threads.\+My\+Thread}}.
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2890314fd1880334a5ec37ccbf251275}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a2890314fd1880334a5ec37ccbf251275}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!interruptListener@{interruptListener}}
+\index{interruptListener@{interruptListener}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{interruptListener()}{interruptListener()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+interrupt\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+Interrupt listener.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the err to interrupt with \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac4b4fb1096efdbade2f7baff80247acf}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac4b4fb1096efdbade2f7baff80247acf}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!isClosed@{isClosed}}
+\index{isClosed@{isClosed}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{isClosed()}{isClosed()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+is\+Closed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is closed boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac789d5f83e72b5f760b782a6e2f737c0}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ac789d5f83e72b5f760b782a6e2f737c0}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is connected boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a8c85c45621e0fd21ff99dca6dd67160f}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a8c85c45621e0fd21ff99dca6dd67160f}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!requestMessage@{requestMessage}}
+\index{requestMessage@{requestMessage}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{requestMessage()}{requestMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}} ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+request\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}}}]{request\+Msg }\end{DoxyParamCaption})}
+
+sending request and blocking til res
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+Msg} & = \char`\"{}can i have x message?\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+response 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aea78a70af57035a823d1bfc6ed34d4df}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aea78a70af57035a823d1bfc6ed34d4df}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!requestMessage@{requestMessage}}
+\index{requestMessage@{requestMessage}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{requestMessage()}{requestMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+request\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}}}]{request\+Msg,  }\item[{\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback}{Message\+Callback}}}]{on\+Res }\end{DoxyParamCaption})}
+
+Request message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+Msg} & the request msg \\
+\hline
+{\em on\+Res} & the on res \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_afb813a2398cf0e09b2a1a71b63db9460}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_afb813a2398cf0e09b2a1a71b63db9460}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!respond@{respond}}
+\index{respond@{respond}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{respond()}{respond()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+respond (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}}}]{msg,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}}}]{responding\+To }\end{DoxyParamCaption})}
+
+Respond.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+{\em responding\+To} & the responding to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab3e0938b82ed002f08457a2a17ea72b0}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_ab3e0938b82ed002f08457a2a17ea72b0}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!setMessagesHandler@{setMessagesHandler}}
+\index{setMessagesHandler@{setMessagesHandler}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{setMessagesHandler()}{setMessagesHandler()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+set\+Messages\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler}{Messages\+Handler}}}]{messages\+Handler }\end{DoxyParamCaption})}
+
+Sets messages handler.
+
+
+\begin{DoxyParams}{Parameters}
+{\em messages\+Handler} & the messages handler \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a45d1fba87885712053955f4454ed825a}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a45d1fba87885712053955f4454ed825a}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!stopReading@{stopReading}}
+\index{stopReading@{stopReading}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{stopReading()}{stopReading()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+stop\+Reading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stop reading. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0ee109e7b2a045c5f1cc04b4495667f9}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a0ee109e7b2a045c5f1cc04b4495667f9}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!writeMessage@{writeMessage}}
+\index{writeMessage@{writeMessage}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{writeMessage()}{writeMessage()}}
+{\footnotesize\ttfamily synchronized void ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+write\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message}{Message}}}]{msg }\end{DoxyParamCaption})}
+
+Write message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a1dc7078612701bac3db0b79207e5bc48}\label{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_a1dc7078612701bac3db0b79207e5bc48}} 
+\index{ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}!msgSocket@{msgSocket}}
+\index{msgSocket@{msgSocket}!ver14.SharedClasses.Networking.AppSocket@{ver14.SharedClasses.Networking.AppSocket}}
+\doxysubsubsection{\texorpdfstring{msgSocket}{msgSocket}}
+{\footnotesize\ttfamily final Socket ver14.\+Shared\+Classes.\+Networking.\+App\+Socket.\+msg\+Socket\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Msg socket. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Networking/\mbox{\hyperlink{_app_socket_8java}{App\+Socket.\+java}}\end{DoxyCompactItemize}

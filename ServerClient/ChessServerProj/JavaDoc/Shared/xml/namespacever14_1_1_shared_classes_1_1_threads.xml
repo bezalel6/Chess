@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_threads" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::Threads</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread" prot="public">ver14::SharedClasses::Threads::HandledThread</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" prot="public">ver14::SharedClasses::Threads::MyThread</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager" prot="public">ver14::SharedClasses::Threads::ThreadsManager</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_threads_1_1_error_handling">ver14::SharedClasses::Threads::ErrorHandling</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Threads/HandledThread.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

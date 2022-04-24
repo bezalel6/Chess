@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::GameSetup::AiParameters::AiType</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type_1a993b4ed57ab56a3109445b3c036012af" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.AiParameters.AiType.Stockfish</definition>
+        <argsstring></argsstring>
+        <name>Stockfish</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.AiParameters.AiType.Stockfish</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/AiParameters.java" line="64" column="1" bodyfile="Game/GameSetup/AiParameters.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type_1aa4f57a708315477d4a11b6f50f5534ec" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.AiParameters.AiType.MyAi</definition>
+        <argsstring></argsstring>
+        <name>MyAi</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.AiParameters.AiType.MyAi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/AiParameters.java" line="64" column="1" bodyfile="Game/GameSetup/AiParameters.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/GameSetup/AiParameters.java" line="63" column="11" bodyfile="Game/GameSetup/AiParameters.java" bodystart="63" bodyend="66"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type_1aa4f57a708315477d4a11b6f50f5534ec" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::AiParameters::AiType</scope><name>MyAi</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type_1a993b4ed57ab56a3109445b3c036012af" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::AiParameters::AiType</scope><name>Stockfish</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::MovesList</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::ArrayList&lt; Move &gt;</basecompoundref>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1_1_compare_moves" prot="public">ver14::SharedClasses::Game::Moves::MovesList::CompareMoves</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a6bf686fda4e2300739d8afd6fe368de8" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long ver14.SharedClasses.Game.Moves.MovesList.hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.hash</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="8" column="18" bodyfile="Game/Moves/MovesList.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a1aa4a6a4ed8e61749da6a942daed11e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.MovesList.MovesList</definition>
+        <argsstring>()</argsstring>
+        <name>MovesList</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.MovesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="10" column="12" bodyfile="Game/Moves/MovesList.java" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a57f8f16fee25a541638d1c1b981cfdda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.MovesList.MovesList</definition>
+        <argsstring>(MovesList other)</argsstring>
+        <name>MovesList</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.MovesList</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="14" column="12" bodyfile="Game/Moves/MovesList.java" bodystart="14" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a176317db30c97e8816d1679272ea8062" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.Moves.MovesList.add</definition>
+        <argsstring>(Move move)</argsstring>
+        <name>add</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.add</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="22" column="20" bodyfile="Game/Moves/MovesList.java" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a9cda43e680b499b46a1d062f7269b1f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+        <definition>Move ver14.SharedClasses.Game.Moves.MovesList.findMove</definition>
+        <argsstring>(BasicMove basicMove)</argsstring>
+        <name>findMove</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.findMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move" kindref="compound">BasicMove</ref></type>
+          <declname>basicMove</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="27" column="17" bodyfile="Game/Moves/MovesList.java" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a1b4a3c540fc143ff7b83aef1bb1dd011" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+        <definition>Move ver14.SharedClasses.Game.Moves.MovesList.findMove</definition>
+        <argsstring>(BasicMove basicMove, CompareMoves compareMoves)</argsstring>
+        <name>findMove</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.findMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move" kindref="compound">BasicMove</ref></type>
+          <declname>basicMove</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1_1_compare_moves" kindref="compound">CompareMoves</ref></type>
+          <declname>compareMoves</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="31" column="17" bodyfile="Game/Moves/MovesList.java" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a81e42b885fa9fff2b17af2dccda2974b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long ver14.SharedClasses.Game.Moves.MovesList.getHash</definition>
+        <argsstring>()</argsstring>
+        <name>getHash</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.getHash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="35" column="17" bodyfile="Game/Moves/MovesList.java" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1ac05ccbee7294dca2bd774e038366af82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Moves.MovesList.createSimpleStr</definition>
+        <argsstring>()</argsstring>
+        <name>createSimpleStr</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MovesList.createSimpleStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MovesList.java" line="39" column="19" bodyfile="Game/Moves/MovesList.java" bodystart="39" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ArrayList&lt; Move &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Moves.MovesList</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ArrayList&lt; Move &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Moves.MovesList</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/Moves/MovesList.java" line="6" column="7" bodyfile="Game/Moves/MovesList.java" bodystart="6" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a176317db30c97e8816d1679272ea8062" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>add</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1ac05ccbee7294dca2bd774e038366af82" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>createSimpleStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a9cda43e680b499b46a1d062f7269b1f9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>findMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a1b4a3c540fc143ff7b83aef1bb1dd011" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>findMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a81e42b885fa9fff2b17af2dccda2974b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>getHash</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a6bf686fda4e2300739d8afd6fe368de8" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>hash</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a1aa4a6a4ed8e61749da6a942daed11e8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>MovesList</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1a57f8f16fee25a541638d1c1b981cfdda" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MovesList</scope><name>MovesList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

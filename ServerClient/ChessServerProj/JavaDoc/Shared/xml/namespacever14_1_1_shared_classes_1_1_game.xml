@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_game" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::Game</compoundname>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" prot="public">ver14::SharedClasses::Game::Location</innerclass>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" prot="public">ver14::SharedClasses::Game::PlayerColor</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_evaluation">ver14::SharedClasses::Game::Evaluation</innernamespace>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_game_setup">ver14::SharedClasses::Game::GameSetup</innernamespace>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_moves">ver14::SharedClasses::Game::Moves</innernamespace>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_saved_games">ver14::SharedClasses::Game::SavedGames</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/Location.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

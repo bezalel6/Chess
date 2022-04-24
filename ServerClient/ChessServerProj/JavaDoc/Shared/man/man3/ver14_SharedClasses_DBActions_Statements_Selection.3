@@ -1,0 +1,152 @@
+.TH "ver14.SharedClasses.DBActions.Statements.Selection" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Statements.Selection
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "interface \fBJoin\fP"
+.br
+.ti -1c
+.RI "interface \fBOrder\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSelection\fP (Object selectFrom, Object[] select)"
+.br
+.ti -1c
+.RI "\fBSelection\fP (Object selectFrom, \fBCondition\fP condition, Object[] select)"
+.br
+.ti -1c
+.RI "\fBSelection\fP \fBnestMe\fP (Col\&.\&.\&. outerSelect)"
+.br
+.ti -1c
+.RI "void \fBtop\fP (Object top)"
+.br
+.ti -1c
+.RI "void \fBjoin\fP ( @\fBJoin\fP String joinType, \fBTable\fP joinWith, \fBCondition\fP condition, Col\&.\&.\&. groupBy)"
+.br
+.ti -1c
+.RI "void \fBorderBy\fP (\fBCol\fP col, @\fBOrder\fP String order)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "String \fBcreateStatement\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBSelection\fP - a selection sql statement\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.Selection (Object selectFrom, Object[] select)"
+Instantiates a new \fBSelection\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIselectFrom\fP the select from 
+.br
+\fIselect\fP the select 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.Selection (Object selectFrom, \fBCondition\fP condition, Object[] select)"
+Instantiates a new \fBSelection\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIselectFrom\fP the select from 
+.br
+\fIcondition\fP the condition 
+.br
+\fIselect\fP the select 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.createStatement ()\fC [protected]\fP"
+Create statement string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\fP\&.
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.join (@\fBJoin\fP String joinType, \fBTable\fP joinWith, \fBCondition\fP condition, Col\&.\&.\&. groupBy)"
+\fBJoin\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIjoinType\fP the join type 
+.br
+\fIjoinWith\fP the join with 
+.br
+\fIcondition\fP the condition 
+.br
+\fIgroupBy\fP the group by 
+.RE
+.PP
+
+.SS "\fBSelection\fP ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.nestMe (Col\&.\&.\&. outerSelect)"
+Nest me selection\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIouterSelect\fP the outer select 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the selection 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.orderBy (\fBCol\fP col, @\fBOrder\fP String order)"
+\fBOrder\fP by\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.br
+\fIorder\fP the order 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\&.top (Object top)"
+Top\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItop\fP the top 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

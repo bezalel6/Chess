@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Utils::RegEx::Prefixes</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1ae7bef233e5723f262f7f18302fc36f52" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Utils.RegEx.Prefixes.GUEST_PREFIX</definition>
+        <argsstring></argsstring>
+        <name>GUEST_PREFIX</name>
+        <qualifiedname>ver14.SharedClasses.Utils.RegEx.Prefixes.GUEST_PREFIX</qualifiedname>
+        <initializer>= &quot;GUEST&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant GUEST_PREFIX. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/RegEx.java" line="217" column="36" bodyfile="Utils/RegEx.java" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1a38f6a49868f7182bd36cdc542f5b7d24" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Utils.RegEx.Prefixes.DONT_CAP_FULL</definition>
+        <argsstring></argsstring>
+        <name>DONT_CAP_FULL</name>
+        <qualifiedname>ver14.SharedClasses.Utils.RegEx.Prefixes.DONT_CAP_FULL</qualifiedname>
+        <initializer>= &quot;\u200B&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant DONT_CAP_FULL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/RegEx.java" line="222" column="36" bodyfile="Utils/RegEx.java" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1a2716b1d8d2c263a5d3c5953a174e5c64" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Utils.RegEx.Prefixes.DONT_CAP_WORD</definition>
+        <argsstring></argsstring>
+        <name>DONT_CAP_WORD</name>
+        <qualifiedname>ver14.SharedClasses.Utils.RegEx.Prefixes.DONT_CAP_WORD</qualifiedname>
+        <initializer>= &quot;\u2060&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant DONT_CAP_WORD. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/RegEx.java" line="227" column="36" bodyfile="Utils/RegEx.java" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1ae91df1262f96964cf5c7521fcbb99bb0" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Utils.RegEx.Prefixes.DATE_TIME</definition>
+        <argsstring></argsstring>
+        <name>DATE_TIME</name>
+        <qualifiedname>ver14.SharedClasses.Utils.RegEx.Prefixes.DATE_TIME</qualifiedname>
+        <initializer>= &quot;:dt:&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant DATE_TIME. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/RegEx.java" line="232" column="36" bodyfile="Utils/RegEx.java" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Prefixes.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Utils/RegEx.java" line="213" column="19" bodyfile="Utils/RegEx.java" bodystart="213" bodyend="233"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1ae91df1262f96964cf5c7521fcbb99bb0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::RegEx::Prefixes</scope><name>DATE_TIME</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1a38f6a49868f7182bd36cdc542f5b7d24" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::RegEx::Prefixes</scope><name>DONT_CAP_FULL</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1a2716b1d8d2c263a5d3c5953a174e5c64" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::RegEx::Prefixes</scope><name>DONT_CAP_WORD</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1_1_prefixes_1ae7bef233e5723f262f7f18302fc36f52" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::RegEx::Prefixes</scope><name>GUEST_PREFIX</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,247 @@
+.TH "ver14.SharedClasses.DBActions.Condition" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Condition
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRelation\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCondition\fP (String str, Object\&.\&.\&. parms)"
+.br
+.ti -1c
+.RI "\fBCondition\fP \fBnoNulls\fP ()"
+.br
+.ti -1c
+.RI "\fBCondition\fP \fBadd\fP (\fBCondition\fP condition, \fBRelation\fP relation)"
+.br
+.ti -1c
+.RI "\fBCondition\fP \fBadd\fP (\fBCondition\fP condition, \fBRelation\fP relation, boolean \fBwrap\fP)"
+.br
+.ti -1c
+.RI "void \fBwrap\fP ()"
+.br
+.ti -1c
+.RI "\fBCondition\fP \fBand\fP (\fBCondition\fP condition)"
+.br
+.ti -1c
+.RI "String \fBgetStr\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetStr\fP (String str)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBCondition\fP \fBequals\fP (Object col, Object value)"
+.br
+.ti -1c
+.RI "static \fBCondition\fP \fBmath\fP (Object col, @MagicConstant(stringValues={'>', '>=', '<', '<='}) String operation, Object value)"
+.br
+.ti -1c
+.RI "static \fBCondition\fP \fBbetween\fP (Object col, Object start, Object end)"
+.br
+.ti -1c
+.RI "static \fBCondition\fP \fBnotEquals\fP (Object col, Object value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCondition\fP - represents a condition\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Condition\&.Condition (String str, Object\&.\&.\&. parms)"
+Instantiates a new \fBCondition\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP the str 
+.br
+\fIparms\fP the parms 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.add (\fBCondition\fP condition, \fBRelation\fP relation)"
+Add condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcondition\fP the condition 
+.br
+\fIrelation\fP the relation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "\fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.add (\fBCondition\fP condition, \fBRelation\fP relation, boolean wrap)"
+Add condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcondition\fP the condition 
+.br
+\fIrelation\fP the relation 
+.br
+\fIwrap\fP the wrap 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+THIS condition 
+.RE
+.PP
+
+.SS "\fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.and (\fBCondition\fP condition)"
+wraps
+.PP
+\fBParameters\fP
+.RS 4
+\fIcondition\fP the condition 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+condition 
+.RE
+.PP
+
+.SS "static \fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.between (Object col, Object start, Object end)\fC [static]\fP"
+Between condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.br
+\fIstart\fP the start 
+.br
+\fIend\fP the end 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "static \fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.equals (Object col, Object value)\fC [static]\fP"
+Equals condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.br
+\fIvalue\fP the value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Condition\&.getStr ()"
+Gets str\&.
+.PP
+\fBReturns\fP
+.RS 4
+the str 
+.RE
+.PP
+
+.SS "static \fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.math (Object col, @MagicConstant(stringValues={'>', '>=', '<', '<='}) String operation, Object value)\fC [static]\fP"
+Math condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.br
+\fIoperation\fP the operation 
+.br
+\fIvalue\fP the value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "\fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.noNulls ()"
+No nulls condition\&.
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "static \fBCondition\fP ver14\&.SharedClasses\&.DBActions\&.Condition\&.notEquals (Object col, Object value)\fC [static]\fP"
+Not equals condition\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.br
+\fIvalue\fP the value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the condition 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Condition\&.setStr (String str)"
+Sets str\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP the str 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Condition\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Condition\&.wrap ()"
+Wrap\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -2,7 +2,7 @@ package ver14.SharedClasses.DBActions.Arg;
 
 
 /**
- * Arg type - .
+ * Arg type - argument type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -48,10 +48,18 @@ public enum ArgType {
      */
     final boolean isUserInput;
 
+    /**
+     * Instantiates a new Arg type.
+     */
     ArgType() {
         this(true);
     }
 
+    /**
+     * Instantiates a new Arg type.
+     *
+     * @param isUserInput the is user input
+     */
     ArgType(boolean isUserInput) {
         this.isUserInput = isUserInput;
     }

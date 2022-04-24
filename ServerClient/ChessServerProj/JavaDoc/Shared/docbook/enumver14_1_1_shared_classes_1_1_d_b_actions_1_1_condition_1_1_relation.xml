@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Condition.Relation Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition.Relation</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc">AND</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ab76b9ff26b985a3f0c50db05669240b2">OR</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link> - relations between conditions.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc"/><section>
+    <title>AND</title>
+<indexterm><primary>AND</primary><secondary>ver14.SharedClasses.DBActions.Condition.Relation</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition.Relation</primary><secondary>AND</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Condition.Relation.AND</computeroutput></para>
+<para>And relation. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ab76b9ff26b985a3f0c50db05669240b2"/><section>
+    <title>OR</title>
+<indexterm><primary>OR</primary><secondary>ver14.SharedClasses.DBActions.Condition.Relation</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition.Relation</primary><secondary>OR</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Condition.Relation.OR</computeroutput></para>
+<para>Or relation. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+DBActions/Condition.java</section>
+</section>

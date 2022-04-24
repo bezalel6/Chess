@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1ab009c9a72ea34906f5eda3f38f18c384">NONE</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1a90553b2f11d224fe89e9eb9f362102a5">CAN_CLAIM</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1a835fc7e26bdc09eccb44e4c73295cb89">CLAIMED</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Threefold status - represents a threefold draw status.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1a90553b2f11d224fe89e9eb9f362102a5"/><section>
+    <title>CAN_CLAIM</title>
+<indexterm><primary>CAN_CLAIM</primary><secondary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</primary><secondary>CAN_CLAIM</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus.CAN_CLAIM</computeroutput></para>
+<para>Can claim threefold status. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1a835fc7e26bdc09eccb44e4c73295cb89"/><section>
+    <title>CLAIMED</title>
+<indexterm><primary>CLAIMED</primary><secondary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</primary><secondary>CLAIMED</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus.CLAIMED</computeroutput></para>
+<para>Claimed threefold status. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status_1ab009c9a72ea34906f5eda3f38f18c384"/><section>
+    <title>NONE</title>
+<indexterm><primary>NONE</primary><secondary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus</primary><secondary>NONE</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.ThreefoldStatus.NONE</computeroutput></para>
+<para>None threefold status. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/Moves/Move.java</section>
+</section>

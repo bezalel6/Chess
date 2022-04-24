@@ -16,9 +16,18 @@ public class Square implements Serializable {
      * The constant EMPTY_PIECE.
      */
     public static final Piece EMPTY_PIECE = null;
+    /**
+     * The constant EMPTY_PIECE_STR.
+     */
     private static final String EMPTY_PIECE_STR = "\u2003";
-    //    private static final String EMPTY_PIECE_STR = "   ";
+    /**
+     * The constant loc.
+     */
+//    private static final String EMPTY_PIECE_STR = "   ";
     private final Location loc;
+    /**
+     * The Piece.
+     */
     private Piece piece;
 
     /**

@@ -1,0 +1,451 @@
+.TH "ver14.SharedClasses.Game.Moves.Direction" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.Moves.Direction
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDirection\fP (Direction\&.\&.\&. \fBcombination\fP)"
+.br
+.ti -1c
+.RI "\fBDirection\fP (int \fBoffset\fP)"
+.br
+.ti -1c
+.RI "\fBDirection\fP (long \fBandWith\fP, int \fBoffset\fP)"
+.br
+.ti -1c
+.RI "\fBDirection\fP[] \fBgetCombination\fP ()"
+.br
+.ti -1c
+.RI "\fBDirection\fP \fBperspective\fP (\fBPlayerColor\fP playerColor)"
+.br
+.ti -1c
+.RI "abstract \fBDirection\fP \fBopposite\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB[static initializer]\fP"
+.br
+.ti -1c
+.RI "static \fBDirection\fP \fBgetRelative\fP (\fBLocation\fP loc1, \fBLocation\fP loc2)"
+.br
+.ti -1c
+.RI "static \fBDirection\fP \fBgetDirectionByOffset\fP (int \fBoffset\fP)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBU\fP"
+.br
+.ti -1c
+.RI "\fBD\fP"
+.br
+.ti -1c
+.RI "\fBL\fP"
+.br
+.ti -1c
+.RI "\fBR\fP"
+.br
+.ti -1c
+.RI "\fBU_U\fP"
+.br
+.ti -1c
+.RI "\fBD_D\fP"
+.br
+.ti -1c
+.RI "\fBU_R\fP"
+.br
+.ti -1c
+.RI "\fBU_L\fP"
+.br
+.ti -1c
+.RI "\fBD_R\fP"
+.br
+.ti -1c
+.RI "\fBD_L\fP"
+.br
+.ti -1c
+.RI "\fBU_U_R\fP"
+.br
+.ti -1c
+.RI "\fBU_U_L\fP"
+.br
+.ti -1c
+.RI "\fBU_R_R\fP"
+.br
+.ti -1c
+.RI "\fBU_L_L\fP"
+.br
+.ti -1c
+.RI "\fBD_D_R\fP"
+.br
+.ti -1c
+.RI "\fBD_D_L\fP"
+.br
+.ti -1c
+.RI "\fBD_R_R\fP"
+.br
+.ti -1c
+.RI "\fBD_L_L\fP"
+.br
+.ti -1c
+.RI "final long \fBandWith\fP"
+.br
+.ti -1c
+.RI "final int \fBoffset\fP"
+.br
+.ti -1c
+.RI "final int \fBasInt\fP"
+.br
+.ti -1c
+.RI "final \fBDirection\fP[] \fBcombination\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBNUM_OF_DIRECTIONS\fP"
+.br
+.ti -1c
+.RI "static final int \fBNUM_OF_KNIGHT_DIRECTIONS\fP"
+.br
+.ti -1c
+.RI "static final int \fBNUM_OF_DIRECTIONS_WO_KNIGHT\fP"
+.br
+.ti -1c
+.RI "static final \fBDirection\fP[] \fBALL_DIRECTIONS\fP = values()"
+.br
+.ti -1c
+.RI "static final List< \fBDirection\fP > \fBALL_USED_DIRECTIONS\fP = Arrays\&.stream(values())\&.filter(d \-> d != \fBU_U\fP && d != \fBD_D\fP)\&.collect(Collectors\&.toList())"
+.br
+.ti -1c
+.RI "static final \fBPlayerColor\fP \fBnormalPerspective\fP = \fBPlayerColor\&.WHITE\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDirection\fP - represents a moving direction on a board\&. sort of like a vector\&. has an \fC\fBoffset\fP\fP that is added to a certain location or bitboard, in order to achieve movement in that direction\&. the general direction map looks like this: -9  -8  -7   -1  loc  1   7  8  9   
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBDirection\fP[] ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.getCombination ()"
+Get combination direction [ ]\&.
+.PP
+\fBReturns\fP
+.RS 4
+the direction [ ] 
+.RE
+.PP
+
+.SS "static \fBDirection\fP ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.getDirectionByOffset (int offset)\fC [static]\fP"
+Gets direction by offset\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIoffset\fP the offset 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the direction by offset 
+.RE
+.PP
+
+.SS "static \fBDirection\fP ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.getRelative (\fBLocation\fP loc1, \fBLocation\fP loc2)\fC [static]\fP"
+Gets relative\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc1\fP the loc 1 
+.br
+\fIloc2\fP the loc 2 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the relative 
+.RE
+.PP
+
+.SS "abstract \fBDirection\fP ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.opposite ()\fC [abstract]\fP"
+the Opposite direction to this one\&.
+.PP
+\fBReturns\fP
+.RS 4
+the direction 
+.RE
+.PP
+
+.SS "\fBDirection\fP ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.perspective (\fBPlayerColor\fP playerColor)"
+gets the correct perspective for the provided player color\&.this is necessary because for example: a white pawn push(\fC\fBU\fP\fP) is the exact opposite of a black pawn push (\fC\fBD\fP\fP)\&. so the perspective needs to be in relation to the moving color\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIplayerColor\fP the player color 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the direction 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS " final \fBDirection\fP [] ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.ALL_DIRECTIONS = values()\fC [static]\fP"
+The All directions\&. 
+.SS " final List<\fBDirection\fP> ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.ALL_USED_DIRECTIONS = Arrays\&.stream(values())\&.filter(d \-> d != \fBU_U\fP && d != \fBD_D\fP)\&.collect(Collectors\&.toList())\fC [static]\fP"
+The All used directions\&. 
+.SS "final long ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.andWith"
+some directions need to filter false positives\&. for example: moving left one square from the left-most column, will overflow to the previous row\&. to fix this problem some directions have a andWith value they have to perform a bitwise and with, after every offset\&. to cancel the false positives\&. in the left direction example, the andWith is the whole board but the right-most column 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.asInt"
+an int for quick access by index\&. 
+.SS "final \fBDirection\fP [] ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.combination"
+some 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D"
+\fBInitial value:\fP
+.PP
+.nf
+=(-8) {
+        @Override
+        public Direction opposite() {
+            return U;
+        }
+    }
+.fi
+one square down the board\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_D"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, D) {
+        @Override
+        public Direction opposite() {
+            return U_U;
+        }
+    }
+.fi
+two squares down\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_D_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, D, L) {
+        @Override
+        public Direction opposite() {
+            return U_U_R;
+        }
+    }
+.fi
+two squares down and one square left\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_D_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, D, R) {
+        @Override
+        public Direction opposite() {
+            return U_U_L;
+        }
+    }
+.fi
+two squares down and one square right\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, L) {
+        @Override
+        public Direction opposite() {
+            return U_R;
+        }
+    }
+.fi
+one square down and one square left\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_L_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, L, L) {
+        @Override
+        public Direction opposite() {
+            return U_R_R;
+        }
+    }
+.fi
+two squares left and one square down\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, R) {
+        @Override
+        public Direction opposite() {
+            return U_L;
+        }
+    }
+.fi
+one square down and one square right\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.D_R_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(D, R, R) {
+        @Override
+        public Direction opposite() {
+            return U_L_L;
+        }
+    }
+.fi
+two squares right and one square down\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.L"
+\fBInitial value:\fP
+.PP
+.nf
+=(BitData\&.notAFile, -1) {
+        @Override
+        public Direction opposite() {
+            return R;
+        }
+    }
+.fi
+one square left\&. 
+.SS " final \fBPlayerColor\fP ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.normalPerspective = \fBPlayerColor\&.WHITE\fP\fC [static]\fP"
+the perspective the offset is correct for\&. if the moving piece's color is not this value the direction need to be flipped\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.NUM_OF_DIRECTIONS\fC [static]\fP"
+The constant NUM_OF_DIRECTIONS\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.NUM_OF_DIRECTIONS_WO_KNIGHT\fC [static]\fP"
+The constant NUM_OF_DIRECTIONS_WO_KNIGHT\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.NUM_OF_KNIGHT_DIRECTIONS\fC [static]\fP"
+The constant NUM_OF_KNIGHT_DIRECTIONS\&. 
+.SS "final int ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.offset"
+The actual offset\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.R"
+\fBInitial value:\fP
+.PP
+.nf
+=(BitData\&.notHFile, 1) {
+        @Override
+        public Direction opposite() {
+            return L;
+        }
+    }
+.fi
+one square right\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U"
+\fBInitial value:\fP
+.PP
+.nf
+=(8) {
+        @Override
+        public Direction opposite() {
+            return D;
+        }
+    }
+.fi
+one square up the board\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, L) {
+        @Override
+        public Direction opposite() {
+            return D_R;
+        }
+    }
+.fi
+one square up and one square left\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_L_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, L, L) {
+        @Override
+        public Direction opposite() {
+            return D_R_R;
+        }
+    }
+.fi
+two squares left and one square up\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, R) {
+        @Override
+        public Direction opposite() {
+            return D_L;
+        }
+    }
+.fi
+one square up and one square right\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_R_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, R, R) {
+        @Override
+        public Direction opposite() {
+            return D_L_L;
+        }
+    }
+.fi
+two squares right and one square up\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_U"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, U) {
+        @Override
+        public Direction opposite() {
+            return D_D;
+        }
+    }
+.fi
+two squares up\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_U_L"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, U, L) {
+        @Override
+        public Direction opposite() {
+            return D_D_L;
+        }
+    }
+.fi
+two squares up and one square left\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.Direction\&.U_U_R"
+\fBInitial value:\fP
+.PP
+.nf
+=(U, U, R) {
+        @Override
+        public Direction opposite() {
+            return D_D_R;
+        }
+    }
+.fi
+two squares up and one square right\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

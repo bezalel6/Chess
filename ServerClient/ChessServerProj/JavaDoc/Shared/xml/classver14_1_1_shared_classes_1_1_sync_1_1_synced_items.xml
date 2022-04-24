@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Sync::SyncedItems</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::concurrent::ConcurrentHashMap&lt; String, E &gt;</basecompoundref>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_synced_items_1_1_remover" prot="public">ver14::SharedClasses::Sync::SyncedItems::Remover</innerclass>
+    <templateparamlist>
+      <param>
+        <type>E</type>
+        <typeconstraint><ref refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item" kindref="compound">SyncableItem</ref></typeconstraint>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a2b78e1af9e9d7fe134de94e3e1a04f95" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt; <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info" kindref="compound">UserInfo</ref> &gt;</type>
+        <definition>final SyncedItems&lt;UserInfo&gt; ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.exampleUsers1</definition>
+        <argsstring></argsstring>
+        <name>exampleUsers1</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.exampleUsers1</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt;&gt;(SyncedListType.CONNECTED_USERS) {{
+        for (int i = 1; i &lt;= 5; i++) {
+            add(new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info" kindref="compound">UserInfo</ref>(&quot;id &quot; + i));
+        }
+    }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="14" column="37" bodyfile="Sync/SyncedItems.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a8a11c82c5177039b03db054fd46f6053" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref></type>
+        <definition>final SyncedItems ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.exampleUsers2</definition>
+        <argsstring></argsstring>
+        <name>exampleUsers2</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.exampleUsers2</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>(SyncedListType.CONNECTED_USERS) {{
+        for (int i = 1; i &lt;= 5; i++) {
+            add(new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info" kindref="compound">UserInfo</ref>(&quot;id &quot; + i));
+        }
+    }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="19" column="37" bodyfile="Sync/SyncedItems.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a708e4c9efaea57797a7559d3f3f2e7e3" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref></type>
+        <definition>final SyncedItems ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.exampleGames1</definition>
+        <argsstring></argsstring>
+        <name>exampleGames1</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.exampleGames1</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>(SyncedListType.RESUMABLE_GAMES) {{
+        for (int i = 1; i &lt;= 10; i++) {
+            add(<ref refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a601574ce7d4af991e70eeda205a8aea9" kindref="member">GameInfo.example</ref>());
+        }
+    }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="24" column="37" bodyfile="Sync/SyncedItems.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a0f64e8f0af0385f2c42c50f8982b795e" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref></type>
+        <definition>final SyncedItems ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.exampleGames2</definition>
+        <argsstring></argsstring>
+        <name>exampleGames2</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.exampleGames2</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>(SyncedListType.JOINABLE_GAMES) {{
+        for (int i = 1; i &lt;= 5; i++) {
+            add(<ref refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a601574ce7d4af991e70eeda205a8aea9" kindref="member">GameInfo.example</ref>());
+        }
+    }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="29" column="37" bodyfile="Sync/SyncedItems.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1af0284155648b6db26fa1e02d65a90b6c" prot="public" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type" kindref="compound">SyncedListType</ref></type>
+        <definition>final SyncedListType ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.syncedListType</definition>
+        <argsstring></argsstring>
+        <name>syncedListType</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.syncedListType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="34" column="33" bodyfile="Sync/SyncedItems.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1ad34fecb6c1049cd08808dd43b3d191ec" prot="private" static="no" mutable="no">
+        <type>final <ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>&lt; <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt; E &gt; &gt;</type>
+        <definition>final Callback&lt;SyncedItems&lt;E&gt; &gt; ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.onUpdate</definition>
+        <argsstring></argsstring>
+        <name>onUpdate</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.onUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="36" column="28" bodyfile="Sync/SyncedItems.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a1b4d007e74bb25231cc1ca830a61e7ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.SyncedItems</definition>
+        <argsstring>(SyncedListType syncedListType)</argsstring>
+        <name>SyncedItems</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.SyncedItems</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type" kindref="compound">SyncedListType</ref></type>
+          <declname>syncedListType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="38" column="12" bodyfile="Sync/SyncedItems.java" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a1dd4003de4b124a885b57a73a59f11a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.SyncedItems</definition>
+        <argsstring>(SyncedListType syncedListType, Callback&lt; SyncedItems&lt; E &gt; &gt; onUpdate)</argsstring>
+        <name>SyncedItems</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.SyncedItems</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type" kindref="compound">SyncedListType</ref></type>
+          <declname>syncedListType</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>&lt; <ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt; E &gt; &gt;</type>
+          <declname>onUpdate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="42" column="12" bodyfile="Sync/SyncedItems.java" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a8b17ac31f8227ac1d3d1491b88217781" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.forEachItem</definition>
+        <argsstring>(Callback&lt; E &gt; action)</argsstring>
+        <name>forEachItem</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.forEachItem</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>&lt; E &gt;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="47" column="30" bodyfile="Sync/SyncedItems.java" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a7bc6716a4945fceeeb8f6ff2fa68eba2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Stream&lt; E &gt;</type>
+        <definition>Stream&lt; E &gt; ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.stream</definition>
+        <argsstring>()</argsstring>
+        <name>stream</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.stream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="51" column="19" bodyfile="Sync/SyncedItems.java" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1adefe743f822f74ba6f49001cf46f3fce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt; E &gt;</type>
+        <definition>SyncedItems&lt; E &gt; ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.clean</definition>
+        <argsstring>()</argsstring>
+        <name>clean</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.clean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="55" column="24" bodyfile="Sync/SyncedItems.java" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a75248d42bff98f823b986464d1326d11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.addAll</definition>
+        <argsstring>(Collection&lt;? extends SyncableItem &gt; adding)</argsstring>
+        <name>addAll</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.addAll</qualifiedname>
+        <param>
+          <type>Collection&lt;? extends <ref refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item" kindref="compound">SyncableItem</ref> &gt;</type>
+          <declname>adding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="61" column="17" bodyfile="Sync/SyncedItems.java" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1abfd43c4d0b84b346ea0ec829aeda221e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.add</definition>
+        <argsstring>(E value)</argsstring>
+        <name>add</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.add</qualifiedname>
+        <param>
+          <type>E</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="65" column="30" bodyfile="Sync/SyncedItems.java" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a7cb7f86159074a2b5d7d4f4a6cd28764" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized <ref refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item" kindref="compound">SyncableItem</ref></type>
+        <definition>synchronized SyncableItem ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.put</definition>
+        <argsstring>(E value)</argsstring>
+        <name>put</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.put</qualifiedname>
+        <param>
+          <type>E</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="69" column="38" bodyfile="Sync/SyncedItems.java" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a186f1bdadb8e6b600f72b371cdfff773" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized E</type>
+        <definition>synchronized E ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.put</definition>
+        <argsstring>(@NotNull String key, @NotNull E value)</argsstring>
+        <name>put</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.put</qualifiedname>
+        <param>
+          <type>@NotNull String</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>@NotNull E</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="74" column="27" bodyfile="Sync/SyncedItems.java" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1acb56ec95f601ce1a6712fafb7ab6e4d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized E</type>
+        <definition>synchronized E ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.remove</definition>
+        <argsstring>(Object key)</argsstring>
+        <name>remove</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.remove</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="81" column="27" bodyfile="Sync/SyncedItems.java" bodystart="81" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a39e0da735652cd75916e5be17f65cef6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized boolean</type>
+        <definition>synchronized boolean ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.remove</definition>
+        <argsstring>(Object key, Object value)</argsstring>
+        <name>remove</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.remove</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="88" column="33" bodyfile="Sync/SyncedItems.java" bodystart="88" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a036e38ebc1c3c40b1b3cb8aa85bd41fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.batchRemove</definition>
+        <argsstring>(Remover&lt; E &gt; remover)</argsstring>
+        <name>batchRemove</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.batchRemove</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_synced_items_1_1_remover" kindref="compound">Remover</ref>&lt; E &gt;</type>
+          <declname>remover</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="103" column="17" bodyfile="Sync/SyncedItems.java" bodystart="103" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a3c469b61824ff7500616fba4e2860d12" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.updated</definition>
+        <argsstring>()</argsstring>
+        <name>updated</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncedItems.updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncedItems.java" line="97" column="18" bodyfile="Sync/SyncedItems.java" bodystart="97" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ConcurrentHashMap&lt; String, E &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>ver14.SharedClasses.Sync.SyncedItems&lt; ver14.SharedClasses.Sync.UserInfo &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items"/>
+      </node>
+      <node id="2">
+        <label>ConcurrentHashMap&lt; String, E &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>exampleUsers1</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>exampleGames1</edgelabel>
+          <edgelabel>exampleGames2</edgelabel>
+          <edgelabel>exampleUsers2</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>syncedListType</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>exampleUsers1</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>exampleGames1</edgelabel>
+          <edgelabel>exampleGames2</edgelabel>
+          <edgelabel>exampleUsers2</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>syncedListType</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.Sync.SyncedListType</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type"/>
+      </node>
+    </collaborationgraph>
+    <location file="Sync/SyncedItems.java" line="13" column="7" bodyfile="Sync/SyncedItems.java" bodystart="13" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1abfd43c4d0b84b346ea0ec829aeda221e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>add</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a75248d42bff98f823b986464d1326d11" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>addAll</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a036e38ebc1c3c40b1b3cb8aa85bd41fd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>batchRemove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1adefe743f822f74ba6f49001cf46f3fce" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>clean</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a708e4c9efaea57797a7559d3f3f2e7e3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>exampleGames1</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a0f64e8f0af0385f2c42c50f8982b795e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>exampleGames2</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a2b78e1af9e9d7fe134de94e3e1a04f95" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>exampleUsers1</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a8a11c82c5177039b03db054fd46f6053" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>exampleUsers2</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a8b17ac31f8227ac1d3d1491b88217781" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>forEachItem</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1ad34fecb6c1049cd08808dd43b3d191ec" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>onUpdate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a7cb7f86159074a2b5d7d4f4a6cd28764" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>put</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a186f1bdadb8e6b600f72b371cdfff773" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>put</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1acb56ec95f601ce1a6712fafb7ab6e4d5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>remove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a39e0da735652cd75916e5be17f65cef6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>remove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a7bc6716a4945fceeeb8f6ff2fa68eba2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>stream</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a1b4d007e74bb25231cc1ca830a61e7ca" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>SyncedItems</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a1dd4003de4b124a885b57a73a59f11a1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>SyncedItems</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1af0284155648b6db26fa1e02d65a90b6c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>syncedListType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items_1a3c469b61824ff7500616fba4e2860d12" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncedItems</scope><name>updated</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

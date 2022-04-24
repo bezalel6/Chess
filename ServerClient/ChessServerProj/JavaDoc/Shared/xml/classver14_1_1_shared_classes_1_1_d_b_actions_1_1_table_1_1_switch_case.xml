@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Table::SwitchCase</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a83ea9fe3c77cfa995d25fd7b2f702af5" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>final Condition ver14.SharedClasses.DBActions.Table.SwitchCase.condition</definition>
+        <argsstring></argsstring>
+        <name>condition</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.condition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="16" column="29" bodyfile="DBActions/Table/SwitchCase.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a078e00b04ae8e92398b0d515c165a789" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+        <definition>final Col ver14.SharedClasses.DBActions.Table.SwitchCase.ifTrue</definition>
+        <argsstring></argsstring>
+        <name>ifTrue</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.ifTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The If true. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="20" column="23" bodyfile="DBActions/Table/SwitchCase.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0b61d6f628484a47139fede9e2f2b838" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Table.SwitchCase.SwitchCase</definition>
+        <argsstring>(Condition condition, Col ifTrue)</argsstring>
+        <name>SwitchCase</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.SwitchCase</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>ifTrue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Switch case.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the condition </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ifTrue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the if true </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="28" column="12" bodyfile="DBActions/Table/SwitchCase.java" bodystart="28" bodyend="31"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a48223203a195330d790aee7b80a14e8d" compoundref="_switch_case_8java" startline="51" endline="53">ver14.SharedClasses.DBActions.Table.SwitchCase.defaultCase</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0400647edafd594909995e3f98bf0097" compoundref="_switch_case_8java" startline="41" endline="43">ver14.SharedClasses.DBActions.Table.SwitchCase.equals</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a7154f4243b7a1f4a126e122ea8885e80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition ver14.SharedClasses.DBActions.Table.SwitchCase.condition</definition>
+        <argsstring>()</argsstring>
+        <name>condition</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.condition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref> condition.</para>
+<para><simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="60" column="22" bodyfile="DBActions/Table/SwitchCase.java" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1aadb3f30822432f1b4fe6c064fdc412bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+        <definition>Col ver14.SharedClasses.DBActions.Table.SwitchCase.ifTrue</definition>
+        <argsstring>()</argsstring>
+        <name>ifTrue</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.ifTrue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If true col.</para>
+<para><simplesect kind="return"><para>the col </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="69" column="16" bodyfile="DBActions/Table/SwitchCase.java" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a6624222655badd8ec3a2131929bd1a7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Table.SwitchCase.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="80" column="19" bodyfile="DBActions/Table/SwitchCase.java" bodystart="80" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0400647edafd594909995e3f98bf0097" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case" kindref="compound">SwitchCase</ref></type>
+        <definition>static SwitchCase ver14.SharedClasses.DBActions.Table.SwitchCase.equals</definition>
+        <argsstring>(Col col, String value, Col ifTrue)</argsstring>
+        <name>equals</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.equals</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>ifTrue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Equals switch case.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ifTrue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the if true </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the switch case </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="41" column="30" bodyfile="DBActions/Table/SwitchCase.java" bodystart="41" bodyend="43"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b" compoundref="_condition_8java" startline="60" endline="62">ver14.SharedClasses.DBActions.Condition.equals</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0b61d6f628484a47139fede9e2f2b838" compoundref="_switch_case_8java" startline="28" endline="31">ver14.SharedClasses.DBActions.Table.SwitchCase.SwitchCase</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a48223203a195330d790aee7b80a14e8d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case" kindref="compound">SwitchCase</ref></type>
+        <definition>static SwitchCase ver14.SharedClasses.DBActions.Table.SwitchCase.defaultCase</definition>
+        <argsstring>(Col ifTrue)</argsstring>
+        <name>defaultCase</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.SwitchCase.defaultCase</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>ifTrue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default case switch case.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ifTrue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the if true </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the switch case </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/SwitchCase.java" line="51" column="30" bodyfile="DBActions/Table/SwitchCase.java" bodystart="51" bodyend="53"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0b61d6f628484a47139fede9e2f2b838" compoundref="_switch_case_8java" startline="28" endline="31">ver14.SharedClasses.DBActions.Table.SwitchCase.SwitchCase</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Switch case - represents a case that is meant to be used inside a switch case col. if the <computeroutput><ref refid="" kindref="compound">condition</ref></computeroutput> is true, the <computeroutput><ref refid="" kindref="compound">ifTrue</ref></computeroutput> col will display in the switch case col</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DBActions/Table/SwitchCase.java" line="12" column="7" bodyfile="DBActions/Table/SwitchCase.java" bodystart="12" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a83ea9fe3c77cfa995d25fd7b2f702af5" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>condition</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a7154f4243b7a1f4a126e122ea8885e80" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>condition</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a48223203a195330d790aee7b80a14e8d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>defaultCase</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0400647edafd594909995e3f98bf0097" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>equals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a078e00b04ae8e92398b0d515c165a789" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>ifTrue</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1aadb3f30822432f1b4fe6c064fdc412bb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>ifTrue</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0b61d6f628484a47139fede9e2f2b838" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>SwitchCase</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a6624222655badd8ec3a2131929bd1a7a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::SwitchCase</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

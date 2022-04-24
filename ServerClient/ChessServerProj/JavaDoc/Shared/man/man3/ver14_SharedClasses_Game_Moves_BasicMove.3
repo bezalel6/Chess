@@ -1,0 +1,232 @@
+.TH "ver14.SharedClasses.Game.Moves.BasicMove" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.Moves.BasicMove
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by \fBver14\&.SharedClasses\&.Game\&.Moves\&.Move\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBasicMove\fP (\fBBasicMove\fP other)"
+.br
+.ti -1c
+.RI "\fBBasicMove\fP (\fBLocation\fP movingFrom, \fBLocation\fP movingTo)"
+.br
+.ti -1c
+.RI "\fBBasicMove\fP (String move)"
+.br
+.ti -1c
+.RI "void \fBflip\fP ()"
+.br
+.ti -1c
+.RI "\fBLocation\fP \fBgetMovingFrom\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMovingFrom\fP (\fBLocation\fP movingFrom)"
+.br
+.ti -1c
+.RI "\fBLocation\fP \fBgetMovingTo\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMovingTo\fP (\fBLocation\fP movingTo)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetBasicMoveAnnotation\fP ()"
+.br
+.ti -1c
+.RI "\fBBasicMove\fP \fBcp\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBBasicMove\fP[] \fBcreateBatch\fP (Location\&.\&.\&. locs)"
+.br
+.ti -1c
+.RI "static \fBBasicMove\fP \fBgetFlipped\fP (\fBBasicMove\fP basicMove)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Basic move - represents a basic move\&. with a source and a destination\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.BasicMove (\fBBasicMove\fP other)"
+Copy constructor\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.BasicMove (\fBLocation\fP movingFrom, \fBLocation\fP movingTo)"
+Instantiates a new Basic move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImovingFrom\fP the moving from 
+.br
+\fImovingTo\fP the moving to 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.BasicMove (String move)"
+Instantiates a new Basic move\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImove\fP the move 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBBasicMove\fP ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.cp ()"
+copies this move\&.
+.PP
+\fBReturns\fP
+.RS 4
+the new copy 
+.RE
+.PP
+
+.SS "static \fBBasicMove\fP[] ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.createBatch (Location\&.\&.\&. locs)\fC [static]\fP"
+Create batch basic move [ ]\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlocs\fP the locs 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the basic move [ ] 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.equals (Object o)"
+Equals boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.Game\&.Moves\&.Move\fP\&.
+.SS "void ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.flip ()"
+Flips the source and destination\&. 
+.SS "String ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.getBasicMoveAnnotation ()"
+Gets basic move annotation\&.
+.PP
+\fBReturns\fP
+.RS 4
+the basic move annotation 
+.RE
+.PP
+
+.SS "static \fBBasicMove\fP ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.getFlipped (\fBBasicMove\fP basicMove)\fC [static]\fP"
+Gets a copy of the provided move with the source and destination flipped
+.PP
+\fBParameters\fP
+.RS 4
+\fIbasicMove\fP the original move 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the flipped move 
+.RE
+.PP
+
+.SS "\fBLocation\fP ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.getMovingFrom ()"
+Gets moving from\&. aka source
+.PP
+\fBReturns\fP
+.RS 4
+the moving from 
+.RE
+.PP
+
+.SS "\fBLocation\fP ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.getMovingTo ()"
+Gets moving to\&.
+.PP
+\fBReturns\fP
+.RS 4
+the moving to 
+.RE
+.PP
+
+.SS "int ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.hashCode ()"
+Hash code int\&.
+.PP
+\fBReturns\fP
+.RS 4
+the int 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.setMovingFrom (\fBLocation\fP movingFrom)"
+Sets moving from\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImovingFrom\fP the moving from 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.setMovingTo (\fBLocation\fP movingTo)"
+Sets moving to\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImovingTo\fP the moving to 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.Moves\&.BasicMove\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.Game\&.Moves\&.Move\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

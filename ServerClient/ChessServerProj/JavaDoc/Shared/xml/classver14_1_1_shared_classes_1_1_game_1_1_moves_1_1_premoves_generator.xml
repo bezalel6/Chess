@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::PremovesGenerator</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1abb7d9a3e21d507c21173a28252fb162c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ver14.SharedClasses.Game.Moves.PremovesGenerator.main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.PremovesGenerator.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/PremovesGenerator.java" line="11" column="24" bodyfile="Game/Moves/PremovesGenerator.java" bodystart="11" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1afbb920a2cbcbf43a43c58c1db138b12b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+        <definition>static MovesList ver14.SharedClasses.Game.Moves.PremovesGenerator.generatePreMoves</definition>
+        <argsstring>(Board board, PlayerColor clr)</argsstring>
+        <name>generatePreMoves</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.PremovesGenerator.generatePreMoves</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+          <declname>board</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>clr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/PremovesGenerator.java" line="15" column="29" bodyfile="Game/Moves/PremovesGenerator.java" bodystart="15" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/Moves/PremovesGenerator.java" line="10" column="7" bodyfile="Game/Moves/PremovesGenerator.java" bodystart="10" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1afbb920a2cbcbf43a43c58c1db138b12b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::PremovesGenerator</scope><name>generatePreMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1abb7d9a3e21d507c21173a28252fb162c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::PremovesGenerator</scope><name>main</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

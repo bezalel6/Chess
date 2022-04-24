@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_4e4604c4da8a36ded01537cc9870b65a" kind="dir">
+    <compoundname>DBActions/Arg</compoundname>
+    <innerfile refid="_arg_8java">Arg.java</innerfile>
+    <innerfile refid="_arg_type_8java">ArgType.java</innerfile>
+    <innerfile refid="_config_8java">Config.java</innerfile>
+    <innerfile refid="_described_8java">Described.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DBActions/Arg/"/>
+  </compounddef>
+</doxygen>

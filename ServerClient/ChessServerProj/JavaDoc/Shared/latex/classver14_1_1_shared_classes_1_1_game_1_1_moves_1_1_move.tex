@@ -1,0 +1,674 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{}\doxysection{ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move Class Reference}
+\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+Inheritance diagram for ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.926829cm]{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag}{Move\+Flag}}
+\item 
+enum \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a2fa35d8cdbb901fde4349c1751573f72}{Move}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+From, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+To, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} capturing\+Piece\+Type)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a5b53e0187d68e7f2417f28e9c5841f1f}{Move}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+From, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+To)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a821ec228c2aeec789408b555b8622381}{Move}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}} threefold\+Status)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a95770404b3bb20dc54bb59b6de69411b}{Move}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} other)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list}{Moves\+List}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ac0c9bff5a709361c5b2ce131dbeedfeb}{get\+Creator\+List}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0e3ec07fe963b960958d7927b5c54248}{set\+Creator\+List}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list}{Moves\+List}} creator\+List)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a450782d119754f7caabfe38a7cac46c0}{set\+Move\+Annotation}} (String move\+Annotation)
+\item 
+byte \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa960c41fd385d6de1e2e988eea3d03e4}{get\+Disabled\+Castling}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a8c375cb07767739b390a27058961c8a5}{set\+Disabled\+Castling}} (byte disabled\+Castling)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa2a37583b4874dfd2e59f8cd940754d0}{set\+Threefold\+Option}} ()
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_acc5121189745b578d24cca063c70d642}{get\+Moving\+Color}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a18e843b393892302954749cd261811fe}{set\+Moving\+Color}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} moving\+Player\+Color)
+\item 
+int \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_adbcd279432947b0b16e8ac5d3d0b5304}{get\+Prev\+Full\+Move\+Clock}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7a26c616a1519dfaa04ad3bf9022df27}{set\+Prev\+Full\+Move\+Clock}} (int prev\+Full\+Move\+Clock)
+\item 
+int \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a483a3472861ed12f71565831e6302f50}{get\+Prev\+Half\+Move\+Clock}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0b28299c0460b1c260d1b5ac92df6c04}{set\+Prev\+Half\+Move\+Clock}} (int prev\+Half\+Move\+Clock)
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad62333c641ec52b605b5dccbeeb93241}{get\+Promoting\+To}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a25293fd63c98265e2a1d46171113399f}{set\+Promoting\+To}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} promoting\+To)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move}{Basic\+Move}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa34a7432dc700eecc5e44c1a7990cdc1}{get\+Intermediate\+Move}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_af55dce40c6c530ac4677c0c4fb5a76d3}{set\+Intermediate\+Move}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move}{Basic\+Move}} intermediate\+Move)
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae0f49a7ba57f4e2785938d4bef4b4ad5}{is\+Check}} ()
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation}{Evaluation}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a783226166ccd6aefa9a6ff84427bb3b3}{get\+Move\+Evaluation}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad144e74c7ec7e10c989ce9327bbec738}{set\+Move\+Evaluation}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation}{Evaluation}} move\+Evaluation)
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3cd8227e85c8d0ab48782217568d5ad1}{get\+Capturing\+Piece\+Type}} ()
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a27d3584fc9627a04f4f8fabb4433db9d}{is\+Reversible}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a4b47c5fbaf844ac6797d62e077a5ca8e}{set\+Reversible}} (boolean reversible)
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a12e2c219e3c7757bb805c6d68fecf327}{is\+Capturing}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a72215e370f3ef7d1b4e4b5af605f7e3a}{set\+Capturing}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} piece\+Type)
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a11e285cdbaa01a24ca3ab667ea7f0db5}{equals}} (Object o)
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a61b6f0e2a074a229a9c7526371295e4c}{to\+String}} ()
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3b2780bffffc51dd8fa11db11de608c8}{get\+Annotation}} ()
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a43ada7cd5542eb750c72ca04209fbc02}{strict\+Equals}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} move)
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag}{Move\+Flag}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a687d1729f1f27e3e4fa116065c85f0c1}{get\+Move\+Flag}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aba0419c6e7ddfebb7b38be1ed6aced59}{set\+Move\+Flag}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag}{Move\+Flag}} move\+Flag)
+\item 
+int \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7f2b8984cb2c5b5a1e232fc978ce16cd}{compare\+To}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} o)
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a03c9807df05c88fdbf93c6b0884c96dd}{get\+En\+Passant\+Loc}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a1180b0bc74cbfdb79bc9e96114bcb857}{set\+En\+Passant\+Loc}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} epsn\+Loc)
+\item 
+\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a05298fbc3b50b80bcacd7ad7947cda71}{get\+Threefold\+Status}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a968ee424a5162b50ead2dabfbc1fdff8}{set\+Threefold\+Status}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}} threefold\+Status)
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a6f3802d05df5cc311e89deb5491fc15d}{get\+Game\+Status\+Str}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a9b14d73016a63344fccb0cdd9dfb4002}{castling}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+From, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} moving\+To, Castling\+Rights.\+Side side)
+\item 
+static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3c8482dc9b6917df79dd844f1fb10594}{threefold\+Claim}} ()
+\item 
+static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae85272b945ad8ad31ad395002698b834}{flip\+Move}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} move)
+\item 
+static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad7782f576457b8e52fee169af1a0a326}{copy\+Move}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} move)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} -\/ represents a \char`\"{}heavy\char`\"{} move. with a lot of info.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a2fa35d8cdbb901fde4349c1751573f72}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a2fa35d8cdbb901fde4349c1751573f72}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!Move@{Move}}
+\index{Move@{Move}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+From,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+To,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{capturing\+Piece\+Type }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em moving\+From} & the moving from \\
+\hline
+{\em moving\+To} & the moving to \\
+\hline
+{\em capturing\+Piece\+Type} & the capturing piece type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a5b53e0187d68e7f2417f28e9c5841f1f}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a5b53e0187d68e7f2417f28e9c5841f1f}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!Move@{Move}}
+\index{Move@{Move}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+From,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+To }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em moving\+From} & the moving from \\
+\hline
+{\em moving\+To} & the moving to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a821ec228c2aeec789408b555b8622381}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a821ec228c2aeec789408b555b8622381}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!Move@{Move}}
+\index{Move@{Move}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}}}]{threefold\+Status }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em threefold\+Status} & the threefold status \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a95770404b3bb20dc54bb59b6de69411b}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a95770404b3bb20dc54bb59b6de69411b}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!Move@{Move}}
+\index{Move@{Move}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}}]{other }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a9b14d73016a63344fccb0cdd9dfb4002}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a9b14d73016a63344fccb0cdd9dfb4002}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!castling@{castling}}
+\index{castling@{castling}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{castling()}{castling()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+castling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+From,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{moving\+To,  }\item[{Castling\+Rights.\+Side}]{side }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+creates a Castling move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em moving\+From} & the moving from \\
+\hline
+{\em moving\+To} & the moving to \\
+\hline
+{\em side} & the castling side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the move 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7f2b8984cb2c5b5a1e232fc978ce16cd}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7f2b8984cb2c5b5a1e232fc978ce16cd}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily int ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}}]{o }\end{DoxyParamCaption})}
+
+Compare to another move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the other move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the comparison result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad7782f576457b8e52fee169af1a0a326}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad7782f576457b8e52fee169af1a0a326}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!copyMove@{copyMove}}
+\index{copyMove@{copyMove}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{copyMove()}{copyMove()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+copy\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Copy move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & the move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the move 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a11e285cdbaa01a24ca3ab667ea7f0db5}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a11e285cdbaa01a24ca3ab667ea7f0db5}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!equals@{equals}}
+\index{equals@{equals}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+equals (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption})}
+
+Equals boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the o \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_a6b0c0d1607008c4b3d6e113af4e168c9}{ver14.\+Shared\+Classes.\+Game.\+Moves.\+Basic\+Move}}.
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae85272b945ad8ad31ad395002698b834}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae85272b945ad8ad31ad395002698b834}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!flipMove@{flipMove}}
+\index{flipMove@{flipMove}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{flipMove()}{flipMove()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+flip\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Flip move move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & the move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the move 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3b2780bffffc51dd8fa11db11de608c8}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3b2780bffffc51dd8fa11db11de608c8}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getAnnotation@{getAnnotation}}
+\index{getAnnotation@{getAnnotation}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getAnnotation()}{getAnnotation()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Annotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets annotation.
+
+\begin{DoxyReturn}{Returns}
+the annotation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3cd8227e85c8d0ab48782217568d5ad1}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3cd8227e85c8d0ab48782217568d5ad1}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getCapturingPieceType@{getCapturingPieceType}}
+\index{getCapturingPieceType@{getCapturingPieceType}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getCapturingPieceType()}{getCapturingPieceType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Capturing\+Piece\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets capturing piece type.
+
+\begin{DoxyReturn}{Returns}
+the capturing piece type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ac0c9bff5a709361c5b2ce131dbeedfeb}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ac0c9bff5a709361c5b2ce131dbeedfeb}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getCreatorList@{getCreatorList}}
+\index{getCreatorList@{getCreatorList}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getCreatorList()}{getCreatorList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list}{Moves\+List}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Creator\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets creator list.
+
+\begin{DoxyReturn}{Returns}
+the creator list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa960c41fd385d6de1e2e988eea3d03e4}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa960c41fd385d6de1e2e988eea3d03e4}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getDisabledCastling@{getDisabledCastling}}
+\index{getDisabledCastling@{getDisabledCastling}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getDisabledCastling()}{getDisabledCastling()}}
+{\footnotesize\ttfamily byte ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Disabled\+Castling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets disabled castling.
+
+\begin{DoxyReturn}{Returns}
+the disabled castling 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a03c9807df05c88fdbf93c6b0884c96dd}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a03c9807df05c88fdbf93c6b0884c96dd}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getEnPassantLoc@{getEnPassantLoc}}
+\index{getEnPassantLoc@{getEnPassantLoc}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getEnPassantLoc()}{getEnPassantLoc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+En\+Passant\+Loc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets en passant loc.
+
+\begin{DoxyReturn}{Returns}
+the en passant loc 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a6f3802d05df5cc311e89deb5491fc15d}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a6f3802d05df5cc311e89deb5491fc15d}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getGameStatusStr@{getGameStatusStr}}
+\index{getGameStatusStr@{getGameStatusStr}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getGameStatusStr()}{getGameStatusStr()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Game\+Status\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa34a7432dc700eecc5e44c1a7990cdc1}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa34a7432dc700eecc5e44c1a7990cdc1}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getIntermediateMove@{getIntermediateMove}}
+\index{getIntermediateMove@{getIntermediateMove}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getIntermediateMove()}{getIntermediateMove()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move}{Basic\+Move}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Intermediate\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets intermediate move.
+
+\begin{DoxyReturn}{Returns}
+the intermediate move 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a783226166ccd6aefa9a6ff84427bb3b3}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a783226166ccd6aefa9a6ff84427bb3b3}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getMoveEvaluation@{getMoveEvaluation}}
+\index{getMoveEvaluation@{getMoveEvaluation}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getMoveEvaluation()}{getMoveEvaluation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation}{Evaluation}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Move\+Evaluation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets move evaluation.
+
+\begin{DoxyReturn}{Returns}
+the move evaluation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a687d1729f1f27e3e4fa116065c85f0c1}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a687d1729f1f27e3e4fa116065c85f0c1}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getMoveFlag@{getMoveFlag}}
+\index{getMoveFlag@{getMoveFlag}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getMoveFlag()}{getMoveFlag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag}{Move\+Flag}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Move\+Flag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets move flag.
+
+\begin{DoxyReturn}{Returns}
+the move flag 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_acc5121189745b578d24cca063c70d642}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_acc5121189745b578d24cca063c70d642}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getMovingColor@{getMovingColor}}
+\index{getMovingColor@{getMovingColor}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getMovingColor()}{getMovingColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Moving\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets moving color.
+
+\begin{DoxyReturn}{Returns}
+the moving color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_adbcd279432947b0b16e8ac5d3d0b5304}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_adbcd279432947b0b16e8ac5d3d0b5304}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getPrevFullMoveClock@{getPrevFullMoveClock}}
+\index{getPrevFullMoveClock@{getPrevFullMoveClock}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getPrevFullMoveClock()}{getPrevFullMoveClock()}}
+{\footnotesize\ttfamily int ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Prev\+Full\+Move\+Clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets prev full move clock.
+
+\begin{DoxyReturn}{Returns}
+the prev full move clock 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a483a3472861ed12f71565831e6302f50}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a483a3472861ed12f71565831e6302f50}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getPrevHalfMoveClock@{getPrevHalfMoveClock}}
+\index{getPrevHalfMoveClock@{getPrevHalfMoveClock}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getPrevHalfMoveClock()}{getPrevHalfMoveClock()}}
+{\footnotesize\ttfamily int ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Prev\+Half\+Move\+Clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets prev half move clock.
+
+\begin{DoxyReturn}{Returns}
+the prev half move clock 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad62333c641ec52b605b5dccbeeb93241}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad62333c641ec52b605b5dccbeeb93241}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getPromotingTo@{getPromotingTo}}
+\index{getPromotingTo@{getPromotingTo}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getPromotingTo()}{getPromotingTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Promoting\+To (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets promoting to.
+
+\begin{DoxyReturn}{Returns}
+the promoting to 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a05298fbc3b50b80bcacd7ad7947cda71}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a05298fbc3b50b80bcacd7ad7947cda71}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!getThreefoldStatus@{getThreefoldStatus}}
+\index{getThreefoldStatus@{getThreefoldStatus}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{getThreefoldStatus()}{getThreefoldStatus()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+get\+Threefold\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a12e2c219e3c7757bb805c6d68fecf327}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a12e2c219e3c7757bb805c6d68fecf327}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!isCapturing@{isCapturing}}
+\index{isCapturing@{isCapturing}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{isCapturing()}{isCapturing()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+is\+Capturing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is capturing boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae0f49a7ba57f4e2785938d4bef4b4ad5}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ae0f49a7ba57f4e2785938d4bef4b4ad5}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!isCheck@{isCheck}}
+\index{isCheck@{isCheck}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{isCheck()}{isCheck()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+is\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is check boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a27d3584fc9627a04f4f8fabb4433db9d}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a27d3584fc9627a04f4f8fabb4433db9d}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!isReversible@{isReversible}}
+\index{isReversible@{isReversible}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{isReversible()}{isReversible()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+is\+Reversible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is reversible boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a72215e370f3ef7d1b4e4b5af605f7e3a}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a72215e370f3ef7d1b4e4b5af605f7e3a}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setCapturing@{setCapturing}}
+\index{setCapturing@{setCapturing}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setCapturing()}{setCapturing()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Capturing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{piece\+Type }\end{DoxyParamCaption})}
+
+Sets capturing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece\+Type} & the piece type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0e3ec07fe963b960958d7927b5c54248}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0e3ec07fe963b960958d7927b5c54248}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setCreatorList@{setCreatorList}}
+\index{setCreatorList@{setCreatorList}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setCreatorList()}{setCreatorList()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Creator\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list}{Moves\+List}}}]{creator\+List }\end{DoxyParamCaption})}
+
+Sets creator list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em creator\+List} & the creator list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a8c375cb07767739b390a27058961c8a5}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a8c375cb07767739b390a27058961c8a5}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setDisabledCastling@{setDisabledCastling}}
+\index{setDisabledCastling@{setDisabledCastling}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setDisabledCastling()}{setDisabledCastling()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Disabled\+Castling (\begin{DoxyParamCaption}\item[{byte}]{disabled\+Castling }\end{DoxyParamCaption})}
+
+Sets disabled castling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em disabled\+Castling} & the disabled castling \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a1180b0bc74cbfdb79bc9e96114bcb857}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a1180b0bc74cbfdb79bc9e96114bcb857}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setEnPassantLoc@{setEnPassantLoc}}
+\index{setEnPassantLoc@{setEnPassantLoc}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setEnPassantLoc()}{setEnPassantLoc()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+En\+Passant\+Loc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{epsn\+Loc }\end{DoxyParamCaption})}
+
+Sets en passant loc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em epsn\+Loc} & the epsn loc \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_af55dce40c6c530ac4677c0c4fb5a76d3}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_af55dce40c6c530ac4677c0c4fb5a76d3}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setIntermediateMove@{setIntermediateMove}}
+\index{setIntermediateMove@{setIntermediateMove}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setIntermediateMove()}{setIntermediateMove()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Intermediate\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move}{Basic\+Move}}}]{intermediate\+Move }\end{DoxyParamCaption})}
+
+Sets intermediate move.
+
+
+\begin{DoxyParams}{Parameters}
+{\em intermediate\+Move} & the intermediate move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a450782d119754f7caabfe38a7cac46c0}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a450782d119754f7caabfe38a7cac46c0}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setMoveAnnotation@{setMoveAnnotation}}
+\index{setMoveAnnotation@{setMoveAnnotation}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setMoveAnnotation()}{setMoveAnnotation()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Move\+Annotation (\begin{DoxyParamCaption}\item[{String}]{move\+Annotation }\end{DoxyParamCaption})}
+
+Sets move annotation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Annotation} & the move annotation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad144e74c7ec7e10c989ce9327bbec738}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_ad144e74c7ec7e10c989ce9327bbec738}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setMoveEvaluation@{setMoveEvaluation}}
+\index{setMoveEvaluation@{setMoveEvaluation}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setMoveEvaluation()}{setMoveEvaluation()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Move\+Evaluation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation}{Evaluation}}}]{move\+Evaluation }\end{DoxyParamCaption})}
+
+Sets move evaluation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Evaluation} & the move evaluation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aba0419c6e7ddfebb7b38be1ed6aced59}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aba0419c6e7ddfebb7b38be1ed6aced59}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setMoveFlag@{setMoveFlag}}
+\index{setMoveFlag@{setMoveFlag}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setMoveFlag()}{setMoveFlag()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Move\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag}{Move\+Flag}}}]{move\+Flag }\end{DoxyParamCaption})}
+
+Sets move flag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Flag} & the move flag \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a18e843b393892302954749cd261811fe}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a18e843b393892302954749cd261811fe}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setMovingColor@{setMovingColor}}
+\index{setMovingColor@{setMovingColor}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setMovingColor()}{setMovingColor()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Moving\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{moving\+Player\+Color }\end{DoxyParamCaption})}
+
+Sets moving color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em moving\+Player\+Color} & the moving player color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7a26c616a1519dfaa04ad3bf9022df27}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a7a26c616a1519dfaa04ad3bf9022df27}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setPrevFullMoveClock@{setPrevFullMoveClock}}
+\index{setPrevFullMoveClock@{setPrevFullMoveClock}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setPrevFullMoveClock()}{setPrevFullMoveClock()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Prev\+Full\+Move\+Clock (\begin{DoxyParamCaption}\item[{int}]{prev\+Full\+Move\+Clock }\end{DoxyParamCaption})}
+
+Sets prev full move clock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prev\+Full\+Move\+Clock} & the prev full move clock \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0b28299c0460b1c260d1b5ac92df6c04}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a0b28299c0460b1c260d1b5ac92df6c04}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setPrevHalfMoveClock@{setPrevHalfMoveClock}}
+\index{setPrevHalfMoveClock@{setPrevHalfMoveClock}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setPrevHalfMoveClock()}{setPrevHalfMoveClock()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Prev\+Half\+Move\+Clock (\begin{DoxyParamCaption}\item[{int}]{prev\+Half\+Move\+Clock }\end{DoxyParamCaption})}
+
+Sets prev half move clock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prev\+Half\+Move\+Clock} & the prev half move clock \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a25293fd63c98265e2a1d46171113399f}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a25293fd63c98265e2a1d46171113399f}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setPromotingTo@{setPromotingTo}}
+\index{setPromotingTo@{setPromotingTo}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setPromotingTo()}{setPromotingTo()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Promoting\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{promoting\+To }\end{DoxyParamCaption})}
+
+Sets promoting to.
+
+
+\begin{DoxyParams}{Parameters}
+{\em promoting\+To} & the promoting to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a4b47c5fbaf844ac6797d62e077a5ca8e}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a4b47c5fbaf844ac6797d62e077a5ca8e}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setReversible@{setReversible}}
+\index{setReversible@{setReversible}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setReversible()}{setReversible()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Reversible (\begin{DoxyParamCaption}\item[{boolean}]{reversible }\end{DoxyParamCaption})}
+
+Sets reversible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reversible} & the reversible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa2a37583b4874dfd2e59f8cd940754d0}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_aa2a37583b4874dfd2e59f8cd940754d0}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setThreefoldOption@{setThreefoldOption}}
+\index{setThreefoldOption@{setThreefoldOption}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setThreefoldOption()}{setThreefoldOption()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Threefold\+Option (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets threefold option. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a968ee424a5162b50ead2dabfbc1fdff8}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a968ee424a5162b50ead2dabfbc1fdff8}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!setThreefoldStatus@{setThreefoldStatus}}
+\index{setThreefoldStatus@{setThreefoldStatus}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{setThreefoldStatus()}{setThreefoldStatus()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+set\+Threefold\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status}{Threefold\+Status}}}]{threefold\+Status }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a43ada7cd5542eb750c72ca04209fbc02}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a43ada7cd5542eb750c72ca04209fbc02}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!strictEquals@{strictEquals}}
+\index{strictEquals@{strictEquals}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{strictEquals()}{strictEquals()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+strict\+Equals (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}}}]{move }\end{DoxyParamCaption})}
+
+checks source and destination equals and move flags equals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & the move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3c8482dc9b6917df79dd844f1fb10594}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a3c8482dc9b6917df79dd844f1fb10594}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!threefoldClaim@{threefoldClaim}}
+\index{threefoldClaim@{threefoldClaim}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{threefoldClaim()}{threefoldClaim()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move}{Move}} ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+threefold\+Claim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Threefold claim move.
+
+\begin{DoxyReturn}{Returns}
+the move 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a61b6f0e2a074a229a9c7526371295e4c}\label{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_a61b6f0e2a074a229a9c7526371295e4c}} 
+\index{ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}!toString@{toString}}
+\index{toString@{toString}!ver14.SharedClasses.Game.Moves.Move@{ver14.SharedClasses.Game.Moves.Move}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Moves.\+Move.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_a341bb54a2242af2bd5175408456a7a66}{ver14.\+Shared\+Classes.\+Game.\+Moves.\+Basic\+Move}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game/\+Moves/\mbox{\hyperlink{_move_8java}{Move.\+java}}\end{DoxyCompactItemize}

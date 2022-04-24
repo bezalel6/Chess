@@ -1,31 +1,47 @@
 package ver14.SharedClasses.Login;
 
-/*
- * LoginType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
-/*
- * LoginType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * LoginType
+/**
+ * Login Type.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public enum LoginType {
-    LOGIN, REGISTER, GUEST, CANCEL, NOT_SET_YET;
+    /**
+     * Login.
+     */
+    LOGIN,
+    /**
+     * Register.
+     */
+    REGISTER,
+    /**
+     * Guest.
+     */
+    GUEST,
+    /**
+     * Cancel.
+     */
+    CANCEL,
+    /**
+     * Not set yet.
+     */
+    NOT_SET_YET;
 
+    /**
+     * As user boolean.
+     *
+     * @return the boolean
+     */
     public boolean asUser() {
         return this == LOGIN || this == REGISTER;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return name();

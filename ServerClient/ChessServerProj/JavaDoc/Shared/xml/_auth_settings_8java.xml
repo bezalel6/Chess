@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_auth_settings_8java" kind="file" language="Java">
+    <compoundname>AuthSettings.java</compoundname>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" prot="public">ver14::SharedClasses::Login::AuthSettings</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_login">ver14::SharedClasses::Login</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">ver14.SharedClasses.Login;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.intellij.lang.annotations.MagicConstant;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">@MagicConstant(intValues<sp/>=<sp/>{AuthSettings.NEVER_AUTH,<sp/>AuthSettings.GUEST,<sp/>AuthSettings.USER,<sp/>AuthSettings.ANY_LOGIN,<sp/>AuthSettings.NO_AUTH})</highlight></codeline>
+<codeline lineno="7" refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">@interface</highlight><highlight class="normal"><sp/><ref refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" kindref="compound">AuthSettings</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GUEST<sp/>=<sp/>1,<sp/>USER<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ANY_LOGIN<sp/>=<sp/>GUEST<sp/>|<sp/>USER;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NEVER_AUTH<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//לא<sp/>ממש<sp/>נצרך<sp/>כרגע<sp/>כי<sp/>עד<sp/>שיש<sp/>איזהשהו<sp/>לוגין<sp/>כל<sp/>הUI<sp/>חסום</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NO_AUTH<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Login/AuthSettings.java"/>
+  </compounddef>
+</doxygen>

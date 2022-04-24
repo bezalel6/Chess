@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::UI::MyJFrame::MyAdapter::HeldDown</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1a2f2437f84c2d93fe78701dfb99bfbfec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.startPress</definition>
+        <argsstring>()</argsstring>
+        <name>startPress</name>
+        <qualifiedname>ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.startPress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start press. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/MyJFrame.java" line="349" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1a578849c9e759a719c91ca18adcef0a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.endPress</definition>
+        <argsstring>()</argsstring>
+        <name>endPress</name>
+        <qualifiedname>ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.endPress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>End press. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/MyJFrame.java" line="354" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1aae44bf4a9efe055873b5d0cad4f40407" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.key</definition>
+        <argsstring>()</argsstring>
+        <name>key</name>
+        <qualifiedname>ver14.SharedClasses.UI.MyJFrame.MyAdapter.HeldDown.key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Key int.</para>
+<para><simplesect kind="return"><para>the int </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/MyJFrame.java" line="361" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The interface Held down. </para>
+    </detaileddescription>
+    <location file="UI/MyJFrame.java" line="345" column="26" bodyfile="UI/MyJFrame.java" bodystart="345" bodyend="362"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1a578849c9e759a719c91ca18adcef0a97" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::MyJFrame::MyAdapter::HeldDown</scope><name>endPress</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1aae44bf4a9efe055873b5d0cad4f40407" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::MyJFrame::MyAdapter::HeldDown</scope><name>key</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down_1a2f2437f84c2d93fe78701dfb99bfbfec" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::MyJFrame::MyAdapter::HeldDown</scope><name>startPress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

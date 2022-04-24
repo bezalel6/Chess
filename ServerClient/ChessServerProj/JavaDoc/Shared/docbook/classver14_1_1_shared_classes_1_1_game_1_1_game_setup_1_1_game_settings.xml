@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.GameSettings Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.GameSettings</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.GameSetup.GameSettings:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type">GameType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aaea86034dfe7b88b00af6b9638c3b3d9"/><emphasis role="strong">GameSettings</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> other)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a5c6c5f27796006d7cdc8db810b3c64fc"/><emphasis role="strong">GameSettings</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> aiParameters)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4db6d6af4e01081be88529c2a8059072"/><emphasis role="strong">GameSettings</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerToMove, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> aiParameters, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type">GameType</link> gameType)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ad08eda566033c981bfb84e50a669550c"/><emphasis role="strong">GameSettings</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerToMove, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat, String fen, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> aiParameters, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type">GameType</link> gameType)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a59fdf879f9f3eb4d85675d949fd5eff7"/>String <emphasis role="strong">getFen</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a878e66fea0bac64d896cfde84c8f71f3"/>void <emphasis role="strong">setFen</emphasis> (String fen)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a27ee8c3440d91e06591b24c65a8b0c01"/>String <emphasis role="strong">getGameID</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a3817f64edb7edb6ac838b0f42c43feee"/>void <emphasis role="strong">setGameID</emphasis> (String gameID)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ae79f97a1c248dc7acb0e91c7b64a373b"/>boolean <emphasis role="strong">isVsAi</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a376eacfde27a583be39177bf274d826f"/><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> <emphasis role="strong">getAiParameters</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aeccf0eed29f48d4a79a786597fdcfee7"/>void <emphasis role="strong">setAiParameters</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> aiParameters)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4e4347a102374e23e9a744c8fac4394e"/><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type">GameType</link> <emphasis role="strong">getGameType</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1afeb8cc95de571b19e9f94bb8ae88a250"/>void <emphasis role="strong">setGameType</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type">GameType</link> gameType)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a6defe9d7685b7f44cdc53580e8dbb76f"/><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <emphasis role="strong">getPlayerToMove</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a77e6af1e7f7f5fba07e295b7f70c0389"/>void <emphasis role="strong">setPlayerToMove</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerToMove)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a7c11bf7fdac8cac8556add40ee064610"/>void <emphasis role="strong">initDefault1vAi</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a430bd8f0849f51c373b16a964d5b4bef"/>void <emphasis role="strong">initDefault1v1</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a241c70f08e1ff1432653780206a612ba"/><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">getTimeFormat</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a91cfa15685290b5b05cf4875f7f2ca53">setTimeFormat</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a580c970f29bbcbeba23fd5aed959603b"/>int <emphasis role="strong">hashCode</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1abf7cb17ddf33ba369bed8e61538e5abe"/>boolean <emphasis role="strong">equals</emphasis> (Object o)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a787dbffb491ead573edc1adb969c1623"/>String <emphasis role="strong">toString</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ac1d287e1fce6da8f800528788b5a662b"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> <emphasis role="strong">EXAMPLE</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>, TimeFormat.ULTRA_BULLET, &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1&quot;, AiParameters.EZ_MY_AI, GameType.RESUME)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a91cfa15685290b5b05cf4875f7f2ca53"/><section>
+    <title>setTimeFormat()</title>
+<indexterm><primary>setTimeFormat</primary><secondary>ver14.SharedClasses.Game.GameSetup.GameSettings</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.GameSettings</primary><secondary>setTimeFormat</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.GameSetup.GameSettings.setTimeFormat (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat)</computeroutput></para><para>
+Implements <link linkend="_interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable">ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/GameSetup/GameSettings.java</section>
+</section>

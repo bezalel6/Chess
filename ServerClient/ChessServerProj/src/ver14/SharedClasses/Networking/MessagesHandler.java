@@ -17,6 +17,8 @@ import java.util.concurrent.Semaphore;
 
 /**
  * The type Messages handler.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class MessagesHandler {
 
@@ -25,12 +27,33 @@ public abstract class MessagesHandler {
      * The Socket.
      */
     protected final AppSocket socket;
+    /**
+     * The Waiting.
+     */
     private final Vector<CompletableFuture<Message>> waiting;
+    /**
+     * The Default callbacks.
+     */
     private final Map<MessageType, MessageCallback> defaultCallbacks;
+    /**
+     * The Received messages.
+     */
     private final Stack<Message> receivedMessages = new Stack<>();
+    /**
+     * The Custom callbacks.
+     */
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
+    /**
+     * The Chronological semaphore.
+     */
     private final Semaphore chronologicalSemaphore = new Semaphore(1);
+    /**
+     * The Is expecting disconnect.
+     */
     private boolean isExpectingDisconnect = false;
+    /**
+     * The Did disconnect.
+     */
     private boolean didDisconnect = false;
 
     {
@@ -77,6 +100,11 @@ public abstract class MessagesHandler {
 
     }
 
+    /**
+     * On cancel question message callback.
+     *
+     * @return the message callback
+     */
     public MessageCallback onCancelQuestion() {
         return msg -> {
         };
@@ -84,6 +112,8 @@ public abstract class MessagesHandler {
 
     /**
      * Interrupt blocking.
+     *
+     * @param err the err
      */
 //    public void interruptBlocking() {
 //        interruptBlocking();
@@ -134,6 +164,11 @@ public abstract class MessagesHandler {
         socket.writeMessage(request);
     }
 
+    /**
+     * On throw error message callback.
+     *
+     * @return the message callback
+     */
     private MessageCallback onThrowError() {
         return msg -> {
             throw (msg.getError());
@@ -171,10 +206,18 @@ public abstract class MessagesHandler {
         }, true);
     }
 
+    /**
+     * Prepare for disconnect.
+     */
     public void prepareForDisconnect() {
         isExpectingDisconnect = true;
     }
 
+    /**
+     * Process message.
+     *
+     * @param message the message
+     */
     private void processMessage(Message message) {
         onAnyMsg(message);
         String respondingTo = message.getRespondingToMsgId();
@@ -220,16 +263,30 @@ public abstract class MessagesHandler {
 
     }
 
+    /**
+     * On any disconnection.
+     */
     protected void onAnyDisconnection() {
         socket.close();
     }
 
+    /**
+     * On planned disconnect.
+     */
     protected void onPlannedDisconnect() {
     }
 
+    /**
+     * On unplanned disconnect.
+     */
     protected void onUnplannedDisconnect() {
     }
 
+    /**
+     * Create disconnected error my error . disconnected error.
+     *
+     * @return the my error . disconnected error
+     */
     protected MyError.DisconnectedError createDisconnectedError() {
         return new MyError.DisconnectedError();
     }

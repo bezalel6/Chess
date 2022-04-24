@@ -1,27 +1,21 @@
 package ver14.SharedClasses.Callbacks;
 
-/*
- * ThrowingCallback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
-/*
- * ThrowingCallback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * ThrowingCallback
+/**
+ * Throwing callback - a callback that might throw an exception .
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @param <T> the callback type
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public interface ThrowingCallback<T> {
 
 
+    /**
+     * Callback.
+     *
+     * @param obj the obj
+     * @throws Exception the exception
+     */
     void callback(T obj) throws Exception;
 
 }

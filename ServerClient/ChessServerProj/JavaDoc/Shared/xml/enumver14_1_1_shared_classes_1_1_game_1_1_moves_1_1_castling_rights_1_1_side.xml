@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::CastlingRights::Side</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a38e6966ca8ed156ae42de89eee03cf3c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.CastlingRights.Side.KING</definition>
+        <argsstring></argsstring>
+        <name>KING</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.KING</qualifiedname>
+        <initializer>=(Location.G, Location.H, Location.F)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>King side. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="257" column="1" bodyfile="Game/Moves/CastlingRights.java" bodystart="257" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac" compoundref="_castling_rights_8java" startline="87" endline="99">ver14.SharedClasses.Game.Moves.CastlingRights.createFromStr</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a" compoundref="_castling_rights_8java" startline="158" endline="174">ver14.SharedClasses.Game.Moves.CastlingRights.toString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4ba03135680ca304f2defcc09ffd7fbe" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.CastlingRights.Side.QUEEN</definition>
+        <argsstring></argsstring>
+        <name>QUEEN</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.QUEEN</qualifiedname>
+        <initializer>=(Location.C, Location.A, Location.D)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Queen side. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="261" column="1" bodyfile="Game/Moves/CastlingRights.java" bodystart="261" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac" compoundref="_castling_rights_8java" startline="87" endline="99">ver14.SharedClasses.Game.Moves.CastlingRights.createFromStr</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a" compoundref="_castling_rights_8java" startline="158" endline="174">ver14.SharedClasses.Game.Moves.CastlingRights.toString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4180f9b3bf233a63b0bc393ac9928e34" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.rookStartingCol</definition>
+        <argsstring></argsstring>
+        <name>rookStartingCol</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.rookStartingCol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Rook starting col. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="270" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a62b905423beaccf7697cd74c1b2abed1" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.castledRookCol</definition>
+        <argsstring></argsstring>
+        <name>castledRookCol</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.castledRookCol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Castled rook col. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="274" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1ad36d24e97031f39d81107d818db51e31" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.castledKingCol</definition>
+        <argsstring></argsstring>
+        <name>castledKingCol</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.castledKingCol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Castled king col. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="278" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a092a1301d1d5a85ac26cc2c10a94ed13" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.kingTravelDistance</definition>
+        <argsstring></argsstring>
+        <name>kingTravelDistance</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.kingTravelDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The King travel distance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="282" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a47c8cdf91a085a627f2ac5dffeb64c46" prot="public" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Game.Moves.CastlingRights.Side.castlingNotation</definition>
+        <argsstring></argsstring>
+        <name>castlingNotation</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.castlingNotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Castling notation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="286" column="29" bodyfile="Game/Moves/CastlingRights.java" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1abed5849915c478ab79eb592e0da27690" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.asInt</definition>
+        <argsstring></argsstring>
+        <name>asInt</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.asInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The As int. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="290" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a3b33e298087d3351b289ea1e0a31500c" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.CastlingRights.Side.mult</definition>
+        <argsstring></argsstring>
+        <name>mult</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.mult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The King Movement <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> Mult </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="294" column="26" bodyfile="Game/Moves/CastlingRights.java" bodystart="294" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a59d452c9ac000478b5c1e678cd846372" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side" kindref="compound">Side</ref>[]</type>
+        <definition> final Side [] ver14.SharedClasses.Game.Moves.CastlingRights.Side.SIDES</definition>
+        <argsstring></argsstring>
+        <name>SIDES</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.SIDES</qualifiedname>
+        <initializer>= {<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a38e6966ca8ed156ae42de89eee03cf3c" kindref="member">KING</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4ba03135680ca304f2defcc09ffd7fbe" kindref="member">QUEEN</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant SIDES. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="266" column="40" bodyfile="Game/Moves/CastlingRights.java" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a669d1506542ce9fbbedb48bafdbc20e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.CastlingRights.Side.Side</definition>
+        <argsstring>(int castledKingCol, int rookStartingCol, int castledRookCol)</argsstring>
+        <name>Side</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.Side</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>castledKingCol</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rookStartingCol</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>castledRookCol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side" kindref="compound">Side</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>castledKingCol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the castled king col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rookStartingCol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the rook starting col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>castledRookCol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the castled rook col </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="303" column="9" bodyfile="Game/Moves/CastlingRights.java" bodystart="303" bodyend="313"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ac0d341fc177e7482ba46f4a872efe76c" compoundref="_str_utils_8java" startline="439" endline="445">ver14.SharedClasses.Utils.StrUtils.repeat</references>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1acbeed8ef4c1cf7d3f31447b0df92ba84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Moves.CastlingRights.Side.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string @hidden </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="323" column="23" bodyfile="Game/Moves/CastlingRights.java" bodystart="323" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a06b9660b2fb3dc83d08d2250a07af487" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+        <definition>Location ver14.SharedClasses.Game.Moves.CastlingRights.Side.kingFinalLoc</definition>
+        <argsstring>(Location currentKingLoc)</argsstring>
+        <name>kingFinalLoc</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.CastlingRights.Side.kingFinalLoc</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>currentKingLoc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>King final loc location.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>currentKingLoc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current king loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the location </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/CastlingRights.java" line="341" column="25" bodyfile="Game/Moves/CastlingRights.java" bodystart="341" bodyend="343"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c" compoundref="_location_8java" startline="150" endline="152">ver14.SharedClasses.Game.Location.getLoc</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side" kindref="compound">Side</ref> - Castling side.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Moves.CastlingRights.Side</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>SIDES</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.Moves.CastlingRights.Side</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>SIDES</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/Moves/CastlingRights.java" line="253" column="11" bodyfile="Game/Moves/CastlingRights.java" bodystart="253" bodyend="345"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1abed5849915c478ab79eb592e0da27690" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>asInt</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1ad36d24e97031f39d81107d818db51e31" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>castledKingCol</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a62b905423beaccf7697cd74c1b2abed1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>castledRookCol</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a47c8cdf91a085a627f2ac5dffeb64c46" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>castlingNotation</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a38e6966ca8ed156ae42de89eee03cf3c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>KING</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a06b9660b2fb3dc83d08d2250a07af487" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>kingFinalLoc</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a092a1301d1d5a85ac26cc2c10a94ed13" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>kingTravelDistance</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a3b33e298087d3351b289ea1e0a31500c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>mult</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4ba03135680ca304f2defcc09ffd7fbe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>QUEEN</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4180f9b3bf233a63b0bc393ac9928e34" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>rookStartingCol</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a669d1506542ce9fbbedb48bafdbc20e6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>Side</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a59d452c9ac000478b5c1e678cd846372" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>SIDES</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1acbeed8ef4c1cf7d3f31447b0df92ba84" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::CastlingRights::Side</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

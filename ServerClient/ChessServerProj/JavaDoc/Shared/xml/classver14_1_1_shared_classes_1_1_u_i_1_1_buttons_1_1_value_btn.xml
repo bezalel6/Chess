@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::UI::Buttons::ValueBtn</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button" prot="public" virt="non-virtual">ver14.SharedClasses.UI.Buttons.MyJButton</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn_1a44ad754dc4c62dc147f6f37474fcedc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.ValueBtn&lt; T &gt;.ValueBtn</definition>
+        <argsstring>(String text, Font font, T value, Callback&lt; T &gt; onClick)</argsstring>
+        <name>ValueBtn</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.ValueBtn.ValueBtn</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>Font</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>&lt; T &gt;</type>
+          <declname>onClick</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Value btn.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>onClick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the on click </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/ValueBtn.java" line="23" column="12" bodyfile="UI/Buttons/ValueBtn.java" bodystart="23" bodyend="27"/>
+        <references refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback_1a06dba9e69b45dc74dd2858acb4da3bd8">ver14.SharedClasses.Callbacks.Callback&lt; T &gt;.callback</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Value btn - a value holding button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value&apos;s type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>JButton</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.UI.Buttons.ValueBtn&lt; T &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.UI.Buttons.MyJButton</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>JButton</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.UI.Buttons.ValueBtn&lt; T &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.UI.Buttons.MyJButton</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="UI/Buttons/ValueBtn.java" line="14" column="7" bodyfile="UI/Buttons/ValueBtn.java" bodystart="14" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a4cf8d93791cd3d8b7688c4482f592318" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>getMinSize</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af6593c1d16271b4be7cadc68147d155d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a7384590cd2c8c21ebddee0845cedaed4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af20b3520b6d6a8b3564eb2669e3f204a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a197d928777fe02eeaed37781b4bdf974" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a479fdae130036a5e57b0e4213d3333af" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a1ba25b978f5ecaf709dc3b9aae627d47" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1aa714f317b85854860553f3172cf4d2e0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>replaceWithCancel</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0858181c901e7868bed48b8c0c784503" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>resetState</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ac623e282c928b75c611a9a043cba6dfa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>setFont</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>setOnClick</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a37a8f3696283454a35a30ddb4fc3558e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>setText</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn_1a44ad754dc4c62dc147f6f37474fcedc3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::ValueBtn</scope><name>ValueBtn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

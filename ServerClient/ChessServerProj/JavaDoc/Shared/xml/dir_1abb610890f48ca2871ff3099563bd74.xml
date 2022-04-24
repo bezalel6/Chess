@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_1abb610890f48ca2871ff3099563bd74" kind="dir">
+    <compoundname>DBActions/Statements</compoundname>
+    <innerfile refid="_custom_statement_8java">CustomStatement.java</innerfile>
+    <innerfile refid="_delete_8java">Delete.java</innerfile>
+    <innerfile refid="_selection_8java">Selection.java</innerfile>
+    <innerfile refid="_s_q_l_statement_8java">SQLStatement.java</innerfile>
+    <innerfile refid="_update_8java">Update.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DBActions/Statements/"/>
+  </compounddef>
+</doxygen>

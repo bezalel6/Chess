@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBResponse::Graphable::Graphable</compoundname>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response" prot="public" virt="non-virtual">ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_1ae3f1877dff1accd989d52f06e2259616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable.header</definition>
+        <argsstring>()</argsstring>
+        <name>header</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable.header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/Graphable/Graphable.java" line="23" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_1a8d14843928d6fc7a46f67766327451c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element" kindref="compound">GraphElement</ref>[]</type>
+        <definition>GraphElement[] ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable.elements</definition>
+        <argsstring>()</argsstring>
+        <name>elements</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable.elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/Graphable/Graphable.java" line="25" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBResponse.Graphable.Graphable</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable"/>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="DBActions/DBResponse/Graphable/Graphable.java" line="22" column="18" bodyfile="DBActions/DBResponse/Graphable/Graphable.java" bodystart="22" bodyend="28"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_1a8d14843928d6fc7a46f67766327451c7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::Graphable::Graphable</scope><name>elements</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_1ae3f1877dff1accd989d52f06e2259616" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::Graphable::Graphable</scope><name>header</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

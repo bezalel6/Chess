@@ -1,0 +1,14 @@
+digraph "ver14.SharedClasses.Game.GameSetup.GameSettings.getPlayerToMove"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ver14.SharedClasses.Game.\lGameSetup.GameSettings.getPlayer\lToMove",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.Game.\lSavedGames.GameInfo.getStartingColor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.html#abb6a9b7d6251ef8cf1072844f89e8047",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.Game.\lSavedGames.GameInfo.getJoining\lPlayerColor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.html#abf45a4457f870cf4a10462ecdfcfcd7b",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.Game.\lSavedGames.CreatedGame.getGameDesc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.html#ae36f6150c27a1006cad3c1fa1095f543",tooltip=" "];
+}

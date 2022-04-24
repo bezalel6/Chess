@@ -1,0 +1,15 @@
+digraph "ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.clean"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.DBActions.\lDBResponse.TableDBResponse.clean",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.DBActions.\lDBResponse.DBResponse.clean",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.html#a6a5c546947dde5c8dc19cf1c917855ba",tooltip=" "];
+  Node1 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.DBActions.\lDBResponse.DBResponse.setAddedRes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.html#a46f54660d9d61001cd227b4513fff3b6",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.DBActions.\lDBResponse.TableDBResponse.Table\lDBResponse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.html#a7200989bdaeb86f4e7c4a54d5cc03ca0",tooltip=" "];
+}

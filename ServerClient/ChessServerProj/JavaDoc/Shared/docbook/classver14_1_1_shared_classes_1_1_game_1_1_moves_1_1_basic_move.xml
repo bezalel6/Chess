@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.BasicMove Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.Moves.BasicMove:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a8202df7601ce492f3f34fbcdb35b7c8d">BasicMove</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> other)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a1ada91a1ff25a99c7bd8ec71a497381d">BasicMove</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingFrom, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingTo)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2f5416049d87668da3709ab020009eb3">BasicMove</link> (String move)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a6e7416c5a0090e9cd696ad126f2c3e9a">flip</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2cb3d549901431ca5202d7687564fb15">getMovingFrom</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1aa127fffc637b56962bc8fa6519a94561">setMovingFrom</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingFrom)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a4c1bfef02d067997929f0edc357fb1b6">getMovingTo</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1abcf98893e9e8335f564f7c2c2ee45326">setMovingTo</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingTo)</para>
+</listitem>
+            <listitem><para>int <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1ab55d5f7eccd3e071067e6641d8f6c19b">hashCode</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a6b0c0d1607008c4b3d6e113af4e168c9">equals</link> (Object o)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a341bb54a2242af2bd5175408456a7a66">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1aa957afd0d40c5d4ffa87fa5b3eea2508">getBasicMoveAnnotation</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1afd4f3e32dcd4bc0108ef18018ce891f7">cp</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link>[] <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a13491b50535d0fccb07db3ade37788a4">createBatch</link> (Location... locs)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a09e45af25c9c74dd9467c3efc6254676">getFlipped</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> basicMove)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Basic move - represents a basic move. with a source and a destination.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a8202df7601ce492f3f34fbcdb35b7c8d"/><section>
+    <title>BasicMove()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>BasicMove</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>BasicMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.BasicMove.BasicMove (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> other)</computeroutput></para>
+<para>Copy constructor.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>the other </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a1ada91a1ff25a99c7bd8ec71a497381d"/><section>
+    <title>BasicMove()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>BasicMove</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>BasicMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.BasicMove.BasicMove (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingFrom, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingTo)</computeroutput></para>
+<para>Instantiates a new Basic move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>movingFrom</entry><entry>
+<para>the moving from </para>
+</entry>
+                            </row>
+                            <row>
+<entry>movingTo</entry><entry>
+<para>the moving to </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2f5416049d87668da3709ab020009eb3"/><section>
+    <title>BasicMove()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>BasicMove</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>BasicMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.BasicMove.BasicMove (String move)</computeroutput></para>
+<para>Instantiates a new Basic move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1afd4f3e32dcd4bc0108ef18018ce891f7"/><section>
+    <title>cp()</title>
+<indexterm><primary>cp</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>cp</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> ver14.SharedClasses.Game.Moves.BasicMove.cp ( )</computeroutput></para>
+<para>copies this move.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the new copy </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a13491b50535d0fccb07db3ade37788a4"/><section>
+    <title>createBatch()</title>
+<indexterm><primary>createBatch</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>createBatch</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link>[] ver14.SharedClasses.Game.Moves.BasicMove.createBatch (Location... locs)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create batch basic move [ ].</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>locs</entry><entry>
+<para>the locs </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the basic move [ ] </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a6b0c0d1607008c4b3d6e113af4e168c9"/><section>
+    <title>equals()</title>
+<indexterm><primary>equals</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>equals</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.BasicMove.equals (Object o)</computeroutput></para>
+<para>Equals boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>o</entry><entry>
+<para>the o </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a11e285cdbaa01a24ca3ab667ea7f0db5">ver14.SharedClasses.Game.Moves.Move</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a6e7416c5a0090e9cd696ad126f2c3e9a"/><section>
+    <title>flip()</title>
+<indexterm><primary>flip</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>flip</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.BasicMove.flip ( )</computeroutput></para>
+<para>Flips the source and destination. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1aa957afd0d40c5d4ffa87fa5b3eea2508"/><section>
+    <title>getBasicMoveAnnotation()</title>
+<indexterm><primary>getBasicMoveAnnotation</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>getBasicMoveAnnotation</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Moves.BasicMove.getBasicMoveAnnotation ( )</computeroutput></para>
+<para>Gets basic move annotation.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the basic move annotation </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a09e45af25c9c74dd9467c3efc6254676"/><section>
+    <title>getFlipped()</title>
+<indexterm><primary>getFlipped</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>getFlipped</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> ver14.SharedClasses.Game.Moves.BasicMove.getFlipped (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> basicMove)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets a copy of the provided move with the source and destination flipped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>basicMove</entry><entry>
+<para>the original move </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the flipped move </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2cb3d549901431ca5202d7687564fb15"/><section>
+    <title>getMovingFrom()</title>
+<indexterm><primary>getMovingFrom</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>getMovingFrom</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Moves.BasicMove.getMovingFrom ( )</computeroutput></para>
+<para>Gets moving from. aka source</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the moving from </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a4c1bfef02d067997929f0edc357fb1b6"/><section>
+    <title>getMovingTo()</title>
+<indexterm><primary>getMovingTo</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>getMovingTo</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Moves.BasicMove.getMovingTo ( )</computeroutput></para>
+<para>Gets moving to.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the moving to </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1ab55d5f7eccd3e071067e6641d8f6c19b"/><section>
+    <title>hashCode()</title>
+<indexterm><primary>hashCode</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>hashCode</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Moves.BasicMove.hashCode ( )</computeroutput></para>
+<para>Hash code int.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1aa127fffc637b56962bc8fa6519a94561"/><section>
+    <title>setMovingFrom()</title>
+<indexterm><primary>setMovingFrom</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>setMovingFrom</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.BasicMove.setMovingFrom (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingFrom)</computeroutput></para>
+<para>Sets moving from.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>movingFrom</entry><entry>
+<para>the moving from </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1abcf98893e9e8335f564f7c2c2ee45326"/><section>
+    <title>setMovingTo()</title>
+<indexterm><primary>setMovingTo</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>setMovingTo</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.BasicMove.setMovingTo (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> movingTo)</computeroutput></para>
+<para>Sets moving to.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>movingTo</entry><entry>
+<para>the moving to </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a341bb54a2242af2bd5175408456a7a66"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.Moves.BasicMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.BasicMove</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Moves.BasicMove.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a61b6f0e2a074a229a9c7526371295e4c">ver14.SharedClasses.Game.Moves.Move</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/Moves/BasicMove.java</section>
+</section>

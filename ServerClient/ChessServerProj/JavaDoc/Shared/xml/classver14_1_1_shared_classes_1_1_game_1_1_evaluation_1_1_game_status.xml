@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Evaluation::GameStatus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" prot="public">ver14::SharedClasses::Game::Evaluation::GameStatus::GameStatusType</innerclass>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" prot="public">ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ad4b62e112288c4591bf34bbabefa5004" prot="private" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>final PlayerColor ver14.SharedClasses.Game.Evaluation.GameStatus.winningPlayerColor</definition>
+        <argsstring></argsstring>
+        <name>winningPlayerColor</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.winningPlayerColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Winning player color. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="20" column="31" bodyfile="Game/Evaluation/GameStatus.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a77a008a916df72b041f52bce0ef49960" prot="private" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" kindref="compound">SpecificStatus</ref></type>
+        <definition>final SpecificStatus ver14.SharedClasses.Game.Evaluation.GameStatus.specificStatus</definition>
+        <argsstring></argsstring>
+        <name>specificStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.specificStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Specific game status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="24" column="34" bodyfile="Game/Evaluation/GameStatus.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a14f15aa728830a637d704cc9f519455c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Game.Evaluation.GameStatus.depth</definition>
+        <argsstring></argsstring>
+        <name>depth</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.depth</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The status&apos;s Depth. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="28" column="17" bodyfile="Game/Evaluation/GameStatus.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a72a5db012c7cab1b7420b9e44b19335d" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+        <definition>Location ver14.SharedClasses.Game.Evaluation.GameStatus.checkedKingLoc</definition>
+        <argsstring></argsstring>
+        <name>checkedKingLoc</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.checkedKingLoc</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Checked king loc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="32" column="22" bodyfile="Game/Evaluation/GameStatus.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a5e96be3093f69d5104f25b6dfbd91fe1" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" kindref="compound">GameStatusType</ref></type>
+        <definition>GameStatusType ver14.SharedClasses.Game.Evaluation.GameStatus.gameStatusType</definition>
+        <argsstring></argsstring>
+        <name>gameStatusType</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.gameStatusType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Game status type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="36" column="28" bodyfile="Game/Evaluation/GameStatus.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a3d1b3cc1640338e4e119af604ebdc924" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Evaluation.GameStatus.customStr</definition>
+        <argsstring></argsstring>
+        <name>customStr</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.customStr</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Custom description str. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="40" column="20" bodyfile="Game/Evaluation/GameStatus.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a8a65d2a0e20993fa1bcfce914ea51a69" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatus</definition>
+        <argsstring>(SpecificStatus specificStatus)</argsstring>
+        <name>GameStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatus</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" kindref="compound">SpecificStatus</ref></type>
+          <declname>specificStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>specificStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the specific status </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="48" column="13" bodyfile="Game/Evaluation/GameStatus.java" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a5169a687a0a5fd9a2c312718087325c2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatus</definition>
+        <argsstring>(PlayerColor winningPlayerColor, SpecificStatus specificStatus)</argsstring>
+        <name>GameStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatus</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>winningPlayerColor</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" kindref="compound">SpecificStatus</ref></type>
+          <declname>specificStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>winningPlayerColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the winning player color </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specificStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the specific status </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="58" column="13" bodyfile="Game/Evaluation/GameStatus.java" bodystart="58" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a16cf38de9b918473b454de1f6e8ea174" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.checkmate</definition>
+        <argsstring>(PlayerColor winningPlayerColor, Location matedKing)</argsstring>
+        <name>checkmate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.checkmate</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>winningPlayerColor</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>matedKing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checkmate game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>winningPlayerColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the winning player color </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>matedKing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the mated king </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="71" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="71" bodyend="75"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a6eb6b83d9a1e27279a24b4376fdf7f57" compoundref="_game_status_8java" startline="320">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Checkmate</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ab3bfe87a35f2329dfa04acf437e46c1d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.gameGoesOn</definition>
+        <argsstring>()</argsstring>
+        <name>gameGoesOn</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.gameGoesOn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game goes on game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="82" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="82" bodyend="84"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a0d2ee86ee8ad7edfa6e0bc64ad53e9e2" compoundref="_game_status_8java" startline="346">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.GameGoesOn</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a0f9dc3bf411012f116fab895ce61f31c" compoundref="_evaluation_8java" startline="104" endline="106">ver14.SharedClasses.Game.Evaluation.Evaluation.Evaluation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a0c8dd187f634257bd6e1bff35f9bcb02" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.tieByAgreement</definition>
+        <argsstring>()</argsstring>
+        <name>tieByAgreement</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.tieByAgreement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tie by agreement game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="91" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="91" bodyend="93"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a3a1ff8c4d5ad449ee8be3ebed4ab545b" compoundref="_game_status_8java" startline="366">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TieByAgreement</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a2e21c91476a71eb22b8b8322ebdcab70" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.stalemate</definition>
+        <argsstring>()</argsstring>
+        <name>stalemate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.stalemate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stalemate game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="100" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="100" bodyend="102"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a4c0bdf841f6cbca541c2c78e9cd6712e" compoundref="_game_status_8java" startline="354">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Stalemate</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a23731fa62a4b7b88efb527f5bca664e6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.fiftyMoveRule</definition>
+        <argsstring>()</argsstring>
+        <name>fiftyMoveRule</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.fiftyMoveRule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fifty move rule game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="109" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="109" bodyend="111"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a1af70323e7925e32b45cbec47bc87796" compoundref="_game_status_8java" startline="362">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.FiftyMoveRule</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1abdde501b067bc1afde2e663b855c2007" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.serverStoppedGame</definition>
+        <argsstring>(String cause)</argsstring>
+        <name>serverStoppedGame</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.serverStoppedGame</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server stopped game game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the cause </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="119" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="119" bodyend="123"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795" compoundref="_game_status_8java" startline="393">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ServerStoppedGame</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a87ad53aad27ba6d2490fb3d40d8a83c9" compoundref="_game_status_8java" startline="130" endline="132">ver14.SharedClasses.Game.Evaluation.GameStatus.setCustomStr</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a76a14a281e0b1f315d470e81159cd8b0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.threeFoldRepetition</definition>
+        <argsstring>()</argsstring>
+        <name>threeFoldRepetition</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.threeFoldRepetition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Three fold repetition game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="139" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="139" bodyend="141"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1af48c3d8187eb60f3554bcf8f3079f0c8" compoundref="_game_status_8java" startline="350">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ThreeFoldRepetition</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a783226166ccd6aefa9a6ff84427bb3b3" compoundref="_move_8java" startline="364" endline="370">ver14.SharedClasses.Game.Moves.Move.getMoveEvaluation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a1d6ba963bcd544d081ba80c741e8ddfa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.insufficientMaterial</definition>
+        <argsstring>()</argsstring>
+        <name>insufficientMaterial</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.insufficientMaterial</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insufficient material game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="148" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="148" bodyend="150"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ac9904c0b069776a024730edabae0a174" compoundref="_game_status_8java" startline="358">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.InsufficientMaterial</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a513e46c3a7d3046f59ce4653e24c5878" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.playerDisconnected</definition>
+        <argsstring>(PlayerColor disconnectedPlayer, boolean isVsAi)</argsstring>
+        <name>playerDisconnected</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.playerDisconnected</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>disconnectedPlayer</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isVsAi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player disconnected game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disconnectedPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the disconnected player </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isVsAi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the is vs ai </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="159" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="159" bodyend="161"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d">ver14.SharedClasses.Game.PlayerColor.getOpponent</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b" compoundref="_game_status_8java" startline="375">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsAi</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d" compoundref="_game_status_8java" startline="384">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsReal</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa6191825f07b48327cd640c7e1e218c0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.timedOut</definition>
+        <argsstring>(PlayerColor timedOutPlayer, boolean isSufficientMaterial)</argsstring>
+        <name>timedOut</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.timedOut</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>timedOutPlayer</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isSufficientMaterial</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timed out game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timedOutPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the timed out player </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isSufficientMaterial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the is sufficient material </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="170" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="170" bodyend="172"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d">ver14.SharedClasses.Game.PlayerColor.getOpponent</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a87d85e6db053de782bc33eb4de4c9a97" compoundref="_game_status_8java" startline="324">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOut</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5931de5356f3258fe7a3d13818771c79" compoundref="_game_status_8java" startline="333">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOutVsInsufficientMaterial</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aaa9389b857075c4c52b0a8f936f82608" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>static GameStatus ver14.SharedClasses.Game.Evaluation.GameStatus.playerResigned</definition>
+        <argsstring>(PlayerColor resignedPlayer)</argsstring>
+        <name>playerResigned</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.playerResigned</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>resignedPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player resigned game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>resignedPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the resigned player </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="180" column="30" bodyfile="Game/Evaluation/GameStatus.java" bodystart="180" bodyend="182"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d">ver14.SharedClasses.Game.PlayerColor.getOpponent</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ab880c59df223dcad392f669b9a217f34" compoundref="_game_status_8java" startline="342">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Resignation</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a87ad53aad27ba6d2490fb3d40d8a83c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.Evaluation.GameStatus.setCustomStr</definition>
+        <argsstring>(String customStr)</argsstring>
+        <name>setCustomStr</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.setCustomStr</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>customStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets custom str.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>customStr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the custom str </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="130" column="17" bodyfile="Game/Evaluation/GameStatus.java" bodystart="130" bodyend="132"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1abdde501b067bc1afde2e663b855c2007" compoundref="_game_status_8java" startline="119" endline="123">ver14.SharedClasses.Game.Evaluation.GameStatus.serverStoppedGame</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99c95cc48cd96965d59517329fe76cbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.Evaluation.GameStatus.isDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>isDisconnected</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.isDisconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is disconnected boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="189" column="20" bodyfile="Game/Evaluation/GameStatus.java" bodystart="189" bodyend="191"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b" compoundref="_game_status_8java" startline="375">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsAi</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d" compoundref="_game_status_8java" startline="384">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsReal</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795" compoundref="_game_status_8java" startline="393">ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ServerStoppedGame</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a81133737976c4b78645505e9bcbd6fcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+        <definition>Location ver14.SharedClasses.Game.Evaluation.GameStatus.getCheckedKingLoc</definition>
+        <argsstring>()</argsstring>
+        <name>getCheckedKingLoc</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getCheckedKingLoc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets checked king loc.</para>
+<para><simplesect kind="return"><para>the checked king loc </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="198" column="21" bodyfile="Game/Evaluation/GameStatus.java" bodystart="198" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa1c6be9e5499db442ce83380fdf2c1eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>PlayerColor ver14.SharedClasses.Game.Evaluation.GameStatus.getWinningColor</definition>
+        <argsstring>()</argsstring>
+        <name>getWinningColor</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getWinningColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets winning color.</para>
+<para><simplesect kind="return"><para>the winning color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="216" column="24" bodyfile="Game/Evaluation/GameStatus.java" bodystart="216" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a0eed1b4f49c2fdb8983fd4290ac85ff7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" kindref="compound">GameStatusType</ref></type>
+        <definition>GameStatusType ver14.SharedClasses.Game.Evaluation.GameStatus.getGameStatusType</definition>
+        <argsstring>()</argsstring>
+        <name>getGameStatusType</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getGameStatusType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets game status type.</para>
+<para><simplesect kind="return"><para>the game status type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="225" column="27" bodyfile="Game/Evaluation/GameStatus.java" bodystart="225" bodyend="227"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a6f69f5f6078b81dc0683c5b4bd16fafd" compoundref="_evaluation_8java" startline="78" endline="81">ver14.SharedClasses.Game.Evaluation.Evaluation.Evaluation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a2acec2a4984ece5f53f748586f91f12f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.Evaluation.GameStatus.setInCheck</definition>
+        <argsstring>(Location checkedKingLoc)</argsstring>
+        <name>setInCheck</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.setInCheck</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>checkedKingLoc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets in check.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>checkedKingLoc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the checked king loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="234" column="17" bodyfile="Game/Evaluation/GameStatus.java" bodystart="234" bodyend="237"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ace2937b81a8777a3fa3363792a232156" compoundref="_game_status_8java" startline="440">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.CHECK</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ab2cc7cbae4e60caf59829343a159ffbf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.Evaluation.GameStatus.isCheck</definition>
+        <argsstring>()</argsstring>
+        <name>isCheck</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.isCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is check boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="244" column="20" bodyfile="Game/Evaluation/GameStatus.java" bodystart="244" bodyend="246"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ace2937b81a8777a3fa3363792a232156" compoundref="_game_status_8java" startline="440">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.CHECK</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a5069a0088d0612b3c1a54ef331ee662a" compoundref="_evaluation_8java" startline="185" endline="187">ver14.SharedClasses.Game.Evaluation.Evaluation.isCheck</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a4dbbad089ee9e7893fb16cb71c337270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</definition>
+        <argsstring>()</argsstring>
+        <name>getDetailedStr</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets detailed str.</para>
+<para><simplesect kind="return"><para>the detailed str </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="253" column="19" bodyfile="Game/Evaluation/GameStatus.java" bodystart="253" bodyend="255"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a4dbbad089ee9e7893fb16cb71c337270" compoundref="_game_status_8java" startline="253" endline="255">ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a4dbbad089ee9e7893fb16cb71c337270" compoundref="_game_status_8java" startline="253" endline="255">ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a57cc00500b5632c39ff135eb49ea0a13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</definition>
+        <argsstring>(Map&lt; PlayerColor, String &gt; playerUsernamesMap)</argsstring>
+        <name>getDetailedStr</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</qualifiedname>
+        <param>
+          <type>Map&lt; <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref>, String &gt;</type>
+          <declname>playerUsernamesMap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets detailed str.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>playerUsernamesMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the player usernames map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the detailed str </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="263" column="19" bodyfile="Game/Evaluation/GameStatus.java" bodystart="263" bodyend="272"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a8f5132b6e9c7fc261e47c3599f8dbeb1" compoundref="_game_status_8java" startline="461">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.gameOverStr</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aa7d3bee220c56a4c89e15d3549a86944" compoundref="_player_color_8java" startline="124" endline="126">ver14.SharedClasses.Game.PlayerColor.getName</references>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a2a95ab559ec75aef3531014c171d47bf" compoundref="_str_utils_8java" startline="141" endline="143">ver14.SharedClasses.Utils.StrUtils.isEmpty</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99ac095df094a77444fbb8a7e365eb81" compoundref="_game_status_8java" startline="279" endline="281">ver14.SharedClasses.Game.Evaluation.GameStatus.isGameOver</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99ac095df094a77444fbb8a7e365eb81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.Evaluation.GameStatus.isGameOver</definition>
+        <argsstring>()</argsstring>
+        <name>isGameOver</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.isGameOver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is game over boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="279" column="20" bodyfile="Game/Evaluation/GameStatus.java" bodystart="279" bodyend="281"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1abeea4600c7dc6f9be5c2ac131679e016" compoundref="_game_status_8java" startline="489" endline="491">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.isGameOver</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a57cc00500b5632c39ff135eb49ea0a13" compoundref="_game_status_8java" startline="263" endline="272">ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a671493df85a23b7463028b10e43f8228" compoundref="_evaluation_8java" startline="176" endline="178">ver14.SharedClasses.Game.Evaluation.Evaluation.isGameOver</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa0dea3118515f4f3cafe7711fa3fafe0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Evaluation.GameStatus.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="289" column="19" bodyfile="Game/Evaluation/GameStatus.java" bodystart="289" bodyend="291"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1aaf6853a556f7face4c3352b20a5b81f3" compoundref="_game_status_8java" startline="457">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.annotation</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af35492f350ca8d1745881e6db6c879fe" compoundref="_message_8java" startline="231" endline="235">ver14.SharedClasses.Networking.Messages.Message.gameOver</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a9130a1ee868f7e92ad7eff125c8e006a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.Evaluation.GameStatus.setDepth</definition>
+        <argsstring>(int depth)</argsstring>
+        <name>setDepth</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.setDepth</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets depth.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the depth </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="298" column="17" bodyfile="Game/Evaluation/GameStatus.java" bodystart="298" bodyend="300"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1afc9fd7d7bf86ca5102b1cbab8c3970a9" compoundref="_evaluation_8java" startline="166" endline="169">ver14.SharedClasses.Game.Evaluation.Evaluation.setEvaluationDepth</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a8cd6091169bc63ac00b3bf99381e1e1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" kindref="compound">SpecificStatus</ref></type>
+        <definition>SpecificStatus ver14.SharedClasses.Game.Evaluation.GameStatus.getSpecificStatus</definition>
+        <argsstring>()</argsstring>
+        <name>getSpecificStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.getSpecificStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets specific status.</para>
+<para><simplesect kind="return"><para>the specific status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="307" column="27" bodyfile="Game/Evaluation/GameStatus.java" bodystart="307" bodyend="309"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a1e51f147fee734eaebce42315ad80a3b" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.Evaluation.GameStatus.setCheckedKingLoc</definition>
+        <argsstring>(Location checkedKingLoc)</argsstring>
+        <name>setCheckedKingLoc</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.setCheckedKingLoc</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>checkedKingLoc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets checked king loc.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>checkedKingLoc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the checked king loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="207" column="10" bodyfile="Game/Evaluation/GameStatus.java" bodystart="207" bodyend="209"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Game status - represents a game status .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Evaluation.GameStatus</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Evaluation.GameStatus</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/Evaluation/GameStatus.java" line="16" column="7" bodyfile="Game/Evaluation/GameStatus.java" bodystart="16" bodyend="493"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a72a5db012c7cab1b7420b9e44b19335d" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>checkedKingLoc</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a16cf38de9b918473b454de1f6e8ea174" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>checkmate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a3d1b3cc1640338e4e119af604ebdc924" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>customStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a14f15aa728830a637d704cc9f519455c" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>depth</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a23731fa62a4b7b88efb527f5bca664e6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>fiftyMoveRule</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ab3bfe87a35f2329dfa04acf437e46c1d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>gameGoesOn</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a8a65d2a0e20993fa1bcfce914ea51a69" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>GameStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a5169a687a0a5fd9a2c312718087325c2" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>GameStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a5e96be3093f69d5104f25b6dfbd91fe1" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>gameStatusType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a81133737976c4b78645505e9bcbd6fcd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getCheckedKingLoc</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a4dbbad089ee9e7893fb16cb71c337270" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getDetailedStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a57cc00500b5632c39ff135eb49ea0a13" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getDetailedStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a0eed1b4f49c2fdb8983fd4290ac85ff7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getGameStatusType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a8cd6091169bc63ac00b3bf99381e1e1e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getSpecificStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa1c6be9e5499db442ce83380fdf2c1eb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>getWinningColor</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a1d6ba963bcd544d081ba80c741e8ddfa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>insufficientMaterial</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ab2cc7cbae4e60caf59829343a159ffbf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>isCheck</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99c95cc48cd96965d59517329fe76cbb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>isDisconnected</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99ac095df094a77444fbb8a7e365eb81" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>isGameOver</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a513e46c3a7d3046f59ce4653e24c5878" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>playerDisconnected</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aaa9389b857075c4c52b0a8f936f82608" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>playerResigned</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1abdde501b067bc1afde2e663b855c2007" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>serverStoppedGame</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a1e51f147fee734eaebce42315ad80a3b" prot="package" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>setCheckedKingLoc</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a87ad53aad27ba6d2490fb3d40d8a83c9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>setCustomStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a9130a1ee868f7e92ad7eff125c8e006a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>setDepth</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a2acec2a4984ece5f53f748586f91f12f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>setInCheck</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a77a008a916df72b041f52bce0ef49960" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>specificStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a2e21c91476a71eb22b8b8322ebdcab70" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>stalemate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a76a14a281e0b1f315d470e81159cd8b0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>threeFoldRepetition</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a0c8dd187f634257bd6e1bff35f9bcb02" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>tieByAgreement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa6191825f07b48327cd640c7e1e218c0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>timedOut</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa0dea3118515f4f3cafe7711fa3fafe0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ad4b62e112288c4591bf34bbabefa5004" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus</scope><name>winningPlayerColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

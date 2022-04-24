@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.CastlingRights Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.Moves.CastlingRights:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ae6cc2ba9a23f7dd669aba0af1cd6cc71">CastlingRights</link> (byte rights)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a8c930418337c3c3928dc401387560b72">CastlingRights</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a680f7272626c2b15735e8fdb6f536c32">CastlingRights</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights">CastlingRights</link> other)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1af329057b1fe25148aad88859f56b2742">enableCastling</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a">toString</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a63783523d93eb21cf42f9a7d6b7e57ac">isEnabled</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ac9f8196f19339ffff70299e0f0cb8e3b"/>byte <emphasis role="strong">disableCastling</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)</para>
+</listitem>
+            <listitem><para>byte <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a95922c90b989e4f134cc286aa8fa797e">disableCastling</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</para>
+</listitem>
+            <listitem><para>byte <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a57813e23516140a07f3f0c3500e9298c">getRights</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a7300950920c0a6edc31b990f13cf157b">enable</link> (byte b)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ae55b2c37b585113739166a22ae1b7bd7">hasAny</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)</para>
+</listitem>
+            <listitem><para>byte <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a78337b055f9e4d8cfae154f3f70c734e">getPlayersCastling</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights">CastlingRights</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac">createFromStr</link> (String castlingAbilityStr)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a59936b8038be916bb5e626f219b91cb4">main</link> (String[] args)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ab83bf1bfdb67e5d560d6b0b4800400c3">whosCastling</link> (byte castlingRights)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1abbab9d30ffd65e18461e6a861fd90df3">NO_CASTLING_ABILITY</link> = &quot;-&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Castling rights - .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ae6cc2ba9a23f7dd669aba0af1cd6cc71"/><section>
+    <title>CastlingRights()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>CastlingRights</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>CastlingRights</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.CastlingRights.CastlingRights (byte rights)</computeroutput></para>
+<para>Instantiates a new Castling rights.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>rights</entry><entry>
+<para>the rights </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a8c930418337c3c3928dc401387560b72"/><section>
+    <title>CastlingRights()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>CastlingRights</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>CastlingRights</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.CastlingRights.CastlingRights ( )</computeroutput></para>
+<para>Instantiates a new Castling rights. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a680f7272626c2b15735e8fdb6f536c32"/><section>
+    <title>CastlingRights()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>CastlingRights</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>CastlingRights</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.CastlingRights.CastlingRights (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights">CastlingRights</link> other)</computeroutput></para>
+<para>Instantiates a new Castling rights.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>the other </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac"/><section>
+    <title>createFromStr()</title>
+<indexterm><primary>createFromStr</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>createFromStr</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights">CastlingRights</link> ver14.SharedClasses.Game.Moves.CastlingRights.createFromStr (String castlingAbilityStr)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create from str castling rights.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>castlingAbilityStr</entry><entry>
+<para>the castling ability str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the castling rights </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a95922c90b989e4f134cc286aa8fa797e"/><section>
+    <title>disableCastling()</title>
+<indexterm><primary>disableCastling</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>disableCastling</secondary></indexterm>
+<para><computeroutput>byte ver14.SharedClasses.Game.Moves.CastlingRights.disableCastling (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</computeroutput></para>
+<para>Disable castling byte.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                            <row>
+<entry>side</entry><entry>
+<para>the side </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the byte </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a7300950920c0a6edc31b990f13cf157b"/><section>
+    <title>enable()</title>
+<indexterm><primary>enable</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>enable</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.CastlingRights.enable (byte b)</computeroutput></para>
+<para>Enable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>b</entry><entry>
+<para>the b </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1af329057b1fe25148aad88859f56b2742"/><section>
+    <title>enableCastling()</title>
+<indexterm><primary>enableCastling</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>enableCastling</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.CastlingRights.enableCastling (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</computeroutput></para>
+<para>Enable castling.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                            <row>
+<entry>side</entry><entry>
+<para>the side </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a78337b055f9e4d8cfae154f3f70c734e"/><section>
+    <title>getPlayersCastling()</title>
+<indexterm><primary>getPlayersCastling</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>getPlayersCastling</secondary></indexterm>
+<para><computeroutput>byte ver14.SharedClasses.Game.Moves.CastlingRights.getPlayersCastling (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)</computeroutput></para>
+<para>Gets players castling.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the players castling </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a57813e23516140a07f3f0c3500e9298c"/><section>
+    <title>getRights()</title>
+<indexterm><primary>getRights</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>getRights</secondary></indexterm>
+<para><computeroutput>byte ver14.SharedClasses.Game.Moves.CastlingRights.getRights ( )</computeroutput></para>
+<para>Gets rights.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the rights </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ae55b2c37b585113739166a22ae1b7bd7"/><section>
+    <title>hasAny()</title>
+<indexterm><primary>hasAny</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>hasAny</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.CastlingRights.hasAny (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)</computeroutput></para>
+<para>Has any boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a63783523d93eb21cf42f9a7d6b7e57ac"/><section>
+    <title>isEnabled()</title>
+<indexterm><primary>isEnabled</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>isEnabled</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.CastlingRights.isEnabled (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side">Side</link> side)</computeroutput></para>
+<para>Is enabled boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                            <row>
+<entry>side</entry><entry>
+<para>the side </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a59936b8038be916bb5e626f219b91cb4"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>static void ver14.SharedClasses.Game.Moves.CastlingRights.main (String[] args)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The entry point of application.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>args</entry><entry>
+<para>the input arguments </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Moves.CastlingRights.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ab83bf1bfdb67e5d560d6b0b4800400c3"/><section>
+    <title>whosCastling()</title>
+<indexterm><primary>whosCastling</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>whosCastling</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> ver14.SharedClasses.Game.Moves.CastlingRights.whosCastling (byte castlingRights)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Whos castling player color.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>castlingRights</entry><entry>
+<para>the castling rights </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the player color </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1abbab9d30ffd65e18461e6a861fd90df3"/><section>
+    <title>NO_CASTLING_ABILITY</title>
+<indexterm><primary>NO_CASTLING_ABILITY</primary><secondary>ver14.SharedClasses.Game.Moves.CastlingRights</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.CastlingRights</primary><secondary>NO_CASTLING_ABILITY</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Game.Moves.CastlingRights.NO_CASTLING_ABILITY = &quot;-&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant NO_CASTLING_ABILITY. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/Moves/CastlingRights.java</section>
+</section>

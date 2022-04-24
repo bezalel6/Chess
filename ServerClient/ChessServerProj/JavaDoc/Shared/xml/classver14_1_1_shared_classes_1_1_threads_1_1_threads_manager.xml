@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Threads::ThreadsManager</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ae68b020b14fee1bd6d70cad801fa0fc8" prot="private" static="yes" mutable="no">
+        <type>final ArrayList&lt; <ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" kindref="compound">MyThread</ref> &gt;</type>
+        <definition>final ArrayList&lt;MyThread&gt; ver14.SharedClasses.Threads.ThreadsManager.threads</definition>
+        <argsstring></argsstring>
+        <name>threads</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.threads</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="13" column="36" bodyfile="Threads/ThreadsManager.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1aca0c5fe86e799266621725a4359d3aeb" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.ThreadsManager.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="13" column="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ac8d493a41b39069b217d2d41a6fa278d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ver14.SharedClasses.Threads.ThreadsManager.addThread</definition>
+        <argsstring>(MyThread thread)</argsstring>
+        <name>addThread</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.addThread</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" kindref="compound">MyThread</ref></type>
+          <declname>thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="21" column="24" bodyfile="Threads/ThreadsManager.java" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ad2625352d39ec923b376ba3bbd7de881" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ver14.SharedClasses.Threads.ThreadsManager.stopAll</definition>
+        <argsstring>()</argsstring>
+        <name>stopAll</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.stopAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="26" column="24" bodyfile="Threads/ThreadsManager.java" bodystart="26" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1aac1d9f42ff8da11531d4f516de518b60" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void ver14.SharedClasses.Threads.ThreadsManager.handleErrors</definition>
+        <argsstring>(ThrowingRunnable runnable)</argsstring>
+        <name>handleErrors</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.handleErrors</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+          <declname>runnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle errors.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>runnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the runnable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="46" column="24" bodyfile="Threads/ThreadsManager.java" bodystart="46" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ab626382cd80eb43482f77ba7ee558e7f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" kindref="compound">MyThread</ref></type>
+        <definition>static MyThread ver14.SharedClasses.Threads.ThreadsManager.createThread</definition>
+        <argsstring>(ThrowingRunnable runnable, boolean start)</argsstring>
+        <name>createThread</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ThreadsManager.createThread</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+          <declname>runnable</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create thread my thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>runnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the runnable </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the my thread </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ThreadsManager.java" line="67" column="28" bodyfile="Threads/ThreadsManager.java" bodystart="67" bodyend="72"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ab94e933b3bb06471c37ff681e18af629" compoundref="_messages_handler_8java" startline="183" endline="207">ver14.SharedClasses.Networking.MessagesHandler.receivedMessage</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The type Threads manager. </para>
+    </detaileddescription>
+    <location file="Threads/ThreadsManager.java" line="12" column="7" bodyfile="Threads/ThreadsManager.java" bodystart="12" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1aca0c5fe86e799266621725a4359d3aeb" prot="package" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>[static initializer]</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ac8d493a41b39069b217d2d41a6fa278d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>addThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ab626382cd80eb43482f77ba7ee558e7f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>createThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1aac1d9f42ff8da11531d4f516de518b60" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>handleErrors</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ad2625352d39ec923b376ba3bbd7de881" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>stopAll</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager_1ae68b020b14fee1bd6d70cad801fa0fc8" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ThreadsManager</scope><name>threads</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

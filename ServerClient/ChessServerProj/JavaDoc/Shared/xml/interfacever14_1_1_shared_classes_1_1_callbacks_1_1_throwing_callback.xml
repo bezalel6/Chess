@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_throwing_callback" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Callbacks::ThrowingCallback</compoundname>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_throwing_callback_1ab31172e7170fd369af3dd39fc57ac58c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Callbacks.ThrowingCallback&lt; T &gt;.callback</definition>
+        <argsstring>(T obj)</argsstring>
+        <name>callback</name>
+        <qualifiedname>ver14.SharedClasses.Callbacks.ThrowingCallback.callback</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>obj</declname>
+        </param>
+        <exceptions> throws Exception</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the obj </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the exception </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Callbacks/ThrowingCallback.java" line="19" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Throwing callback - a callback that might throw an exception .</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Callbacks/ThrowingCallback.java" line="10" column="18" bodyfile="Callbacks/ThrowingCallback.java" bodystart="10" bodyend="21"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_throwing_callback_1ab31172e7170fd369af3dd39fc57ac58c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Callbacks::ThrowingCallback</scope><name>callback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

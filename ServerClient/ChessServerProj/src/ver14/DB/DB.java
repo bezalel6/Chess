@@ -11,8 +11,8 @@ import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Statements.CustomStatement;
+import ver14.SharedClasses.DBActions.Statements.Delete;
 import ver14.SharedClasses.DBActions.Statements.Selection;
-import ver14.SharedClasses.DBActions.Statements.Update;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
@@ -204,7 +204,7 @@ public class DB {
     public static void main(String[] args) {
         try {
 
-            System.out.println(request(new DBRequest(new Update.Delete(Table.UnfinishedGames, null))));
+            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
 //            addUser("testing", "123456");
 
 //            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));

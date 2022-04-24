@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Sync::SyncableItem</compoundname>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info" prot="public" virt="non-virtual">ver14.SharedClasses.Game.SavedGames.GameInfo</derivedcompoundref>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info" prot="public" virt="non-virtual">ver14.SharedClasses.Sync.UserInfo</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item_1ad571ab00166fc7f4aef33a68bb8cb0f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item" kindref="compound">SyncableItem</ref></type>
+        <definition>default SyncableItem ver14.SharedClasses.Sync.SyncableItem.getSyncableItem</definition>
+        <argsstring>()</argsstring>
+        <name>getSyncableItem</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncableItem.getSyncableItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncableItem.java" line="24" column="26" bodyfile="Sync/SyncableItem.java" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item_1a7ac72292eec85533ee45a897f5712265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Sync.SyncableItem.ID</definition>
+        <argsstring>()</argsstring>
+        <name>ID</name>
+        <qualifiedname>ver14.SharedClasses.Sync.SyncableItem.ID</qualifiedname>
+        <reimplementedby refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1aeed5f81d25dcf6a45771603c988c9c7a">ID</reimplementedby>
+        <reimplementedby refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a4e6966f5950c854fffb79ecefeead183">ID</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sync/SyncableItem.java" line="28" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ver14.SharedClasses.Sync.SyncableItem</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item"/>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.SavedGames.CreatedGame</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.SavedGames.GameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ver14.SharedClasses.Sync.UserInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_sync_1_1_user_info"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Sync/SyncableItem.java" line="22" column="18" bodyfile="Sync/SyncableItem.java" bodystart="22" bodyend="29"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item_1ad571ab00166fc7f4aef33a68bb8cb0f5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncableItem</scope><name>getSyncableItem</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item_1a7ac72292eec85533ee45a897f5712265" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Sync::SyncableItem</scope><name>ID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+digraph "ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.Game.\lGameSetup.BoardSetup.Board.Board",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.Game.\lGameSetup.BoardSetup.Board.setPiece",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.html#af2e08b2b654ac3d99f2b4b7e149cc280",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.Game.\lGameSetup.BoardSetup.Board.get\lSquare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.html#aaa6507254aebb1c9fffde0396a3bbbce",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.Game.\lGameSetup.BoardSetup.Square.setPiece",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.html#a2b1535146217f9cfd24f569d2434fa4a",tooltip=" "];
+}

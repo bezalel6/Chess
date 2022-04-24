@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_arg_type_8java" kind="file" language="Java">
+    <compoundname>ArgType.java</compoundname>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type" prot="public">ver14::SharedClasses::DBActions::Arg::ArgType</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_d_b_actions_1_1_arg">ver14::SharedClasses::DBActions::Arg</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">ver14.SharedClasses.DBActions.Arg;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type" kindref="compound">ArgType</ref><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a167d8a4c5d603910ec2d117c4dea53b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a167d8a4c5d603910ec2d117c4dea53b1" kindref="member">Date</ref>,</highlight></codeline>
+<codeline lineno="17" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa7083e37efc24d25fc3b39ebf5fdd75e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa7083e37efc24d25fc3b39ebf5fdd75e" kindref="member">DateRange</ref>,</highlight></codeline>
+<codeline lineno="21" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a05b6915a6799ef036ce3099984d415ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a05b6915a6799ef036ce3099984d415ae" kindref="member">Text</ref>,</highlight></codeline>
+<codeline lineno="25" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a1ad5ca67e9dc1d97d7c8a10a217bb00f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a1ad5ca67e9dc1d97d7c8a10a217bb00f" kindref="member">ServerAddress</ref>,</highlight></codeline>
+<codeline lineno="29" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1ad075ae5e7a28bff4b2ed9f3db1bdf720" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1ad075ae5e7a28bff4b2ed9f3db1bdf720" kindref="member">Number</ref>,</highlight></codeline>
+<codeline lineno="33" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a9546a586dee6d6319273d270372954a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a9546a586dee6d6319273d270372954a0" kindref="member">Username</ref>(</highlight><highlight class="keyword">false</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="37" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a627b5202210a22ac4bc5b9f6efd55f8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a627b5202210a22ac4bc5b9f6efd55f8f" kindref="member">Password</ref>,</highlight></codeline>
+<codeline lineno="41" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa3bddb783c351c72166d0f23a9a574fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa3bddb783c351c72166d0f23a9a574fe" kindref="member">Url</ref>,</highlight></codeline>
+<codeline lineno="45" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a538e5ccf88223e1ee406531ba8188ac3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a538e5ccf88223e1ee406531ba8188ac3" kindref="member">PictureUrl</ref>;</highlight></codeline>
+<codeline lineno="49" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a302629fec2139862ef815e91684ede13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a302629fec2139862ef815e91684ede13" kindref="member">isUserInput</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1add3fc35d2749a6e3a7f01d7b7fc4ceba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1add3fc35d2749a6e3a7f01d7b7fc4ceba" kindref="member">ArgType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a3490d2966a7c8f6385694f346ca75940" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a3490d2966a7c8f6385694f346ca75940" kindref="member">ArgType</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isUserInput)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.isUserInput<sp/>=<sp/>isUserInput;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DBActions/Arg/ArgType.java"/>
+  </compounddef>
+</doxygen>

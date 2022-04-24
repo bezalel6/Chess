@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_void_callback_8java" kind="file" language="Java">
+    <compoundname>VoidCallback.java</compoundname>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" prot="public">ver14::SharedClasses::Callbacks::VoidCallback</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_callbacks">ver14::SharedClasses::Callbacks</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">ver14.SharedClasses.Callbacks;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback_1acff197298ae6f7e1b4021c8a656b9dc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback_1acff197298ae6f7e1b4021c8a656b9dc9" kindref="member">callback</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Callbacks/VoidCallback.java"/>
+  </compounddef>
+</doxygen>

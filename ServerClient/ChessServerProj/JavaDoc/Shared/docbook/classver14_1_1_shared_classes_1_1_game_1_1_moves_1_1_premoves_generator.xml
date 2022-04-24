@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.PremovesGenerator Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.PremovesGenerator</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1abb7d9a3e21d507c21173a28252fb162c"/>static void <emphasis role="strong">main</emphasis> (String[] args)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator_1afbb920a2cbcbf43a43c58c1db138b12b"/>static <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list">MovesList</link> <emphasis role="strong">generatePreMoves</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board">Board</link> board, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> clr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/Moves/PremovesGenerator.java</section>

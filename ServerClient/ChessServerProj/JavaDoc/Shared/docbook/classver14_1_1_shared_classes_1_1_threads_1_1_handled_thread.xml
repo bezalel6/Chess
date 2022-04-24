@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread" xml:lang="en-US">
+<title>ver14.SharedClasses.Threads.HandledThread Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Threads.HandledThread:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1aeee1873320813a3c8769542c890c75a4">HandledThread</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a2e5f6f47c81fbb2b3198b7fe8e048486">HandledThread</link> (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a6673b3390a7005f361edf01acaf2a5e0">setRunnable</link> (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread">HandledThread</link> <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1afde9507ae7fb0911b7173a59b7b9bd5b">runInHandledThread</link> (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a64fa74938dea8eddc35d2cda9d44f48d">handledRun</link> ()  throws Throwable </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The type Handled thread. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1aeee1873320813a3c8769542c890c75a4"/><section>
+    <title>HandledThread()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>HandledThread</primary><secondary>ver14.SharedClasses.Threads.HandledThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary><secondary>HandledThread</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.HandledThread.HandledThread ( )</computeroutput></para>
+<para>Instantiates a new Handled thread. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a2e5f6f47c81fbb2b3198b7fe8e048486"/><section>
+    <title>HandledThread()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>HandledThread</primary><secondary>ver14.SharedClasses.Threads.HandledThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary><secondary>HandledThread</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.HandledThread.HandledThread (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)</computeroutput></para>
+<para>Instantiates a new Handled thread.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>runnable</entry><entry>
+<para>the runnable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a64fa74938dea8eddc35d2cda9d44f48d"/><section>
+    <title>handledRun()</title>
+<indexterm><primary>handledRun</primary><secondary>ver14.SharedClasses.Threads.HandledThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary><secondary>handledRun</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Threads.HandledThread.handledRun ( ) throws Throwable<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Handled run.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Throwable</entry><entry>
+<para>the throwable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a4ec95833704d274ff8d6b21250bcf652">ver14.SharedClasses.Threads.MyThread</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1afde9507ae7fb0911b7173a59b7b9bd5b"/><section>
+    <title>runInHandledThread()</title>
+<indexterm><primary>runInHandledThread</primary><secondary>ver14.SharedClasses.Threads.HandledThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary><secondary>runInHandledThread</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread">HandledThread</link> ver14.SharedClasses.Threads.HandledThread.runInHandledThread (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Run in handled thread handled thread.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>runnable</entry><entry>
+<para>the runnable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the handled thread </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a6673b3390a7005f361edf01acaf2a5e0"/><section>
+    <title>setRunnable()</title>
+<indexterm><primary>setRunnable</primary><secondary>ver14.SharedClasses.Threads.HandledThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.HandledThread</primary><secondary>setRunnable</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Threads.HandledThread.setRunnable (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable">ThrowingRunnable</link> runnable)</computeroutput></para>
+<para>Sets runnable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>runnable</entry><entry>
+<para>the runnable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Threads/HandledThread.java</section>
+</section>

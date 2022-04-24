@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_0caffbba01d3a0d3cb98d4c5744e5f03" kind="dir">
+    <compoundname>Game/SavedGames</compoundname>
+    <innerfile refid="_archived_game_info_8java">ArchivedGameInfo.java</innerfile>
+    <innerfile refid="_created_game_8java">CreatedGame.java</innerfile>
+    <innerfile refid="_established_game_info_8java">EstablishedGameInfo.java</innerfile>
+    <innerfile refid="_game_info_8java">GameInfo.java</innerfile>
+    <innerfile refid="_unfinished_game_8java">UnfinishedGame.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/SavedGames/"/>
+  </compounddef>
+</doxygen>

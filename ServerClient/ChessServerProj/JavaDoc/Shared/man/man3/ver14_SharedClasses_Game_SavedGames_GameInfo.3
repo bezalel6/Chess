@@ -1,0 +1,191 @@
+.TH "ver14.SharedClasses.Game.SavedGames.GameInfo" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.SavedGames.GameInfo
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable, and \fBver14\&.SharedClasses\&.Sync\&.SyncableItem\fP\&.
+.PP
+Inherited by \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.CreatedGame\fP, and \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.EstablishedGameInfo\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBisCreator\fP (String username)"
+.br
+.ti -1c
+.RI "String \fBID\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "abstract String \fBgetGameDesc\fP ()"
+.br
+.ti -1c
+.RI "\fBPlayerColor\fP \fBgetJoiningPlayerColor\fP ()"
+.br
+.ti -1c
+.RI "\fBPlayerColor\fP \fBgetStartingColor\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBGameInfo\fP \fBexample\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final String \fBgameId\fP"
+.br
+.ti -1c
+.RI "final String \fBcreatorUsername\fP"
+.br
+.ti -1c
+.RI "final \fBGameSettings\fP \fBgameSettings\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameInfo\fP (String \fBgameId\fP, String \fBcreatorUsername\fP, \fBGameSettings\fP \fBgameSettings\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Game info\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.GameInfo (String gameId, String creatorUsername, \fBGameSettings\fP gameSettings)\fC [protected]\fP"
+Instantiates a new Game info\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIgameId\fP the game id 
+.br
+\fIcreatorUsername\fP the creator username 
+.br
+\fIgameSettings\fP the game settings 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.equals (Object o)"
+Equals boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "static \fBGameInfo\fP ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.example ()\fC [static]\fP"
+Example game info\&.
+.PP
+\fBReturns\fP
+.RS 4
+the game info 
+.RE
+.PP
+
+.SS "abstract String ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.getGameDesc ()\fC [abstract]\fP"
+Gets game desc\&.
+.PP
+\fBReturns\fP
+.RS 4
+the game desc 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.CreatedGame\fP, and \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.EstablishedGameInfo\fP\&.
+.SS "\fBPlayerColor\fP ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.getJoiningPlayerColor ()"
+Gets joining player color\&.
+.PP
+\fBReturns\fP
+.RS 4
+the joining player color 
+.RE
+.PP
+
+.SS "\fBPlayerColor\fP ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.getStartingColor ()"
+Gets starting color\&.
+.PP
+\fBReturns\fP
+.RS 4
+the starting color 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.ID ()"
+Id string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Implements \fBver14\&.SharedClasses\&.Sync\&.SyncableItem\fP\&.
+.SS "boolean ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.isCreator (String username)"
+Is creator boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIusername\fP the username 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.ArchivedGameInfo\fP, and \fBver14\&.SharedClasses\&.Game\&.SavedGames\&.EstablishedGameInfo\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "final String ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.creatorUsername"
+The Creator username\&. 
+.SS "final String ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.gameId"
+The Game id\&. 
+.SS "final \fBGameSettings\fP ver14\&.SharedClasses\&.Game\&.SavedGames\&.GameInfo\&.gameSettings"
+The Game settings\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

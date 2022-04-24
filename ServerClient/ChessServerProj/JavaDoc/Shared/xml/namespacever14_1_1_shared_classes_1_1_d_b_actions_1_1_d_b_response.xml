@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::DBActions::DBResponse</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" prot="public">ver14::SharedClasses::DBActions::DBResponse::DBResponse</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response" prot="public">ver14::SharedClasses::DBActions::DBResponse::StatusResponse</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response" prot="public">ver14::SharedClasses::DBActions::DBResponse::TableDBResponse</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable">ver14::SharedClasses::DBActions::DBResponse::Graphable</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DBActions/DBResponse/DBResponse.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

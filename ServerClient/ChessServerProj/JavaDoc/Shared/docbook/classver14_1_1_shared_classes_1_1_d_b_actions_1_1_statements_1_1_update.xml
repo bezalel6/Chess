@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Statements.Update Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Update</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.Statements.Update:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">NewValue</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a7c0e4f9b949e9c12686f149cc6bbe20e">Update</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> updating, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, NewValue... newValues)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a889b43d22ee411842856b5a85e6672b8">createStatement</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update">Update</link> - a sql update statement.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a7c0e4f9b949e9c12686f149cc6bbe20e"/><section>
+    <title>Update()</title>
+<indexterm><primary>Update</primary><secondary>ver14.SharedClasses.DBActions.Statements.Update</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Update</primary><secondary>Update</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Statements.Update.Update (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> updating, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, NewValue... newValues)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update">Update</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>updating</entry><entry>
+<para>the updating </para>
+</entry>
+                            </row>
+                            <row>
+<entry>condition</entry><entry>
+<para>the condition </para>
+</entry>
+                            </row>
+                            <row>
+<entry>newValues</entry><entry>
+<para>the new values </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a889b43d22ee411842856b5a85e6672b8"/><section>
+    <title>createStatement()</title>
+<indexterm><primary>createStatement</primary><secondary>ver14.SharedClasses.DBActions.Statements.Update</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Update</primary><secondary>createStatement</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Statements.Update.createStatement ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Create statement string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6783132df1f279a4e750aec5d31798f2">ver14.SharedClasses.DBActions.Statements.SQLStatement</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/Statements/Update.java</section>
+</section>

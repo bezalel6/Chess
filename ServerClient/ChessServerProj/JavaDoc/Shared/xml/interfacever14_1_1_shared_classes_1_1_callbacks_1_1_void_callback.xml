@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Callbacks::VoidCallback</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback_1acff197298ae6f7e1b4021c8a656b9dc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Callbacks.VoidCallback.callback</definition>
+        <argsstring>()</argsstring>
+        <name>callback</name>
+        <qualifiedname>ver14.SharedClasses.Callbacks.VoidCallback.callback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback" kindref="compound">Callback</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Callbacks/VoidCallback.java" line="13" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Void callback - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Callbacks/VoidCallback.java" line="9" column="18" bodyfile="Callbacks/VoidCallback.java" bodystart="9" bodyend="14"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback_1acff197298ae6f7e1b4021c8a656b9dc9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Callbacks::VoidCallback</scope><name>callback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

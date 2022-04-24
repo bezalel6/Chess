@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBResponse::DBResponse::Status</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1a1e6bba61311b744061fbd3449ef405ce" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.SUCCESS</definition>
+        <argsstring></argsstring>
+        <name>SUCCESS</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.SUCCESS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Success status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/DBResponse.java" line="127" column="1" bodyfile="DBActions/DBResponse/DBResponse.java" bodystart="127" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a812bdb3b236815a8fde4aab99d66b879" compoundref="_d_b_response_8java" startline="61" endline="63">ver14.SharedClasses.DBActions.DBResponse.DBResponse.isSuccess</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ace514f6f24d7bd00fc9fdbbdd6199b39" compoundref="_table_d_b_response_8java" startline="33" endline="35">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse.TableDBResponse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1ac222baf1e248e06e4ddc986e4ddb14cf" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.ERROR</definition>
+        <argsstring></argsstring>
+        <name>ERROR</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBResponse.DBResponse.Status.ERROR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBResponse/DBResponse.java" line="131" column="1" bodyfile="DBActions/DBResponse/DBResponse.java" bodystart="131" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a2b7c8de5194274d9effc69be1cf6dc6f" compoundref="_request_builder_8java" startline="441" endline="473">ver14.SharedClasses.DBActions.RequestBuilder.createResponse</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status" kindref="compound">Status</ref> - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DBActions/DBResponse/DBResponse.java" line="123" column="11" bodyfile="DBActions/DBResponse/DBResponse.java" bodystart="123" bodyend="132"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1ac222baf1e248e06e4ddc986e4ddb14cf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::DBResponse::Status</scope><name>ERROR</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status_1a1e6bba61311b744061fbd3449ef405ce" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBResponse::DBResponse::Status</scope><name>SUCCESS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

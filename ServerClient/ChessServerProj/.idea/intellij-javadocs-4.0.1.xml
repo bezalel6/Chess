@@ -14,6 +14,7 @@
         <VISIBILITY>PUBLIC</VISIBILITY>
         <VISIBILITY>PROTECTED</VISIBILITY>
         <VISIBILITY>DEFAULT</VISIBILITY>
+        <VISIBILITY>PRIVATE</VISIBILITY>
       </VISIBILITIES>
     </GENERAL>
     <TEMPLATES>
@@ -21,7 +22,7 @@
         <CLASS>
           <KEY>^.*(public|protected|private)*.+interface\s+\w+.*</KEY>
           <VALUE>/**\n
- * ${name} - .\n
+ * ${name}.\n
   *\n
   *@author Bezalel Avrahami (bezalel3250@gmail.com)\n
   *
@@ -30,7 +31,7 @@
         <CLASS>
           <KEY>^.*(public|protected|private)*.+enum\s+\w+.*</KEY>
           <VALUE>/**\n
- * ${name} - .\n
+ * ${name}.\n
   *\n
   *@author Bezalel Avrahami (bezalel3250@gmail.com)\n
   *
@@ -39,7 +40,7 @@
         <CLASS>
           <KEY>^.*(public|protected|private)*.+class\s+\w+.*</KEY>
           <VALUE>/**\n
- * ${name} - .\n
+ * ${name}.\n
   *\n
   *@author Bezalel Avrahami (bezalel3250@gmail.com)\n
   *
@@ -48,7 +49,7 @@
         <CLASS>
           <KEY>.+</KEY>
           <VALUE>/**\n
- * ${name} - .\n
+ * ${name}.\n
   *\n
   *@author Bezalel Avrahami (bezalel3250@gmail.com)\n
   *

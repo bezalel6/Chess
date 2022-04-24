@@ -1,0 +1,165 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{}\doxysection{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection Class Reference}
+\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+Inheritance diagram for ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+interface \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_join}{Join}}
+\item 
+interface \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order}{Order}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a60fcf0aad513b8f2575bb0d00feb94dc}{Selection}} (Object select\+From, Object\mbox{[}$\,$\mbox{]} select)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a570f942cd846c061f97e43dc5f7d7866}{Selection}} (Object select\+From, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition}{Condition}} condition, Object\mbox{[}$\,$\mbox{]} select)
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{Selection}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_abe6bcd58988fd1e276a0558023d5fc15}{nest\+Me}} (Col... outer\+Select)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ad1135b32dc3c8b329b78816ceeac7067}{top}} (Object top)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a62d1323d250e27f9350decd3da208920}{join}} ( @\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_join}{Join}} String join\+Type, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table}{Table}} join\+With, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition}{Condition}} condition, Col... group\+By)
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a0bedd32b32af4fff63ecac3bd88e6aa4}{order\+By}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col}{Col}} col, @\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order}{Order}} String order)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ab771ce54532d01e3ef7d863654c7372a}{create\+Statement}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{Selection}} -\/ a selection sql statement.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a60fcf0aad513b8f2575bb0d00feb94dc}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a60fcf0aad513b8f2575bb0d00feb94dc}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!Selection@{Selection}}
+\index{Selection@{Selection}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{Selection()}{Selection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+Selection (\begin{DoxyParamCaption}\item[{Object}]{select\+From,  }\item[{Object\mbox{[}$\,$\mbox{]}}]{select }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{Selection}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em select\+From} & the select from \\
+\hline
+{\em select} & the select \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a570f942cd846c061f97e43dc5f7d7866}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a570f942cd846c061f97e43dc5f7d7866}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!Selection@{Selection}}
+\index{Selection@{Selection}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{Selection()}{Selection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+Selection (\begin{DoxyParamCaption}\item[{Object}]{select\+From,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition}{Condition}}}]{condition,  }\item[{Object\mbox{[}$\,$\mbox{]}}]{select }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{Selection}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em select\+From} & the select from \\
+\hline
+{\em condition} & the condition \\
+\hline
+{\em select} & the select \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ab771ce54532d01e3ef7d863654c7372a}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ab771ce54532d01e3ef7d863654c7372a}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!createStatement@{createStatement}}
+\index{createStatement@{createStatement}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{createStatement()}{createStatement()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+create\+Statement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Create statement string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6783132df1f279a4e750aec5d31798f2}{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement}}.
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a62d1323d250e27f9350decd3da208920}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a62d1323d250e27f9350decd3da208920}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!join@{join}}
+\index{join@{join}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+join (\begin{DoxyParamCaption}\item[{@\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_join}{Join}} String}]{join\+Type,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table}{Table}}}]{join\+With,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition}{Condition}}}]{condition,  }\item[{Col...}]{group\+By }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_join}{Join}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em join\+Type} & the join type \\
+\hline
+{\em join\+With} & the join with \\
+\hline
+{\em condition} & the condition \\
+\hline
+{\em group\+By} & the group by \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_abe6bcd58988fd1e276a0558023d5fc15}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_abe6bcd58988fd1e276a0558023d5fc15}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!nestMe@{nestMe}}
+\index{nestMe@{nestMe}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{nestMe()}{nestMe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection}{Selection}} ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+nest\+Me (\begin{DoxyParamCaption}\item[{Col...}]{outer\+Select }\end{DoxyParamCaption})}
+
+Nest me selection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em outer\+Select} & the outer select \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the selection 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a0bedd32b32af4fff63ecac3bd88e6aa4}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_a0bedd32b32af4fff63ecac3bd88e6aa4}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!orderBy@{orderBy}}
+\index{orderBy@{orderBy}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{orderBy()}{orderBy()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+order\+By (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col}{Col}}}]{col,  }\item[{@\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order}{Order}} String}]{order }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order}{Order}} by.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & the col \\
+\hline
+{\em order} & the order \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ad1135b32dc3c8b329b78816ceeac7067}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ad1135b32dc3c8b329b78816ceeac7067}} 
+\index{ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}!top@{top}}
+\index{top@{top}!ver14.SharedClasses.DBActions.Statements.Selection@{ver14.SharedClasses.DBActions.Statements.Selection}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection.\+top (\begin{DoxyParamCaption}\item[{Object}]{top }\end{DoxyParamCaption})}
+
+Top.
+
+
+\begin{DoxyParams}{Parameters}
+{\em top} & the top \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+DBActions/\+Statements/\mbox{\hyperlink{_selection_8java}{Selection.\+java}}\end{DoxyCompactItemize}

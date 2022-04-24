@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question" xml:lang="en-US">
+<title>ver14.SharedClasses.Misc.Question Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Misc.Question:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_misc_1_1_question.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type">QuestionType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2">Question</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14">questionStr</link>, Answer... possibleAnswers)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a00fff8fd8927e9527c0261d9075595b7">Question</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14">questionStr</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type">QuestionType</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86">questionType</link>, Answer... possibleAnswers)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7e5d8a3c06444af22bb350a284a98e78">getDefaultAnswer</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a232a34338f2be9dcd9ae2767555ffedf">setDefaultAnswer</link> (<link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link> defaultAnswer)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa4a0b7a02241af194dac7ce22a702f3d">getQuestionStr</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link>[] <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a937a64acbeed607f724adc4b4d24aae0">getPossibleAnswers</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25">equals</link> (Object o)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e">toString</link> ()</para>
+</listitem>
+            <listitem><para>record <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link> (String answerStr) implements Serializable</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046">drawOffer</link> (String offeringPlayer)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14">questionStr</link></para>
+</listitem>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type">QuestionType</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86">questionType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aad9586ab8412ad0388f4bc8d1450e3f3">Threefold</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>(&quot;Would you like to claim a Threefold repetition?&quot;, QuestionType.THREEFOLD, Answer.YES, Answer.NO)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa7e339fb677e7dd871fa467763f4cf10">Rematch</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>(&quot;rematch&quot;, QuestionType.REMATCH, Answer.YES, Answer.NO)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2"/><section>
+    <title>Question()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Question</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>Question</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.Question (String questionStr, Answer... possibleAnswers)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>questionStr</entry><entry>
+<para>the question str </para>
+</entry>
+                            </row>
+                            <row>
+<entry>possibleAnswers</entry><entry>
+<para>the possible answers </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a00fff8fd8927e9527c0261d9075595b7"/><section>
+    <title>Question()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Question</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>Question</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Misc.Question.Question (String questionStr, <link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type">QuestionType</link> questionType, Answer... possibleAnswers)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>questionStr</entry><entry>
+<para>the question str </para>
+</entry>
+                            </row>
+                            <row>
+<entry>questionType</entry><entry>
+<para>the question type </para>
+</entry>
+                            </row>
+                            <row>
+<entry>possibleAnswers</entry><entry>
+<para>the possible answers </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243"/><section>
+    <title>Answer()</title>
+<indexterm><primary>Answer</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>Answer</secondary></indexterm>
+<para><computeroutput>record ver14.SharedClasses.Misc.Question.Answer (String answerStr)</computeroutput></para>
+<para>Answer.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+
+<para>The constant YES.</para>
+
+<para>The constant NO.</para>
+
+<para>The constant ACCEPT.</para>
+
+<para>The constant DO_NOT_ACCEPT.</para>
+
+<para>The constant OK.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046"/><section>
+    <title>drawOffer()</title>
+<indexterm><primary>drawOffer</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>drawOffer</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> ver14.SharedClasses.Misc.Question.drawOffer (String offeringPlayer)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Draw offer question.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>offeringPlayer</entry><entry>
+<para>the offering player </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the question </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25"/><section>
+    <title>equals()</title>
+<indexterm><primary>equals</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>equals</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Misc.Question.equals (Object o)</computeroutput></para>
+<para>Equals boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>o</entry><entry>
+<para>the o </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7e5d8a3c06444af22bb350a284a98e78"/><section>
+    <title>getDefaultAnswer()</title>
+<indexterm><primary>getDefaultAnswer</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>getDefaultAnswer</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link> ver14.SharedClasses.Misc.Question.getDefaultAnswer ( )</computeroutput></para>
+<para>Gets default answer.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the default answer </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a937a64acbeed607f724adc4b4d24aae0"/><section>
+    <title>getPossibleAnswers()</title>
+<indexterm><primary>getPossibleAnswers</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>getPossibleAnswers</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link>[] ver14.SharedClasses.Misc.Question.getPossibleAnswers ( )</computeroutput></para>
+<para>Get possible answers answer [ ].</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the answer [ ] </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa4a0b7a02241af194dac7ce22a702f3d"/><section>
+    <title>getQuestionStr()</title>
+<indexterm><primary>getQuestionStr</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>getQuestionStr</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Misc.Question.getQuestionStr ( )</computeroutput></para>
+<para>Gets question str.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the question str </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a232a34338f2be9dcd9ae2767555ffedf"/><section>
+    <title>setDefaultAnswer()</title>
+<indexterm><primary>setDefaultAnswer</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>setDefaultAnswer</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Misc.Question.setDefaultAnswer (<link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243">Answer</link> defaultAnswer)</computeroutput></para>
+<para>Sets default answer.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>defaultAnswer</entry><entry>
+<para>the default answer </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Misc.Question.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14"/><section>
+    <title>questionStr</title>
+<indexterm><primary>questionStr</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>questionStr</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Misc.Question.questionStr</computeroutput></para>
+<para>The <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> str. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86"/><section>
+    <title>questionType</title>
+<indexterm><primary>questionType</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>questionType</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type">QuestionType</link> ver14.SharedClasses.Misc.Question.questionType</computeroutput></para>
+<para>The <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> type. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa7e339fb677e7dd871fa467763f4cf10"/><section>
+    <title>Rematch</title>
+<indexterm><primary>Rematch</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>Rematch</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> ver14.SharedClasses.Misc.Question.Rematch = new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>(&quot;rematch&quot;, QuestionType.REMATCH, Answer.YES, Answer.NO)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Rematch. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_question_1aad9586ab8412ad0388f4bc8d1450e3f3"/><section>
+    <title>Threefold</title>
+<indexterm><primary>Threefold</primary><secondary>ver14.SharedClasses.Misc.Question</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.Question</primary><secondary>Threefold</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link> ver14.SharedClasses.Misc.Question.Threefold = new <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_question">Question</link>(&quot;Would you like to claim a Threefold repetition?&quot;, QuestionType.THREEFOLD, Answer.YES, Answer.NO)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Threefold. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Misc/Question.java</section>
+</section>

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator" xml:lang="en-US">
+<title>ver14.SharedClasses.Misc.IDsGenerator Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Misc.IDsGenerator</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>synchronized String <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator_1a2b8249477b131d118aa2ea94db9d9415">generate</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator_1abcca1114fa02f3bff56a2875aedd362c">canUseId</link> (String id)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>IDs generator.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator_1abcca1114fa02f3bff56a2875aedd362c"/><section>
+    <title>canUseId()</title>
+<indexterm><primary>canUseId</primary><secondary>ver14.SharedClasses.Misc.IDsGenerator</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.IDsGenerator</primary><secondary>canUseId</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Misc.IDsGenerator.canUseId (String id)</computeroutput></para>
+<para>Can use id boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>the id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator_1a2b8249477b131d118aa2ea94db9d9415"/><section>
+    <title>generate()</title>
+<indexterm><primary>generate</primary><secondary>ver14.SharedClasses.Misc.IDsGenerator</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Misc.IDsGenerator</primary><secondary>generate</secondary></indexterm>
+<para><computeroutput>synchronized String ver14.SharedClasses.Misc.IDsGenerator.generate ( )</computeroutput></para>
+<para>Generate id.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Misc/IDsGenerator.java</section>
+</section>

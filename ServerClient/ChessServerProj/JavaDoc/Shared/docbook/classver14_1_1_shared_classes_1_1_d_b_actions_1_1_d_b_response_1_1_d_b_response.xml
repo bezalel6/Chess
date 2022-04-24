@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.DBResponse.DBResponse Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.DBResponse.DBResponse:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae2a7e224609cd893476a70c5a6173346">getRequest</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a34ed53e642351772ca1f6626615b83a2">getStatus</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a812bdb3b236815a8fde4aab99d66b879">isSuccess</link> ()</para>
+</listitem>
+            <listitem><para>abstract boolean <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ae6a8a0c163a12d7840ae6a038e9613">isAnyData</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad4e837a94c14b8fd170f7d907945f8bc">getAddedRes</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a46f54660d9d61001cd227b4513fff3b6">setAddedRes</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72">addedRes</link>)</para>
+</listitem>
+            <listitem><para>abstract <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a6a5c546947dde5c8dc19cf1c917855ba">clean</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1aa716686748331f1fa10a96789027975e">print</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ab08156c4593d8c537f7c55b587fbe9">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae00743dd2231d1343ebf50a77c10fd7e">DBResponse</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995">status</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb">request</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995">status</link></para>
+</listitem>
+            <listitem><para>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb">request</link></para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72">addedRes</link> = null</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Db response - .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae00743dd2231d1343ebf50a77c10fd7e"/><section>
+    <title>DBResponse()</title>
+<indexterm><primary>DBResponse</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>DBResponse</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.DBResponse.DBResponse.DBResponse (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> status, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> request)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Instantiates a new Db response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>status</entry><entry>
+<para>the status </para>
+</entry>
+                            </row>
+                            <row>
+<entry>request</entry><entry>
+<para>the request </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a6a5c546947dde5c8dc19cf1c917855ba"/><section>
+    <title>clean()</title>
+<indexterm><primary>clean</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>clean</secondary></indexterm>
+<para><computeroutput>abstract <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.clean ( )<computeroutput>[abstract]</computeroutput></computeroutput></para>
+<para>Clean db response.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the db response </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response_1a5c377b58ab0e218c27c4a9440debe6e8">ver14.SharedClasses.DBActions.DBResponse.StatusResponse</link>, and <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a8921f020ea6a5217d0330f501392a384">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad4e837a94c14b8fd170f7d907945f8bc"/><section>
+    <title>getAddedRes()</title>
+<indexterm><primary>getAddedRes</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>getAddedRes</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.getAddedRes ( )</computeroutput></para>
+<para>Gets added res.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the added res </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ae2a7e224609cd893476a70c5a6173346"/><section>
+    <title>getRequest()</title>
+<indexterm><primary>getRequest</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>getRequest</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.getRequest ( )</computeroutput></para>
+<para>Gets request.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the request </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a34ed53e642351772ca1f6626615b83a2"/><section>
+    <title>getStatus()</title>
+<indexterm><primary>getStatus</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>getStatus</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.getStatus ( )</computeroutput></para>
+<para>Gets status.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the status </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ae6a8a0c163a12d7840ae6a038e9613"/><section>
+    <title>isAnyData()</title>
+<indexterm><primary>isAnyData</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>isAnyData</secondary></indexterm>
+<para><computeroutput>abstract boolean ver14.SharedClasses.DBActions.DBResponse.DBResponse.isAnyData ( )<computeroutput>[abstract]</computeroutput></computeroutput></para>
+<para>Is any data boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response_1a4993f1c96f3a3d0f2dd1f28d511df3e5">ver14.SharedClasses.DBActions.DBResponse.StatusResponse</link>, and <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1a291c5cf0b0f01272849517758982815e">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a812bdb3b236815a8fde4aab99d66b879"/><section>
+    <title>isSuccess()</title>
+<indexterm><primary>isSuccess</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>isSuccess</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.DBActions.DBResponse.DBResponse.isSuccess ( )</computeroutput></para>
+<para>Is success boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1aa716686748331f1fa10a96789027975e"/><section>
+    <title>print()</title>
+<indexterm><primary>print</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>print</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.DBResponse.DBResponse.print ( )</computeroutput></para>
+<para>Print. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a46f54660d9d61001cd227b4513fff3b6"/><section>
+    <title>setAddedRes()</title>
+<indexterm><primary>setAddedRes</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>setAddedRes</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.DBResponse.DBResponse.setAddedRes (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> addedRes)</computeroutput></para>
+<para>Sets added res.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>addedRes</entry><entry>
+<para>the added res </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a8ab08156c4593d8c537f7c55b587fbe9"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.DBResponse.DBResponse.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response_1a126cfbf5ef09d2a484351c1d5f951080">ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse</link>, and <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response_1ac7e9f2a2498db59aa097cc1a1ce78285">ver14.SharedClasses.DBActions.DBResponse.TableDBResponse</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a2160a224a07266266a569d927591ea72"/><section>
+    <title>addedRes</title>
+<indexterm><primary>addedRes</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>addedRes</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response">DBResponse</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.addedRes = null<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The Added res. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ab3c5ed8fd3396def031fc9b3b833b8bb"/><section>
+    <title>request</title>
+<indexterm><primary>request</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>request</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request">DBRequest</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.request<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The Request. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1ad02f9ac12189d5f87a12236a50445995"/><section>
+    <title>status</title>
+<indexterm><primary>status</primary><secondary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.DBResponse</primary><secondary>status</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link> ver14.SharedClasses.DBActions.DBResponse.DBResponse.status<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1_1_status">Status</link>. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/DBResponse/DBResponse.java</section>
+</section>

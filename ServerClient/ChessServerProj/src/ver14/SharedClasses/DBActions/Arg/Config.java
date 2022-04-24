@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 
 /**
- * Config - .
+ * Config - an argument's configuration.
  *
+ * @param <V> the type
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Config<V> implements Serializable {
@@ -18,7 +19,13 @@ public class Config<V> implements Serializable {
      * The Description.
      */
     public final String description;
+    /**
+     * The Default value.
+     */
     private final Described<V> defaultValue;
+    /**
+     * The Values suggestion.
+     */
     private final ArrayList<Described<V>> valuesSuggestion;
 
     /**

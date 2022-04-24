@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Login::LoginInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a69c67a0d7b35a503b5e5f3afa17cbedc" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Username. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="15" column="20" bodyfile="Login/LoginInfo.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abd02b0fb6d1693e9e225bfd48e363319" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Password. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="18" column="5" bodyfile="Login/LoginInfo.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1acfa4f0219e9282e7cd8882c026a6ba2e" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kindref="compound">LoginType</ref></type>
+        <definition>LoginType ver14.SharedClasses.Login.LoginInfo.loginType</definition>
+        <argsstring></argsstring>
+        <name>loginType</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.loginType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Login type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="22" column="23" bodyfile="Login/LoginInfo.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8fa447b774c909f942b9d305b598820a" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.profilePic</definition>
+        <argsstring></argsstring>
+        <name>profilePic</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.profilePic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Profile pic. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="26" column="20" bodyfile="Login/LoginInfo.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a6128e5b98e36ce42a0ea7c73c140d2d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginInfo.LoginInfo</definition>
+        <argsstring>()</argsstring>
+        <name>LoginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.LoginInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Login info. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="31" column="12" bodyfile="Login/LoginInfo.java" bodystart="31" bodyend="33"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a17ff7e5815ca495e17b7d4a7fd94eed1" compoundref="_login_type_8java" startline="29">ver14.SharedClasses.Login.LoginType.NOT_SET_YET</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1aa26bc989b7901a46d99e582098a48fd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginInfo.LoginInfo</definition>
+        <argsstring>(String username, String password, LoginType loginType)</argsstring>
+        <name>LoginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.LoginInfo</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kindref="compound">LoginType</ref></type>
+          <declname>loginType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Login info.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the password </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loginType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="42" column="12" bodyfile="Login/LoginInfo.java" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1adee7be95e9d0aa7c2388bcece3ef04cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginInfo.LoginInfo</definition>
+        <argsstring>(LoginType loginType)</argsstring>
+        <name>LoginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.LoginInfo</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kindref="compound">LoginType</ref></type>
+          <declname>loginType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Login info.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loginType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="53" column="12" bodyfile="Login/LoginInfo.java" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a83ea41337273efe2cf1d27ce36afdbf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.getProfilePic</definition>
+        <argsstring>()</argsstring>
+        <name>getProfilePic</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.getProfilePic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets profile pic.</para>
+<para><simplesect kind="return"><para>the profile pic </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="62" column="19" bodyfile="Login/LoginInfo.java" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ab1597a48bddff16ceaf97e0710a332e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Login.LoginInfo.setProfilePic</definition>
+        <argsstring>(String profilePic)</argsstring>
+        <name>setProfilePic</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.setProfilePic</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>profilePic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets profile pic.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>profilePic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the profile pic </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="71" column="17" bodyfile="Login/LoginInfo.java" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abd5df0000405bbfd0c321fb05cd3e686" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Login.LoginInfo.isGuest</definition>
+        <argsstring>()</argsstring>
+        <name>isGuest</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.isGuest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is guest boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="80" column="20" bodyfile="Login/LoginInfo.java" bodystart="80" bodyend="82"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1afa644bd0211953ef5a51f2e2c4b1bb84" compoundref="_login_type_8java" startline="21">ver14.SharedClasses.Login.LoginType.GUEST</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a627ea45932bf7f68f84ea713f789d0b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kindref="compound">LoginType</ref></type>
+        <definition>LoginType ver14.SharedClasses.Login.LoginInfo.getLoginType</definition>
+        <argsstring>()</argsstring>
+        <name>getLoginType</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.getLoginType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets login type.</para>
+<para><simplesect kind="return"><para>the login type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="89" column="22" bodyfile="Login/LoginInfo.java" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a007b71fb19550c33f069c138333aa35e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Login.LoginInfo.setLoginType</definition>
+        <argsstring>(LoginType loginType)</argsstring>
+        <name>setLoginType</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.setLoginType</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kindref="compound">LoginType</ref></type>
+          <declname>loginType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets login type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loginType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="98" column="17" bodyfile="Login/LoginInfo.java" bodystart="98" bodyend="100"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" compoundref="_login_info_8java" startline="165" endline="169">ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ac4c65efb35f9f7895c3f9e3f507d8e63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.getUsername</definition>
+        <argsstring>()</argsstring>
+        <name>getUsername</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.getUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets username.</para>
+<para><simplesect kind="return"><para>the username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="107" column="19" bodyfile="Login/LoginInfo.java" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ad1f7f8635cf981ad39bd26295b00d3f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Login.LoginInfo.setUsername</definition>
+        <argsstring>(String username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.setUsername</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets username.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="116" column="17" bodyfile="Login/LoginInfo.java" bodystart="116" bodyend="118"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" compoundref="_login_info_8java" startline="165" endline="169">ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a71911541f56ff653c1940e0141485c8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.getPassword</definition>
+        <argsstring>()</argsstring>
+        <name>getPassword</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.getPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets password.</para>
+<para><simplesect kind="return"><para>the password </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="125" column="19" bodyfile="Login/LoginInfo.java" bodystart="125" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abbe1e3c4435b29f03f8bf23626514da3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Login.LoginInfo.setPassword</definition>
+        <argsstring>(String password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.setPassword</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets password.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the password </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="134" column="17" bodyfile="Login/LoginInfo.java" bodystart="134" bodyend="136"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" compoundref="_login_info_8java" startline="165" endline="169">ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a52052c9f75e169bd5f467c7facd8bf93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginInfo.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="145" column="19" bodyfile="Login/LoginInfo.java" bodystart="145" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a10bded4c857e4b90ff3eb1da2970a3ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Login.LoginInfo.asUser</definition>
+        <argsstring>()</argsstring>
+        <name>asUser</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.asUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>As user boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="158" column="20" bodyfile="Login/LoginInfo.java" bodystart="158" bodyend="160"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a1fa210c2159fdabbdea036ebd48d020a" compoundref="_login_type_8java" startline="36" endline="38">ver14.SharedClasses.Login.LoginType.asUser</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</definition>
+        <argsstring>()</argsstring>
+        <name>initDebugLoginValues</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Init debug login values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginInfo.java" line="165" column="17" bodyfile="Login/LoginInfo.java" bodystart="165" bodyend="169"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1aa9eef6d8a72a679e879988e68102fe4a" compoundref="_login_type_8java" startline="13">ver14.SharedClasses.Login.LoginType.LOGIN</references>
+        <references refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a007b71fb19550c33f069c138333aa35e" compoundref="_login_info_8java" startline="98" endline="100">ver14.SharedClasses.Login.LoginInfo.setLoginType</references>
+        <references refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abbe1e3c4435b29f03f8bf23626514da3" compoundref="_login_info_8java" startline="134" endline="136">ver14.SharedClasses.Login.LoginInfo.setPassword</references>
+        <references refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ad1f7f8635cf981ad39bd26295b00d3f4" compoundref="_login_info_8java" startline="116" endline="118">ver14.SharedClasses.Login.LoginInfo.setUsername</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Login info.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Login.LoginInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Login.LoginInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Login/LoginInfo.java" line="11" column="7" bodyfile="Login/LoginInfo.java" bodystart="11" bodyend="170"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a10bded4c857e4b90ff3eb1da2970a3ee" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>asUser</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a627ea45932bf7f68f84ea713f789d0b7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>getLoginType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a71911541f56ff653c1940e0141485c8d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>getPassword</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a83ea41337273efe2cf1d27ce36afdbf0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>getProfilePic</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ac4c65efb35f9f7895c3f9e3f507d8e63" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>getUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>initDebugLoginValues</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abd5df0000405bbfd0c321fb05cd3e686" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>isGuest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a6128e5b98e36ce42a0ea7c73c140d2d2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>LoginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1aa26bc989b7901a46d99e582098a48fd2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>LoginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1adee7be95e9d0aa7c2388bcece3ef04cf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>LoginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1acfa4f0219e9282e7cd8882c026a6ba2e" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>loginType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abd02b0fb6d1693e9e225bfd48e363319" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>password</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8fa447b774c909f942b9d305b598820a" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>profilePic</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a007b71fb19550c33f069c138333aa35e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>setLoginType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abbe1e3c4435b29f03f8bf23626514da3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>setPassword</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ab1597a48bddff16ceaf97e0710a332e7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>setProfilePic</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1ad1f7f8635cf981ad39bd26295b00d3f4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>setUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a52052c9f75e169bd5f467c7facd8bf93" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a69c67a0d7b35a503b5e5f3afa17cbedc" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginInfo</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

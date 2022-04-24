@@ -1,24 +1,17 @@
 package ver14.SharedClasses.Callbacks;
 
-/*
- * Callback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
-/*
- * Callback -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Callback
+/**
+ * Callback - an object callback.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @param <T> the object's type
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public interface Callback<T> {
+    /**
+     * Callback.
+     *
+     * @param obj the obj
+     */
     void callback(T obj);
 }

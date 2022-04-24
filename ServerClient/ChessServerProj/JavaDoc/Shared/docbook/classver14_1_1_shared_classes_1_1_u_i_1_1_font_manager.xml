@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager" xml:lang="en-US">
+<title>ver14.SharedClasses.UI.FontManager Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.UI.FontManager</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">Base</emphasis></para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">Dialogs</emphasis></para>
+</listitem>
+            <listitem><para>class <emphasis role="strong">JMenus</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1ae946c54771c9435f4ff676bf24d915ee"/>static void <emphasis role="strong">main</emphasis> (String[] args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a1a2822868d380755bfa2f8ccc6b4e60c"/>static final Font <emphasis role="strong">statusLbl</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1adaed0559f7ed6378f84728ba928ec9c8"/>static final Font <emphasis role="strong">dbResponseTable</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a0a7a2b65b49aed146ee8a0596346f371"/>static final Font <emphasis role="strong">dbResponseTableHeader</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a5d768609274c4fbb8cbdfee354e6587d"/>static final Font <emphasis role="strong">sidePanel</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1af3a56cebb56192527b0d2287aa3da8f0"/>static final Font <emphasis role="strong">coordinates</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a27ccf7eb8dcff403eae223b031aaaeb4"/>static final Font <emphasis role="strong">boardButtons</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a0ee85bc6a3bf9db69bf5665f27006394"/>static final Font <emphasis role="strong">statistics</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1abae04164e88717d6be89d1ff39bd5d13"/>static final Font <emphasis role="strong">backOk</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a8b7db2aa660b95c9f16e82a4803c8fc8"/>static final Font <emphasis role="strong">xLarge</emphasis> = Base.xLarge</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a22a8ae56a938397234419cb6575fbf68"/>static final Font <emphasis role="strong">normal</emphasis> = Base.normal</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a339dab964c95d3e99d3950cdefeb5b61"/>static final Font <emphasis role="strong">large</emphasis> = Base.large</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a304db3d1903a734fb517801ce7c8482b"/>static final Font <emphasis role="strong">small</emphasis> = Base.small</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1a8775c2ef8aab9caf38dce671403f27bb"/>static final Font <emphasis role="strong">error</emphasis> = Base.error</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1aaa5a4c55ef7a9f4cb093e888284fd2c3"/>static final Font <emphasis role="strong">defaultLinkLbl</emphasis> = Base.normal</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/FontManager.java</section>

@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>Date <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac01a44f4da3f0d7c9a8f2b69f1bbcc67">getCreatedAt</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1af779f6d669c2db23595917034494a821">setCreatedAt</link> (Date <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a646fd2e008d58de795c88971b97a26c8">createdAt</link>)</para>
+</listitem>
+            <listitem><para>Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac7b7ff8a66259517705126e34f3238dc">getMoveStack</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ae3d54dadce03863ce6802e1ac7ab4d02">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a00bf560739c040d4582fa0076e6a580f">getGameDesc</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff">opponentUsername</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a6b30a87ecb6c2036638e268dd1aad0cf">EstablishedGameInfo</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c">gameId</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5">creatorUsername</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff">opponentUsername</link>, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3">gameSettings</link>, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Date <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a646fd2e008d58de795c88971b97a26c8">createdAt</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Established game info.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a6b30a87ecb6c2036638e268dd1aad0cf"/><section>
+    <title>EstablishedGameInfo()</title>
+<indexterm><primary>EstablishedGameInfo</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>EstablishedGameInfo</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.EstablishedGameInfo (String gameId, String creatorUsername, String opponentUsername, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> gameSettings, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Instantiates a new Established game info.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>gameId</entry><entry>
+<para>the game id </para>
+</entry>
+                            </row>
+                            <row>
+<entry>creatorUsername</entry><entry>
+<para>the creator username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>opponentUsername</entry><entry>
+<para>the opponent username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameSettings</entry><entry>
+<para>the game settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>moveStack</entry><entry>
+<para>the move stack </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac01a44f4da3f0d7c9a8f2b69f1bbcc67"/><section>
+    <title>getCreatedAt()</title>
+<indexterm><primary>getCreatedAt</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>getCreatedAt</secondary></indexterm>
+<para><computeroutput>Date ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.getCreatedAt ( )</computeroutput></para>
+<para>Gets created at.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the created at </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a00bf560739c040d4582fa0076e6a580f"/><section>
+    <title>getGameDesc()</title>
+<indexterm><primary>getGameDesc</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>getGameDesc</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.getGameDesc ( )</computeroutput></para>
+<para>Gets game desc.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the game desc </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1aa7691601e6df478e64954208eba2b967">ver14.SharedClasses.Game.SavedGames.GameInfo</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac7b7ff8a66259517705126e34f3238dc"/><section>
+    <title>getMoveStack()</title>
+<indexterm><primary>getMoveStack</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>getMoveStack</secondary></indexterm>
+<para><computeroutput>Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.getMoveStack ( )</computeroutput></para>
+<para>Gets move stack.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the move stack </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1af779f6d669c2db23595917034494a821"/><section>
+    <title>setCreatedAt()</title>
+<indexterm><primary>setCreatedAt</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>setCreatedAt</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.setCreatedAt (Date createdAt)</computeroutput></para>
+<para>Sets created at.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>createdAt</entry><entry>
+<para>the created at </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ae3d54dadce03863ce6802e1ac7ab4d02"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a796303097d0370ec6591935adea30cfb">ver14.SharedClasses.Game.SavedGames.GameInfo</link>.</para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1ac6b387cb04c8d182cac1c670d00195aa">ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a646fd2e008d58de795c88971b97a26c8"/><section>
+    <title>createdAt</title>
+<indexterm><primary>createdAt</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>createdAt</secondary></indexterm>
+<para><computeroutput>Date ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.createdAt<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The Created at. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff"/><section>
+    <title>opponentUsername</title>
+<indexterm><primary>opponentUsername</primary><secondary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</primary><secondary>opponentUsername</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.opponentUsername</computeroutput></para>
+<para>The Opponent username. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/SavedGames/EstablishedGameInfo.java</section>
+</section>

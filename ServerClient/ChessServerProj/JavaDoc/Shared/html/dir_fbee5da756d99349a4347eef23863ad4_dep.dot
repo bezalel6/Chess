@@ -1,0 +1,11 @@
+digraph "DBActions/Table"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_b159b5ad74b50d79c53dd562542ceda4 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,dashed,", label="DBActions", fontname="Helvetica", fontsize="10", URL="dir_b159b5ad74b50d79c53dd562542ceda4.html"]
+  dir_fbee5da756d99349a4347eef23863ad4 [shape=box, label="Table", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_fbee5da756d99349a4347eef23863ad4.html"];
+  }
+}

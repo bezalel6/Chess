@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info" prot="public" virt="non-virtual">ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a4bf43752e1bd8f9e26821d497beb9f31" prot="private" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.winner</definition>
+        <argsstring></argsstring>
+        <name>winner</name>
+        <qualifiedname>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.winner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Winner. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/SavedGames/ArchivedGameInfo.java" line="18" column="26" bodyfile="Game/SavedGames/ArchivedGameInfo.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a11f7babc219755acbc87a32d210bc45e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.ArchivedGameInfo</definition>
+        <argsstring>(String gameId, String creatorUsername, String opponentUsername, GameSettings gameSettings, String winner, Stack&lt; Move &gt; moveStack)</argsstring>
+        <name>ArchivedGameInfo</name>
+        <qualifiedname>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.ArchivedGameInfo</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>gameId</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>creatorUsername</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>opponentUsername</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+          <declname>gameSettings</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>winner</declname>
+        </param>
+        <param>
+          <type>Stack&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+          <declname>moveStack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Archived game info.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game id </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>creatorUsername</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the creator username </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>opponentUsername</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the opponent username </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game settings </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the winner </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>moveStack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move stack </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/SavedGames/ArchivedGameInfo.java" line="30" column="12" bodyfile="Game/SavedGames/ArchivedGameInfo.java" bodystart="30" bodyend="33"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5" compoundref="_game_info_8java" startline="25">ver14.SharedClasses.Game.SavedGames.GameInfo.creatorUsername</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c" compoundref="_game_info_8java" startline="21">ver14.SharedClasses.Game.SavedGames.GameInfo.gameId</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3" compoundref="_game_info_8java" startline="29">ver14.SharedClasses.Game.SavedGames.GameInfo.gameSettings</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff" compoundref="_established_game_info_8java" startline="19">ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo.opponentUsername</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a67410695961bd4e915bdf6e76b28999c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.getWinner</definition>
+        <argsstring>()</argsstring>
+        <name>getWinner</name>
+        <qualifiedname>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.getWinner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets winner.</para>
+<para><simplesect kind="return"><para>the winner </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/SavedGames/ArchivedGameInfo.java" line="40" column="19" bodyfile="Game/SavedGames/ArchivedGameInfo.java" bodystart="40" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1ac6b387cb04c8d182cac1c670d00195aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.toString</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ae3d54dadce03863ce6802e1ac7ab4d02">toString</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/SavedGames/ArchivedGameInfo.java" line="50" column="19" bodyfile="Game/SavedGames/ArchivedGameInfo.java" bodystart="50" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Archived game info.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.SavedGames.GameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.Sync.SyncableItem</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Serializable</label>
+      </node>
+      <node id="8">
+        <label>Date</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ver14.SharedClasses.Game.GameSetup.GameSettings</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>EXAMPLE</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable"/>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>createdAt</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.SavedGames.GameInfo</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>gameSettings</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.Sync.SyncableItem</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item"/>
+      </node>
+    </collaborationgraph>
+    <location file="Game/SavedGames/ArchivedGameInfo.java" line="14" column="7" bodyfile="Game/SavedGames/ArchivedGameInfo.java" bodystart="14" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a11f7babc219755acbc87a32d210bc45e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>ArchivedGameInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a646fd2e008d58de795c88971b97a26c8" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>createdAt</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>creatorUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a418e2522dd888b76b01e2bbd787ed59c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>equals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a6b30a87ecb6c2036638e268dd1aad0cf" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>EstablishedGameInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a601574ce7d4af991e70eeda205a8aea9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>example</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>gameId</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac8500ee948ac265891257958351c66da" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>GameInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>gameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac01a44f4da3f0d7c9a8f2b69f1bbcc67" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getCreatedAt</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1a00bf560739c040d4582fa0076e6a580f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getGameDesc</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1abf45a4457f870cf4a10462ecdfcfcd7b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getJoiningPlayerColor</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ac7b7ff8a66259517705126e34f3238dc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getMoveStack</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1abb6a9b7d6251ef8cf1072844f89e8047" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getStartingColor</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item_1ad571ab00166fc7f4aef33a68bb8cb0f5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getSyncableItem</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a67410695961bd4e915bdf6e76b28999c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>getWinner</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1aeed5f81d25dcf6a45771603c988c9c7a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>ID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a4387436e08120b57dc222ccd90b25f6b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>isCreator</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>opponentUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1af779f6d669c2db23595917034494a821" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>setCreatedAt</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1ac6b387cb04c8d182cac1c670d00195aa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a4bf43752e1bd8f9e26821d497beb9f31" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::SavedGames::ArchivedGameInfo</scope><name>winner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

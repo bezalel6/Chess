@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" xml:lang="en-US">
+<title>ver14.SharedClasses.Threads.MyThread Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Threads.MyThread:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status">ThreadStatus</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1adfecc263875e1b4c9620eda831d5cb3f">MyThread</link> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a90ac193a9eff8a572db3f1f7d7aad85a"/>boolean <emphasis role="strong">isIgnoreErrs</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1abceb4edf9a4fb6b57534ea00aae3643e">stopRun</link> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a3ddcdba410ed920f9b76f48b38983f57"/>final void <emphasis role="strong">run</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a896ddfac59837aff9fe80e49820fa5b4">ignoreErrs</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1ab1098baaedbaa1d04a2b4849c734b8ae">reactivateErrs</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a1690f9c05b2dcaa1441af57af6e13676">currentThread</link> (<link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback">Callback</link>&lt; <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread">MyThread</link> &gt; run)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a6dac57de7ccc088945ebeaf0ef5a9948"/>static void <emphasis role="strong">setEnvManager</emphasis> (<link linkend="_interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager">EnvManager</link> manager)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>abstract void <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a4ec95833704d274ff8d6b21250bcf652">handledRun</link> ()  throws Throwable</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The type My thread. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1adfecc263875e1b4c9620eda831d5cb3f"/><section>
+    <title>MyThread()</title>
+<indexterm><primary>MyThread</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>MyThread</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.MyThread.MyThread ( )</computeroutput></para>
+<para>Instantiates a new My thread. </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a1690f9c05b2dcaa1441af57af6e13676"/><section>
+    <title>currentThread()</title>
+<indexterm><primary>currentThread</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>currentThread</secondary></indexterm>
+<para><computeroutput>static void ver14.SharedClasses.Threads.MyThread.currentThread (<link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback">Callback</link>&lt; <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread">MyThread</link> &gt; run)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Current thread. will only execute code if inside a <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread">MyThread</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>run</entry><entry>
+<para>the run </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a4ec95833704d274ff8d6b21250bcf652"/><section>
+    <title>handledRun()</title>
+<indexterm><primary>handledRun</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>handledRun</secondary></indexterm>
+<para><computeroutput>abstract void ver14.SharedClasses.Threads.MyThread.handledRun ( ) throws Throwable<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Handled run.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Throwable</entry><entry>
+<para>the throwable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented in <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_1aa64ec201c3558cb554dde39e14e49f77">ver14.SharedClasses.Networking.AppSocket</link>, and <link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a64fa74938dea8eddc35d2cda9d44f48d">ver14.SharedClasses.Threads.HandledThread</link>.</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a896ddfac59837aff9fe80e49820fa5b4"/><section>
+    <title>ignoreErrs()</title>
+<indexterm><primary>ignoreErrs</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>ignoreErrs</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Threads.MyThread.ignoreErrs ( )</computeroutput></para>
+<para>Ignore errs. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1ab1098baaedbaa1d04a2b4849c734b8ae"/><section>
+    <title>reactivateErrs()</title>
+<indexterm><primary>reactivateErrs</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>reactivateErrs</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Threads.MyThread.reactivateErrs ( )</computeroutput></para>
+<para>Reactivate errs. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1abceb4edf9a4fb6b57534ea00aae3643e"/><section>
+    <title>stopRun()</title>
+<indexterm><primary>stopRun</primary><secondary>ver14.SharedClasses.Threads.MyThread</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread</primary><secondary>stopRun</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Threads.MyThread.stopRun ( )</computeroutput></para>
+<para>Stop run. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Threads/MyThread.java</section>
+</section>

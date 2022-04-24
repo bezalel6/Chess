@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a11f7babc219755acbc87a32d210bc45e">ArchivedGameInfo</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c">gameId</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5">creatorUsername</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff">opponentUsername</link>, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3">gameSettings</link>, String winner, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a67410695961bd4e915bdf6e76b28999c">getWinner</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1ac6b387cb04c8d182cac1c670d00195aa">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Archived game info.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a11f7babc219755acbc87a32d210bc45e"/><section>
+    <title>ArchivedGameInfo()</title>
+<indexterm><primary>ArchivedGameInfo</primary><secondary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</primary><secondary>ArchivedGameInfo</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.ArchivedGameInfo (String gameId, String creatorUsername, String opponentUsername, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> gameSettings, String winner, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)</computeroutput></para>
+<para>Instantiates a new Archived game info.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>gameId</entry><entry>
+<para>the game id </para>
+</entry>
+                            </row>
+                            <row>
+<entry>creatorUsername</entry><entry>
+<para>the creator username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>opponentUsername</entry><entry>
+<para>the opponent username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameSettings</entry><entry>
+<para>the game settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>winner</entry><entry>
+<para>the winner </para>
+</entry>
+                            </row>
+                            <row>
+<entry>moveStack</entry><entry>
+<para>the move stack </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1a67410695961bd4e915bdf6e76b28999c"/><section>
+    <title>getWinner()</title>
+<indexterm><primary>getWinner</primary><secondary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</primary><secondary>getWinner</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.getWinner ( )</computeroutput></para>
+<para>Gets winner.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the winner </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info_1ac6b387cb04c8d182cac1c670d00195aa"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ae3d54dadce03863ce6802e1ac7ab4d02">ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/SavedGames/ArchivedGameInfo.java</section>
+</section>

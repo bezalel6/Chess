@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a198fd50df027b344c4f446a036fcb236" prot="public" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.variationName</definition>
+        <argsstring></argsstring>
+        <name>variationName</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.variationName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Variation name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="126" column="29" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a8cfbfcf96db685a7ddb8c770d1d7fb8d" prot="public" static="no" mutable="no">
+        <type>final Object[]</type>
+        <definition>final Object [] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.buildingArgs</definition>
+        <argsstring></argsstring>
+        <name>buildingArgs</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.buildingArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Building args. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="130" column="29" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1ab1f4e12c0961dd75cfb57d9d67ea2368" prot="public" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[]</type>
+        <definition>final Arg [] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.variationArgs</definition>
+        <argsstring></argsstring>
+        <name>variationArgs</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.variationArgs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Variation args. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="134" column="26" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a47db3f00fe81e7e8215d51c32011971c" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.Variation</definition>
+        <argsstring>(String variationName, Object[] buildingArgs, Arg[] variationArgs)</argsstring>
+        <name>Variation</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation.Variation</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>variationName</declname>
+        </param>
+        <param>
+          <type>Object[]</type>
+          <declname>buildingArgs</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[]</type>
+          <declname>variationArgs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Variation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>variationName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the variation name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buildingArgs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the building args </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>variationArgs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the variation args </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="143" column="9" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="143" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Variation - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>ver14.SharedClasses.DBActions.Arg.Config&lt;?&gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config"/>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Variation</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>variationArgs</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Arg.Arg</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>argType</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>config</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.DBActions.Arg.ArgType</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type"/>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/DBRequest/PreMadeRequest.java" line="122" column="19" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="122" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a8cfbfcf96db685a7ddb8c770d1d7fb8d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</scope><name>buildingArgs</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a47db3f00fe81e7e8215d51c32011971c" prot="package" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</scope><name>Variation</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1ab1f4e12c0961dd75cfb57d9d67ea2368" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</scope><name>variationArgs</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_1a198fd50df027b344c4f446a036fcb236" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</scope><name>variationName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

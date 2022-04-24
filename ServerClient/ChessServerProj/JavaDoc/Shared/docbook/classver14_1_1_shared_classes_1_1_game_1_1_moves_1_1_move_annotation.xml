@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.MoveAnnotation Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MoveAnnotation</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017">annotate</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> movingPiece)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a103a302ffb40755ea38563ac00960bd7">annotate</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> movingPiece, String unique)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a9f207b72c6f49eb626b17c6c65585f97">basicAnnotate</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> move)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> annotation - utility class that annotates moves.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017"/><section>
+    <title>annotate()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>annotate</primary><secondary>ver14.SharedClasses.Game.Moves.MoveAnnotation</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MoveAnnotation</primary><secondary>annotate</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> movingPiece)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Annotate move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>movingPiece</entry><entry>
+<para>the moving piece </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the annotation </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a103a302ffb40755ea38563ac00960bd7"/><section>
+    <title>annotate()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>annotate</primary><secondary>ver14.SharedClasses.Game.Moves.MoveAnnotation</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MoveAnnotation</primary><secondary>annotate</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> movingPiece, String unique)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Annotate move with a unique string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>movingPiece</entry><entry>
+<para>the moving piece </para>
+</entry>
+                            </row>
+                            <row>
+<entry>unique</entry><entry>
+<para>the unique string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a9f207b72c6f49eb626b17c6c65585f97"/><section>
+    <title>basicAnnotate()</title>
+<indexterm><primary>basicAnnotate</primary><secondary>ver14.SharedClasses.Game.Moves.MoveAnnotation</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MoveAnnotation</primary><secondary>basicAnnotate</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.basicAnnotate (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move">BasicMove</link> move)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Basic annotate a move. just the source and destination.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/Moves/MoveAnnotation.java</section>
+</section>

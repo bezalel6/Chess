@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Table::Math</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a9874b934ce1b6484c52530a1f1e0a8c0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Table.Math.Plus</definition>
+        <argsstring></argsstring>
+        <name>Plus</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.Plus</qualifiedname>
+        <initializer>={
+        @Override
+        protected void <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5" kindref="member">apply</ref>(Object value) {
+            <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb" kindref="member">simpleOperation</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac" kindref="member">strSource</ref>(), &quot;+&quot;, <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b" kindref="member">strVal</ref>(value));
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Plus. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="18" column="1" bodyfile="DBActions/Table/Math.java" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a542c588f1ba1393256585b5868d48fef" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Table.Math.Mult</definition>
+        <argsstring></argsstring>
+        <name>Mult</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.Mult</qualifiedname>
+        <initializer>={
+        @Override
+        protected void <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5" kindref="member">apply</ref>(Object value) {
+            <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb" kindref="member">simpleOperation</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903" kindref="member">formatNum</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac" kindref="member">strSource</ref>()), &quot;*&quot;, <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903" kindref="member">formatNum</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b" kindref="member">strVal</ref>(value)));
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Mult. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="27" column="1" bodyfile="DBActions/Table/Math.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ae6223095c76ab7f44c2db144f6a8e1f7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Table.Math.Div</definition>
+        <argsstring></argsstring>
+        <name>Div</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.Div</qualifiedname>
+        <initializer>={
+        @Override
+        protected void <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5" kindref="member">apply</ref>(Object value) {
+            <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb" kindref="member">simpleOperation</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903" kindref="member">formatNum</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac" kindref="member">strSource</ref>()), &quot;/&quot;, <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a" kindref="member">nullIf0</ref>(value));
+            <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb" kindref="member">zeroIfNull</ref>();
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Div. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="37" column="1" bodyfile="DBActions/Table/Math.java" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5" prot="public" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+        <definition>Col ver14.SharedClasses.DBActions.Table.Math.col</definition>
+        <argsstring></argsstring>
+        <name>col</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.col</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="41" column="9" bodyfile="DBActions/Table/Math.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.nullIf0</definition>
+        <argsstring>(Object val)</argsstring>
+        <name>nullIf0</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.nullIf0</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Null if 0 string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the val </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="49" column="26" bodyfile="DBActions/Table/Math.java" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.formatNum</definition>
+        <argsstring>(Object num)</argsstring>
+        <name>formatNum</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.formatNum</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Format num string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the num </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="59" column="26" bodyfile="DBActions/Table/Math.java" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.strVal</definition>
+        <argsstring>(Object val)</argsstring>
+        <name>strVal</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.strVal</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Str val string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the val </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="69" column="26" bodyfile="DBActions/Table/Math.java" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ad58c88f9cd788a091e1c24e80615b04f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.formatNum</definition>
+        <argsstring>(Object num, String format)</argsstring>
+        <name>formatNum</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.formatNum</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Format num string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the num </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the format </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="80" column="26" bodyfile="DBActions/Table/Math.java" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a3cd98eaf496bd8de5324783c6b0cb164" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.str</definition>
+        <argsstring>(Object obj)</argsstring>
+        <name>str</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.str</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Str string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the obj </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="91" column="26" bodyfile="DBActions/Table/Math.java" bodystart="91" bodyend="93"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a0454042fb313a948c60e375bcf03ba3a" compoundref="_col_8java" startline="152" endline="154">ver14.SharedClasses.DBActions.Table.Col.label</references>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a17d2ad488be595431572f36acc9a452b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Table.Math.asFloat</definition>
+        <argsstring>(Object num)</argsstring>
+        <name>asFloat</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.asFloat</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>As float string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the num </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="101" column="26" bodyfile="DBActions/Table/Math.java" bodystart="101" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.DBActions.Table.Math.zeroIfNull</definition>
+        <argsstring>()</argsstring>
+        <name>zeroIfNull</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.zeroIfNull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Zero if null. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="108" column="20" bodyfile="DBActions/Table/Math.java" bodystart="108" bodyend="110"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2fe854f4d0e4e7db90d4b68893728111" compoundref="_col_8java" startline="235" endline="237">ver14.SharedClasses.DBActions.Table.Col.setColName</references>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract void</type>
+        <definition>abstract void ver14.SharedClasses.DBActions.Table.Math.apply</definition>
+        <argsstring>(Object value)</argsstring>
+        <name>apply</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.apply</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="143" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.DBActions.Table.Math.simpleOperation</definition>
+        <argsstring>(Object a, String operation, Object b)</argsstring>
+        <name>simpleOperation</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.simpleOperation</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Simple operation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the a </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the b </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="161" column="20" bodyfile="DBActions/Table/Math.java" bodystart="161" bodyend="163"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2fe854f4d0e4e7db90d4b68893728111" compoundref="_col_8java" startline="235" endline="237">ver14.SharedClasses.DBActions.Table.Col.setColName</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a51ce608dafa44472ed167d0c2947d785" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+        <definition>Col ver14.SharedClasses.DBActions.Table.Math.execute</definition>
+        <argsstring>(Col col, Object value)</argsstring>
+        <name>execute</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.execute</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Execute col.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the col </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="119" column="16" bodyfile="DBActions/Table/Math.java" bodystart="119" bodyend="122"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a468a94204d939491feee70bbc14c517f" compoundref="_col_8java" startline="307" endline="309">ver14.SharedClasses.DBActions.Table.Col.math</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a54cac50726a4c1ec7bcc9002ff85769d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+        <definition>Col ver14.SharedClasses.DBActions.Table.Math.execute</definition>
+        <argsstring>(Col col, Object value, boolean changeSelf)</argsstring>
+        <name>execute</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.execute</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" kindref="compound">Col</ref></type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>changeSelf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Execute col.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>changeSelf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the change self </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the col </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="132" column="16" bodyfile="DBActions/Table/Math.java" bodystart="132" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Table.Math.strSource</definition>
+        <argsstring>()</argsstring>
+        <name>strSource</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Table.Math.strSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Str source string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Table/Math.java" line="150" column="12" bodyfile="DBActions/Table/Math.java" bodystart="150" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math" kindref="compound">Math</ref> - allows for math actions on columns and some math-related utilities for columns.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Table.Math</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>col</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Table.Col</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>CreatedDateTime</edgelabel>
+          <edgelabel>GameID</edgelabel>
+          <edgelabel>Password</edgelabel>
+          <edgelabel>Player1</edgelabel>
+          <edgelabel>Player2</edgelabel>
+          <edgelabel>PlayerToMove</edgelabel>
+          <edgelabel>ProfilePic</edgelabel>
+          <edgelabel>SavedGame</edgelabel>
+          <edgelabel>Username</edgelabel>
+          <edgelabel>Winner</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/Table/Math.java" line="9" column="7" bodyfile="DBActions/Table/Math.java" bodystart="9" bodyend="165"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>apply</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a17d2ad488be595431572f36acc9a452b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>asFloat</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>col</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ae6223095c76ab7f44c2db144f6a8e1f7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>Div</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a51ce608dafa44472ed167d0c2947d785" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>execute</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a54cac50726a4c1ec7bcc9002ff85769d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>execute</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>formatNum</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ad58c88f9cd788a091e1c24e80615b04f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>formatNum</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a542c588f1ba1393256585b5868d48fef" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>Mult</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>nullIf0</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a9874b934ce1b6484c52530a1f1e0a8c0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>Plus</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>simpleOperation</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a3cd98eaf496bd8de5324783c6b0cb164" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>str</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>strSource</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>strVal</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Table::Math</scope><name>zeroIfNull</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::UI::Buttons::MyJButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JButton</basecompoundref>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn" prot="public" virt="non-virtual">ver14.SharedClasses.UI.Buttons.ValueBtn&lt; T &gt;</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a175caf888187f0731fd0bb9bf8ad25df" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.UI.Buttons.MyJButton.ogTxt</definition>
+        <argsstring></argsstring>
+        <name>ogTxt</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.ogTxt</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Og txt. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="20" column="20" bodyfile="UI/Buttons/MyJButton.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a8dd5356f9c3cf7403cee1a190eb35ec7" prot="private" static="no" mutable="no">
+        <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+        <definition>VoidCallback ver14.SharedClasses.UI.Buttons.MyJButton.ogOnClick</definition>
+        <argsstring></argsstring>
+        <name>ogOnClick</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.ogOnClick</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Og on click. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="24" column="26" bodyfile="UI/Buttons/MyJButton.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a80239816a07c73d99868e868d626900d" prot="private" static="no" mutable="no">
+        <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+        <definition>VoidCallback ver14.SharedClasses.UI.Buttons.MyJButton.onClick</definition>
+        <argsstring></argsstring>
+        <name>onClick</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.onClick</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The On click. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="28" column="26" bodyfile="UI/Buttons/MyJButton.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af6593c1d16271b4be7cadc68147d155d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>(String text, VoidCallback callback)</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="36" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="36" bodyend="39"/>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" compoundref="_my_j_button_8java" startline="61" endline="63">ver14.SharedClasses.UI.Buttons.MyJButton.setOnClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a7384590cd2c8c21ebddee0845cedaed4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>(String text)</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="46" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="46" bodyend="54"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ade7ff6cc120be8b1600108bd778be420" compoundref="_str_utils_8java" startline="84" endline="86">ver14.SharedClasses.Utils.StrUtils.format</references>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a37a8f3696283454a35a30ddb4fc3558e" compoundref="_my_j_button_8java" startline="71" endline="74">ver14.SharedClasses.UI.Buttons.MyJButton.setText</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.setOnClick</definition>
+        <argsstring>(VoidCallback onClick)</argsstring>
+        <name>setOnClick</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.setOnClick</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+          <declname>onClick</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets on click.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onClick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the on click </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="61" column="17" bodyfile="UI/Buttons/MyJButton.java" bodystart="61" bodyend="63"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af6593c1d16271b4be7cadc68147d155d" compoundref="_my_j_button_8java" startline="36" endline="39">ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1aa714f317b85854860553f3172cf4d2e0" compoundref="_my_j_button_8java" startline="152" endline="156">ver14.SharedClasses.UI.Buttons.MyJButton.replaceWithCancel</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a37a8f3696283454a35a30ddb4fc3558e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.setText</definition>
+        <argsstring>(String text)</argsstring>
+        <name>setText</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.setText</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="71" column="17" bodyfile="UI/Buttons/MyJButton.java" bodystart="71" bodyend="74"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ade7ff6cc120be8b1600108bd778be420" compoundref="_str_utils_8java" startline="84" endline="86">ver14.SharedClasses.Utils.StrUtils.format</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a7384590cd2c8c21ebddee0845cedaed4" compoundref="_my_j_button_8java" startline="46" endline="54">ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0858181c901e7868bed48b8c0c784503" compoundref="_my_j_button_8java" startline="173" endline="182">ver14.SharedClasses.UI.Buttons.MyJButton.resetState</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af20b3520b6d6a8b3564eb2669e3f204a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>()</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="87" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a197d928777fe02eeaed37781b4bdf974" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>(String text, Font font, VoidCallback onClick, JPanel addTo)</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>Font</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+          <declname>onClick</declname>
+        </param>
+        <param>
+          <type>JPanel</type>
+          <declname>addTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>onClick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the on click </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>addTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the add to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="99" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a479fdae130036a5e57b0e4213d3333af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>(String text, Font font, VoidCallback onClick)</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>Font</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+          <declname>onClick</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>onClick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the on click </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="111" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="111" bodyend="115"/>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" compoundref="_my_j_button_8java" startline="61" endline="63">ver14.SharedClasses.UI.Buttons.MyJButton.setOnClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a1ba25b978f5ecaf709dc3b9aae627d47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</definition>
+        <argsstring>(String text, Font font)</argsstring>
+        <name>MyJButton</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>Font</type>
+          <declname>font</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My j button.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the font </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="123" column="12" bodyfile="UI/Buttons/MyJButton.java" bodystart="123" bodyend="126"/>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ac623e282c928b75c611a9a043cba6dfa" compoundref="_my_j_button_8java" startline="134" endline="136">ver14.SharedClasses.UI.Buttons.MyJButton.setFont</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ac623e282c928b75c611a9a043cba6dfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.setFont</definition>
+        <argsstring>(Font font)</argsstring>
+        <name>setFont</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.setFont</qualifiedname>
+        <param>
+          <type>Font</type>
+          <declname>font</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets font.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the font </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="134" column="17" bodyfile="UI/Buttons/MyJButton.java" bodystart="134" bodyend="136"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a1ba25b978f5ecaf709dc3b9aae627d47" compoundref="_my_j_button_8java" startline="123" endline="126">ver14.SharedClasses.UI.Buttons.MyJButton.MyJButton</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a4cf8d93791cd3d8b7688c4482f592318" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.UI.Buttons.MyJButton.getMinSize</definition>
+        <argsstring>()</argsstring>
+        <name>getMinSize</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.getMinSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets min size.</para>
+<para><simplesect kind="return"><para>the min size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="143" column="16" bodyfile="UI/Buttons/MyJButton.java" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1aa714f317b85854860553f3172cf4d2e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.replaceWithCancel</definition>
+        <argsstring>(VoidCallback onCancelled)</argsstring>
+        <name>replaceWithCancel</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.replaceWithCancel</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback" kindref="compound">VoidCallback</ref></type>
+          <declname>onCancelled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replace with cancel.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onCancelled</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the on cancelled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="152" column="17" bodyfile="UI/Buttons/MyJButton.java" bodystart="152" bodyend="156"/>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" compoundref="_my_j_button_8java" startline="61" endline="63">ver14.SharedClasses.UI.Buttons.MyJButton.setOnClick</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0858181c901e7868bed48b8c0c784503" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.resetState</definition>
+        <argsstring>(boolean e)</argsstring>
+        <name>resetState</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.resetState</qualifiedname>
+        <param>
+          <type>boolean</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset state.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the e </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="173" column="17" bodyfile="UI/Buttons/MyJButton.java" bodystart="173" bodyend="182"/>
+        <references refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a37a8f3696283454a35a30ddb4fc3558e" compoundref="_my_j_button_8java" startline="71" endline="74">ver14.SharedClasses.UI.Buttons.MyJButton.setText</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ab4d3045f76e0a63179c2c7c2765c19d5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.onClick</definition>
+        <argsstring>()</argsstring>
+        <name>onClick</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.onClick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>On click. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="79" column="18" bodyfile="UI/Buttons/MyJButton.java" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0c33cb918fc3a2803a5e6a7a7dfc7435" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.UI.Buttons.MyJButton.replaceText</definition>
+        <argsstring>(String replacement)</argsstring>
+        <name>replaceText</name>
+        <qualifiedname>ver14.SharedClasses.UI.Buttons.MyJButton.replaceText</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>replacement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replace text.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>replacement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the replacement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/Buttons/MyJButton.java" line="163" column="18" bodyfile="UI/Buttons/MyJButton.java" bodystart="163" bodyend="166"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>MyJButton- represents a button.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JButton</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.UI.Buttons.MyJButton</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.UI.Buttons.ValueBtn&lt; T &gt;</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JButton</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.UI.Buttons.MyJButton</label>
+        <link refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="UI/Buttons/MyJButton.java" line="14" column="7" bodyfile="UI/Buttons/MyJButton.java" bodystart="14" bodyend="183"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a4cf8d93791cd3d8b7688c4482f592318" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>getMinSize</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af6593c1d16271b4be7cadc68147d155d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a7384590cd2c8c21ebddee0845cedaed4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1af20b3520b6d6a8b3564eb2669e3f204a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a197d928777fe02eeaed37781b4bdf974" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a479fdae130036a5e57b0e4213d3333af" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a1ba25b978f5ecaf709dc3b9aae627d47" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>MyJButton</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a8dd5356f9c3cf7403cee1a190eb35ec7" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>ogOnClick</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a175caf888187f0731fd0bb9bf8ad25df" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>ogTxt</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a80239816a07c73d99868e868d626900d" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>onClick</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ab4d3045f76e0a63179c2c7c2765c19d5" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>onClick</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0c33cb918fc3a2803a5e6a7a7dfc7435" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>replaceText</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1aa714f317b85854860553f3172cf4d2e0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>replaceWithCancel</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a0858181c901e7868bed48b8c0c784503" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>resetState</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1ac623e282c928b75c611a9a043cba6dfa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>setFont</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a799699b3963aacf7848d5d6184e849f4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>setOnClick</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button_1a37a8f3696283454a35a30ddb4fc3558e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::Buttons::MyJButton</scope><name>setText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

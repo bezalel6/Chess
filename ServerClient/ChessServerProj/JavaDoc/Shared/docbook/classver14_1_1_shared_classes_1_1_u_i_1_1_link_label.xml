@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_link_label" xml:lang="en-US">
+<title>ver14.SharedClasses.UI.LinkLabel Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.UI.LinkLabel</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.UI.LinkLabel:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_link_label_1af8b3b67d795d9092ef79f31a1d3a98bf"/><emphasis role="strong">LinkLabel</emphasis> (String text, <link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback">VoidCallback</link> onClick)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_u_i_1_1_link_label_1ad7065909c203ac894821e1695f361eee">setText</link> (String text)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_link_label_1ae6804d396fbb407b38c84c0b264ce168"/>static void <emphasis role="strong">main</emphasis> (String[] args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_link_label_1ad7065909c203ac894821e1695f361eee"/><section>
+    <title>setText()</title>
+<indexterm><primary>setText</primary><secondary>ver14.SharedClasses.UI.LinkLabel</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.UI.LinkLabel</primary><secondary>setText</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.UI.LinkLabel.setText (String text)</computeroutput></para><para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl">ver14.SharedClasses.UI.MyLbl</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/LinkLabel.java</section>
+</section>

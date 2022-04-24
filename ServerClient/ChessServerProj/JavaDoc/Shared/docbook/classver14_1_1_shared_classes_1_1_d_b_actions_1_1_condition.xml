@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Condition Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.Condition:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5">Condition</link> (String str, Object... parms)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4">noNulls</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17">add</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link> relation)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7c0621fedc3a0b60dd9b6c1d28d768fb">add</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link> relation, boolean <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db">wrap</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db">wrap</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e">and</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ab1ca2b627de7d43407d355683888950e">getStr</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1afd670c373db68e4da1575f1582f5c279">setStr</link> (String str)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a1ea35165c6ab0be1baae587d1b5021f1">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b">equals</link> (Object col, Object value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1aedeacec6ec2025423774976014b2cd62">math</link> (Object col, @MagicConstant(stringValues={&quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, &quot;&lt;=&quot;}) String operation, Object value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d">between</link> (Object col, Object start, Object end)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a54f3c3b6ec204c75a7f623422bfe6f2a">notEquals</link> (Object col, Object value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> - represents a condition.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5"/><section>
+    <title>Condition()</title>
+<indexterm><primary>Condition</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>Condition</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Condition.Condition (String str, Object... parms)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the str </para>
+</entry>
+                            </row>
+                            <row>
+<entry>parms</entry><entry>
+<para>the parms </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17"/><section>
+    <title>add()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>add</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>add</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.add (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link> relation)</computeroutput></para>
+<para>Add condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>condition</entry><entry>
+<para>the condition </para>
+</entry>
+                            </row>
+                            <row>
+<entry>relation</entry><entry>
+<para>the relation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7c0621fedc3a0b60dd9b6c1d28d768fb"/><section>
+    <title>add()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>add</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>add</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.add (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition, <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation">Relation</link> relation, boolean wrap)</computeroutput></para>
+<para>Add condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>condition</entry><entry>
+<para>the condition </para>
+</entry>
+                            </row>
+                            <row>
+<entry>relation</entry><entry>
+<para>the relation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>wrap</entry><entry>
+<para>the wrap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>THIS condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e"/><section>
+    <title>and()</title>
+<indexterm><primary>and</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>and</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.and (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition)</computeroutput></para>
+<para>wraps</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>condition</entry><entry>
+<para>the condition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d"/><section>
+    <title>between()</title>
+<indexterm><primary>between</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>between</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.between (Object col, Object start, Object end)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Between condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>start</entry><entry>
+<para>the start </para>
+</entry>
+                            </row>
+                            <row>
+<entry>end</entry><entry>
+<para>the end </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b"/><section>
+    <title>equals()</title>
+<indexterm><primary>equals</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>equals</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.equals (Object col, Object value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Equals condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ab1ca2b627de7d43407d355683888950e"/><section>
+    <title>getStr()</title>
+<indexterm><primary>getStr</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>getStr</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Condition.getStr ( )</computeroutput></para>
+<para>Gets str.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the str </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1aedeacec6ec2025423774976014b2cd62"/><section>
+    <title>math()</title>
+<indexterm><primary>math</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>math</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.math (Object col, @MagicConstant(stringValues={&quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, &quot;&lt;=&quot;}) String operation, Object value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Math condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>operation</entry><entry>
+<para>the operation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4"/><section>
+    <title>noNulls()</title>
+<indexterm><primary>noNulls</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>noNulls</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.noNulls ( )</computeroutput></para>
+<para>No nulls condition.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a54f3c3b6ec204c75a7f623422bfe6f2a"/><section>
+    <title>notEquals()</title>
+<indexterm><primary>notEquals</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>notEquals</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> ver14.SharedClasses.DBActions.Condition.notEquals (Object col, Object value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Not equals condition.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the condition </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1afd670c373db68e4da1575f1582f5c279"/><section>
+    <title>setStr()</title>
+<indexterm><primary>setStr</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>setStr</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Condition.setStr (String str)</computeroutput></para>
+<para>Sets str.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a1ea35165c6ab0be1baae587d1b5021f1"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Condition.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db"/><section>
+    <title>wrap()</title>
+<indexterm><primary>wrap</primary><secondary>ver14.SharedClasses.DBActions.Condition</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Condition</primary><secondary>wrap</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Condition.wrap ( )</computeroutput></para>
+<para>Wrap. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/Condition.java</section>
+</section>

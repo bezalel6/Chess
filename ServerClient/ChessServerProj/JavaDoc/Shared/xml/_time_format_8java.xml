@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_time_format_8java" kind="file" language="Java">
+    <compoundname>TimeFormat.java</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" prot="public">ver14::SharedClasses::Game::GameSetup::TimeFormat</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_game_setup">ver14::SharedClasses::Game::GameSetup</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">ver14.SharedClasses.Game.GameSetup;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/>Serializable<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/>RAPID<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(10));</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/>ULTRA_BULLET<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.SECONDS.toMillis(2));</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/>BULLET<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(1));</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/>BULLET2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(TimeUnit.MINUTES.toMillis(2));</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>[]<sp/>PRESETS<sp/>=<sp/>{RAPID,<sp/>ULTRA_BULLET,<sp/>BULLET,<sp/>BULLET2};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numOfFields<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeInMillis;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(<ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(other.timeInMillis);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeInMillis)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.timeInMillis<sp/>=<sp/>timeInMillis;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/>toString()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TimeFormat{&quot;</highlight><highlight class="normal"><sp/>+</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;timeInMillis=&quot;</highlight><highlight class="normal"><sp/>+<sp/>timeInMillis<sp/>+</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Game/GameSetup/TimeFormat.java"/>
+  </compounddef>
+</doxygen>

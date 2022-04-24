@@ -1,0 +1,20 @@
+digraph "ver14.SharedClasses.Networking.Messages.Message.initGame"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.Networking.\lMessages.Message.initGame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.Networking.\lMessages.Message.Message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a8046410546d4d70614b22fac7f31dc36",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.Networking.\lMessages.Message.setBoard",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a0d5355d85cdaf2357afe5ee6ccaa3b00",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.Networking.\lMessages.Message.setGameTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a22ec19ca5827fa08c5066d610684233b",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ver14.SharedClasses.Networking.\lMessages.Message.setMoveStack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a7a2ecd8416eeb8801d047c59aa4e830d",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ver14.SharedClasses.Networking.\lMessages.Message.setOtherPlayer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#ae64bb519dbf7e580f49fbbfea4c13d02",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ver14.SharedClasses.Networking.\lMessages.Message.setPlayerColor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#aab3a2ef91b69e484e7c494e58e2f5f91",tooltip=" "];
+}

@@ -1,0 +1,394 @@
+.TH "ver14.SharedClasses.DBActions.RequestBuilder" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.RequestBuilder
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.GraphableSelection\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBGraphableSelection\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRequestBuilder\fP (\fBDBRequest\fP request, PreMadeRequest\&.Variation variation)"
+.br
+.ti -1c
+.RI "\fBRequestBuilder\fP (\fBSQLStatement\fP \fBstatement\fP, String \fBname\fP, Arg\&.\&.\&. \fBargs\fP)"
+.br
+.ti -1c
+.RI "\fBRequestBuilder\fP (\fBSQLStatement\fP \fBstatement\fP, String \fBname\fP, String desc, Arg\&.\&.\&. \fBargs\fP)"
+.br
+.ti -1c
+.RI "\fBRequestBuilder\fP (\fBSQLStatement\fP \fBstatement\fP, String \fBname\fP, String \fBpostDescription\fP, String \fBpreDescription\fP, Arg\&.\&.\&. \fBargs\fP)"
+.br
+.ti -1c
+.RI "void \fBsetSubBuilder\fP (\fBRequestBuilder\fP \fBsubBuilder\fP)"
+.br
+.ti -1c
+.RI "ArrayList< \fBSyncedListType\fP > \fBgetShouldSync\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetArgVal\fP (int index)"
+.br
+.ti -1c
+.RI "\fBDBResponse\fP \fBcreateResponse\fP (ResultSet rs, \fBDBRequest\fP request)"
+.br
+.ti -1c
+.RI "String \fBgetPreDescription\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetPostDescription\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBArg\fP[] \fBgetArgs\fP ()"
+.br
+.ti -1c
+.RI "\fBDBRequest\fP \fBbuild\fP (Object\&.\&.\&. argsVals)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBcreateVariation\fP (\fBObjCallback\fP< \fBRequestBuilder\fP > og, PreMadeRequest\&.VariationCreator variationCreator)"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBchangePassword\fP ()"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBchangeProfilePic\fP ()"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBdeleteAllUnFinishedGames\fP ()"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBgames\fP ()"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBstatsByTimeOfDay\fP ()"
+.br
+.ti -1c
+.RI "static \fBRequestBuilder\fP \fBtop\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final \fBArg\fP[] \fBargs\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBTIE_STR\fP = '\-\-\-\-tie\-\-\-\-'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddShouldSync\fP (\fBSyncedListType\fP listType)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "final \fBSQLStatement\fP \fBstatement\fP"
+.br
+.ti -1c
+.RI "final String \fBname\fP"
+.br
+.ti -1c
+.RI "String \fBpostDescription\fP"
+.br
+.ti -1c
+.RI "String \fBpreDescription\fP"
+.br
+.ti -1c
+.RI "\fBRequestBuilder\fP \fBsubBuilder\fP = null"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Request builder - creates builders capable of generating complete sql statements\&. after building with the required arguments \&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.RequestBuilder (\fBDBRequest\fP request, PreMadeRequest\&.Variation variation)"
+Instantiates a new Request builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequest\fP the request 
+.br
+\fIvariation\fP the variation 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.RequestBuilder (\fBSQLStatement\fP statement, String name, Arg\&.\&.\&. args)"
+Instantiates a new Request builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstatement\fP the statement 
+.br
+\fIname\fP the name 
+.br
+\fIargs\fP the args 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.RequestBuilder (\fBSQLStatement\fP statement, String name, String desc, Arg\&.\&.\&. args)"
+Instantiates a new Request builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstatement\fP the statement 
+.br
+\fIname\fP the name 
+.br
+\fIdesc\fP the desc 
+.br
+\fIargs\fP the args 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.RequestBuilder (\fBSQLStatement\fP statement, String name, String postDescription, String preDescription, Arg\&.\&.\&. args)"
+Instantiates a new Request builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstatement\fP the statement 
+.br
+\fIname\fP the name 
+.br
+\fIpostDescription\fP the post description 
+.br
+\fIpreDescription\fP the pre description 
+.br
+\fIargs\fP the args 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.addShouldSync (\fBSyncedListType\fP listType)\fC [protected]\fP"
+Add should sync\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlistType\fP the list type 
+.RE
+.PP
+
+.SS "\fBDBRequest\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.build (Object\&.\&.\&. argsVals)"
+Build db request\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIargsVals\fP the args vals 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the db request 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.changePassword ()\fC [static]\fP"
+Change password request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.changeProfilePic ()\fC [static]\fP"
+Change profile pic request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "\fBDBResponse\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.createResponse (ResultSet rs, \fBDBRequest\fP request)"
+Create response db response\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIrs\fP the rs 
+.br
+\fIrequest\fP the request 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the db response 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.createVariation (\fBObjCallback\fP< \fBRequestBuilder\fP > og, PreMadeRequest\&.VariationCreator variationCreator)\fC [static]\fP"
+Create variation request builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIog\fP the og 
+.br
+\fIvariationCreator\fP the variation creator 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.deleteAllUnFinishedGames ()\fC [static]\fP"
+Delete all un finished games request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.games ()\fC [static]\fP"
+Games request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "\fBArg\fP[] ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getArgs ()"
+Get args arg [ ]\&.
+.PP
+\fBReturns\fP
+.RS 4
+the arg [ ] 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getArgVal (int index)"
+Gets arg val\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP the index 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the arg val 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getName ()"
+Gets name\&.
+.PP
+\fBReturns\fP
+.RS 4
+the name 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getPostDescription ()"
+Gets post description\&.
+.PP
+\fBReturns\fP
+.RS 4
+the post description 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getPreDescription ()"
+Gets pre description\&.
+.PP
+\fBReturns\fP
+.RS 4
+the pre description 
+.RE
+.PP
+
+.SS "ArrayList< \fBSyncedListType\fP > ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.getShouldSync ()"
+Gets should sync\&.
+.PP
+\fBReturns\fP
+.RS 4
+the should sync 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.setSubBuilder (\fBRequestBuilder\fP subBuilder)"
+Sets sub builder\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsubBuilder\fP the sub builder 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.statsByTimeOfDay ()\fC [static]\fP"
+Stats by time of day request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SS "static \fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.top ()\fC [static]\fP"
+Top request builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request builder 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBArg\fP [] ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.args"
+The request Arguments\&. 
+.SS "final String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.name\fC [protected]\fP"
+The Name\&. 
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.postDescription\fC [protected]\fP"
+The Post description\&. 
+.SS "String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.preDescription\fC [protected]\fP"
+The Pre description\&. 
+.SS "final \fBSQLStatement\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.statement\fC [protected]\fP"
+The Statement\&. 
+.SS "\fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.subBuilder = null\fC [protected]\fP"
+The Sub builder\&. 
+.SS "final String ver14\&.SharedClasses\&.DBActions\&.RequestBuilder\&.TIE_STR = '\-\-\-\-tie\-\-\-\-'\fC [static]\fP"
+The constant TIE_STR\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

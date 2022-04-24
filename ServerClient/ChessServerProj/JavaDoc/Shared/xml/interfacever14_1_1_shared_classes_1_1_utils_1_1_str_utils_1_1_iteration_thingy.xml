@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_iteration_thingy" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Utils::StrUtils::IterationThingy</compoundname>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_iteration_thingy_1af09b2e7463f78800c6f76cf3efeadf4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T</type>
+        <definition>T ver14.SharedClasses.Utils.StrUtils.IterationThingy&lt; T &gt;.iteration</definition>
+        <argsstring>(int i, boolean isLast)</argsstring>
+        <name>iteration</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.IterationThingy.iteration</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isLast</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iteration t.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isLast</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the is last </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the t </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="551" column="11"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ac0d341fc177e7482ba46f4a872efe76c" compoundref="_str_utils_8java" startline="439" endline="445">ver14.SharedClasses.Utils.StrUtils.repeat</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Iteration thingy.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Utils/StrUtils.java" line="543" column="22" bodyfile="Utils/StrUtils.java" bodystart="543" bodyend="553"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_iteration_thingy_1af09b2e7463f78800c6f76cf3efeadf4c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::IterationThingy</scope><name>iteration</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

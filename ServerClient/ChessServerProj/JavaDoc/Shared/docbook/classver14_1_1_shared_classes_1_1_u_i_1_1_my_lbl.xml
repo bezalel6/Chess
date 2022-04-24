@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl" xml:lang="en-US">
+<title>ver14.SharedClasses.UI.MyLbl Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.UI.MyLbl</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.UI.MyLbl:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1_1_string_modifier">StringModifier</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1ad78e33bdd0acdbdd913aea0788fb7025"/><emphasis role="strong">MyLbl</emphasis> (String text, Font font)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a8196e0eb2b237f0093ea53b789b733b6"/><emphasis role="strong">MyLbl</emphasis> (String text)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a0e891f20c5a6185be0c196758d204101"/><emphasis role="strong">MyLbl</emphasis> (String text, Icon icon, int horizontalAlignment)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a510a748ab8b07ed20ebbd8a39897b206"/>void <emphasis role="strong">setText</emphasis> (String text)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a6e2e2f4c856a43b8bfc60e940bc3c6b6"/><emphasis role="strong">MyLbl</emphasis> (Icon icon, Font font)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a858152da258687e2d37d34d92113957d"/>void <emphasis role="strong">underline</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1a18d93282301fe376010f3d3a2d26349a"/>void <emphasis role="strong">setAllSizes</emphasis> (Dimension size)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1ab469753d548dafb567a1a14f88d97056"/>static void <emphasis role="strong">toggle</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+UI/MyLbl.java</section>

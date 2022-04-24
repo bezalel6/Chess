@@ -1,0 +1,12 @@
+digraph "ver14.SharedClasses.UI.LinkLabel.main"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.UI.Link\lLabel.main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ver14.SharedClasses.UI.Link\lLabel.LinkLabel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.html#af8b3b67d795d9092ef79f31a1d3a98bf",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ver14.SharedClasses.Callbacks.\lVoidCallback.callback",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback.html#acff197298ae6f7e1b4021c8a656b9dc9",tooltip=" "];
+}

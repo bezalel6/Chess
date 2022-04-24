@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_c33286056d2acf479cd8641ef845fec1" kind="dir">
+    <compoundname>Game</compoundname>
+    <innerdir refid="dir_f3020ca528c2e23aa061ce8145f478bd">Game/Evaluation</innerdir>
+    <innerdir refid="dir_f87276b9bf773ada794bd5616a52d5b5">Game/GameSetup</innerdir>
+    <innerdir refid="dir_3a83388f56f17e707738a241f84ed4ca">Game/Moves</innerdir>
+    <innerdir refid="dir_0caffbba01d3a0d3cb98d4c5744e5f03">Game/SavedGames</innerdir>
+    <innerfile refid="_location_8java">Location.java</innerfile>
+    <innerfile refid="_player_color_8java">PlayerColor.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/"/>
+  </compounddef>
+</doxygen>

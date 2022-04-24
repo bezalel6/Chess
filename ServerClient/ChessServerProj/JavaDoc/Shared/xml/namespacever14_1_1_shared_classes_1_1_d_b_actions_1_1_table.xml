@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_d_b_actions_1_1_table" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::DBActions::Table</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" prot="public">ver14::SharedClasses::DBActions::Table::Col</innerclass>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math" prot="public">ver14::SharedClasses::DBActions::Table::Math</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case" prot="public">ver14::SharedClasses::DBActions::Table::SwitchCase</innerclass>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table" prot="public">ver14::SharedClasses::DBActions::Table::Table</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DBActions/Table/Col.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

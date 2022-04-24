@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_misc_1_1_question" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Misc::Question</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type" prot="public">ver14::SharedClasses::Misc::Question::QuestionType</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aad9586ab8412ad0388f4bc8d1450e3f3" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+        <definition>final Question ver14.SharedClasses.Misc.Question.Threefold</definition>
+        <argsstring></argsstring>
+        <name>Threefold</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.Threefold</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref>(&quot;Would you like to claim a Threefold repetition?&quot;, QuestionType.THREEFOLD, Answer.YES, Answer.NO)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant Threefold. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="18" column="34" bodyfile="Misc/Question.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa7e339fb677e7dd871fa467763f4cf10" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+        <definition>final Question ver14.SharedClasses.Misc.Question.Rematch</definition>
+        <argsstring></argsstring>
+        <name>Rematch</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.Rematch</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref>(&quot;rematch&quot;, QuestionType.REMATCH, Answer.YES, Answer.NO)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant Rematch. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="22" column="34" bodyfile="Misc/Question.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" prot="public" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Misc.Question.questionStr</definition>
+        <argsstring></argsstring>
+        <name>questionStr</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.questionStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref> str. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="26" column="25" bodyfile="Misc/Question.java" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25" compoundref="_question_8java" startline="117" endline="121">ver14.SharedClasses.Misc.Question.equals</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa4a0b7a02241af194dac7ce22a702f3d" compoundref="_question_8java" startline="97" endline="99">ver14.SharedClasses.Misc.Question.getQuestionStr</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2" compoundref="_question_8java" startline="46" endline="48">ver14.SharedClasses.Misc.Question.Question</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e" compoundref="_question_8java" startline="129" endline="131">ver14.SharedClasses.Misc.Question.toString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86" prot="public" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type" kindref="compound">QuestionType</ref></type>
+        <definition>final QuestionType ver14.SharedClasses.Misc.Question.questionType</definition>
+        <argsstring></argsstring>
+        <name>questionType</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.questionType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref> type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="30" column="31" bodyfile="Misc/Question.java" bodystart="30" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25" compoundref="_question_8java" startline="117" endline="121">ver14.SharedClasses.Misc.Question.equals</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a00fff8fd8927e9527c0261d9075595b7" compoundref="_question_8java" startline="57" endline="62">ver14.SharedClasses.Misc.Question.Question</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e" compoundref="_question_8java" startline="129" endline="131">ver14.SharedClasses.Misc.Question.toString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ad8404757ecca4944c5c1d6dd017624de" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Answer</ref>[]</type>
+        <definition>final Answer [] ver14.SharedClasses.Misc.Question.possibleAnswers</definition>
+        <argsstring></argsstring>
+        <name>possibleAnswers</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.possibleAnswers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Possible answers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="34" column="26" bodyfile="Misc/Question.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a5fe13168d4c300df633afa4414aa6921" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Answer</ref></type>
+        <definition>Answer ver14.SharedClasses.Misc.Question.defaultAnswer</definition>
+        <argsstring></argsstring>
+        <name>defaultAnswer</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.defaultAnswer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Default answer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="38" column="20" bodyfile="Misc/Question.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.Question</definition>
+        <argsstring>(String questionStr, Answer... possibleAnswers)</argsstring>
+        <name>Question</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.Question</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>questionStr</declname>
+        </param>
+        <param>
+          <type>Answer...</type>
+          <declname>possibleAnswers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>questionStr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the question str </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>possibleAnswers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the possible answers </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="46" column="12" bodyfile="Misc/Question.java" bodystart="46" bodyend="48"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a5768d39969ab304731edd646ef704790" compoundref="_question_8java" startline="154">ver14.SharedClasses.Misc.Question.QuestionType.NO_TYPE</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" compoundref="_question_8java" startline="26">ver14.SharedClasses.Misc.Question.questionStr</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046" compoundref="_question_8java" startline="70" endline="72">ver14.SharedClasses.Misc.Question.drawOffer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a00fff8fd8927e9527c0261d9075595b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Misc.Question.Question</definition>
+        <argsstring>(String questionStr, QuestionType questionType, Answer... possibleAnswers)</argsstring>
+        <name>Question</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.Question</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>questionStr</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type" kindref="compound">QuestionType</ref></type>
+          <declname>questionType</declname>
+        </param>
+        <param>
+          <type>Answer...</type>
+          <declname>possibleAnswers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>questionStr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the question str </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>questionType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the question type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>possibleAnswers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the possible answers </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="57" column="12" bodyfile="Misc/Question.java" bodystart="57" bodyend="62"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_1a019478be6d43e03b3b679aaa3fb26ea3" compoundref="_arr_utils_8java" startline="55" endline="59">ver14.SharedClasses.Utils.ArrUtils.exists</references>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ade7ff6cc120be8b1600108bd778be420" compoundref="_str_utils_8java" startline="84" endline="86">ver14.SharedClasses.Utils.StrUtils.format</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" compoundref="_question_8java" startline="26">ver14.SharedClasses.Misc.Question.questionStr</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86" compoundref="_question_8java" startline="30">ver14.SharedClasses.Misc.Question.questionType</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7e5d8a3c06444af22bb350a284a98e78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Answer</ref></type>
+        <definition>Answer ver14.SharedClasses.Misc.Question.getDefaultAnswer</definition>
+        <argsstring>()</argsstring>
+        <name>getDefaultAnswer</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.getDefaultAnswer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets default answer.</para>
+<para><simplesect kind="return"><para>the default answer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="79" column="19" bodyfile="Misc/Question.java" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a232a34338f2be9dcd9ae2767555ffedf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Misc.Question.setDefaultAnswer</definition>
+        <argsstring>(Answer defaultAnswer)</argsstring>
+        <name>setDefaultAnswer</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.setDefaultAnswer</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Answer</ref></type>
+          <declname>defaultAnswer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets default answer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>defaultAnswer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the default answer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="88" column="17" bodyfile="Misc/Question.java" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa4a0b7a02241af194dac7ce22a702f3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Misc.Question.getQuestionStr</definition>
+        <argsstring>()</argsstring>
+        <name>getQuestionStr</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.getQuestionStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets question str.</para>
+<para><simplesect kind="return"><para>the question str </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="97" column="19" bodyfile="Misc/Question.java" bodystart="97" bodyend="99"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" compoundref="_question_8java" startline="26">ver14.SharedClasses.Misc.Question.questionStr</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a937a64acbeed607f724adc4b4d24aae0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Answer</ref>[]</type>
+        <definition>Answer[] ver14.SharedClasses.Misc.Question.getPossibleAnswers</definition>
+        <argsstring>()</argsstring>
+        <name>getPossibleAnswers</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.getPossibleAnswers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get possible answers answer [ ].</para>
+<para><simplesect kind="return"><para>the answer [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="106" column="19" bodyfile="Misc/Question.java" bodystart="106" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Misc.Question.equals</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>equals</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.equals</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Equals boolean.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the o </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="117" column="20" bodyfile="Misc/Question.java" bodystart="117" bodyend="121"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" compoundref="_question_8java" startline="26">ver14.SharedClasses.Misc.Question.questionStr</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86" compoundref="_question_8java" startline="30">ver14.SharedClasses.Misc.Question.questionType</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Misc.Question.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="129" column="19" bodyfile="Misc/Question.java" bodystart="129" bodyend="131"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" compoundref="_question_8java" startline="26">ver14.SharedClasses.Misc.Question.questionStr</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86" compoundref="_question_8java" startline="30">ver14.SharedClasses.Misc.Question.questionType</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>record</type>
+        <definition>record ver14.SharedClasses.Misc.Question.Answer</definition>
+        <argsstring>(String answerStr) implements Serializable</argsstring>
+        <name>Answer</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.Answer</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>answerStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Answer.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>The constant YES.</para>
+<para>The constant NO.</para>
+<para>The constant ACCEPT.</para>
+<para>The constant DO_NOT_ACCEPT.</para>
+<para>The constant OK.</para>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="162" column="19" bodyfile="Misc/Question.java" bodystart="162" bodyend="183"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" compoundref="_question_8java" startline="162" endline="183">ver14.SharedClasses.Misc.Question.Answer</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" compoundref="_question_8java" startline="162" endline="183">ver14.SharedClasses.Misc.Question.Answer</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046" compoundref="_question_8java" startline="70" endline="72">ver14.SharedClasses.Misc.Question.drawOffer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+        <definition>static Question ver14.SharedClasses.Misc.Question.drawOffer</definition>
+        <argsstring>(String offeringPlayer)</argsstring>
+        <name>drawOffer</name>
+        <qualifiedname>ver14.SharedClasses.Misc.Question.drawOffer</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>offeringPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Draw offer question.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offeringPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the offering player </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the question </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Misc/Question.java" line="70" column="28" bodyfile="Misc/Question.java" bodystart="70" bodyend="72"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" compoundref="_question_8java" startline="162" endline="183">ver14.SharedClasses.Misc.Question.Answer</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type_1a61fa3af6038bf7515255d1bbe07775dd" compoundref="_question_8java" startline="142">ver14.SharedClasses.Misc.Question.QuestionType.DRAW_OFFER</references>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2" compoundref="_question_8java" startline="46" endline="48">ver14.SharedClasses.Misc.Question.Question</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref>.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Misc.Question</label>
+        <link refid="classver14_1_1_shared_classes_1_1_misc_1_1_question"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Misc.Question</label>
+        <link refid="classver14_1_1_shared_classes_1_1_misc_1_1_question"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Rematch</edgelabel>
+          <edgelabel>Threefold</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>questionType</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Misc.Question</label>
+        <link refid="classver14_1_1_shared_classes_1_1_misc_1_1_question"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Rematch</edgelabel>
+          <edgelabel>Threefold</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>questionType</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Misc.Question.QuestionType</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_misc_1_1_question_1_1_question_type"/>
+      </node>
+    </collaborationgraph>
+    <location file="Misc/Question.java" line="14" column="7" bodyfile="Misc/Question.java" bodystart="14" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>Answer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a5fe13168d4c300df633afa4414aa6921" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>defaultAnswer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a52e6d4a633c8dbcbde5a89c064558046" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>drawOffer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ab943ead7c9b51289cbc8b27679c31c25" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>equals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7e5d8a3c06444af22bb350a284a98e78" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>getDefaultAnswer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a937a64acbeed607f724adc4b4d24aae0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>getPossibleAnswers</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa4a0b7a02241af194dac7ce22a702f3d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>getQuestionStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ad8404757ecca4944c5c1d6dd017624de" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>possibleAnswers</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a7aa987f06890429682a4ae28b8b1a7b2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>Question</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a00fff8fd8927e9527c0261d9075595b7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>Question</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a88f0c3b41f31dfb59b3d36947b90fe14" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>questionStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a0b85ba7b5620d166db172e73bbf07e86" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>questionType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aa7e339fb677e7dd871fa467763f4cf10" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>Rematch</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a232a34338f2be9dcd9ae2767555ffedf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>setDefaultAnswer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1aad9586ab8412ad0388f4bc8d1450e3f3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>Threefold</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1a3a3dafa0038fe55fe002510f508b6b6e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Misc::Question</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

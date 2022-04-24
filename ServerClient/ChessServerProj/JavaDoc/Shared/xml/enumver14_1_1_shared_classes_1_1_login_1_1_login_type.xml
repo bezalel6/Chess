@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Login::LoginType</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1aa9eef6d8a72a679e879988e68102fe4a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginType.LOGIN</definition>
+        <argsstring></argsstring>
+        <name>LOGIN</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.LOGIN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Login. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="13" column="1" bodyfile="Login/LoginType.java" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a8db22502d65201eb3d3b6e1099b13817" compoundref="_login_info_8java" startline="165" endline="169">ver14.SharedClasses.Login.LoginInfo.initDebugLoginValues</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a3665038116a1452b330ba08b9f6aec6d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginType.REGISTER</definition>
+        <argsstring></argsstring>
+        <name>REGISTER</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.REGISTER</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="17" column="1" bodyfile="Login/LoginType.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1afa644bd0211953ef5a51f2e2c4b1bb84" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginType.GUEST</definition>
+        <argsstring></argsstring>
+        <name>GUEST</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.GUEST</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Guest. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="21" column="1" bodyfile="Login/LoginType.java" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1abd5df0000405bbfd0c321fb05cd3e686" compoundref="_login_info_8java" startline="80" endline="82">ver14.SharedClasses.Login.LoginInfo.isGuest</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a0812664536dd668a484997d2d3ad952a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginType.CANCEL</definition>
+        <argsstring></argsstring>
+        <name>CANCEL</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.CANCEL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cancel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="25" column="1" bodyfile="Login/LoginType.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a17ff7e5815ca495e17b7d4a7fd94eed1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Login.LoginType.NOT_SET_YET</definition>
+        <argsstring></argsstring>
+        <name>NOT_SET_YET</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.NOT_SET_YET</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Not set yet. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="29" column="1" bodyfile="Login/LoginType.java" bodystart="29" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a6128e5b98e36ce42a0ea7c73c140d2d2" compoundref="_login_info_8java" startline="31" endline="33">ver14.SharedClasses.Login.LoginInfo.LoginInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a1fa210c2159fdabbdea036ebd48d020a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Login.LoginType.asUser</definition>
+        <argsstring>()</argsstring>
+        <name>asUser</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.asUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>As user boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="36" column="20" bodyfile="Login/LoginType.java" bodystart="36" bodyend="38"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info_1a10bded4c857e4b90ff3eb1da2970a3ee" compoundref="_login_info_8java" startline="158" endline="160">ver14.SharedClasses.Login.LoginInfo.asUser</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a100af26fe69131db66a7224cd726df5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Login.LoginType.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Login.LoginType.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/LoginType.java" line="46" column="19" bodyfile="Login/LoginType.java" bodystart="46" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Login Type.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Login/LoginType.java" line="9" column="7" bodyfile="Login/LoginType.java" bodystart="9" bodyend="49"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a1fa210c2159fdabbdea036ebd48d020a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>asUser</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a0812664536dd668a484997d2d3ad952a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>CANCEL</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1afa644bd0211953ef5a51f2e2c4b1bb84" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>GUEST</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1aa9eef6d8a72a679e879988e68102fe4a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>LOGIN</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a17ff7e5815ca495e17b7d4a7fd94eed1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>NOT_SET_YET</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a3665038116a1452b330ba08b9f6aec6d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>REGISTER</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a100af26fe69131db66a7224cd726df5c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::LoginType</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

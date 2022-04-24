@@ -2,7 +2,7 @@ package ver14.SharedClasses.Game.Evaluation;
 
 
 /**
- * Evaluation parameters - .
+ * Evaluation parameters - all evaluation parameters. (some are unused).
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -10,15 +10,15 @@ public enum EvaluationParameters {
     /**
      * Material evaluation parameters.
      */
-    MATERIAL(1.5, .01),
+    MATERIAL(1.5),
     /**
      * Piece tables evaluation parameters.
      */
-    PIECE_TABLES(1, .1),
+    PIECE_TABLES(1),
     /**
      * King safety evaluation parameters.
      */
-    KING_SAFETY(.1, .01),
+    KING_SAFETY(.1),
     /**
      * Hanging pieces evaluation parameters.
      */
@@ -44,13 +44,9 @@ public enum EvaluationParameters {
      */
     STOCKFISH_SAYS;
     /**
-     * The Weight.
+     * The parameter's weight
      */
-    public double weight;
-    /**
-     * The Adjust by.
-     */
-    public double adjustBy = 1;
+    public final double weight;
 
     EvaluationParameters() {
         this(1);
@@ -60,8 +56,4 @@ public enum EvaluationParameters {
         this.weight = weight;
     }
 
-    EvaluationParameters(double weight, double adjustBy) {
-        this.weight = weight;
-        this.adjustBy = adjustBy;
-    }
 }

@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::MoveAnnotation</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a2d818bed7131b770f6152ca28cafd163" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Game.Moves.MoveAnnotation.CAPTURE_ANN</definition>
+        <argsstring></argsstring>
+        <name>CAPTURE_ANN</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MoveAnnotation.CAPTURE_ANN</qualifiedname>
+        <initializer>= &quot;x&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant CAPTURE_ANN. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MoveAnnotation.java" line="17" column="33" bodyfile="Game/Moves/MoveAnnotation.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</definition>
+        <argsstring>(Move move, Piece movingPiece)</argsstring>
+        <name>annotate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" kindref="compound">Piece</ref></type>
+          <declname>movingPiece</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Annotate move.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>movingPiece</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the moving piece </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the annotation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MoveAnnotation.java" line="27" column="26" bodyfile="Game/Moves/MoveAnnotation.java" bodystart="27" bodyend="29"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017" compoundref="_move_annotation_8java" startline="27" endline="29">ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017" compoundref="_move_annotation_8java" startline="27" endline="29">ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a103a302ffb40755ea38563ac00960bd7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</definition>
+        <argsstring>(Move move, Piece movingPiece, String unique)</argsstring>
+        <name>annotate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MoveAnnotation.annotate</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" kindref="compound">Piece</ref></type>
+          <declname>movingPiece</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>unique</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Annotate move with a unique string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>movingPiece</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the moving piece </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unique</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the unique string </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MoveAnnotation.java" line="39" column="26" bodyfile="Game/Moves/MoveAnnotation.java" bodystart="39" bodyend="57"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a17ccabb35dcdac3d735a6be252a43c4c" compoundref="_move_8java" startline="657">ver14.SharedClasses.Game.Moves.Move.MoveFlag.castlingSide</references>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a8ff5ddd8605e8ce7f7f1132a9ac7c775" compoundref="_str_utils_8java" startline="28" endline="30">ver14.SharedClasses.Utils.StrUtils.dontCapFull</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac8d2855677b22e53c978dd4c1b3f51d1" compoundref="_location_8java" startline="266" endline="268">ver14.SharedClasses.Game.Location.getColString</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a687d1729f1f27e3e4fa116065c85f0c1" compoundref="_move_8java" startline="483" endline="485">ver14.SharedClasses.Game.Moves.Move.getMoveFlag</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2cb3d549901431ca5202d7687564fb15" compoundref="_basic_move_8java" startline="95" endline="97">ver14.SharedClasses.Game.Moves.BasicMove.getMovingFrom</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a4c1bfef02d067997929f0edc357fb1b6" compoundref="_basic_move_8java" startline="113" endline="115">ver14.SharedClasses.Game.Moves.BasicMove.getMovingTo</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1ad62333c641ec52b605b5dccbeeb93241" compoundref="_move_8java" startline="318" endline="320">ver14.SharedClasses.Game.Moves.Move.getPromotingTo</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ad66eff70e84b8c1aade7c8d74b97a26d" compoundref="_piece_type_8java" startline="224" endline="226">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType.getWhitePieceFen</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a12e2c219e3c7757bb805c6d68fecf327" compoundref="_move_8java" startline="420" endline="422">ver14.SharedClasses.Game.Moves.Move.isCapturing</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a8d7dadb7afb5201c0e0fb2e0373b94cb" compoundref="_move_8java" startline="653">ver14.SharedClasses.Game.Moves.Move.MoveFlag.isCastling</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ab543ceae3e542c1bb9c4f28ca82df9a9" compoundref="_piece_type_8java" startline="22">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType.PAWN</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ad34a5efff57a10e74ab9d39be47762f0" compoundref="_piece_8java" startline="87">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.pieceType</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1ae872ac60a56cf4b54b259fd82e65b851" compoundref="_move_8java" startline="624">ver14.SharedClasses.Game.Moves.Move.MoveFlag.Promotion</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac4fc87304b1cb709a31d5bd7bb59b485" compoundref="_location_8java" startline="316" endline="319">ver14.SharedClasses.Game.Location.toString</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a9f207b72c6f49eb626b17c6c65585f97" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.Game.Moves.MoveAnnotation.basicAnnotate</definition>
+        <argsstring>(BasicMove move)</argsstring>
+        <name>basicAnnotate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.MoveAnnotation.basicAnnotate</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move" kindref="compound">BasicMove</ref></type>
+          <declname>move</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basic annotate a move. just the source and destination.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/MoveAnnotation.java" line="65" column="26" bodyfile="Game/Moves/MoveAnnotation.java" bodystart="65" bodyend="68"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a3f4cc5b1cdb8c226aae3d14162462f43" compoundref="_str_utils_8java" startline="216" endline="218">ver14.SharedClasses.Utils.StrUtils.dontCapWord</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a2cb3d549901431ca5202d7687564fb15" compoundref="_basic_move_8java" startline="95" endline="97">ver14.SharedClasses.Game.Moves.BasicMove.getMovingFrom</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1a4c1bfef02d067997929f0edc357fb1b6" compoundref="_basic_move_8java" startline="113" endline="115">ver14.SharedClasses.Game.Moves.BasicMove.getMovingTo</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a3b2780bffffc51dd8fa11db11de608c8" compoundref="_move_8java" startline="464" endline="466">ver14.SharedClasses.Game.Moves.Move.getAnnotation</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move_1aa957afd0d40c5d4ffa87fa5b3eea2508" compoundref="_basic_move_8java" startline="164" endline="166">ver14.SharedClasses.Game.Moves.BasicMove.getBasicMoveAnnotation</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> annotation - utility class that annotates moves.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Game/Moves/MoveAnnotation.java" line="13" column="7" bodyfile="Game/Moves/MoveAnnotation.java" bodystart="13" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1aca64ae0439aa147eeb11f1c232b66017" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MoveAnnotation</scope><name>annotate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a103a302ffb40755ea38563ac00960bd7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MoveAnnotation</scope><name>annotate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a9f207b72c6f49eb626b17c6c65585f97" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MoveAnnotation</scope><name>basicAnnotate</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation_1a2d818bed7131b770f6152ca28cafd163" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::MoveAnnotation</scope><name>CAPTURE_ANN</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

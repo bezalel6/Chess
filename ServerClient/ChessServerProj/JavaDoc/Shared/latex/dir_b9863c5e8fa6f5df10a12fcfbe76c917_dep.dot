@@ -1,0 +1,11 @@
+digraph "DBActions/DBResponse/Graphable"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_1c52295a17769c8608ee8534e45aa8f8 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", style="filled,dashed,", label="DBResponse", fontname="Helvetica", fontsize="10", URL="dir_1c52295a17769c8608ee8534e45aa8f8.html"]
+  dir_b9863c5e8fa6f5df10a12fcfbe76c917 [shape=box, label="Graphable", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_b9863c5e8fa6f5df10a12fcfbe76c917.html"];
+  }
+}

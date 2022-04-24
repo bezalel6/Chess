@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.GameSettings.GameType Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.GameSettings.GameType</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type_1a0611ce7586613b985515a65453370305"/><emphasis role="strong">JOIN_EXISTING</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type_1ae4a778d748525934626038d9e5abc2e0"/><emphasis role="strong">RESUME</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type_1a1af313e1f7f6759c141819ca5eb4eb9a"/><emphasis role="strong">CREATE_NEW</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type_1ace363112ded7a682f935cd3046679d01"/><emphasis role="strong">QUICK_MATCH</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/GameSetup/GameSettings.java</section>

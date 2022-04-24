@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util" xml:lang="en-US">
+<title>ver14.SharedClasses.Utils.ArgsUtil Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Utils.ArgsUtil</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c">OptionalArg</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ac15479258f2abd9576ab8e9d57223c23">equalsSign</link> (String preEqualStr)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c">OptionalArg</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1a8d6ad64c1988cf2f55ebb4114278b6ae">plainTextIgnoreCase</link> (String str)</para>
+</listitem>
+            <listitem><para>record <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c">OptionalArg</link> (String str)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util">ArgsUtil</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1aa5b1dc6be0bdff77fbfb2d82c8782da8">create</link> (String[] args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The type Args utils.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1aa5b1dc6be0bdff77fbfb2d82c8782da8"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>ver14.SharedClasses.Utils.ArgsUtil</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArgsUtil</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util">ArgsUtil</link> ver14.SharedClasses.Utils.ArgsUtil.create (String[] args)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create args util.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>args</entry><entry>
+<para>the args </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the args util </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ac15479258f2abd9576ab8e9d57223c23"/><section>
+    <title>equalsSign()</title>
+<indexterm><primary>equalsSign</primary><secondary>ver14.SharedClasses.Utils.ArgsUtil</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArgsUtil</primary><secondary>equalsSign</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c">OptionalArg</link> ver14.SharedClasses.Utils.ArgsUtil.equalsSign (String preEqualStr)</computeroutput></para>
+<para>Equals sign optional arg. for any arg of this format: preEqualStr=argval%</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>preEqualStr</entry><entry>
+<para>the pre equal str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the optional arg value(assuming there is one) argval% in the example above </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c"/><section>
+    <title>OptionalArg()</title>
+<indexterm><primary>OptionalArg</primary><secondary>ver14.SharedClasses.Utils.ArgsUtil</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArgsUtil</primary><secondary>OptionalArg</secondary></indexterm>
+<para><computeroutput>record ver14.SharedClasses.Utils.ArgsUtil.OptionalArg (String str)</computeroutput></para>
+<para>Optional arg.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+
+<para>Gets string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string</para>
+</formalpara>
+Gets boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ifErr</entry><entry>
+<para>the if err </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean</para>
+</formalpara>
+Check exists.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para>the exception</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exists boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean</para>
+</formalpara>
+Gets int.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the int</para>
+</formalpara>
+Gets int.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ifErr</entry><entry>
+<para>the if err </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the int</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1a8d6ad64c1988cf2f55ebb4114278b6ae"/><section>
+    <title>plainTextIgnoreCase()</title>
+<indexterm><primary>plainTextIgnoreCase</primary><secondary>ver14.SharedClasses.Utils.ArgsUtil</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.ArgsUtil</primary><secondary>plainTextIgnoreCase</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_args_util_1ab9e40799ed845895efd336bda8e5660c">OptionalArg</link> ver14.SharedClasses.Utils.ArgsUtil.plainTextIgnoreCase (String str)</computeroutput></para>
+<para>Plain text ignore case optional arg.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the optional arg </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Utils/ArgsUtil.java</section>
+</section>

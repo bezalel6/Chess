@@ -1,0 +1,185 @@
+.TH "ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSpecificStatus\fP ()"
+.br
+.ti -1c
+.RI "\fBSpecificStatus\fP (\fBGameStatusType\fP \fBgameStatusType\fP)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCheckmate\fP"
+.br
+.ti -1c
+.RI "\fBTimedOut\fP"
+.br
+.ti -1c
+.RI "\fBTimedOutVsInsufficientMaterial\fP"
+.br
+.ti -1c
+.RI "\fBResignation\fP"
+.br
+.ti -1c
+.RI "\fBGameGoesOn\fP =(\fBGameStatusType\&.GAME_GOES_ON\fP)"
+.br
+.ti -1c
+.RI "\fBThreeFoldRepetition\fP =(\fBGameStatusType\&.TIE\fP)"
+.br
+.ti -1c
+.RI "\fBStalemate\fP =(\fBGameStatusType\&.TIE\fP)"
+.br
+.ti -1c
+.RI "\fBInsufficientMaterial\fP =(\fBGameStatusType\&.TIE\fP)"
+.br
+.ti -1c
+.RI "\fBFiftyMoveRule\fP =(\fBGameStatusType\&.TIE\fP)"
+.br
+.ti -1c
+.RI "\fBTieByAgreement\fP"
+.br
+.ti -1c
+.RI "\fBPlayerDisconnectedVsAi\fP"
+.br
+.ti -1c
+.RI "\fBPlayerDisconnectedVsReal\fP"
+.br
+.ti -1c
+.RI "\fBServerStoppedGame\fP =(\fBGameStatusType\&.TIE\fP)"
+.br
+.ti -1c
+.RI "final \fBGameStatusType\fP \fBgameStatusType\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Specific status - specific game status \&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.SpecificStatus ()"
+Instantiates a new Specific status\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.SpecificStatus (\fBGameStatusType\fP gameStatusType)"
+Instantiates a new Specific status\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIgameStatusType\fP the game status type 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.Checkmate"
+Checkmate\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.FiftyMoveRule =(\fBGameStatusType\&.TIE\fP)"
+Fifty move rule\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.GameGoesOn =(\fBGameStatusType\&.GAME_GOES_ON\fP)"
+Game goes on \&. 
+.SS "final \fBGameStatusType\fP ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.gameStatusType"
+The Game status type\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.InsufficientMaterial =(\fBGameStatusType\&.TIE\fP)"
+Insufficient material\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.PlayerDisconnectedVsAi"
+\fBInitial value:\fP
+.PP
+.nf
+=(GameStatusType\&.UNFINISHED) {
+            @Override
+            public String toString() {
+                return "Player Disconnected";
+            }
+        }
+.fi
+The Player disconnected vs ai\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.PlayerDisconnectedVsReal"
+\fBInitial value:\fP
+.PP
+.nf
+={
+            @Override
+            public String toString() {
+                return "Other Player Disconnected";
+            }
+        }
+.fi
+The Player disconnected vs real\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.Resignation"
+Resignation\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.ServerStoppedGame =(\fBGameStatusType\&.TIE\fP)"
+Server stopped game\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.Stalemate =(\fBGameStatusType\&.TIE\fP)"
+Stalemate\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.ThreeFoldRepetition =(\fBGameStatusType\&.TIE\fP)"
+Three fold repetition\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.TieByAgreement"
+\fBInitial value:\fP
+.PP
+.nf
+=(GameStatusType\&.TIE) {
+            @Override
+            public String toString() {
+                return "Agreement";
+            }
+        }
+.fi
+The Tie by agreement\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.TimedOut"
+\fBInitial value:\fP
+.PP
+.nf
+={
+            @Override
+            public String toString() {
+                return "Time Out";
+            }
+        }
+.fi
+Timed out\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.Evaluation\&.GameStatus\&.SpecificStatus\&.TimedOutVsInsufficientMaterial"
+\fBInitial value:\fP
+.PP
+.nf
+=(GameStatusType\&.TIE) {
+            @Override
+            public String toString() {
+                return "Time Out vs Insufficient Material";
+            }
+        }
+.fi
+Timed out vs insufficient material\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

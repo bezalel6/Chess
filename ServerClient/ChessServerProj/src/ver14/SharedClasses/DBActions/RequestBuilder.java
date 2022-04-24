@@ -32,17 +32,55 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+/**
+ * Request builder - creates builders capable of generating complete sql statements. after building with the required arguments .
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class RequestBuilder implements Serializable {
+    /**
+     * The constant TIE_STR.
+     */
     public static final String TIE_STR = "----tie----";
+    /**
+     * The request Arguments.
+     */
     public final Arg[] args;
+    /**
+     * The Statement.
+     */
     protected final SQLStatement statement;
+    /**
+     * The Name.
+     */
     protected final String name;
+    /**
+     * The Should sync.
+     */
     private final ArrayList<SyncedListType> shouldSync = new ArrayList<>();
+    /**
+     * The Post description.
+     */
     protected String postDescription;
+    /**
+     * The Pre description.
+     */
     protected String preDescription;
+    /**
+     * The Sub builder.
+     */
     protected RequestBuilder subBuilder = null;
+    /**
+     * The Built args vals.
+     */
     private String[] builtArgsVals;
 
+    /**
+     * Instantiates a new Request builder.
+     *
+     * @param request   the request
+     * @param variation the variation
+     */
     public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
         RequestBuilder builder = request.getBuilder();
@@ -50,15 +88,39 @@ public class RequestBuilder implements Serializable {
         preDescription = builder.preDescription;
     }
 
+    /**
+     * Instantiates a new Request builder.
+     *
+     * @param statement the statement
+     * @param name      the name
+     * @param args      the args
+     */
     public RequestBuilder(SQLStatement statement, String name, Arg... args) {
         this(statement, name, name, args);
     }
 
 
+    /**
+     * Instantiates a new Request builder.
+     *
+     * @param statement the statement
+     * @param name      the name
+     * @param desc      the desc
+     * @param args      the args
+     */
     public RequestBuilder(SQLStatement statement, String name, String desc, Arg... args) {
         this(statement, name, desc, desc, args);
     }
 
+    /**
+     * Instantiates a new Request builder.
+     *
+     * @param statement       the statement
+     * @param name            the name
+     * @param postDescription the post description
+     * @param preDescription  the pre description
+     * @param args            the args
+     */
     public RequestBuilder(SQLStatement statement, String name, String postDescription, String preDescription, Arg... args) {
         this.statement = statement;
         this.name = name;
@@ -67,6 +129,13 @@ public class RequestBuilder implements Serializable {
         this.args = args;
     }
 
+    /**
+     * Create variation request builder.
+     *
+     * @param og               the og
+     * @param variationCreator the variation creator
+     * @return the request builder
+     */
     public static RequestBuilder createVariation(ObjCallback<RequestBuilder> og, PreMadeRequest.VariationCreator variationCreator) {
         RequestBuilder builder = og.get();
         PreMadeRequest.Variation variation = variationCreator.create(builder);
@@ -81,6 +150,11 @@ public class RequestBuilder implements Serializable {
         return ret;
     }
 
+    /**
+     * Change password request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder changePassword() {
         Arg username = new Arg(ArgType.Username);
         Arg pw = new Arg(ArgType.Password);
@@ -91,6 +165,11 @@ public class RequestBuilder implements Serializable {
         return new RequestBuilder(update, "change password", "", username, pw);
     }
 
+    /**
+     * Change profile pic request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder changeProfilePic() {
         Arg username = new Arg(ArgType.Username);
         Arg url = new Arg(ArgType.PictureUrl, true, new Config<>("Enter link to the new profile picture"));
@@ -102,23 +181,45 @@ public class RequestBuilder implements Serializable {
         }};
     }
 
+    /**
+     * Add should sync.
+     *
+     * @param listType the list type
+     */
     protected void addShouldSync(SyncedListType listType) {
         shouldSync.add(listType);
     }
 
+    /**
+     * Delete all un finished games request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder deleteAllUnFinishedGames() {
         Arg username = new Arg(ArgType.Username);
-        Update.Delete del = new Update.Delete(Table.UnfinishedGames, p1_OR_p2(username.repInStr, Table.UnfinishedGames));
+        Delete del = new Delete(Table.UnfinishedGames, p1_OR_p2(username.repInStr, Table.UnfinishedGames));
 
         return new RequestBuilder(del, "delete all unfinished games", "", username);
     }
 
+    /**
+     * P 1 or p 2 condition.
+     *
+     * @param un        the un
+     * @param playersOf the players of
+     * @return the condition
+     */
     private static Condition p1_OR_p2(Object un, Table playersOf) {
         Condition condition = Condition.equals(Col.Player1.of(playersOf), un);
         condition.add(Condition.equals(Col.Player2.of(playersOf), un), Condition.Relation.OR, true);
         return condition;
     }
 
+    /**
+     * Games request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder games() {
         Arg username = new Arg(ArgType.Username);
         Col opponent = Col.switchCase(
@@ -161,6 +262,12 @@ public class RequestBuilder implements Serializable {
         }};
     }
 
+    /**
+     * P 1 or p 2 condition.
+     *
+     * @param un the un
+     * @return the condition
+     */
     private static Condition p1_OR_p2(Object un) {
         return p1_OR_p2(un, Table.Games);
     }
@@ -168,9 +275,9 @@ public class RequestBuilder implements Serializable {
     /**
      * <a href="https://sciencing.com/calculate-win-loss-average-8167765.html">Win loss tie ratio formula</a>
      *
-     * @param username
-     * @param condition
-     * @return
+     * @param username  the username
+     * @param condition the condition
+     * @return selection
      */
     private static Selection gamesStats(Object username, Condition condition) {
         Col winner = Col.Winner.of(Table.Games);
@@ -197,10 +304,20 @@ public class RequestBuilder implements Serializable {
         return selection;
     }
 
+    /**
+     * Sets sub builder.
+     *
+     * @param subBuilder the sub builder
+     */
     public void setSubBuilder(RequestBuilder subBuilder) {
         this.subBuilder = subBuilder;
     }
 
+    /**
+     * Stats by time of day request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder statsByTimeOfDay() {
         Arg username = new Arg(ArgType.Username);
         int hour = 25;
@@ -224,14 +341,32 @@ public class RequestBuilder implements Serializable {
         return builder;
     }
 
+    /**
+     * Between hours condition.
+     *
+     * @param start the start
+     * @param end   the end
+     * @return the condition
+     */
     private static Condition betweenHours(int start, int end) {
         return Condition.between(Col.CreatedDateTime.time(), "'%02d:00'".formatted(start), "'%02d:00'".formatted(end));
     }
 
+    /**
+     * Games stats selection.
+     *
+     * @param username the username
+     * @return the selection
+     */
     private static Selection gamesStats(Object username) {
         return gamesStats(username, null);
     }
 
+    /**
+     * Top request builder.
+     *
+     * @return the request builder
+     */
     public static RequestBuilder top() {
         Col winner = Col.Winner.of(Table.Games);
         Col username = Col.Username.of(Table.Users);
@@ -275,16 +410,34 @@ public class RequestBuilder implements Serializable {
         return builder;
     }
 
+    /**
+     * Gets should sync.
+     *
+     * @return the should sync
+     */
     public ArrayList<SyncedListType> getShouldSync() {
         return shouldSync;
     }
 
+    /**
+     * Gets arg val.
+     *
+     * @param index the index
+     * @return the arg val
+     */
     public String getArgVal(int index) {
         if (args[index].escape)
             return builtArgsVals[index] != null ? builtArgsVals[index].replaceAll("^'(.*)'$", "$1") : null;
         return builtArgsVals[index];
     }
 
+    /**
+     * Create response db response.
+     *
+     * @param rs      the rs
+     * @param request the request
+     * @return the db response
+     */
     public DBResponse createResponse(ResultSet rs, DBRequest request) {
         try {
             String[] columns;
@@ -319,22 +472,48 @@ public class RequestBuilder implements Serializable {
         }
     }
 
+    /**
+     * Gets pre description.
+     *
+     * @return the pre description
+     */
     public String getPreDescription() {
         return preDescription;
     }
 
+    /**
+     * Gets post description.
+     *
+     * @return the post description
+     */
     public String getPostDescription() {
         return postDescription;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get args arg [ ].
+     *
+     * @return the arg [ ]
+     */
     public Arg[] getArgs() {
         return args;
     }
 
+    /**
+     * Build db request.
+     *
+     * @param argsVals the args vals
+     * @return the db request
+     */
     public DBRequest build(Object... argsVals) {
         assert this.args.length == argsVals.length;
         this.builtArgsVals = new String[argsVals.length];
@@ -351,29 +530,49 @@ public class RequestBuilder implements Serializable {
         return ret;
     }
 
-//    /**
-//     * only relevant after requesting
-//     *
-//     * @param arg
-//     * @return
-//     */
-//    public String getArgVal(Arg arg) {
-//        return
-//    }
 
+    /**
+     * Graph-able selection - a selection that its response is graph-able.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class GraphableSelection extends RequestBuilder {
 
+        /**
+         * The Elements.
+         */
         protected ArrayList<GraphElement> elements;
 
+        /**
+         * Instantiates a new Graphable selection.
+         *
+         * @param selection       the selection
+         * @param name            the name
+         * @param postDescription the post description
+         * @param preDescription  the pre description
+         * @param args            the args
+         */
         public GraphableSelection(Selection selection, String name, String postDescription, String preDescription, Arg... args) {
             super(selection, name, postDescription, preDescription, args);
         }
 
+        /**
+         * To string string.
+         *
+         * @return the string
+         */
         @Override
         public String toString() {
             return super.toString();
         }
 
+        /**
+         * Create response graphable db response.
+         *
+         * @param rs      the rs
+         * @param request the request
+         * @return the graphable db response
+         */
         @Override
         public GraphableDBResponse createResponse(ResultSet rs, DBRequest request) {
             try {
@@ -411,6 +610,12 @@ public class RequestBuilder implements Serializable {
 //            return;
         }
 
+        /**
+         * Sets elements.
+         *
+         * @param rs the rs
+         * @throws SQLException the sql exception
+         */
         protected void setElements(ResultSet rs) throws SQLException {
             elements = new ArrayList<>();
 

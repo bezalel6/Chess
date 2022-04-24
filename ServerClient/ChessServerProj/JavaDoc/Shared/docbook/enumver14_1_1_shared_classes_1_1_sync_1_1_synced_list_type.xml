@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type" xml:lang="en-US">
+<title>ver14.SharedClasses.Sync.SyncedListType Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Sync.SyncedListType</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type_1af4c53fea28b465d1af8c51d67e11cfec"/><emphasis role="strong">RESUMABLE_GAMES</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type_1a17b238370b8b072e9989f08dcce4ba49"/><emphasis role="strong">JOINABLE_GAMES</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type_1a9dd806bfb590396b95aafc1b4f606269"/><emphasis role="strong">CONNECTED_USERS</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type_1a1ee9d787afae74193706a4caa7c83bb6"/><emphasis role="strong">ONGOING_GAMES</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Sync/SyncedListType.java</section>

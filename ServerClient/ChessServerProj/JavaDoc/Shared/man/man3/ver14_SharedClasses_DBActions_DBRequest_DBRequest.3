@@ -1,0 +1,152 @@
+.TH "ver14.SharedClasses.DBActions.DBRequest.DBRequest" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.DBRequest.DBRequest
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBType\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDBRequest\fP (\fBSQLStatement\fP sqlStatement)"
+.br
+.ti -1c
+.RI "\fBDBRequest\fP (\fBType\fP \fBtype\fP, String request, \fBRequestBuilder\fP builder)"
+.br
+.ti -1c
+.RI "\fBDBRequest\fP (\fBSQLStatement\fP sqlStatement, \fBRequestBuilder\fP builder)"
+.br
+.ti -1c
+.RI "\fBRequestBuilder\fP \fBgetBuilder\fP ()"
+.br
+.ti -1c
+.RI "\fBDBRequest\fP \fBgetSubRequest\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSubRequest\fP (\fBDBRequest\fP subRequest)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetRequest\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final \fBType\fP \fBtype\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Db request - a database request\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.DBRequest (\fBSQLStatement\fP sqlStatement)"
+Instantiates a new Db request\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsqlStatement\fP the sql statement 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.DBRequest (\fBType\fP type, String request, \fBRequestBuilder\fP builder)"
+Instantiates a new Db request\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the type 
+.br
+\fIrequest\fP the request 
+.br
+\fIbuilder\fP the builder 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.DBRequest (\fBSQLStatement\fP sqlStatement, \fBRequestBuilder\fP builder)"
+Instantiates a new Db request\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsqlStatement\fP the sql statement 
+.br
+\fIbuilder\fP the builder 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBRequestBuilder\fP ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.getBuilder ()"
+Gets builder\&.
+.PP
+\fBReturns\fP
+.RS 4
+the builder 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.getRequest ()"
+Gets request\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request 
+.RE
+.PP
+
+.SS "\fBDBRequest\fP ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.getSubRequest ()"
+Gets sub request\&.
+.PP
+\fBReturns\fP
+.RS 4
+the sub request 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.setSubRequest (\fBDBRequest\fP subRequest)"
+Sets sub request\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsubRequest\fP the sub request 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBType\fP ver14\&.SharedClasses\&.DBActions\&.DBRequest\&.DBRequest\&.type"
+The \fBType\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

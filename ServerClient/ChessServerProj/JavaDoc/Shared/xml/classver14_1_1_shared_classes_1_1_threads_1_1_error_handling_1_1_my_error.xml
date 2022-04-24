@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Threads::ErrorHandling::MyError</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Error</basecompoundref>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1_1_d_b_err" prot="public" virt="non-virtual">ver14.SharedClasses.Threads.ErrorHandling.MyError.DBErr</derivedcompoundref>
+    <derivedcompoundref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1_1_disconnected_error" prot="public" virt="non-virtual">ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError</derivedcompoundref>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1_1_d_b_err" prot="public">ver14::SharedClasses::Threads::ErrorHandling::MyError::DBErr</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1_1_disconnected_error" prot="public">ver14::SharedClasses::Threads::ErrorHandling::MyError::DisconnectedError</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a284a7a0d3898f0147ad4d526610d5a1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</definition>
+        <argsstring>()</argsstring>
+        <name>MyError</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My error. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="16" column="12" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="16" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1adf4906938b013d47fbc2dfa11ae65919" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</definition>
+        <argsstring>(Throwable throwable)</argsstring>
+        <name>MyError</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</qualifiedname>
+        <param>
+          <type>Throwable</type>
+          <declname>throwable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My error.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>throwable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the throwable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="24" column="12" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a200d859c20363248fa34ce23cc781118" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</definition>
+        <argsstring>(String message)</argsstring>
+        <name>MyError</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My error.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="34" column="12" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1ab803240e28605d3579d85f1b657286f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</definition>
+        <argsstring>(String message, Throwable cause)</argsstring>
+        <name>MyError</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.MyError</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>Throwable</type>
+          <declname>cause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new My error.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the cause </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="44" column="12" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a3ce59063e6d59e57ecc0317fcea7dc5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Threads.ErrorHandling.MyError.getHandledStr</definition>
+        <argsstring>()</argsstring>
+        <name>getHandledStr</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.getHandledStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets handled str.</para>
+<para><simplesect kind="return"><para>the handled str </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="54" column="19" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a46afb046e92e43de36f0786ed90996e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Threads.ErrorHandling.MyError.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="66" column="19" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="66" bodyend="72"/>
+        <references refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1aafdaf5936a8855692b308d39a78a5c60" compoundref="_my_error_8java" startline="80" endline="92">ver14.SharedClasses.Threads.ErrorHandling.MyError.errToString</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1aafdaf5936a8855692b308d39a78a5c60" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.Threads.ErrorHandling.MyError.errToString</definition>
+        <argsstring>(Throwable error)</argsstring>
+        <name>errToString</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.errToString</qualifiedname>
+        <param>
+          <type>Throwable</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Err to string string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="80" column="26" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="80" bodyend="92"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a8ff5ddd8605e8ce7f7f1132a9ac7c775" compoundref="_str_utils_8java" startline="28" endline="30">ver14.SharedClasses.Utils.StrUtils.dontCapFull</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a46afb046e92e43de36f0786ed90996e4" compoundref="_my_error_8java" startline="66" endline="72">ver14.SharedClasses.Threads.ErrorHandling.MyError.toString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1acb12d3cab8011aedf953742c8f155714" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Threads.ErrorHandling.MyError.superToString</definition>
+        <argsstring>()</argsstring>
+        <name>superToString</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.MyError.superToString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Super to string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/MyError.java" line="99" column="20" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="99" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>My error - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Error</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Threads.ErrorHandling.MyError</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.Networking.AppSocket.AppSocketError</label>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Threads.ErrorHandling.MyError.DBErr</label>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError</label>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Error</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Threads.ErrorHandling.MyError</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Threads/ErrorHandling/MyError.java" line="11" column="7" bodyfile="Threads/ErrorHandling/MyError.java" bodystart="11" bodyend="161"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1aafdaf5936a8855692b308d39a78a5c60" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>errToString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a3ce59063e6d59e57ecc0317fcea7dc5e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>getHandledStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a284a7a0d3898f0147ad4d526610d5a1c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>MyError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1adf4906938b013d47fbc2dfa11ae65919" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>MyError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a200d859c20363248fa34ce23cc781118" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>MyError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1ab803240e28605d3579d85f1b657286f5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>MyError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1acb12d3cab8011aedf953742c8f155714" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>superToString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error_1a46afb046e92e43de36f0786ed90996e4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::MyError</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

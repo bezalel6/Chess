@@ -1,0 +1,455 @@
+.TH "ver14.SharedClasses.DBActions.Table.Col" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Table.Col
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.CustomCol\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBCustomCol\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCol\fP (\fBCol\fP col)"
+.br
+.ti -1c
+.RI "\fBCol\fP (String colName, String alias)"
+.br
+.ti -1c
+.RI "\fBCol\fP (String colName)"
+.br
+.ti -1c
+.RI "String \fBlabel\fP ()"
+.br
+.ti -1c
+.RI "void \fBwrap\fP ()"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBtime\fP ()"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetWrapped\fP (boolean wrapped)"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBas\fP ()"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBas\fP (String alias)"
+.br
+.ti -1c
+.RI "void \fBsetColName\fP (String colName)"
+.br
+.ti -1c
+.RI "String \fBcolName\fP ()"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBof\fP (\fBTable\fP table)"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBof\fP (String ofWhom)"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBreplace\fP (String replacing, String replaceWith)"
+.br
+.ti -1c
+.RI "String \fBnested\fP ()"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBmath\fP (\fBMath\fP operation, Object value)"
+.br
+.ti -1c
+.RI "\fBCol\fP \fBmath\fP (\fBMath\fP operation, Object value, boolean changeSelf)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBCol\fP \fBcount\fP (String \fBas\fP)"
+.br
+.ti -1c
+.RI "static \fBCol\fP \fBcount\fP (String \fBas\fP, Object countWhat)"
+.br
+.ti -1c
+.RI "static \fBCol\fP \fBcountIf\fP (String \fBas\fP, \fBCondition\fP condition)"
+.br
+.ti -1c
+.RI "static CustomCol \fBsum\fP (String \fBas\fP, Col\&.\&.\&. colsToSum)"
+.br
+.ti -1c
+.RI "static \fBCol\fP \fBswitchCase\fP (String \fBas\fP, SwitchCase\&.\&.\&. cases)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBCol\fP \fBGameID\fP = new \fBCol\fP('GameID')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBSavedGame\fP = new \fBCol\fP('SavedGame')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBPassword\fP = new \fBCol\fP('password')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBPlayer1\fP = new \fBCol\fP('Player1')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBPlayer2\fP = new \fBCol\fP('Player2')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBUsername\fP = new \fBCol\fP('username')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBWinner\fP = new \fBCol\fP('Winner')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBPlayerToMove\fP = new \fBCol\fP('PlayerToMove')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBCreatedDateTime\fP = new \fBCol\fP('CreatedDateTime')"
+.br
+.ti -1c
+.RI "static final \fBCol\fP \fBProfilePic\fP = new \fBCol\fP('ProfilePic')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCol\fP - represents a column\&. either existing column in the db (the constant columns \fC\fBGameID\fP\fP, \fC\fBSavedGame\fP\fP \&.\&.\&.) or created columns\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Col (\fBCol\fP col)"
+Instantiates a new \fBCol\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcol\fP the col 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Col (String colName, String alias)"
+Instantiates a new \fBCol\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolName\fP the col name 
+.br
+\fIalias\fP the alias 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Col (String colName)"
+Instantiates a new \fBCol\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolName\fP the col name 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.as ()"
+As own name\&. practically keeps the name's case\&.
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.as (String alias)"
+creates a new column with the given alias as its alias
+.PP
+\fBParameters\fP
+.RS 4
+\fIalias\fP the alias 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.colName ()"
+\fBCol\fP name string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SS "static \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.count (String as)\fC [static]\fP"
+Count col\&. counts every row (*)
+.PP
+\fBParameters\fP
+.RS 4
+\fIas\fP the alias 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "static \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.count (String as, Object countWhat)\fC [static]\fP"
+Count col\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIas\fP the alias 
+.br
+\fIcountWhat\fP the count what 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "static \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.countIf (String as, \fBCondition\fP condition)\fC [static]\fP"
+Count if col\&. only counts if the given condition is true
+.PP
+\fBParameters\fP
+.RS 4
+\fIas\fP the as 
+.br
+\fIcondition\fP the condition 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.date ()"
+Date col\&.
+.PP
+\fBReturns\fP
+.RS 4
+a new col representing datetime 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.label ()"
+Label string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.math (\fBMath\fP operation, Object value)"
+\fBMath\fP col\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIoperation\fP the operation 
+.br
+\fIvalue\fP the value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.math (\fBMath\fP operation, Object value, boolean changeSelf)"
+\fBMath\fP col\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIoperation\fP the operation 
+.br
+\fIvalue\fP the value 
+.br
+\fIchangeSelf\fP the change self 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.nested ()"
+Nested string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.of (String ofWhom)"
+new col like this that belongs to the given owner
+.PP
+\fBParameters\fP
+.RS 4
+\fIofWhom\fP the of whom 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.of (\fBTable\fP table)"
+new col like this that belongs to the given table
+.PP
+\fBParameters\fP
+.RS 4
+\fItable\fP the table 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.replace (String replacing, String replaceWith)"
+Replace col\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIreplacing\fP the replacing 
+.br
+\fIreplaceWith\fP the replace with 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.setColName (String colName)"
+Sets col name\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolName\fP the col name 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.setWrapped (boolean wrapped)"
+Sets wrapped\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIwrapped\fP the wrapped 
+.RE
+.PP
+
+.SS "static CustomCol ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.sum (String as, Col\&.\&.\&. colsToSum)\fC [static]\fP"
+Sum cols\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIas\fP the alias 
+.br
+\fIcolsToSum\fP the cols to sum 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the custom col 
+.RE
+.PP
+
+.SS "static \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.switchCase (String as, SwitchCase\&.\&.\&. cases)\fC [static]\fP"
+Switch case col\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIas\fP the as 
+.br
+\fIcases\fP the cases 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the col 
+.RE
+.PP
+
+.SS "\fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.time ()"
+Time col\&.
+.PP
+\fBReturns\fP
+.RS 4
+a new col representing time 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.wrap ()"
+Wrap\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.CreatedDateTime = new \fBCol\fP('CreatedDateTime')\fC [static]\fP"
+The constant CreatedDateTime\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.GameID = new \fBCol\fP('GameID')\fC [static]\fP"
+The constant GameID\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Password = new \fBCol\fP('password')\fC [static]\fP"
+The constant Password\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Player1 = new \fBCol\fP('Player1')\fC [static]\fP"
+The constant Player1\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Player2 = new \fBCol\fP('Player2')\fC [static]\fP"
+The constant Player2\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.PlayerToMove = new \fBCol\fP('PlayerToMove')\fC [static]\fP"
+The constant PlayerToMove\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.ProfilePic = new \fBCol\fP('ProfilePic')\fC [static]\fP"
+The constant ProfilePic\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.SavedGame = new \fBCol\fP('SavedGame')\fC [static]\fP"
+The constant SavedGame\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Username = new \fBCol\fP('username')\fC [static]\fP"
+The constant Username\&. 
+.SS "final \fBCol\fP ver14\&.SharedClasses\&.DBActions\&.Table\&.Col\&.Winner = new \fBCol\fP('Winner')\fC [static]\fP"
+The constant Winner\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

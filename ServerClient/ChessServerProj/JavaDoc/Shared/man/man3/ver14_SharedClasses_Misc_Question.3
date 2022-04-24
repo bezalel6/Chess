@@ -1,0 +1,217 @@
+.TH "ver14.SharedClasses.Misc.Question" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Misc.Question
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBQuestionType\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQuestion\fP (String \fBquestionStr\fP, Answer\&.\&.\&. possibleAnswers)"
+.br
+.ti -1c
+.RI "\fBQuestion\fP (String \fBquestionStr\fP, \fBQuestionType\fP \fBquestionType\fP, Answer\&.\&.\&. possibleAnswers)"
+.br
+.ti -1c
+.RI "\fBAnswer\fP \fBgetDefaultAnswer\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDefaultAnswer\fP (\fBAnswer\fP defaultAnswer)"
+.br
+.ti -1c
+.RI "String \fBgetQuestionStr\fP ()"
+.br
+.ti -1c
+.RI "\fBAnswer\fP[] \fBgetPossibleAnswers\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "record \fBAnswer\fP (String answerStr) implements Serializable"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBQuestion\fP \fBdrawOffer\fP (String offeringPlayer)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final String \fBquestionStr\fP"
+.br
+.ti -1c
+.RI "final \fBQuestionType\fP \fBquestionType\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBQuestion\fP \fBThreefold\fP = new \fBQuestion\fP('Would you like to claim a Threefold repetition?', QuestionType\&.THREEFOLD, Answer\&.YES, Answer\&.NO)"
+.br
+.ti -1c
+.RI "static final \fBQuestion\fP \fBRematch\fP = new \fBQuestion\fP('rematch', QuestionType\&.REMATCH, Answer\&.YES, Answer\&.NO)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBQuestion\fP\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Misc\&.Question\&.Question (String questionStr, Answer\&.\&.\&. possibleAnswers)"
+Instantiates a new \fBQuestion\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIquestionStr\fP the question str 
+.br
+\fIpossibleAnswers\fP the possible answers 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Misc\&.Question\&.Question (String questionStr, \fBQuestionType\fP questionType, Answer\&.\&.\&. possibleAnswers)"
+Instantiates a new \fBQuestion\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIquestionStr\fP the question str 
+.br
+\fIquestionType\fP the question type 
+.br
+\fIpossibleAnswers\fP the possible answers 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "record ver14\&.SharedClasses\&.Misc\&.Question\&.Answer (String answerStr)"
+Answer\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+The constant YES\&.
+.PP
+The constant NO\&.
+.PP
+The constant ACCEPT\&.
+.PP
+The constant DO_NOT_ACCEPT\&.
+.PP
+The constant OK\&.
+.SS "static \fBQuestion\fP ver14\&.SharedClasses\&.Misc\&.Question\&.drawOffer (String offeringPlayer)\fC [static]\fP"
+Draw offer question\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIofferingPlayer\fP the offering player 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the question 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Misc\&.Question\&.equals (Object o)"
+Equals boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP the o 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "\fBAnswer\fP ver14\&.SharedClasses\&.Misc\&.Question\&.getDefaultAnswer ()"
+Gets default answer\&.
+.PP
+\fBReturns\fP
+.RS 4
+the default answer 
+.RE
+.PP
+
+.SS "\fBAnswer\fP[] ver14\&.SharedClasses\&.Misc\&.Question\&.getPossibleAnswers ()"
+Get possible answers answer [ ]\&.
+.PP
+\fBReturns\fP
+.RS 4
+the answer [ ] 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Misc\&.Question\&.getQuestionStr ()"
+Gets question str\&.
+.PP
+\fBReturns\fP
+.RS 4
+the question str 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Misc\&.Question\&.setDefaultAnswer (\fBAnswer\fP defaultAnswer)"
+Sets default answer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdefaultAnswer\fP the default answer 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Misc\&.Question\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final String ver14\&.SharedClasses\&.Misc\&.Question\&.questionStr"
+The \fBQuestion\fP str\&. 
+.SS "final \fBQuestionType\fP ver14\&.SharedClasses\&.Misc\&.Question\&.questionType"
+The \fBQuestion\fP type\&. 
+.SS "final \fBQuestion\fP ver14\&.SharedClasses\&.Misc\&.Question\&.Rematch = new \fBQuestion\fP('rematch', QuestionType\&.REMATCH, Answer\&.YES, Answer\&.NO)\fC [static]\fP"
+The constant Rematch\&. 
+.SS "final \fBQuestion\fP ver14\&.SharedClasses\&.Misc\&.Question\&.Threefold = new \fBQuestion\fP('Would you like to claim a Threefold repetition?', QuestionType\&.THREEFOLD, Answer\&.YES, Answer\&.NO)\fC [static]\fP"
+The constant Threefold\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

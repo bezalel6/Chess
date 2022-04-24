@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.SavedGames.CreatedGame Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.CreatedGame</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.SavedGames.CreatedGame:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game_1a594ccda9f9bb1b75ff76d3076a24a8bd">CreatedGame</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c">gameId</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5">creatorUsername</link>, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3">gameSettings</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game_1ae36f6150c27a1006cad3c1fa1095f543">getGameDesc</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Created game.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game_1a594ccda9f9bb1b75ff76d3076a24a8bd"/><section>
+    <title>CreatedGame()</title>
+<indexterm><primary>CreatedGame</primary><secondary>ver14.SharedClasses.Game.SavedGames.CreatedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.CreatedGame</primary><secondary>CreatedGame</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.SavedGames.CreatedGame.CreatedGame (String gameId, String creatorUsername, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> gameSettings)</computeroutput></para>
+<para>Instantiates a new Created game.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>gameId</entry><entry>
+<para>the game id </para>
+</entry>
+                            </row>
+                            <row>
+<entry>creatorUsername</entry><entry>
+<para>the creator username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameSettings</entry><entry>
+<para>the game settings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game_1ae36f6150c27a1006cad3c1fa1095f543"/><section>
+    <title>getGameDesc()</title>
+<indexterm><primary>getGameDesc</primary><secondary>ver14.SharedClasses.Game.SavedGames.CreatedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.CreatedGame</primary><secondary>getGameDesc</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.SavedGames.CreatedGame.getGameDesc ( )</computeroutput></para>
+<para>Gets game desc.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the game desc </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1aa7691601e6df478e64954208eba2b967">ver14.SharedClasses.Game.SavedGames.GameInfo</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/SavedGames/CreatedGame.java</section>
+</section>

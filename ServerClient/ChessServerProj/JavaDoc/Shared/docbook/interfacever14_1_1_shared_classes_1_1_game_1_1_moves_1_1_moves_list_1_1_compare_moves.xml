@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfacever14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1_1_compare_moves" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.MovesList.CompareMoves Interface Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MovesList.CompareMoves</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_interfacever14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1_1_compare_moves_1a905e1b1f712cdbbecf505262f107144f"/>boolean <emphasis role="strong">equals</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> comparingTo)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this interface was generated from the following file:</para>
+Game/Moves/MovesList.java</section>

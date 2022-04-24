@@ -1,0 +1,11 @@
+digraph "Game/GameSetup/BoardSetup/Pieces"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_f90daf2a8185f4a662357ffab0a847e3 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", style="filled,dashed,", label="BoardSetup", fontname="Helvetica", fontsize="10", URL="dir_f90daf2a8185f4a662357ffab0a847e3.html"]
+  dir_b1de2c76e84ed9d7613b7e89a743973f [shape=box, label="Pieces", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_b1de2c76e84ed9d7613b7e89a743973f.html"];
+  }
+}

@@ -9,6 +9,8 @@ import java.util.Stack;
 
 /**
  * The type Unfinished game.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class UnfinishedGame extends EstablishedGameInfo {
     /**

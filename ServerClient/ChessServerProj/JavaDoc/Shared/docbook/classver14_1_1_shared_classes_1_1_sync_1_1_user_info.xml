@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info" xml:lang="en-US">
+<title>ver14.SharedClasses.Sync.UserInfo Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Sync.UserInfo</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Sync.UserInfo:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_sync_1_1_user_info.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1af510433b19a82ffa0ac0fef0d3e44a09"/><emphasis role="strong">UserInfo</emphasis> (String id)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a8bb733324af5278a6ac9faa1de96bb42"/><emphasis role="strong">UserInfo</emphasis> (String id, String profilePic)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a4e6966f5950c854fffb79ecefeead183">ID</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a4de52e9e81446393bd3bf704314042a3"/>final String <emphasis role="strong">id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a18abf56852bdac21068eb53dd78f0aa4"/>final String <emphasis role="strong">profilePic</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_sync_1_1_user_info_1a4e6966f5950c854fffb79ecefeead183"/><section>
+    <title>ID()</title>
+<indexterm><primary>ID</primary><secondary>ver14.SharedClasses.Sync.UserInfo</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Sync.UserInfo</primary><secondary>ID</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Sync.UserInfo.ID ( )</computeroutput></para><para>
+Implements <link linkend="_interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item">ver14.SharedClasses.Sync.SyncableItem</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Sync/UserInfo.java</section>
+</section>

@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['password_0',['Password',['../enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.html#a627b5202210a22ac4bc5b9f6efd55f8f',1,'ver14.SharedClasses.DBActions.Arg.ArgType.Password()'],['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#ad73ef4e3ca81f5e314662e650f49a9fd',1,'ver14.SharedClasses.DBActions.Table.Col.Password()'],['../classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.html#a72384ae847e05aed0b49d458a18714a0',1,'ver14.SharedClasses.Utils.RegEx.Password()']]],
+  ['pawn_1',['PAWN',['../enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.html#ab543ceae3e542c1bb9c4f28ca82df9a9',1,'ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces::PieceType']]],
+  ['pictureurl_2',['PictureUrl',['../enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.html#a538e5ccf88223e1ee406531ba8188ac3',1,'ver14::SharedClasses::DBActions::Arg::ArgType']]],
+  ['piece_5ftables_3',['PIECE_TABLES',['../enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters.html#a54926962353e36fc4e15e838c1ff1c7e',1,'ver14::SharedClasses::Game::Evaluation::EvaluationParameters']]],
+  ['piece_5ftypes_4',['PIECE_TYPES',['../enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.html#a10120c94833394d01b02c0b8136b8f44',1,'ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces::PieceType']]],
+  ['piecetype_5',['pieceType',['../enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece.html#ad34a5efff57a10e74ab9d39be47762f0',1,'ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces::Piece']]],
+  ['player1_6',['Player1',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#af4bc7e3f8d790b6dc23e8533d25b4f3f',1,'ver14::SharedClasses::DBActions::Table::Col']]],
+  ['player2_7',['Player2',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#a2b0d9ab3ad8ce9df3f4a67f0284592c7',1,'ver14::SharedClasses::DBActions::Table::Col']]],
+  ['player_5fcolors_8',['PLAYER_COLORS',['../enumver14_1_1_shared_classes_1_1_game_1_1_player_color.html#aabfcb6abd24b49da09798fba88e75201',1,'ver14::SharedClasses::Game::PlayerColor']]],
+  ['playercolor_9',['playerColor',['../enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece.html#a2750ef0033923a9d162de1178d83ddd3',1,'ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces::Piece']]],
+  ['playercolortomove_10',['playerColorToMove',['../classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.html#a76e16e4edd57c0570a292662d7666e16',1,'ver14::SharedClasses::Game::SavedGames::UnfinishedGame']]],
+  ['playerdisconnectedvsai_11',['PlayerDisconnectedVsAi',['../enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.html#a2f5c44671af950cdae65ce1df4fa314b',1,'ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus']]],
+  ['playerdisconnectedvsreal_12',['PlayerDisconnectedVsReal',['../enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.html#a52bbcf0820ef7815ee33a369a534742d',1,'ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus']]],
+  ['playertomove_13',['playerToMove',['../classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.html#a09713866f4761f1f6deb8f2c3fc22912',1,'ver14::SharedClasses::Game::SavedGames::UnfinishedGame']]],
+  ['playertomove_14',['PlayerToMove',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#ad13c19bab6b1ffd4c83511f7cac2b78c',1,'ver14::SharedClasses::DBActions::Table::Col']]],
+  ['plus_15',['Plus',['../enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math.html#a9874b934ce1b6484c52530a1f1e0a8c0',1,'ver14::SharedClasses::DBActions::Table::Math']]],
+  ['postdescription_16',['postDescription',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html#a1826de1613bc91f73a67849ee1283431',1,'ver14::SharedClasses::DBActions::RequestBuilder']]],
+  ['predescription_17',['preDescription',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html#a488d16946d9ce136e587377437d1734a',1,'ver14::SharedClasses::DBActions::RequestBuilder']]],
+  ['profilepic_18',['ProfilePic',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#a4bd2d6fe87a2376d9c8b7a7da93bfbdf',1,'ver14::SharedClasses::DBActions::Table::Col']]],
+  ['promotion_19',['Promotion',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag.html#ae872ac60a56cf4b54b259fd82e65b851',1,'ver14::SharedClasses::Game::Moves::Move::MoveFlag']]]
+];

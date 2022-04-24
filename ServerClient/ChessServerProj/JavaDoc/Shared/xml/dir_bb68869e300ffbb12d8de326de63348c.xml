@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_bb68869e300ffbb12d8de326de63348c" kind="dir">
+    <compoundname>Sync</compoundname>
+    <innerfile refid="_syncable_item_8java">SyncableItem.java</innerfile>
+    <innerfile refid="_synced_items_8java">SyncedItems.java</innerfile>
+    <innerfile refid="_synced_list_type_8java">SyncedListType.java</innerfile>
+    <innerfile refid="_user_info_8java">UserInfo.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Sync/"/>
+  </compounddef>
+</doxygen>

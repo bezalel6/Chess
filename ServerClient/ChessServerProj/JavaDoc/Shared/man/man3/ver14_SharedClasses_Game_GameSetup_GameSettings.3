@@ -1,0 +1,104 @@
+.TH "ver14.SharedClasses.Game.GameSetup.GameSettings" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.GameSetup.GameSettings
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable, and \fBver14\&.SharedClasses\&.Game\&.GameSetup\&.TimeFormatSettable\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBGameType\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameSettings\fP (\fBGameSettings\fP other)"
+.br
+.ti -1c
+.RI "\fBGameSettings\fP (\fBAiParameters\fP aiParameters)"
+.br
+.ti -1c
+.RI "\fBGameSettings\fP (\fBPlayerColor\fP playerToMove, \fBTimeFormat\fP timeFormat, \fBAiParameters\fP aiParameters, \fBGameType\fP gameType)"
+.br
+.ti -1c
+.RI "\fBGameSettings\fP (\fBPlayerColor\fP playerToMove, \fBTimeFormat\fP timeFormat, String fen, \fBAiParameters\fP aiParameters, \fBGameType\fP gameType)"
+.br
+.ti -1c
+.RI "String \fBgetFen\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFen\fP (String fen)"
+.br
+.ti -1c
+.RI "String \fBgetGameID\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetGameID\fP (String gameID)"
+.br
+.ti -1c
+.RI "boolean \fBisVsAi\fP ()"
+.br
+.ti -1c
+.RI "\fBAiParameters\fP \fBgetAiParameters\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAiParameters\fP (\fBAiParameters\fP aiParameters)"
+.br
+.ti -1c
+.RI "\fBGameType\fP \fBgetGameType\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetGameType\fP (\fBGameType\fP gameType)"
+.br
+.ti -1c
+.RI "\fBPlayerColor\fP \fBgetPlayerToMove\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPlayerToMove\fP (\fBPlayerColor\fP playerToMove)"
+.br
+.ti -1c
+.RI "void \fBinitDefault1vAi\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitDefault1v1\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeFormat\fP \fBgetTimeFormat\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTimeFormat\fP (\fBTimeFormat\fP timeFormat)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBGameSettings\fP \fBEXAMPLE\fP = new \fBGameSettings\fP(\fBPlayerColor\&.WHITE\fP, TimeFormat\&.ULTRA_BULLET, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq \- 0 1', AiParameters\&.EZ_MY_AI, GameType\&.RESUME)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void ver14\&.SharedClasses\&.Game\&.GameSetup\&.GameSettings\&.setTimeFormat (\fBTimeFormat\fP timeFormat)"
+
+.PP
+Implements \fBver14\&.SharedClasses\&.Game\&.GameSetup\&.TimeFormatSettable\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

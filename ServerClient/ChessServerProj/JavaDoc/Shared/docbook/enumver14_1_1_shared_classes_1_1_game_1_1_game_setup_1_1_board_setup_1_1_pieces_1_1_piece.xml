@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ae2c0535824494826f5f98d9eaa8c51cc"/><emphasis role="strong">Piece</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ad34a5efff57a10e74ab9d39be47762f0">pieceType</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a2750ef0033923a9d162de1178d83ddd3">playerColor</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a03410f14b0a48aa45233dab88edccee1">getPieceIcon</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a3e79a97311c2f717c255322413d5e3a3">getFen</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ac0f76001e71e28dfe0bdd7eca3d0811b">isOnMyTeam</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> otherPiece)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a001a1c26148d21f4b2c17cb286b7d58d">isOnMyTeam</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> otherPlayerColor)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ab3490399dd81bde726dec47660b06bb5"/><emphasis role="strong">[static initializer]</emphasis></para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a8d98589a91d83ab74d4d609c7bdd95c5">getPieceFromFen</link> (char c)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ae87e2dda4432660495d947b9ab2b567b">getPiece</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ad34a5efff57a10e74ab9d39be47762f0">pieceType</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a2750ef0033923a9d162de1178d83ddd3">playerColor</link>)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a9cffbc6f15ec16c0a239c66cf5ef9cd2">getPieceIcon</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a0319eb68cbecf1e97302efdcd7eda0aa">W_P</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ab543ceae3e542c1bb9c4f28ca82df9a9">PieceType.PAWN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a96fe1fde6183bc4b2deb9ec9b0a68378">W_R</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a21b6ea3ed95c6271be4b274326290ff0">PieceType.ROOK</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a38594aa45b231a3248f7fcdc37bd1c22">W_B</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a200cb9430a9ffbde6cefee175cbbd912">PieceType.BISHOP</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1afbe348ab6a012ce21d88141d81c479f8">W_N</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a3079a76d345c45663d0124eff63712fa">PieceType.KNIGHT</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a3941ec5e3e99b6ddb091939f4d7a5829">W_Q</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ac59f0222931d120f6483e32d9ebea9fa">PieceType.QUEEN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ac6f51767c6292abf3cd4ee2e4b08cb39">W_K</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a49b199ab29af53ccf450eca8bdde587f">PieceType.KING</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aae59a346823eec30fc17ebb63ebaccf3">B_P</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ab543ceae3e542c1bb9c4f28ca82df9a9">PieceType.PAWN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a1f5fa229d64bea69f2c677321bc207a0">B_R</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a21b6ea3ed95c6271be4b274326290ff0">PieceType.ROOK</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aa779840304a57a858530409e0cf812ff">B_B</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a200cb9430a9ffbde6cefee175cbbd912">PieceType.BISHOP</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aa66f13cbaa901269649e3476d1081312">B_N</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a3079a76d345c45663d0124eff63712fa">PieceType.KNIGHT</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a301645ebb9b87c6ac695e7101c4404c3">B_Q</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ac59f0222931d120f6483e32d9ebea9fa">PieceType.QUEEN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a09882bad67ab8b28bdf40c51c0f0d162">B_K</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a49b199ab29af53ccf450eca8bdde587f">PieceType.KING</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</para>
+</listitem>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ad34a5efff57a10e74ab9d39be47762f0">pieceType</link></para>
+</listitem>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a2750ef0033923a9d162de1178d83ddd3">playerColor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link>[] <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a19d09e958a0d9cfa1ebe4871ab033f49">ALL_PIECES</link> = values()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> - represents a combination of a piece type, and a color.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> </para>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a3e79a97311c2f717c255322413d5e3a3"/><section>
+    <title>getFen()</title>
+<indexterm><primary>getFen</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>getFen</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getFen ( )</computeroutput></para>
+<para>Gets fen.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the fen </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ae87e2dda4432660495d947b9ab2b567b"/><section>
+    <title>getPiece()</title>
+<indexterm><primary>getPiece</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>getPiece</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPiece (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> pieceType, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColor)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets piece.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pieceType</entry><entry>
+<para>the piece type </para>
+</entry>
+                            </row>
+                            <row>
+<entry>playerColor</entry><entry>
+<para>the player color </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the piece </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a8d98589a91d83ab74d4d609c7bdd95c5"/><section>
+    <title>getPieceFromFen()</title>
+<indexterm><primary>getPieceFromFen</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>getPieceFromFen</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceFromFen (char c)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets piece from fen.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>c</entry><entry>
+<para>the c </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the piece from fen </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a03410f14b0a48aa45233dab88edccee1"/><section>
+    <title>getPieceIcon()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>getPieceIcon</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>getPieceIcon</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceIcon ( )</computeroutput></para>
+<para>Gets piece icon.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the piece icon </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a9cffbc6f15ec16c0a239c66cf5ef9cd2"/><section>
+    <title>getPieceIcon()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>getPieceIcon</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>getPieceIcon</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceIcon (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets piece icon.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>piece</entry><entry>
+<para>the piece </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the piece icon </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ac0f76001e71e28dfe0bdd7eca3d0811b"/><section>
+    <title>isOnMyTeam()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>isOnMyTeam</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>isOnMyTeam</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.isOnMyTeam (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> otherPiece)</computeroutput></para>
+<para>Is on my team boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>otherPiece</entry><entry>
+<para>the other piece </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a001a1c26148d21f4b2c17cb286b7d58d"/><section>
+    <title>isOnMyTeam()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>isOnMyTeam</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>isOnMyTeam</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.isOnMyTeam (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> otherPlayerColor)</computeroutput></para>
+<para>Is on my team boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>otherPlayerColor</entry><entry>
+<para>the other player color </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a19d09e958a0d9cfa1ebe4871ab033f49"/><section>
+    <title>ALL_PIECES</title>
+<indexterm><primary>ALL_PIECES</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>ALL_PIECES</secondary></indexterm>
+<para><computeroutput> final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> [] ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.ALL_PIECES = values()<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant ALL_PIECES. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aa779840304a57a858530409e0cf812ff"/><section>
+    <title>B_B</title>
+<indexterm><primary>B_B</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_B</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_B =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a200cb9430a9ffbde6cefee175cbbd912">PieceType.BISHOP</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black Bishop. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a09882bad67ab8b28bdf40c51c0f0d162"/><section>
+    <title>B_K</title>
+<indexterm><primary>B_K</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_K</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_K =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a49b199ab29af53ccf450eca8bdde587f">PieceType.KING</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black King. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aa66f13cbaa901269649e3476d1081312"/><section>
+    <title>B_N</title>
+<indexterm><primary>B_N</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_N</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_N =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a3079a76d345c45663d0124eff63712fa">PieceType.KNIGHT</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black Knight. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1aae59a346823eec30fc17ebb63ebaccf3"/><section>
+    <title>B_P</title>
+<indexterm><primary>B_P</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_P</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_P =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ab543ceae3e542c1bb9c4f28ca82df9a9">PieceType.PAWN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black p piece. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a301645ebb9b87c6ac695e7101c4404c3"/><section>
+    <title>B_Q</title>
+<indexterm><primary>B_Q</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_Q</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_Q =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ac59f0222931d120f6483e32d9ebea9fa">PieceType.QUEEN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black Queen. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a1f5fa229d64bea69f2c677321bc207a0"/><section>
+    <title>B_R</title>
+<indexterm><primary>B_R</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>B_R</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.B_R =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a21b6ea3ed95c6271be4b274326290ff0">PieceType.ROOK</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87">PlayerColor.BLACK</link>)</computeroutput></para>
+<para>represents a Black Rook. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ad34a5efff57a10e74ab9d39be47762f0"/><section>
+    <title>pieceType</title>
+<indexterm><primary>pieceType</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>pieceType</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.pieceType</computeroutput></para>
+<para>The <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a2750ef0033923a9d162de1178d83ddd3"/><section>
+    <title>playerColor</title>
+<indexterm><primary>playerColor</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>playerColor</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.playerColor</computeroutput></para>
+<para>The Player color. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a38594aa45b231a3248f7fcdc37bd1c22"/><section>
+    <title>W_B</title>
+<indexterm><primary>W_B</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_B</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_B =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a200cb9430a9ffbde6cefee175cbbd912">PieceType.BISHOP</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White Bishop. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ac6f51767c6292abf3cd4ee2e4b08cb39"/><section>
+    <title>W_K</title>
+<indexterm><primary>W_K</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_K</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_K =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a49b199ab29af53ccf450eca8bdde587f">PieceType.KING</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White King. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1afbe348ab6a012ce21d88141d81c479f8"/><section>
+    <title>W_N</title>
+<indexterm><primary>W_N</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_N</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_N =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a3079a76d345c45663d0124eff63712fa">PieceType.KNIGHT</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White Knight. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a0319eb68cbecf1e97302efdcd7eda0aa"/><section>
+    <title>W_P</title>
+<indexterm><primary>W_P</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_P</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_P =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ab543ceae3e542c1bb9c4f28ca82df9a9">PieceType.PAWN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White p piece. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a3941ec5e3e99b6ddb091939f4d7a5829"/><section>
+    <title>W_Q</title>
+<indexterm><primary>W_Q</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_Q</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_Q =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1ac59f0222931d120f6483e32d9ebea9fa">PieceType.QUEEN</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White Queen. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a96fe1fde6183bc4b2deb9ec9b0a68378"/><section>
+    <title>W_R</title>
+<indexterm><primary>W_R</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece</primary><secondary>W_R</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.W_R =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a21b6ea3ed95c6271be4b274326290ff0">PieceType.ROOK</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link>)</computeroutput></para>
+<para>represents a White Rook. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/GameSetup/BoardSetup/Pieces/Piece.java</section>
+</section>

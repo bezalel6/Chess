@@ -1,0 +1,620 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Condition</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" prot="public">ver14::SharedClasses::DBActions::Condition::Relation</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a27dae6773af3bfec3198ed2f12883493" prot="private" static="no" mutable="no">
+        <type>final Object[]</type>
+        <definition>final Object [] ver14.SharedClasses.DBActions.Condition.parms</definition>
+        <argsstring></argsstring>
+        <name>parms</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.parms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The condition parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="21" column="26" bodyfile="DBActions/Condition.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a57549d7a155c972b91f6474556c2a254" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Condition.str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Str. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="25" column="20" bodyfile="DBActions/Condition.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Condition.Condition</definition>
+        <argsstring>(String str, Object... parms)</argsstring>
+        <name>Condition</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.Condition</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>Object...</type>
+          <declname>parms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the str </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parms </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="33" column="12" bodyfile="DBActions/Condition.java" bodystart="33" bodyend="38"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a48d52987196416871f7188bb1f0736bc" compoundref="_str_utils_8java" startline="68" endline="76">ver14.SharedClasses.Utils.StrUtils.countMatches</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d" compoundref="_condition_8java" startline="141" endline="150">ver14.SharedClasses.DBActions.Condition.between</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b" compoundref="_condition_8java" startline="60" endline="62">ver14.SharedClasses.DBActions.Condition.equals</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4" compoundref="_condition_8java" startline="69" endline="80">ver14.SharedClasses.DBActions.Condition.noNulls</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a54f3c3b6ec204c75a7f623422bfe6f2a" compoundref="_condition_8java" startline="159" endline="161">ver14.SharedClasses.DBActions.Condition.notEquals</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition ver14.SharedClasses.DBActions.Condition.noNulls</definition>
+        <argsstring>()</argsstring>
+        <name>noNulls</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.noNulls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>No nulls condition.</para>
+<para><simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="69" column="22" bodyfile="DBActions/Condition.java" bodystart="69" bodyend="80"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" compoundref="_condition_8java" startline="89" endline="91">ver14.SharedClasses.DBActions.Condition.add</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc" compoundref="_condition_8java" startline="210">ver14.SharedClasses.DBActions.Condition.Relation.AND</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" compoundref="_condition_8java" startline="33" endline="38">ver14.SharedClasses.DBActions.Condition.Condition</references>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1af6a11b4d696720dc2c81a91e27981f8b" compoundref="_str_utils_8java" startline="325" endline="327">ver14.SharedClasses.Utils.StrUtils.splitArr</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition ver14.SharedClasses.DBActions.Condition.add</definition>
+        <argsstring>(Condition condition, Relation relation)</argsstring>
+        <name>add</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.add</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" kindref="compound">Relation</ref></type>
+          <declname>relation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the condition </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the relation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="89" column="22" bodyfile="DBActions/Condition.java" bodystart="89" bodyend="91"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" compoundref="_condition_8java" startline="89" endline="91">ver14.SharedClasses.DBActions.Condition.add</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" compoundref="_condition_8java" startline="89" endline="91">ver14.SharedClasses.DBActions.Condition.add</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e" compoundref="_condition_8java" startline="169" endline="171">ver14.SharedClasses.DBActions.Condition.and</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4" compoundref="_condition_8java" startline="69" endline="80">ver14.SharedClasses.DBActions.Condition.noNulls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7c0621fedc3a0b60dd9b6c1d28d768fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition ver14.SharedClasses.DBActions.Condition.add</definition>
+        <argsstring>(Condition condition, Relation relation, boolean wrap)</argsstring>
+        <name>add</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.add</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation" kindref="compound">Relation</ref></type>
+          <declname>relation</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>wrap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the condition </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>relation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the relation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wrap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the wrap </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>THIS condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="101" column="22" bodyfile="DBActions/Condition.java" bodystart="101" bodyend="106"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db" compoundref="_condition_8java" startline="111" endline="113">ver14.SharedClasses.DBActions.Condition.wrap</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.DBActions.Condition.wrap</definition>
+        <argsstring>()</argsstring>
+        <name>wrap</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.wrap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="111" column="17" bodyfile="DBActions/Condition.java" bodystart="111" bodyend="113"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7c0621fedc3a0b60dd9b6c1d28d768fb" compoundref="_condition_8java" startline="101" endline="106">ver14.SharedClasses.DBActions.Condition.add</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d" compoundref="_condition_8java" startline="141" endline="150">ver14.SharedClasses.DBActions.Condition.between</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>Condition ver14.SharedClasses.DBActions.Condition.and</definition>
+        <argsstring>(Condition condition)</argsstring>
+        <name>and</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.and</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+          <declname>condition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>wraps</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the condition </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="169" column="22" bodyfile="DBActions/Condition.java" bodystart="169" bodyend="171"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" compoundref="_condition_8java" startline="89" endline="91">ver14.SharedClasses.DBActions.Condition.add</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation_1ac86e8b1ec92053ceb97f66b4666a43cc" compoundref="_condition_8java" startline="210">ver14.SharedClasses.DBActions.Condition.Relation.AND</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ab1ca2b627de7d43407d355683888950e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Condition.getStr</definition>
+        <argsstring>()</argsstring>
+        <name>getStr</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.getStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets str.</para>
+<para><simplesect kind="return"><para>the str </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="178" column="19" bodyfile="DBActions/Condition.java" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1afd670c373db68e4da1575f1582f5c279" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.DBActions.Condition.setStr</definition>
+        <argsstring>(String str)</argsstring>
+        <name>setStr</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.setStr</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets str.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the str </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="187" column="17" bodyfile="DBActions/Condition.java" bodystart="187" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a1ea35165c6ab0be1baae587d1b5021f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Condition.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="197" column="19" bodyfile="DBActions/Condition.java" bodystart="197" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a3c79a501819b405cebe31308099fe87b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String ver14.SharedClasses.DBActions.Condition.createValueStr</definition>
+        <argsstring>(Object value)</argsstring>
+        <name>createValueStr</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.createValueStr</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create value str string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="46" column="27" bodyfile="DBActions/Condition.java" bodystart="46" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>static Condition ver14.SharedClasses.DBActions.Condition.equals</definition>
+        <argsstring>(Object col, Object value)</argsstring>
+        <name>equals</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.equals</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Equals condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="60" column="29" bodyfile="DBActions/Condition.java" bodystart="60" bodyend="62"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" compoundref="_condition_8java" startline="33" endline="38">ver14.SharedClasses.DBActions.Condition.Condition</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a7c573521857dceccbec320f39fe17668" compoundref="_request_builder_8java" startline="158" endline="166">ver14.SharedClasses.DBActions.RequestBuilder.changePassword</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2" compoundref="_request_builder_8java" startline="173" endline="182">ver14.SharedClasses.DBActions.RequestBuilder.changeProfilePic</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case_1a0400647edafd594909995e3f98bf0097" compoundref="_switch_case_8java" startline="41" endline="43">ver14.SharedClasses.DBActions.Table.SwitchCase.equals</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1aedeacec6ec2025423774976014b2cd62" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>static Condition ver14.SharedClasses.DBActions.Condition.math</definition>
+        <argsstring>(Object col, @MagicConstant(stringValues={&quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, &quot;&lt;=&quot;}) String operation, Object value)</argsstring>
+        <name>math</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.math</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>@MagicConstant(stringValues={&quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, &quot;&lt;=&quot;}) String</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Math condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="123" column="29" bodyfile="DBActions/Condition.java" bodystart="123" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>static Condition ver14.SharedClasses.DBActions.Condition.between</definition>
+        <argsstring>(Object col, Object start, Object end)</argsstring>
+        <name>between</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.between</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Between condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the end </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="141" column="29" bodyfile="DBActions/Condition.java" bodystart="141" bodyend="150"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" compoundref="_condition_8java" startline="33" endline="38">ver14.SharedClasses.DBActions.Condition.Condition</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db" compoundref="_condition_8java" startline="111" endline="113">ver14.SharedClasses.DBActions.Condition.wrap</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a54f3c3b6ec204c75a7f623422bfe6f2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>static Condition ver14.SharedClasses.DBActions.Condition.notEquals</definition>
+        <argsstring>(Object col, Object value)</argsstring>
+        <name>notEquals</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Condition.notEquals</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>col</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Not equals condition.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>col</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the col </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the condition </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Condition.java" line="159" column="29" bodyfile="DBActions/Condition.java" bodystart="159" bodyend="161"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" compoundref="_condition_8java" startline="33" endline="38">ver14.SharedClasses.DBActions.Condition.Condition</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref> - represents a condition.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Condition</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Condition</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/Condition.java" line="17" column="7" bodyfile="DBActions/Condition.java" bodystart="17" bodyend="218"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a6bda0c71b314fc4cac7261aa39928a17" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>add</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7c0621fedc3a0b60dd9b6c1d28d768fb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>add</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ad32a5f4f929f3a3a22da15a43c3ac94e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>and</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a7e6d40805f9df978b8ac3673a01d7e7d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>between</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a91cd770e74b27d93bbd19f1d81e09ed5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>Condition</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a3c79a501819b405cebe31308099fe87b" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>createValueStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a188caecd391753bd20e0b5bb178c9f6b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>equals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1ab1ca2b627de7d43407d355683888950e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>getStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1aedeacec6ec2025423774976014b2cd62" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>math</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1adf1cf554abd9124977e3c05d3a24b5f4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>noNulls</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a54f3c3b6ec204c75a7f623422bfe6f2a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>notEquals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a27dae6773af3bfec3198ed2f12883493" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>parms</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1afd670c373db68e4da1575f1582f5c279" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>setStr</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a57549d7a155c972b91f6474556c2a254" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>str</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a1ea35165c6ab0be1baae587d1b5021f1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1a73e0d58874a47c060bc768bd0ca457db" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Condition</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

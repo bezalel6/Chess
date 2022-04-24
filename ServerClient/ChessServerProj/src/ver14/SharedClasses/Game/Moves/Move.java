@@ -14,24 +14,66 @@ import ver14.SharedClasses.Game.PlayerColor;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Move extends BasicMove implements Comparable<Move> {
+    /**
+     * The constant NOT_CAPTURING.
+     */
     private static final PieceType NOT_CAPTURING = null;
     /**
-     * The Intermediate move.
+     * an Intermediate move, like moving the rook in a castling.
      */
     BasicMove intermediateMove;
 
+    /**
+     * The list that created this move.
+     */
     private MovesList creatorList = null;
+    /**
+     * The Move annotation.
+     */
     private String moveAnnotation = null;
+    /**
+     * The Threefold status.
+     */
     private ThreefoldStatus threefoldStatus;
+    /**
+     * the type of the piece this move captured.
+     */
     private PieceType capturingPieceType;
+    /**
+     * the en passant location just created (this move is a double pawn push)
+     */
     private Location enPassantLoc;
+    /**
+     * The Piece type this move is Promoting to.
+     */
     private PieceType promotingTo;
+    /**
+     * Is this move reversible.
+     */
     private boolean isReversible;
+    /**
+     * ths Move's evaluation.
+     */
     private Evaluation moveEvaluation;
+    /**
+     * The Move flag.
+     */
     private MoveFlag moveFlag;
+    /**
+     * The Moving player color.
+     */
     private PlayerColor movingPlayerColor;
+    /**
+     * The castling rights this move disabled.
+     */
     private byte disabledCastling;
+    /**
+     * The full move clock before making this move
+     */
     private int prevFullMoveClock;
+    /**
+     * The half move clock before making this move
+     */
     private int prevHalfMoveClock;
 
     /**
@@ -81,7 +123,6 @@ public class Move extends BasicMove implements Comparable<Move> {
     public Move(Move other) {
         super(other);
         this.moveAnnotation = other.moveAnnotation;
-//        this.creatorList = other.creatorList;
         this.disabledCastling = other.disabledCastling;
         this.movingPlayerColor = other.movingPlayerColor;
         this.capturingPieceType = other.capturingPieceType;
@@ -101,11 +142,11 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Castling move.
+     * creates a Castling move.
      *
      * @param movingFrom the moving from
      * @param movingTo   the moving to
-     * @param side       the side
+     * @param side       the castling side
      * @return the move
      */
     public static Move castling(Location movingFrom, Location movingTo, CastlingRights.Side side) {
@@ -142,8 +183,9 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
+
     /**
-     * Copy move move.
+     * Copy move.
      *
      * @param move the move
      * @return the move
@@ -170,6 +212,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.creatorList = creatorList;
     }
 
+
     /**
      * Sets move annotation.
      *
@@ -178,6 +221,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public void setMoveAnnotation(String moveAnnotation) {
         this.moveAnnotation = moveAnnotation;
     }
+
 
     /**
      * Gets disabled castling.
@@ -188,6 +232,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return disabledCastling;
     }
 
+
     /**
      * Sets disabled castling.
      *
@@ -197,12 +242,14 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.disabledCastling = disabledCastling;
     }
 
+
     /**
      * Sets threefold option.
      */
     public void setThreefoldOption() {
         threefoldStatus = ThreefoldStatus.CAN_CLAIM;
     }
+
 
     /**
      * Gets moving color.
@@ -213,6 +260,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return movingPlayerColor;
     }
 
+
     /**
      * Sets moving color.
      *
@@ -221,6 +269,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public void setMovingColor(PlayerColor movingPlayerColor) {
         this.movingPlayerColor = movingPlayerColor;
     }
+
 
     /**
      * Gets prev full move clock.
@@ -231,6 +280,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return prevFullMoveClock;
     }
 
+
     /**
      * Sets prev full move clock.
      *
@@ -240,6 +290,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.prevFullMoveClock = prevFullMoveClock;
     }
 
+
     /**
      * Gets prev half move clock.
      *
@@ -248,6 +299,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public int getPrevHalfMoveClock() {
         return prevHalfMoveClock;
     }
+
 
     /**
      * Sets prev half move clock.
@@ -349,6 +401,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return isReversible;
     }
 
+
     /**
      * Sets reversible.
      *
@@ -368,6 +421,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return capturingPieceType != NOT_CAPTURING;
     }
 
+
     /**
      * Sets capturing.
      *
@@ -376,6 +430,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public void setCapturing(PieceType pieceType) {
         this.capturingPieceType = pieceType;
     }
+
 
     /**
      * Equals boolean.
@@ -389,6 +444,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return o instanceof BasicMove basicMove && super.equals(basicMove);
 
     }
+
 
     /**
      * To string string.
@@ -410,7 +466,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Strict equals boolean.
+     * checks source and destination equals and move flags equals.
      *
      * @param move the move
      * @return the boolean
@@ -428,6 +484,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return moveFlag;
     }
 
+
     /**
      * Sets move flag.
      *
@@ -438,10 +495,10 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Compare to int.
+     * Compare to another move.
      *
-     * @param o the o
-     * @return the int
+     * @param o the other move
+     * @return the comparison result
      */
     @Override
     public int compareTo(Move o) {
@@ -455,6 +512,12 @@ public class Move extends BasicMove implements Comparable<Move> {
         return Double.compare(guessEval(), o.guessEval());
     }
 
+    /**
+     * Guess eval double.
+     * used to estimate how good (or bad) a move can be, in order to sort the moves before making any of them, in some situations in the minimax
+     *
+     * @return the double
+     */
     private double guessEval() {
         double ret = 0;
 //        if (disabledCastling != 0 && movingPlayerColor != null) {
@@ -482,6 +545,7 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
+
     /**
      * Gets en passant loc.
      *
@@ -490,6 +554,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     public Location getEnPassantLoc() {
         return enPassantLoc;
     }
+
 
     /**
      * Sets en passant loc.
@@ -501,35 +566,22 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
 
-    /**
-     * Gets threefold status.
-     *
-     * @return the threefold status
-     */
     public ThreefoldStatus getThreefoldStatus() {
         return threefoldStatus;
     }
 
-    /**
-     * Sets threefold status.
-     *
-     * @param threefoldStatus the threefold status
-     */
+
     public void setThreefoldStatus(ThreefoldStatus threefoldStatus) {
         this.threefoldStatus = threefoldStatus;
     }
 
-    /**
-     * Gets game status str.
-     *
-     * @return the game status str
-     */
+
     public String getGameStatusStr() {
         return moveEvaluation != null ? moveEvaluation.getGameStatus().getGameStatusType().annotation : "";
     }
 
     /**
-     * Threefold status - .
+     * Threefold status - represents a threefold draw status.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
@@ -549,7 +601,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Move flag - .
+     * Move flag - which type of move this is.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
@@ -596,25 +648,33 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
 
         /**
-         * The Is castling.
+         * Is this move flag a castling flag.
          */
         public final boolean isCastling;
         /**
-         * The Castling side.
+         * if this is a castling flag, which side is it.
          */
         public final CastlingRights.Side castlingSide;
 
+        /**
+         * Instantiates a new Move flag.
+         */
         MoveFlag() {
             this(null);
         }
 
+        /**
+         * Instantiates a new Move flag.
+         *
+         * @param side the side
+         */
         MoveFlag(CastlingRights.Side side) {
             this.isCastling = side != null;
             this.castlingSide = side;
         }
 
         /**
-         * Equals boolean.
+         * checks if the flags are equals.
          *
          * @param myMove    the my move
          * @param otherMove the other move

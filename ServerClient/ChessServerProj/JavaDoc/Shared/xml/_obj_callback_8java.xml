@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_obj_callback_8java" kind="file" language="Java">
+    <compoundname>ObjCallback.java</compoundname>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" prot="public">ver14::SharedClasses::Callbacks::ObjCallback</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_callbacks">ver14::SharedClasses::Callbacks</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">ver14.SharedClasses.Callbacks;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Supplier;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt;T&gt;<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>Supplier&lt;T&gt;<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Callbacks/ObjCallback.java"/>
+  </compounddef>
+</doxygen>

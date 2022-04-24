@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_dialogs_1_1_message_dialogs" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::UI::FontManager::Dialogs::MessageDialogs</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_dialogs_1_1_message_dialogs_1ac90318dc1c8a5d266bf07024fc3bfc8a" prot="public" static="yes" mutable="no">
+        <type>final Font</type>
+        <definition>final Font ver14.SharedClasses.UI.FontManager.Dialogs.MessageDialogs.error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Dialogs.MessageDialogs.error</qualifiedname>
+        <initializer>= Base.error</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="66" column="38" bodyfile="UI/FontManager.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_dialogs_1_1_message_dialogs_1a76a2b9f1d058cbf0ddcf5aca1839cc4d" prot="public" static="yes" mutable="no">
+        <type>final Font</type>
+        <definition>final Font ver14.SharedClasses.UI.FontManager.Dialogs.MessageDialogs.info</definition>
+        <argsstring></argsstring>
+        <name>info</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Dialogs.MessageDialogs.info</qualifiedname>
+        <initializer>= Base.normal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="67" column="38" bodyfile="UI/FontManager.java" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UI/FontManager.java" line="65" column="23" bodyfile="UI/FontManager.java" bodystart="65" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_dialogs_1_1_message_dialogs_1ac90318dc1c8a5d266bf07024fc3bfc8a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Dialogs::MessageDialogs</scope><name>error</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_dialogs_1_1_message_dialogs_1a76a2b9f1d058cbf0ddcf5aca1839cc4d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Dialogs::MessageDialogs</scope><name>info</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

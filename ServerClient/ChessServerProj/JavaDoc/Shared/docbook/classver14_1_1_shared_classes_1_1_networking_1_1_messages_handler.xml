@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler" xml:lang="en-US">
+<title>ver14.SharedClasses.Networking.MessagesHandler Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ae3ffd5d71288c2db6f268303a3705e3d">MessagesHandler</link> (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_app_socket">AppSocket</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a82b164b2ae5cc99faea0a5ee3b80bf59">socket</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a53a3339c08c48ddc423ff3c9eb2da145">onCancelQuestion</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a63649ffe07590c468f24e90cc2b8eb89">interruptBlocking</link> (<link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error">MyError</link> err)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a322717de420870a7e3e216afeedafee3">blockTilRes</link> (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> request)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a4254933c1afde5c63390e5cd89c278c0">noBlockRequest</link> (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> request, <link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> onRes)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ab94e933b3bb06471c37ff681e18af629">receivedMessage</link> (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> message)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a3b16c40a9f560151dfb7d728f98f24f3">prepareForDisconnect</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a54fad1408e735838ebc0fb0f0e9a3bd3">onAnyMsg</link> (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> message)</para>
+</listitem>
+            <listitem><para>final void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a1a450851e5fa4c69f3979ff0beb4377f">onDisconnected</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aa1a26869e72e8a625337e96a3936368a">onLogin</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a31b11ce18c6e30c9404ff9c4743f399c">onResign</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1abac76a0c9eef41e46156b3a110228945">onAddTime</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aced54a0ae62f5709d0520f130b8a90cf">onOfferDraw</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a7ad415ca5b78b43b83579a2156325741">onWelcomeMessage</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac537edfa353af9f7b1318962a362ddce">onGetGameSettings</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1adb72b608136a08062a8f59937e62eb77">onWaitForMatch</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a3ea21061509d615a5e2c760c94b75fd4">onInitGame</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a7065894e969f8e6f94aae02cffaabb66">onWaitTurn</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aec1b91c1caa98336d436efbaa90e63e1">onGetMove</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a10c07a2ff664b6641d39ed87045dcce8">onUpdateByMove</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a5c6541579af09afd736d861a2f3f6fa6">onGameOver</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1af48b769d53a4fa757f4b32060fb954f3">onError</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac6df5994dab1f889c9e60932016c0cdf">onQuestion</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac89521da4195988457aad69bd9e074b5">onBye</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a447dabd2cc73a19baf22cc5a5671b90e">onUsernameAvailability</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1adb7d133a077451d913835392a0f603de">onDBRequest</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a12c8be70edbd75dbbe59fc50429bea2c">onDBResponse</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a712ac873ae8a06d21c5548d37dfe3403">onUpdateSyncedList</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aacdd6e1e56aed5baf2c1e9c0e8d3b939">onInterrupt</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a2aa503b01076fe03aff603a5e719fc97">onIsAlive</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1abd626ad33f5ecd3e06d6cc1655085e7e">onAlive</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a146a70f0442371a9155e25a944794662">onAnyDisconnection</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a09740772e06b8c51a9245dba5225263e">onPlannedDisconnect</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a9fdddcf1cd4741776031797cad0a3eb8">onUnplannedDisconnect</link> ()</para>
+</listitem>
+            <listitem><para>MyError.DisconnectedError <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a54faa0e1f20020a343006b9b063383af">createDisconnectedError</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_app_socket">AppSocket</link> <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a82b164b2ae5cc99faea0a5ee3b80bf59">socket</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The type Messages handler.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ae3ffd5d71288c2db6f268303a3705e3d"/><section>
+    <title>MessagesHandler()</title>
+<indexterm><primary>MessagesHandler</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>MessagesHandler</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Networking.MessagesHandler.MessagesHandler (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_app_socket">AppSocket</link> socket)</computeroutput></para>
+<para>Instantiates a new Messages handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>socket</entry><entry>
+<para>the socket </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a322717de420870a7e3e216afeedafee3"/><section>
+    <title>blockTilRes()</title>
+<indexterm><primary>blockTilRes</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>blockTilRes</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> ver14.SharedClasses.Networking.MessagesHandler.blockTilRes (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> request)</computeroutput></para>
+<para>Block til res message.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>the request </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the message </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a54faa0e1f20020a343006b9b063383af"/><section>
+    <title>createDisconnectedError()</title>
+<indexterm><primary>createDisconnectedError</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>createDisconnectedError</secondary></indexterm>
+<para><computeroutput>MyError.DisconnectedError ver14.SharedClasses.Networking.MessagesHandler.createDisconnectedError ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Create disconnected error my error . disconnected error.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the my error . disconnected error </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a63649ffe07590c468f24e90cc2b8eb89"/><section>
+    <title>interruptBlocking()</title>
+<indexterm><primary>interruptBlocking</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>interruptBlocking</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.interruptBlocking (<link linkend="_classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error">MyError</link> err)</computeroutput></para>
+<para>Interrupt blocking.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>err</entry><entry>
+<para>the err </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a4254933c1afde5c63390e5cd89c278c0"/><section>
+    <title>noBlockRequest()</title>
+<indexterm><primary>noBlockRequest</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>noBlockRequest</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.noBlockRequest (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> request, <link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> onRes)</computeroutput></para>
+<para>No block request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>request</entry><entry>
+<para>the request </para>
+</entry>
+                            </row>
+                            <row>
+<entry>onRes</entry><entry>
+<para>the on res </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1abac76a0c9eef41e46156b3a110228945"/><section>
+    <title>onAddTime()</title>
+<indexterm><primary>onAddTime</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onAddTime</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onAddTime ( )</computeroutput></para>
+<para>On add time message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1abd626ad33f5ecd3e06d6cc1655085e7e"/><section>
+    <title>onAlive()</title>
+<indexterm><primary>onAlive</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onAlive</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onAlive ( )</computeroutput></para>
+<para>On alive message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a146a70f0442371a9155e25a944794662"/><section>
+    <title>onAnyDisconnection()</title>
+<indexterm><primary>onAnyDisconnection</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onAnyDisconnection</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.onAnyDisconnection ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>On any disconnection. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a54fad1408e735838ebc0fb0f0e9a3bd3"/><section>
+    <title>onAnyMsg()</title>
+<indexterm><primary>onAnyMsg</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onAnyMsg</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.onAnyMsg (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> message)</computeroutput></para>
+<para>On any msg.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac89521da4195988457aad69bd9e074b5"/><section>
+    <title>onBye()</title>
+<indexterm><primary>onBye</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onBye</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onBye ( )</computeroutput></para>
+<para>On bye message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a53a3339c08c48ddc423ff3c9eb2da145"/><section>
+    <title>onCancelQuestion()</title>
+<indexterm><primary>onCancelQuestion</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onCancelQuestion</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onCancelQuestion ( )</computeroutput></para>
+<para>On cancel question message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1adb7d133a077451d913835392a0f603de"/><section>
+    <title>onDBRequest()</title>
+<indexterm><primary>onDBRequest</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onDBRequest</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onDBRequest ( )</computeroutput></para>
+<para>On db request message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a12c8be70edbd75dbbe59fc50429bea2c"/><section>
+    <title>onDBResponse()</title>
+<indexterm><primary>onDBResponse</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onDBResponse</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onDBResponse ( )</computeroutput></para>
+<para>On db response message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a1a450851e5fa4c69f3979ff0beb4377f"/><section>
+    <title>onDisconnected()</title>
+<indexterm><primary>onDisconnected</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onDisconnected</secondary></indexterm>
+<para><computeroutput>final void ver14.SharedClasses.Networking.MessagesHandler.onDisconnected ( )</computeroutput></para>
+<para>On disconnected. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1af48b769d53a4fa757f4b32060fb954f3"/><section>
+    <title>onError()</title>
+<indexterm><primary>onError</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onError</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onError ( )</computeroutput></para>
+<para>On error message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a5c6541579af09afd736d861a2f3f6fa6"/><section>
+    <title>onGameOver()</title>
+<indexterm><primary>onGameOver</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onGameOver</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onGameOver ( )</computeroutput></para>
+<para>On game over message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac537edfa353af9f7b1318962a362ddce"/><section>
+    <title>onGetGameSettings()</title>
+<indexterm><primary>onGetGameSettings</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onGetGameSettings</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onGetGameSettings ( )</computeroutput></para>
+<para>On get game settings message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aec1b91c1caa98336d436efbaa90e63e1"/><section>
+    <title>onGetMove()</title>
+<indexterm><primary>onGetMove</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onGetMove</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onGetMove ( )</computeroutput></para>
+<para>On get move message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a3ea21061509d615a5e2c760c94b75fd4"/><section>
+    <title>onInitGame()</title>
+<indexterm><primary>onInitGame</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onInitGame</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onInitGame ( )</computeroutput></para>
+<para>On init game message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aacdd6e1e56aed5baf2c1e9c0e8d3b939"/><section>
+    <title>onInterrupt()</title>
+<indexterm><primary>onInterrupt</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onInterrupt</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onInterrupt ( )</computeroutput></para>
+<para>On interrupt message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a2aa503b01076fe03aff603a5e719fc97"/><section>
+    <title>onIsAlive()</title>
+<indexterm><primary>onIsAlive</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onIsAlive</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onIsAlive ( )</computeroutput></para>
+<para>On is alive message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aa1a26869e72e8a625337e96a3936368a"/><section>
+    <title>onLogin()</title>
+<indexterm><primary>onLogin</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onLogin</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onLogin ( )</computeroutput></para>
+<para>On login message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aced54a0ae62f5709d0520f130b8a90cf"/><section>
+    <title>onOfferDraw()</title>
+<indexterm><primary>onOfferDraw</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onOfferDraw</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onOfferDraw ( )</computeroutput></para>
+<para>On offer draw message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a09740772e06b8c51a9245dba5225263e"/><section>
+    <title>onPlannedDisconnect()</title>
+<indexterm><primary>onPlannedDisconnect</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onPlannedDisconnect</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.onPlannedDisconnect ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>On planned disconnect. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ac6df5994dab1f889c9e60932016c0cdf"/><section>
+    <title>onQuestion()</title>
+<indexterm><primary>onQuestion</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onQuestion</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onQuestion ( )</computeroutput></para>
+<para>On question message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a31b11ce18c6e30c9404ff9c4743f399c"/><section>
+    <title>onResign()</title>
+<indexterm><primary>onResign</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onResign</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onResign ( )</computeroutput></para>
+<para>On resign message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a9fdddcf1cd4741776031797cad0a3eb8"/><section>
+    <title>onUnplannedDisconnect()</title>
+<indexterm><primary>onUnplannedDisconnect</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onUnplannedDisconnect</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.onUnplannedDisconnect ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>On unplanned disconnect. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a10c07a2ff664b6641d39ed87045dcce8"/><section>
+    <title>onUpdateByMove()</title>
+<indexterm><primary>onUpdateByMove</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onUpdateByMove</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onUpdateByMove ( )</computeroutput></para>
+<para>On update by move message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a712ac873ae8a06d21c5548d37dfe3403"/><section>
+    <title>onUpdateSyncedList()</title>
+<indexterm><primary>onUpdateSyncedList</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onUpdateSyncedList</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onUpdateSyncedList ( )</computeroutput></para>
+<para>On update synced list message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a447dabd2cc73a19baf22cc5a5671b90e"/><section>
+    <title>onUsernameAvailability()</title>
+<indexterm><primary>onUsernameAvailability</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onUsernameAvailability</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onUsernameAvailability ( )</computeroutput></para>
+<para>On username availability message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1adb72b608136a08062a8f59937e62eb77"/><section>
+    <title>onWaitForMatch()</title>
+<indexterm><primary>onWaitForMatch</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onWaitForMatch</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onWaitForMatch ( )</computeroutput></para>
+<para>On wait for match message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a7065894e969f8e6f94aae02cffaabb66"/><section>
+    <title>onWaitTurn()</title>
+<indexterm><primary>onWaitTurn</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onWaitTurn</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onWaitTurn ( )</computeroutput></para>
+<para>On wait turn message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a7ad415ca5b78b43b83579a2156325741"/><section>
+    <title>onWelcomeMessage()</title>
+<indexterm><primary>onWelcomeMessage</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>onWelcomeMessage</secondary></indexterm>
+<para><computeroutput><link linkend="_interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback">MessageCallback</link> ver14.SharedClasses.Networking.MessagesHandler.onWelcomeMessage ( )</computeroutput></para>
+<para>On welcome message message callback.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the message callback </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a3b16c40a9f560151dfb7d728f98f24f3"/><section>
+    <title>prepareForDisconnect()</title>
+<indexterm><primary>prepareForDisconnect</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>prepareForDisconnect</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.prepareForDisconnect ( )</computeroutput></para>
+<para>Prepare for disconnect. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ab94e933b3bb06471c37ff681e18af629"/><section>
+    <title>receivedMessage()</title>
+<indexterm><primary>receivedMessage</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>receivedMessage</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Networking.MessagesHandler.receivedMessage (<link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message">Message</link> message)</computeroutput></para>
+<para>Received message.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>message</entry><entry>
+<para>the message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a82b164b2ae5cc99faea0a5ee3b80bf59"/><section>
+    <title>socket</title>
+<indexterm><primary>socket</primary><secondary>ver14.SharedClasses.Networking.MessagesHandler</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Networking.MessagesHandler</primary><secondary>socket</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_networking_1_1_app_socket">AppSocket</link> ver14.SharedClasses.Networking.MessagesHandler.socket<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The Socket. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Networking/MessagesHandler.java</section>
+</section>

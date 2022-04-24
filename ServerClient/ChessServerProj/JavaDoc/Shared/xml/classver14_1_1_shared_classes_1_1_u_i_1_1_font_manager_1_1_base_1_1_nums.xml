@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums" kind="class" language="Java" prot="package">
+    <compoundname>ver14::SharedClasses::UI::FontManager::Base::Nums</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a673573d7c553cbdad4792a9d01dabc04" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.UI.FontManager.Base.Nums.inc</definition>
+        <argsstring></argsstring>
+        <name>inc</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Base.Nums.inc</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="99" column="38" bodyfile="UI/FontManager.java" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a9239a68389c4831a8b712f42a9f9161f" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.UI.FontManager.Base.Nums.smallSize</definition>
+        <argsstring></argsstring>
+        <name>smallSize</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Base.Nums.smallSize</qualifiedname>
+        <initializer>= 14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="101" column="38" bodyfile="UI/FontManager.java" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a4fab59036fe5530e74bbc65fa18c7b67" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.UI.FontManager.Base.Nums.normalSize</definition>
+        <argsstring></argsstring>
+        <name>normalSize</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Base.Nums.normalSize</qualifiedname>
+        <initializer>= smallSize + inc</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="103" column="38" bodyfile="UI/FontManager.java" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a1042e6e7c2d91ac83c07f5e7df99cd57" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.UI.FontManager.Base.Nums.largeSize</definition>
+        <argsstring></argsstring>
+        <name>largeSize</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Base.Nums.largeSize</qualifiedname>
+        <initializer>= normalSize + inc</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="105" column="38" bodyfile="UI/FontManager.java" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a0cf0e24bdd858db8b0dbc99e3748f711" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.UI.FontManager.Base.Nums.xLargeSize</definition>
+        <argsstring></argsstring>
+        <name>xLargeSize</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.Base.Nums.xLargeSize</qualifiedname>
+        <initializer>= largeSize + inc</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="107" column="38" bodyfile="UI/FontManager.java" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UI/FontManager.java" line="98" column="16" bodyfile="UI/FontManager.java" bodystart="98" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a673573d7c553cbdad4792a9d01dabc04" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Base::Nums</scope><name>inc</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a1042e6e7c2d91ac83c07f5e7df99cd57" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Base::Nums</scope><name>largeSize</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a4fab59036fe5530e74bbc65fa18c7b67" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Base::Nums</scope><name>normalSize</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a9239a68389c4831a8b712f42a9f9161f" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Base::Nums</scope><name>smallSize</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_base_1_1_nums_1a0cf0e24bdd858db8b0dbc99e3748f711" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::Base::Nums</scope><name>xLargeSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

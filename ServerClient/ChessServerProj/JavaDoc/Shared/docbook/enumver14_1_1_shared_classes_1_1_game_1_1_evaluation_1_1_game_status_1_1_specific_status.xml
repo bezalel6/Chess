@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1acbc4a1f73de8d7d96b541e67e704a27a">SpecificStatus</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa9ea338c484c7dcf416aec6ca7fc8186">SpecificStatus</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type">GameStatusType</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5d2e8109d12e09cf4b933bf23779b4fa">gameStatusType</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a6eb6b83d9a1e27279a24b4376fdf7f57">Checkmate</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a87d85e6db053de782bc33eb4de4c9a97">TimedOut</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5931de5356f3258fe7a3d13818771c79">TimedOutVsInsufficientMaterial</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ab880c59df223dcad392f669b9a217f34">Resignation</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a0d2ee86ee8ad7edfa6e0bc64ad53e9e2">GameGoesOn</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ad7a453e5c22a47e467615679fa945494">GameStatusType.GAME_GOES_ON</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1af48c3d8187eb60f3554bcf8f3079f0c8">ThreeFoldRepetition</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a4c0bdf841f6cbca541c2c78e9cd6712e">Stalemate</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ac9904c0b069776a024730edabae0a174">InsufficientMaterial</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a1af70323e7925e32b45cbec47bc87796">FiftyMoveRule</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a3a1ff8c4d5ad449ee8be3ebed4ab545b">TieByAgreement</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b">PlayerDisconnectedVsAi</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d">PlayerDisconnectedVsReal</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795">ServerStoppedGame</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</para>
+</listitem>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type">GameStatusType</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5d2e8109d12e09cf4b933bf23779b4fa">gameStatusType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Specific status - specific game status .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1acbc4a1f73de8d7d96b541e67e704a27a"/><section>
+    <title>SpecificStatus()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>SpecificStatus</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>SpecificStatus</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus ( )</computeroutput></para>
+<para>Instantiates a new Specific status. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa9ea338c484c7dcf416aec6ca7fc8186"/><section>
+    <title>SpecificStatus()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>SpecificStatus</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>SpecificStatus</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type">GameStatusType</link> gameStatusType)</computeroutput></para>
+<para>Instantiates a new Specific status.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>gameStatusType</entry><entry>
+<para>the game status type </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a6eb6b83d9a1e27279a24b4376fdf7f57"/><section>
+    <title>Checkmate</title>
+<indexterm><primary>Checkmate</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>Checkmate</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Checkmate</computeroutput></para>
+<para>Checkmate. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a1af70323e7925e32b45cbec47bc87796"/><section>
+    <title>FiftyMoveRule</title>
+<indexterm><primary>FiftyMoveRule</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>FiftyMoveRule</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.FiftyMoveRule =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</computeroutput></para>
+<para>Fifty move rule. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a0d2ee86ee8ad7edfa6e0bc64ad53e9e2"/><section>
+    <title>GameGoesOn</title>
+<indexterm><primary>GameGoesOn</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>GameGoesOn</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.GameGoesOn =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ad7a453e5c22a47e467615679fa945494">GameStatusType.GAME_GOES_ON</link>)</computeroutput></para>
+<para>Game goes on . </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5d2e8109d12e09cf4b933bf23779b4fa"/><section>
+    <title>gameStatusType</title>
+<indexterm><primary>gameStatusType</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>gameStatusType</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type">GameStatusType</link> ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.gameStatusType</computeroutput></para>
+<para>The Game status type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ac9904c0b069776a024730edabae0a174"/><section>
+    <title>InsufficientMaterial</title>
+<indexterm><primary>InsufficientMaterial</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>InsufficientMaterial</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.InsufficientMaterial =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</computeroutput></para>
+<para>Insufficient material. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b"/><section>
+    <title>PlayerDisconnectedVsAi</title>
+<indexterm><primary>PlayerDisconnectedVsAi</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>PlayerDisconnectedVsAi</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsAi</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=(GameStatusType.UNFINISHED)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link>()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Player&#32;Disconnected&quot;</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Player disconnected vs ai. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d"/><section>
+    <title>PlayerDisconnectedVsReal</title>
+<indexterm><primary>PlayerDisconnectedVsReal</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>PlayerDisconnectedVsReal</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsReal</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link>()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Other&#32;Player&#32;Disconnected&quot;</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Player disconnected vs real. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ab880c59df223dcad392f669b9a217f34"/><section>
+    <title>Resignation</title>
+<indexterm><primary>Resignation</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>Resignation</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Resignation</computeroutput></para>
+<para>Resignation. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795"/><section>
+    <title>ServerStoppedGame</title>
+<indexterm><primary>ServerStoppedGame</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>ServerStoppedGame</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ServerStoppedGame =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</computeroutput></para>
+<para>Server stopped game. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a4c0bdf841f6cbca541c2c78e9cd6712e"/><section>
+    <title>Stalemate</title>
+<indexterm><primary>Stalemate</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>Stalemate</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Stalemate =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</computeroutput></para>
+<para>Stalemate. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1af48c3d8187eb60f3554bcf8f3079f0c8"/><section>
+    <title>ThreeFoldRepetition</title>
+<indexterm><primary>ThreeFoldRepetition</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>ThreeFoldRepetition</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ThreeFoldRepetition =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">GameStatusType.TIE</link>)</computeroutput></para>
+<para>Three fold repetition. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a3a1ff8c4d5ad449ee8be3ebed4ab545b"/><section>
+    <title>TieByAgreement</title>
+<indexterm><primary>TieByAgreement</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>TieByAgreement</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TieByAgreement</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=(GameStatusType.TIE)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link>()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Agreement&quot;</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Tie by agreement. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a87d85e6db053de782bc33eb4de4c9a97"/><section>
+    <title>TimedOut</title>
+<indexterm><primary>TimedOut</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>TimedOut</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOut</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link>()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Time&#32;Out&quot;</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>Timed out. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5931de5356f3258fe7a3d13818771c79"/><section>
+    <title>TimedOutVsInsufficientMaterial</title>
+<indexterm><primary>TimedOutVsInsufficientMaterial</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</primary><secondary>TimedOutVsInsufficientMaterial</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOutVsInsufficientMaterial</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=(GameStatusType.TIE)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2">toString</link>()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Time&#32;Out&#32;vs&#32;Insufficient&#32;Material&quot;</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>Timed out vs insufficient material. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/Evaluation/GameStatus.java</section>
+</section>

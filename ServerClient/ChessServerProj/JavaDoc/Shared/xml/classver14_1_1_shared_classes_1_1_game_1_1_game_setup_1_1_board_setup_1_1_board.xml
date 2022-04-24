@@ -1,0 +1,596 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Iterable&lt; Square &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a0d39478689574914b4aa96dd561d54b7" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingFen</definition>
+        <argsstring></argsstring>
+        <name>startingFen</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingFen</qualifiedname>
+        <initializer>= &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant startingFen. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="23" column="32" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="23" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" compoundref="_board_8java" startline="92" endline="120">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a98480c2fc30e5545d8c9c443cc3d9667" compoundref="_board_8java" startline="127" endline="131">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingPos</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a43ae85fd92eb05768647b5dad49b5064" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+        <definition>final Board ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.example</definition>
+        <argsstring></argsstring>
+        <name>example</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.example</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref>() {{
+        <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" kindref="member">fenSetup</ref>(&quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1&quot;);
+    }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant example. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="27" column="31" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a091b6352a54fc7c4e2a9ae085abf3a51" prot="private" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref>, <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" kindref="compound">Square</ref> &gt;</type>
+        <definition>final Map&lt;Location, Square&gt; ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.boardMap</definition>
+        <argsstring></argsstring>
+        <name>boardMap</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.boardMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="32" column="23" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a8b3675c5c1689d182731152fff28f9fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</definition>
+        <argsstring>(Board other)</argsstring>
+        <name>Board</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the other </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="39" column="12" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="39" bodyend="44"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af2e08b2b654ac3d99f2b4b7e149cc280" compoundref="_board_8java" startline="62" endline="65">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setPiece</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a406904851645cd6da93d734175cebbdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</definition>
+        <argsstring>()</argsstring>
+        <name>Board</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="49" column="12" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="49" bodyend="54"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a98480c2fc30e5545d8c9c443cc3d9667" compoundref="_board_8java" startline="127" endline="131">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingPos</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af2e08b2b654ac3d99f2b4b7e149cc280" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setPiece</definition>
+        <argsstring>(Location loc, Piece piece)</argsstring>
+        <name>setPiece</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setPiece</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" kindref="compound">Piece</ref></type>
+          <declname>piece</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets piece.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>piece</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the piece </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="62" column="17" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="62" bodyend="65"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a2b1535146217f9cfd24f569d2434fa4a" compoundref="_square_8java" startline="75" endline="77">ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.setPiece</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a8b3675c5c1689d182731152fff28f9fd" compoundref="_board_8java" startline="39" endline="44">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" compoundref="_board_8java" startline="92" endline="120">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" kindref="compound">Square</ref></type>
+        <definition>Square ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</definition>
+        <argsstring>(Location loc)</argsstring>
+        <name>getSquare</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets square.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the square </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="73" column="19" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="73" bodyend="75"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a9af76158c1f00d65b88a534865add83e" compoundref="_board_8java" startline="173" endline="175">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab34739e8412590ca91bad40f805a86cf" compoundref="_board_8java" startline="140" endline="148">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getRow</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1afa8bb75ef235ef078ca3106a9658b07a" compoundref="_board_8java" startline="209" endline="211">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.isSquareEmpty</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af2e08b2b654ac3d99f2b4b7e149cc280" compoundref="_board_8java" startline="62" endline="65">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setPiece</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ad1e45a68a2e8998631f2d850cf7a2c8e" compoundref="_board_8java" startline="199" endline="201">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setSquareEmpty</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1adb21166fc4e4fbaf49cf2af88010dd6f" compoundref="_board_8java" startline="219" endline="241">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.toString</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a997bbbe3c2cdc13e6912f1516612980b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</definition>
+        <argsstring>(String fen)</argsstring>
+        <name>Board</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fen </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="82" column="12" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="82" bodyend="85"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" compoundref="_board_8java" startline="92" endline="120">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</definition>
+        <argsstring>(String fen)</argsstring>
+        <name>fenSetup</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fen setup.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fen </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="92" column="17" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="92" bodyend="120"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c" compoundref="_location_8java" startline="150" endline="152">ver14.SharedClasses.Game.Location.getLoc</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a8d98589a91d83ab74d4d609c7bdd95c5" compoundref="_piece_8java" startline="104" endline="116">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceFromFen</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af2e08b2b654ac3d99f2b4b7e149cc280" compoundref="_board_8java" startline="62" endline="65">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setPiece</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a0d39478689574914b4aa96dd561d54b7" compoundref="_board_8java" startline="23">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingFen</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a997bbbe3c2cdc13e6912f1516612980b" compoundref="_board_8java" startline="82" endline="85">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a98480c2fc30e5545d8c9c443cc3d9667" compoundref="_board_8java" startline="127" endline="131">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingPos</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab34739e8412590ca91bad40f805a86cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" kindref="compound">Square</ref>[]</type>
+        <definition>Square[] ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getRow</definition>
+        <argsstring>(int row, boolean flipLocs)</argsstring>
+        <name>getRow</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>flipLocs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get row square [ ].</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the row </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flipLocs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the flip locs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the square [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="140" column="19" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="140" bodyend="148"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c" compoundref="_location_8java" startline="150" endline="152">ver14.SharedClasses.Game.Location.getLoc</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ae3c33f9cc41e101e29fd806dde12c3f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" kindref="compound">Piece</ref></type>
+        <definition>Piece ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</definition>
+        <argsstring>(Location loc, boolean notNull)</argsstring>
+        <name>getPiece</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>notNull</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets piece.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>notNull</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the not null </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the piece </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="161" column="18" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="161" bodyend="165"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ae3c33f9cc41e101e29fd806dde12c3f2" compoundref="_board_8java" startline="161" endline="165">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ae3c33f9cc41e101e29fd806dde12c3f2" compoundref="_board_8java" startline="161" endline="165">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a9af76158c1f00d65b88a534865add83e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece" kindref="compound">Piece</ref></type>
+        <definition>Piece ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</definition>
+        <argsstring>(Location loc)</argsstring>
+        <name>getPiece</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getPiece</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets piece.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the piece </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="173" column="18" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="173" bodyend="175"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aeafe4e046e4285f3133bdc3bc2b8cdc7" compoundref="_square_8java" startline="66" endline="68">ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.getPiece</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af30f1c130e2608a0347569460a1af15d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.print</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Print. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="180" column="17" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a91dfa679e21c52e13969900180c7d282" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Iterator&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" kindref="compound">Square</ref> &gt;</type>
+        <definition>Iterator&lt; Square &gt; ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.iterator</definition>
+        <argsstring>()</argsstring>
+        <name>iterator</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterator iterator.</para>
+<para><simplesect kind="return"><para>the iterator </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="190" column="21" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="190" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ad1e45a68a2e8998631f2d850cf7a2c8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setSquareEmpty</definition>
+        <argsstring>(Location loc)</argsstring>
+        <name>setSquareEmpty</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.setSquareEmpty</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets square empty.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="199" column="17" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="199" bodyend="201"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aaba9de315ec16f78a4684affa2cb7eb7" compoundref="_square_8java" startline="46" endline="48">ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.setEmpty</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1afa8bb75ef235ef078ca3106a9658b07a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.isSquareEmpty</definition>
+        <argsstring>(Location loc)</argsstring>
+        <name>isSquareEmpty</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.isSquareEmpty</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is square empty boolean.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="209" column="20" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="209" bodyend="211"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a08c1e62ce65187fc1efd4b495c8643d2" compoundref="_square_8java" startline="116" endline="118">ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.isEmpty</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1adb21166fc4e4fbaf49cf2af88010dd6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="219" column="19" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="219" bodyend="241"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c" compoundref="_location_8java" startline="150" endline="152">ver14.SharedClasses.Game.Location.getLoc</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" compoundref="_board_8java" startline="73" endline="75">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.getSquare</references>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac4fc87304b1cb709a31d5bd7bb59b485" compoundref="_location_8java" startline="316" endline="319">ver14.SharedClasses.Game.Location.toString</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a98480c2fc30e5545d8c9c443cc3d9667" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+        <definition>static Board ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingPos</definition>
+        <argsstring>()</argsstring>
+        <name>startingPos</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starting pos board.</para>
+<para><simplesect kind="return"><para>the board </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/BoardSetup/Board.java" line="127" column="25" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="127" bodyend="131"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a406904851645cd6da93d734175cebbdb" compoundref="_board_8java" startline="49" endline="54">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.Board</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" compoundref="_board_8java" startline="92" endline="120">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.fenSetup</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a0d39478689574914b4aa96dd561d54b7" compoundref="_board_8java" startline="23">ver14.SharedClasses.Game.GameSetup.BoardSetup.Board.startingFen</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref> - represents the logic board of the model</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Iterable&lt; Square &gt;</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Iterable&lt; Square &gt;</label>
+      </node>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>example</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Game.GameSetup.BoardSetup.Board</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>example</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/GameSetup/BoardSetup/Board.java" line="17" column="7" bodyfile="Game/GameSetup/BoardSetup/Board.java" bodystart="17" bodyend="243"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a8b3675c5c1689d182731152fff28f9fd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>Board</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a406904851645cd6da93d734175cebbdb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>Board</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a997bbbe3c2cdc13e6912f1516612980b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>Board</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a091b6352a54fc7c4e2a9ae085abf3a51" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>boardMap</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a43ae85fd92eb05768647b5dad49b5064" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>example</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab432a7c9aa9f34db15b4b6fcc31cd24f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>fenSetup</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ae3c33f9cc41e101e29fd806dde12c3f2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>getPiece</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a9af76158c1f00d65b88a534865add83e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>getPiece</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ab34739e8412590ca91bad40f805a86cf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>getRow</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1aaa6507254aebb1c9fffde0396a3bbbce" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>getSquare</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1afa8bb75ef235ef078ca3106a9658b07a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>isSquareEmpty</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a91dfa679e21c52e13969900180c7d282" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>iterator</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af30f1c130e2608a0347569460a1af15d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>print</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1af2e08b2b654ac3d99f2b4b7e149cc280" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>setPiece</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1ad1e45a68a2e8998631f2d850cf7a2c8e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>setSquareEmpty</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a0d39478689574914b4aa96dd561d54b7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>startingFen</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1a98480c2fc30e5545d8c9c443cc3d9667" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>startingPos</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board_1adb21166fc4e4fbaf49cf2af88010dd6f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

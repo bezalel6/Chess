@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Threads::ErrorHandling::ThrowingRunnable</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable_1a80132f6979ad8afc9b35361f664b5006" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable.run</qualifiedname>
+        <exceptions> throws Throwable</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/ThrowingRunnable.java" line="23" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Threads/ErrorHandling/ThrowingRunnable.java" line="22" column="18" bodyfile="Threads/ErrorHandling/ThrowingRunnable.java" bodystart="22" bodyend="24"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable_1a80132f6979ad8afc9b35361f664b5006" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::ThrowingRunnable</scope><name>run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

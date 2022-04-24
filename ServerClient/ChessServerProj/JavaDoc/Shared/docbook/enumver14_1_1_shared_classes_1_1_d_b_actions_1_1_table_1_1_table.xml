@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Table.Table Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1abf40fab3dfe704bfc5b4cbfef9609599">Table</link> (Col... <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1abd3c07e3b41401b27b704288b3c37223">cols</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1a0512ef8a2d6d506ed58c8e3b9ca59536">tableAndValues</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1aa44292b29bc3be05e090a61ef5466092">escapeValues</link> (Object[] values, boolean quotes, boolean parentheses)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1ad8941280abcce38abc8c61a11f9d6f43">Games</link> =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">Col.GameID</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f">Col.Player1</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7">Col.Player2</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">Col.SavedGame</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a1e73e3b67720f4a602282216926edb88">Col.Winner</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1adb2ec0557e10540a1a54c4161a82db2a">UnfinishedGames</link> =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">Col.GameID</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f">Col.Player1</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7">Col.Player2</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">Col.SavedGame</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad13c19bab6b1ffd4c83511f7cac2b78c">Col.PlayerToMove</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1a9394f25ed16abcd69247fadd26740572">Users</link> =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1afcd564a5ba8ab7caed43fcb8a6650f68">Col.Username</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad73ef4e3ca81f5e314662e650f49a9fd">Col.Password</link>)</para>
+</listitem>
+            <listitem><para>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>[] <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1abd3c07e3b41401b27b704288b3c37223">cols</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> - represents the tables in the db.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1abf40fab3dfe704bfc5b4cbfef9609599"/><section>
+    <title>Table()</title>
+<indexterm><primary>Table</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>Table</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Table.Table (Col... cols)</computeroutput></para>
+<para>Instantiates a new <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>cols</entry><entry>
+<para>the cols </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1aa44292b29bc3be05e090a61ef5466092"/><section>
+    <title>escapeValues()</title>
+<indexterm><primary>escapeValues</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>escapeValues</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Table.escapeValues (Object[] values, boolean quotes, boolean parentheses)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Escape values string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>values</entry><entry>
+<para>the values </para>
+</entry>
+                            </row>
+                            <row>
+<entry>quotes</entry><entry>
+<para>quotes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>parentheses</entry><entry>
+<para>parentheses </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the escaped string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1a0512ef8a2d6d506ed58c8e3b9ca59536"/><section>
+    <title>tableAndValues()</title>
+<indexterm><primary>tableAndValues</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>tableAndValues</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Table.tableAndValues ( )</computeroutput></para>
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> and values string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1abd3c07e3b41401b27b704288b3c37223"/><section>
+    <title>cols</title>
+<indexterm><primary>cols</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>cols</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> [] ver14.SharedClasses.DBActions.Table.Table.cols</computeroutput></para>
+<para>The Cols in this table </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1ad8941280abcce38abc8c61a11f9d6f43"/><section>
+    <title>Games</title>
+<indexterm><primary>Games</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>Games</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Table.Games =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">Col.GameID</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f">Col.Player1</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7">Col.Player2</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">Col.SavedGame</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a1e73e3b67720f4a602282216926edb88">Col.Winner</link>)</computeroutput></para>
+<para>Games table. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1adb2ec0557e10540a1a54c4161a82db2a"/><section>
+    <title>UnfinishedGames</title>
+<indexterm><primary>UnfinishedGames</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>UnfinishedGames</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Table.UnfinishedGames =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">Col.GameID</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f">Col.Player1</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7">Col.Player2</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">Col.SavedGame</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad13c19bab6b1ffd4c83511f7cac2b78c">Col.PlayerToMove</link>)</computeroutput></para>
+<para>Unfinished games table. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table_1a9394f25ed16abcd69247fadd26740572"/><section>
+    <title>Users</title>
+<indexterm><primary>Users</primary><secondary>ver14.SharedClasses.DBActions.Table.Table</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Table</primary><secondary>Users</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Table.Users =(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1afcd564a5ba8ab7caed43fcb8a6650f68">Col.Username</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad73ef4e3ca81f5e314662e650f49a9fd">Col.Password</link>)</computeroutput></para>
+<para>Users table. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+DBActions/Table/Table.java</section>
+</section>

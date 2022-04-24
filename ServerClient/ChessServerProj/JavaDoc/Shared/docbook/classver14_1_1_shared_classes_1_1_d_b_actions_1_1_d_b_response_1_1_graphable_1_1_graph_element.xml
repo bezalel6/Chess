@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1acc8494c7ba8ef409b4b13c6564b91546"/><emphasis role="strong">GraphElement</emphasis> (double num, String name, <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_type">GraphElementType</link> graphElementType)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1ac0a002c0aaa4790aaa45b722877b97d9"/>double <emphasis role="strong">getNum</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1a8859527be7437c65755a3c89cd82b152"/><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_type">GraphElementType</link> <emphasis role="strong">getGraphElementType</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1ac43016e83ee49187161e3affab6c03c0"/>String <emphasis role="strong">getName</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1a922bf6195fa62f154e6ba1ee3755e40b"/>String <emphasis role="strong">toString</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1ab39057a478739b5bb5194f56d58df972"/>final double <emphasis role="strong">num</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1a817844c2ea491b57fd357256b3de911f"/>final <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_type">GraphElementType</link> <emphasis role="strong">graphElementType</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_1aeba0873de5f024355e7bfbea6c91e73b"/>final String <emphasis role="strong">name</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/DBResponse/Graphable/GraphElement.java</section>

@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['can_5fclaim_0',['CAN_CLAIM',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status.html#a90553b2f11d224fe89e9eb9f362102a5',1,'ver14::SharedClasses::Game::Moves::Move::ThreefoldStatus']]],
+  ['can_5fpromote_5fto_1',['CAN_PROMOTE_TO',['../enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.html#a28f9a0a6ee51dbda9e3e7f1ea50aef90',1,'ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces::PieceType']]],
+  ['cancel_2',['CANCEL',['../enumver14_1_1_shared_classes_1_1_login_1_1_login_type.html#a0812664536dd668a484997d2d3ad952a',1,'ver14::SharedClasses::Login::LoginType']]],
+  ['canusedefault_3',['canUseDefault',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.html#ab5485683bd880a6b071951a29b061a1e',1,'ver14::SharedClasses::DBActions::Arg::Config']]],
+  ['castledkingcol_4',['castledKingCol',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side.html#ad36d24e97031f39d81107d818db51e31',1,'ver14::SharedClasses::Game::Moves::CastlingRights::Side']]],
+  ['castledrookcol_5',['castledRookCol',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side.html#a62b905423beaccf7697cd74c1b2abed1',1,'ver14::SharedClasses::Game::Moves::CastlingRights::Side']]],
+  ['castling_5fflags_6',['CASTLING_FLAGS',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag.html#a5383191387bf69af69aeef9446eee6f2',1,'ver14::SharedClasses::Game::Moves::Move::MoveFlag']]],
+  ['castlingnotation_7',['castlingNotation',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side.html#a47c8cdf91a085a627f2ac5dffeb64c46',1,'ver14::SharedClasses::Game::Moves::CastlingRights::Side']]],
+  ['castlingside_8',['castlingSide',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag.html#a17ccabb35dcdac3d735a6be252a43c4c',1,'ver14::SharedClasses::Game::Moves::Move::MoveFlag']]],
+  ['changeprofilepic_9',['ChangeProfilePic',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request.html#ae3cd382ee5ddab6a1bb92c635c462def',1,'ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest']]],
+  ['check_10',['CHECK',['../enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.html#ace2937b81a8777a3fa3363792a232156',1,'ver14::SharedClasses::Game::Evaluation::GameStatus::GameStatusType']]],
+  ['checkmate_11',['Checkmate',['../enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.html#a6eb6b83d9a1e27279a24b4376fdf7f57',1,'ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus']]],
+  ['claimed_12',['CLAIMED',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_threefold_status.html#a835fc7e26bdc09eccb44e4c73295cb89',1,'ver14::SharedClasses::Game::Moves::Move::ThreefoldStatus']]],
+  ['col_13',['col',['../enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math.html#a94230090c7bb28cc9e93c4d8973005d5',1,'ver14.SharedClasses.DBActions.Table.Math.col()'],['../enumver14_1_1_shared_classes_1_1_game_1_1_location.html#afb8b1cc72a9a1023590e4c2aa1f9e8ca',1,'ver14.SharedClasses.Game.Location.col()']]],
+  ['cols_14',['cols',['../enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table.html#abd3c07e3b41401b27b704288b3c37223',1,'ver14::SharedClasses::DBActions::Table::Table']]],
+  ['columns_15',['columns',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.html#a7a63a724db06d8b6adcb07abab6a00af',1,'ver14::SharedClasses::DBActions::DBResponse::TableDBResponse']]],
+  ['combination_16',['combination',['../enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction.html#a764eb9d5feb3d76b85aebc4818c9c416',1,'ver14::SharedClasses::Game::Moves::Direction']]],
+  ['config_17',['config',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.html#a5c5ee3cc5962bd21730a8b8f7e02b036',1,'ver14::SharedClasses::DBActions::Arg::Arg']]],
+  ['createdat_18',['createdAt',['../classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.html#a646fd2e008d58de795c88971b97a26c8',1,'ver14::SharedClasses::Game::SavedGames::EstablishedGameInfo']]],
+  ['createddatetime_19',['CreatedDateTime',['../classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#a7c460bd42a9bc0dcf9d2b1e43234fabc',1,'ver14::SharedClasses::DBActions::Table::Col']]],
+  ['creatorusername_20',['creatorUsername',['../classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.html#a8a7f8441f4704de35a4f8770327f65b5',1,'ver14::SharedClasses::Game::SavedGames::GameInfo']]]
+];

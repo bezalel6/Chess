@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfacever14_1_1_shared_classes_1_1_sync_1_1_synced_items_1_1_remover" xml:lang="en-US">
+<title>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.Remover&lt; L &gt; Interface Template Reference</title>
+<indexterm><primary>ver14.SharedClasses.Sync.SyncedItems&lt; E extends SyncableItem &gt;.Remover&lt; L &gt;</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_interfacever14_1_1_shared_classes_1_1_sync_1_1_synced_items_1_1_remover_1ab264440908355e5dd7f214fed3f7e0cf"/>boolean <emphasis role="strong">remove</emphasis> (L item)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this interface was generated from the following file:</para>
+Sync/SyncedItems.java</section>

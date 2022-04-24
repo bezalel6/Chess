@@ -1,0 +1,113 @@
+.TH "ver14.SharedClasses.DBActions.Statements.SQLStatement" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Statements.SQLStatement
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.CustomStatement\fP, \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Delete\fP, \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\fP, and \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Update\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSQLStatement\fP (DBRequest\&.Type \fBtype\fP)"
+.br
+.ti -1c
+.RI "void \fBreplace\fP (String replacing, String replaceWith)"
+.br
+.ti -1c
+.RI "String \fBgetStatement\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final DBRequest\&.Type \fBtype\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract String \fBcreateStatement\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sql statement - represents an sql statement\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.SQLStatement (DBRequest\&.Type type)"
+Instantiates a new Sql statement\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP the type 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract String ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.createStatement ()\fC [abstract]\fP, \fC [protected]\fP"
+Create statement string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.CustomStatement\fP, \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Delete\fP, \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Selection\fP, and \fBver14\&.SharedClasses\&.DBActions\&.Statements\&.Update\fP\&.
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.getStatement ()"
+Gets statement\&.
+.PP
+\fBReturns\fP
+.RS 4
+the statement 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.replace (String replacing, String replaceWith)"
+Replace\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIreplacing\fP the replacing 
+.br
+\fIreplaceWith\fP the replace with 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final DBRequest\&.Type ver14\&.SharedClasses\&.DBActions\&.Statements\&.SQLStatement\&.type"
+The request Type\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.VariationCreator Interface Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.VariationCreator</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>Variation <link linkend="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator_1a0f1802dd3610a86fb368bf4f896f207e">create</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder">RequestBuilder</link> actualBuilder)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Variation creator - .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator_1a0f1802dd3610a86fb368bf4f896f207e"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.VariationCreator</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.VariationCreator</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>Variation ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.VariationCreator.create (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder">RequestBuilder</link> actualBuilder)</computeroutput></para>
+<para>Create variation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>actualBuilder</entry><entry>
+<para>the actual builder </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the variation </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+DBActions/DBRequest/PreMadeRequest.java</section>
+</section>

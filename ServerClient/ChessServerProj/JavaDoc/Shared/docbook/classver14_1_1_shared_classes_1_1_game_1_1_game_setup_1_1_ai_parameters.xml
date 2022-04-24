@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.AiParameters Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.AiParameters</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.GameSetup.AiParameters:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type">AiType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a058a5f8db2f614f546cca7270c12caae"/><emphasis role="strong">AiParameters</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> other)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a97c129218c314591faa0b015ba9c933d"/><emphasis role="strong">AiParameters</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type">AiType</link> aiType, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> moveSearchTimeout)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a9e30a070d670942bb13ce1cb5860ecde"/><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type">AiType</link> <emphasis role="strong">getAiType</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1aeb29679a5bc70f6bc8dccd43f3929cee"/>void <emphasis role="strong">setAiType</emphasis> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1_1_ai_type">AiType</link> aiType)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1aa5a7064d4242ff2355057180fce38fd4"/><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">getMoveSearchTimeout</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a19d1fd44fcad8516c429273904ab08b3"/>void <emphasis role="strong">setMoveSearchTimeout</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> moveSearchTimeout)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a7af4f26e2a3d8240796cc6637c38a2fa"/>String <emphasis role="strong">toString</emphasis> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1a81633fb3a8c0d5f6d82c263fa7277030"/>boolean <emphasis role="strong">isEmpty</emphasis> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1ae914eb008f00eddd4f82f73f68d2d3c0">setTimeFormat</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1ac78534c841517cb5ec2931a6760e46ac"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> <emphasis role="strong">EZ_MY_AI</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link>(AiType.MyAi, TimeFormat.ULTRA_BULLET)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1acebd23ec6198d4498cfc090c65d17f4e"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link> <emphasis role="strong">EZ_STOCKFISH</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters">AiParameters</link>(AiType.Stockfish, TimeFormat.ULTRA_BULLET)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1ae1a22e749269a1ebb01c693c3ff4b802"/>static final int <emphasis role="strong">numOfFields</emphasis> = 1 + TimeFormat.numOfFields</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters_1ae914eb008f00eddd4f82f73f68d2d3c0"/><section>
+    <title>setTimeFormat()</title>
+<indexterm><primary>setTimeFormat</primary><secondary>ver14.SharedClasses.Game.GameSetup.AiParameters</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.AiParameters</primary><secondary>setTimeFormat</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.GameSetup.AiParameters.setTimeFormat (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> timeFormat)</computeroutput></para><para>
+Implements <link linkend="_interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable">ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/GameSetup/AiParameters.java</section>
+</section>

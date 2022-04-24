@@ -1,0 +1,846 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Table.Col Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.DBActions.Table.Col:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">CustomCol</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1abb86eede2e4bbe8bfa6b6f186deb2699">Col</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> col)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ab31819533eb6b5576f9b9effac0519f4">Col</link> (String colName, String alias)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a0c2e188314f07efaacca0e91ea0d6e15">Col</link> (String colName)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a0454042fb313a948c60e375bcf03ba3a">label</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a14140e6ef371f8e6d1e0dfe9caa31a5b">wrap</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2f2c8d4c934ef11feeaff80ed7afd10f">time</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1acb3f3e97b895ae83d72a4f46715ed346">date</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ae85827d6a4724a9e4331964c836d27e7">setWrapped</link> (boolean wrapped)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a8c94370f6f2cc955d4bb43654ff8204c">as</link> (String alias)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2fe854f4d0e4e7db90d4b68893728111">setColName</link> (String colName)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ae500f5bb0553788c58c25d480b32d475">colName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a78034c3cf36de16b9f1ed3ad47a589d1">of</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> table)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6c5b6042bf1c41baeffc48652d31a0e2">of</link> (String ofWhom)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3123db708ca66ffd6690250ae2268ed9">replace</link> (String replacing, String replaceWith)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1aa6152794ec872912dc912145d0d754e4">nested</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1acfe6f4710709c81e9d9e6eb1a71e61fa">math</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> operation, Object value)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a468a94204d939491feee70bbc14c517f">math</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> operation, Object value, boolean changeSelf)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1adb9c9c723f615af2e3fc45cb539be4ad">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1aa9df0f1edf1a49f22326cd6cd9d7df97">count</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad44943b633adb386466259438bd53ca7">count</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link>, Object countWhat)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a16c67f20d50d6124e0ed01ef52374df1">countIf</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition)</para>
+</listitem>
+            <listitem><para>static CustomCol <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a8401f6d9f6e576631fe11a43bf790f82">sum</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link>, Col... colsToSum)</para>
+</listitem>
+            <listitem><para>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a7c98129d5fdf13de0fb8cac6504463c0">switchCase</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e">as</link>, SwitchCase... cases)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">GameID</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;GameID&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">SavedGame</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;SavedGame&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad73ef4e3ca81f5e314662e650f49a9fd">Password</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;password&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f">Player1</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Player1&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7">Player2</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Player2&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1afcd564a5ba8ab7caed43fcb8a6650f68">Username</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;username&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a1e73e3b67720f4a602282216926edb88">Winner</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Winner&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad13c19bab6b1ffd4c83511f7cac2b78c">PlayerToMove</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;PlayerToMove&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a7c460bd42a9bc0dcf9d2b1e43234fabc">CreatedDateTime</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;CreatedDateTime&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a4bd2d6fe87a2376d9c8b7a7da93bfbdf">ProfilePic</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;ProfilePic&quot;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> - represents a column. either existing column in the db (the constant columns <computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a">GameID</link></computeroutput>, <computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae">SavedGame</link></computeroutput> ...) or created columns.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1abb86eede2e4bbe8bfa6b6f186deb2699"/><section>
+    <title>Col()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>Col</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Col</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Col.Col (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> col)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ab31819533eb6b5576f9b9effac0519f4"/><section>
+    <title>Col()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>Col</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Col</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Col.Col (String colName, String alias)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>colName</entry><entry>
+<para>the col name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>alias</entry><entry>
+<para>the alias </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a0c2e188314f07efaacca0e91ea0d6e15"/><section>
+    <title>Col()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>Col</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Col</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Col.Col (String colName)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>colName</entry><entry>
+<para>the col name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3f75b4584682b67db63d31a37433ee5e"/><section>
+    <title>as()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>as</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>as</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.as ( )</computeroutput></para>
+<para>As own name. practically keeps the name&apos;s case.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a8c94370f6f2cc955d4bb43654ff8204c"/><section>
+    <title>as()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>as</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>as</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.as (String alias)</computeroutput></para>
+<para>creates a new column with the given alias as its alias</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>alias</entry><entry>
+<para>the alias </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ae500f5bb0553788c58c25d480b32d475"/><section>
+    <title>colName()</title>
+<indexterm><primary>colName</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>colName</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Col.colName ( )</computeroutput></para>
+<para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> name string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1aa9df0f1edf1a49f22326cd6cd9d7df97"/><section>
+    <title>count()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>count</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.count (String as)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Count col. counts every row (*)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>as</entry><entry>
+<para>the alias </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad44943b633adb386466259438bd53ca7"/><section>
+    <title>count()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>count</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.count (String as, Object countWhat)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Count col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>as</entry><entry>
+<para>the alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>countWhat</entry><entry>
+<para>the count what </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a16c67f20d50d6124e0ed01ef52374df1"/><section>
+    <title>countIf()</title>
+<indexterm><primary>countIf</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>countIf</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.countIf (String as, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition">Condition</link> condition)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Count if col. only counts if the given condition is true</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>as</entry><entry>
+<para>the as </para>
+</entry>
+                            </row>
+                            <row>
+<entry>condition</entry><entry>
+<para>the condition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1acb3f3e97b895ae83d72a4f46715ed346"/><section>
+    <title>date()</title>
+<indexterm><primary>date</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>date</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.date ( )</computeroutput></para>
+<para>Date col.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>a new col representing datetime </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a0454042fb313a948c60e375bcf03ba3a"/><section>
+    <title>label()</title>
+<indexterm><primary>label</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>label</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Col.label ( )</computeroutput></para>
+<para>Label string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1acfe6f4710709c81e9d9e6eb1a71e61fa"/><section>
+    <title>math()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>math</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>math</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.math (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> operation, Object value)</computeroutput></para>
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>operation</entry><entry>
+<para>the operation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a468a94204d939491feee70bbc14c517f"/><section>
+    <title>math()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>math</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>math</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.math (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> operation, Object value, boolean changeSelf)</computeroutput></para>
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>operation</entry><entry>
+<para>the operation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                            <row>
+<entry>changeSelf</entry><entry>
+<para>the change self </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1aa6152794ec872912dc912145d0d754e4"/><section>
+    <title>nested()</title>
+<indexterm><primary>nested</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>nested</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Col.nested ( )</computeroutput></para>
+<para>Nested string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6c5b6042bf1c41baeffc48652d31a0e2"/><section>
+    <title>of()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>of</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>of</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.of (String ofWhom)</computeroutput></para>
+<para>new col like this that belongs to the given owner</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ofWhom</entry><entry>
+<para>the of whom </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a78034c3cf36de16b9f1ed3ad47a589d1"/><section>
+    <title>of()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>of</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>of</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.of (<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table">Table</link> table)</computeroutput></para>
+<para>new col like this that belongs to the given table</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>table</entry><entry>
+<para>the table </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a3123db708ca66ffd6690250ae2268ed9"/><section>
+    <title>replace()</title>
+<indexterm><primary>replace</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>replace</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.replace (String replacing, String replaceWith)</computeroutput></para>
+<para>Replace col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>replacing</entry><entry>
+<para>the replacing </para>
+</entry>
+                            </row>
+                            <row>
+<entry>replaceWith</entry><entry>
+<para>the replace with </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2fe854f4d0e4e7db90d4b68893728111"/><section>
+    <title>setColName()</title>
+<indexterm><primary>setColName</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>setColName</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Table.Col.setColName (String colName)</computeroutput></para>
+<para>Sets col name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>colName</entry><entry>
+<para>the col name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ae85827d6a4724a9e4331964c836d27e7"/><section>
+    <title>setWrapped()</title>
+<indexterm><primary>setWrapped</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>setWrapped</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Table.Col.setWrapped (boolean wrapped)</computeroutput></para>
+<para>Sets wrapped.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>wrapped</entry><entry>
+<para>the wrapped </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a8401f6d9f6e576631fe11a43bf790f82"/><section>
+    <title>sum()</title>
+<indexterm><primary>sum</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>sum</secondary></indexterm>
+<para><computeroutput>static CustomCol ver14.SharedClasses.DBActions.Table.Col.sum (String as, Col... colsToSum)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Sum cols.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>as</entry><entry>
+<para>the alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>colsToSum</entry><entry>
+<para>the cols to sum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the custom col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a7c98129d5fdf13de0fb8cac6504463c0"/><section>
+    <title>switchCase()</title>
+<indexterm><primary>switchCase</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>switchCase</secondary></indexterm>
+<para><computeroutput>static <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.switchCase (String as, SwitchCase... cases)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Switch case col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>as</entry><entry>
+<para>the as </para>
+</entry>
+                            </row>
+                            <row>
+<entry>cases</entry><entry>
+<para>the cases </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2f2c8d4c934ef11feeaff80ed7afd10f"/><section>
+    <title>time()</title>
+<indexterm><primary>time</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>time</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.time ( )</computeroutput></para>
+<para>Time col.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>a new col representing time </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1adb9c9c723f615af2e3fc45cb539be4ad"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Col.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a14140e6ef371f8e6d1e0dfe9caa31a5b"/><section>
+    <title>wrap()</title>
+<indexterm><primary>wrap</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>wrap</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Table.Col.wrap ( )</computeroutput></para>
+<para>Wrap. </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a7c460bd42a9bc0dcf9d2b1e43234fabc"/><section>
+    <title>CreatedDateTime</title>
+<indexterm><primary>CreatedDateTime</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>CreatedDateTime</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.CreatedDateTime = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;CreatedDateTime&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant CreatedDateTime. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a6d5189136aaa7b49e35da4fce222203a"/><section>
+    <title>GameID</title>
+<indexterm><primary>GameID</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>GameID</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.GameID = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;GameID&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant GameID. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad73ef4e3ca81f5e314662e650f49a9fd"/><section>
+    <title>Password</title>
+<indexterm><primary>Password</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Password</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.Password = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;password&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Password. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1af4bc7e3f8d790b6dc23e8533d25b4f3f"/><section>
+    <title>Player1</title>
+<indexterm><primary>Player1</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Player1</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.Player1 = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Player1&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Player1. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a2b0d9ab3ad8ce9df3f4a67f0284592c7"/><section>
+    <title>Player2</title>
+<indexterm><primary>Player2</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Player2</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.Player2 = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Player2&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Player2. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1ad13c19bab6b1ffd4c83511f7cac2b78c"/><section>
+    <title>PlayerToMove</title>
+<indexterm><primary>PlayerToMove</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>PlayerToMove</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.PlayerToMove = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;PlayerToMove&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant PlayerToMove. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a4bd2d6fe87a2376d9c8b7a7da93bfbdf"/><section>
+    <title>ProfilePic</title>
+<indexterm><primary>ProfilePic</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>ProfilePic</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.ProfilePic = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;ProfilePic&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant ProfilePic. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a500d3cc6734e965240c07ea7b9c8c8ae"/><section>
+    <title>SavedGame</title>
+<indexterm><primary>SavedGame</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>SavedGame</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.SavedGame = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;SavedGame&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant SavedGame. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1afcd564a5ba8ab7caed43fcb8a6650f68"/><section>
+    <title>Username</title>
+<indexterm><primary>Username</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Username</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.Username = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;username&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Username. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col_1a1e73e3b67720f4a602282216926edb88"/><section>
+    <title>Winner</title>
+<indexterm><primary>Winner</primary><secondary>ver14.SharedClasses.DBActions.Table.Col</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Col</primary><secondary>Winner</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Col.Winner = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>(&quot;Winner&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Winner. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/Table/Col.java</section>
+</section>

@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ad9d25002c9d515242e1977e8f5cfb856" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.MATERIAL</definition>
+        <argsstring></argsstring>
+        <name>MATERIAL</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.MATERIAL</qualifiedname>
+        <initializer>=(1.5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Material evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="13" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a54926962353e36fc4e15e838c1ff1c7e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.PIECE_TABLES</definition>
+        <argsstring></argsstring>
+        <name>PIECE_TABLES</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.PIECE_TABLES</qualifiedname>
+        <initializer>=(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Piece tables evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="17" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ae3232e092f7dd686f1253b64dde60b66" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.KING_SAFETY</definition>
+        <argsstring></argsstring>
+        <name>KING_SAFETY</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.KING_SAFETY</qualifiedname>
+        <initializer>=(.1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>King safety evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="21" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1aaa0a0b270e1a9cdc752fbd0d1145bfe8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.HANGING_PIECES</definition>
+        <argsstring></argsstring>
+        <name>HANGING_PIECES</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.HANGING_PIECES</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hanging pieces evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="25" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a5a7dcd7100f2cf00abaf0028aff6bb05" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.SQUARE_CONTROL</definition>
+        <argsstring></argsstring>
+        <name>SQUARE_CONTROL</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.SQUARE_CONTROL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Square control evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="29" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a2efdccb7b4054b8ef6fc252407d4205e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.MOVEMENT_ABILITY</definition>
+        <argsstring></argsstring>
+        <name>MOVEMENT_ABILITY</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.MOVEMENT_ABILITY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Movement ability evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="33" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a9ebf069e1a445c91d724e80f6e246c30" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.FORCE_KING_TO_CORNER</definition>
+        <argsstring></argsstring>
+        <name>FORCE_KING_TO_CORNER</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.FORCE_KING_TO_CORNER</qualifiedname>
+        <initializer>=(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Force king to corner evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="37" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1adf0d63207527f5584df3603e77b2c02d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EG_WEIGHT</definition>
+        <argsstring></argsstring>
+        <name>EG_WEIGHT</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EG_WEIGHT</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Eg weight evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="41" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ab34512a6b7b93d0cf45abe8b89e48f0d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.STOCKFISH_SAYS</definition>
+        <argsstring></argsstring>
+        <name>STOCKFISH_SAYS</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.STOCKFISH_SAYS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stockfish says evaluation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="45" column="1" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a898957fc8cd407b2adb41e104400af5f" compoundref="_evaluation_8java" startline="126" endline="131">ver14.SharedClasses.Game.Evaluation.Evaluation.book</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a85abea7ed46b0e13a4daa59b508a7aae" prot="public" static="no" mutable="no">
+        <type>final double</type>
+        <definition>final double ver14.SharedClasses.Game.Evaluation.EvaluationParameters.weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.weight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameter&apos;s weight </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="49" column="25" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a917c9ac5c49598a247f3adcb5c729488" compoundref="_evaluation_8java" startline="139" endline="143">ver14.SharedClasses.Game.Evaluation.Evaluation.addDetail</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a24597fa47dcc85b32150491355fd1e9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EvaluationParameters</definition>
+        <argsstring>()</argsstring>
+        <name>EvaluationParameters</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EvaluationParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="51" column="5" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a791c35ef92a0d300ef3ef0b2c75488d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EvaluationParameters</definition>
+        <argsstring>(double weight)</argsstring>
+        <name>EvaluationParameters</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.EvaluationParameters.EvaluationParameters</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/EvaluationParameters.java" line="55" column="5" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="55" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation" kindref="compound">Evaluation</ref> parameters - all evaluation parameters. (some are unused).</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Game/Evaluation/EvaluationParameters.java" line="9" column="7" bodyfile="Game/Evaluation/EvaluationParameters.java" bodystart="9" bodyend="59"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1adf0d63207527f5584df3603e77b2c02d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>EG_WEIGHT</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a24597fa47dcc85b32150491355fd1e9a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>EvaluationParameters</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a791c35ef92a0d300ef3ef0b2c75488d4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>EvaluationParameters</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a9ebf069e1a445c91d724e80f6e246c30" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>FORCE_KING_TO_CORNER</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1aaa0a0b270e1a9cdc752fbd0d1145bfe8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>HANGING_PIECES</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ae3232e092f7dd686f1253b64dde60b66" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>KING_SAFETY</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ad9d25002c9d515242e1977e8f5cfb856" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>MATERIAL</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a2efdccb7b4054b8ef6fc252407d4205e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>MOVEMENT_ABILITY</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a54926962353e36fc4e15e838c1ff1c7e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>PIECE_TABLES</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a5a7dcd7100f2cf00abaf0028aff6bb05" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>SQUARE_CONTROL</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1ab34512a6b7b93d0cf45abe8b89e48f0d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>STOCKFISH_SAYS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters_1a85abea7ed46b0e13a4daa59b508a7aae" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::EvaluationParameters</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

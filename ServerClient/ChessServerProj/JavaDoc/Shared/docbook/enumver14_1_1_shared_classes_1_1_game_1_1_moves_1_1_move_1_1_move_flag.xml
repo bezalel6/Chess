@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.Move.MoveFlag Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a6693299533956f0b142769d3ec2df147">MoveFlag</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a5910c362ecb0a7aebd31ed0d12c76fd2">MoveFlag</link> (CastlingRights.Side side)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a231df2c8f2124ff7ec2bc0cac0ec2a60">equals</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> myMove, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> otherMove)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a943d71e785a9701539aa18c7fc6f974c"/><emphasis role="strong">[static initializer]</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a2a4e66529dbc23b202e831ed3938be23">NormalMove</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a19ae4b2628509b7d42accec43c9205c6">EnPassant</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1ab7553597ad814d93bafafa68695fd13b">DoublePawnPush</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1ae872ac60a56cf4b54b259fd82e65b851">Promotion</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1abfd1272445467e74a07c6ce1e9720aff">ShortCastle</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a38e6966ca8ed156ae42de89eee03cf3c">CastlingRights.Side.KING</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a9650c7bc0ea7a7aa3ecc0cb7e101aafb">LongCastle</link> =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4ba03135680ca304f2defcc09ffd7fbe">CastlingRights.Side.QUEEN</link>)</para>
+</listitem>
+            <listitem><para>final boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a8d7dadb7afb5201c0e0fb2e0373b94cb">isCastling</link></para>
+</listitem>
+            <listitem><para>final CastlingRights.Side <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a17ccabb35dcdac3d735a6be252a43c4c">castlingSide</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag">MoveFlag</link>[] <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a5383191387bf69af69aeef9446eee6f2">CASTLING_FLAGS</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> flag - which type of move this is.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a6693299533956f0b142769d3ec2df147"/><section>
+    <title>MoveFlag()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>MoveFlag</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>MoveFlag</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.MoveFlag ( )</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a5910c362ecb0a7aebd31ed0d12c76fd2"/><section>
+    <title>MoveFlag()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>MoveFlag</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>MoveFlag</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.MoveFlag (CastlingRights.Side side)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> flag.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>side</entry><entry>
+<para>the side </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a231df2c8f2124ff7ec2bc0cac0ec2a60"/><section>
+    <title>equals()</title>
+<indexterm><primary>equals</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>equals</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.Move.MoveFlag.equals (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> myMove, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> otherMove)</computeroutput></para>
+<para>checks if the flags are equals.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>myMove</entry><entry>
+<para>the my move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>otherMove</entry><entry>
+<para>the other move </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a5383191387bf69af69aeef9446eee6f2"/><section>
+    <title>CASTLING_FLAGS</title>
+<indexterm><primary>CASTLING_FLAGS</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>CASTLING_FLAGS</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag">MoveFlag</link> [] ver14.SharedClasses.Game.Moves.Move.MoveFlag.CASTLING_FLAGS<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The Castling flags. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a17ccabb35dcdac3d735a6be252a43c4c"/><section>
+    <title>castlingSide</title>
+<indexterm><primary>castlingSide</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>castlingSide</secondary></indexterm>
+<para><computeroutput>final CastlingRights.Side ver14.SharedClasses.Game.Moves.Move.MoveFlag.castlingSide</computeroutput></para>
+<para>if this is a castling flag, which side is it. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1ab7553597ad814d93bafafa68695fd13b"/><section>
+    <title>DoublePawnPush</title>
+<indexterm><primary>DoublePawnPush</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>DoublePawnPush</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.DoublePawnPush</computeroutput></para>
+<para>Double pawn push move flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a19ae4b2628509b7d42accec43c9205c6"/><section>
+    <title>EnPassant</title>
+<indexterm><primary>EnPassant</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>EnPassant</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.EnPassant</computeroutput></para>
+<para>En passant move flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a8d7dadb7afb5201c0e0fb2e0373b94cb"/><section>
+    <title>isCastling</title>
+<indexterm><primary>isCastling</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>isCastling</secondary></indexterm>
+<para><computeroutput>final boolean ver14.SharedClasses.Game.Moves.Move.MoveFlag.isCastling</computeroutput></para>
+<para>Is this move flag a castling flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a9650c7bc0ea7a7aa3ecc0cb7e101aafb"/><section>
+    <title>LongCastle</title>
+<indexterm><primary>LongCastle</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>LongCastle</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.LongCastle =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a4ba03135680ca304f2defcc09ffd7fbe">CastlingRights.Side.QUEEN</link>)</computeroutput></para>
+<para>Long castle move flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a2a4e66529dbc23b202e831ed3938be23"/><section>
+    <title>NormalMove</title>
+<indexterm><primary>NormalMove</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>NormalMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.NormalMove</computeroutput></para>
+<para>Normal move move flag. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1ae872ac60a56cf4b54b259fd82e65b851"/><section>
+    <title>Promotion</title>
+<indexterm><primary>Promotion</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>Promotion</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.Promotion</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1a231df2c8f2124ff7ec2bc0cac0ec2a60">equals</link>(<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a2fa35d8cdbb901fde4349c1751573f72">Move</link>&#32;myMove,&#32;<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a2fa35d8cdbb901fde4349c1751573f72">Move</link>&#32;otherMove)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;super.equals(myMove,&#32;otherMove)&#32;&amp;&amp;&#32;myMove.getPromotingTo()&#32;==&#32;otherMove.getPromotingTo();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Promotion. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag_1abfd1272445467e74a07c6ce1e9720aff"/><section>
+    <title>ShortCastle</title>
+<indexterm><primary>ShortCastle</primary><secondary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.Move.MoveFlag</primary><secondary>ShortCastle</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.Move.MoveFlag.ShortCastle =(<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side_1a38e6966ca8ed156ae42de89eee03cf3c">CastlingRights.Side.KING</link>)</computeroutput></para>
+<para>Short castle move flag. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/Moves/Move.java</section>
+</section>

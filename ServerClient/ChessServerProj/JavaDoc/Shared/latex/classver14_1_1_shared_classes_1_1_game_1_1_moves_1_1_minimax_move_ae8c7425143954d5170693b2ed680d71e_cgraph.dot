@@ -1,0 +1,16 @@
+digraph "ver14.SharedClasses.Game.Moves.MinimaxMove.equals"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.Game.\lMoves.MinimaxMove.equals",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ver14.SharedClasses.Game.\lMoves.MinimaxMove.MinimaxMove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.html#aedd94ea3ce6a12ed978329c701a380c0",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ver14.SharedClasses.Game.\lMoves.Move.copyMove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.html#ad7782f576457b8e52fee169af1a0a326",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ver14.SharedClasses.Game.\lMoves.Move.Move",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.html#a2fa35d8cdbb901fde4349c1751573f72",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ver14.SharedClasses.Game.\lEvaluation.Evaluation.getEvaluationDepth",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.html#a257f24580b5cd64b20962e54ccfe9f4f",tooltip=" "];
+}

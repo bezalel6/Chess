@@ -1,0 +1,256 @@
+.TH "ver14.SharedClasses.Game.GameSetup.BoardSetup.Board" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.GameSetup.BoardSetup.Board
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Iterable< Square >, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoard\fP (\fBBoard\fP other)"
+.br
+.ti -1c
+.RI "\fBBoard\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPiece\fP (\fBLocation\fP loc, \fBPiece\fP piece)"
+.br
+.ti -1c
+.RI "\fBSquare\fP \fBgetSquare\fP (\fBLocation\fP loc)"
+.br
+.ti -1c
+.RI "\fBBoard\fP (String fen)"
+.br
+.ti -1c
+.RI "void \fBfenSetup\fP (String fen)"
+.br
+.ti -1c
+.RI "\fBSquare\fP[] \fBgetRow\fP (int row, boolean flipLocs)"
+.br
+.ti -1c
+.RI "\fBPiece\fP \fBgetPiece\fP (\fBLocation\fP loc, boolean notNull)"
+.br
+.ti -1c
+.RI "\fBPiece\fP \fBgetPiece\fP (\fBLocation\fP loc)"
+.br
+.ti -1c
+.RI "void \fBprint\fP ()"
+.br
+.ti -1c
+.RI "Iterator< \fBSquare\fP > \fBiterator\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSquareEmpty\fP (\fBLocation\fP loc)"
+.br
+.ti -1c
+.RI "boolean \fBisSquareEmpty\fP (\fBLocation\fP loc)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBBoard\fP \fBstartingPos\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBstartingFen\fP = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq \- 0 1'"
+.br
+.ti -1c
+.RI "static final \fBBoard\fP \fBexample\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBBoard\fP - represents the logic board of the model
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.Board (\fBBoard\fP other)"
+Instantiates a new \fBBoard\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP the other 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.Board ()"
+Instantiates a new \fBBoard\fP\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.Board (String fen)"
+Instantiates a new \fBBoard\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfen\fP the fen 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.fenSetup (String fen)"
+Fen setup\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfen\fP the fen 
+.RE
+.PP
+
+.SS "\fBPiece\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.getPiece (\fBLocation\fP loc)"
+Gets piece\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the piece 
+.RE
+.PP
+
+.SS "\fBPiece\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.getPiece (\fBLocation\fP loc, boolean notNull)"
+Gets piece\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.br
+\fInotNull\fP the not null 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the piece 
+.RE
+.PP
+
+.SS "\fBSquare\fP[] ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.getRow (int row, boolean flipLocs)"
+Get row square [ ]\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIrow\fP the row 
+.br
+\fIflipLocs\fP the flip locs 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the square [ ] 
+.RE
+.PP
+
+.SS "\fBSquare\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.getSquare (\fBLocation\fP loc)"
+Gets square\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the square 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.isSquareEmpty (\fBLocation\fP loc)"
+Is square empty boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "Iterator< \fBSquare\fP > ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.iterator ()"
+Iterator iterator\&.
+.PP
+\fBReturns\fP
+.RS 4
+the iterator 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.print ()"
+Print\&. 
+.SS "void ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.setPiece (\fBLocation\fP loc, \fBPiece\fP piece)"
+Sets piece\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.br
+\fIpiece\fP the piece 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.setSquareEmpty (\fBLocation\fP loc)"
+Sets square empty\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIloc\fP the loc 
+.RE
+.PP
+
+.SS "static \fBBoard\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.startingPos ()\fC [static]\fP"
+Starting pos board\&.
+.PP
+\fBReturns\fP
+.RS 4
+the board 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBBoard\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.example\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= new Board() {{
+        fenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    }}
+.fi
+The constant example\&. 
+.SS "final String ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Board\&.startingFen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq \- 0 1'\fC [static]\fP"
+The constant startingFen\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

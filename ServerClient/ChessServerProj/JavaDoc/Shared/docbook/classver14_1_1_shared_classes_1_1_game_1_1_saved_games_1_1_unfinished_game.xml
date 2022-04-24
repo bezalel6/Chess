@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.SavedGames.UnfinishedGame Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.SavedGames.UnfinishedGame:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a48d4906692f22948310d012f951e1420">UnfinishedGame</link> (String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a37b587808f4bb1de8a114e2f43823e6c">gameId</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1a8a7f8441f4704de35a4f8770327f65b5">creatorUsername</link>, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1ac886e740903db6ee1edeb0b8a99e6ba3">gameSettings</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info_1ad6a7dfeea087e865132eba78ae4226ff">opponentUsername</link>, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a76e16e4edd57c0570a292662d7666e16">playerColorToMove</link>, String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a09713866f4761f1f6deb8f2c3fc22912">playerToMove</link>, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a12fb1853ae96c84d6f692627ffd63cd2">isCreatorToMove</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a76e16e4edd57c0570a292662d7666e16">playerColorToMove</link></para>
+</listitem>
+            <listitem><para>final String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a09713866f4761f1f6deb8f2c3fc22912">playerToMove</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The type Unfinished game.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a48d4906692f22948310d012f951e1420"/><section>
+    <title>UnfinishedGame()</title>
+<indexterm><primary>UnfinishedGame</primary><secondary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</primary><secondary>UnfinishedGame</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.SavedGames.UnfinishedGame.UnfinishedGame (String gameId, String creatorUsername, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings">GameSettings</link> gameSettings, String opponentUsername, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> playerColorToMove, String playerToMove, Stack&lt; <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> &gt; moveStack)</computeroutput></para>
+<para>Instantiates a new Unfinished game.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>gameId</entry><entry>
+<para>the game id </para>
+</entry>
+                            </row>
+                            <row>
+<entry>creatorUsername</entry><entry>
+<para>the creator username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameSettings</entry><entry>
+<para>the game settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>opponentUsername</entry><entry>
+<para>the opponent username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>playerColorToMove</entry><entry>
+<para>the player color to move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>playerToMove</entry><entry>
+<para>the player to move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>moveStack</entry><entry>
+<para>the move stack </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a12fb1853ae96c84d6f692627ffd63cd2"/><section>
+    <title>isCreatorToMove()</title>
+<indexterm><primary>isCreatorToMove</primary><secondary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</primary><secondary>isCreatorToMove</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.SavedGames.UnfinishedGame.isCreatorToMove ( )</computeroutput></para>
+<para>Is creator to move boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a76e16e4edd57c0570a292662d7666e16"/><section>
+    <title>playerColorToMove</title>
+<indexterm><primary>playerColorToMove</primary><secondary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</primary><secondary>playerColorToMove</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> ver14.SharedClasses.Game.SavedGames.UnfinishedGame.playerColorToMove</computeroutput></para>
+<para>The Player color to move. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game_1a09713866f4761f1f6deb8f2c3fc22912"/><section>
+    <title>playerToMove</title>
+<indexterm><primary>playerToMove</primary><secondary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.SavedGames.UnfinishedGame</primary><secondary>playerToMove</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Game.SavedGames.UnfinishedGame.playerToMove</computeroutput></para>
+<para>The Player to move. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/SavedGames/UnfinishedGame.java</section>
+</section>

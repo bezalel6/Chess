@@ -1,0 +1,187 @@
+.TH "ver14.SharedClasses.DBActions.DBResponse.DBResponse" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.DBResponse.DBResponse
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.PP
+Inherited by \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.Graphable\&.GraphableDBResponse\fP, \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.StatusResponse\fP, and \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.TableDBResponse\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBStatus\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDBRequest\fP \fBgetRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBStatus\fP \fBgetStatus\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSuccess\fP ()"
+.br
+.ti -1c
+.RI "abstract boolean \fBisAnyData\fP ()"
+.br
+.ti -1c
+.RI "\fBDBResponse\fP \fBgetAddedRes\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAddedRes\fP (\fBDBResponse\fP \fBaddedRes\fP)"
+.br
+.ti -1c
+.RI "abstract \fBDBResponse\fP \fBclean\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDBResponse\fP (\fBStatus\fP \fBstatus\fP, \fBDBRequest\fP \fBrequest\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "final \fBStatus\fP \fBstatus\fP"
+.br
+.ti -1c
+.RI "final \fBDBRequest\fP \fBrequest\fP"
+.br
+.ti -1c
+.RI "\fBDBResponse\fP \fBaddedRes\fP = null"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Db response - \&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.DBResponse (\fBStatus\fP status, \fBDBRequest\fP request)\fC [protected]\fP"
+Instantiates a new Db response\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstatus\fP the status 
+.br
+\fIrequest\fP the request 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract \fBDBResponse\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.clean ()\fC [abstract]\fP"
+Clean db response\&.
+.PP
+\fBReturns\fP
+.RS 4
+the db response 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.StatusResponse\fP, and \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.TableDBResponse\fP\&.
+.SS "\fBDBResponse\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.getAddedRes ()"
+Gets added res\&.
+.PP
+\fBReturns\fP
+.RS 4
+the added res 
+.RE
+.PP
+
+.SS "\fBDBRequest\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.getRequest ()"
+Gets request\&.
+.PP
+\fBReturns\fP
+.RS 4
+the request 
+.RE
+.PP
+
+.SS "\fBStatus\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.getStatus ()"
+Gets status\&.
+.PP
+\fBReturns\fP
+.RS 4
+the status 
+.RE
+.PP
+
+.SS "abstract boolean ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.isAnyData ()\fC [abstract]\fP"
+Is any data boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.StatusResponse\fP, and \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.TableDBResponse\fP\&.
+.SS "boolean ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.isSuccess ()"
+Is success boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.print ()"
+Print\&. 
+.SS "void ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.setAddedRes (\fBDBResponse\fP addedRes)"
+Sets added res\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddedRes\fP the added res 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.toString ()"
+To string string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.Graphable\&.GraphableDBResponse\fP, and \fBver14\&.SharedClasses\&.DBActions\&.DBResponse\&.TableDBResponse\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBDBResponse\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.addedRes = null\fC [protected]\fP"
+The Added res\&. 
+.SS "final \fBDBRequest\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.request\fC [protected]\fP"
+The Request\&. 
+.SS "final \fBStatus\fP ver14\&.SharedClasses\&.DBActions\&.DBResponse\&.DBResponse\&.status\fC [protected]\fP"
+The \fBStatus\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Callbacks::ObjCallback</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">java::util::function::Supplier&lt; T &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Callbacks.ObjCallback&lt; T &gt;</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Callbacks.ObjCallback&lt; T &gt;</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Callbacks/ObjCallback.java" line="9" column="18" bodyfile="Callbacks/ObjCallback.java" bodystart="9" bodyend="10"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

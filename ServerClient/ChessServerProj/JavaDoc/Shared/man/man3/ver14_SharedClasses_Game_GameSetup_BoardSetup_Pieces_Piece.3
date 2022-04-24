@@ -1,0 +1,241 @@
+.TH "ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPiece\fP (\fBPieceType\fP \fBpieceType\fP, \fBPlayerColor\fP \fBplayerColor\fP)"
+.br
+.ti -1c
+.RI "String \fBgetPieceIcon\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetFen\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisOnMyTeam\fP (\fBPiece\fP otherPiece)"
+.br
+.ti -1c
+.RI "boolean \fBisOnMyTeam\fP (\fBPlayerColor\fP otherPlayerColor)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB[static initializer]\fP"
+.br
+.ti -1c
+.RI "static \fBPiece\fP \fBgetPieceFromFen\fP (char c)"
+.br
+.ti -1c
+.RI "static \fBPiece\fP \fBgetPiece\fP (\fBPieceType\fP \fBpieceType\fP, \fBPlayerColor\fP \fBplayerColor\fP)"
+.br
+.ti -1c
+.RI "static String \fBgetPieceIcon\fP (\fBPiece\fP piece)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBW_P\fP =(\fBPieceType\&.PAWN\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBW_R\fP =(\fBPieceType\&.ROOK\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBW_B\fP =(\fBPieceType\&.BISHOP\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBW_N\fP =(\fBPieceType\&.KNIGHT\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBW_Q\fP =(\fBPieceType\&.QUEEN\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBW_K\fP =(\fBPieceType\&.KING\fP, \fBPlayerColor\&.WHITE\fP)"
+.br
+.ti -1c
+.RI "\fBB_P\fP =(\fBPieceType\&.PAWN\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "\fBB_R\fP =(\fBPieceType\&.ROOK\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "\fBB_B\fP =(\fBPieceType\&.BISHOP\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "\fBB_N\fP =(\fBPieceType\&.KNIGHT\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "\fBB_Q\fP =(\fBPieceType\&.QUEEN\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "\fBB_K\fP =(\fBPieceType\&.KING\fP, \fBPlayerColor\&.BLACK\fP)"
+.br
+.ti -1c
+.RI "final \fBPieceType\fP \fBpieceType\fP"
+.br
+.ti -1c
+.RI "final \fBPlayerColor\fP \fBplayerColor\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBPiece\fP[] \fBALL_PIECES\fP = values()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBPiece\fP - represents a combination of a piece type, and a color\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBPieceType\fP 
+.PP
+\fBPlayerColor\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.getFen ()"
+Gets fen\&.
+.PP
+\fBReturns\fP
+.RS 4
+the fen 
+.RE
+.PP
+
+.SS "static \fBPiece\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.getPiece (\fBPieceType\fP pieceType, \fBPlayerColor\fP playerColor)\fC [static]\fP"
+Gets piece\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpieceType\fP the piece type 
+.br
+\fIplayerColor\fP the player color 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the piece 
+.RE
+.PP
+
+.SS "static \fBPiece\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.getPieceFromFen (char c)\fC [static]\fP"
+Gets piece from fen\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP the c 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the piece from fen 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.getPieceIcon ()"
+Gets piece icon\&.
+.PP
+\fBReturns\fP
+.RS 4
+the piece icon 
+.RE
+.PP
+
+.SS "static String ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.getPieceIcon (\fBPiece\fP piece)\fC [static]\fP"
+Gets piece icon\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpiece\fP the piece 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the piece icon 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.isOnMyTeam (\fBPiece\fP otherPiece)"
+Is on my team boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIotherPiece\fP the other piece 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.isOnMyTeam (\fBPlayerColor\fP otherPlayerColor)"
+Is on my team boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIotherPlayerColor\fP the other player color 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS " final \fBPiece\fP [] ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.ALL_PIECES = values()\fC [static]\fP"
+The constant ALL_PIECES\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_B =(\fBPieceType\&.BISHOP\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black Bishop\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_K =(\fBPieceType\&.KING\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black King\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_N =(\fBPieceType\&.KNIGHT\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black Knight\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_P =(\fBPieceType\&.PAWN\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black p piece\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_Q =(\fBPieceType\&.QUEEN\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black Queen\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.B_R =(\fBPieceType\&.ROOK\fP, \fBPlayerColor\&.BLACK\fP)"
+represents a Black Rook\&. 
+.SS "final \fBPieceType\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.pieceType"
+The \fBPiece\fP type\&. 
+.SS "final \fBPlayerColor\fP ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.playerColor"
+The Player color\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_B =(\fBPieceType\&.BISHOP\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White Bishop\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_K =(\fBPieceType\&.KING\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White King\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_N =(\fBPieceType\&.KNIGHT\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White Knight\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_P =(\fBPieceType\&.PAWN\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White p piece\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_Q =(\fBPieceType\&.QUEEN\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White Queen\&. 
+.SS "ver14\&.SharedClasses\&.Game\&.GameSetup\&.BoardSetup\&.Pieces\&.Piece\&.W_R =(\fBPieceType\&.ROOK\fP, \fBPlayerColor\&.WHITE\fP)"
+represents a White Rook\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

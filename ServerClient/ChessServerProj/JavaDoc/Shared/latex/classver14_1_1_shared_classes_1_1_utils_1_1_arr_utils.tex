@@ -1,0 +1,87 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils}{}\doxysection{ver14.\+Shared\+Classes.\+Utils.\+Arr\+Utils Class Reference}
+\label{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils}\index{ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static$<$ T $>$ T\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a36723361204a91f5afc241d44723a891}{concat}} (T\mbox{[}$\,$\mbox{]} array1, T... array2)
+\item 
+static$<$ T $>$ Array\+List$<$ T $>$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a943bfef505fee91113cfc59a9ee87fb1}{create\+List}} (\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback}{Obj\+Callback}}$<$ T $>$ obj\+Creator, int size)
+\item 
+static$<$ T $>$ T \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a019478be6d43e03b3b679aaa3fb26ea3}{exists}} (T\mbox{[}$\,$\mbox{]} arr, int... index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Array Utility Class.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a36723361204a91f5afc241d44723a891}\label{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a36723361204a91f5afc241d44723a891}} 
+\index{ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}!concat@{concat}}
+\index{concat@{concat}!ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}}
+\doxysubsubsection{\texorpdfstring{concat()}{concat()}}
+{\footnotesize\ttfamily static$<$ T $>$ T\mbox{[}$\,$\mbox{]} ver14.\+Shared\+Classes.\+Utils.\+Arr\+Utils.\+concat (\begin{DoxyParamCaption}\item[{T\mbox{[}$\,$\mbox{]}}]{array1,  }\item[{T...}]{array2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\href{https://www.baeldung.com/java-concatenate-arrays\#:~:text=static\%20\%3CT\%3E\%20T\%5B\%5D\%20concatWithArrayCopy(T\%5B\%5D\%20array1\%2C\%20T\%5B\%5D\%20array2)\%20\%7B\%0A\%20\%20\%20\%20T\%5B\%5D\%20result\%20\%3D\%20Arrays.copyOf(array1\%2C\%20array1.length\%20\%2B\%20array2.length)\%3B\%0A\%20\%20\%20\%20System.arraycopy(array2\%2C\%200\%2C\%20result\%2C\%20array1.length\%2C\%20array2.length)\%3B\%0A\%20\%20\%20\%20return\%20result\%3B\%0A\%7D}{\texttt{ credit}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\+T$>$} & the type parameter \\
+\hline
+{\em array1} & the array 1 \\
+\hline
+{\em array2} & the array 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t \mbox{[} \mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a943bfef505fee91113cfc59a9ee87fb1}\label{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a943bfef505fee91113cfc59a9ee87fb1}} 
+\index{ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}!createList@{createList}}
+\index{createList@{createList}!ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}}
+\doxysubsubsection{\texorpdfstring{createList()}{createList()}}
+{\footnotesize\ttfamily static$<$ T $>$ Array\+List$<$ T $>$ ver14.\+Shared\+Classes.\+Utils.\+Arr\+Utils.\+create\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback}{Obj\+Callback}}$<$ T $>$}]{obj\+Creator,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create list array list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\+T$>$} & the type parameter \\
+\hline
+{\em obj\+Creator} & the obj creator \\
+\hline
+{\em size} & the size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the array list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a019478be6d43e03b3b679aaa3fb26ea3}\label{classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils_a019478be6d43e03b3b679aaa3fb26ea3}} 
+\index{ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}!exists@{exists}}
+\index{exists@{exists}!ver14.SharedClasses.Utils.ArrUtils@{ver14.SharedClasses.Utils.ArrUtils}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily static$<$ T $>$ T ver14.\+Shared\+Classes.\+Utils.\+Arr\+Utils.\+exists (\begin{DoxyParamCaption}\item[{T\mbox{[}$\,$\mbox{]}}]{arr,  }\item[{int...}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Exists t.
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\+T$>$} & the type parameter \\
+\hline
+{\em arr} & the arr \\
+\hline
+{\em index} & the index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the t 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Utils/\mbox{\hyperlink{_arr_utils_8java}{Arr\+Utils.\+java}}\end{DoxyCompactItemize}

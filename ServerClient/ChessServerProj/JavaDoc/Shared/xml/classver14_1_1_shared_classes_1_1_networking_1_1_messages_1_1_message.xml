@@ -1,0 +1,2818 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Networking::Messages::Message</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4fbb32d48c820b826837a08fbd9d179" prot="private" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator" kindref="compound">IDsGenerator</ref></type>
+        <definition>final IDsGenerator ver14.SharedClasses.Networking.Messages.Message.messagesIds</definition>
+        <argsstring></argsstring>
+        <name>messagesIds</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.messagesIds</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator" kindref="compound">IDsGenerator</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="31" column="39" bodyfile="Networking/Messages/Message.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8390389755b3ca06f88f534fd91dc6bb" prot="public" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Networking.Messages.Message.messageID</definition>
+        <argsstring></argsstring>
+        <name>messageID</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.messageID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref> id. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="35" column="25" bodyfile="Networking/Messages/Message.java" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1fe542988d29802cff65203aeeee1d37" compoundref="_message_8java" startline="90" endline="92">ver14.SharedClasses.Networking.Messages.Message.Message</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a4254933c1afde5c63390e5cd89c278c0" compoundref="_messages_handler_8java" startline="162" endline="165">ver14.SharedClasses.Networking.MessagesHandler.noBlockRequest</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af28efdc23aec4a9acea74c4b5ac2a460" compoundref="_message_8java" startline="552" endline="554">ver14.SharedClasses.Networking.Messages.Message.setRespondingTo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad7f620c1553ca5bd23a4dc4549d61bc3" prot="private" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+        <definition>final MessageType ver14.SharedClasses.Networking.Messages.Message.messageType</definition>
+        <argsstring></argsstring>
+        <name>messageType</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.messageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="36" column="31" bodyfile="Networking/Messages/Message.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a383f3139e019a953cbd230a4435e986c" prot="private" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.Networking.Messages.Message.subject</definition>
+        <argsstring></argsstring>
+        <name>subject</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.subject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="37" column="26" bodyfile="Networking/Messages/Message.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a83f437b0583890634a7caade9b5f1503" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.respondingToMsgId</definition>
+        <argsstring></argsstring>
+        <name>respondingToMsgId</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.respondingToMsgId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="38" column="20" bodyfile="Networking/Messages/Message.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad50575440774ecd8d78cbbf72a49dd6a" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.username</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="39" column="20" bodyfile="Networking/Messages/Message.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0bf3c67fd8477f349b41a8b75ffe99c9" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.cancelingQuestionCause</definition>
+        <argsstring></argsstring>
+        <name>cancelingQuestionCause</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.cancelingQuestionCause</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="40" column="20" bodyfile="Networking/Messages/Message.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac08c424f403198f26accfadc0d7f8d91" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.otherPlayer</definition>
+        <argsstring></argsstring>
+        <name>otherPlayer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.otherPlayer</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="41" column="20" bodyfile="Networking/Messages/Message.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1aa90068f87bacdb17c85fcb061fc372" prot="private" static="no" mutable="no">
+        <type>Boolean</type>
+        <definition>Boolean ver14.SharedClasses.Networking.Messages.Message.available</definition>
+        <argsstring></argsstring>
+        <name>available</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.available</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="42" column="21" bodyfile="Networking/Messages/Message.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab95806c2ffbbfc97ceefba58ef6b943a" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; String &gt;</type>
+        <definition>ArrayList&lt;String&gt; ver14.SharedClasses.Networking.Messages.Message.usernameSuggestions</definition>
+        <argsstring></argsstring>
+        <name>usernameSuggestions</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.usernameSuggestions</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="43" column="23" bodyfile="Networking/Messages/Message.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aee1896bf16f1025020fea1a1d7e9b6b6" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>PlayerColor ver14.SharedClasses.Networking.Messages.Message.playerColor</definition>
+        <argsstring></argsstring>
+        <name>playerColor</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.playerColor</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="44" column="25" bodyfile="Networking/Messages/Message.java" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a323775b0a672222bb95048934d000246" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+        <definition>GameTime ver14.SharedClasses.Networking.Messages.Message.gameTime</definition>
+        <argsstring></argsstring>
+        <name>gameTime</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.gameTime</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="45" column="22" bodyfile="Networking/Messages/Message.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aea2979ce6aab62ab84ad8aaa22a142cf" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kindref="compound">LoginInfo</ref></type>
+        <definition>LoginInfo ver14.SharedClasses.Networking.Messages.Message.loginInfo</definition>
+        <argsstring></argsstring>
+        <name>loginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.loginInfo</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="46" column="23" bodyfile="Networking/Messages/Message.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a30f496fa7df8277b54f225dfb009f5" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+        <definition>Move ver14.SharedClasses.Networking.Messages.Message.move</definition>
+        <argsstring></argsstring>
+        <name>move</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.move</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="47" column="18" bodyfile="Networking/Messages/Message.java" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a2edb9000c6e6146bc899abecb6649410" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+        <definition>GameSettings ver14.SharedClasses.Networking.Messages.Message.gameSettings</definition>
+        <argsstring></argsstring>
+        <name>gameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.gameSettings</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="48" column="26" bodyfile="Networking/Messages/Message.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4d2456f7b675d69657b4815a1d50c06d" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+        <definition>MovesList ver14.SharedClasses.Networking.Messages.Message.possibleMoves</definition>
+        <argsstring></argsstring>
+        <name>possibleMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.possibleMoves</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="49" column="23" bodyfile="Networking/Messages/Message.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a477232ab4bd348b56e2f3894b2a9d583" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+        <definition>Board ver14.SharedClasses.Networking.Messages.Message.board</definition>
+        <argsstring></argsstring>
+        <name>board</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.board</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="50" column="19" bodyfile="Networking/Messages/Message.java" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a9eb0e84b5ef514c647e59a036cf00b83" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>GameStatus ver14.SharedClasses.Networking.Messages.Message.gameStatus</definition>
+        <argsstring></argsstring>
+        <name>gameStatus</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.gameStatus</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="51" column="24" bodyfile="Networking/Messages/Message.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aecea4704d1147deb4ede04735924cc81" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+        <definition>Question ver14.SharedClasses.Networking.Messages.Message.question</definition>
+        <argsstring></argsstring>
+        <name>question</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.question</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="52" column="22" bodyfile="Networking/Messages/Message.java" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6c7d90349844661d3b551b73888d5929" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Question.Answer</ref></type>
+        <definition>Question.Answer ver14.SharedClasses.Networking.Messages.Message.answer</definition>
+        <argsstring></argsstring>
+        <name>answer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.answer</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="53" column="28" bodyfile="Networking/Messages/Message.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5b84b75366f0d0abe0b427ed5803fab7" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+        <definition>ArrayList&lt;Move&gt; ver14.SharedClasses.Networking.Messages.Message.preMoves</definition>
+        <argsstring></argsstring>
+        <name>preMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.preMoves</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="54" column="23" bodyfile="Networking/Messages/Message.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a80a921c4255246be78222348ed5165e3" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt;?&gt;[]</type>
+        <definition>SyncedItems&lt;?&gt; [] ver14.SharedClasses.Networking.Messages.Message.syncedLists</definition>
+        <argsstring></argsstring>
+        <name>syncedLists</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.syncedLists</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="55" column="25" bodyfile="Networking/Messages/Message.java" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af3b521a2c95661890ac4ca3ec7b50d7d" prot="private" static="no" mutable="no">
+        <type>Stack&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+        <definition>Stack&lt;Move&gt; ver14.SharedClasses.Networking.Messages.Message.moveStack</definition>
+        <argsstring></argsstring>
+        <name>moveStack</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.moveStack</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="56" column="19" bodyfile="Networking/Messages/Message.java" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47bc7864e2924d8aa8ef8f6cbdf8239c" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" kindref="compound">DBResponse</ref></type>
+        <definition>DBResponse ver14.SharedClasses.Networking.Messages.Message.dbResponse</definition>
+        <argsstring></argsstring>
+        <name>dbResponse</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.dbResponse</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="57" column="24" bodyfile="Networking/Messages/Message.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac3a6d7866b7758508c7f98287380b5e1" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+        <definition>DBRequest ver14.SharedClasses.Networking.Messages.Message.dbRequest</definition>
+        <argsstring></argsstring>
+        <name>dbRequest</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.dbRequest</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="58" column="23" bodyfile="Networking/Messages/Message.java" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a366bcb54b79376297e2d0ec23d15eb88" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+        <definition>MyError ver14.SharedClasses.Networking.Messages.Message.error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="59" column="21" bodyfile="Networking/Messages/Message.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Networking.Messages.Message.Message</definition>
+        <argsstring>(MessageType messageType)</argsstring>
+        <name>Message</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.Message</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+          <declname>messageType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>messageType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="66" column="12" bodyfile="Networking/Messages/Message.java" bodystart="66" bodyend="68"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aff6535448d055559777bb22bfe700bcf" compoundref="_message_8java" startline="311" endline="315">ver14.SharedClasses.Networking.Messages.Message.answerQuestion</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3513b7540e8378f0cbb277a99f4e663e" compoundref="_message_8java" startline="244" endline="248">ver14.SharedClasses.Networking.Messages.Message.askForGameSettings</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a53314bcb08394ac2a501fba5e3029214" compoundref="_message_8java" startline="109" endline="111">ver14.SharedClasses.Networking.Messages.Message.askForLogin</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab6606ef568435f6c8d27756827c1ba7b" compoundref="_message_8java" startline="323" endline="327">ver14.SharedClasses.Networking.Messages.Message.askQuestion</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6ff9bb8387b1c5626540fce88d306413" compoundref="_message_8java" startline="278" endline="280">ver14.SharedClasses.Networking.Messages.Message.bye</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa389888211aa8779737bc43c658d6bb7" compoundref="_message_8java" startline="335" endline="339">ver14.SharedClasses.Networking.Messages.Message.checkUsernameAvailability</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3ceca5ba4a7c88a96dcc75cd339ea5d7" compoundref="_message_8java" startline="373" endline="377">ver14.SharedClasses.Networking.Messages.Message.dbRequest</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acee98764560d6f8e27ca6d558fccdb75" compoundref="_message_8java" startline="288" endline="290">ver14.SharedClasses.Networking.Messages.Message.error</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af35492f350ca8d1745881e6db6c879fe" compoundref="_message_8java" startline="231" endline="235">ver14.SharedClasses.Networking.Messages.Message.gameOver</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a39f2e491e634ba532c3f068bba3f2c8f" compoundref="_message_8java" startline="268" endline="270">ver14.SharedClasses.Networking.Messages.Message.interrupt</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5a9c9c5bcb3c3bdd7f3756378bf852fe" compoundref="_message_8java" startline="395" endline="399">ver14.SharedClasses.Networking.Messages.Message.returnDBResponse</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47d7db18f09a1ad52ab729449e1a2e37" compoundref="_message_8java" startline="257" endline="261">ver14.SharedClasses.Networking.Messages.Message.returnGameSettings</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3e38a11ec59c27fbc3f61979b6c1abb2" compoundref="_message_8java" startline="120" endline="124">ver14.SharedClasses.Networking.Messages.Message.returnLogin</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae8adff0b32a5f652d67cb17103e275d7" compoundref="_message_8java" startline="299" endline="303">ver14.SharedClasses.Networking.Messages.Message.returnMove</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a266baf6ac4ea72a2da496234e190c72e" compoundref="_message_8java" startline="361" endline="365">ver14.SharedClasses.Networking.Messages.Message.returnUsernameAvailable</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a49b46b649e43c6370af5a54ea02433ad" compoundref="_message_8java" startline="348" endline="353">ver14.SharedClasses.Networking.Messages.Message.returnUsernameNotAvailable</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e6e51858a248ae661f058b3d96e2c02" compoundref="_message_8java" startline="407" endline="411">ver14.SharedClasses.Networking.Messages.Message.syncLists</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac862be6e6e43d0de35dd5879c9da3bab" compoundref="_message_8java" startline="174" endline="178">ver14.SharedClasses.Networking.Messages.Message.throwError</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a18351ce119b8abe5970cb3bcd999cfd8" compoundref="_message_8java" startline="194" endline="199">ver14.SharedClasses.Networking.Messages.Message.updateByMove</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a086faecbe306b63a0431d52547b60708" compoundref="_message_8java" startline="221" endline="223">ver14.SharedClasses.Networking.Messages.Message.waitForMatch</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a569950ef8183798e500369f62e6653" compoundref="_message_8java" startline="208" endline="214">ver14.SharedClasses.Networking.Messages.Message.waitForYourTurn</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a218d4c880f21bcfbfea1f350f65e937b" compoundref="_message_8java" startline="140" endline="144">ver14.SharedClasses.Networking.Messages.Message.welcomeMessage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0728d97c3dc45b3e1f1b3901053bbca9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Networking.Messages.Message.Message</definition>
+        <argsstring>(MessageType messageType, String subject, String respondingToMsgId)</argsstring>
+        <name>Message</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.Message</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+          <declname>messageType</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>respondingToMsgId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>messageType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the subject </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>respondingToMsgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to msg id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="77" column="12" bodyfile="Networking/Messages/Message.java" bodystart="77" bodyend="82"/>
+        <references refid="classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator_1a2b8249477b131d118aa2ea94db9d9415" compoundref="_i_ds_generator_8java" startline="24" endline="31">ver14.SharedClasses.Misc.IDsGenerator.generate</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1fe542988d29802cff65203aeeee1d37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Networking.Messages.Message.Message</definition>
+        <argsstring>(MessageType messageType, Message respondingTo)</argsstring>
+        <name>Message</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.Message</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+          <declname>messageType</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>respondingTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>messageType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>respondingTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="90" column="12" bodyfile="Networking/Messages/Message.java" bodystart="90" bodyend="92"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8390389755b3ca06f88f534fd91dc6bb" compoundref="_message_8java" startline="35">ver14.SharedClasses.Networking.Messages.Message.messageID</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4feb51d8ee05b205345fbf831f483d00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Networking.Messages.Message.Message</definition>
+        <argsstring>(MessageType messageType, String subject)</argsstring>
+        <name>Message</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.Message</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+          <declname>messageType</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>subject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>messageType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the subject </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="100" column="12" bodyfile="Networking/Messages/Message.java" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a972736ee6548b96812ca60884f74d50f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setDbRequest</definition>
+        <argsstring>(DBRequest dbRequest)</argsstring>
+        <name>setDbRequest</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setDbRequest</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+          <declname>dbRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets db request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dbRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the db request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="384" column="17" bodyfile="Networking/Messages/Message.java" bodystart="384" bodyend="386"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3ceca5ba4a7c88a96dcc75cd339ea5d7" compoundref="_message_8java" startline="373" endline="377">ver14.SharedClasses.Networking.Messages.Message.dbRequest</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4efe89f418d43e98d50e903d562c7f8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.getCancelingQuestionCause</definition>
+        <argsstring>()</argsstring>
+        <name>getCancelingQuestionCause</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getCancelingQuestionCause</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="413" column="19" bodyfile="Networking/Messages/Message.java" bodystart="413" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6970c66238fba5af78893312cfa76686" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setCancelingQuestionCause</definition>
+        <argsstring>(String cancelingQuestionCause)</argsstring>
+        <name>setCancelingQuestionCause</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setCancelingQuestionCause</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cancelingQuestionCause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="417" column="17" bodyfile="Networking/Messages/Message.java" bodystart="417" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac23392859bfd8125ab2e1b1d89ccf2de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Question.Answer</ref></type>
+        <definition>Question.Answer ver14.SharedClasses.Networking.Messages.Message.getAnswer</definition>
+        <argsstring>()</argsstring>
+        <name>getAnswer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getAnswer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="421" column="27" bodyfile="Networking/Messages/Message.java" bodystart="421" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac45755b94cb27652e45c1256aaaca6a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setAnswer</definition>
+        <argsstring>(Question.Answer answer)</argsstring>
+        <name>setAnswer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setAnswer</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Question.Answer</ref></type>
+          <declname>answer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="425" column="17" bodyfile="Networking/Messages/Message.java" bodystart="425" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af733c52c2ed6810c89c7d77694160167" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+        <definition>MyError ver14.SharedClasses.Networking.Messages.Message.getError</definition>
+        <argsstring>()</argsstring>
+        <name>getError</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets error.</para>
+<para><simplesect kind="return"><para>the error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="434" column="20" bodyfile="Networking/Messages/Message.java" bodystart="434" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acfec527bec60a30ea0fe00c67bf0da89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setError</definition>
+        <argsstring>(MyError error)</argsstring>
+        <name>setError</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setError</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets error.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="443" column="17" bodyfile="Networking/Messages/Message.java" bodystart="443" bodyend="445"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac862be6e6e43d0de35dd5879c9da3bab" compoundref="_message_8java" startline="174" endline="178">ver14.SharedClasses.Networking.Messages.Message.throwError</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adad27e5686e99ff7452bf6473b705ff9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+        <definition>DBRequest ver14.SharedClasses.Networking.Messages.Message.getDBRequest</definition>
+        <argsstring>()</argsstring>
+        <name>getDBRequest</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getDBRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets db request.</para>
+<para><simplesect kind="return"><para>the db request </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="452" column="22" bodyfile="Networking/Messages/Message.java" bodystart="452" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0f5f75d439e1cf0f77196c7c787a85f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; String &gt;</type>
+        <definition>ArrayList&lt; String &gt; ver14.SharedClasses.Networking.Messages.Message.getUsernameSuggestions</definition>
+        <argsstring>()</argsstring>
+        <name>getUsernameSuggestions</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getUsernameSuggestions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets username suggestions.</para>
+<para><simplesect kind="return"><para>the username suggestions </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="461" column="22" bodyfile="Networking/Messages/Message.java" bodystart="461" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a12dcb1f02ad4f0ef71a8d58ee7013e56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setUsernameSuggestions</definition>
+        <argsstring>(ArrayList&lt; String &gt; usernameSuggestions)</argsstring>
+        <name>setUsernameSuggestions</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setUsernameSuggestions</qualifiedname>
+        <param>
+          <type>ArrayList&lt; String &gt;</type>
+          <declname>usernameSuggestions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets username suggestions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>usernameSuggestions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username suggestions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="470" column="17" bodyfile="Networking/Messages/Message.java" bodystart="470" bodyend="472"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a49b46b649e43c6370af5a54ea02433ad" compoundref="_message_8java" startline="348" endline="353">ver14.SharedClasses.Networking.Messages.Message.returnUsernameNotAvailable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a413bb397399d54f118a85af4052d6330" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" kindref="compound">DBResponse</ref></type>
+        <definition>DBResponse ver14.SharedClasses.Networking.Messages.Message.getDBResponse</definition>
+        <argsstring>()</argsstring>
+        <name>getDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getDBResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets db response.</para>
+<para><simplesect kind="return"><para>the db response </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="479" column="23" bodyfile="Networking/Messages/Message.java" bodystart="479" bodyend="481"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aae882fc647d5e2acec63641f47f7d6e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setDBResponse</definition>
+        <argsstring>(DBResponse requestedStats)</argsstring>
+        <name>setDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setDBResponse</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" kindref="compound">DBResponse</ref></type>
+          <declname>requestedStats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets db response.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>requestedStats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the requested stats </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="488" column="17" bodyfile="Networking/Messages/Message.java" bodystart="488" bodyend="490"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response_1a6a5c546947dde5c8dc19cf1c917855ba">ver14.SharedClasses.DBActions.DBResponse.DBResponse.clean</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5a9c9c5bcb3c3bdd7f3756378bf852fe" compoundref="_message_8java" startline="395" endline="399">ver14.SharedClasses.Networking.Messages.Message.returnDBResponse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adbd626dbd070bf8ae013b074b8e1a002" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Stack&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+        <definition>Stack&lt; Move &gt; ver14.SharedClasses.Networking.Messages.Message.getMoveStack</definition>
+        <argsstring>()</argsstring>
+        <name>getMoveStack</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getMoveStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets move stack.</para>
+<para><simplesect kind="return"><para>the move stack </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="497" column="18" bodyfile="Networking/Messages/Message.java" bodystart="497" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a2ecd8416eeb8801d047c59aa4e830d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setMoveStack</definition>
+        <argsstring>(Stack&lt; Move &gt; moveStack)</argsstring>
+        <name>setMoveStack</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setMoveStack</qualifiedname>
+        <param>
+          <type>Stack&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+          <declname>moveStack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets move stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>moveStack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move stack </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="506" column="17" bodyfile="Networking/Messages/Message.java" bodystart="506" bodyend="508"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aff3744563cb95e21c43b612871877a4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt;?&gt;[]</type>
+        <definition>SyncedItems&lt;?&gt;[] ver14.SharedClasses.Networking.Messages.Message.getSyncedLists</definition>
+        <argsstring>()</argsstring>
+        <name>getSyncedLists</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getSyncedLists</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get synced lists synced items [ ].</para>
+<para><simplesect kind="return"><para>the synced items [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="515" column="24" bodyfile="Networking/Messages/Message.java" bodystart="515" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4575ccdf65d78b492f437e30352efc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setSyncedLists</definition>
+        <argsstring>(SyncedItems&lt;?&gt;... syncedLists)</argsstring>
+        <name>setSyncedLists</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setSyncedLists</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt;?&gt;...</type>
+          <declname>syncedLists</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets synced lists.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>syncedLists</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the synced lists </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="524" column="17" bodyfile="Networking/Messages/Message.java" bodystart="524" bodyend="527"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3513b7540e8378f0cbb277a99f4e663e" compoundref="_message_8java" startline="244" endline="248">ver14.SharedClasses.Networking.Messages.Message.askForGameSettings</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e6e51858a248ae661f058b3d96e2c02" compoundref="_message_8java" startline="407" endline="411">ver14.SharedClasses.Networking.Messages.Message.syncLists</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab13366f121682b8a974465e0db3d9aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.getRespondingToMsgId</definition>
+        <argsstring>()</argsstring>
+        <name>getRespondingToMsgId</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getRespondingToMsgId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets responding to msg id.</para>
+<para><simplesect kind="return"><para>the responding to msg id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="534" column="19" bodyfile="Networking/Messages/Message.java" bodystart="534" bodyend="536"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adba403484d7cf2241b629ab8ace2fa2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setRespondingToMsgId</definition>
+        <argsstring>(String respondingToMsgId)</argsstring>
+        <name>setRespondingToMsgId</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setRespondingToMsgId</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>respondingToMsgId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets responding to msg id.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>respondingToMsgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to msg id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="543" column="17" bodyfile="Networking/Messages/Message.java" bodystart="543" bodyend="545"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af28efdc23aec4a9acea74c4b5ac2a460" compoundref="_message_8java" startline="552" endline="554">ver14.SharedClasses.Networking.Messages.Message.setRespondingTo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af28efdc23aec4a9acea74c4b5ac2a460" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setRespondingTo</definition>
+        <argsstring>(Message msg)</argsstring>
+        <name>setRespondingTo</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setRespondingTo</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets responding to.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the msg </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="552" column="17" bodyfile="Networking/Messages/Message.java" bodystart="552" bodyend="554"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8390389755b3ca06f88f534fd91dc6bb" compoundref="_message_8java" startline="35">ver14.SharedClasses.Networking.Messages.Message.messageID</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adba403484d7cf2241b629ab8ace2fa2d" compoundref="_message_8java" startline="543" endline="545">ver14.SharedClasses.Networking.Messages.Message.setRespondingToMsgId</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_1afb813a2398cf0e09b2a1a71b63db9460" compoundref="_app_socket_8java" startline="153" endline="156">ver14.SharedClasses.Networking.AppSocket.respond</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a9b9028c89d0120fc1ae174ec6b305c43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Networking.Messages.Message.isResponse</definition>
+        <argsstring>()</argsstring>
+        <name>isResponse</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.isResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is response boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="561" column="20" bodyfile="Networking/Messages/Message.java" bodystart="561" bodyend="563"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aacdd6e1e56aed5baf2c1e9c0e8d3b939" compoundref="_messages_handler_8java" startline="508" endline="514">ver14.SharedClasses.Networking.MessagesHandler.onInterrupt</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aca36d9645ce58dc34214509074789e93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.getOtherPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>getOtherPlayer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getOtherPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets other player.</para>
+<para><simplesect kind="return"><para>the other player </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="570" column="19" bodyfile="Networking/Messages/Message.java" bodystart="570" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae64bb519dbf7e580f49fbbfea4c13d02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setOtherPlayer</definition>
+        <argsstring>(String otherPlayer)</argsstring>
+        <name>setOtherPlayer</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setOtherPlayer</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>otherPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets other player.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the other player </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="579" column="17" bodyfile="Networking/Messages/Message.java" bodystart="579" bodyend="581"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1d98405f209f4e5f384dc75f0cf32a9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+        <definition>Question ver14.SharedClasses.Networking.Messages.Message.getQuestion</definition>
+        <argsstring>()</argsstring>
+        <name>getQuestion</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getQuestion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets question.</para>
+<para><simplesect kind="return"><para>the question </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="588" column="21" bodyfile="Networking/Messages/Message.java" bodystart="588" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a21185409efe56637214a82c5fc72d3c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setQuestion</definition>
+        <argsstring>(Question question)</argsstring>
+        <name>setQuestion</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setQuestion</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+          <declname>question</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets question.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>question</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the question </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="597" column="17" bodyfile="Networking/Messages/Message.java" bodystart="597" bodyend="599"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab6606ef568435f6c8d27756827c1ba7b" compoundref="_message_8java" startline="323" endline="327">ver14.SharedClasses.Networking.Messages.Message.askQuestion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a2e827a960e3963dd2ff262c0156dd5bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean ver14.SharedClasses.Networking.Messages.Message.getAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>getAvailable</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets available.</para>
+<para><simplesect kind="return"><para>the available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="606" column="20" bodyfile="Networking/Messages/Message.java" bodystart="606" bodyend="608"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1afe181cd8aefd7ee9ffd14feda925d526" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setAvailable</definition>
+        <argsstring>(Boolean available)</argsstring>
+        <name>setAvailable</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setAvailable</qualifiedname>
+        <param>
+          <type>Boolean</type>
+          <declname>available</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets available.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>available</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the available </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="615" column="17" bodyfile="Networking/Messages/Message.java" bodystart="615" bodyend="617"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a266baf6ac4ea72a2da496234e190c72e" compoundref="_message_8java" startline="361" endline="365">ver14.SharedClasses.Networking.Messages.Message.returnUsernameAvailable</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a49b46b649e43c6370af5a54ea02433ad" compoundref="_message_8java" startline="348" endline="353">ver14.SharedClasses.Networking.Messages.Message.returnUsernameNotAvailable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a746cb4fe8d9195ccc5f51a05d75eec7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.getUsername</definition>
+        <argsstring>()</argsstring>
+        <name>getUsername</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets username.</para>
+<para><simplesect kind="return"><para>the username </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="624" column="19" bodyfile="Networking/Messages/Message.java" bodystart="624" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4a6b87c03c214d10d64da2ead84ee90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setUsername</definition>
+        <argsstring>(String username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setUsername</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets username.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="633" column="17" bodyfile="Networking/Messages/Message.java" bodystart="633" bodyend="635"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa389888211aa8779737bc43c658d6bb7" compoundref="_message_8java" startline="335" endline="339">ver14.SharedClasses.Networking.Messages.Message.checkUsernameAvailability</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4be6ca01e7ed51ab2f268b62d8d0e312" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+        <definition>GameSettings ver14.SharedClasses.Networking.Messages.Message.getGameSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getGameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getGameSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets game settings.</para>
+<para><simplesect kind="return"><para>the game settings </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="642" column="25" bodyfile="Networking/Messages/Message.java" bodystart="642" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e82a1f00b860af16a0f7f9131cdaaee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setGameSettings</definition>
+        <argsstring>(GameSettings gameSettings)</argsstring>
+        <name>setGameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setGameSettings</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+          <declname>gameSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets game settings.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game settings </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="651" column="17" bodyfile="Networking/Messages/Message.java" bodystart="651" bodyend="653"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47d7db18f09a1ad52ab729449e1a2e37" compoundref="_message_8java" startline="257" endline="261">ver14.SharedClasses.Networking.Messages.Message.returnGameSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1add52bfd4d29f9ad613b310af13704eda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+        <definition>ArrayList&lt; Move &gt; ver14.SharedClasses.Networking.Messages.Message.getPreMoves</definition>
+        <argsstring>()</argsstring>
+        <name>getPreMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getPreMoves</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets pre moves.</para>
+<para><simplesect kind="return"><para>the pre moves </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="660" column="22" bodyfile="Networking/Messages/Message.java" bodystart="660" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad3598fc35a4e478674e6642c41d8c957" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setPreMoves</definition>
+        <argsstring>(ArrayList&lt; Move &gt; preMoves)</argsstring>
+        <name>setPreMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setPreMoves</qualifiedname>
+        <param>
+          <type>ArrayList&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+          <declname>preMoves</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets pre moves.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>preMoves</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pre moves </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="669" column="17" bodyfile="Networking/Messages/Message.java" bodystart="669" bodyend="671"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a569950ef8183798e500369f62e6653" compoundref="_message_8java" startline="208" endline="214">ver14.SharedClasses.Networking.Messages.Message.waitForYourTurn</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af5234423534fd8e614f71c8fbfb7b9c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.getSubject</definition>
+        <argsstring>()</argsstring>
+        <name>getSubject</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getSubject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets subject.</para>
+<para><simplesect kind="return"><para>the subject </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="678" column="19" bodyfile="Networking/Messages/Message.java" bodystart="678" bodyend="680"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a08bf7be51b29d53561d33e39afd3508b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>PlayerColor ver14.SharedClasses.Networking.Messages.Message.getPlayerColor</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerColor</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getPlayerColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets player color.</para>
+<para><simplesect kind="return"><para>the player color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="687" column="24" bodyfile="Networking/Messages/Message.java" bodystart="687" bodyend="689"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aab3a2ef91b69e484e7c494e58e2f5f91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setPlayerColor</definition>
+        <argsstring>(PlayerColor playerColor)</argsstring>
+        <name>setPlayerColor</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setPlayerColor</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>playerColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets player color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>playerColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the player color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="696" column="17" bodyfile="Networking/Messages/Message.java" bodystart="696" bodyend="698"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4bfc92e3d9ddb45f915cb9619e941afb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+        <definition>Move ver14.SharedClasses.Networking.Messages.Message.getMove</definition>
+        <argsstring>()</argsstring>
+        <name>getMove</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getMove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets move.</para>
+<para><simplesect kind="return"><para>the move </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="705" column="17" bodyfile="Networking/Messages/Message.java" bodystart="705" bodyend="707"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa3982a8db080b4461fcac99afd7035b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setMove</definition>
+        <argsstring>(Move move)</argsstring>
+        <name>setMove</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets move.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="714" column="17" bodyfile="Networking/Messages/Message.java" bodystart="714" bodyend="716"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae8adff0b32a5f652d67cb17103e275d7" compoundref="_message_8java" startline="299" endline="303">ver14.SharedClasses.Networking.Messages.Message.returnMove</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a18351ce119b8abe5970cb3bcd999cfd8" compoundref="_message_8java" startline="194" endline="199">ver14.SharedClasses.Networking.Messages.Message.updateByMove</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac9dcbacd09c9ac46db6b75d2ac05ed13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+        <definition>GameTime ver14.SharedClasses.Networking.Messages.Message.getGameTime</definition>
+        <argsstring>()</argsstring>
+        <name>getGameTime</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getGameTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets game time.</para>
+<para><simplesect kind="return"><para>the game time </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="723" column="21" bodyfile="Networking/Messages/Message.java" bodystart="723" bodyend="725"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a22ec19ca5827fa08c5066d610684233b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setGameTime</definition>
+        <argsstring>(GameTime gameTime)</argsstring>
+        <name>setGameTime</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setGameTime</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+          <declname>gameTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets game time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="732" column="17" bodyfile="Networking/Messages/Message.java" bodystart="732" bodyend="734"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a18351ce119b8abe5970cb3bcd999cfd8" compoundref="_message_8java" startline="194" endline="199">ver14.SharedClasses.Networking.Messages.Message.updateByMove</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a569950ef8183798e500369f62e6653" compoundref="_message_8java" startline="208" endline="214">ver14.SharedClasses.Networking.Messages.Message.waitForYourTurn</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab314a5f80c04fba4010adf6dc4739321" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+        <definition>GameStatus ver14.SharedClasses.Networking.Messages.Message.getGameStatus</definition>
+        <argsstring>()</argsstring>
+        <name>getGameStatus</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getGameStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets game status.</para>
+<para><simplesect kind="return"><para>the game status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="741" column="23" bodyfile="Networking/Messages/Message.java" bodystart="741" bodyend="743"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a23a467fef2ed47978855c3fde104c717" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setGameStatus</definition>
+        <argsstring>(GameStatus gameStatus)</argsstring>
+        <name>setGameStatus</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setGameStatus</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+          <declname>gameStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets game status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game status </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="750" column="17" bodyfile="Networking/Messages/Message.java" bodystart="750" bodyend="752"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af35492f350ca8d1745881e6db6c879fe" compoundref="_message_8java" startline="231" endline="235">ver14.SharedClasses.Networking.Messages.Message.gameOver</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab69374b09d3ed7238ad3344eee8df152" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+        <definition>MovesList ver14.SharedClasses.Networking.Messages.Message.getPossibleMoves</definition>
+        <argsstring>()</argsstring>
+        <name>getPossibleMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getPossibleMoves</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets possible moves.</para>
+<para><simplesect kind="return"><para>the possible moves </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="759" column="22" bodyfile="Networking/Messages/Message.java" bodystart="759" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab854413160b3495c10120df4dd2b0156" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setPossibleMoves</definition>
+        <argsstring>(MovesList possibleMoves)</argsstring>
+        <name>setPossibleMoves</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setPossibleMoves</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+          <declname>possibleMoves</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets possible moves.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>possibleMoves</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the possible moves </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="768" column="17" bodyfile="Networking/Messages/Message.java" bodystart="768" bodyend="779"/>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1ad7782f576457b8e52fee169af1a0a326" compoundref="_move_8java" startline="193" endline="195">ver14.SharedClasses.Game.Moves.Move.copyMove</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1aa34a7432dc700eecc5e44c1a7990cdc1" compoundref="_move_8java" startline="337" endline="339">ver14.SharedClasses.Game.Moves.Move.getIntermediateMove</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab67b5c4aaa08f7652ebc33ada5eeab2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+        <definition>Board ver14.SharedClasses.Networking.Messages.Message.getBoard</definition>
+        <argsstring>()</argsstring>
+        <name>getBoard</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getBoard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets board.</para>
+<para><simplesect kind="return"><para>the board </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="786" column="18" bodyfile="Networking/Messages/Message.java" bodystart="786" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0d5355d85cdaf2357afe5ee6ccaa3b00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setBoard</definition>
+        <argsstring>(Board board)</argsstring>
+        <name>setBoard</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setBoard</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+          <declname>board</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets board.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>board</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the board </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="795" column="17" bodyfile="Networking/Messages/Message.java" bodystart="795" bodyend="797"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" compoundref="_message_8java" startline="156" endline="166">ver14.SharedClasses.Networking.Messages.Message.initGame</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1c654fcd210f94a53bb49d923288f8bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kindref="compound">LoginInfo</ref></type>
+        <definition>LoginInfo ver14.SharedClasses.Networking.Messages.Message.getLoginInfo</definition>
+        <argsstring>()</argsstring>
+        <name>getLoginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getLoginInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets login info.</para>
+<para><simplesect kind="return"><para>the login info </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="804" column="22" bodyfile="Networking/Messages/Message.java" bodystart="804" bodyend="806"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6f2cef691bc72a5f7dadeedbecff7bdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Networking.Messages.Message.setLoginInfo</definition>
+        <argsstring>(LoginInfo loginInfo)</argsstring>
+        <name>setLoginInfo</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.setLoginInfo</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kindref="compound">LoginInfo</ref></type>
+          <declname>loginInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets login info.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loginInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login info </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="813" column="17" bodyfile="Networking/Messages/Message.java" bodystart="813" bodyend="815"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3e38a11ec59c27fbc3f61979b6c1abb2" compoundref="_message_8java" startline="120" endline="124">ver14.SharedClasses.Networking.Messages.Message.returnLogin</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a218d4c880f21bcfbfea1f350f65e937b" compoundref="_message_8java" startline="140" endline="144">ver14.SharedClasses.Networking.Messages.Message.welcomeMessage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af192aaacc7b0aea449d4d4be7d409120" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Networking.Messages.Message.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="818" column="19" bodyfile="Networking/Messages/Message.java" bodystart="818" bodyend="820"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a786588eae48b3bf749e883624e03f627" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type" kindref="compound">MessageType</ref></type>
+        <definition>MessageType ver14.SharedClasses.Networking.Messages.Message.getMessageType</definition>
+        <argsstring>()</argsstring>
+        <name>getMessageType</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.getMessageType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets message type.</para>
+<para><simplesect kind="return"><para>the message type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="827" column="24" bodyfile="Networking/Messages/Message.java" bodystart="827" bodyend="829"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a322717de420870a7e3e216afeedafee3" compoundref="_messages_handler_8java" startline="131" endline="154">ver14.SharedClasses.Networking.MessagesHandler.blockTilRes</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1ab94e933b3bb06471c37ff681e18af629" compoundref="_messages_handler_8java" startline="183" endline="207">ver14.SharedClasses.Networking.MessagesHandler.receivedMessage</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_1a0ee109e7b2a045c5f1cc04b4495667f9" compoundref="_app_socket_8java" startline="163" endline="175">ver14.SharedClasses.Networking.AppSocket.writeMessage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a89e31f479b7dd34596863171572b51c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Networking.Messages.Message.isSubject</definition>
+        <argsstring>()</argsstring>
+        <name>isSubject</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.isSubject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is subject boolean.</para>
+<para><simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="836" column="20" bodyfile="Networking/Messages/Message.java" bodystart="836" bodyend="838"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a2a95ab559ec75aef3531014c171d47bf" compoundref="_str_utils_8java" startline="141" endline="143">ver14.SharedClasses.Utils.StrUtils.isEmpty</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a53314bcb08394ac2a501fba5e3029214" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.askForLogin</definition>
+        <argsstring>()</argsstring>
+        <name>askForLogin</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.askForLogin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask for login message.</para>
+<para><simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="109" column="27" bodyfile="Networking/Messages/Message.java" bodystart="109" bodyend="111"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3e38a11ec59c27fbc3f61979b6c1abb2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnLogin</definition>
+        <argsstring>(LoginInfo loginInfo, Message respondingTo)</argsstring>
+        <name>returnLogin</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnLogin</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kindref="compound">LoginInfo</ref></type>
+          <declname>loginInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>respondingTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return login message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loginInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login info </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>respondingTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="120" column="27" bodyfile="Networking/Messages/Message.java" bodystart="120" bodyend="124"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6f2cef691bc72a5f7dadeedbecff7bdb" compoundref="_message_8java" startline="813" endline="815">ver14.SharedClasses.Networking.Messages.Message.setLoginInfo</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a883530f906e40b47c467e28d6e4b8186" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.cancelQuestion</definition>
+        <argsstring>(Question question, String cause)</argsstring>
+        <name>cancelQuestion</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.cancelQuestion</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+          <declname>question</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>cause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="126" column="27" bodyfile="Networking/Messages/Message.java" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a218d4c880f21bcfbfea1f350f65e937b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.welcomeMessage</definition>
+        <argsstring>(String str, LoginInfo loginInfo)</argsstring>
+        <name>welcomeMessage</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.welcomeMessage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" kindref="compound">LoginInfo</ref></type>
+          <declname>loginInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Welcome message message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the str </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loginInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the login info </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="140" column="27" bodyfile="Networking/Messages/Message.java" bodystart="140" bodyend="144"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6f2cef691bc72a5f7dadeedbecff7bdb" compoundref="_message_8java" startline="813" endline="815">ver14.SharedClasses.Networking.Messages.Message.setLoginInfo</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.initGame</definition>
+        <argsstring>(Board board, String opponent, PlayerColor player, GameTime gameTime, Stack&lt; Move &gt; moveStack)</argsstring>
+        <name>initGame</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.initGame</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" kindref="compound">Board</ref></type>
+          <declname>board</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>opponent</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+          <declname>gameTime</declname>
+        </param>
+        <param>
+          <type>Stack&lt; <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref> &gt;</type>
+          <declname>moveStack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Init game message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>board</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the board </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>opponent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the opponent </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the player </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game time </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>moveStack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move stack </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="156" column="27" bodyfile="Networking/Messages/Message.java" bodystart="156" bodyend="166"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0d5355d85cdaf2357afe5ee6ccaa3b00" compoundref="_message_8java" startline="795" endline="797">ver14.SharedClasses.Networking.Messages.Message.setBoard</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a22ec19ca5827fa08c5066d610684233b" compoundref="_message_8java" startline="732" endline="734">ver14.SharedClasses.Networking.Messages.Message.setGameTime</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a2ecd8416eeb8801d047c59aa4e830d" compoundref="_message_8java" startline="506" endline="508">ver14.SharedClasses.Networking.Messages.Message.setMoveStack</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae64bb519dbf7e580f49fbbfea4c13d02" compoundref="_message_8java" startline="579" endline="581">ver14.SharedClasses.Networking.Messages.Message.setOtherPlayer</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aab3a2ef91b69e484e7c494e58e2f5f91" compoundref="_message_8java" startline="696" endline="698">ver14.SharedClasses.Networking.Messages.Message.setPlayerColor</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac862be6e6e43d0de35dd5879c9da3bab" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.throwError</definition>
+        <argsstring>(MyError error)</argsstring>
+        <name>throwError</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.throwError</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Throw error message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if null interrupts </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="174" column="27" bodyfile="Networking/Messages/Message.java" bodystart="174" bodyend="178"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acfec527bec60a30ea0fe00c67bf0da89" compoundref="_message_8java" startline="443" endline="445">ver14.SharedClasses.Networking.Messages.Message.setError</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a63649ffe07590c468f24e90cc2b8eb89" compoundref="_messages_handler_8java" startline="121" endline="123">ver14.SharedClasses.Networking.MessagesHandler.interruptBlocking</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6bf409c3b1d97f083554af06a43191a9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.askForMove</definition>
+        <argsstring>(MovesList possibleMoves, GameTime gameTime)</argsstring>
+        <name>askForMove</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.askForMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list" kindref="compound">MovesList</ref></type>
+          <declname>possibleMoves</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+          <declname>gameTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="180" column="27" bodyfile="Networking/Messages/Message.java" bodystart="180" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a18351ce119b8abe5970cb3bcd999cfd8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.updateByMove</definition>
+        <argsstring>(Move move, GameTime gameTime)</argsstring>
+        <name>updateByMove</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.updateByMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+          <declname>gameTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update by move message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="194" column="27" bodyfile="Networking/Messages/Message.java" bodystart="194" bodyend="199"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a22ec19ca5827fa08c5066d610684233b" compoundref="_message_8java" startline="732" endline="734">ver14.SharedClasses.Networking.Messages.Message.setGameTime</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa3982a8db080b4461fcac99afd7035b8" compoundref="_message_8java" startline="714" endline="716">ver14.SharedClasses.Networking.Messages.Message.setMove</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a569950ef8183798e500369f62e6653" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.waitForYourTurn</definition>
+        <argsstring>(String waitingForName, GameTime gameTime)</argsstring>
+        <name>waitForYourTurn</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.waitForYourTurn</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>waitingForName</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time" kindref="compound">GameTime</ref></type>
+          <declname>gameTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for your turn message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>waitingForName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the waiting for name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="208" column="27" bodyfile="Networking/Messages/Message.java" bodystart="208" bodyend="214"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1a3f4cc5b1cdb8c226aae3d14162462f43" compoundref="_str_utils_8java" startline="216" endline="218">ver14.SharedClasses.Utils.StrUtils.dontCapWord</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a22ec19ca5827fa08c5066d610684233b" compoundref="_message_8java" startline="732" endline="734">ver14.SharedClasses.Networking.Messages.Message.setGameTime</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad3598fc35a4e478674e6642c41d8c957" compoundref="_message_8java" startline="669" endline="671">ver14.SharedClasses.Networking.Messages.Message.setPreMoves</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a086faecbe306b63a0431d52547b60708" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.waitForMatch</definition>
+        <argsstring>()</argsstring>
+        <name>waitForMatch</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.waitForMatch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for match message.</para>
+<para><simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="221" column="27" bodyfile="Networking/Messages/Message.java" bodystart="221" bodyend="223"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af35492f350ca8d1745881e6db6c879fe" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.gameOver</definition>
+        <argsstring>(GameStatus gameStatus)</argsstring>
+        <name>gameOver</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.gameOver</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status" kindref="compound">GameStatus</ref></type>
+          <declname>gameStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game over message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game status </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="231" column="27" bodyfile="Networking/Messages/Message.java" bodystart="231" bodyend="235"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a23a467fef2ed47978855c3fde104c717" compoundref="_message_8java" startline="750" endline="752">ver14.SharedClasses.Networking.Messages.Message.setGameStatus</references>
+        <references refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa0dea3118515f4f3cafe7711fa3fafe0" compoundref="_game_status_8java" startline="289" endline="291">ver14.SharedClasses.Game.Evaluation.GameStatus.toString</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3513b7540e8378f0cbb277a99f4e663e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.askForGameSettings</definition>
+        <argsstring>(SyncedItems joinableGames, SyncedItems resumableGames)</argsstring>
+        <name>askForGameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.askForGameSettings</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref></type>
+          <declname>joinableGames</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref></type>
+          <declname>resumableGames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask for game settings message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>joinableGames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the joinable games </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resumableGames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the resumable games </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="244" column="27" bodyfile="Networking/Messages/Message.java" bodystart="244" bodyend="248"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4575ccdf65d78b492f437e30352efc7" compoundref="_message_8java" startline="524" endline="527">ver14.SharedClasses.Networking.Messages.Message.setSyncedLists</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47d7db18f09a1ad52ab729449e1a2e37" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnGameSettings</definition>
+        <argsstring>(GameSettings gameSettings, Message respondingTo)</argsstring>
+        <name>returnGameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnGameSettings</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+          <declname>gameSettings</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>respondingTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return game settings message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game settings </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>respondingTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="257" column="27" bodyfile="Networking/Messages/Message.java" bodystart="257" bodyend="261"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e82a1f00b860af16a0f7f9131cdaaee" compoundref="_message_8java" startline="651" endline="653">ver14.SharedClasses.Networking.Messages.Message.setGameSettings</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a39f2e491e634ba532c3f068bba3f2c8f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.interrupt</definition>
+        <argsstring>()</argsstring>
+        <name>interrupt</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.interrupt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Interrupt message.</para>
+<para><simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="268" column="27" bodyfile="Networking/Messages/Message.java" bodystart="268" bodyend="270"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1aacdd6e1e56aed5baf2c1e9c0e8d3b939" compoundref="_messages_handler_8java" startline="508" endline="514">ver14.SharedClasses.Networking.MessagesHandler.onInterrupt</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler_1a2aa503b01076fe03aff603a5e719fc97" compoundref="_messages_handler_8java" startline="521" endline="525">ver14.SharedClasses.Networking.MessagesHandler.onIsAlive</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6ff9bb8387b1c5626540fce88d306413" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.bye</definition>
+        <argsstring>(String subject)</argsstring>
+        <name>bye</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.bye</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>subject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bye message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the subject </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="278" column="27" bodyfile="Networking/Messages/Message.java" bodystart="278" bodyend="280"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acee98764560d6f8e27ca6d558fccdb75" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.error</definition>
+        <argsstring>(String err)</argsstring>
+        <name>error</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.error</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the err </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="288" column="27" bodyfile="Networking/Messages/Message.java" bodystart="288" bodyend="290"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae8adff0b32a5f652d67cb17103e275d7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnMove</definition>
+        <argsstring>(Move move, Message respondingTo)</argsstring>
+        <name>returnMove</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnMove</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move" kindref="compound">Move</ref></type>
+          <declname>move</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>respondingTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return move message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>move</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the move </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>respondingTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="299" column="27" bodyfile="Networking/Messages/Message.java" bodystart="299" bodyend="303"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa3982a8db080b4461fcac99afd7035b8" compoundref="_message_8java" startline="714" endline="716">ver14.SharedClasses.Networking.Messages.Message.setMove</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aff6535448d055559777bb22bfe700bcf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.answerQuestion</definition>
+        <argsstring>(Question.Answer answer, Message respondingTo)</argsstring>
+        <name>answerQuestion</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.answerQuestion</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question_1ac6255a6e4d1bfdf75dea9abc53f02243" kindref="member">Question.Answer</ref></type>
+          <declname>answer</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>respondingTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Answer question message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>respondingTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the responding to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="311" column="27" bodyfile="Networking/Messages/Message.java" bodystart="311" bodyend="315"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab6606ef568435f6c8d27756827c1ba7b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.askQuestion</definition>
+        <argsstring>(Question question)</argsstring>
+        <name>askQuestion</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.askQuestion</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_misc_1_1_question" kindref="compound">Question</ref></type>
+          <declname>question</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask question message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>question</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the question </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="323" column="27" bodyfile="Networking/Messages/Message.java" bodystart="323" bodyend="327"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a21185409efe56637214a82c5fc72d3c9" compoundref="_message_8java" startline="597" endline="599">ver14.SharedClasses.Networking.Messages.Message.setQuestion</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa389888211aa8779737bc43c658d6bb7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.checkUsernameAvailability</definition>
+        <argsstring>(String username)</argsstring>
+        <name>checkUsernameAvailability</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.checkUsernameAvailability</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check username availability message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="335" column="27" bodyfile="Networking/Messages/Message.java" bodystart="335" bodyend="339"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4a6b87c03c214d10d64da2ead84ee90" compoundref="_message_8java" startline="633" endline="635">ver14.SharedClasses.Networking.Messages.Message.setUsername</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a49b46b649e43c6370af5a54ea02433ad" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnUsernameNotAvailable</definition>
+        <argsstring>(ArrayList&lt; String &gt; usernameSuggestions, Message request)</argsstring>
+        <name>returnUsernameNotAvailable</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnUsernameNotAvailable</qualifiedname>
+        <param>
+          <type>ArrayList&lt; String &gt;</type>
+          <declname>usernameSuggestions</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return username not available message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>usernameSuggestions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the username suggestions </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="348" column="27" bodyfile="Networking/Messages/Message.java" bodystart="348" bodyend="353"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1afe181cd8aefd7ee9ffd14feda925d526" compoundref="_message_8java" startline="615" endline="617">ver14.SharedClasses.Networking.Messages.Message.setAvailable</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a12dcb1f02ad4f0ef71a8d58ee7013e56" compoundref="_message_8java" startline="470" endline="472">ver14.SharedClasses.Networking.Messages.Message.setUsernameSuggestions</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a266baf6ac4ea72a2da496234e190c72e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnUsernameAvailable</definition>
+        <argsstring>(Message request)</argsstring>
+        <name>returnUsernameAvailable</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnUsernameAvailable</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return username available message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="361" column="27" bodyfile="Networking/Messages/Message.java" bodystart="361" bodyend="365"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1afe181cd8aefd7ee9ffd14feda925d526" compoundref="_message_8java" startline="615" endline="617">ver14.SharedClasses.Networking.Messages.Message.setAvailable</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3ceca5ba4a7c88a96dcc75cd339ea5d7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.dbRequest</definition>
+        <argsstring>(DBRequest dbRequest)</argsstring>
+        <name>dbRequest</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.dbRequest</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+          <declname>dbRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Db request message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dbRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the db request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="373" column="27" bodyfile="Networking/Messages/Message.java" bodystart="373" bodyend="377"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a972736ee6548b96812ca60884f74d50f" compoundref="_message_8java" startline="384" endline="386">ver14.SharedClasses.Networking.Messages.Message.setDbRequest</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5a9c9c5bcb3c3bdd7f3756378bf852fe" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.returnDBResponse</definition>
+        <argsstring>(DBResponse DBResponse, Message request)</argsstring>
+        <name>returnDBResponse</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.returnDBResponse</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response" kindref="compound">DBResponse</ref></type>
+          <declname>DBResponse</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return db response message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>DBResponse</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the db response </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="395" column="27" bodyfile="Networking/Messages/Message.java" bodystart="395" bodyend="399"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aae882fc647d5e2acec63641f47f7d6e0" compoundref="_message_8java" startline="488" endline="490">ver14.SharedClasses.Networking.Messages.Message.setDBResponse</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e6e51858a248ae661f058b3d96e2c02" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message" kindref="compound">Message</ref></type>
+        <definition>static Message ver14.SharedClasses.Networking.Messages.Message.syncLists</definition>
+        <argsstring>(SyncedItems&lt;?&gt;... syncedLists)</argsstring>
+        <name>syncLists</name>
+        <qualifiedname>ver14.SharedClasses.Networking.Messages.Message.syncLists</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_sync_1_1_synced_items" kindref="compound">SyncedItems</ref>&lt;?&gt;...</type>
+          <declname>syncedLists</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sync lists message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>syncedLists</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the synced lists </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Networking/Messages/Message.java" line="407" column="27" bodyfile="Networking/Messages/Message.java" bodystart="407" bodyend="411"/>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" compoundref="_message_8java" startline="66" endline="68">ver14.SharedClasses.Networking.Messages.Message.Message</references>
+        <references refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4575ccdf65d78b492f437e30352efc7" compoundref="_message_8java" startline="524" endline="527">ver14.SharedClasses.Networking.Messages.Message.setSyncedLists</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect2 id="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1autotoc_md0">
+<title>Message.</title>
+<para>by Ilan Peretz (<ulink url="mailto:ilanperets@gmail.com">ilanperets@gmail.com</ulink>) 10/11/2021 </para>
+</sect2>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Networking.Messages.Message</label>
+        <link refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Networking.Messages.Message</label>
+        <link refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Networking/Messages/Message.java" line="30" column="7" bodyfile="Networking/Messages/Message.java" bodystart="30" bodyend="841"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6c7d90349844661d3b551b73888d5929" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>answer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aff6535448d055559777bb22bfe700bcf" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>answerQuestion</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3513b7540e8378f0cbb277a99f4e663e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>askForGameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a53314bcb08394ac2a501fba5e3029214" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>askForLogin</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6bf409c3b1d97f083554af06a43191a9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>askForMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab6606ef568435f6c8d27756827c1ba7b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>askQuestion</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1aa90068f87bacdb17c85fcb061fc372" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>available</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a477232ab4bd348b56e2f3894b2a9d583" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>board</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6ff9bb8387b1c5626540fce88d306413" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>bye</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0bf3c67fd8477f349b41a8b75ffe99c9" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>cancelingQuestionCause</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a883530f906e40b47c467e28d6e4b8186" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>cancelQuestion</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa389888211aa8779737bc43c658d6bb7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>checkUsernameAvailability</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac3a6d7866b7758508c7f98287380b5e1" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>dbRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3ceca5ba4a7c88a96dcc75cd339ea5d7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>dbRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47bc7864e2924d8aa8ef8f6cbdf8239c" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>dbResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a366bcb54b79376297e2d0ec23d15eb88" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>error</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acee98764560d6f8e27ca6d558fccdb75" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>error</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af35492f350ca8d1745881e6db6c879fe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>gameOver</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a2edb9000c6e6146bc899abecb6649410" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>gameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a9eb0e84b5ef514c647e59a036cf00b83" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>gameStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a323775b0a672222bb95048934d000246" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>gameTime</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac23392859bfd8125ab2e1b1d89ccf2de" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getAnswer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a2e827a960e3963dd2ff262c0156dd5bd" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getAvailable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab67b5c4aaa08f7652ebc33ada5eeab2c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getBoard</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4efe89f418d43e98d50e903d562c7f8d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getCancelingQuestionCause</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adad27e5686e99ff7452bf6473b705ff9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getDBRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a413bb397399d54f118a85af4052d6330" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af733c52c2ed6810c89c7d77694160167" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4be6ca01e7ed51ab2f268b62d8d0e312" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getGameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab314a5f80c04fba4010adf6dc4739321" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getGameStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac9dcbacd09c9ac46db6b75d2ac05ed13" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getGameTime</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1c654fcd210f94a53bb49d923288f8bb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getLoginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a786588eae48b3bf749e883624e03f627" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getMessageType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4bfc92e3d9ddb45f915cb9619e941afb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adbd626dbd070bf8ae013b074b8e1a002" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getMoveStack</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aca36d9645ce58dc34214509074789e93" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getOtherPlayer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a08bf7be51b29d53561d33e39afd3508b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getPlayerColor</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab69374b09d3ed7238ad3344eee8df152" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getPossibleMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1add52bfd4d29f9ad613b310af13704eda" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getPreMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1d98405f209f4e5f384dc75f0cf32a9e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getQuestion</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab13366f121682b8a974465e0db3d9aa8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getRespondingToMsgId</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af5234423534fd8e614f71c8fbfb7b9c0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getSubject</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aff3744563cb95e21c43b612871877a4b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getSyncedLists</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a746cb4fe8d9195ccc5f51a05d75eec7e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0f5f75d439e1cf0f77196c7c787a85f6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>getUsernameSuggestions</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a71b039881848d8c2b80db8b13e561f9f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>initGame</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a39f2e491e634ba532c3f068bba3f2c8f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>interrupt</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a9b9028c89d0120fc1ae174ec6b305c43" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>isResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a89e31f479b7dd34596863171572b51c9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>isSubject</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aea2979ce6aab62ab84ad8aaa22a142cf" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>loginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8046410546d4d70614b22fac7f31dc36" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>Message</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0728d97c3dc45b3e1f1b3901053bbca9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>Message</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a1fe542988d29802cff65203aeeee1d37" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>Message</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4feb51d8ee05b205345fbf831f483d00" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>Message</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8390389755b3ca06f88f534fd91dc6bb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>messageID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4fbb32d48c820b826837a08fbd9d179" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>messagesIds</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad7f620c1553ca5bd23a4dc4549d61bc3" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>messageType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a30f496fa7df8277b54f225dfb009f5" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>move</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af3b521a2c95661890ac4ca3ec7b50d7d" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>moveStack</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac08c424f403198f26accfadc0d7f8d91" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>otherPlayer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aee1896bf16f1025020fea1a1d7e9b6b6" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>playerColor</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a4d2456f7b675d69657b4815a1d50c06d" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>possibleMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5b84b75366f0d0abe0b427ed5803fab7" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>preMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aecea4704d1147deb4ede04735924cc81" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>question</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a83f437b0583890634a7caade9b5f1503" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>respondingToMsgId</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a5a9c9c5bcb3c3bdd7f3756378bf852fe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a47d7db18f09a1ad52ab729449e1a2e37" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnGameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a3e38a11ec59c27fbc3f61979b6c1abb2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnLogin</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae8adff0b32a5f652d67cb17103e275d7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a266baf6ac4ea72a2da496234e190c72e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnUsernameAvailable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a49b46b649e43c6370af5a54ea02433ad" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>returnUsernameNotAvailable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac45755b94cb27652e45c1256aaaca6a4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setAnswer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1afe181cd8aefd7ee9ffd14feda925d526" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setAvailable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a0d5355d85cdaf2357afe5ee6ccaa3b00" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setBoard</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6970c66238fba5af78893312cfa76686" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setCancelingQuestionCause</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a972736ee6548b96812ca60884f74d50f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setDbRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aae882fc647d5e2acec63641f47f7d6e0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setDBResponse</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1acfec527bec60a30ea0fe00c67bf0da89" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e82a1f00b860af16a0f7f9131cdaaee" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setGameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a23a467fef2ed47978855c3fde104c717" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setGameStatus</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a22ec19ca5827fa08c5066d610684233b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setGameTime</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a6f2cef691bc72a5f7dadeedbecff7bdb" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setLoginInfo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aa3982a8db080b4461fcac99afd7035b8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a2ecd8416eeb8801d047c59aa4e830d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setMoveStack</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ae64bb519dbf7e580f49fbbfea4c13d02" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setOtherPlayer</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1aab3a2ef91b69e484e7c494e58e2f5f91" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setPlayerColor</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab854413160b3495c10120df4dd2b0156" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setPossibleMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad3598fc35a4e478674e6642c41d8c957" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setPreMoves</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a21185409efe56637214a82c5fc72d3c9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setQuestion</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af28efdc23aec4a9acea74c4b5ac2a460" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setRespondingTo</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1adba403484d7cf2241b629ab8ace2fa2d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setRespondingToMsgId</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4575ccdf65d78b492f437e30352efc7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setSyncedLists</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac4a6b87c03c214d10d64da2ead84ee90" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setUsername</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a12dcb1f02ad4f0ef71a8d58ee7013e56" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>setUsernameSuggestions</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a383f3139e019a953cbd230a4435e986c" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>subject</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a80a921c4255246be78222348ed5165e3" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>syncedLists</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a8e6e51858a248ae661f058b3d96e2c02" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>syncLists</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ac862be6e6e43d0de35dd5879c9da3bab" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>throwError</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1af192aaacc7b0aea449d4d4be7d409120" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a18351ce119b8abe5970cb3bcd999cfd8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>updateByMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ad50575440774ecd8d78cbbf72a49dd6a" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>username</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1ab95806c2ffbbfc97ceefba58ef6b943a" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>usernameSuggestions</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a086faecbe306b63a0431d52547b60708" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>waitForMatch</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a7a569950ef8183798e500369f62e6653" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>waitForYourTurn</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_1a218d4c880f21bcfbfea1f350f65e937b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Networking::Messages::Message</scope><name>welcomeMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

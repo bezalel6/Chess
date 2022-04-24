@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation" prot="public">ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::Variation</innerclass>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator" prot="public">ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest::VariationCreator</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref></type>
+        <definition>final PreMadeRequest ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.TopPlayers</definition>
+        <argsstring></argsstring>
+        <name>TopPlayers</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.TopPlayers</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>(<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" kindref="member">RequestBuilder::top</ref>,
+            AuthSettings.ANY_LOGIN,
+            builder -&gt;
+                    new Variation(&quot;Top All Players&quot;, new Object[]{0}, new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[0]),
+            builder -&gt; new Variation(&quot;Top Five Players&quot;, new Object[]{5}, new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[0]))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant TopPlayers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="23" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref></type>
+        <definition>final PreMadeRequest ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Games</definition>
+        <argsstring></argsstring>
+        <name>Games</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Games</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>(<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" kindref="member">RequestBuilder::games</ref>, AuthSettings.USER, builder -&gt; {
+        <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref> un = builder.args[0];
+        return new Variation(&quot;All Games&quot;, new Object[]{un.repInStr, new Date(0), (<ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt;Date&gt;) Date::new}, new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[]{un});
+    }, builder -&gt; {
+        <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref> un = builder.args[0];
+        return new Variation(&quot;Games from last week&quot;, new Object[]{un.repInStr, (<ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt;Date&gt;) () -&gt; new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), (<ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt;Date&gt;) Date::new}, new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref>[]{un});
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant Games. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="32" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a5c6fee2cabf45650aef1fc227fa352c1" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref></type>
+        <definition>final PreMadeRequest ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.DeleteUnfGames</definition>
+        <argsstring></argsstring>
+        <name>DeleteUnfGames</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.DeleteUnfGames</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>(<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1ac7524afce0dd94b55860498b147cdca6" kindref="member">RequestBuilder::deleteAllUnFinishedGames</ref>, AuthSettings.USER)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant DeleteUnfGames. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="42" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref></type>
+        <definition>final PreMadeRequest ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.StatsByTimeOfDay</definition>
+        <argsstring></argsstring>
+        <name>StatsByTimeOfDay</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.StatsByTimeOfDay</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>(<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a46e2b99da14f049adab0bf0e9f585328" kindref="member">RequestBuilder::statsByTimeOfDay</ref>, AuthSettings.USER)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant StatsByTimeOfDay. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="46" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ae3cd382ee5ddab6a1bb92c635c462def" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref></type>
+        <definition>final PreMadeRequest ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.ChangeProfilePic</definition>
+        <argsstring></argsstring>
+        <name>ChangeProfilePic</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.ChangeProfilePic</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>(<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2" kindref="member">RequestBuilder::changeProfilePic</ref>, AuthSettings.USER)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant ChangeProfilePic. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="51" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6e312a4a2dd6fc5235c7c8354a0594a5" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>[]</type>
+        <definition>final PreMadeRequest [] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.statistics</definition>
+        <argsstring></argsstring>
+        <name>statistics</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.statistics</qualifiedname>
+        <initializer>= {<ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b" kindref="member">TopPlayers</ref>, <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1" kindref="member">Games</ref>, <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d" kindref="member">StatsByTimeOfDay</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Statistics. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="56" column="40" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aa6baecd7f91f60b4a4c086044c08b2a3" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.authSettings</definition>
+        <argsstring></argsstring>
+        <name>authSettings</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.authSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Auth settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="61" column="9" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a7bc5d0a0c7045990dc257cb303c1df20" prot="private" static="no" mutable="no">
+        <type>final <ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt; <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref> &gt;</type>
+        <definition>final ObjCallback&lt;RequestBuilder&gt; ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.builderBuilder</definition>
+        <argsstring></argsstring>
+        <name>builderBuilder</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.builderBuilder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Builder builder. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="65" column="31" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1afb9771e621a9581600ae375a292a32ca" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>[]</type>
+        <definition>final PreMadeRequest [] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.requestVariations</definition>
+        <argsstring></argsstring>
+        <name>requestVariations</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.requestVariations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Request variations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="69" column="34" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a91232c41088ccf423cfc67d8be4afd4f" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.PreMadeRequest</definition>
+        <argsstring>(ObjCallback&lt; RequestBuilder &gt; builderBuilder, @AuthSettings int authSettings, VariationCreator... variations)</argsstring>
+        <name>PreMadeRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.PreMadeRequest</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback" kindref="compound">ObjCallback</ref>&lt; <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref> &gt;</type>
+          <declname>builderBuilder</declname>
+        </param>
+        <param>
+          <type>@<ref refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" kindref="compound">AuthSettings</ref> int</type>
+          <declname>authSettings</declname>
+        </param>
+        <param>
+          <type>VariationCreator...</type>
+          <declname>variations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Pre made request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>builderBuilder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the builder builder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>authSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the auth settings </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>variations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the variations </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="78" column="5" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="78" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6cc9b2e9ef5c2fa2726667492b0c2bf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" kindref="compound">PreMadeRequest</ref>[]</type>
+        <definition>PreMadeRequest[] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.getRequestVariations</definition>
+        <argsstring>()</argsstring>
+        <name>getRequestVariations</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.getRequestVariations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get request variations pre made request [ ].</para>
+<para><simplesect kind="return"><para>the pre made request [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="89" column="27" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aec74e07db7e3d9ee43581773fd854c76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref></type>
+        <definition>RequestBuilder ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.createBuilder</definition>
+        <argsstring>()</argsstring>
+        <name>createBuilder</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.createBuilder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create builder request builder.</para>
+<para><simplesect kind="return"><para>the request builder </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/PreMadeRequest.java" line="98" column="27" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="98" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Pre made request - .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ChangeProfilePic</edgelabel>
+          <edgelabel>DeleteUnfGames</edgelabel>
+          <edgelabel>Games</edgelabel>
+          <edgelabel>StatsByTimeOfDay</edgelabel>
+          <edgelabel>TopPlayers</edgelabel>
+          <edgelabel>statistics</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ChangeProfilePic</edgelabel>
+          <edgelabel>DeleteUnfGames</edgelabel>
+          <edgelabel>Games</edgelabel>
+          <edgelabel>StatsByTimeOfDay</edgelabel>
+          <edgelabel>TopPlayers</edgelabel>
+          <edgelabel>statistics</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/DBRequest/PreMadeRequest.java" line="18" column="7" bodyfile="DBActions/DBRequest/PreMadeRequest.java" bodystart="18" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aa6baecd7f91f60b4a4c086044c08b2a3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>authSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a7bc5d0a0c7045990dc257cb303c1df20" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>builderBuilder</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ae3cd382ee5ddab6a1bb92c635c462def" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>ChangeProfilePic</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aec74e07db7e3d9ee43581773fd854c76" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>createBuilder</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a5c6fee2cabf45650aef1fc227fa352c1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>DeleteUnfGames</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>Games</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6cc9b2e9ef5c2fa2726667492b0c2bf0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>getRequestVariations</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a91232c41088ccf423cfc67d8be4afd4f" prot="package" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>PreMadeRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1afb9771e621a9581600ae375a292a32ca" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>requestVariations</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6e312a4a2dd6fc5235c7c8354a0594a5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>statistics</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>StatsByTimeOfDay</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::PreMadeRequest</scope><name>TopPlayers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

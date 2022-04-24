@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a18e80fddc06333e48361e8bb2b1f2c20">GameStatusType</link> (String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1aaf6853a556f7face4c3352b20a5b81f3">annotation</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae85a9cd8da0fd1572f566c307a98744c">GameStatusType</link> (String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1aaf6853a556f7face4c3352b20a5b81f3">annotation</link>, String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a8f5132b6e9c7fc261e47c3599f8dbeb1">gameOverStr</link>)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1abeea4600c7dc6f9be5c2ac131679e016">isGameOver</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed">TIE</link> =(&quot;½½&quot;, &quot;Tie&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ace2937b81a8777a3fa3363792a232156">CHECK</link> =(&quot;+&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ad7a453e5c22a47e467615679fa945494">GAME_GOES_ON</link> =(&quot;&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a140141fb7b4e7a97dcd9da2ee7ff467d">WIN_OR_LOSS</link> =(&quot;#&quot;, &quot;Won&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ab53a7f48f2aec072b20a3497335da587">UNFINISHED</link> =(&quot;...&quot;)</para>
+</listitem>
+            <listitem><para>final String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1aaf6853a556f7face4c3352b20a5b81f3">annotation</link></para>
+</listitem>
+            <listitem><para>final String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a8f5132b6e9c7fc261e47c3599f8dbeb1">gameOverStr</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Game status type .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a18e80fddc06333e48361e8bb2b1f2c20"/><section>
+    <title>GameStatusType()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>GameStatusType</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>GameStatusType</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.GameStatusType (String annotation)</computeroutput></para>
+<para>Instantiates a new Game status type.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>annotation</entry><entry>
+<para>the annotation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae85a9cd8da0fd1572f566c307a98744c"/><section>
+    <title>GameStatusType()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>GameStatusType</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>GameStatusType</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.GameStatusType (String annotation, String gameOverStr)</computeroutput></para>
+<para>Instantiates a new Game status type.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>annotation</entry><entry>
+<para>the annotation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameOverStr</entry><entry>
+<para>the game over str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1abeea4600c7dc6f9be5c2ac131679e016"/><section>
+    <title>isGameOver()</title>
+<indexterm><primary>isGameOver</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>isGameOver</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.isGameOver ( )</computeroutput></para>
+<para>Is game over.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>true if is game over. false otherwise </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1aaf6853a556f7face4c3352b20a5b81f3"/><section>
+    <title>annotation</title>
+<indexterm><primary>annotation</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>annotation</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.annotation</computeroutput></para>
+<para>The game status annotation. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ace2937b81a8777a3fa3363792a232156"/><section>
+    <title>CHECK</title>
+<indexterm><primary>CHECK</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>CHECK</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.CHECK =(&quot;+&quot;)</computeroutput></para>
+<para>Check game status type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ad7a453e5c22a47e467615679fa945494"/><section>
+    <title>GAME_GOES_ON</title>
+<indexterm><primary>GAME_GOES_ON</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>GAME_GOES_ON</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.GAME_GOES_ON =(&quot;&quot;)</computeroutput></para>
+<para>Game goes on game status type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a8f5132b6e9c7fc261e47c3599f8dbeb1"/><section>
+    <title>gameOverStr</title>
+<indexterm><primary>gameOverStr</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>gameOverStr</secondary></indexterm>
+<para><computeroutput>final String ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.gameOverStr</computeroutput></para>
+<para>game over str </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed"/><section>
+    <title>TIE</title>
+<indexterm><primary>TIE</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>TIE</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.TIE =(&quot;½½&quot;, &quot;Tie&quot;)</computeroutput></para>
+<para>Tie game status type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ab53a7f48f2aec072b20a3497335da587"/><section>
+    <title>UNFINISHED</title>
+<indexterm><primary>UNFINISHED</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>UNFINISHED</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.UNFINISHED =(&quot;...&quot;)</computeroutput></para>
+<para>Unfinished game status type. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a140141fb7b4e7a97dcd9da2ee7ff467d"/><section>
+    <title>WIN_OR_LOSS</title>
+<indexterm><primary>WIN_OR_LOSS</primary><secondary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</primary><secondary>WIN_OR_LOSS</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.WIN_OR_LOSS =(&quot;#&quot;, &quot;Won&quot;)</computeroutput></para>
+<para>Win or loss game status type. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/Evaluation/GameStatus.java</section>
+</section>

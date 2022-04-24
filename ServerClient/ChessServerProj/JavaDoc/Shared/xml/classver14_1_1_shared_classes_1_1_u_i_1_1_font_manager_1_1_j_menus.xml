@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_j_menus" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::UI::FontManager::JMenus</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_j_menus_1aac4b58a8655206e8b082af68750ef4ba" prot="public" static="yes" mutable="no">
+        <type>final Font</type>
+        <definition>final Font ver14.SharedClasses.UI.FontManager.JMenus.headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.JMenus.headers</qualifiedname>
+        <initializer>= Base.normal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="48" column="34" bodyfile="UI/FontManager.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_j_menus_1ae572b7358b14c5d9bc9383aee7db7404" prot="public" static="yes" mutable="no">
+        <type>final Font</type>
+        <definition>final Font ver14.SharedClasses.UI.FontManager.JMenus.items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <qualifiedname>ver14.SharedClasses.UI.FontManager.JMenus.items</qualifiedname>
+        <initializer>= Base.small</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/FontManager.java" line="49" column="34" bodyfile="UI/FontManager.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UI/FontManager.java" line="47" column="19" bodyfile="UI/FontManager.java" bodystart="47" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_j_menus_1aac4b58a8655206e8b082af68750ef4ba" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::JMenus</scope><name>headers</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager_1_1_j_menus_1ae572b7358b14c5d9bc9383aee7db7404" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::UI::FontManager::JMenus</scope><name>items</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

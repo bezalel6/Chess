@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Statements::Selection::Order</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a0d922cd18b493ccd2971149aff17a56b" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Statements.Selection.Order.DESC</definition>
+        <argsstring></argsstring>
+        <name>DESC</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Selection.Order.DESC</qualifiedname>
+        <initializer>= &quot;DESC&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant DESC. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Selection.java" line="154" column="16" bodyfile="DBActions/Statements/Selection.java" bodystart="154" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a821b48a0a8e0bf91fa15d3912d140147" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Statements.Selection.Order.ASC</definition>
+        <argsstring></argsstring>
+        <name>ASC</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Selection.Order.ASC</qualifiedname>
+        <initializer>= &quot;ASC&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant ASC. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Selection.java" line="158" column="16" bodyfile="DBActions/Statements/Selection.java" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order" kindref="compound">Order</ref> - selection order by.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DBActions/Statements/Selection.java" line="150" column="23" bodyfile="DBActions/Statements/Selection.java" bodystart="150" bodyend="159"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a821b48a0a8e0bf91fa15d3912d140147" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Selection::Order</scope><name>ASC</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a0d922cd18b493ccd2971149aff17a56b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Selection::Order</scope><name>DESC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

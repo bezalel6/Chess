@@ -1,0 +1,869 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Location Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a099b4e40e084eee6da4c12dd4f468312">Location</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1acd67ab94de1de37ff11732656dac5150">matrixStr</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac8d2855677b22e53c978dd4c1b3f51d1">getColString</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a5ee1c8ce06cc8d7df0981e04a9a70980">flip</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a9fecdb0455884909992b0de6d9baf2da">isBlackSquare</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a6a76dbacecdeb2e95c7b3736779c5b40">isWhiteSquare</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac4fc87304b1cb709a31d5bd7bb59b485">toString</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af3786e35b6788a71f7f2982ebbf6cb0d">getMaxDistance</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> other)</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a84b11cba2df5fb67bbe70c0ffaad432b">getRowString</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1abacaf9a75414a6ea57db6797246b6676">hash</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> pieceType)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a6b16e6db5f0b5edbdf0ab5780eff5a1f"/><emphasis role="strong">[static initializer]</emphasis></para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af8f808277d706a631de0e6f00e0df19e">locsMatStr</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link>[][] <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae5e641b5955f787d112b031f0a12a7fb">locsMat</link> ()</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aae2b6620a52ac993688fc1685d797c2b">createMatIndicesStr</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c">getLoc</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction">Direction</link> direction)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a886b29c973724fff93f1072610dd5445">getLoc</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, int numOfMult, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction">Direction</link> direction)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aa95c77c28af8a6300be4164523e0c21b">getLoc</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, int add)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae89685a92cd40c898cbb63c2c572c2b2">getLoc</link> (int locIndex)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae4117083446b14dfb4ee26a02697f79b">valueOf</link> (int locIndex)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae548676b7d54548089f7ec9f3b20a93e">getLoc</link> (String str)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a05045c5478d8ca99014dd0d42badee70">getLoc</link> (int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab48ef3f409bb1e8617611ead7671628e">row</link>, int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1afb8b1cc72a9a1023590e4c2aa1f9e8ca">col</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a995dcf31ba3553c1f75b8c5e94a3db8c">getLoc</link> (int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab48ef3f409bb1e8617611ead7671628e">row</link>, int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1afb8b1cc72a9a1023590e4c2aa1f9e8ca">col</link>, boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3e405d657c261dca5fa6e2390179f087">flip</link>)</para>
+</listitem>
+            <listitem><para>static int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3e405d657c261dca5fa6e2390179f087">flip</link> (int num)</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3a42ae0a1f0c72e03c483d8d89c811f1">isInBounds</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a60a47ed76bbed5e735639ff0b9583caf"/><emphasis role="strong">A8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a57534a7526b1e086b536debec7b78708"/><emphasis role="strong">B8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aa1e115e44fe1adbe1a75f5de0828f0b0"/><emphasis role="strong">C8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac785aaff635ecd2f04ccbf3ac8860362"/><emphasis role="strong">D8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab6606eeb342af700d347e4519f805ece"/><emphasis role="strong">E8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a69d4e341f02947a063b9c4e4197f7e89"/><emphasis role="strong">F8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae8867459dfa8bf27879537e667846bc3"/><emphasis role="strong">G8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aac1c52f37756f36d0c06d12603e26d34"/><emphasis role="strong">H8</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a370e8cea287d1bfb21df29dceea80f11"/><emphasis role="strong">A7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7321f19167807e8cc72d62f4b22df618"/><emphasis role="strong">B7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a79af339974ac48ddc0c299a4497cfebb"/><emphasis role="strong">C7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a38246de0cd57956d04f266519a708310"/><emphasis role="strong">D7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab79eed3c4b6179e6b97d92431753c9e3"/><emphasis role="strong">E7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1acb25754ff88f31b9d402c3fb4b3537b1"/><emphasis role="strong">F7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a83f750f335ccb7b00b078e325057d77f"/><emphasis role="strong">G7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae264a224e8a0423cdf4fa1a1b48fd6a0"/><emphasis role="strong">H7</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a084554b0c0d3000f3f3658bc13ce611a"/><emphasis role="strong">A6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a114c6fd4d58007f3538bb18ad8e580e3"/><emphasis role="strong">B6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a2a34d186eb0a083e18ca1530b35e2ddb"/><emphasis role="strong">C6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a66f38f97966f5ec7072e202767cfa4dd"/><emphasis role="strong">D6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1adf1972f823418445cbaea2932935c746"/><emphasis role="strong">E6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac2e14d4c3609c607e1ec43539534fb22"/><emphasis role="strong">F6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a4dcec727c947039b32b918985d7d8b4a"/><emphasis role="strong">G6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1adf929f46cfa53c35e5af1b704717800d"/><emphasis role="strong">H6</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aaec73697467e56a0b375e3ca26656018"/><emphasis role="strong">A5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a15960350da09b7b15517fcb5d650112c"/><emphasis role="strong">B5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7f119f285ef6e47dfad31f99a11cafdb"/><emphasis role="strong">C5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a4484fa2ad60bfbfcafa1bb97345728b0"/><emphasis role="strong">D5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae2d6a9ef60c94db505ce832c4209cc60"/><emphasis role="strong">E5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a99e899b76b70995d0161fdf0a2c2520d"/><emphasis role="strong">F5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a247388c0c9b7841651d945b5d2ca21b4"/><emphasis role="strong">G5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a092d2dcf94089b0381ba353c27e30f0b"/><emphasis role="strong">H5</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a284af325889b87382a4f3f85e9977763"/><emphasis role="strong">A4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a18c29653e919273c3c7b01dd81924a2f"/><emphasis role="strong">B4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a36cfeabd888aa5abe20e20f938c58a0b"/><emphasis role="strong">C4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a77474a77d30fc48a6517867c26f92e27"/><emphasis role="strong">D4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a716a4c50e87f11605028c2ee01467f3c"/><emphasis role="strong">E4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aa8b7204805e548fbc3a0b003a95cf6f7"/><emphasis role="strong">F4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7b3ad23de845ed63f4f656302f172fbf"/><emphasis role="strong">G4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a6f6e799980e1c17389a12f1801e16483"/><emphasis role="strong">H4</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a9de5d1eecfe7cdccabee25f56867b53a"/><emphasis role="strong">A3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a707a4d687d9ccdf0b85184d0f0110557"/><emphasis role="strong">B3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7efa02a11af888d64c3f5f3d9f4e035d"/><emphasis role="strong">C3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a414ba1001d31733d56bf96cf58715bb4"/><emphasis role="strong">D3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a94ed5df9c3c76e494c74fe8a21abe480"/><emphasis role="strong">E3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a73a5cd71c085f7bd48aad88c4f510fed"/><emphasis role="strong">F3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a057d695f391f4f7164f45f5d79b675e1"/><emphasis role="strong">G3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a873217dd7308229fc60c5a7ed604b94c"/><emphasis role="strong">H3</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a501ab78b2f730155a0e062d9b04a9bcb"/><emphasis role="strong">A2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1abf9386f96d39b4d695f8041ddcd0d839"/><emphasis role="strong">B2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1afadad6d8af6113dba6e4902066df3b09"/><emphasis role="strong">C2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7b16966664e0b55a7a25b070ca3e5f5c"/><emphasis role="strong">D2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a2285d942fb7b51b8d9728de26e423259"/><emphasis role="strong">E2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a4aeddf77938f0f259e1389a35e423dd7"/><emphasis role="strong">F2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a2c085799796df74f18c8206908a47e83"/><emphasis role="strong">G2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a52f0564c0e535ad13caf09a35f8f4855"/><emphasis role="strong">H2</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a207239897ef4d693203337406388d0fe"/><emphasis role="strong">A1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a1e5bc9c0872e33ce80e07793f4bb5c28"/><emphasis role="strong">B1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a7456cab3adea26e27c25b7ac173f764a"/><emphasis role="strong">C1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a355f37c62b337be26edf2f0e799b5f2c"/><emphasis role="strong">D1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a93cbed200b74f0483111f24b135cce18"/><emphasis role="strong">E1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a69eaca3590ca89fc981e739796c1873a"/><emphasis role="strong">F1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a898077962653698867a6917fd3947d37"/><emphasis role="strong">G1</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a8d0604b38e4447f59953298b51491256"/><emphasis role="strong">H1</emphasis></para>
+</listitem>
+            <listitem><para>final long <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab12c67909e1aeed0ec5550befa540855">asLong</link></para>
+</listitem>
+            <listitem><para>final int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a41d987882a44b6243de185156c406629">asInt</link></para>
+</listitem>
+            <listitem><para>final int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab48ef3f409bb1e8617611ead7671628e">row</link></para>
+</listitem>
+            <listitem><para>final int <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1afb8b1cc72a9a1023590e4c2aa1f9e8ca">col</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af147d80bd05fc17482e2ac4bf53b7303"/>static final int <emphasis role="strong">A</emphasis> = A1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af6167e4aad68102678533f68e4992075"/>static final int <emphasis role="strong">B</emphasis> = B1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a567d40460a3d9879c4b10bdc5ef4b201"/>static final int <emphasis role="strong">C</emphasis> = C1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a1f51894de0bca4c3b565f4107fdedd35"/>static final int <emphasis role="strong">D</emphasis> = D1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aed18a416b00a81f02197edfa554b551d"/>static final int <emphasis role="strong">E</emphasis> = E1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a17558e041bb8d7f0c4f1211717da0934"/>static final int <emphasis role="strong">F</emphasis> = F1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a107387124a2a39ac0292cee2a2b1a371"/>static final int <emphasis role="strong">G</emphasis> = G1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab4b5d1f6bce117b12fb63664260f7457"/>static final int <emphasis role="strong">H</emphasis> = H1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a9f0d0d630b737d97462ad76dfd0b7283"/>static final ArrayList&lt; <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> &gt; <emphasis role="strong">ALL_LOCS</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1abdaf0e0d149ceebdb7138052fa05dd99"/>static final int <emphasis role="strong">NUM_OF_SQUARES</emphasis> = 64</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a39a6b0d5ebb91c610256d39d9ae3b23e"/>static final int <emphasis role="strong">KING_STARTING_COL</emphasis> = E1.col</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a5694df5519655c8e6def6269cac00eda"/>static final int <emphasis role="strong">WHITE_STARTING_ROW</emphasis> = E1.row</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a9a69c6f6127e17e4174cbb83012acc22"/>static final int <emphasis role="strong">BLACK_STARTING_ROW</emphasis> = <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3e405d657c261dca5fa6e2390179f087">flip</link>(WHITE_STARTING_ROW)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aaa8618b28d290c744662c6da01764919"/>static final int <emphasis role="strong">WHITE_DIFF</emphasis> = WHITE_STARTING_ROW &gt; BLACK_STARTING_ROW ? -1 : 1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a4e3f399a19aa9bf46a368b9978b4bd2b"/>static final int <emphasis role="strong">BLACK_DIFF</emphasis> = -WHITE_DIFF</para>
+</listitem>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac893ae57444f018688ddefb2c860ec96"/>static final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color">PlayerColor</link> <emphasis role="strong">normalPerspective</emphasis> = <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61">PlayerColor.WHITE</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> - an enum consisting of 64 values representing all 64 squares on the board. used to access squares on the board 
+<literallayout>&#160;&#xa;</literallayout>
+an enum is used for performance reasons.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a099b4e40e084eee6da4c12dd4f468312"/><section>
+    <title>Location()</title>
+<indexterm><primary>Location</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>Location</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Location.Location ( )</computeroutput></para>
+<para>Instantiates a new <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link>. </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aae2b6620a52ac993688fc1685d797c2b"/><section>
+    <title>createMatIndicesStr()</title>
+<indexterm><primary>createMatIndicesStr</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>createMatIndicesStr</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.Location.createMatIndicesStr ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create mat indices str string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a5ee1c8ce06cc8d7df0981e04a9a70980"/><section>
+    <title>flip()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>flip</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>flip</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.flip ( )</computeroutput></para>
+<para>Flip location.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the location </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3e405d657c261dca5fa6e2390179f087"/><section>
+    <title>flip()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>flip</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>flip</secondary></indexterm>
+<para><computeroutput>static int ver14.SharedClasses.Game.Location.flip (int num)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Flip int.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>num</entry><entry>
+<para>the num </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac8d2855677b22e53c978dd4c1b3f51d1"/><section>
+    <title>getColString()</title>
+<indexterm><primary>getColString</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getColString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Location.getColString ( )</computeroutput></para>
+<para>Gets col string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the col string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae89685a92cd40c898cbb63c2c572c2b2"/><section>
+    <title>getLoc()<computeroutput>[1/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (int locIndex)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets location corresponding to the locIndex provided (0..63)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>locIndex</entry><entry>
+<para>the locIndex </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the location if the provided index is inside the bounds(0...63). null otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a05045c5478d8ca99014dd0d42badee70"/><section>
+    <title>getLoc()<computeroutput>[2/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (int row, int col)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets loc.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>row</entry><entry>
+<para>the row </para>
+</entry>
+                            </row>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the loc </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a995dcf31ba3553c1f75b8c5e94a3db8c"/><section>
+    <title>getLoc()<computeroutput>[3/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (int row, int col, boolean flip)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets loc.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>row</entry><entry>
+<para>the row </para>
+</entry>
+                            </row>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>flip</entry><entry>
+<para>the flip </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the loc </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a16a44b039ede88abddd2d8504f83796c"/><section>
+    <title>getLoc()<computeroutput>[4/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction">Direction</link> direction)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets the location relative to loc in the direction</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                            <row>
+<entry>direction</entry><entry>
+<para>the direction </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the location if the calculated index is inside the bounds(0...63). null otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1aa95c77c28af8a6300be4164523e0c21b"/><section>
+    <title>getLoc()<computeroutput>[5/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, int add)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets the location that is exactly add squares from loc NOTE: add should be in bitboard format</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                            <row>
+<entry>add</entry><entry>
+<para>the number of squares to add </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the location if the calculated index is inside the bounds(0...63). null otherwise </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>ver14.Model.Bitboard </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a886b29c973724fff93f1072610dd5445"/><section>
+    <title>getLoc()<computeroutput>[6/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc, int numOfMult, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction">Direction</link> direction)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets the location relative to loc in the direction given and the distance is determined by the numOfMult</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                            <row>
+<entry>numOfMult</entry><entry>
+<para>the num of mult </para>
+</entry>
+                            </row>
+                            <row>
+<entry>direction</entry><entry>
+<para>the direction </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the location if the calculated index is inside the bounds(0...63). null otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae548676b7d54548089f7ec9f3b20a93e"/><section>
+    <title>getLoc()<computeroutput>[7/7]</computeroutput></title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.getLoc (String str)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>gets the location corresponding to the provided location string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the square&apos;s coordinate according to the Algebraic notation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the loc if given str is valid. null otherwise </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link xlink:href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">...</link> </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af3786e35b6788a71f7f2982ebbf6cb0d"/><section>
+    <title>getMaxDistance()</title>
+<indexterm><primary>getMaxDistance</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getMaxDistance</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Location.getMaxDistance (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> other)</computeroutput></para>
+<para>Gets max distance.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>the other </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the max distance </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a84b11cba2df5fb67bbe70c0ffaad432b"/><section>
+    <title>getRowString()</title>
+<indexterm><primary>getRowString</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>getRowString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Location.getRowString ( )</computeroutput></para>
+<para>Gets row string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the row string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1abacaf9a75414a6ea57db6797246b6676"/><section>
+    <title>hash()</title>
+<indexterm><primary>hash</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>hash</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Location.hash (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type">PieceType</link> pieceType)</computeroutput></para>
+<para>Hash int.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pieceType</entry><entry>
+<para>the piece type </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a9fecdb0455884909992b0de6d9baf2da"/><section>
+    <title>isBlackSquare()</title>
+<indexterm><primary>isBlackSquare</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>isBlackSquare</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Location.isBlackSquare ( )</computeroutput></para>
+<para>Is black square boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a3a42ae0a1f0c72e03c483d8d89c811f1"/><section>
+    <title>isInBounds()</title>
+<indexterm><primary>isInBounds</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>isInBounds</secondary></indexterm>
+<para><computeroutput>static boolean ver14.SharedClasses.Game.Location.isInBounds (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Is in bounds boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a6a76dbacecdeb2e95c7b3736779c5b40"/><section>
+    <title>isWhiteSquare()</title>
+<indexterm><primary>isWhiteSquare</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>isWhiteSquare</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Location.isWhiteSquare ( )</computeroutput></para>
+<para>Is white square boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae5e641b5955f787d112b031f0a12a7fb"/><section>
+    <title>locsMat()</title>
+<indexterm><primary>locsMat</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>locsMat</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link>[][] ver14.SharedClasses.Game.Location.locsMat ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Locs mat location [ ] [ ].</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the location [ ] [ ] </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1af8f808277d706a631de0e6f00e0df19e"/><section>
+    <title>locsMatStr()</title>
+<indexterm><primary>locsMatStr</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>locsMatStr</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.Game.Location.locsMatStr ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Locs mat str string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1acd67ab94de1de37ff11732656dac5150"/><section>
+    <title>matrixStr()</title>
+<indexterm><primary>matrixStr</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>matrixStr</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Location.matrixStr ( )</computeroutput></para>
+<para>Matrix str string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ac4fc87304b1cb709a31d5bd7bb59b485"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Location.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ae4117083446b14dfb4ee26a02697f79b"/><section>
+    <title>valueOf()</title>
+<indexterm><primary>valueOf</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>valueOf</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.Location.valueOf (int locIndex)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Value of location.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>locIndex</entry><entry>
+<para>the locIndex </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the location if the provided index is inside the bounds(0...63). null otherwise </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1a41d987882a44b6243de185156c406629"/><section>
+    <title>asInt</title>
+<indexterm><primary>asInt</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>asInt</secondary></indexterm>
+<para><computeroutput>final int ver14.SharedClasses.Game.Location.asInt</computeroutput></para>
+<para>the calculated index </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab12c67909e1aeed0ec5550befa540855"/><section>
+    <title>asLong</title>
+<indexterm><primary>asLong</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>asLong</secondary></indexterm>
+<para><computeroutput>final long ver14.SharedClasses.Game.Location.asLong</computeroutput></para>
+<para>a long value with a bit set on this location </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1afb8b1cc72a9a1023590e4c2aa1f9e8ca"/><section>
+    <title>col</title>
+<indexterm><primary>col</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>col</secondary></indexterm>
+<para><computeroutput>final int ver14.SharedClasses.Game.Location.col</computeroutput></para>
+<para>this location&apos;s column </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_game_1_1_location_1ab48ef3f409bb1e8617611ead7671628e"/><section>
+    <title>row</title>
+<indexterm><primary>row</primary><secondary>ver14.SharedClasses.Game.Location</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Location</primary><secondary>row</secondary></indexterm>
+<para><computeroutput>final int ver14.SharedClasses.Game.Location.row</computeroutput></para>
+<para>this location&apos;s row </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Game/Location.java</section>
+</section>

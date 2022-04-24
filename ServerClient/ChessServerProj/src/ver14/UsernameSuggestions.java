@@ -9,19 +9,51 @@ import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
 
+/**
+ * Username suggestions utility class that generates username suggestions for players who are trying to register and their username is used already
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class UsernameSuggestions {
+//tooptimize O(no)
 
-    //tooptimize O(no)
+    /**
+     * The constant maxSuggestions.
+     */
     private static final int maxSuggestions = 10;
+    /**
+     * The constant numOfIterationsPerOptionGroup.
+     */
     private static final int numOfIterationsPerOptionGroup = 10;
+    /**
+     * The constant preUnderscore.
+     */
     private static final MatchIterations preUnderscore = ((result, iteration) -> "_" + result.group());
-    //    todo add rand nums
+    /**
+     * The constant postUnderscore.
+     */
+//    todo add rand nums
     private static final MatchIterations postUnderscore = ((result, iteration) -> result.group() + "_");
+    /**
+     * The constant bothUnderscore.
+     */
     private static final MatchIterations bothUnderscore = ((result, iteration) -> "_" + result.group() + "_");
+    /**
+     * The constant upper.
+     */
     private static final MatchIterations upper = (matchGroup, i) -> matchGroup.group().toUpperCase();
+    /**
+     * The constant lower.
+     */
     private static final MatchIterations lower = (matchGroup, i) -> matchGroup.group().toLowerCase();
 
 
+    /**
+     * Create suggestions array list.
+     *
+     * @param username the username
+     * @return the array list
+     */
     public static ArrayList<String> createSuggestions(String username) {
         ArrayList<ArrayList<String>> options = new ArrayList<>();
         options.addAll(createOptions("([0-9]+)|([0-9])", username, (matchGroup, i) -> {
@@ -39,6 +71,14 @@ public class UsernameSuggestions {
         return createResults(options);
     }
 
+    /**
+     * Create options array list.
+     *
+     * @param regex           the regex
+     * @param username        the username
+     * @param matchIterations the match iterations
+     * @return the array list
+     */
     private static ArrayList<ArrayList<String>> createOptions(@Language("RegExp") String regex, String username, MatchIterations... matchIterations) {
         ArrayList<ArrayList<String>> options = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
@@ -59,6 +99,12 @@ public class UsernameSuggestions {
         return options;
     }
 
+    /**
+     * Create results array list.
+     *
+     * @param optionsLists the options lists
+     * @return the array list
+     */
     private static ArrayList<String> createResults(ArrayList<ArrayList<String>> optionsLists) {
         ArrayList<String> suggestions = new ArrayList<>();
         int[] indices = new int[optionsLists.size()];
@@ -94,10 +140,18 @@ public class UsernameSuggestions {
 
     }
 
+    /**
+     * Match iterations.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     private interface MatchIterations {
         /**
+         * Create str string.
+         *
+         * @param result    the result
          * @param iteration should start at 1
-         * @return
+         * @return string
          */
         String createStr(MatchResult result, int iteration);
     }

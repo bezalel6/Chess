@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::DBRequest::DBRequest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type" prot="public">ver14::SharedClasses::DBActions::DBRequest::DBRequest::Type</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a3cdd22a5353fe72c669f3d33d7375a7e" prot="public" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type" kindref="compound">Type</ref></type>
+        <definition>final Type ver14.SharedClasses.DBActions.DBRequest.DBRequest.type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type" kindref="compound">Type</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="20" column="23" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a8a837672c5bad50c0e17c5837fb72cdc" compoundref="_d_b_request_8java" startline="50" endline="54">ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a2f8e4cb0fa65adf47556b224fa1f74d5" compoundref="_request_builder_8java" startline="84" endline="89">ver14.SharedClasses.DBActions.RequestBuilder.RequestBuilder</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1aa2a35cecd4fcbed0b57b6108132f98ac" prot="private" static="no" mutable="no">
+        <type>final String</type>
+        <definition>final String ver14.SharedClasses.DBActions.DBRequest.DBRequest.request</definition>
+        <argsstring></argsstring>
+        <name>request</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="24" column="26" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a336efb44c47e8dbe9b67b82418caac9b" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref></type>
+        <definition>final RequestBuilder ver14.SharedClasses.DBActions.DBRequest.DBRequest.builder</definition>
+        <argsstring></argsstring>
+        <name>builder</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.builder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Builder. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="28" column="34" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a4892f0e1f9d2b2e1363b5ff209dba342" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+        <definition>DBRequest ver14.SharedClasses.DBActions.DBRequest.DBRequest.subRequest</definition>
+        <argsstring></argsstring>
+        <name>subRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.subRequest</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Sub request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="32" column="23" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a6f99a81f2b75b5030608575aa1c25a0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</definition>
+        <argsstring>(SQLStatement sqlStatement)</argsstring>
+        <name>DBRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement" kindref="compound">SQLStatement</ref></type>
+          <declname>sqlStatement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Db request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sqlStatement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sql statement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="39" column="12" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="39" bodyend="41"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6d93cd095b588951de927b96690294f5" compoundref="_s_q_l_statement_8java" startline="69" endline="71">ver14.SharedClasses.DBActions.Statements.SQLStatement.getStatement</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1acafd4ddbcbff26609405a1c2fb2d310f" compoundref="_s_q_l_statement_8java" startline="19">ver14.SharedClasses.DBActions.Statements.SQLStatement.type</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a8a837672c5bad50c0e17c5837fb72cdc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</definition>
+        <argsstring>(Type type, String request, RequestBuilder builder)</argsstring>
+        <name>DBRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type" kindref="compound">Type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref></type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Db request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>builder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the builder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="50" column="12" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="50" bodyend="54"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a3cdd22a5353fe72c669f3d33d7375a7e" compoundref="_d_b_request_8java" startline="20">ver14.SharedClasses.DBActions.DBRequest.DBRequest.type</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a1cb8b1e5db7eff98418466daf04fd181" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</definition>
+        <argsstring>(SQLStatement sqlStatement, RequestBuilder builder)</argsstring>
+        <name>DBRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.DBRequest</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement" kindref="compound">SQLStatement</ref></type>
+          <declname>sqlStatement</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref></type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Db request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sqlStatement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sql statement </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>builder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the builder </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="62" column="12" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="62" bodyend="64"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6d93cd095b588951de927b96690294f5" compoundref="_s_q_l_statement_8java" startline="69" endline="71">ver14.SharedClasses.DBActions.Statements.SQLStatement.getStatement</references>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1acafd4ddbcbff26609405a1c2fb2d310f" compoundref="_s_q_l_statement_8java" startline="19">ver14.SharedClasses.DBActions.Statements.SQLStatement.type</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1abb7b060c9bbdf09a3c6986d05b0b6f96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder" kindref="compound">RequestBuilder</ref></type>
+        <definition>RequestBuilder ver14.SharedClasses.DBActions.DBRequest.DBRequest.getBuilder</definition>
+        <argsstring>()</argsstring>
+        <name>getBuilder</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.getBuilder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets builder.</para>
+<para><simplesect kind="return"><para>the builder </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="71" column="27" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="71" bodyend="73"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a2f8e4cb0fa65adf47556b224fa1f74d5" compoundref="_request_builder_8java" startline="84" endline="89">ver14.SharedClasses.DBActions.RequestBuilder.RequestBuilder</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1ab9dd4b06adc44f15f2e23fa30892c1fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+        <definition>DBRequest ver14.SharedClasses.DBActions.DBRequest.DBRequest.getSubRequest</definition>
+        <argsstring>()</argsstring>
+        <name>getSubRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.getSubRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets sub request.</para>
+<para><simplesect kind="return"><para>the sub request </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="80" column="22" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="80" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a55f7b7418b17a0b28eabcaf50c9c0630" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.DBActions.DBRequest.DBRequest.setSubRequest</definition>
+        <argsstring>(DBRequest subRequest)</argsstring>
+        <name>setSubRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.setSubRequest</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request" kindref="compound">DBRequest</ref></type>
+          <declname>subRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets sub request.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the sub request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="89" column="17" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="89" bodyend="91"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0477273966d1924c40db240c5d63212b" compoundref="_request_builder_8java" startline="517" endline="531">ver14.SharedClasses.DBActions.RequestBuilder.build</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1aae9ee6e6e75468bde228f48ddfdbd2d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBRequest.DBRequest.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="99" column="19" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="99" bodyend="101"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a49d8403132f8945a7d4c5b16df12342b" compoundref="_d_b_request_8java" startline="108" endline="110">ver14.SharedClasses.DBActions.DBRequest.DBRequest.getRequest</references>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a49d8403132f8945a7d4c5b16df12342b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.DBRequest.DBRequest.getRequest</definition>
+        <argsstring>()</argsstring>
+        <name>getRequest</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.DBRequest.DBRequest.getRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets request.</para>
+<para><simplesect kind="return"><para>the request </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/DBRequest/DBRequest.java" line="108" column="19" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="108" bodyend="110"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a2f8e4cb0fa65adf47556b224fa1f74d5" compoundref="_request_builder_8java" startline="84" endline="89">ver14.SharedClasses.DBActions.RequestBuilder.RequestBuilder</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1aae9ee6e6e75468bde228f48ddfdbd2d0" compoundref="_d_b_request_8java" startline="99" endline="101">ver14.SharedClasses.DBActions.DBRequest.DBRequest.toString</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Db request - a database request.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest.Type</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type"/>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/DBRequest/DBRequest.java" line="16" column="7" bodyfile="DBActions/DBRequest/DBRequest.java" bodystart="16" bodyend="128"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a336efb44c47e8dbe9b67b82418caac9b" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>builder</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a6f99a81f2b75b5030608575aa1c25a0d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>DBRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a8a837672c5bad50c0e17c5837fb72cdc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>DBRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a1cb8b1e5db7eff98418466daf04fd181" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>DBRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1abb7b060c9bbdf09a3c6986d05b0b6f96" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>getBuilder</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a49d8403132f8945a7d4c5b16df12342b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>getRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1ab9dd4b06adc44f15f2e23fa30892c1fc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>getSubRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1aa2a35cecd4fcbed0b57b6108132f98ac" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>request</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a55f7b7418b17a0b28eabcaf50c9c0630" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>setSubRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a4892f0e1f9d2b2e1363b5ff209dba342" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>subRequest</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1aae9ee6e6e75468bde228f48ddfdbd2d0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1a3cdd22a5353fe72c669f3d33d7375a7e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::DBRequest::DBRequest</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

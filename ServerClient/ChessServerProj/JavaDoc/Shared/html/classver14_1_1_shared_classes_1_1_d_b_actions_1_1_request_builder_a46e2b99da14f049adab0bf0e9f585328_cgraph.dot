@@ -1,0 +1,16 @@
+digraph "ver14.SharedClasses.DBActions.RequestBuilder.statsByTimeOfDay"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.DBActions.\lRequestBuilder.statsByTimeOfDay",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.DBActions.\lRequestBuilder.RequestBuilder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html#a2f8e4cb0fa65adf47556b224fa1f74d5",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.DBActions.\lDBRequest.DBRequest.getBuilder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.html#abb7b060c9bbdf09a3c6986d05b0b6f96",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.DBActions.\lDBRequest.DBRequest.getRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.html#a49d8403132f8945a7d4c5b16df12342b",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ver14.SharedClasses.DBActions.\lRequestBuilder.setSubBuilder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html#aeba1c15a765cf1a796b790cc890ac3d0",tooltip=" "];
+}

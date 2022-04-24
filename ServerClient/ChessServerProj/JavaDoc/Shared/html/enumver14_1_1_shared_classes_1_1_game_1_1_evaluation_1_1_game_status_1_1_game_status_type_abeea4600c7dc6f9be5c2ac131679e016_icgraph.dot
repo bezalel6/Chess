@@ -1,0 +1,14 @@
+digraph "ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.isGameOver"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ver14.SharedClasses.Game.\lEvaluation.GameStatus.GameStatus\lType.isGameOver",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.Game.\lEvaluation.GameStatus.isGameOver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.html#a99ac095df094a77444fbb8a7e365eb81",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.Game.\lEvaluation.GameStatus.getDetailedStr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.html#a57cc00500b5632c39ff135eb49ea0a13",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.Game.\lEvaluation.Evaluation.isGameOver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.html#a671493df85a23b7463028b10e43f8228",tooltip=" "];
+}

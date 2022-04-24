@@ -14,8 +14,17 @@ import java.awt.*;
 public class MyJButton extends JButton {
 
 
+    /**
+     * The Og txt.
+     */
     private String ogTxt = null;
+    /**
+     * The Og on click.
+     */
     private VoidCallback ogOnClick = null;
+    /**
+     * The On click.
+     */
     private VoidCallback onClick = null;
 
     /**
@@ -64,6 +73,9 @@ public class MyJButton extends JButton {
 
     }
 
+    /**
+     * On click.
+     */
     private void onClick() {
         if (this.onClick != null)
             onClick.callback();
@@ -143,6 +155,11 @@ public class MyJButton extends JButton {
         setOnClick(onCancelled);
     }
 
+    /**
+     * Replace text.
+     *
+     * @param replacement the replacement
+     */
     private void replaceText(String replacement) {
         ogTxt = getText();
         setText(replacement);

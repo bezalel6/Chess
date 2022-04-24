@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Login::AuthSettings</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1ad1c9750f0493893da17a991193a8a78b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Login.AuthSettings.GUEST</definition>
+        <argsstring></argsstring>
+        <name>GUEST</name>
+        <qualifiedname>ver14.SharedClasses.Login.AuthSettings.GUEST</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/AuthSettings.java" line="8" column="9" bodyfile="Login/AuthSettings.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a2fdc2829861d7e341a5b177facc25437" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Login.AuthSettings.USER</definition>
+        <argsstring></argsstring>
+        <name>USER</name>
+        <qualifiedname>ver14.SharedClasses.Login.AuthSettings.USER</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/AuthSettings.java" line="8" column="16" bodyfile="Login/AuthSettings.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1ad8a59c4d006a73df82a021892ef4ce6a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Login.AuthSettings.ANY_LOGIN</definition>
+        <argsstring></argsstring>
+        <name>ANY_LOGIN</name>
+        <qualifiedname>ver14.SharedClasses.Login.AuthSettings.ANY_LOGIN</qualifiedname>
+        <initializer>= GUEST | USER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/AuthSettings.java" line="9" column="9" bodyfile="Login/AuthSettings.java" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a864ebf79e70fce364033156448bf4a16" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Login.AuthSettings.NEVER_AUTH</definition>
+        <argsstring></argsstring>
+        <name>NEVER_AUTH</name>
+        <qualifiedname>ver14.SharedClasses.Login.AuthSettings.NEVER_AUTH</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/AuthSettings.java" line="10" column="9" bodyfile="Login/AuthSettings.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a17be4402ba1d496d72e4dd9c3d6fa050" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Login.AuthSettings.NO_AUTH</definition>
+        <argsstring></argsstring>
+        <name>NO_AUTH</name>
+        <qualifiedname>ver14.SharedClasses.Login.AuthSettings.NO_AUTH</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Login/AuthSettings.java" line="12" column="9" bodyfile="Login/AuthSettings.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Login/AuthSettings.java" line="7" column="19" bodyfile="Login/AuthSettings.java" bodystart="7" bodyend="13"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1ad8a59c4d006a73df82a021892ef4ce6a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::AuthSettings</scope><name>ANY_LOGIN</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1ad1c9750f0493893da17a991193a8a78b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::AuthSettings</scope><name>GUEST</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a864ebf79e70fce364033156448bf4a16" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::AuthSettings</scope><name>NEVER_AUTH</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a17be4402ba1d496d72e4dd9c3d6fa050" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::AuthSettings</scope><name>NO_AUTH</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings_1a2fdc2829861d7e341a5b177facc25437" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Login::AuthSettings</scope><name>USER</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

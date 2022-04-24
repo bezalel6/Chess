@@ -1,0 +1,248 @@
+.TH "ver14.SharedClasses.Utils.RegEx" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Utils.RegEx
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBPrefixes\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRegEx\fP (@Language('RegExp') String regEx, String details, String\&.\&.\&. \fBdontMatch\fP)"
+.br
+.ti -1c
+.RI "\fBRegEx\fP (@Language('RegExp') String regEx, String details, boolean useDontMatch, String\&.\&.\&. \fBdontMatch\fP)"
+.br
+.ti -1c
+.RI "\fBRegEx\fP \fBcanBeEmpty\fP (boolean bool, String emptyDetails)"
+.br
+.ti -1c
+.RI "\fBRegEx\fP \fBget\fP (boolean useDontMatch)"
+.br
+.ti -1c
+.RI "void \fBsetUseDontMatch\fP (boolean useDontMatch)"
+.br
+.ti -1c
+.RI "String \fBgetDetails\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheck\fP (String str)"
+.br
+.ti -1c
+.RI "String \fBgetRegex\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static boolean \fBisSavedDate\fP (String str)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "final String[] \fBdontMatch\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBRegEx\fP \fBFen\fP = new \fBRegEx\fP('^$|\\\\s*([rnbqkpRNBQKP1\-8]+\\\\/){7}([rnbqkpRNBQKP1\-8]+)\\\\s[bw\-]\\\\s(([a\-hkqA\-HKQ]{1,4})|(\-))\\\\s(([a\-h][36])|(\-))\\\\s\\\\d+\\\\s\\\\d+\\\\s*', 'standard fen')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBUsername\fP = new \fBRegEx\fP('^[a\-zA\-Z0\-9_\&.\-]{5,10}$', '5\-10 characters a\-z 0\-9 _\&.\-', Prefixes\&.GUEST_PREFIX, 'User')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBPassword\fP = new \fBRegEx\fP('^[a\-zA\-Z0\-9_\&.\-]{5,10}$', '5\-10 characters a\-z 0\-9 _\&.\-', 'password')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBIcon\fP = new \fBRegEx\fP('\\\\\&.(png|gif)$', '')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBStrUtilSkip\fP = new \fBRegEx\fP('(^[ \\\\n\\\\t\\\\[])|(<[^>]*>)', '')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBNumbers\fP = new \fBRegEx\fP('^[0\-9]+$', 'enter number')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBURL\fP = new \fBRegEx\fP('[\-a\-zA\-Z0\-9@:%\&._\\\\+~#=]{1,256}\\\\\&.[a\-zA\-Z0\-9()]{1,6}\\\\b([\-a\-zA\-Z0\-9()@%_\\\\+\&.~#?&//=]*)', 'enter valid url')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBDontSaveGame\fP = new \fBRegEx\fP(Prefixes\&.GUEST_PREFIX + '|' + AiParameters\&.AiType\&.MyAi + '|' + AiParameters\&.AiType\&.Stockfish, '')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBIPPAddress\fP = new \fBRegEx\fP('^[0\-9]{1,3}\&.[0\-9]{1,3}\&.[0\-9]{1,3}\&.[0\-9]{1,3} *: *[0\-9]{2,5}$', '[IP : PORT]')"
+.br
+.ti -1c
+.RI "static final \fBRegEx\fP \fBAny\fP = new \fBRegEx\fP('', '')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reg ex\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Utils\&.RegEx\&.RegEx (@Language('RegExp') String regEx, String details, String\&.\&.\&. dontMatch)"
+Instantiates a new Reg ex\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIregEx\fP the reg ex 
+.br
+\fIdetails\fP the details 
+.br
+\fIdontMatch\fP the dont match 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Utils\&.RegEx\&.RegEx (@Language('RegExp') String regEx, String details, boolean useDontMatch, String\&.\&.\&. dontMatch)"
+Instantiates a new Reg ex\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIregEx\fP the reg ex 
+.br
+\fIdetails\fP the details 
+.br
+\fIuseDontMatch\fP the use dont match 
+.br
+\fIdontMatch\fP the dont match 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.canBeEmpty (boolean bool, String emptyDetails)"
+Can be empty reg ex\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIbool\fP the bool 
+.br
+\fIemptyDetails\fP the empty details 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the reg ex 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Utils\&.RegEx\&.check (String str)"
+Check boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP the str 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "\fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.get (boolean useDontMatch)"
+Get reg ex\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIuseDontMatch\fP the use dont match 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the reg ex 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Utils\&.RegEx\&.getDetails ()"
+Gets details\&.
+.PP
+\fBReturns\fP
+.RS 4
+the details 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Utils\&.RegEx\&.getRegex ()"
+Gets regex\&.
+.PP
+\fBReturns\fP
+.RS 4
+the regex 
+.RE
+.PP
+
+.SS "static boolean ver14\&.SharedClasses\&.Utils\&.RegEx\&.isSavedDate (String str)\fC [static]\fP"
+Is saved date boolean\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP the str 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Utils\&.RegEx\&.setUseDontMatch (boolean useDontMatch)"
+Sets use dont match\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIuseDontMatch\fP the use dont match 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Any = new \fBRegEx\fP('', '')\fC [static]\fP"
+The constant Any\&. 
+.SS "final String [] ver14\&.SharedClasses\&.Utils\&.RegEx\&.dontMatch"
+The Dont match\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.DontSaveGame = new \fBRegEx\fP(Prefixes\&.GUEST_PREFIX + '|' + AiParameters\&.AiType\&.MyAi + '|' + AiParameters\&.AiType\&.Stockfish, '')\fC [static]\fP"
+The constant DontSaveGame\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Fen = new \fBRegEx\fP('^$|\\\\s*([rnbqkpRNBQKP1\-8]+\\\\/){7}([rnbqkpRNBQKP1\-8]+)\\\\s[bw\-]\\\\s(([a\-hkqA\-HKQ]{1,4})|(\-))\\\\s(([a\-h][36])|(\-))\\\\s\\\\d+\\\\s\\\\d+\\\\s*', 'standard fen')\fC [static]\fP"
+The constant Fen\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Icon = new \fBRegEx\fP('\\\\\&.(png|gif)$', '')\fC [static]\fP"
+The constant Icon\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.IPPAddress = new \fBRegEx\fP('^[0\-9]{1,3}\&.[0\-9]{1,3}\&.[0\-9]{1,3}\&.[0\-9]{1,3} *: *[0\-9]{2,5}$', '[IP : PORT]')\fC [static]\fP"
+The constant IPPAddress\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Numbers = new \fBRegEx\fP('^[0\-9]+$', 'enter number')\fC [static]\fP"
+The constant Numbers\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Password = new \fBRegEx\fP('^[a\-zA\-Z0\-9_\&.\-]{5,10}$', '5\-10 characters a\-z 0\-9 _\&.\-', 'password')\fC [static]\fP"
+The constant Password\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.StrUtilSkip = new \fBRegEx\fP('(^[ \\\\n\\\\t\\\\[])|(<[^>]*>)', '')\fC [static]\fP"
+The constant StrUtilSkip\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.URL = new \fBRegEx\fP('[\-a\-zA\-Z0\-9@:%\&._\\\\+~#=]{1,256}\\\\\&.[a\-zA\-Z0\-9()]{1,6}\\\\b([\-a\-zA\-Z0\-9()@%_\\\\+\&.~#?&//=]*)', 'enter valid url')\fC [static]\fP"
+The constant URL\&. 
+.SS "final \fBRegEx\fP ver14\&.SharedClasses\&.Utils\&.RegEx\&.Username = new \fBRegEx\fP('^[a\-zA\-Z0\-9_\&.\-]{5,10}$', '5\-10 characters a\-z 0\-9 _\&.\-', Prefixes\&.GUEST_PREFIX, 'User')\fC [static]\fP"
+The constant Username\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.Moves.MinimaxMove Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.Moves.MinimaxMove:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1aedd94ea3ce6a12ed978329c701a380c0">MinimaxMove</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a3d68799b82e9b17bb23eea9fce2773f6">MinimaxMove</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a3f3c6b4e8d24de88527d1b9a15e5dce7">MinimaxMove</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> other)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1af1d45b344c03d19feae2b7c839368fd8">isDeeperAndBetterThan</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> other)</para>
+</listitem>
+            <listitem><para>int <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a21e4eb290fda073dfeadd66ce3a2df9e">getMoveDepth</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ac6d7975fadc8b2f986edd9844af24103">getMove</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1aec5345fba72e1899a07d3583731fb0f6">setMove</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a2c3aea3fcebba227ae655dd4bf7d4f45">getMoveEvaluation</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a8f81fa5fc1bde4eec840d054e12285b4">setMoveEvaluation</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</para>
+</listitem>
+            <listitem><para>int <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a5ec62bb090c1c29dafdcf8c0c716d226">hashCode</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ae8c7425143954d5170693b2ed680d71e">equals</link> (Object o)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ac8ec1ee029fb01c31d71f463f16e37f9">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a678843ab857601fe2773f2c6d7365db4">getShortPrintingStr</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a6f8054dd409f56c120e9cb8342026190">compareTo</link> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> o)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Minimax move.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1aedd94ea3ce6a12ed978329c701a380c0"/><section>
+    <title>MinimaxMove()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>MinimaxMove</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>MinimaxMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.MinimaxMove.MinimaxMove (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move, <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</computeroutput></para>
+<para>Instantiates a new Minimax move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                            <row>
+<entry>moveEvaluation</entry><entry>
+<para>the move evaluation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a3d68799b82e9b17bb23eea9fce2773f6"/><section>
+    <title>MinimaxMove()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>MinimaxMove</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>MinimaxMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.MinimaxMove.MinimaxMove (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</computeroutput></para>
+<para>Instantiates a new Minimax move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>moveEvaluation</entry><entry>
+<para>the move evaluation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a3f3c6b4e8d24de88527d1b9a15e5dce7"/><section>
+    <title>MinimaxMove()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>MinimaxMove</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>MinimaxMove</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.Moves.MinimaxMove.MinimaxMove (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> other)</computeroutput></para>
+<para>Instantiates a new Minimax move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>the other </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a6f8054dd409f56c120e9cb8342026190"/><section>
+    <title>compareTo()</title>
+<indexterm><primary>compareTo</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>compareTo</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Moves.MinimaxMove.compareTo (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> o)</computeroutput></para>
+<para>Compare to int.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>o</entry><entry>
+<para>the o </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ae8c7425143954d5170693b2ed680d71e"/><section>
+    <title>equals()</title>
+<indexterm><primary>equals</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>equals</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.MinimaxMove.equals (Object o)</computeroutput></para>
+<para>Equals boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>o</entry><entry>
+<para>the o </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ac6d7975fadc8b2f986edd9844af24103"/><section>
+    <title>getMove()</title>
+<indexterm><primary>getMove</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>getMove</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> ver14.SharedClasses.Game.Moves.MinimaxMove.getMove ( )</computeroutput></para>
+<para>Gets move.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the move </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a21e4eb290fda073dfeadd66ce3a2df9e"/><section>
+    <title>getMoveDepth()</title>
+<indexterm><primary>getMoveDepth</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>getMoveDepth</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Moves.MinimaxMove.getMoveDepth ( )</computeroutput></para>
+<para>Gets move depth.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the move depth </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a2c3aea3fcebba227ae655dd4bf7d4f45"/><section>
+    <title>getMoveEvaluation()</title>
+<indexterm><primary>getMoveEvaluation</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>getMoveEvaluation</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> ver14.SharedClasses.Game.Moves.MinimaxMove.getMoveEvaluation ( )</computeroutput></para>
+<para>Gets move evaluation.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the move evaluation </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a678843ab857601fe2773f2c6d7365db4"/><section>
+    <title>getShortPrintingStr()</title>
+<indexterm><primary>getShortPrintingStr</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>getShortPrintingStr</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Moves.MinimaxMove.getShortPrintingStr ( )</computeroutput></para>
+<para>Gets short printing str.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the short printing str </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a5ec62bb090c1c29dafdcf8c0c716d226"/><section>
+    <title>hashCode()</title>
+<indexterm><primary>hashCode</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>hashCode</secondary></indexterm>
+<para><computeroutput>int ver14.SharedClasses.Game.Moves.MinimaxMove.hashCode ( )</computeroutput></para>
+<para>Hash code int.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1af1d45b344c03d19feae2b7c839368fd8"/><section>
+    <title>isDeeperAndBetterThan()</title>
+<indexterm><primary>isDeeperAndBetterThan</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>isDeeperAndBetterThan</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.Moves.MinimaxMove.isDeeperAndBetterThan (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move">MinimaxMove</link> other)</computeroutput></para>
+<para>Is deeper and better than given minimax move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>other</entry><entry>
+<para>the other </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1aec5345fba72e1899a07d3583731fb0f6"/><section>
+    <title>setMove()</title>
+<indexterm><primary>setMove</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>setMove</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.MinimaxMove.setMove (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move">Move</link> move)</computeroutput></para>
+<para>Sets move.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>move</entry><entry>
+<para>the move </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1a8f81fa5fc1bde4eec840d054e12285b4"/><section>
+    <title>setMoveEvaluation()</title>
+<indexterm><primary>setMoveEvaluation</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>setMoveEvaluation</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.Moves.MinimaxMove.setMoveEvaluation (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation">Evaluation</link> moveEvaluation)</computeroutput></para>
+<para>Sets move evaluation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>moveEvaluation</entry><entry>
+<para>the move evaluation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move_1ac8ec1ee029fb01c31d71f463f16e37f9"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.Moves.MinimaxMove</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.Moves.MinimaxMove</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.Moves.MinimaxMove.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/Moves/MinimaxMove.java</section>
+</section>

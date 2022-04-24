@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Statements.Selection.Order Interface Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Selection.Order</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a0d922cd18b493ccd2971149aff17a56b">DESC</link> = &quot;DESC&quot;</para>
+</listitem>
+            <listitem><para>String <link linkend="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a821b48a0a8e0bf91fa15d3912d140147">ASC</link> = &quot;ASC&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order">Order</link> - selection order by.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a821b48a0a8e0bf91fa15d3912d140147"/><section>
+    <title>ASC</title>
+<indexterm><primary>ASC</primary><secondary>ver14.SharedClasses.DBActions.Statements.Selection.Order</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Selection.Order</primary><secondary>ASC</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Statements.Selection.Order.ASC = &quot;ASC&quot;</computeroutput></para>
+<para>The constant ASC. </para>
+</section>
+<anchor xml:id="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_1_1_order_1a0d922cd18b493ccd2971149aff17a56b"/><section>
+    <title>DESC</title>
+<indexterm><primary>DESC</primary><secondary>ver14.SharedClasses.DBActions.Statements.Selection.Order</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Statements.Selection.Order</primary><secondary>DESC</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Statements.Selection.Order.DESC = &quot;DESC&quot;</computeroutput></para>
+<para>The constant DESC. </para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+DBActions/Statements/Selection.java</section>
+</section>

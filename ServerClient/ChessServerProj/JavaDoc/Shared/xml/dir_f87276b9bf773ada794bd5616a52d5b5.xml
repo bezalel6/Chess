@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_f87276b9bf773ada794bd5616a52d5b5" kind="dir">
+    <compoundname>Game/GameSetup</compoundname>
+    <innerdir refid="dir_f90daf2a8185f4a662357ffab0a847e3">Game/GameSetup/BoardSetup</innerdir>
+    <innerfile refid="_ai_parameters_8java">AiParameters.java</innerfile>
+    <innerfile refid="_game_settings_8java">GameSettings.java</innerfile>
+    <innerfile refid="_game_time_8java">GameTime.java</innerfile>
+    <innerfile refid="_time_format_8java">TimeFormat.java</innerfile>
+    <innerfile refid="_time_format_settable_8java">TimeFormatSettable.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/GameSetup/"/>
+  </compounddef>
+</doxygen>

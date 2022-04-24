@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_flags" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::MoveFlags</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/Moves/MoveFlags.java" line="22" column="7" bodyfile="Game/Moves/MoveFlags.java" bodystart="22" bodyend="24"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Threads::HandledThread</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread" prot="public" virt="non-virtual">ver14.SharedClasses.Threads.MyThread</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a504fc2f7145556b0184d14a8a3528ab9" prot="private" static="no" mutable="no">
+        <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+        <definition>ThrowingRunnable ver14.SharedClasses.Threads.HandledThread.runnable</definition>
+        <argsstring></argsstring>
+        <name>runnable</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.runnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="11" column="30" bodyfile="Threads/HandledThread.java" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1aeee1873320813a3c8769542c890c75a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.HandledThread.HandledThread</definition>
+        <argsstring>()</argsstring>
+        <name>HandledThread</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.HandledThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Handled thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="16" column="12" bodyfile="Threads/HandledThread.java" bodystart="16" bodyend="18"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1afde9507ae7fb0911b7173a59b7b9bd5b" compoundref="_handled_thread_8java" startline="35" endline="39">ver14.SharedClasses.Threads.HandledThread.runInHandledThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a2e5f6f47c81fbb2b3198b7fe8e048486" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Threads.HandledThread.HandledThread</definition>
+        <argsstring>(ThrowingRunnable runnable)</argsstring>
+        <name>HandledThread</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.HandledThread</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+          <declname>runnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Handled thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>runnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the runnable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="25" column="12" bodyfile="Threads/HandledThread.java" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a6673b3390a7005f361edf01acaf2a5e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Threads.HandledThread.setRunnable</definition>
+        <argsstring>(ThrowingRunnable runnable)</argsstring>
+        <name>setRunnable</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.setRunnable</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+          <declname>runnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets runnable.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>runnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the runnable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="47" column="17" bodyfile="Threads/HandledThread.java" bodystart="47" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1afde9507ae7fb0911b7173a59b7b9bd5b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread" kindref="compound">HandledThread</ref></type>
+        <definition>static HandledThread ver14.SharedClasses.Threads.HandledThread.runInHandledThread</definition>
+        <argsstring>(ThrowingRunnable runnable)</argsstring>
+        <name>runInHandledThread</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.runInHandledThread</qualifiedname>
+        <param>
+          <type><ref refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable" kindref="compound">ThrowingRunnable</ref></type>
+          <declname>runnable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run in handled thread handled thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>runnable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the runnable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the handled thread </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="35" column="33" bodyfile="Threads/HandledThread.java" bodystart="35" bodyend="39"/>
+        <references refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1aeee1873320813a3c8769542c890c75a4" compoundref="_handled_thread_8java" startline="16" endline="18">ver14.SharedClasses.Threads.HandledThread.HandledThread</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a64fa74938dea8eddc35d2cda9d44f48d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Threads.HandledThread.handledRun</definition>
+        <argsstring>()</argsstring>
+        <name>handledRun</name>
+        <qualifiedname>ver14.SharedClasses.Threads.HandledThread.handledRun</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a4ec95833704d274ff8d6b21250bcf652">handledRun</reimplements>
+        <exceptions> throws Throwable </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handled run.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>Throwable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the throwable </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/HandledThread.java" line="52" column="20" bodyfile="Threads/HandledThread.java" bodystart="52" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The type Handled thread. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Thread</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Threads.HandledThread</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Threads.MyThread</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Thread</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Threads.HandledThread</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Threads.MyThread</label>
+        <link refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Threads/HandledThread.java" line="9" column="7" bodyfile="Threads/HandledThread.java" bodystart="9" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a6e582cf52bb16a5810539a375434d233" prot="package" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>addHandler</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a1690f9c05b2dcaa1441af57af6e13676" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>currentThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a64fa74938dea8eddc35d2cda9d44f48d" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>handledRun</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1aeee1873320813a3c8769542c890c75a4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>HandledThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a2e5f6f47c81fbb2b3198b7fe8e048486" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>HandledThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a896ddfac59837aff9fe80e49820fa5b4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>ignoreErrs</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a90ac193a9eff8a572db3f1f7d7aad85a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>isIgnoreErrs</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1adfecc263875e1b4c9620eda831d5cb3f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>MyThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1ab1098baaedbaa1d04a2b4849c734b8ae" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>reactivateErrs</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a3ddcdba410ed920f9b76f48b38983f57" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>run</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1afde9507ae7fb0911b7173a59b7b9bd5b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>runInHandledThread</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a504fc2f7145556b0184d14a8a3528ab9" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>runnable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1a6dac57de7ccc088945ebeaf0ef5a9948" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>setEnvManager</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_1a6673b3390a7005f361edf01acaf2a5e0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>setRunnable</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1abceb4edf9a4fb6b57534ea00aae3643e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::HandledThread</scope><name>stopRun</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

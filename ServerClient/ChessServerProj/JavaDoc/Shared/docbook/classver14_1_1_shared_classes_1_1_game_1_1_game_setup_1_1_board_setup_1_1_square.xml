@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.GameSetup.BoardSetup.Square:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a6612b7e53801db027562df6b489861a7">Square</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aaba9de315ec16f78a4684affa2cb7eb7">setEmpty</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a2374744f59def622773fb879c451e037">Square</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aeafe4e046e4285f3133bdc3bc2b8cdc7">getPiece</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a2b1535146217f9cfd24f569d2434fa4a">setPiece</link> (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece)</para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a5a0199523c31227f4227cbf09676e84d">getLoc</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a256dd999f1f348b69148c7657cf0b5de">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a7da1b49b4fda644b7f4faf4a1985e1c3">getFen</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a08c1e62ce65187fc1efd4b495c8643d2">isEmpty</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1ac5e66c214bfef056741c4718b1045b15">getPieceIcon</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a0a48ea6955114aa9cadb2893d37d1e5f">EMPTY_PIECE</link> = null</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square">Square</link> represents a square on the logic board.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a6612b7e53801db027562df6b489861a7"/><section>
+    <title>Square()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Square</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>Square</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.Square (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square">Square</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a2374744f59def622773fb879c451e037"/><section>
+    <title>Square()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Square</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>Square</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.Square (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece, <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> loc)</computeroutput></para>
+<para>Instantiates a new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square">Square</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>piece</entry><entry>
+<para>the piece </para>
+</entry>
+                            </row>
+                            <row>
+<entry>loc</entry><entry>
+<para>the loc </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a7da1b49b4fda644b7f4faf4a1985e1c3"/><section>
+    <title>getFen()</title>
+<indexterm><primary>getFen</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>getFen</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.getFen ( )</computeroutput></para>
+<para>Gets fen.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the fen </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a5a0199523c31227f4227cbf09676e84d"/><section>
+    <title>getLoc()</title>
+<indexterm><primary>getLoc</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>getLoc</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_location">Location</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.getLoc ( )</computeroutput></para>
+<para>Gets loc.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the loc </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aeafe4e046e4285f3133bdc3bc2b8cdc7"/><section>
+    <title>getPiece()</title>
+<indexterm><primary>getPiece</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>getPiece</secondary></indexterm>
+<para><computeroutput><link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.getPiece ( )</computeroutput></para>
+<para>Gets piece.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the piece </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1ac5e66c214bfef056741c4718b1045b15"/><section>
+    <title>getPieceIcon()</title>
+<indexterm><primary>getPieceIcon</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>getPieceIcon</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.getPieceIcon ( )</computeroutput></para>
+<para>Gets piece icon.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the piece icon </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a08c1e62ce65187fc1efd4b495c8643d2"/><section>
+    <title>isEmpty()</title>
+<indexterm><primary>isEmpty</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>isEmpty</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.isEmpty ( )</computeroutput></para>
+<para>Is empty boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1aaba9de315ec16f78a4684affa2cb7eb7"/><section>
+    <title>setEmpty()</title>
+<indexterm><primary>setEmpty</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>setEmpty</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.setEmpty ( )</computeroutput></para>
+<para>Sets empty. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a2b1535146217f9cfd24f569d2434fa4a"/><section>
+    <title>setPiece()</title>
+<indexterm><primary>setPiece</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>setPiece</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.setPiece (<link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> piece)</computeroutput></para>
+<para>Sets piece.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>piece</entry><entry>
+<para>the piece </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a256dd999f1f348b69148c7657cf0b5de"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square_1a0a48ea6955114aa9cadb2893d37d1e5f"/><section>
+    <title>EMPTY_PIECE</title>
+<indexterm><primary>EMPTY_PIECE</primary><secondary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.BoardSetup.Square</primary><secondary>EMPTY_PIECE</secondary></indexterm>
+<para><computeroutput>final <link linkend="_enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece">Piece</link> ver14.SharedClasses.Game.GameSetup.BoardSetup.Square.EMPTY_PIECE = null<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant EMPTY_PIECE. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/GameSetup/BoardSetup/Square.java</section>
+</section>

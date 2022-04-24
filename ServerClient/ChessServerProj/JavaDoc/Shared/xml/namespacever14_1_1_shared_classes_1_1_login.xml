@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_login" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::Login</compoundname>
+    <innerclass refid="interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings" prot="public">ver14::SharedClasses::Login::AuthSettings</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_login_1_1_login_info" prot="public">ver14::SharedClasses::Login::LoginInfo</innerclass>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_login_1_1_login_type" prot="public">ver14::SharedClasses::Login::LoginType</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Login/AuthSettings.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

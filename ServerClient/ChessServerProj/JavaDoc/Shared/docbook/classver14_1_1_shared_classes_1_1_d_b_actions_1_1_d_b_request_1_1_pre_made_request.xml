@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">Variation</emphasis></para>
+</listitem>
+            <listitem><para>interface <link linkend="_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator">VariationCreator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>[] <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6cc9b2e9ef5c2fa2726667492b0c2bf0">getRequestVariations</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder">RequestBuilder</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aec74e07db7e3d9ee43581773fd854c76">createBuilder</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final int <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aa6baecd7f91f60b4a4c086044c08b2a3">authSettings</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b">TopPlayers</link></para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1">Games</link></para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a5c6fee2cabf45650aef1fc227fa352c1">DeleteUnfGames</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1ac7524afce0dd94b55860498b147cdca6">RequestBuilder::deleteAllUnFinishedGames</link>, AuthSettings.USER)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d">StatsByTimeOfDay</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a46e2b99da14f049adab0bf0e9f585328">RequestBuilder::statsByTimeOfDay</link>, AuthSettings.USER)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ae3cd382ee5ddab6a1bb92c635c462def">ChangeProfilePic</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2">RequestBuilder::changeProfilePic</link>, AuthSettings.USER)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>[] <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6e312a4a2dd6fc5235c7c8354a0594a5">statistics</link> = {<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b">TopPlayers</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1">Games</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d">StatsByTimeOfDay</link>}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Pre made request - .</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aec74e07db7e3d9ee43581773fd854c76"/><section>
+    <title>createBuilder()</title>
+<indexterm><primary>createBuilder</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>createBuilder</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder">RequestBuilder</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.createBuilder ( )</computeroutput></para>
+<para>Create builder request builder.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the request builder </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6cc9b2e9ef5c2fa2726667492b0c2bf0"/><section>
+    <title>getRequestVariations()</title>
+<indexterm><primary>getRequestVariations</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>getRequestVariations</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>[] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.getRequestVariations ( )</computeroutput></para>
+<para>Get request variations pre made request [ ].</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the pre made request [ ] </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1aa6baecd7f91f60b4a4c086044c08b2a3"/><section>
+    <title>authSettings</title>
+<indexterm><primary>authSettings</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>authSettings</secondary></indexterm>
+<para><computeroutput>final int ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.authSettings</computeroutput></para>
+<para>The Auth settings. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ae3cd382ee5ddab6a1bb92c635c462def"/><section>
+    <title>ChangeProfilePic</title>
+<indexterm><primary>ChangeProfilePic</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>ChangeProfilePic</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.ChangeProfilePic = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2">RequestBuilder::changeProfilePic</link>, AuthSettings.USER)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant ChangeProfilePic. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a5c6fee2cabf45650aef1fc227fa352c1"/><section>
+    <title>DeleteUnfGames</title>
+<indexterm><primary>DeleteUnfGames</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>DeleteUnfGames</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.DeleteUnfGames = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1ac7524afce0dd94b55860498b147cdca6">RequestBuilder::deleteAllUnFinishedGames</link>, AuthSettings.USER)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant DeleteUnfGames. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1"/><section>
+    <title>Games</title>
+<indexterm><primary>Games</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>Games</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.Games<computeroutput>[static]</computeroutput></computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;<emphasis role="keyword">new</emphasis>&#32;PreMadeRequest(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6">RequestBuilder::games</link>,&#32;AuthSettings.USER,&#32;builder&#32;-&gt;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Arg&#32;un&#32;=&#32;builder.args[0];
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;new&#32;Variation(<emphasis role="stringliteral">&quot;All&#32;Games&quot;</emphasis>,&#32;new&#32;Object[]{un.repInStr,&#32;new&#32;Date(0),&#32;(ObjCallback&lt;Date&gt;)&#32;Date::new},&#32;<emphasis role="keyword">new</emphasis>&#32;Arg[]{un});
+&#32;&#32;&#32;&#32;},&#32;builder&#32;-&gt;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Arg&#32;un&#32;=&#32;builder.args[0];
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;Variation(<emphasis role="stringliteral">&quot;Games&#32;from&#32;last&#32;week&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;Object[]{un.repInStr,&#32;(ObjCallback&lt;Date&gt;)&#32;()&#32;-&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;Date(System.currentTimeMillis()&#32;-&#32;TimeUnit.DAYS.toMillis(7)),&#32;(ObjCallback&lt;Date&gt;)&#32;Date::new},&#32;<emphasis role="keyword">new</emphasis>&#32;Arg[]{un});
+&#32;&#32;&#32;&#32;})
+</programlisting>
+<para>The constant Games. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a6e312a4a2dd6fc5235c7c8354a0594a5"/><section>
+    <title>statistics</title>
+<indexterm><primary>statistics</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>statistics</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> [] ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.statistics = {<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b">TopPlayers</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1ab1d2cec64ea52de06448c231d00027d1">Games</link>, <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d">StatsByTimeOfDay</link>}<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The Statistics. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1a061ca8da320707f77624820d18d8cd8d"/><section>
+    <title>StatsByTimeOfDay</title>
+<indexterm><primary>StatsByTimeOfDay</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>StatsByTimeOfDay</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.StatsByTimeOfDay = new <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link>(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a46e2b99da14f049adab0bf0e9f585328">RequestBuilder::statsByTimeOfDay</link>, AuthSettings.USER)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant StatsByTimeOfDay. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1af8cc04ecc825050873d59447eedd5a4b"/><section>
+    <title>TopPlayers</title>
+<indexterm><primary>TopPlayers</primary><secondary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest</primary><secondary>TopPlayers</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request">PreMadeRequest</link> ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest.TopPlayers<computeroutput>[static]</computeroutput></computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;<emphasis role="keyword">new</emphasis>&#32;PreMadeRequest(<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c">RequestBuilder::top</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AuthSettings.ANY_LOGIN,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;builder&#32;-&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;Variation(<emphasis role="stringliteral">&quot;Top&#32;All&#32;Players&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;Object[]{0},&#32;<emphasis role="keyword">new</emphasis>&#32;Arg[0]),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;builder&#32;-&gt;&#32;<emphasis role="keyword">new</emphasis>&#32;Variation(<emphasis role="stringliteral">&quot;Top&#32;Five&#32;Players&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;Object[]{5},&#32;<emphasis role="keyword">new</emphasis>&#32;Arg[0]))
+</programlisting>
+<para>The constant TopPlayers. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+DBActions/DBRequest/PreMadeRequest.java</section>
+</section>

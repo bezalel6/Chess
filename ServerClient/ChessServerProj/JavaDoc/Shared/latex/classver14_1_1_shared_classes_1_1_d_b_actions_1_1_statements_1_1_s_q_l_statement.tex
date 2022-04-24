@@ -1,0 +1,122 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{}\doxysection{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement Class Reference}
+\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+Inheritance diagram for ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.141304cm]{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_aac1b2e4999f44e8c2422c9bea1d22fff}{SQLStatement}} (DBRequest.\+Type \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_acafd4ddbcbff26609405a1c2fb2d310f}{type}})
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a8a10bf0e076d9f9659450dedfe1eb8f8}{replace}} (String replacing, String replace\+With)
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6d93cd095b588951de927b96690294f5}{get\+Statement}} ()
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a592646306573967e4c84fecae2338d45}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final DBRequest.\+Type \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_acafd4ddbcbff26609405a1c2fb2d310f}{type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6783132df1f279a4e750aec5d31798f2}{create\+Statement}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sql statement -\/ represents an sql statement.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_aac1b2e4999f44e8c2422c9bea1d22fff}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_aac1b2e4999f44e8c2422c9bea1d22fff}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!SQLStatement@{SQLStatement}}
+\index{SQLStatement@{SQLStatement}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{SQLStatement()}{SQLStatement()}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+SQLStatement (\begin{DoxyParamCaption}\item[{DBRequest.\+Type}]{type }\end{DoxyParamCaption})}
+
+Instantiates a new Sql statement.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & the type \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6783132df1f279a4e750aec5d31798f2}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6783132df1f279a4e750aec5d31798f2}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!createStatement@{createStatement}}
+\index{createStatement@{createStatement}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{createStatement()}{createStatement()}}
+{\footnotesize\ttfamily abstract String ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+create\+Statement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+Create statement string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_a4f6f096a49b809bd37b4ffa5bebc7229}{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Custom\+Statement}}, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete_ac81f92783ea50f1978a7d9bbfd415b56}{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Delete}}, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection_ab771ce54532d01e3ef7d863654c7372a}{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Selection}}, and \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_a889b43d22ee411842856b5a85e6672b8}{ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+Update}}.
+
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6d93cd095b588951de927b96690294f5}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a6d93cd095b588951de927b96690294f5}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!getStatement@{getStatement}}
+\index{getStatement@{getStatement}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{getStatement()}{getStatement()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+get\+Statement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets statement.
+
+\begin{DoxyReturn}{Returns}
+the statement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a8a10bf0e076d9f9659450dedfe1eb8f8}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a8a10bf0e076d9f9659450dedfe1eb8f8}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!replace@{replace}}
+\index{replace@{replace}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+replace (\begin{DoxyParamCaption}\item[{String}]{replacing,  }\item[{String}]{replace\+With }\end{DoxyParamCaption})}
+
+Replace.
+
+
+\begin{DoxyParams}{Parameters}
+{\em replacing} & the replacing \\
+\hline
+{\em replace\+With} & the replace with \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a592646306573967e4c84fecae2338d45}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_a592646306573967e4c84fecae2338d45}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!toString@{toString}}
+\index{toString@{toString}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_acafd4ddbcbff26609405a1c2fb2d310f}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_acafd4ddbcbff26609405a1c2fb2d310f}} 
+\index{ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}!type@{type}}
+\index{type@{type}!ver14.SharedClasses.DBActions.Statements.SQLStatement@{ver14.SharedClasses.DBActions.Statements.SQLStatement}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily final DBRequest.\+Type ver14.\+Shared\+Classes.\+DBActions.\+Statements.\+SQLStatement.\+type}
+
+The request Type. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+DBActions/\+Statements/\mbox{\hyperlink{_s_q_l_statement_8java}{SQLStatement.\+java}}\end{DoxyCompactItemize}

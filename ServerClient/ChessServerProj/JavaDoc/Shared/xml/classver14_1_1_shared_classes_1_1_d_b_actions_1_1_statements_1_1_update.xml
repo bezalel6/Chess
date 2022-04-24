@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Statements::Update</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement" prot="public" virt="non-virtual">ver14.SharedClasses.DBActions.Statements.SQLStatement</basecompoundref>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1_1_new_value" prot="public">ver14::SharedClasses::DBActions::Statements::Update::NewValue</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1acf8906f918027c23cf173c314a440d1a" prot="private" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table" kindref="compound">Table</ref></type>
+        <definition>final Table ver14.SharedClasses.DBActions.Statements.Update.updating</definition>
+        <argsstring></argsstring>
+        <name>updating</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Update.updating</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Table Updating. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Update.java" line="21" column="25" bodyfile="DBActions/Statements/Update.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a1cc1590cde3473affe6b91627845a746" prot="private" static="no" mutable="no">
+        <type>final NewValue[]</type>
+        <definition>final NewValue [] ver14.SharedClasses.DBActions.Statements.Update.newValues</definition>
+        <argsstring></argsstring>
+        <name>newValues</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Update.newValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The New values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Update.java" line="25" column="28" bodyfile="DBActions/Statements/Update.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a0ea0b0992a7b1702f080d86b055ee956" prot="private" static="no" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+        <definition>final Condition ver14.SharedClasses.DBActions.Statements.Update.condition</definition>
+        <argsstring></argsstring>
+        <name>condition</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Update.condition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Update.java" line="29" column="29" bodyfile="DBActions/Statements/Update.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a7c0e4f9b949e9c12686f149cc6bbe20e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Statements.Update.Update</definition>
+        <argsstring>(Table updating, Condition condition, NewValue... newValues)</argsstring>
+        <name>Update</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Update.Update</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table" kindref="compound">Table</ref></type>
+          <declname>updating</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition" kindref="compound">Condition</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type>NewValue...</type>
+          <declname>newValues</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update" kindref="compound">Update</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>updating</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the updating </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the condition </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newValues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new values </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Update.java" line="38" column="12" bodyfile="DBActions/Statements/Update.java" bodystart="38" bodyend="44"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type_1a7323faf00d3ccd28f7264b7d409dab3d" compoundref="_d_b_request_8java" startline="125">ver14.SharedClasses.DBActions.DBRequest.DBRequest.Type.Update</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a889b43d22ee411842856b5a85e6672b8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Statements.Update.createStatement</definition>
+        <argsstring>()</argsstring>
+        <name>createStatement</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.Update.createStatement</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6783132df1f279a4e750aec5d31798f2">createStatement</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create statement string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/Update.java" line="52" column="22" bodyfile="DBActions/Statements/Update.java" bodystart="52" bodyend="54"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1af6a11b4d696720dc2c81a91e27981f8b" compoundref="_str_utils_8java" startline="325" endline="327">ver14.SharedClasses.Utils.StrUtils.splitArr</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update" kindref="compound">Update</ref> - a sql update statement.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Statements.Update</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Statements.SQLStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Statements.Update</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest.Type</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type"/>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Statements.SQLStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/Statements/Update.java" line="17" column="7" bodyfile="DBActions/Statements/Update.java" bodystart="17" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a0ea0b0992a7b1702f080d86b055ee956" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>condition</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a889b43d22ee411842856b5a85e6672b8" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>createStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6d93cd095b588951de927b96690294f5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>getStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a1cc1590cde3473affe6b91627845a746" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>newValues</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a8a10bf0e076d9f9659450dedfe1eb8f8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>replace</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1aac1b2e4999f44e8c2422c9bea1d22fff" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>SQLStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a592646306573967e4c84fecae2338d45" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1acafd4ddbcbff26609405a1c2fb2d310f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>type</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1a7c0e4f9b949e9c12686f149cc6bbe20e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>Update</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update_1acf8906f918027c23cf173c314a440d1a" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::Update</scope><name>updating</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

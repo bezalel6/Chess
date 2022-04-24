@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_f90daf2a8185f4a662357ffab0a847e3" kind="dir">
+    <compoundname>Game/GameSetup/BoardSetup</compoundname>
+    <innerdir refid="dir_b1de2c76e84ed9d7613b7e89a743973f">Game/GameSetup/BoardSetup/Pieces</innerdir>
+    <innerfile refid="_board_8java">Board.java</innerfile>
+    <innerfile refid="_square_8java">Square.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/GameSetup/BoardSetup/"/>
+  </compounddef>
+</doxygen>

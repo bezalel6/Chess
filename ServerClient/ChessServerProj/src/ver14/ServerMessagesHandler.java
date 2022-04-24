@@ -14,9 +14,17 @@ import java.util.ArrayList;
 
 /**
  * The type Server messages handler.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class ServerMessagesHandler extends MessagesHandler {
+    /**
+     * The Server.
+     */
     private final Server server;
+    /**
+     * The Player.
+     */
     private PlayerNet player = null;
 
     /**
@@ -39,6 +47,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         this.player = playerNet;
     }
 
+    /**
+     * On cancel question message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onCancelQuestion() {
         return message -> {
@@ -47,12 +60,20 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On unplanned disconnect.
+     */
     @Override
     protected void onUnplannedDisconnect() {
         super.onUnplannedDisconnect();
         server.playerDisconnected(player, "unexpectedly disconnected");
     }
 
+    /**
+     * Create disconnected error my error . disconnected error.
+     *
+     * @return the my error . disconnected error
+     */
     @Override
     protected MyError.DisconnectedError createDisconnectedError() {
         return new Game.PlayerDisconnectedError(player);
@@ -71,6 +92,11 @@ public class ServerMessagesHandler extends MessagesHandler {
         };
     }
 
+    /**
+     * On question message callback.
+     *
+     * @return the message callback
+     */
     @Override
     public MessageCallback onQuestion() {
         return message -> {

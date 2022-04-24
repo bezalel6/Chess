@@ -1,0 +1,16 @@
+digraph "ver14.SharedClasses.DBActions.Statements.Selection.nestMe"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ver14.SharedClasses.DBActions.\lStatements.Selection.nestMe",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ver14.SharedClasses.DBActions.\lStatements.SQLStatement.getStatement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.html#a6d93cd095b588951de927b96690294f5",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ver14.SharedClasses.DBActions.\lTable.Col.nested",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#aa6152794ec872912dc912145d0d754e4",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ver14.SharedClasses.DBActions.\lTable.Col.label",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html#a0454042fb313a948c60e375bcf03ba3a",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ver14.SharedClasses.DBActions.\lStatements.Selection.Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.html#a60fcf0aad513b8f2575bb0d00feb94dc",tooltip=" "];
+}

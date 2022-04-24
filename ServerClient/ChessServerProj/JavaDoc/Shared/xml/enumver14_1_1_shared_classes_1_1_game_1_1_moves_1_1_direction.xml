@@ -1,0 +1,881 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Moves::Direction</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U</definition>
+        <argsstring></argsstring>
+        <name>U</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U</qualifiedname>
+        <initializer>=(8) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square up the board. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="46" column="1" bodyfile="Game/Moves/Direction.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D</definition>
+        <argsstring></argsstring>
+        <name>D</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D</qualifiedname>
+        <initializer>=(-8) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square down the board. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="55" column="1" bodyfile="Game/Moves/Direction.java" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.L</definition>
+        <argsstring></argsstring>
+        <name>L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.L</qualifiedname>
+        <initializer>=(<ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_bit_data_1a8d51f0b39273e84a505c8ada24e3713f" kindref="member">BitData.notAFile</ref>, -1) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square left. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="64" column="1" bodyfile="Game/Moves/Direction.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.R</definition>
+        <argsstring></argsstring>
+        <name>R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.R</qualifiedname>
+        <initializer>=(<ref refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_bit_data_1a1be46d196c1b9dfe509b2d7faf1e8ccf" kindref="member">BitData.notHFile</ref>, 1) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square right. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="73" column="1" bodyfile="Game/Moves/Direction.java" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab4b4faa21fd55dcedd39bdf5f97ed4b0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_U</definition>
+        <argsstring></argsstring>
+        <name>U_U</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_U</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7f93a1abf0b82cf9ce821937a3be6297" kindref="member">D_D</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares up. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="82" column="1" bodyfile="Game/Moves/Direction.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7f93a1abf0b82cf9ce821937a3be6297" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_D</definition>
+        <argsstring></argsstring>
+        <name>D_D</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_D</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab4b4faa21fd55dcedd39bdf5f97ed4b0" kindref="member">U_U</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares down. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="91" column="1" bodyfile="Game/Moves/Direction.java" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a573ab7236c41566d75d1673962337c47" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_R</definition>
+        <argsstring></argsstring>
+        <name>U_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9f37b1d29bb7559ff71061940df9515a" kindref="member">D_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square up and one square right. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="101" column="1" bodyfile="Game/Moves/Direction.java" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a6dd493030d0293b9bfb3621b5f697656" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_L</definition>
+        <argsstring></argsstring>
+        <name>U_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a4fb3efc69c83acf22212db92d6cf6c94" kindref="member">D_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square up and one square left. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="110" column="1" bodyfile="Game/Moves/Direction.java" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a4fb3efc69c83acf22212db92d6cf6c94" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_R</definition>
+        <argsstring></argsstring>
+        <name>D_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a6dd493030d0293b9bfb3621b5f697656" kindref="member">U_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square down and one square right. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="120" column="1" bodyfile="Game/Moves/Direction.java" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9f37b1d29bb7559ff71061940df9515a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_L</definition>
+        <argsstring></argsstring>
+        <name>D_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a573ab7236c41566d75d1673962337c47" kindref="member">U_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one square down and one square left. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="129" column="1" bodyfile="Game/Moves/Direction.java" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab41ab386ce6a40321135aa65656cf926" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_U_R</definition>
+        <argsstring></argsstring>
+        <name>U_U_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_U_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a602197f99326ec91444ec9e3dbc5b43d" kindref="member">D_D_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares up and one square right. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="138" column="1" bodyfile="Game/Moves/Direction.java" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a10e97c3a87fced98fa117f8f41f419a2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_U_L</definition>
+        <argsstring></argsstring>
+        <name>U_U_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_U_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ad576d60b204245c458485c0d77532ff3" kindref="member">D_D_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares up and one square left. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="147" column="1" bodyfile="Game/Moves/Direction.java" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a47c8b14db5d295cfc31fb0d618cb5bc3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_R_R</definition>
+        <argsstring></argsstring>
+        <name>U_R_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_R_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a1792f3683da0ea126bc1a46897fc10b5" kindref="member">D_L_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares right and one square up. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="156" column="1" bodyfile="Game/Moves/Direction.java" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ae267cf58f061ed6c99a64b17574745ee" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.U_L_L</definition>
+        <argsstring></argsstring>
+        <name>U_L_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.U_L_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8ad917758424eb5461b18a2854139804" kindref="member">D_R_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares left and one square up. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="165" column="1" bodyfile="Game/Moves/Direction.java" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a602197f99326ec91444ec9e3dbc5b43d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_D_R</definition>
+        <argsstring></argsstring>
+        <name>D_D_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_D_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a10e97c3a87fced98fa117f8f41f419a2" kindref="member">U_U_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares down and one square right. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="174" column="1" bodyfile="Game/Moves/Direction.java" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ad576d60b204245c458485c0d77532ff3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_D_L</definition>
+        <argsstring></argsstring>
+        <name>D_D_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_D_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab41ab386ce6a40321135aa65656cf926" kindref="member">U_U_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares down and one square left. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="183" column="1" bodyfile="Game/Moves/Direction.java" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8ad917758424eb5461b18a2854139804" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_R_R</definition>
+        <argsstring></argsstring>
+        <name>D_R_R</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_R_R</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" kindref="member">R</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ae267cf58f061ed6c99a64b17574745ee" kindref="member">U_L_L</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares right and one square down. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="192" column="1" bodyfile="Game/Moves/Direction.java" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a1792f3683da0ea126bc1a46897fc10b5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.D_L_L</definition>
+        <argsstring></argsstring>
+        <name>D_L_L</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.D_L_L</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" kindref="member">L</ref>) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" kindref="member">opposite</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a47c8b14db5d295cfc31fb0d618cb5bc3" kindref="member">U_R_R</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>two squares left and one square down. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="201" column="1" bodyfile="Game/Moves/Direction.java" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a36d0ffa7f72269b79ef5b40ddf718a8e" prot="public" static="no" mutable="no">
+        <type>final long</type>
+        <definition>final long ver14.SharedClasses.Game.Moves.Direction.andWith</definition>
+        <argsstring></argsstring>
+        <name>andWith</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.andWith</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>some directions need to filter false positives. for example: moving left one square from the left-most column, will overflow to the previous row. to fix this problem some directions have a andWith value they have to perform a bitwise and with, after every offset. to cancel the false positives. in the left direction example, the andWith is the whole board but the right-most column </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="248" column="23" bodyfile="Game/Moves/Direction.java" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a83240b53eb5e60163fc06af923cb3627" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.Direction.offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The actual offset. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="252" column="22" bodyfile="Game/Moves/Direction.java" bodystart="252" bodyend="-1"/>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a886b29c973724fff93f1072610dd5445" compoundref="_location_8java" startline="162" endline="166">ver14.SharedClasses.Game.Location.getLoc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ace8e551a5dff7abf470bcd59793a2a46" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.Direction.asInt</definition>
+        <argsstring></argsstring>
+        <name>asInt</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.asInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>an int for quick access by index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="256" column="22" bodyfile="Game/Moves/Direction.java" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a764eb9d5feb3d76b85aebc4818c9c416" prot="public" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref>[]</type>
+        <definition>final Direction [] ver14.SharedClasses.Game.Moves.Direction.combination</definition>
+        <argsstring></argsstring>
+        <name>combination</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.combination</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>some </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="261" column="21" bodyfile="Game/Moves/Direction.java" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1aee16d3f253539686f1bc31b8d5ea550a" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.Direction.NUM_OF_DIRECTIONS</definition>
+        <argsstring></argsstring>
+        <name>NUM_OF_DIRECTIONS</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.NUM_OF_DIRECTIONS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant NUM_OF_DIRECTIONS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="206" column="29" bodyfile="Game/Moves/Direction.java" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ac0e334aa31b28670ad66834db365fa72" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.Direction.NUM_OF_KNIGHT_DIRECTIONS</definition>
+        <argsstring></argsstring>
+        <name>NUM_OF_KNIGHT_DIRECTIONS</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.NUM_OF_KNIGHT_DIRECTIONS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant NUM_OF_KNIGHT_DIRECTIONS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="210" column="29" bodyfile="Game/Moves/Direction.java" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a86d3b9246f2befdc784d9c808f6b3c00" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.Moves.Direction.NUM_OF_DIRECTIONS_WO_KNIGHT</definition>
+        <argsstring></argsstring>
+        <name>NUM_OF_DIRECTIONS_WO_KNIGHT</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.NUM_OF_DIRECTIONS_WO_KNIGHT</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant NUM_OF_DIRECTIONS_WO_KNIGHT. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="214" column="29" bodyfile="Game/Moves/Direction.java" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a830d7d6a19e1ca35623ee6e4ab2359cc" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref>[]</type>
+        <definition> final Direction [] ver14.SharedClasses.Game.Moves.Direction.ALL_DIRECTIONS</definition>
+        <argsstring></argsstring>
+        <name>ALL_DIRECTIONS</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.ALL_DIRECTIONS</qualifiedname>
+        <initializer>= values()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The All directions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="218" column="50" bodyfile="Game/Moves/Direction.java" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a13b8cd377b11d8957c1bc0fdc01be803" prot="public" static="yes" mutable="no">
+        <type>final List&lt; <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> &gt;</type>
+        <definition> final List&lt;Direction&gt; ver14.SharedClasses.Game.Moves.Direction.ALL_USED_DIRECTIONS</definition>
+        <argsstring></argsstring>
+        <name>ALL_USED_DIRECTIONS</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.ALL_USED_DIRECTIONS</qualifiedname>
+        <initializer>= Arrays.stream(values()).filter(d -&gt; d != <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab4b4faa21fd55dcedd39bdf5f97ed4b0" kindref="member">U_U</ref> &amp;&amp; d != <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7f93a1abf0b82cf9ce821937a3be6297" kindref="member">D_D</ref>).collect(Collectors.toList())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The All used directions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="222" column="50" bodyfile="Game/Moves/Direction.java" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ad8348b8bb4d65810689a34b86ba9d7e0" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition> final PlayerColor ver14.SharedClasses.Game.Moves.Direction.normalPerspective</definition>
+        <argsstring></argsstring>
+        <name>normalPerspective</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.normalPerspective</qualifiedname>
+        <initializer>= <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" kindref="member">PlayerColor.WHITE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the perspective the offset is correct for. if the moving piece&apos;s color is not this value the direction need to be flipped. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="227" column="48" bodyfile="Game/Moves/Direction.java" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8107f78e560e6e9ded0d679a2aeeaa61" prot="private" static="yes" mutable="no">
+        <type>final HashMap&lt; Integer, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> &gt;</type>
+        <definition>final HashMap&lt;Integer, Direction&gt; ver14.SharedClasses.Game.Moves.Direction.lookup</definition>
+        <argsstring></argsstring>
+        <name>lookup</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.lookup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="229" column="34" bodyfile="Game/Moves/Direction.java" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab32b95790b289321e85b355f3a558cf1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="229" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a625884d5a6ceecca15222e9a810dde87" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref></type>
+        <definition>static Direction ver14.SharedClasses.Game.Moves.Direction.getRelative</definition>
+        <argsstring>(Location loc1, Location loc2)</argsstring>
+        <name>getRelative</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.getRelative</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc1</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_location" kindref="compound">Location</ref></type>
+          <declname>loc2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets relative.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loc1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc 1 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loc2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the loc 2 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the relative </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="289" column="29" bodyfile="Game/Moves/Direction.java" bodystart="289" bodyend="291"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_location_1a41d987882a44b6243de185156c406629" compoundref="_location_8java" startline="66">ver14.SharedClasses.Game.Location.asInt</references>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a633d224db97696d9136fa72515f2dbbe" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref></type>
+        <definition>static Direction ver14.SharedClasses.Game.Moves.Direction.getDirectionByOffset</definition>
+        <argsstring>(int offset)</argsstring>
+        <name>getDirectionByOffset</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.getDirectionByOffset</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets direction by offset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the offset </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the direction by offset </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="299" column="29" bodyfile="Game/Moves/Direction.java" bodystart="299" bodyend="302"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a98b9212f32f8f9c1978db75bcb1c9ed1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.Direction</definition>
+        <argsstring>(Direction... combination)</argsstring>
+        <name>Direction</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.Direction</qualifiedname>
+        <param>
+          <type>Direction...</type>
+          <declname>combination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="263" column="5" bodyfile="Game/Moves/Direction.java" bodystart="263" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a05b152420defcbf2d3d011fb5619fba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.Direction</definition>
+        <argsstring>(int offset)</argsstring>
+        <name>Direction</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.Direction</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="271" column="5" bodyfile="Game/Moves/Direction.java" bodystart="271" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a200d79a03cd547391bd1616c9581a9e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Moves.Direction.Direction</definition>
+        <argsstring>(long andWith, int offset)</argsstring>
+        <name>Direction</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.Direction</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>andWith</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="275" column="5" bodyfile="Game/Moves/Direction.java" bodystart="275" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7da3c8a201a29c44dcb9b22b4008fe23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref>[]</type>
+        <definition>Direction[] ver14.SharedClasses.Game.Moves.Direction.getCombination</definition>
+        <argsstring>()</argsstring>
+        <name>getCombination</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.getCombination</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get combination direction [ ].</para>
+<para><simplesect kind="return"><para>the direction [ ] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="309" column="22" bodyfile="Game/Moves/Direction.java" bodystart="309" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a3592aebe8dd46bfd67bf1bea865b46d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref></type>
+        <definition>Direction ver14.SharedClasses.Game.Moves.Direction.perspective</definition>
+        <argsstring>(PlayerColor playerColor)</argsstring>
+        <name>perspective</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.perspective</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>playerColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the correct perspective for the provided player color.this is necessary because for example: a white pawn push(<computeroutput><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" kindref="member">U</ref></computeroutput>) is the exact opposite of a black pawn push (<computeroutput><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" kindref="member">D</ref></computeroutput>). so the perspective needs to be in relation to the moving color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>playerColor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the player color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the direction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="320" column="22" bodyfile="Game/Moves/Direction.java" bodystart="320" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref></type>
+        <definition>abstract Direction ver14.SharedClasses.Game.Moves.Direction.opposite</definition>
+        <argsstring>()</argsstring>
+        <name>opposite</name>
+        <qualifiedname>ver14.SharedClasses.Game.Moves.Direction.opposite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the Opposite direction to this one.</para>
+<para><simplesect kind="return"><para>the direction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Moves/Direction.java" line="329" column="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction" kindref="compound">Direction</ref> - represents a moving direction on a board. sort of like a vector. has an <computeroutput><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a83240b53eb5e60163fc06af923cb3627" kindref="member">offset</ref></computeroutput> that is added to a certain location or bitboard, in order to achieve movement in that direction. the general direction map looks like this: <table rows="3" cols="3"><row>
+<entry thead="no"><para>-9  </para>
+</entry><entry thead="no"><para>-8  </para>
+</entry><entry thead="no"><para>-7   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>-1  </para>
+</entry><entry thead="no"><para>loc  </para>
+</entry><entry thead="no"><para>1   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7  </para>
+</entry><entry thead="no"><para>8  </para>
+</entry><entry thead="no"><para>9   </para>
+</entry></row>
+</table>
+</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>List&lt; ver14.SharedClasses.Game.Moves.Direction &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Moves.Direction</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ALL_DIRECTIONS</edgelabel>
+          <edgelabel>combination</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ALL_USED_DIRECTIONS</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>normalPerspective</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.Moves.Direction</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ALL_DIRECTIONS</edgelabel>
+          <edgelabel>combination</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ALL_USED_DIRECTIONS</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>normalPerspective</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Game.PlayerColor</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>PLAYER_COLORS</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/Moves/Direction.java" line="37" column="7" bodyfile="Game/Moves/Direction.java" bodystart="37" bodyend="330"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab32b95790b289321e85b355f3a558cf1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>[static initializer]</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a830d7d6a19e1ca35623ee6e4ab2359cc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>ALL_DIRECTIONS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a13b8cd377b11d8957c1bc0fdc01be803" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>ALL_USED_DIRECTIONS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a36d0ffa7f72269b79ef5b40ddf718a8e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>andWith</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ace8e551a5dff7abf470bcd59793a2a46" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>asInt</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a764eb9d5feb3d76b85aebc4818c9c416" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>combination</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1af3aba68a28527c93b632d9ab257b4b7e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7f93a1abf0b82cf9ce821937a3be6297" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_D</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ad576d60b204245c458485c0d77532ff3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_D_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a602197f99326ec91444ec9e3dbc5b43d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_D_R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9f37b1d29bb7559ff71061940df9515a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a1792f3683da0ea126bc1a46897fc10b5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_L_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a4fb3efc69c83acf22212db92d6cf6c94" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8ad917758424eb5461b18a2854139804" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>D_R_R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a98b9212f32f8f9c1978db75bcb1c9ed1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>Direction</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a05b152420defcbf2d3d011fb5619fba4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>Direction</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a200d79a03cd547391bd1616c9581a9e6" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>Direction</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a7da3c8a201a29c44dcb9b22b4008fe23" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>getCombination</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a633d224db97696d9136fa72515f2dbbe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>getDirectionByOffset</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a625884d5a6ceecca15222e9a810dde87" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>getRelative</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1afb35acb61806eb52334fd0da730b596d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8107f78e560e6e9ded0d679a2aeeaa61" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>lookup</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ad8348b8bb4d65810689a34b86ba9d7e0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>normalPerspective</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1aee16d3f253539686f1bc31b8d5ea550a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>NUM_OF_DIRECTIONS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a86d3b9246f2befdc784d9c808f6b3c00" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>NUM_OF_DIRECTIONS_WO_KNIGHT</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ac0e334aa31b28670ad66834db365fa72" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>NUM_OF_KNIGHT_DIRECTIONS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a83240b53eb5e60163fc06af923cb3627" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>offset</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a9905fee6a18dc36e83dd28ceb5ab49d5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>opposite</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a3592aebe8dd46bfd67bf1bea865b46d1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>perspective</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab1f5ecd9854384c6df202f195fe88699" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a8dbf1f587c72ae6b77d68820c4974c71" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a6dd493030d0293b9bfb3621b5f697656" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ae267cf58f061ed6c99a64b17574745ee" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_L_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a573ab7236c41566d75d1673962337c47" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a47c8b14db5d295cfc31fb0d618cb5bc3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_R_R</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab4b4faa21fd55dcedd39bdf5f97ed4b0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_U</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1a10e97c3a87fced98fa117f8f41f419a2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_U_L</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction_1ab41ab386ce6a40321135aa65656cf926" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Moves::Direction</scope><name>U_U_R</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

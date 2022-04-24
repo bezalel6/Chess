@@ -1,0 +1,212 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{}\doxysection{ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg Class Reference}
+\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+
+
+Inheritance diagram for ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg\+:
+% FIG 0
+
+
+Collaboration diagram for ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_abd03fe2667eb17de6bc29764fbacc3db}{Arg}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}{arg\+Type}})
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a46676f048304ea6bfa83ffaf6ebdbc8c}{Arg}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}{arg\+Type}}, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a5c5ee3cc5962bd21730a8b8f7e02b036}{config}})
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_aae7eacc42b26d1cdbc5ea4405bd8f4e2}{Arg}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}{arg\+Type}}, boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a0a6b54af9d437080b739ff70f41332bb}{escape}}, \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a5c5ee3cc5962bd21730a8b8f7e02b036}{config}})
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a05d49a12b35d3dd01aa59834dd06b387}{is\+User\+Input}} ()
+\item 
+void \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a779229f6fdd79354bdeecbea42880733}{set\+User\+Input}} (boolean user\+Input)
+\item 
+boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_ad30b914b6537642537fc76d94bfd3c82}{equals}} (Object o)
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a9613d4d3704e2fb6474d33763a02d8c8}{to\+String}} ()
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a44d7b3571e34069a7c07f45cbff56697}{create\+Val}} (Object val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a1fb0eb81858bbf47c614ef6168a05582}{rep\+In\+Str}}
+\item 
+final boolean \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a0a6b54af9d437080b739ff70f41332bb}{escape}}
+\item 
+final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}{arg\+Type}}
+\item 
+final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a5c5ee3cc5962bd21730a8b8f7e02b036}{config}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}} -\/ .
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_abd03fe2667eb17de6bc29764fbacc3db}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_abd03fe2667eb17de6bc29764fbacc3db}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!Arg@{Arg}}
+\index{Arg@{Arg}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{Arg()}{Arg()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}}}]{arg\+Type }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg\+Type} & the arg type \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a46676f048304ea6bfa83ffaf6ebdbc8c}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a46676f048304ea6bfa83ffaf6ebdbc8c}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!Arg@{Arg}}
+\index{Arg@{Arg}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{Arg()}{Arg()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}}}]{arg\+Type,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$}]{config }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg\+Type} & the arg type \\
+\hline
+{\em config} & the config \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_aae7eacc42b26d1cdbc5ea4405bd8f4e2}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_aae7eacc42b26d1cdbc5ea4405bd8f4e2}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!Arg@{Arg}}
+\index{Arg@{Arg}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{Arg()}{Arg()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+Arg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}}}]{arg\+Type,  }\item[{boolean}]{escape,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$}]{config }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg\+Type} & the arg type \\
+\hline
+{\em escape} & the escape \\
+\hline
+{\em config} & the config \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a44d7b3571e34069a7c07f45cbff56697}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a44d7b3571e34069a7c07f45cbff56697}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!createVal@{createVal}}
+\index{createVal@{createVal}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{createVal()}{createVal()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+create\+Val (\begin{DoxyParamCaption}\item[{Object}]{val }\end{DoxyParamCaption})}
+
+Create val string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the val \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_ad30b914b6537642537fc76d94bfd3c82}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_ad30b914b6537642537fc76d94bfd3c82}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!equals@{equals}}
+\index{equals@{equals}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+equals (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption})}
+
+Equals boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the o \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a05d49a12b35d3dd01aa59834dd06b387}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a05d49a12b35d3dd01aa59834dd06b387}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!isUserInput@{isUserInput}}
+\index{isUserInput@{isUserInput}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{isUserInput()}{isUserInput()}}
+{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+is\+User\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is user input boolean.
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a779229f6fdd79354bdeecbea42880733}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a779229f6fdd79354bdeecbea42880733}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!setUserInput@{setUserInput}}
+\index{setUserInput@{setUserInput}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{setUserInput()}{setUserInput()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+set\+User\+Input (\begin{DoxyParamCaption}\item[{boolean}]{user\+Input }\end{DoxyParamCaption})}
+
+Sets user input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Input} & the user input \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a9613d4d3704e2fb6474d33763a02d8c8}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a9613d4d3704e2fb6474d33763a02d8c8}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!toString@{toString}}
+\index{toString@{toString}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a734093a536141e88687dd2b1a98b89d8}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!argType@{argType}}
+\index{argType@{argType}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{argType}{argType}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type}{Arg\+Type}} ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+arg\+Type}
+
+The \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}} type. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a5c5ee3cc5962bd21730a8b8f7e02b036}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a5c5ee3cc5962bd21730a8b8f7e02b036}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!config@{config}}
+\index{config@{config}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}$<$?$>$ ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+config}
+
+The \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config}{Config}}. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a0a6b54af9d437080b739ff70f41332bb}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a0a6b54af9d437080b739ff70f41332bb}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!escape@{escape}}
+\index{escape@{escape}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{escape}{escape}}
+{\footnotesize\ttfamily final boolean ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+escape}
+
+The Escape. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a1fb0eb81858bbf47c614ef6168a05582}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_a1fb0eb81858bbf47c614ef6168a05582}} 
+\index{ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}!repInStr@{repInStr}}
+\index{repInStr@{repInStr}!ver14.SharedClasses.DBActions.Arg.Arg@{ver14.SharedClasses.DBActions.Arg.Arg}}
+\doxysubsubsection{\texorpdfstring{repInStr}{repInStr}}
+{\footnotesize\ttfamily final String ver14.\+Shared\+Classes.\+DBActions.\+Arg.\+Arg.\+rep\+In\+Str}
+
+The Rep in str. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+DBActions/\+Arg/\mbox{\hyperlink{_arg_8java}{Arg.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager" kind="interface" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Threads::ErrorHandling::EnvManager</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_1ab6cd402566927cad04cd3aadbeec9158" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Threads.ErrorHandling.EnvManager.handledErr</definition>
+        <argsstring>(MyError err)</argsstring>
+        <name>handledErr</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.EnvManager.handledErr</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>notifies manager of a managed error</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error thrown </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/EnvManager.java" line="15" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_1a2d44b9cf6d2cb8d0f4148cdad13cae64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Threads.ErrorHandling.EnvManager.criticalErr</definition>
+        <argsstring>(MyError err)</argsstring>
+        <name>criticalErr</name>
+        <qualifiedname>ver14.SharedClasses.Threads.ErrorHandling.EnvManager.criticalErr</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error" kindref="compound">MyError</ref></type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>notifies manager of an un-handleable error. the manager must shut down everything</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error thrown </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Threads/ErrorHandling/EnvManager.java" line="22" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Env manager - an object that can handle errors as they occur.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="Threads/ErrorHandling/EnvManager.java" line="9" column="18" bodyfile="Threads/ErrorHandling/EnvManager.java" bodystart="9" bodyend="23"/>
+    <listofallmembers>
+      <member refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_1a2d44b9cf6d2cb8d0f4148cdad13cae64" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::EnvManager</scope><name>criticalErr</name></member>
+      <member refid="interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_1ab6cd402566927cad04cd3aadbeec9158" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Threads::ErrorHandling::EnvManager</scope><name>handledErr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -5,15 +5,37 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Utils.StrUtils;
 
 
+/**
+ * Move annotation - utility class that annotates moves.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MoveAnnotation {
-    public static final int PIECE = 0, CAPTURE = 1, DESTINATION = 2, GAME_OVER = 3;
+    /**
+     * The constant CAPTURE_ANN.
+     */
     private static final String CAPTURE_ANN = "x";
 
 
+    /**
+     * Annotate move.
+     *
+     * @param move        the move
+     * @param movingPiece the moving piece
+     * @return the annotation
+     */
     public static String annotate(Move move, Piece movingPiece) {
         return annotate(move, movingPiece, "");
     }
 
+    /**
+     * Annotate move with a unique string.
+     *
+     * @param move        the move
+     * @param movingPiece the moving piece
+     * @param unique      the unique string
+     * @return the string
+     */
     public static String annotate(Move move, Piece movingPiece, String unique) {
         if (movingPiece.pieceType == PieceType.PAWN) {
             String promotionStr = move.getMoveFlag() == Move.MoveFlag.Promotion ? "=" + move.getPromotingTo().getWhitePieceFen() : "";
@@ -34,6 +56,12 @@ public class MoveAnnotation {
         return StrUtils.dontCapFull(completeButStatus + move.getGameStatusStr());
     }
 
+    /**
+     * Basic annotate a move. just the source and destination.
+     *
+     * @param move the move
+     * @return the string
+     */
     public static String basicAnnotate(BasicMove move) {
         return StrUtils.dontCapWord(move.getMovingFrom() + "" + move.getMovingTo());
 

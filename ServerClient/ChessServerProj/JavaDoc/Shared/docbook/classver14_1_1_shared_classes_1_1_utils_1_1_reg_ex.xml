@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex" xml:lang="en-US">
+<title>ver14.SharedClasses.Utils.RegEx Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Utils.RegEx:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <emphasis role="strong">Prefixes</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1aa9cdceac8e75726f3bee48dfcd6c8ea5">RegEx</link> (@Language(&quot;RegExp&quot;) String regEx, String details, String... <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a97ec5aaaf52c1a6a9983615bcf7a091e">dontMatch</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a63713812cadba4cfde51d36b5697c666">RegEx</link> (@Language(&quot;RegExp&quot;) String regEx, String details, boolean useDontMatch, String... <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a97ec5aaaf52c1a6a9983615bcf7a091e">dontMatch</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a9b00c573a5a371338f6c3815fc7d4ace">canBeEmpty</link> (boolean bool, String emptyDetails)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a31e277289e3bf6c1a421c5e1f6ce280f">get</link> (boolean useDontMatch)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a0fe853d46522f1fba259f9c12c8b72e5">setUseDontMatch</link> (boolean useDontMatch)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1adef73b969b6f257ff673dfc4aac58d09">getDetails</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ab5218904d9a5b87a91c1d6724865da0a">check</link> (String str)</para>
+</listitem>
+            <listitem><para>String <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a27f61308cac91350ec760e16a2d8a44e">getRegex</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static boolean <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a421d184285a607947dfaa165514e44a2">isSavedDate</link> (String str)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>final String[] <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a97ec5aaaf52c1a6a9983615bcf7a091e">dontMatch</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4f481346ee105150a0c647a4d478d0a2">Fen</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^$|\\s*([rnbqkpRNBQKP1-8]+\\/){7}([rnbqkpRNBQKP1-8]+)\\s[bw-]\\s(([a-hkqA-HKQ]{1,4})|(-))\\s(([a-h][36])|(-))\\s\\d+\\s\\d+\\s*&quot;, &quot;standard fen&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4226617bc96ad29c6f4b8c1639525b6d">Username</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[a-zA-Z0-9_.-]{5,10}$&quot;, &quot;5-10 characters a-z 0-9 _.-&quot;, Prefixes.GUEST_PREFIX, &quot;User&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a72384ae847e05aed0b49d458a18714a0">Password</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[a-zA-Z0-9_.-]{5,10}$&quot;, &quot;5-10 characters a-z 0-9 _.-&quot;, &quot;password&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1aa7231ea35cbc034ed01ff77d4cfa7b82">Icon</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;\\.(png|gif)$&quot;, &quot;&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a26de8093105abb961c2a8fbbd9bbf2f0">StrUtilSkip</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;(^[ \\n\\t\\[])|(&lt;[^&gt;]*&gt;)&quot;, &quot;&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ab6d6b81fb58c04e3d34d8f978333ebc2">Numbers</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[0-9]+$&quot;, &quot;enter number&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ac5db2ee402156a99e545207d98f26c5e">URL</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@%_\\+.~#?&amp;//=]*)&quot;, &quot;enter valid url&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4c1b0fcecbf03f0018b6c82d5b1c023d">DontSaveGame</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(Prefixes.GUEST_PREFIX + &quot;|&quot; + AiParameters.AiType.MyAi + &quot;|&quot; + AiParameters.AiType.Stockfish, &quot;&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1affa5ed2819b21ab56eefbdaefff62db6">IPPAddress</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3} *: *[0-9]{2,5}$&quot;, &quot;[IP : PORT]&quot;)</para>
+</listitem>
+            <listitem><para>static final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a2350ccf371e72bbd313a47ffeba874df">Any</link> = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;&quot;, &quot;&quot;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Reg ex.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1aa9cdceac8e75726f3bee48dfcd6c8ea5"/><section>
+    <title>RegEx()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>RegEx</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>RegEx</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Utils.RegEx.RegEx (@Language(&quot;RegExp&quot;) String regEx, String details, String... dontMatch)</computeroutput></para>
+<para>Instantiates a new Reg ex.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>regEx</entry><entry>
+<para>the reg ex </para>
+</entry>
+                            </row>
+                            <row>
+<entry>details</entry><entry>
+<para>the details </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dontMatch</entry><entry>
+<para>the dont match </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a63713812cadba4cfde51d36b5697c666"/><section>
+    <title>RegEx()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>RegEx</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>RegEx</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Utils.RegEx.RegEx (@Language(&quot;RegExp&quot;) String regEx, String details, boolean useDontMatch, String... dontMatch)</computeroutput></para>
+<para>Instantiates a new Reg ex.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>regEx</entry><entry>
+<para>the reg ex </para>
+</entry>
+                            </row>
+                            <row>
+<entry>details</entry><entry>
+<para>the details </para>
+</entry>
+                            </row>
+                            <row>
+<entry>useDontMatch</entry><entry>
+<para>the use dont match </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dontMatch</entry><entry>
+<para>the dont match </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a9b00c573a5a371338f6c3815fc7d4ace"/><section>
+    <title>canBeEmpty()</title>
+<indexterm><primary>canBeEmpty</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>canBeEmpty</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.canBeEmpty (boolean bool , String emptyDetails)</computeroutput></para>
+<para>Can be empty reg ex.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>
+<para>the bool </para>
+</entry>
+                            </row>
+                            <row>
+<entry>emptyDetails</entry><entry>
+<para>the empty details </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the reg ex </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ab5218904d9a5b87a91c1d6724865da0a"/><section>
+    <title>check()</title>
+<indexterm><primary>check</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>check</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Utils.RegEx.check (String str)</computeroutput></para>
+<para>Check boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a31e277289e3bf6c1a421c5e1f6ce280f"/><section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>get</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.get (boolean useDontMatch)</computeroutput></para>
+<para>Get reg ex.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>useDontMatch</entry><entry>
+<para>the use dont match </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the reg ex </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1adef73b969b6f257ff673dfc4aac58d09"/><section>
+    <title>getDetails()</title>
+<indexterm><primary>getDetails</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>getDetails</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Utils.RegEx.getDetails ( )</computeroutput></para>
+<para>Gets details.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the details </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a27f61308cac91350ec760e16a2d8a44e"/><section>
+    <title>getRegex()</title>
+<indexterm><primary>getRegex</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>getRegex</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Utils.RegEx.getRegex ( )</computeroutput></para>
+<para>Gets regex.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the regex </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a421d184285a607947dfaa165514e44a2"/><section>
+    <title>isSavedDate()</title>
+<indexterm><primary>isSavedDate</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>isSavedDate</secondary></indexterm>
+<para><computeroutput>static boolean ver14.SharedClasses.Utils.RegEx.isSavedDate (String str)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Is saved date boolean.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>the str </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a0fe853d46522f1fba259f9c12c8b72e5"/><section>
+    <title>setUseDontMatch()</title>
+<indexterm><primary>setUseDontMatch</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>setUseDontMatch</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.Utils.RegEx.setUseDontMatch (boolean useDontMatch)</computeroutput></para>
+<para>Sets use dont match.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>useDontMatch</entry><entry>
+<para>the use dont match </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a2350ccf371e72bbd313a47ffeba874df"/><section>
+    <title>Any</title>
+<indexterm><primary>Any</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Any</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Any = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;&quot;, &quot;&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Any. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a97ec5aaaf52c1a6a9983615bcf7a091e"/><section>
+    <title>dontMatch</title>
+<indexterm><primary>dontMatch</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>dontMatch</secondary></indexterm>
+<para><computeroutput>final String [] ver14.SharedClasses.Utils.RegEx.dontMatch</computeroutput></para>
+<para>The Dont match. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4c1b0fcecbf03f0018b6c82d5b1c023d"/><section>
+    <title>DontSaveGame</title>
+<indexterm><primary>DontSaveGame</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>DontSaveGame</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.DontSaveGame = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(Prefixes.GUEST_PREFIX + &quot;|&quot; + AiParameters.AiType.MyAi + &quot;|&quot; + AiParameters.AiType.Stockfish, &quot;&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant DontSaveGame. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4f481346ee105150a0c647a4d478d0a2"/><section>
+    <title>Fen</title>
+<indexterm><primary>Fen</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Fen</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Fen = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^$|\\s*([rnbqkpRNBQKP1-8]+\\/){7}([rnbqkpRNBQKP1-8]+)\\s[bw-]\\s(([a-hkqA-HKQ]{1,4})|(-))\\s(([a-h][36])|(-))\\s\\d+\\s\\d+\\s*&quot;, &quot;standard fen&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Fen. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1aa7231ea35cbc034ed01ff77d4cfa7b82"/><section>
+    <title>Icon</title>
+<indexterm><primary>Icon</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Icon</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Icon = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;\\.(png|gif)$&quot;, &quot;&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Icon. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1affa5ed2819b21ab56eefbdaefff62db6"/><section>
+    <title>IPPAddress</title>
+<indexterm><primary>IPPAddress</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>IPPAddress</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.IPPAddress = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3} *: *[0-9]{2,5}$&quot;, &quot;[IP : PORT]&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant IPPAddress. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ab6d6b81fb58c04e3d34d8f978333ebc2"/><section>
+    <title>Numbers</title>
+<indexterm><primary>Numbers</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Numbers</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Numbers = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[0-9]+$&quot;, &quot;enter number&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Numbers. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a72384ae847e05aed0b49d458a18714a0"/><section>
+    <title>Password</title>
+<indexterm><primary>Password</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Password</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Password = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[a-zA-Z0-9_.-]{5,10}$&quot;, &quot;5-10 characters a-z 0-9 _.-&quot;, &quot;password&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Password. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a26de8093105abb961c2a8fbbd9bbf2f0"/><section>
+    <title>StrUtilSkip</title>
+<indexterm><primary>StrUtilSkip</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>StrUtilSkip</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.StrUtilSkip = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;(^[ \\n\\t\\[])|(&lt;[^&gt;]*&gt;)&quot;, &quot;&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant StrUtilSkip. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1ac5db2ee402156a99e545207d98f26c5e"/><section>
+    <title>URL</title>
+<indexterm><primary>URL</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>URL</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.URL = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@%_\\+.~#?&amp;//=]*)&quot;, &quot;enter valid url&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant URL. </para>
+</section>
+<anchor xml:id="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex_1a4226617bc96ad29c6f4b8c1639525b6d"/><section>
+    <title>Username</title>
+<indexterm><primary>Username</primary><secondary>ver14.SharedClasses.Utils.RegEx</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Utils.RegEx</primary><secondary>Username</secondary></indexterm>
+<para><computeroutput>final <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link> ver14.SharedClasses.Utils.RegEx.Username = new <link linkend="_classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex">RegEx</link>(&quot;^[a-zA-Z0-9_.-]{5,10}$&quot;, &quot;5-10 characters a-z 0-9 _.-&quot;, Prefixes.GUEST_PREFIX, &quot;User&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The constant Username. </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+Utils/RegEx.java</section>
+</section>

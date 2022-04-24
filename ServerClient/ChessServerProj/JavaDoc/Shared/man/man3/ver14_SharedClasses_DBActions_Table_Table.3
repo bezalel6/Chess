@@ -1,0 +1,105 @@
+.TH "ver14.SharedClasses.DBActions.Table.Table" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.DBActions.Table.Table
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTable\fP (Col\&.\&.\&. \fBcols\fP)"
+.br
+.ti -1c
+.RI "String \fBtableAndValues\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static String \fBescapeValues\fP (Object[] values, boolean quotes, boolean parentheses)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGames\fP =(\fBCol\&.GameID\fP, \fBCol\&.Player1\fP, \fBCol\&.Player2\fP, \fBCol\&.SavedGame\fP, \fBCol\&.Winner\fP)"
+.br
+.ti -1c
+.RI "\fBUnfinishedGames\fP =(\fBCol\&.GameID\fP, \fBCol\&.Player1\fP, \fBCol\&.Player2\fP, \fBCol\&.SavedGame\fP, \fBCol\&.PlayerToMove\fP)"
+.br
+.ti -1c
+.RI "\fBUsers\fP =(\fBCol\&.Username\fP, \fBCol\&.Password\fP)"
+.br
+.ti -1c
+.RI "final \fBCol\fP[] \fBcols\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTable\fP - represents the tables in the db\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.Table (Col\&.\&.\&. cols)"
+Instantiates a new \fBTable\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcols\fP the cols 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static String ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.escapeValues (Object[] values, boolean quotes, boolean parentheses)\fC [static]\fP"
+Escape values string\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalues\fP the values 
+.br
+\fIquotes\fP quotes 
+.br
+\fIparentheses\fP parentheses 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the escaped string 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.tableAndValues ()"
+\fBTable\fP and values string\&.
+.PP
+\fBReturns\fP
+.RS 4
+the string 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBCol\fP [] ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.cols"
+The Cols in this table 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.Games =(\fBCol\&.GameID\fP, \fBCol\&.Player1\fP, \fBCol\&.Player2\fP, \fBCol\&.SavedGame\fP, \fBCol\&.Winner\fP)"
+Games table\&. 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.UnfinishedGames =(\fBCol\&.GameID\fP, \fBCol\&.Player1\fP, \fBCol\&.Player2\fP, \fBCol\&.SavedGame\fP, \fBCol\&.PlayerToMove\fP)"
+Unfinished games table\&. 
+.SS "ver14\&.SharedClasses\&.DBActions\&.Table\&.Table\&.Users =(\fBCol\&.Username\fP, \fBCol\&.Password\fP)"
+Users table\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

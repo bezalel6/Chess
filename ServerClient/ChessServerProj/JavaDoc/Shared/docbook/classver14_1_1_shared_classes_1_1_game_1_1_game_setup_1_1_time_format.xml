@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" xml:lang="en-US">
+<title>ver14.SharedClasses.Game.GameSetup.TimeFormat Class Reference</title>
+<indexterm><primary>ver14.SharedClasses.Game.GameSetup.TimeFormat</primary></indexterm>
+<para>Inheritance diagram for ver14.SharedClasses.Game.GameSetup.TimeFormat:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a868abd97de769ad898971f2cc2689ac1"/><emphasis role="strong">TimeFormat</emphasis> (<link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> other)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a1ab03e11afe11123324069b8703cc0dd"/><emphasis role="strong">TimeFormat</emphasis> (long timeInMillis)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ad2463033f48f9fdac9655e3bb8e6309d"/>String <emphasis role="strong">toString</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a19bf11ffa8cc078a3067b187793e73d2"/>final long <emphasis role="strong">timeInMillis</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1adcaed9944cfc1c4076b1443eec8a1570"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">RAPID</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link>(TimeUnit.MINUTES.toMillis(10))</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a62aa2e8e4abb9270d4f3f14209a3075b"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">ULTRA_BULLET</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link>(TimeUnit.SECONDS.toMillis(2))</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1ae373273caf9de583d57e3dab892c182b"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">BULLET</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link>(TimeUnit.MINUTES.toMillis(1))</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1acf56e69f42cc6fddf84eae7a1417be8c"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link> <emphasis role="strong">BULLET2</emphasis> = new <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link>(TimeUnit.MINUTES.toMillis(2))</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a4809e06789b95d09781d6f309661ab31"/>static final <link linkend="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format">TimeFormat</link>[] <emphasis role="strong">PRESETS</emphasis> = {RAPID, ULTRA_BULLET, BULLET, BULLET2}</para>
+</listitem>
+            <listitem><para><anchor xml:id="_classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_1a080ec5d516442aca6e56c4e8adaf834d"/>static final int <emphasis role="strong">numOfFields</emphasis> = 2</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+Game/GameSetup/TimeFormat.java</section>

@@ -1,0 +1,14 @@
+digraph "ver14.SharedClasses.UI.dialogs.ConfirmDialogs.confirm"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ver14.SharedClasses.UI.dialogs.\lConfirmDialogs.confirm",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.UI.dialogs.\lConfirmDialogs.main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_u_i_1_1dialogs_1_1_confirm_dialogs.html#a46f155fb5b6af3d4e5c4a6d83fe3ac2c",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ver14.SharedClasses.UI.My\lJFrame.BooleanClosing.show",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.html#aa6631fc245f0e94a47f61a1516ea09e6",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ver14.SharedClasses.UI.My\lJFrame.StringClosing.show",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.html#a3937abf9c592e441414506b458abd5b3",tooltip=" "];
+}

@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math" xml:lang="en-US">
+<title>ver14.SharedClasses.DBActions.Table.Math Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a51ce608dafa44472ed167d0c2947d785">execute</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5">col</link>, Object value)</para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a54cac50726a4c1ec7bcc9002ff85769d">execute</link> (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5">col</link>, Object value, boolean changeSelf)</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac">strSource</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a">nullIf0</link> (Object val)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903">formatNum</link> (Object num)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b">strVal</link> (Object val)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ad58c88f9cd788a091e1c24e80615b04f">formatNum</link> (Object num, String format)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a3cd98eaf496bd8de5324783c6b0cb164">str</link> (Object obj)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a17d2ad488be595431572f36acc9a452b">asFloat</link> (Object num)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a9874b934ce1b6484c52530a1f1e0a8c0">Plus</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a542c588f1ba1393256585b5868d48fef">Mult</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ae6223095c76ab7f44c2db144f6a8e1f7">Div</link></para>
+</listitem>
+            <listitem><para><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5">col</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb">zeroIfNull</link> ()</para>
+</listitem>
+            <listitem><para>abstract void <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5">apply</link> (Object value)</para>
+</listitem>
+            <listitem><para>void <link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb">simpleOperation</link> (Object a, String operation, Object b)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math">Math</link> - allows for math actions on columns and some math-related utilities for columns.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5"/><section>
+    <title>apply()</title>
+<indexterm><primary>apply</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>apply</secondary></indexterm>
+<para><computeroutput>abstract void ver14.SharedClasses.DBActions.Table.Math.apply (Object value)<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Apply.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a17d2ad488be595431572f36acc9a452b"/><section>
+    <title>asFloat()</title>
+<indexterm><primary>asFloat</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>asFloat</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.asFloat (Object num)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>As float string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>num</entry><entry>
+<para>the num </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a51ce608dafa44472ed167d0c2947d785"/><section>
+    <title>execute()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>execute</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Math.execute (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> col, Object value)</computeroutput></para>
+<para>Execute col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a54cac50726a4c1ec7bcc9002ff85769d"/><section>
+    <title>execute()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>execute</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>execute</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Math.execute (<link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> col, Object value, boolean changeSelf)</computeroutput></para>
+<para>Execute col.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>col</entry><entry>
+<para>the col </para>
+</entry>
+                            </row>
+                            <row>
+<entry>value</entry><entry>
+<para>the value </para>
+</entry>
+                            </row>
+                            <row>
+<entry>changeSelf</entry><entry>
+<para>the change self </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the col </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903"/><section>
+    <title>formatNum()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>formatNum</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>formatNum</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.formatNum (Object num)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Format num string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>num</entry><entry>
+<para>the num </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ad58c88f9cd788a091e1c24e80615b04f"/><section>
+    <title>formatNum()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>formatNum</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>formatNum</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.formatNum (Object num, String format)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Format num string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>num</entry><entry>
+<para>the num </para>
+</entry>
+                            </row>
+                            <row>
+<entry>format</entry><entry>
+<para>the format </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a"/><section>
+    <title>nullIf0()</title>
+<indexterm><primary>nullIf0</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>nullIf0</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.nullIf0 (Object val)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Null if 0 string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>val</entry><entry>
+<para>the val </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb"/><section>
+    <title>simpleOperation()</title>
+<indexterm><primary>simpleOperation</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>simpleOperation</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Table.Math.simpleOperation (Object a, String operation, Object b)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Simple operation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>the a </para>
+</entry>
+                            </row>
+                            <row>
+<entry>operation</entry><entry>
+<para>the operation </para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>the b </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a3cd98eaf496bd8de5324783c6b0cb164"/><section>
+    <title>str()</title>
+<indexterm><primary>str</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>str</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.str (Object obj)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Str string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>the obj </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac"/><section>
+    <title>strSource()</title>
+<indexterm><primary>strSource</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>strSource</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.DBActions.Table.Math.strSource ( )</computeroutput></para>
+<para>Str source string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b"/><section>
+    <title>strVal()</title>
+<indexterm><primary>strVal</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>strVal</secondary></indexterm>
+<para><computeroutput>static String ver14.SharedClasses.DBActions.Table.Math.strVal (Object val)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Str val string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>val</entry><entry>
+<para>the val </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb"/><section>
+    <title>zeroIfNull()</title>
+<indexterm><primary>zeroIfNull</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>zeroIfNull</secondary></indexterm>
+<para><computeroutput>void ver14.SharedClasses.DBActions.Table.Math.zeroIfNull ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Zero if null. </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a94230090c7bb28cc9e93c4d8973005d5"/><section>
+    <title>col</title>
+<indexterm><primary>col</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>col</secondary></indexterm>
+<para><computeroutput><link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link> ver14.SharedClasses.DBActions.Table.Math.col</computeroutput></para>
+<para>The <link linkend="_classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col">Col</link>. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1ae6223095c76ab7f44c2db144f6a8e1f7"/><section>
+    <title>Div</title>
+<indexterm><primary>Div</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>Div</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Math.Div</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5">apply</link>(Object&#32;value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb">simpleOperation</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903">formatNum</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac">strSource</link>()),&#32;<emphasis role="stringliteral">&quot;/&quot;</emphasis>,&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1adc3199c98b11c8124a2b2584b46c4d7a">nullIf0</link>(value));
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a48ac2077e4384979e91b279b9918a2bb">zeroIfNull</link>();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Div. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a542c588f1ba1393256585b5868d48fef"/><section>
+    <title>Mult</title>
+<indexterm><primary>Mult</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>Mult</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Math.Mult</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5">apply</link>(Object&#32;value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb">simpleOperation</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903">formatNum</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac">strSource</link>()),&#32;<emphasis role="stringliteral">&quot;*&quot;</emphasis>,&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1aafd2bb7082548245f2a5ad16ca94a903">formatNum</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b">strVal</link>(value)));
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Mult. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a9874b934ce1b6484c52530a1f1e0a8c0"/><section>
+    <title>Plus</title>
+<indexterm><primary>Plus</primary><secondary>ver14.SharedClasses.DBActions.Table.Math</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.DBActions.Table.Math</primary><secondary>Plus</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.DBActions.Table.Math.Plus</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a810f4d260ee61b24b945185f394860d5">apply</link>(Object&#32;value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1abbc747e1b8396d1435fb11fc2d9a3aeb">simpleOperation</link>(<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a1d4d063b25a3f3e231d46d115a3ff6ac">strSource</link>(),&#32;<emphasis role="stringliteral">&quot;+&quot;</emphasis>,&#32;<link linkend="_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math_1a687b7a51f88a6dd1a157f91ce9df939b">strVal</link>(value));
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>The Plus. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+DBActions/Table/Math.java</section>
+</section>

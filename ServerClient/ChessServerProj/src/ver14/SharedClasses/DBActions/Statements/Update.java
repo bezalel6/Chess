@@ -9,11 +9,32 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 
 
+/**
+ * Update - a sql update statement.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Update extends SQLStatement {
+    /**
+     * The Table Updating.
+     */
     private final Table updating;
+    /**
+     * The New values.
+     */
     private final NewValue[] newValues;
+    /**
+     * The Condition.
+     */
     private final Condition condition;
 
+    /**
+     * Instantiates a new Update.
+     *
+     * @param updating  the updating
+     * @param condition the condition
+     * @param newValues the new values
+     */
     public Update(Table updating, Condition condition, NewValue... newValues) {
         super(DBRequest.Type.Update);
         assert newValues.length > 0;
@@ -22,37 +43,47 @@ public class Update extends SQLStatement {
         this.newValues = newValues;
     }
 
+    /**
+     * Create statement string.
+     *
+     * @return the string
+     */
     @Override
     protected String createStatement() {
         return "UPDATE %s\nSET %s\nWHERE %s".formatted(updating, StrUtils.splitArr(newValues), condition);
     }
 
-    public static class Delete extends SQLStatement {
-
-        private final Table deletingFrom;
-        private final Condition condition;
-
-        public Delete(Table deletingFrom, Condition condition) {
-            super(DBRequest.Type.Update);
-            this.condition = condition;
-            this.deletingFrom = deletingFrom;
-        }
-
-        @Override
-        protected String createStatement() {
-            return "DELETE FROM %s  ".formatted(deletingFrom) + (condition == null ? "" : ("WHERE " + condition));
-        }
-    }
-
+    /**
+     * New value - a new value for a certain column.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class NewValue implements Serializable {
+        /**
+         * The Col.
+         */
         public final Col col;
+        /**
+         * The Value.
+         */
         public final Object value;
 
+        /**
+         * Instantiates a new New value.
+         *
+         * @param col   the col
+         * @param value the value
+         */
         public NewValue(Col col, Object value) {
             this.col = col;
             this.value = value;
         }
 
+        /**
+         * To string string.
+         *
+         * @return the string
+         */
         @Override
         public String toString() {
             return col.colName() + " = " + value;

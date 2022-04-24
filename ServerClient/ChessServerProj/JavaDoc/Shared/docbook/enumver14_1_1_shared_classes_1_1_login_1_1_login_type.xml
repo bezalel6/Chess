@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type" xml:lang="en-US">
+<title>ver14.SharedClasses.Login.LoginType Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>boolean <link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a1fa210c2159fdabbdea036ebd48d020a">asUser</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a100af26fe69131db66a7224cd726df5c">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1aa9eef6d8a72a679e879988e68102fe4a">LOGIN</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a3665038116a1452b330ba08b9f6aec6d">REGISTER</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1afa644bd0211953ef5a51f2e2c4b1bb84">GUEST</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a0812664536dd668a484997d2d3ad952a">CANCEL</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a17ff7e5815ca495e17b7d4a7fd94eed1">NOT_SET_YET</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Login Type.</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Bezalel Avrahami (<link xlink:href="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</link>) </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a1fa210c2159fdabbdea036ebd48d020a"/><section>
+    <title>asUser()</title>
+<indexterm><primary>asUser</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>asUser</secondary></indexterm>
+<para><computeroutput>boolean ver14.SharedClasses.Login.LoginType.asUser ( )</computeroutput></para>
+<para>As user boolean.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a100af26fe69131db66a7224cd726df5c"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String ver14.SharedClasses.Login.LoginType.toString ( )</computeroutput></para>
+<para>To string string.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the string </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a0812664536dd668a484997d2d3ad952a"/><section>
+    <title>CANCEL</title>
+<indexterm><primary>CANCEL</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>CANCEL</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Login.LoginType.CANCEL</computeroutput></para>
+<para>Cancel. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1afa644bd0211953ef5a51f2e2c4b1bb84"/><section>
+    <title>GUEST</title>
+<indexterm><primary>GUEST</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>GUEST</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Login.LoginType.GUEST</computeroutput></para>
+<para>Guest. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1aa9eef6d8a72a679e879988e68102fe4a"/><section>
+    <title>LOGIN</title>
+<indexterm><primary>LOGIN</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>LOGIN</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Login.LoginType.LOGIN</computeroutput></para>
+<para>Login. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a17ff7e5815ca495e17b7d4a7fd94eed1"/><section>
+    <title>NOT_SET_YET</title>
+<indexterm><primary>NOT_SET_YET</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>NOT_SET_YET</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Login.LoginType.NOT_SET_YET</computeroutput></para>
+<para>Not set yet. </para>
+</section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_login_1_1_login_type_1a3665038116a1452b330ba08b9f6aec6d"/><section>
+    <title>REGISTER</title>
+<indexterm><primary>REGISTER</primary><secondary>ver14.SharedClasses.Login.LoginType</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Login.LoginType</primary><secondary>REGISTER</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Login.LoginType.REGISTER</computeroutput></para>
+<para>Register. </para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Login/LoginType.java</section>
+</section>

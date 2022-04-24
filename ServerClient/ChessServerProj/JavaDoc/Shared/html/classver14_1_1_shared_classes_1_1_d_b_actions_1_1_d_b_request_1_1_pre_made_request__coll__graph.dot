@@ -1,0 +1,10 @@
+digraph "ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="ver14.SharedClasses.DBActions.\lDBRequest.PreMadeRequest",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ChangeProfilePic\nDeleteUnfGames\nGames\nStatsByTimeOfDay\nTopPlayers\nstatistics" ,fontname="Helvetica"];
+  Node2 [label="ver14.SharedClasses.DBActions.\lDBRequest.PreMadeRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request.html",tooltip=" "];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ChangeProfilePic\nDeleteUnfGames\nGames\nStatsByTimeOfDay\nTopPlayers\nstatistics" ,fontname="Helvetica"];
+}

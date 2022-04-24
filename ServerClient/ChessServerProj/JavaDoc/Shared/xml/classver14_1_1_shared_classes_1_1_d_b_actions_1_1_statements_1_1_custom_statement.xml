@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Statements::CustomStatement</compoundname>
+    <basecompoundref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement" prot="public" virt="non-virtual">ver14.SharedClasses.DBActions.Statements.SQLStatement</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1a0bb5d79349d8cf14773a15178355d401" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Statements.CustomStatement.statement</definition>
+        <argsstring></argsstring>
+        <name>statement</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.CustomStatement.statement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Statement. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/CustomStatement.java" line="17" column="12" bodyfile="DBActions/Statements/CustomStatement.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1aeb00537be0f0517c573804263f652944" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Statements.CustomStatement.CustomStatement</definition>
+        <argsstring>(DBRequest.Type type, @Language(&quot;SQL&quot;) String statement)</argsstring>
+        <name>CustomStatement</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.CustomStatement.CustomStatement</qualifiedname>
+        <param>
+          <type>DBRequest.Type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>@Language(&quot;SQL&quot;) String</type>
+          <declname>statement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Custom statement.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>statement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the statement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/CustomStatement.java" line="25" column="12" bodyfile="DBActions/Statements/CustomStatement.java" bodystart="25" bodyend="28"/>
+        <references refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1acafd4ddbcbff26609405a1c2fb2d310f" compoundref="_s_q_l_statement_8java" startline="19">ver14.SharedClasses.DBActions.Statements.SQLStatement.type</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1a4f6f096a49b809bd37b4ffa5bebc7229" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.DBActions.Statements.CustomStatement.createStatement</definition>
+        <argsstring>()</argsstring>
+        <name>createStatement</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Statements.CustomStatement.createStatement</qualifiedname>
+        <reimplements refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6783132df1f279a4e750aec5d31798f2">createStatement</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create statement string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Statements/CustomStatement.java" line="36" column="22" bodyfile="DBActions/Statements/CustomStatement.java" bodystart="36" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Custom statement - a custom sql statement.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Statements.CustomStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Statements.SQLStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.DBActions.Statements.CustomStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ver14.SharedClasses.DBActions.DBRequest.DBRequest.Type</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request_1_1_type"/>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.DBActions.Statements.SQLStatement</label>
+        <link refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DBActions/Statements/CustomStatement.java" line="12" column="7" bodyfile="DBActions/Statements/CustomStatement.java" bodystart="12" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1a4f6f096a49b809bd37b4ffa5bebc7229" prot="protected" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>createStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1aeb00537be0f0517c573804263f652944" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>CustomStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a6d93cd095b588951de927b96690294f5" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>getStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a8a10bf0e076d9f9659450dedfe1eb8f8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>replace</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1aac1b2e4999f44e8c2422c9bea1d22fff" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>SQLStatement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement_1a0bb5d79349d8cf14773a15178355d401" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>statement</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1a592646306573967e4c84fecae2338d45" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>toString</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement_1acafd4ddbcbff26609405a1c2fb2d310f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Statements::CustomStatement</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

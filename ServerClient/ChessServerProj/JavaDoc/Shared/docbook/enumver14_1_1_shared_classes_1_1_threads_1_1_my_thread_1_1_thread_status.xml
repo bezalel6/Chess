@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status" xml:lang="en-US">
+<title>ver14.SharedClasses.Threads.MyThread.ThreadStatus Enum Reference</title>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1a0505caaf87af28b795327e2633cfd110"/>abstract <link linkend="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status">ThreadStatus</link> <emphasis role="strong">next</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1a148c4c0bb24c48cdc39b53f0fbb0344a">NOT_STARTED</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1ab4d6c5b7f84d860993872cfc9d41263a">RUNNING</link></para>
+</listitem>
+            <listitem><para><link linkend="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1a5b9da1b2e34d7016eecf0b2ee29926de">DONE</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1a5b9da1b2e34d7016eecf0b2ee29926de"/><section>
+    <title>DONE</title>
+<indexterm><primary>DONE</primary><secondary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</primary><secondary>DONE</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.MyThread.ThreadStatus.DONE</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ThreadStatus&#32;next()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1a148c4c0bb24c48cdc39b53f0fbb0344a"/><section>
+    <title>NOT_STARTED</title>
+<indexterm><primary>NOT_STARTED</primary><secondary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</primary><secondary>NOT_STARTED</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.MyThread.ThreadStatus.NOT_STARTED</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ThreadStatus&#32;next()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;RUNNING;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting></section>
+<anchor xml:id="_enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status_1ab4d6c5b7f84d860993872cfc9d41263a"/><section>
+    <title>RUNNING</title>
+<indexterm><primary>RUNNING</primary><secondary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</secondary></indexterm>
+<indexterm><primary>ver14.SharedClasses.Threads.MyThread.ThreadStatus</primary><secondary>RUNNING</secondary></indexterm>
+<para><computeroutput>ver14.SharedClasses.Threads.MyThread.ThreadStatus.RUNNING</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">={
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ThreadStatus&#32;next()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;DONE;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+</programlisting></section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+Threads/MyThread.java</section>
+</section>

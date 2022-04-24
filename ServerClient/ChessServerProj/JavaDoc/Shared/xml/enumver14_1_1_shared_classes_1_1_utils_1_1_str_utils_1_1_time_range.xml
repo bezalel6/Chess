@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range" kind="enum" language="Java" prot="package">
+    <compoundname>ver14::SharedClasses::Utils::StrUtils::TimeRange</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ad1ecadbc643fd313d9c92485682ddf0d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.Night</definition>
+        <argsstring></argsstring>
+        <name>Night</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.Night</qualifiedname>
+        <initializer>=(23, 6)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Night time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="456" column="1" bodyfile="Utils/StrUtils.java" bodystart="456" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a7e4db0e94166f8520a90ec544a0ea95c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.EarlyMorning</definition>
+        <argsstring></argsstring>
+        <name>EarlyMorning</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.EarlyMorning</qualifiedname>
+        <initializer>=(6, 10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Early morning time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="460" column="1" bodyfile="Utils/StrUtils.java" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a24121f4a571908dadc0fe4dc5597841b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.LateMorning</definition>
+        <argsstring></argsstring>
+        <name>LateMorning</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.LateMorning</qualifiedname>
+        <initializer>=(10, 12)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Late morning time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="464" column="1" bodyfile="Utils/StrUtils.java" bodystart="464" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1a13dfd3508d8d11e7d076981da8d960" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.EarlyAfterNoon</definition>
+        <argsstring></argsstring>
+        <name>EarlyAfterNoon</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.EarlyAfterNoon</qualifiedname>
+        <initializer>=(12, 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Early after noon time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="468" column="1" bodyfile="Utils/StrUtils.java" bodystart="468" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ab72acf6d4883a5c265bc90a6d553cef0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.AfterNoon</definition>
+        <argsstring></argsstring>
+        <name>AfterNoon</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.AfterNoon</qualifiedname>
+        <initializer>=(14, 17)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>After noon time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="472" column="1" bodyfile="Utils/StrUtils.java" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1aa7877abec9accfee8253452761d25850" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.Evening</definition>
+        <argsstring></argsstring>
+        <name>Evening</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.Evening</qualifiedname>
+        <initializer>=(17, 20)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evening time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="476" column="1" bodyfile="Utils/StrUtils.java" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ae4a02cf24bf02aa0d34cbbcc03d2222c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.LateEvening</definition>
+        <argsstring></argsstring>
+        <name>LateEvening</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.LateEvening</qualifiedname>
+        <initializer>=(20, 23)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Late evening time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="480" column="1" bodyfile="Utils/StrUtils.java" bodystart="480" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1f8b482067066259c1dc3c1df9870d2c" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Utils.StrUtils.TimeRange.start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Start. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="501" column="19" bodyfile="Utils/StrUtils.java" bodystart="501" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a821ceecb11d7be9bb18b86aa01b10f4b" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Utils.StrUtils.TimeRange.end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>End time range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="504" column="9" bodyfile="Utils/StrUtils.java" bodystart="504" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a71fb9c83ac7f4d4c40c8fcb8d50b71c4" prot="public" static="yes" mutable="no">
+        <type>final Map&lt; Integer, TimeRange &gt;</type>
+        <definition>final Map&lt;Integer, TimeRange&gt; ver14.SharedClasses.Utils.StrUtils.TimeRange.map</definition>
+        <argsstring></argsstring>
+        <name>map</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Map. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="484" column="26" bodyfile="Utils/StrUtils.java" bodystart="484" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ac65f403fb67e49b168d211afd7ba4efa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="484" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a46dfa3a936582c170a9758fa85dd5d91" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeRange</type>
+        <definition>static TimeRange ver14.SharedClasses.Utils.StrUtils.TimeRange.getTimeRange</definition>
+        <argsstring>(int hour)</argsstring>
+        <name>getTimeRange</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.getTimeRange</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets time range.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hour </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the time range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="523" column="33" bodyfile="Utils/StrUtils.java" bodystart="523" bodyend="525"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1aad1dd4a8f1b69fb3c735489542db740d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Utils.StrUtils.TimeRange.TimeRange</definition>
+        <argsstring>(int start, int end)</argsstring>
+        <name>TimeRange</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.TimeRange</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Time range.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the end </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="512" column="9" bodyfile="Utils/StrUtils.java" bodystart="512" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1036dc80c09640eec622eda082ef351e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Utils.StrUtils.TimeRange.isBetween</definition>
+        <argsstring>(int hour)</argsstring>
+        <name>isBetween</name>
+        <qualifiedname>ver14.SharedClasses.Utils.StrUtils.TimeRange.isBetween</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is between boolean.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hour </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the boolean </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/StrUtils.java" line="533" column="24" bodyfile="Utils/StrUtils.java" bodystart="533" bodyend="535"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Time range.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Map&lt; Integer, TimeRange &gt;</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Utils.StrUtils.TimeRange</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>map</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Utils/StrUtils.java" line="452" column="5" bodyfile="Utils/StrUtils.java" bodystart="452" bodyend="536"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ac65f403fb67e49b168d211afd7ba4efa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>[static initializer]</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ab72acf6d4883a5c265bc90a6d553cef0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>AfterNoon</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1a13dfd3508d8d11e7d076981da8d960" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>EarlyAfterNoon</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a7e4db0e94166f8520a90ec544a0ea95c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>EarlyMorning</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a821ceecb11d7be9bb18b86aa01b10f4b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>end</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1aa7877abec9accfee8253452761d25850" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>Evening</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a46dfa3a936582c170a9758fa85dd5d91" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>getTimeRange</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1036dc80c09640eec622eda082ef351e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>isBetween</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ae4a02cf24bf02aa0d34cbbcc03d2222c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>LateEvening</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a24121f4a571908dadc0fe4dc5597841b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>LateMorning</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a71fb9c83ac7f4d4c40c8fcb8d50b71c4" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>map</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1ad1ecadbc643fd313d9c92485682ddf0d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>Night</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1a1f8b482067066259c1dc3c1df9870d2c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>start</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_time_range_1aad1dd4a8f1b69fb3c735489542db740d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Utils::StrUtils::TimeRange</scope><name>TimeRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

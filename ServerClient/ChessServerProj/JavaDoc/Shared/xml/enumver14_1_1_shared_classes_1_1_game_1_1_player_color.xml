@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::PlayerColor</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.PlayerColor.WHITE</definition>
+        <argsstring></argsstring>
+        <name>WHITE</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.WHITE</qualifiedname>
+        <initializer>=(Location.WHITE_STARTING_ROW, Location.WHITE_DIFF) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d" kindref="member">getOpponent</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87" kindref="member">BLACK</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>White. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="20" column="1" bodyfile="Game/PlayerColor.java" bodystart="15" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_1a898957fc8cd407b2adb41e104400af5f" compoundref="_evaluation_8java" startline="126" endline="131">ver14.SharedClasses.Game.Evaluation.Evaluation.book</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac" compoundref="_castling_rights_8java" startline="87" endline="99">ver14.SharedClasses.Game.Moves.CastlingRights.createFromStr</referencedby>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a3e79a97311c2f717c255322413d5e3a3" compoundref="_piece_8java" startline="153" endline="157">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getFen</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1a783226166ccd6aefa9a6ff84427bb3b3" compoundref="_move_8java" startline="364" endline="370">ver14.SharedClasses.Game.Moves.Move.getMoveEvaluation</referencedby>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a8d98589a91d83ab74d4d609c7bdd95c5" compoundref="_piece_8java" startline="104" endline="116">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceFromFen</referencedby>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type_1a180866d46ac49cb9383484f2b3f354ce" compoundref="_piece_type_8java" startline="234" endline="236">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType.getPieceIcon</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a" compoundref="_castling_rights_8java" startline="158" endline="174">ver14.SharedClasses.Game.Moves.CastlingRights.toString</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ab83bf1bfdb67e5d560d6b0b4800400c3" compoundref="_castling_rights_8java" startline="148" endline="150">ver14.SharedClasses.Game.Moves.CastlingRights.whosCastling</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.PlayerColor.BLACK</definition>
+        <argsstring></argsstring>
+        <name>BLACK</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.BLACK</qualifiedname>
+        <initializer>=(Location.BLACK_STARTING_ROW, Location.BLACK_DIFF) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d" kindref="member">getOpponent</ref>() {
+            return <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" kindref="member">WHITE</ref>;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Black. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="29" column="1" bodyfile="Game/PlayerColor.java" bodystart="24" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a66ea4ef8a7db5de422a0c573550b84ac" compoundref="_castling_rights_8java" startline="87" endline="99">ver14.SharedClasses.Game.Moves.CastlingRights.createFromStr</referencedby>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a8d98589a91d83ab74d4d609c7bdd95c5" compoundref="_piece_8java" startline="104" endline="116">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceFromFen</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1ab83bf1bfdb67e5d560d6b0b4800400c3" compoundref="_castling_rights_8java" startline="148" endline="150">ver14.SharedClasses.Game.Moves.CastlingRights.whosCastling</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac47a3510846c99a2a7acd97c4c190568" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.PlayerColor.NO_PLAYER</definition>
+        <argsstring></argsstring>
+        <name>NO_PLAYER</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.NO_PLAYER</qualifiedname>
+        <initializer>=(-1, 0) {
+        @Override
+        public <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref> <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d" kindref="member">getOpponent</ref>() {
+            return NO_PLAYER;
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>No player. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="38" column="1" bodyfile="Game/PlayerColor.java" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game_1ae36f6150c27a1006cad3c1fa1095f543" compoundref="_created_game_8java" startline="31" endline="34">ver14.SharedClasses.Game.SavedGames.CreatedGame.getGameDesc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abc7f359ab1d34273b3a6017a543c9f4f" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.PlayerColor.asInt</definition>
+        <argsstring></argsstring>
+        <name>asInt</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.asInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The As int. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="51" column="22" bodyfile="Game/PlayerColor.java" bodystart="51" bodyend="-1"/>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1ae87e2dda4432660495d947b9ab2b567b" compoundref="_piece_8java" startline="125" endline="127">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPiece</referencedby>
+        <referencedby refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_1a9cffbc6f15ec16c0a239c66cf5ef9cd2" compoundref="_piece_8java" startline="144" endline="146">ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece.getPieceIcon</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1a78337b055f9e4d8cfae154f3f70c734e" compoundref="_castling_rights_8java" startline="244" endline="246">ver14.SharedClasses.Game.Moves.CastlingRights.getPlayersCastling</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a773f4ad55f1281647c7c49e27629c34e" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.PlayerColor.indexOf2</definition>
+        <argsstring></argsstring>
+        <name>indexOf2</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.indexOf2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>index of two. calculated at initialization for performance. calculation: <computeroutput><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abc7f359ab1d34273b3a6017a543c9f4f" kindref="member">asInt</ref></computeroutput>*2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="55" column="22" bodyfile="Game/PlayerColor.java" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a556c3a6fb627ff3c26c7116103a8c65c" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.PlayerColor.startingRow</definition>
+        <argsstring></argsstring>
+        <name>startingRow</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.startingRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The player&apos;s Starting row. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="59" column="22" bodyfile="Game/PlayerColor.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ad25e44e4c95f7514ffe2718784afcde9" prot="public" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int ver14.SharedClasses.Game.PlayerColor.diff</definition>
+        <argsstring></argsstring>
+        <name>diff</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.diff</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The moving up ratio. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="63" column="22" bodyfile="Game/PlayerColor.java" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aabfcb6abd24b49da09798fba88e75201" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref>[]</type>
+        <definition> final PlayerColor [] ver14.SharedClasses.Game.PlayerColor.PLAYER_COLORS</definition>
+        <argsstring></argsstring>
+        <name>PLAYER_COLORS</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.PLAYER_COLORS</qualifiedname>
+        <initializer>= {<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" kindref="member">WHITE</ref>, <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87" kindref="member">BLACK</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant PLAYER_COLORS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="42" column="51" bodyfile="Game/PlayerColor.java" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1acd800460ece168fc2ed8222873847a4a" compoundref="_castling_rights_8java" startline="158" endline="174">ver14.SharedClasses.Game.Moves.CastlingRights.toString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1af3438d3e0123073dc13ee557607b87b8" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition> final int ver14.SharedClasses.Game.PlayerColor.NUM_OF_PLAYERS</definition>
+        <argsstring></argsstring>
+        <name>NUM_OF_PLAYERS</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.NUM_OF_PLAYERS</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The constant NUM_OF_PLAYERS. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="46" column="44" bodyfile="Game/PlayerColor.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abb99867f9ef662407ec32937419de81c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.PlayerColor.PlayerColor</definition>
+        <argsstring>(int startingRow, int diff)</argsstring>
+        <name>PlayerColor</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.PlayerColor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>startingRow</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>diff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Player color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startingRow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the starting row </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the diff </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="71" column="5" bodyfile="Game/PlayerColor.java" bodystart="71" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>abstract PlayerColor ver14.SharedClasses.Game.PlayerColor.getOpponent</definition>
+        <argsstring>()</argsstring>
+        <name>getOpponent</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.getOpponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets opponent.</para>
+<para><simplesect kind="return"><para>the opponent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="107" column="33"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info_1abf45a4457f870cf4a10462ecdfcfcd7b" compoundref="_game_info_8java" startline="109" endline="111">ver14.SharedClasses.Game.SavedGames.GameInfo.getJoiningPlayerColor</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a513e46c3a7d3046f59ce4653e24c5878" compoundref="_game_status_8java" startline="159" endline="161">ver14.SharedClasses.Game.Evaluation.GameStatus.playerDisconnected</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aaa9389b857075c4c52b0a8f936f82608" compoundref="_game_status_8java" startline="180" endline="182">ver14.SharedClasses.Game.Evaluation.GameStatus.playerResigned</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa6191825f07b48327cd640c7e1e218c0" compoundref="_game_status_8java" startline="170" endline="172">ver14.SharedClasses.Game.Evaluation.GameStatus.timedOut</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abc9218ad73f7d5e6529e8472b838ea58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.PlayerColor.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="115" column="19" bodyfile="Game/PlayerColor.java" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aa7d3bee220c56a4c89e15d3549a86944" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.PlayerColor.getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.getName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets name.</para>
+<para><simplesect kind="return"><para>the name </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="124" column="19" bodyfile="Game/PlayerColor.java" bodystart="124" bodyend="126"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ade7ff6cc120be8b1600108bd778be420" compoundref="_str_utils_8java" startline="84" endline="86">ver14.SharedClasses.Utils.StrUtils.format</references>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a57cc00500b5632c39ff135eb49ea0a13" compoundref="_game_status_8java" startline="263" endline="272">ver14.SharedClasses.Game.Evaluation.GameStatus.getDetailedStr</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aed9d51392128a524ebfde290a11429f7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>static PlayerColor ver14.SharedClasses.Game.PlayerColor.getColor</definition>
+        <argsstring>(int clr)</argsstring>
+        <name>getColor</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.getColor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>clr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the clr </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="84" column="31" bodyfile="Game/PlayerColor.java" bodystart="84" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a85ccecd9bdee1a3b089b6aee12ed805a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>static PlayerColor ver14.SharedClasses.Game.PlayerColor.getPlayerFromFen</definition>
+        <argsstring>(String playerToMove)</argsstring>
+        <name>getPlayerFromFen</name>
+        <qualifiedname>ver14.SharedClasses.Game.PlayerColor.getPlayerFromFen</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>playerToMove</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets player from fen.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>playerToMove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the player to move </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the player from fen </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/PlayerColor.java" line="94" column="31" bodyfile="Game/PlayerColor.java" bodystart="94" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Player color - represents a player color.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.PlayerColor</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>PLAYER_COLORS</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.PlayerColor</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>PLAYER_COLORS</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/PlayerColor.java" line="11" column="7" bodyfile="Game/PlayerColor.java" bodystart="11" bodyend="127"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abc7f359ab1d34273b3a6017a543c9f4f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>asInt</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a6891fc6c091c8235f74275e439832b87" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>BLACK</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ad25e44e4c95f7514ffe2718784afcde9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>diff</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aed9d51392128a524ebfde290a11429f7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>getColor</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aa7d3bee220c56a4c89e15d3549a86944" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>getName</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac382598fe61e294407c2dcc6d319ef2d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>getOpponent</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a85ccecd9bdee1a3b089b6aee12ed805a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>getPlayerFromFen</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a773f4ad55f1281647c7c49e27629c34e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>indexOf2</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1ac47a3510846c99a2a7acd97c4c190568" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>NO_PLAYER</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1af3438d3e0123073dc13ee557607b87b8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>NUM_OF_PLAYERS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1aabfcb6abd24b49da09798fba88e75201" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>PLAYER_COLORS</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abb99867f9ef662407ec32937419de81c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>PlayerColor</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a556c3a6fb627ff3c26c7116103a8c65c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>startingRow</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1abc9218ad73f7d5e6529e8472b838ea58" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>toString</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::PlayerColor</scope><name>WHITE</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kind="class" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::GameSetup::GameSettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <basecompoundref refid="interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable" prot="public" virt="non-virtual">ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</basecompoundref>
+    <innerclass refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" prot="public">ver14::SharedClasses::Game::GameSetup::GameSettings::GameType</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ac1d287e1fce6da8f800528788b5a662b" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+        <definition>final GameSettings ver14.SharedClasses.Game.GameSetup.GameSettings.EXAMPLE</definition>
+        <argsstring></argsstring>
+        <name>EXAMPLE</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.EXAMPLE</qualifiedname>
+        <initializer>= new <ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref>(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color_1a43a51da47ded8ec7cb1533bc3f972e61" kindref="member">PlayerColor.WHITE</ref>, TimeFormat.ULTRA_BULLET, &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1&quot;, AiParameters.EZ_MY_AI, GameType.RESUME)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="10" column="38" bodyfile="Game/GameSetup/GameSettings.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a7a2fb541af192e3e6738f8c3d21de012" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>PlayerColor ver14.SharedClasses.Game.GameSetup.GameSettings.playerToMove</definition>
+        <argsstring></argsstring>
+        <name>playerToMove</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.playerToMove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="12" column="25" bodyfile="Game/GameSetup/GameSettings.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ab8b94286fa0b80167982bca24b79c0a7" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>TimeFormat ver14.SharedClasses.Game.GameSetup.GameSettings.timeFormat</definition>
+        <argsstring></argsstring>
+        <name>timeFormat</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.timeFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="13" column="24" bodyfile="Game/GameSetup/GameSettings.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a8ad58e56403b70073f47ffa7455da82d" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.GameSettings.fen</definition>
+        <argsstring></argsstring>
+        <name>fen</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.fen</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="14" column="20" bodyfile="Game/GameSetup/GameSettings.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a1ac42d5eba3142e7be60f8fe75d8dfbe" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.GameSettings.gameID</definition>
+        <argsstring></argsstring>
+        <name>gameID</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.gameID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="15" column="20" bodyfile="Game/GameSetup/GameSettings.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a3a35b50eedf9ae26e2c9c3fb17adfffc" prot="private" static="no" mutable="no">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+        <definition>AiParameters ver14.SharedClasses.Game.GameSetup.GameSettings.aiParameters</definition>
+        <argsstring></argsstring>
+        <name>aiParameters</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.aiParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="16" column="26" bodyfile="Game/GameSetup/GameSettings.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a84660bf568fd25d9714966745389220c" prot="private" static="no" mutable="no">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" kindref="compound">GameType</ref></type>
+        <definition>GameType ver14.SharedClasses.Game.GameSetup.GameSettings.gameType</definition>
+        <argsstring></argsstring>
+        <name>gameType</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.gameType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="17" column="22" bodyfile="Game/GameSetup/GameSettings.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aaea86034dfe7b88b00af6b9638c3b3d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</definition>
+        <argsstring>(GameSettings other)</argsstring>
+        <name>GameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings" kindref="compound">GameSettings</ref></type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="19" column="12" bodyfile="Game/GameSetup/GameSettings.java" bodystart="19" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a5c6c5f27796006d7cdc8db810b3c64fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</definition>
+        <argsstring>(AiParameters aiParameters)</argsstring>
+        <name>GameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+          <declname>aiParameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="28" column="12" bodyfile="Game/GameSetup/GameSettings.java" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4db6d6af4e01081be88529c2a8059072" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</definition>
+        <argsstring>(PlayerColor playerToMove, TimeFormat timeFormat, AiParameters aiParameters, GameType gameType)</argsstring>
+        <name>GameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>playerToMove</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+          <declname>timeFormat</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+          <declname>aiParameters</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" kindref="compound">GameType</ref></type>
+          <declname>gameType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="32" column="12" bodyfile="Game/GameSetup/GameSettings.java" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ad08eda566033c981bfb84e50a669550c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</definition>
+        <argsstring>(PlayerColor playerToMove, TimeFormat timeFormat, String fen, AiParameters aiParameters, GameType gameType)</argsstring>
+        <name>GameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>playerToMove</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+          <declname>timeFormat</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>fen</declname>
+        </param>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+          <declname>aiParameters</declname>
+        </param>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" kindref="compound">GameType</ref></type>
+          <declname>gameType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="36" column="12" bodyfile="Game/GameSetup/GameSettings.java" bodystart="36" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ac32c8816d6a0b6e349756198f90acffc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</definition>
+        <argsstring>()</argsstring>
+        <name>GameSettings</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.GameSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="44" column="12" bodyfile="Game/GameSetup/GameSettings.java" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a59fdf879f9f3eb4d85675d949fd5eff7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.GameSettings.getFen</definition>
+        <argsstring>()</argsstring>
+        <name>getFen</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getFen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="49" column="19" bodyfile="Game/GameSetup/GameSettings.java" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a878e66fea0bac64d896cfde84c8f71f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setFen</definition>
+        <argsstring>(String fen)</argsstring>
+        <name>setFen</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setFen</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="53" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="53" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a27ee8c3440d91e06591b24c65a8b0c01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.GameSettings.getGameID</definition>
+        <argsstring>()</argsstring>
+        <name>getGameID</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getGameID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="60" column="19" bodyfile="Game/GameSetup/GameSettings.java" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a3817f64edb7edb6ac838b0f42c43feee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setGameID</definition>
+        <argsstring>(String gameID)</argsstring>
+        <name>setGameID</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setGameID</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>gameID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="64" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ae79f97a1c248dc7acb0e91c7b64a373b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.GameSetup.GameSettings.isVsAi</definition>
+        <argsstring>()</argsstring>
+        <name>isVsAi</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.isVsAi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="68" column="20" bodyfile="Game/GameSetup/GameSettings.java" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a376eacfde27a583be39177bf274d826f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+        <definition>AiParameters ver14.SharedClasses.Game.GameSetup.GameSettings.getAiParameters</definition>
+        <argsstring>()</argsstring>
+        <name>getAiParameters</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getAiParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="72" column="25" bodyfile="Game/GameSetup/GameSettings.java" bodystart="72" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aeccf0eed29f48d4a79a786597fdcfee7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setAiParameters</definition>
+        <argsstring>(AiParameters aiParameters)</argsstring>
+        <name>setAiParameters</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setAiParameters</qualifiedname>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters" kindref="compound">AiParameters</ref></type>
+          <declname>aiParameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="76" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4e4347a102374e23e9a744c8fac4394e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" kindref="compound">GameType</ref></type>
+        <definition>GameType ver14.SharedClasses.Game.GameSetup.GameSettings.getGameType</definition>
+        <argsstring>()</argsstring>
+        <name>getGameType</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getGameType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="81" column="21" bodyfile="Game/GameSetup/GameSettings.java" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1afeb8cc95de571b19e9f94bb8ae88a250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setGameType</definition>
+        <argsstring>(GameType gameType)</argsstring>
+        <name>setGameType</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setGameType</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1_1_game_type" kindref="compound">GameType</ref></type>
+          <declname>gameType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="85" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a6defe9d7685b7f44cdc53580e8dbb76f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+        <definition>PlayerColor ver14.SharedClasses.Game.GameSetup.GameSettings.getPlayerToMove</definition>
+        <argsstring>()</argsstring>
+        <name>getPlayerToMove</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getPlayerToMove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="89" column="24" bodyfile="Game/GameSetup/GameSettings.java" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a77e6af1e7f7f5fba07e295b7f70c0389" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setPlayerToMove</definition>
+        <argsstring>(PlayerColor playerToMove)</argsstring>
+        <name>setPlayerToMove</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setPlayerToMove</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_player_color" kindref="compound">PlayerColor</ref></type>
+          <declname>playerToMove</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="93" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a7c11bf7fdac8cac8556add40ee064610" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.initDefault1vAi</definition>
+        <argsstring>()</argsstring>
+        <name>initDefault1vAi</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.initDefault1vAi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="97" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a430bd8f0849f51c373b16a964d5b4bef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.initDefault1v1</definition>
+        <argsstring>()</argsstring>
+        <name>initDefault1v1</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.initDefault1v1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="102" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="102" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a241c70f08e1ff1432653780206a612ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+        <definition>TimeFormat ver14.SharedClasses.Game.GameSetup.GameSettings.getTimeFormat</definition>
+        <argsstring>()</argsstring>
+        <name>getTimeFormat</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.getTimeFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="110" column="23" bodyfile="Game/GameSetup/GameSettings.java" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a91cfa15685290b5b05cf4875f7f2ca53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ver14.SharedClasses.Game.GameSetup.GameSettings.setTimeFormat</definition>
+        <argsstring>(TimeFormat timeFormat)</argsstring>
+        <name>setTimeFormat</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.setTimeFormat</qualifiedname>
+        <reimplements refid="interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable_1a3ea1ebbdf4600c32359006cdba4c6ac3">setTimeFormat</reimplements>
+        <param>
+          <type><ref refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format" kindref="compound">TimeFormat</ref></type>
+          <declname>timeFormat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="115" column="17" bodyfile="Game/GameSetup/GameSettings.java" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a580c970f29bbcbeba23fd5aed959603b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ver14.SharedClasses.Game.GameSetup.GameSettings.hashCode</definition>
+        <argsstring>()</argsstring>
+        <name>hashCode</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.hashCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="120" column="16" bodyfile="Game/GameSetup/GameSettings.java" bodystart="120" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1abf7cb17ddf33ba369bed8e61538e5abe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean ver14.SharedClasses.Game.GameSetup.GameSettings.equals</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>equals</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.equals</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="125" column="20" bodyfile="Game/GameSetup/GameSettings.java" bodystart="125" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a787dbffb491ead573edc1adb969c1623" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.GameSetup.GameSettings.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.GameSetup.GameSettings.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/GameSetup/GameSettings.java" line="133" column="19" bodyfile="Game/GameSetup/GameSettings.java" bodystart="133" bodyend="142"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.GameSettings</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.GameSetup.GameSettings</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>EXAMPLE</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ver14.SharedClasses.Game.GameSetup.GameSettings</label>
+        <link refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>EXAMPLE</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ver14.SharedClasses.Game.GameSetup.TimeFormatSettable</label>
+        <link refid="interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_settable"/>
+      </node>
+    </collaborationgraph>
+    <location file="Game/GameSetup/GameSettings.java" line="9" column="7" bodyfile="Game/GameSetup/GameSettings.java" bodystart="9" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a3a35b50eedf9ae26e2c9c3fb17adfffc" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>aiParameters</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1abf7cb17ddf33ba369bed8e61538e5abe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>equals</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ac1d287e1fce6da8f800528788b5a662b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>EXAMPLE</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a8ad58e56403b70073f47ffa7455da82d" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>fen</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a1ac42d5eba3142e7be60f8fe75d8dfbe" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>gameID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aaea86034dfe7b88b00af6b9638c3b3d9" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>GameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a5c6c5f27796006d7cdc8db810b3c64fc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>GameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4db6d6af4e01081be88529c2a8059072" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>GameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ad08eda566033c981bfb84e50a669550c" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>GameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ac32c8816d6a0b6e349756198f90acffc" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>GameSettings</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a84660bf568fd25d9714966745389220c" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>gameType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a376eacfde27a583be39177bf274d826f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getAiParameters</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a59fdf879f9f3eb4d85675d949fd5eff7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getFen</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a27ee8c3440d91e06591b24c65a8b0c01" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getGameID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a4e4347a102374e23e9a744c8fac4394e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getGameType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a6defe9d7685b7f44cdc53580e8dbb76f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getPlayerToMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a241c70f08e1ff1432653780206a612ba" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>getTimeFormat</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a580c970f29bbcbeba23fd5aed959603b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>hashCode</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a430bd8f0849f51c373b16a964d5b4bef" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>initDefault1v1</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a7c11bf7fdac8cac8556add40ee064610" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>initDefault1vAi</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ae79f97a1c248dc7acb0e91c7b64a373b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>isVsAi</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a7a2fb541af192e3e6738f8c3d21de012" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>playerToMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1aeccf0eed29f48d4a79a786597fdcfee7" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setAiParameters</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a878e66fea0bac64d896cfde84c8f71f3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setFen</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a3817f64edb7edb6ac838b0f42c43feee" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setGameID</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1afeb8cc95de571b19e9f94bb8ae88a250" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setGameType</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a77e6af1e7f7f5fba07e295b7f70c0389" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setPlayerToMove</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a91cfa15685290b5b05cf4875f7f2ca53" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>setTimeFormat</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1ab8b94286fa0b80167982bca24b79c0a7" prot="private" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>timeFormat</name></member>
+      <member refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings_1a787dbffb491ead573edc1adb969c1623" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::GameSetup::GameSettings</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

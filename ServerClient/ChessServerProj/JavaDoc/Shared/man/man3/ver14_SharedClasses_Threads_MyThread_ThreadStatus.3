@@ -1,0 +1,68 @@
+.TH "ver14.SharedClasses.Threads.MyThread.ThreadStatus" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Threads.MyThread.ThreadStatus
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract \fBThreadStatus\fP \fBnext\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBNOT_STARTED\fP"
+.br
+.ti -1c
+.RI "\fBRUNNING\fP"
+.br
+.ti -1c
+.RI "\fBDONE\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Threads\&.MyThread\&.ThreadStatus\&.DONE"
+\fBInitial value:\fP
+.PP
+.nf
+={
+            @Override
+            public ThreadStatus next() {
+                return null;
+            }
+        }
+.fi
+.SS "ver14\&.SharedClasses\&.Threads\&.MyThread\&.ThreadStatus\&.NOT_STARTED"
+\fBInitial value:\fP
+.PP
+.nf
+={
+            @Override
+            public ThreadStatus next() {
+                return RUNNING;
+            }
+        }
+.fi
+.SS "ver14\&.SharedClasses\&.Threads\&.MyThread\&.ThreadStatus\&.RUNNING"
+\fBInitial value:\fP
+.PP
+.nf
+={
+            @Override
+            public ThreadStatus next() {
+                return DONE;
+            }
+        }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

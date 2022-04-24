@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::DBActions::Arg::ArgType</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a167d8a4c5d603910ec2d117c4dea53b1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Date</definition>
+        <argsstring></argsstring>
+        <name>Date</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Date arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="13" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa7083e37efc24d25fc3b39ebf5fdd75e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.DateRange</definition>
+        <argsstring></argsstring>
+        <name>DateRange</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.DateRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Date range arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="17" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a05b6915a6799ef036ce3099984d415ae" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Text</definition>
+        <argsstring></argsstring>
+        <name>Text</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Text arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="21" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a1ad5ca67e9dc1d97d7c8a10a217bb00f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.ServerAddress</definition>
+        <argsstring></argsstring>
+        <name>ServerAddress</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.ServerAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server address arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="25" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1ad075ae5e7a28bff4b2ed9f3db1bdf720" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Number</definition>
+        <argsstring></argsstring>
+        <name>Number</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="29" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="29" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aa33168977294e1adf128421f81d1cb5c" compoundref="_request_builder_8java" startline="370" endline="411">ver14.SharedClasses.DBActions.RequestBuilder.top</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a9546a586dee6d6319273d270372954a0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Username</definition>
+        <argsstring></argsstring>
+        <name>Username</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Username</qualifiedname>
+        <initializer>=(false)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Username arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="33" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a7c573521857dceccbec320f39fe17668" compoundref="_request_builder_8java" startline="158" endline="166">ver14.SharedClasses.DBActions.RequestBuilder.changePassword</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2" compoundref="_request_builder_8java" startline="173" endline="182">ver14.SharedClasses.DBActions.RequestBuilder.changeProfilePic</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1ac7524afce0dd94b55860498b147cdca6" compoundref="_request_builder_8java" startline="198" endline="203">ver14.SharedClasses.DBActions.RequestBuilder.deleteAllUnFinishedGames</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a0eef685f70411a3e15a3157d1575c9a6" compoundref="_request_builder_8java" startline="223" endline="263">ver14.SharedClasses.DBActions.RequestBuilder.games</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a46e2b99da14f049adab0bf0e9f585328" compoundref="_request_builder_8java" startline="321" endline="342">ver14.SharedClasses.DBActions.RequestBuilder.statsByTimeOfDay</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a627b5202210a22ac4bc5b9f6efd55f8f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Password arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="37" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1a7c573521857dceccbec320f39fe17668" compoundref="_request_builder_8java" startline="158" endline="166">ver14.SharedClasses.DBActions.RequestBuilder.changePassword</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa3bddb783c351c72166d0f23a9a574fe" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Url arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="41" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a538e5ccf88223e1ee406531ba8188ac3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.PictureUrl</definition>
+        <argsstring></argsstring>
+        <name>PictureUrl</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.PictureUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Picture url arg type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="45" column="1" bodyfile="DBActions/Arg/ArgType.java" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_1aced607aeb6d82476060d9893cb7f3dc2" compoundref="_request_builder_8java" startline="173" endline="182">ver14.SharedClasses.DBActions.RequestBuilder.changeProfilePic</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a302629fec2139862ef815e91684ede13" prot="public" static="no" mutable="no">
+        <type>final boolean</type>
+        <definition>final boolean ver14.SharedClasses.DBActions.Arg.ArgType.isUserInput</definition>
+        <argsstring></argsstring>
+        <name>isUserInput</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.isUserInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Is user input. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="49" column="19" bodyfile="DBActions/Arg/ArgType.java" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_1aae7eacc42b26d1cdbc5ea4405bd8f4e2" compoundref="_arg_8java" startline="68" endline="74">ver14.SharedClasses.DBActions.Arg.Arg.Arg</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1add3fc35d2749a6e3a7f01d7b7fc4ceba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.ArgType</definition>
+        <argsstring>()</argsstring>
+        <name>ArgType</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.ArgType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref> type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="54" column="5" bodyfile="DBActions/Arg/ArgType.java" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a3490d2966a7c8f6385694f346ca75940" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.DBActions.Arg.ArgType.ArgType</definition>
+        <argsstring>(boolean isUserInput)</argsstring>
+        <name>ArgType</name>
+        <qualifiedname>ver14.SharedClasses.DBActions.Arg.ArgType.ArgType</qualifiedname>
+        <param>
+          <type>boolean</type>
+          <declname>isUserInput</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new <ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref> type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>isUserInput</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the is user input </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBActions/Arg/ArgType.java" line="63" column="5" bodyfile="DBActions/Arg/ArgType.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg" kindref="compound">Arg</ref> type - argument type.</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DBActions/Arg/ArgType.java" line="9" column="7" bodyfile="DBActions/Arg/ArgType.java" bodystart="9" bodyend="66"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1add3fc35d2749a6e3a7f01d7b7fc4ceba" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>ArgType</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a3490d2966a7c8f6385694f346ca75940" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>ArgType</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a167d8a4c5d603910ec2d117c4dea53b1" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Date</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa7083e37efc24d25fc3b39ebf5fdd75e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>DateRange</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a302629fec2139862ef815e91684ede13" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>isUserInput</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1ad075ae5e7a28bff4b2ed9f3db1bdf720" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Number</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a627b5202210a22ac4bc5b9f6efd55f8f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Password</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a538e5ccf88223e1ee406531ba8188ac3" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>PictureUrl</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a1ad5ca67e9dc1d97d7c8a10a217bb00f" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>ServerAddress</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a05b6915a6799ef036ce3099984d415ae" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Text</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1aa3bddb783c351c72166d0f23a9a574fe" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Url</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type_1a9546a586dee6d6319273d270372954a0" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::DBActions::Arg::ArgType</scope><name>Username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

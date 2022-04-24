@@ -14,9 +14,9 @@ import java.net.Socket;
 
 
 /**
- * AppSocket -טיפוס המייצג שקע תקשורת המאפשר העברת הודעות ברשת בין השרת ללקוח .
- * ---------------------------------------------------------------------------
- * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
+ * App socket - represents a communications socket able to send and receive  messages from the client to the server and vice versa.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class AppSocket extends MyThread {
 
@@ -24,7 +24,13 @@ public class AppSocket extends MyThread {
      * The Msg socket.
      */
     protected final Socket msgSocket;           // Message socket
+    /**
+     * The Msg os.
+     */
     private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
+    /**
+     * The Msg is.
+     */
     private final ObjectInputStream msgIS;    // Input stream to GET Messages
     private MessagesHandler messagesHandler;
     private boolean didDisconnect = false;
@@ -65,10 +71,18 @@ public class AppSocket extends MyThread {
         msgIS = new ObjectInputStream(socket.getInputStream());
     }
 
+    /**
+     * Close.
+     */
     public void close() {
         close(messagesHandler.createDisconnectedError());
     }
 
+    /**
+     * Close.
+     *
+     * @param err the error
+     */
     public void close(MyError err) {
         ErrorHandler.ignore(() -> {
             interruptListener(err);
@@ -78,6 +92,8 @@ public class AppSocket extends MyThread {
 
     /**
      * Interrupt listener.
+     *
+     * @param err the err to interrupt with
      */
     public void interruptListener(MyError err) {
         messagesHandler.interruptBlocking(err);
@@ -198,7 +214,7 @@ public class AppSocket extends MyThread {
      * sending request and blocking til res
      *
      * @param requestMsg = "can i have x message?"
-     * @return message
+     * @return response
      */
     public Message requestMessage(Message requestMsg) {
         assert messagesHandler != null;
@@ -214,7 +230,15 @@ public class AppSocket extends MyThread {
         interruptListener(null);
     }
 
+    /**
+     * App socket error .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class AppSocketError extends MyError.DisconnectedError {
+        /**
+         * @param err err
+         */
         public AppSocketError(Exception err) {
             super(err);
         }

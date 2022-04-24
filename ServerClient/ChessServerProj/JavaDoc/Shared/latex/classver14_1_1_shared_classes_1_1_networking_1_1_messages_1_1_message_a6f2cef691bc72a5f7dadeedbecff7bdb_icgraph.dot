@@ -1,0 +1,12 @@
+digraph "ver14.SharedClasses.Networking.Messages.Message.setLoginInfo"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ver14.SharedClasses.Networking.\lMessages.Message.setLoginInfo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ver14.SharedClasses.Networking.\lMessages.Message.returnLogin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a3e38a11ec59c27fbc3f61979b6c1abb2",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ver14.SharedClasses.Networking.\lMessages.Message.welcomeMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html#a218d4c880f21bcfbfea1f350f65e937b",tooltip=" "];
+}

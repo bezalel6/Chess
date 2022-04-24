@@ -1,0 +1,261 @@
+.TH "ver14.SharedClasses.Networking.AppSocket" 3 "Sun Apr 24 2022" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ver14.SharedClasses.Networking.AppSocket
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBver14\&.SharedClasses\&.Threads\&.MyThread\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAppSocketError\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAppSocket\fP (String ip, int port)  throws IOException "
+.br
+.ti -1c
+.RI "\fBAppSocket\fP (Socket socket)  throws IOException "
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBclose\fP (\fBMyError\fP err)"
+.br
+.ti -1c
+.RI "void \fBinterruptListener\fP (\fBMyError\fP err)"
+.br
+.ti -1c
+.RI "void \fBrequestMessage\fP (\fBMessage\fP requestMsg, \fBMessageCallback\fP onRes)"
+.br
+.ti -1c
+.RI "\fBMessagesHandler\fP \fBgetMessagesHandler\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMessagesHandler\fP (\fBMessagesHandler\fP messagesHandler)"
+.br
+.ti -1c
+.RI "void \fBrespond\fP (\fBMessage\fP msg, \fBMessage\fP respondingTo)"
+.br
+.ti -1c
+.RI "synchronized void \fBwriteMessage\fP (\fBMessage\fP msg)"
+.br
+.ti -1c
+.RI "boolean \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetLocalAddress\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetRemoteAddress\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisClosed\fP ()"
+.br
+.ti -1c
+.RI "\fBMessage\fP \fBrequestMessage\fP (\fBMessage\fP requestMsg)"
+.br
+.ti -1c
+.RI "void \fBstopReading\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBhandledRun\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "final Socket \fBmsgSocket\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+App socket - represents a communications socket able to send and receive messages from the client to the server and vice versa\&.
+.PP
+\fBAuthor\fP
+.RS 4
+Bezalel Avrahami (bezalel3250@gmail.com) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ver14\&.SharedClasses\&.Networking\&.AppSocket\&.AppSocket (String ip, int port) throws IOException"
+Instantiates a new App socket\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIip\fP the ip 
+.br
+\fIport\fP the port 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIOException\fP the io exception 
+.RE
+.PP
+
+.SS "ver14\&.SharedClasses\&.Networking\&.AppSocket\&.AppSocket (Socket socket) throws IOException"
+Instantiates a new App socket\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIsocket\fP the socket 
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIIOException\fP the io exception 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.close ()"
+Close\&. 
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.close (\fBMyError\fP err)"
+Close\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIerr\fP the error 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Networking\&.AppSocket\&.getLocalAddress ()"
+Gets local address\&.
+.PP
+\fBReturns\fP
+.RS 4
+the local address 
+.RE
+.PP
+
+.SS "\fBMessagesHandler\fP ver14\&.SharedClasses\&.Networking\&.AppSocket\&.getMessagesHandler ()"
+Gets messages handler\&.
+.PP
+\fBReturns\fP
+.RS 4
+the messages handler 
+.RE
+.PP
+
+.SS "String ver14\&.SharedClasses\&.Networking\&.AppSocket\&.getRemoteAddress ()"
+Gets remote address\&.
+.PP
+\fBReturns\fP
+.RS 4
+the remote address 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.handledRun ()\fC [protected]\fP"
+Handled run\&. 
+.PP
+Reimplemented from \fBver14\&.SharedClasses\&.Threads\&.MyThread\fP\&.
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.interruptListener (\fBMyError\fP err)"
+Interrupt listener\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIerr\fP the err to interrupt with 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Networking\&.AppSocket\&.isClosed ()"
+Is closed boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "boolean ver14\&.SharedClasses\&.Networking\&.AppSocket\&.isConnected ()"
+Is connected boolean\&.
+.PP
+\fBReturns\fP
+.RS 4
+the boolean 
+.RE
+.PP
+
+.SS "\fBMessage\fP ver14\&.SharedClasses\&.Networking\&.AppSocket\&.requestMessage (\fBMessage\fP requestMsg)"
+sending request and blocking til res
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequestMsg\fP = 'can i have x message?' 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+response 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.requestMessage (\fBMessage\fP requestMsg, \fBMessageCallback\fP onRes)"
+Request message\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIrequestMsg\fP the request msg 
+.br
+\fIonRes\fP the on res 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.respond (\fBMessage\fP msg, \fBMessage\fP respondingTo)"
+Respond\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImsg\fP the msg 
+.br
+\fIrespondingTo\fP the responding to 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.setMessagesHandler (\fBMessagesHandler\fP messagesHandler)"
+Sets messages handler\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImessagesHandler\fP the messages handler 
+.RE
+.PP
+
+.SS "void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.stopReading ()"
+Stop reading\&. 
+.SS "synchronized void ver14\&.SharedClasses\&.Networking\&.AppSocket\&.writeMessage (\fBMessage\fP msg)"
+Write message\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImsg\fP the msg 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final Socket ver14\&.SharedClasses\&.Networking\&.AppSocket\&.msgSocket\fC [protected]\fP"
+The Msg socket\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

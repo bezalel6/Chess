@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_f3020ca528c2e23aa061ce8145f478bd" kind="dir">
+    <compoundname>Game/Evaluation</compoundname>
+    <innerfile refid="_evaluation_8java">Evaluation.java</innerfile>
+    <innerfile refid="_evaluation_parameters_8java">EvaluationParameters.java</innerfile>
+    <innerfile refid="_game_status_8java">GameStatus.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/Evaluation/"/>
+  </compounddef>
+</doxygen>

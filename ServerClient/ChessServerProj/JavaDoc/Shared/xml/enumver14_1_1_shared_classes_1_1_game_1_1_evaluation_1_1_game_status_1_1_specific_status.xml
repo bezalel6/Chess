@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status" kind="enum" language="Java" prot="public">
+    <compoundname>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a6eb6b83d9a1e27279a24b4376fdf7f57" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Checkmate</definition>
+        <argsstring></argsstring>
+        <name>Checkmate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Checkmate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checkmate. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="320" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="320" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a16cf38de9b918473b454de1f6e8ea174" compoundref="_game_status_8java" startline="71" endline="75">ver14.SharedClasses.Game.Evaluation.GameStatus.checkmate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a87d85e6db053de782bc33eb4de4c9a97" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOut</definition>
+        <argsstring></argsstring>
+        <name>TimedOut</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOut</qualifiedname>
+        <initializer>={
+            @Override
+            public String <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" kindref="member">toString</ref>() {
+                return &quot;Time Out&quot;;
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timed out. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="329" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="324" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa6191825f07b48327cd640c7e1e218c0" compoundref="_game_status_8java" startline="170" endline="172">ver14.SharedClasses.Game.Evaluation.GameStatus.timedOut</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5931de5356f3258fe7a3d13818771c79" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOutVsInsufficientMaterial</definition>
+        <argsstring></argsstring>
+        <name>TimedOutVsInsufficientMaterial</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TimedOutVsInsufficientMaterial</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>) {
+            @Override
+            public String <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" kindref="member">toString</ref>() {
+                return &quot;Time Out vs Insufficient Material&quot;;
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timed out vs insufficient material. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="338" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="333" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aa6191825f07b48327cd640c7e1e218c0" compoundref="_game_status_8java" startline="170" endline="172">ver14.SharedClasses.Game.Evaluation.GameStatus.timedOut</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ab880c59df223dcad392f669b9a217f34" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Resignation</definition>
+        <argsstring></argsstring>
+        <name>Resignation</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Resignation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resignation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="342" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="342" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1aaa9389b857075c4c52b0a8f936f82608" compoundref="_game_status_8java" startline="180" endline="182">ver14.SharedClasses.Game.Evaluation.GameStatus.playerResigned</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a0d2ee86ee8ad7edfa6e0bc64ad53e9e2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.GameGoesOn</definition>
+        <argsstring></argsstring>
+        <name>GameGoesOn</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.GameGoesOn</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ad7a453e5c22a47e467615679fa945494" kindref="member">GameStatusType.GAME_GOES_ON</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game goes on . </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="346" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="346" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1ab3bfe87a35f2329dfa04acf437e46c1d" compoundref="_game_status_8java" startline="82" endline="84">ver14.SharedClasses.Game.Evaluation.GameStatus.gameGoesOn</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1af48c3d8187eb60f3554bcf8f3079f0c8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ThreeFoldRepetition</definition>
+        <argsstring></argsstring>
+        <name>ThreeFoldRepetition</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ThreeFoldRepetition</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Three fold repetition. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="350" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="350" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a76a14a281e0b1f315d470e81159cd8b0" compoundref="_game_status_8java" startline="139" endline="141">ver14.SharedClasses.Game.Evaluation.GameStatus.threeFoldRepetition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a4c0bdf841f6cbca541c2c78e9cd6712e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Stalemate</definition>
+        <argsstring></argsstring>
+        <name>Stalemate</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.Stalemate</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stalemate. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="354" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="354" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a2e21c91476a71eb22b8b8322ebdcab70" compoundref="_game_status_8java" startline="100" endline="102">ver14.SharedClasses.Game.Evaluation.GameStatus.stalemate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ac9904c0b069776a024730edabae0a174" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.InsufficientMaterial</definition>
+        <argsstring></argsstring>
+        <name>InsufficientMaterial</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.InsufficientMaterial</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insufficient material. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="358" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="358" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a1d6ba963bcd544d081ba80c741e8ddfa" compoundref="_game_status_8java" startline="148" endline="150">ver14.SharedClasses.Game.Evaluation.GameStatus.insufficientMaterial</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a1af70323e7925e32b45cbec47bc87796" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.FiftyMoveRule</definition>
+        <argsstring></argsstring>
+        <name>FiftyMoveRule</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.FiftyMoveRule</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fifty move rule. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="362" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="362" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a23731fa62a4b7b88efb527f5bca664e6" compoundref="_game_status_8java" startline="109" endline="111">ver14.SharedClasses.Game.Evaluation.GameStatus.fiftyMoveRule</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a3a1ff8c4d5ad449ee8be3ebed4ab545b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TieByAgreement</definition>
+        <argsstring></argsstring>
+        <name>TieByAgreement</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.TieByAgreement</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>) {
+            @Override
+            public String <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" kindref="member">toString</ref>() {
+                return &quot;Agreement&quot;;
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Tie by agreement. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="371" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="366" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a0c8dd187f634257bd6e1bff35f9bcb02" compoundref="_game_status_8java" startline="91" endline="93">ver14.SharedClasses.Game.Evaluation.GameStatus.tieByAgreement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsAi</definition>
+        <argsstring></argsstring>
+        <name>PlayerDisconnectedVsAi</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsAi</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ab53a7f48f2aec072b20a3497335da587" kindref="member">GameStatusType.UNFINISHED</ref>) {
+            @Override
+            public String <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" kindref="member">toString</ref>() {
+                return &quot;Player Disconnected&quot;;
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Player disconnected vs ai. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="380" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="375" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99c95cc48cd96965d59517329fe76cbb" compoundref="_game_status_8java" startline="189" endline="191">ver14.SharedClasses.Game.Evaluation.GameStatus.isDisconnected</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a513e46c3a7d3046f59ce4653e24c5878" compoundref="_game_status_8java" startline="159" endline="161">ver14.SharedClasses.Game.Evaluation.GameStatus.playerDisconnected</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsReal</definition>
+        <argsstring></argsstring>
+        <name>PlayerDisconnectedVsReal</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.PlayerDisconnectedVsReal</qualifiedname>
+        <initializer>={
+            @Override
+            public String <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" kindref="member">toString</ref>() {
+                return &quot;Other Player Disconnected&quot;;
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Player disconnected vs real. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="389" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="384" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99c95cc48cd96965d59517329fe76cbb" compoundref="_game_status_8java" startline="189" endline="191">ver14.SharedClasses.Game.Evaluation.GameStatus.isDisconnected</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a513e46c3a7d3046f59ce4653e24c5878" compoundref="_game_status_8java" startline="159" endline="161">ver14.SharedClasses.Game.Evaluation.GameStatus.playerDisconnected</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ServerStoppedGame</definition>
+        <argsstring></argsstring>
+        <name>ServerStoppedGame</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.ServerStoppedGame</qualifiedname>
+        <initializer>=(<ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1ae9fd7eb91416d479a77a88e83d2c53ed" kindref="member">GameStatusType.TIE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server stopped game. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="393" column="1" bodyfile="Game/Evaluation/GameStatus.java" bodystart="393" bodyend="-1"/>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1a99c95cc48cd96965d59517329fe76cbb" compoundref="_game_status_8java" startline="189" endline="191">ver14.SharedClasses.Game.Evaluation.GameStatus.isDisconnected</referencedby>
+        <referencedby refid="classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1abdde501b067bc1afde2e663b855c2007" compoundref="_game_status_8java" startline="119" endline="123">ver14.SharedClasses.Game.Evaluation.GameStatus.serverStoppedGame</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5d2e8109d12e09cf4b933bf23779b4fa" prot="public" static="no" mutable="no">
+        <type>final <ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" kindref="compound">GameStatusType</ref></type>
+        <definition>final GameStatusType ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.gameStatusType</definition>
+        <argsstring></argsstring>
+        <name>gameStatusType</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.gameStatusType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Game status type. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="397" column="37" bodyfile="Game/Evaluation/GameStatus.java" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1acbc4a1f73de8d7d96b541e67e704a27a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus</definition>
+        <argsstring>()</argsstring>
+        <name>SpecificStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Specific status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="402" column="9" bodyfile="Game/Evaluation/GameStatus.java" bodystart="402" bodyend="404"/>
+        <references refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type_1a140141fb7b4e7a97dcd9da2ee7ff467d" compoundref="_game_status_8java" startline="448">ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType.WIN_OR_LOSS</references>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa9ea338c484c7dcf416aec6ca7fc8186" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus</definition>
+        <argsstring>(GameStatusType gameStatusType)</argsstring>
+        <name>SpecificStatus</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.SpecificStatus</qualifiedname>
+        <param>
+          <type><ref refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type" kindref="compound">GameStatusType</ref></type>
+          <declname>gameStatusType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new Specific status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gameStatusType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the game status type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="411" column="9" bodyfile="Game/Evaluation/GameStatus.java" bodystart="411" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Evaluation/GameStatus.java" line="422" column="23" bodyfile="Game/Evaluation/GameStatus.java" bodystart="422" bodyend="424"/>
+        <references refid="classver14_1_1_shared_classes_1_1_utils_1_1_str_utils_1ade7ff6cc120be8b1600108bd778be420" compoundref="_str_utils_8java" startline="84" endline="86">ver14.SharedClasses.Utils.StrUtils.format</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Specific status - specific game status .</para>
+<para><simplesect kind="author"><para>Bezalel Avrahami (<ulink url="mailto:bezalel3250@gmail.com">bezalel3250@gmail.com</ulink>) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>Serializable</label>
+      </node>
+      <node id="1">
+        <label>ver14.SharedClasses.Game.Evaluation.GameStatus.SpecificStatus</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>gameStatusType</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ver14.SharedClasses.Game.Evaluation.GameStatus.GameStatusType</label>
+        <link refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Game/Evaluation/GameStatus.java" line="316" column="11" bodyfile="Game/Evaluation/GameStatus.java" bodystart="316" bodyend="425"/>
+    <listofallmembers>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a6eb6b83d9a1e27279a24b4376fdf7f57" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>Checkmate</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a1af70323e7925e32b45cbec47bc87796" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>FiftyMoveRule</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a0d2ee86ee8ad7edfa6e0bc64ad53e9e2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>GameGoesOn</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5d2e8109d12e09cf4b933bf23779b4fa" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>gameStatusType</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ac9904c0b069776a024730edabae0a174" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>InsufficientMaterial</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a2f5c44671af950cdae65ce1df4fa314b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>PlayerDisconnectedVsAi</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a52bbcf0820ef7815ee33a369a534742d" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>PlayerDisconnectedVsReal</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ab880c59df223dcad392f669b9a217f34" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>Resignation</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa91ce00c47542ce84683cf01c6ad9795" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>ServerStoppedGame</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1acbc4a1f73de8d7d96b541e67e704a27a" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>SpecificStatus</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1aa9ea338c484c7dcf416aec6ca7fc8186" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>SpecificStatus</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a4c0bdf841f6cbca541c2c78e9cd6712e" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>Stalemate</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1af48c3d8187eb60f3554bcf8f3079f0c8" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>ThreeFoldRepetition</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a3a1ff8c4d5ad449ee8be3ebed4ab545b" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>TieByAgreement</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a87d85e6db053de782bc33eb4de4c9a97" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>TimedOut</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1a5931de5356f3258fe7a3d13818771c79" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>TimedOutVsInsufficientMaterial</name></member>
+      <member refid="enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status_1ae6dfbd0817f482cd061838618561bba2" prot="public" virt="non-virtual"><scope>ver14::SharedClasses::Game::Evaluation::GameStatus::SpecificStatus</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup" kind="namespace" language="Java">
+    <compoundname>ver14::SharedClasses::Game::GameSetup::BoardSetup</compoundname>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board" prot="public">ver14::SharedClasses::Game::GameSetup::BoardSetup::Board</innerclass>
+    <innerclass refid="classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square" prot="public">ver14::SharedClasses::Game::GameSetup::BoardSetup::Square</innerclass>
+    <innernamespace refid="namespacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces">ver14::SharedClasses::Game::GameSetup::BoardSetup::Pieces</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/GameSetup/BoardSetup/Board.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

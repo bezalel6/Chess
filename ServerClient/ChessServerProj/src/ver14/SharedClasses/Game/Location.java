@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 /**
  * Location - an enum consisting of 64 values representing all 64 squares on the board. used to access squares on the board
- * an enum is used for performance reasons.
+ * <br/>an enum is used for performance reasons.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -73,6 +73,9 @@ public enum Location {
      */
     public final int col;
 
+    /**
+     * Instantiates a new Location.
+     */
     Location() {
         this.row = ordinal() >> 3;
         this.col = ordinal() & 7;

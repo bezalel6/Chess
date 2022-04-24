@@ -1,0 +1,51 @@
+\hypertarget{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager}{}\doxysection{ver14.\+Shared\+Classes.\+Threads.\+Error\+Handling.\+Env\+Manager Interface Reference}
+\label{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager}\index{ver14.SharedClasses.Threads.ErrorHandling.EnvManager@{ver14.SharedClasses.Threads.ErrorHandling.EnvManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_ab6cd402566927cad04cd3aadbeec9158}{handled\+Err}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}} err)
+\item 
+void \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a2d44b9cf6d2cb8d0f4148cdad13cae64}{critical\+Err}} (\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}} err)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Env manager -\/ an object that can handle errors as they occur.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a2d44b9cf6d2cb8d0f4148cdad13cae64}\label{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a2d44b9cf6d2cb8d0f4148cdad13cae64}} 
+\index{ver14.SharedClasses.Threads.ErrorHandling.EnvManager@{ver14.SharedClasses.Threads.ErrorHandling.EnvManager}!criticalErr@{criticalErr}}
+\index{criticalErr@{criticalErr}!ver14.SharedClasses.Threads.ErrorHandling.EnvManager@{ver14.SharedClasses.Threads.ErrorHandling.EnvManager}}
+\doxysubsubsection{\texorpdfstring{criticalErr()}{criticalErr()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Threads.\+Error\+Handling.\+Env\+Manager.\+critical\+Err (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+notifies manager of an un-\/handleable error. the manager must shut down everything
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the error thrown \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_ab6cd402566927cad04cd3aadbeec9158}\label{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_ab6cd402566927cad04cd3aadbeec9158}} 
+\index{ver14.SharedClasses.Threads.ErrorHandling.EnvManager@{ver14.SharedClasses.Threads.ErrorHandling.EnvManager}!handledErr@{handledErr}}
+\index{handledErr@{handledErr}!ver14.SharedClasses.Threads.ErrorHandling.EnvManager@{ver14.SharedClasses.Threads.ErrorHandling.EnvManager}}
+\doxysubsubsection{\texorpdfstring{handledErr()}{handledErr()}}
+{\footnotesize\ttfamily void ver14.\+Shared\+Classes.\+Threads.\+Error\+Handling.\+Env\+Manager.\+handled\+Err (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+notifies manager of a managed error
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the error thrown \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Threads/\+Error\+Handling/\mbox{\hyperlink{_env_manager_8java}{Env\+Manager.\+java}}\end{DoxyCompactItemize}
