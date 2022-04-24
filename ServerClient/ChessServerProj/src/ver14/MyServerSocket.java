@@ -6,33 +6,31 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/*
- * MyServerSocket
+
+/**
+ * My server socket - represents a server sockets accepting AppSockets.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
-/*
- * MyServerSocket -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * MyServerSocket -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class MyServerSocket extends ServerSocket {
 
 
+    /**
+     * Instantiates a new My server socket.
+     *
+     * @param port the server port
+     * @throws IOException the io exception
+     */
     public MyServerSocket(int port) throws IOException {
         super(port);
     }
 
 
+    /**
+     * Accept app socket.
+     *
+     * @return the accepted app socket
+     */
     public AppSocket acceptAppSocket() {
         AppSocket socketToClient = null;
 
@@ -47,6 +45,11 @@ public class MyServerSocket extends ServerSocket {
         return socketToClient;
     }
 
+    /**
+     * Close.
+     *
+     * @throws IOException the io exception
+     */
     @Override
     public void close() throws IOException {
         System.out.println("closing socket!!!");

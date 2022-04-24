@@ -7,24 +7,6 @@ import ver14.SharedClasses.DBActions.Statements.SQLStatement;
 
 import java.io.Serializable;
 
-/*
- * DBRequest
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * DBRequest -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * DBRequest -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class DBRequest implements Serializable {
     public final Type type;

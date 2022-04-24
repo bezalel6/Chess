@@ -49,7 +49,6 @@ import java.util.stream.Collectors;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Server implements EnvManager {
-    // constants
     /**
      * The constant SERVER_WIN_TITLE.
      */
@@ -70,8 +69,17 @@ public class Server implements EnvManager {
      * the server log backgroung color
      */
     private static final Color SERVER_LOG_BGCOLOR = Color.BLACK;
+    /**
+     * the server log foreground color
+     */
     private static final Color SERVER_LOG_FGCOLOR = Color.GREEN;
+    /**
+     * the game ids generator
+     */
     private final static IDsGenerator gameIDGenerator;
+    /**
+     * the port to start with. default is nothing unless one is passed through the cli
+     */
     private static int START_AT_PORT = -1;
 
     static {
@@ -84,18 +92,61 @@ public class Server implements EnvManager {
         };
     }
 
+    /**
+     * all connected clients' app sockets
+     */
     private final ArrayList<AppSocket> appSockets = new ArrayList<>();
+    /**
+     * an atomic reference holding a player waiting for a quick match
+     */
     private final AtomicReference<Player> waitingPlayer = new AtomicReference<>();
+    /**
+     * synchronized list of the players
+     */
     private SyncedItems<PlayerNet> players;
+    /**
+     * synchronized list of the gamed sessions
+     */
     private SyncedItems<GameSession> gameSessions;
+    /**
+     * synchronized list of the game pool
+     */
     private SyncedItems<GameInfo> gamePool;
+    /**
+     * list of all the synchronized lists
+     */
     private ArrayList<SyncedItems<?>> syncedLists;
+    /**
+     * the server's window
+     */
     private MyJFrame frmWin;
+    /**
+     * the server's area log
+     */
     private JTextArea areaLog;
+    /**
+     * the server's ip
+     */
     private String serverIP;
+    /**
+     * the server's port
+     */
     private int serverPort;
-    private boolean serverSetupOK, serverRunOK;
+    /**
+     * was the server setup ok
+     */
+    private boolean serverSetupOK;
+    /**
+     * is the server run ok
+     */
+    private boolean serverRunOK;
+    /**
+     * the server socket
+     */
     private MyServerSocket serverSocket;
+    /**
+     * an incrementing value of the connected guests. used to create ids for each connected guest
+     */
     private int autoGuestID;
 
     /**
@@ -150,11 +201,11 @@ public class Server implements EnvManager {
         });
 
 //        region debug
-        bottomPnl.add(new MyJButton("Print Fens", () -> {
-            gameSessions.forEachItem(session -> {
-                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
-            });
-        }));
+//        bottomPnl.add(new MyJButton("Print Fens", () -> {
+//            gameSessions.forEachItem(session -> {
+//                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
+//            });
+//        }));
 //        endregion
 
         bottomPnl.add(connectedUsersBtn);
@@ -200,7 +251,6 @@ public class Server implements EnvManager {
             players = new SyncedItems<>(SyncedListType.CONNECTED_USERS, this::syncedListUpdated);
             gamePool = new SyncedItems<>(SyncedListType.JOINABLE_GAMES, this::syncedListUpdated);
             gameSessions = new SyncedItems<>(SyncedListType.ONGOING_GAMES, this::syncedListUpdated);
-//todo custom port in use err
             this.syncedLists = new ArrayList<>() {{
                 add(players);
                 add(gamePool);
@@ -249,7 +299,7 @@ public class Server implements EnvManager {
     }
 
     /**
-     * notifies all players of a change in a synchronized list .
+     * notifies all players of a change in a synchronized list.
      *
      * @param list the list
      */
@@ -611,6 +661,8 @@ public class Server implements EnvManager {
         player.disconnect(message, true);
 
         players.remove(player.getUsername());
+        if (player instanceof PlayerNet playerNet)
+            appSockets.remove(playerNet.getSocketToClient());
         gamePool.batchRemove(g -> g.creatorUsername.equals(player.getUsername()));
 
     }

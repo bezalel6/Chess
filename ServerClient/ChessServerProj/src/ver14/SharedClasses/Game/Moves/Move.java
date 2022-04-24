@@ -8,27 +8,16 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 
 
-/*
- * Move
+/**
+ * Move - represents a "heavy" move. with a lot of info.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
-/*
- * Move -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Move -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class Move extends BasicMove implements Comparable<Move> {
     private static final PieceType NOT_CAPTURING = null;
+    /**
+     * The Intermediate move.
+     */
     BasicMove intermediateMove;
 
     private MovesList creatorList = null;
@@ -45,11 +34,24 @@ public class Move extends BasicMove implements Comparable<Move> {
     private int prevFullMoveClock;
     private int prevHalfMoveClock;
 
+    /**
+     * Instantiates a new Move.
+     *
+     * @param movingFrom         the moving from
+     * @param movingTo           the moving to
+     * @param capturingPieceType the capturing piece type
+     */
     public Move(Location movingFrom, Location movingTo, PieceType capturingPieceType) {
         this(movingFrom, movingTo);
         this.capturingPieceType = capturingPieceType;
     }
 
+    /**
+     * Instantiates a new Move.
+     *
+     * @param movingFrom the moving from
+     * @param movingTo   the moving to
+     */
     public Move(Location movingFrom, Location movingTo) {
         super(movingFrom, movingTo);
         this.movingPlayerColor = null;
@@ -61,11 +63,21 @@ public class Move extends BasicMove implements Comparable<Move> {
         this.threefoldStatus = ThreefoldStatus.NONE;
     }
 
+    /**
+     * Instantiates a new Move.
+     *
+     * @param threefoldStatus the threefold status
+     */
     public Move(ThreefoldStatus threefoldStatus) {
         super(null, null);
         this.threefoldStatus = threefoldStatus;
     }
 
+    /**
+     * Instantiates a new Move.
+     *
+     * @param other the other
+     */
     public Move(Move other) {
         super(other);
         this.moveAnnotation = other.moveAnnotation;
@@ -88,6 +100,14 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     }
 
+    /**
+     * Castling move.
+     *
+     * @param movingFrom the moving from
+     * @param movingTo   the moving to
+     * @param side       the side
+     * @return the move
+     */
     public static Move castling(Location movingFrom, Location movingTo, CastlingRights.Side side) {
         Move move = new Move(movingFrom, movingTo);
         move.setMoveFlag(MoveFlag.CASTLING_FLAGS[side.asInt]);
@@ -98,10 +118,21 @@ public class Move extends BasicMove implements Comparable<Move> {
         return move;
     }
 
+    /**
+     * Threefold claim move.
+     *
+     * @return the move
+     */
     public static Move threefoldClaim() {
         return new Move(ThreefoldStatus.CLAIMED);
     }
 
+    /**
+     * Flip move move.
+     *
+     * @param move the move
+     * @return the move
+     */
     public static Move flipMove(Move move) {
         Move ret = copyMove(move);
         ret.flip();
@@ -111,79 +142,173 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
+    /**
+     * Copy move move.
+     *
+     * @param move the move
+     * @return the move
+     */
     public static Move copyMove(Move move) {
         return new Move(move);
     }
 
+    /**
+     * Gets creator list.
+     *
+     * @return the creator list
+     */
     public MovesList getCreatorList() {
         return creatorList;
     }
 
+    /**
+     * Sets creator list.
+     *
+     * @param creatorList the creator list
+     */
     public void setCreatorList(MovesList creatorList) {
         this.creatorList = creatorList;
     }
 
+    /**
+     * Sets move annotation.
+     *
+     * @param moveAnnotation the move annotation
+     */
     public void setMoveAnnotation(String moveAnnotation) {
         this.moveAnnotation = moveAnnotation;
     }
 
+    /**
+     * Gets disabled castling.
+     *
+     * @return the disabled castling
+     */
     public byte getDisabledCastling() {
         return disabledCastling;
     }
 
+    /**
+     * Sets disabled castling.
+     *
+     * @param disabledCastling the disabled castling
+     */
     public void setDisabledCastling(byte disabledCastling) {
         this.disabledCastling = disabledCastling;
     }
 
+    /**
+     * Sets threefold option.
+     */
     public void setThreefoldOption() {
         threefoldStatus = ThreefoldStatus.CAN_CLAIM;
     }
 
+    /**
+     * Gets moving color.
+     *
+     * @return the moving color
+     */
     public PlayerColor getMovingColor() {
         return movingPlayerColor;
     }
 
+    /**
+     * Sets moving color.
+     *
+     * @param movingPlayerColor the moving player color
+     */
     public void setMovingColor(PlayerColor movingPlayerColor) {
         this.movingPlayerColor = movingPlayerColor;
     }
 
+    /**
+     * Gets prev full move clock.
+     *
+     * @return the prev full move clock
+     */
     public int getPrevFullMoveClock() {
         return prevFullMoveClock;
     }
 
+    /**
+     * Sets prev full move clock.
+     *
+     * @param prevFullMoveClock the prev full move clock
+     */
     public void setPrevFullMoveClock(int prevFullMoveClock) {
         this.prevFullMoveClock = prevFullMoveClock;
     }
 
+    /**
+     * Gets prev half move clock.
+     *
+     * @return the prev half move clock
+     */
     public int getPrevHalfMoveClock() {
         return prevHalfMoveClock;
     }
 
+    /**
+     * Sets prev half move clock.
+     *
+     * @param prevHalfMoveClock the prev half move clock
+     */
     public void setPrevHalfMoveClock(int prevHalfMoveClock) {
         this.prevHalfMoveClock = prevHalfMoveClock;
     }
 
+    /**
+     * Gets promoting to.
+     *
+     * @return the promoting to
+     */
     public PieceType getPromotingTo() {
         return promotingTo;
     }
 
+    /**
+     * Sets promoting to.
+     *
+     * @param promotingTo the promoting to
+     */
     public void setPromotingTo(PieceType promotingTo) {
         this.moveFlag = MoveFlag.Promotion;
         this.promotingTo = promotingTo;
     }
 
+    /**
+     * Gets intermediate move.
+     *
+     * @return the intermediate move
+     */
     public BasicMove getIntermediateMove() {
         return intermediateMove;
     }
 
+    /**
+     * Sets intermediate move.
+     *
+     * @param intermediateMove the intermediate move
+     */
     public void setIntermediateMove(BasicMove intermediateMove) {
         this.intermediateMove = intermediateMove;
     }
 
+    /**
+     * Is check boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCheck() {
         return moveEvaluation != null && moveEvaluation.isCheck();
     }
 
+    /**
+     * Gets move evaluation.
+     *
+     * @return the move evaluation
+     */
     public Evaluation getMoveEvaluation() {
         if (threefoldStatus == ThreefoldStatus.CLAIMED) {
             //fixme
@@ -193,6 +318,11 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
     //endregion
 
+    /**
+     * Sets move evaluation.
+     *
+     * @param moveEvaluation the move evaluation
+     */
     public void setMoveEvaluation(Evaluation moveEvaluation) {
         if (moveEvaluation != null) {
             this.moveEvaluation = new Evaluation(moveEvaluation);
@@ -201,27 +331,58 @@ public class Move extends BasicMove implements Comparable<Move> {
         }
     }
 
+    /**
+     * Gets capturing piece type.
+     *
+     * @return the capturing piece type
+     */
     public PieceType getCapturingPieceType() {
         return capturingPieceType;
     }
 
+    /**
+     * Is reversible boolean.
+     *
+     * @return the boolean
+     */
     public boolean isReversible() {
         return isReversible;
     }
 
+    /**
+     * Sets reversible.
+     *
+     * @param reversible the reversible
+     */
     public void setReversible(boolean reversible) {
         isReversible = reversible;
     }
 
 
+    /**
+     * Is capturing boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCapturing() {
         return capturingPieceType != NOT_CAPTURING;
     }
 
+    /**
+     * Sets capturing.
+     *
+     * @param pieceType the piece type
+     */
     public void setCapturing(PieceType pieceType) {
         this.capturingPieceType = pieceType;
     }
 
+    /**
+     * Equals boolean.
+     *
+     * @param o the o
+     * @return the boolean
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -229,27 +390,59 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return getAnnotation();
     }
 
+    /**
+     * Gets annotation.
+     *
+     * @return the annotation
+     */
     public String getAnnotation() {
         return moveAnnotation == null ? MoveAnnotation.basicAnnotate(this) : moveAnnotation;
     }
 
+    /**
+     * Strict equals boolean.
+     *
+     * @param move the move
+     * @return the boolean
+     */
     public boolean strictEquals(Move move) {
         return super.equals(move) && move.getMoveFlag().equals(this, move);
     }
 
+    /**
+     * Gets move flag.
+     *
+     * @return the move flag
+     */
     public MoveFlag getMoveFlag() {
         return moveFlag;
     }
 
+    /**
+     * Sets move flag.
+     *
+     * @param moveFlag the move flag
+     */
     public void setMoveFlag(MoveFlag moveFlag) {
         this.moveFlag = moveFlag;
     }
 
+    /**
+     * Compare to int.
+     *
+     * @param o the o
+     * @return the int
+     */
     @Override
     public int compareTo(Move o) {
         if (moveEvaluation != null) {
@@ -289,38 +482,110 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
+    /**
+     * Gets en passant loc.
+     *
+     * @return the en passant loc
+     */
     public Location getEnPassantLoc() {
         return enPassantLoc;
     }
 
+    /**
+     * Sets en passant loc.
+     *
+     * @param epsnLoc the epsn loc
+     */
     public void setEnPassantLoc(Location epsnLoc) {
         enPassantLoc = epsnLoc;
     }
 
 
+    /**
+     * Gets threefold status.
+     *
+     * @return the threefold status
+     */
     public ThreefoldStatus getThreefoldStatus() {
         return threefoldStatus;
     }
 
+    /**
+     * Sets threefold status.
+     *
+     * @param threefoldStatus the threefold status
+     */
     public void setThreefoldStatus(ThreefoldStatus threefoldStatus) {
         this.threefoldStatus = threefoldStatus;
     }
 
+    /**
+     * Gets game status str.
+     *
+     * @return the game status str
+     */
     public String getGameStatusStr() {
         return moveEvaluation != null ? moveEvaluation.getGameStatus().getGameStatusType().annotation : "";
     }
 
+    /**
+     * Threefold status - .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public enum ThreefoldStatus {
-        NONE, CAN_CLAIM, CLAIMED;
+        /**
+         * None threefold status.
+         */
+        NONE,
+        /**
+         * Can claim threefold status.
+         */
+        CAN_CLAIM,
+        /**
+         * Claimed threefold status.
+         */
+        CLAIMED;
     }
 
+    /**
+     * Move flag - .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public enum MoveFlag {
-        NormalMove, EnPassant, DoublePawnPush, Promotion {
+        /**
+         * Normal move move flag.
+         */
+        NormalMove,
+        /**
+         * En passant move flag.
+         */
+        EnPassant,
+        /**
+         * Double pawn push move flag.
+         */
+        DoublePawnPush,
+        /**
+         * The Promotion.
+         */
+        Promotion {
             @Override
             public boolean equals(Move myMove, Move otherMove) {
                 return super.equals(myMove, otherMove) && myMove.getPromotingTo() == otherMove.getPromotingTo();
             }
-        }, ShortCastle(CastlingRights.Side.KING), LongCastle(CastlingRights.Side.QUEEN);
+        },
+        /**
+         * Short castle move flag.
+         */
+        ShortCastle(CastlingRights.Side.KING),
+        /**
+         * Long castle move flag.
+         */
+        LongCastle(CastlingRights.Side.QUEEN);
+        /**
+         * The Castling flags.
+         */
         public final static MoveFlag[] CASTLING_FLAGS;
 
         static {
@@ -330,7 +595,13 @@ public class Move extends BasicMove implements Comparable<Move> {
             }
         }
 
+        /**
+         * The Is castling.
+         */
         public final boolean isCastling;
+        /**
+         * The Castling side.
+         */
         public final CastlingRights.Side castlingSide;
 
         MoveFlag() {
@@ -342,6 +613,13 @@ public class Move extends BasicMove implements Comparable<Move> {
             this.castlingSide = side;
         }
 
+        /**
+         * Equals boolean.
+         *
+         * @param myMove    the my move
+         * @param otherMove the other move
+         * @return the boolean
+         */
         public boolean equals(Move myMove, Move otherMove) {
             return otherMove.getMoveFlag() == this;
         }

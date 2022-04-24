@@ -26,24 +26,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-/*
- * GameSession
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * GameSession -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * GameSession -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class GameSession extends HandledThread implements SyncableItem {
     public final String gameID;

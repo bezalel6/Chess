@@ -2,24 +2,6 @@ package ver14.SharedClasses.Sync;
 
 import java.io.Serializable;
 
-/*
- * UserInfo
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * UserInfo -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * UserInfo -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class UserInfo implements SyncableItem, Serializable {
     public final String id;

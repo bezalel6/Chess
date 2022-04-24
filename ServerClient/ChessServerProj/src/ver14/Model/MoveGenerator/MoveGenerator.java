@@ -14,24 +14,6 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 import java.util.ArrayList;
 
-/*
- * MoveGenerator
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * MoveGenerator -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * MoveGenerator -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class MoveGenerator {
     //    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);

@@ -7,24 +7,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 import java.util.Map;
 
-/*
- * GameStatus
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * GameStatus -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * GameStatus -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class GameStatus implements Serializable {
     private final PlayerColor winningPlayerColor;

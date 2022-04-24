@@ -2,6 +2,7 @@ package ver14.Model;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.Moves.BitData;
 import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
 
@@ -141,8 +142,8 @@ public class Bitboard implements Serializable {
                 bitBoard = bitBoard >>> shiftBy;
             else
                 bitBoard = bitBoard << (shiftBy * -1);
-
-            bitBoard &= currentDirection.andWith;
+            if (currentDirection.andWith != BitData.everything)
+                bitBoard &= currentDirection.andWith;
         }
 
         return this;

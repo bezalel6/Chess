@@ -6,24 +6,6 @@ import ver14.SharedClasses.Game.Moves.Move;
 import java.util.Date;
 import java.util.Stack;
 
-/*
- * EstablishedGameInfo
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * EstablishedGameInfo -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * EstablishedGameInfo -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public abstract class EstablishedGameInfo extends GameInfo {
     public final String opponentUsername;

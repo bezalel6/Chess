@@ -19,24 +19,6 @@ import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.UserInfo;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
-/*
- * PlayerNet
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * PlayerNet -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * PlayerNet -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 /**
  * PlayerNet.

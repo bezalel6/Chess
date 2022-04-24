@@ -34,24 +34,6 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-/*
- * Tests
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Tests -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Tests -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 @Test
 public class Tests implements ITest {

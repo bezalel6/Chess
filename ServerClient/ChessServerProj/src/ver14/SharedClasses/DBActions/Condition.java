@@ -8,24 +8,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 import java.util.Arrays;
 
-/*
- * Condition
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Condition -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Condition -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class Condition implements Serializable {
     private final Object[] parms;

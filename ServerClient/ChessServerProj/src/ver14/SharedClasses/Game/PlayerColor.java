@@ -2,24 +2,6 @@ package ver14.SharedClasses.Game;
 
 import ver14.SharedClasses.Utils.StrUtils;
 
-/*
- * PlayerColor
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * PlayerColor -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * PlayerColor -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public enum PlayerColor {
     WHITE(Location.WHITE_STARTING_ROW, Location.WHITE_DIFF) {

@@ -3,24 +3,6 @@ package ver14.SharedClasses.DBActions.Arg;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*
- * Config
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Config -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Config -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 /**
  * Config - .

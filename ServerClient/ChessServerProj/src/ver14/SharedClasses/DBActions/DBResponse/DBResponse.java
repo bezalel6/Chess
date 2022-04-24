@@ -4,24 +4,6 @@ import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 
 import java.io.Serializable;
 
-/*
- * DBResponse
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * DBResponse -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * DBResponse -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public abstract class DBResponse implements Serializable {
     protected final Status status;

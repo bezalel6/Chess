@@ -8,24 +8,6 @@ import java.util.Arrays;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
-/*
- * UsernameSuggestions
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * UsernameSuggestions -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * UsernameSuggestions -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class UsernameSuggestions {
 

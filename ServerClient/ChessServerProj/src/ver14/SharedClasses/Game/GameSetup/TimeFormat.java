@@ -3,24 +3,6 @@ package ver14.SharedClasses.Game.GameSetup;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
-/*
- * TimeFormat
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * TimeFormat -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * TimeFormat -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class TimeFormat implements Serializable {
     public static final TimeFormat RAPID = new TimeFormat(TimeUnit.MINUTES.toMillis(10));

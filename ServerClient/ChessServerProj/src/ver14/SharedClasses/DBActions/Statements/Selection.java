@@ -9,24 +9,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 import java.util.Arrays;
 
-/*
- * Selection
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Selection -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Selection -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class Selection extends SQLStatement {
     private final Object[] select;

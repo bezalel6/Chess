@@ -4,24 +4,6 @@ import ver14.Model.Model;
 
 import java.io.Serializable;
 
-/*
- * BoardHash
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * BoardHash -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * BoardHash -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class BoardHash implements Serializable {
     private long piecesHash, enPassantHash, castlingAbilityHash, currentPlayerHash, fullHash;

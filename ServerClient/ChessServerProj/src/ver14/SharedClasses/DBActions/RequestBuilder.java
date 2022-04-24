@@ -31,24 +31,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-/*
- * RequestBuilder
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * RequestBuilder -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * RequestBuilder -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class RequestBuilder implements Serializable {
     public static final String TIE_STR = "----tie----";

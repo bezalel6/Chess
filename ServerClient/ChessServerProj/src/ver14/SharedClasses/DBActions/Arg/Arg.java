@@ -8,24 +8,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-/*
- * Arg
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Arg -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Arg -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 /**
  * Arg - .

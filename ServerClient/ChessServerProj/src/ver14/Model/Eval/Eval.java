@@ -18,25 +18,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-/*
- * Eval
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Eval -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Eval -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
 public class Eval implements Serializable {
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
     public static boolean PRINT_REP_LIST = false;

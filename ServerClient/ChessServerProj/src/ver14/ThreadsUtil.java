@@ -3,24 +3,6 @@ package ver14;
 import com.jezhumble.javasysmon.CpuTimes;
 import com.jezhumble.javasysmon.JavaSysMon;
 
-/*
- * ThreadsUtil
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * ThreadsUtil -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * ThreadsUtil -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class ThreadsUtil {
     public static final int NUM_OF_THREADS = Runtime.getRuntime().availableProcessors();

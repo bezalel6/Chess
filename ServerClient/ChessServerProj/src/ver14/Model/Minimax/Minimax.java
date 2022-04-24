@@ -26,11 +26,15 @@ import java.util.concurrent.atomic.AtomicReference;
 
 
 /**
- * The type Minimax.
+ * Minimax - represents my implementation of a multithreaded minimax algorithm.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Minimax {
+
+    /**
+     * The constant DEBUG_MINIMAX.
+     */
     public final static String DEBUG_MINIMAX = "DEBUG_MINIMAX";
     private static final boolean USE_OPENING_BOOK = true;
     private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
@@ -133,7 +137,7 @@ public class Minimax {
     }
 
     /**
-     * Gets elapsed from minimax start time in ms
+     * Gets elapsed milliseconds from the time the minimax started
      *
      * @return the elapsed
      */
@@ -180,7 +184,7 @@ public class Minimax {
     /**
      * Interrupt.
      *
-     * @param error the error
+     * @param error the error to interrupt the search with
      */
     public void interrupt(MyError error) {
         this.interrupt = error;
@@ -229,7 +233,7 @@ public class Minimax {
     }
 
     /**
-     * Gets best move.
+     * Gets best move using minimax.
      *
      * @return the best move the minimax found
      */
@@ -243,7 +247,7 @@ public class Minimax {
     }
 
     /**
-     * Gets evaluation.
+     * Gets evaluation for the given color.
      *
      * @param evaluatingFor the evaluating for
      * @return the evaluation
@@ -257,7 +261,7 @@ public class Minimax {
         cpuUsageRecords.clear();
         minimaxUI.setNumOfThreads(numOfThreads);
         minimaxUI.startTime();
-        initMinimaxTime();
+        minimaxStartedTime = ZonedDateTime.now();
     }
 
     private void log(String str) {
@@ -265,17 +269,17 @@ public class Minimax {
             System.out.println("minimax->" + str);
     }
 
+
     /**
-     * Init minimax time.
+     * Check interrupt minimax move.
+     * if the minimax was interrupted by an actual error, it is thrown. if it is interrupted by a QuietInterrupt, the search is stopped and the best move found so far is returned
+     *
+     * @param returnedMove  the move just returned from the minimax search
+     * @param bestMoveSoFar the best move found so far. in the whole search
+     * @return the minimax move to be stored as the move returned from the last search
      */
-    void initMinimaxTime() {
-        minimaxStartedTime = ZonedDateTime.now();
-    }
-
-
-    private MinimaxMove checkInterrupt(MinimaxMove returnedMove, MinimaxMove bestMoveSoFar) {
+    MinimaxMove checkInterrupt(MinimaxMove returnedMove, MinimaxMove bestMoveSoFar) {
         if (interrupt != null) {
-            System.out.println("interrupt = " + interrupt);
             if (!(interrupt.getCause() instanceof QuietInterrupt))
                 throw interrupt;
             return bestMoveSoFar;
@@ -283,7 +287,12 @@ public class Minimax {
         return returnedMove;
     }
 
-    private MinimaxMove getBestMoveUsingMinimax() {
+    /**
+     * Gets best move using minimax.
+     *
+     * @return the best move found using minimax
+     */
+    MinimaxMove getBestMoveUsingMinimax() {
         initSearch();
         MinimaxMove bookMove = getBookMove();
         if (bookMove != null)
@@ -312,7 +321,7 @@ public class Minimax {
             if (bestMoveSoFar == null || isCompleteSearch.get() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
                 bestMoveSoFar = minimaxMove;
             }
-            stop = bestMoveSoFar.getMoveEvaluation().isGameOver();
+            stop = interrupt != null || bestMoveSoFar.getMoveEvaluation().isGameOver();
 
             minimaxUI.update(bestMoveSoFar);
 
@@ -333,11 +342,13 @@ public class Minimax {
     }
 
     /**
+     * the entry point for the minimax.
+     *
      * @param model    - current game position
      * @param maxDepth - the maximum depth the minimax can reach
      * @return best move for the current player to move
      */
-    private MinimaxMove minimaxRoot(Model model, int maxDepth) {
+    MinimaxMove minimaxRoot(Model model, int maxDepth) {
         isCompleteSearch = new AtomicBoolean(true);
         threadPool = new ForkJoinPool(numOfThreads);
 
@@ -354,7 +365,7 @@ public class Minimax {
     }
 
     /**
-     * initializes a multithreaded minimax search
+     * starts a multithreaded minimax search
      *
      * @param model              - current game position
      * @param minimaxPlayerColor - current player to move
@@ -394,7 +405,15 @@ public class Minimax {
         bestMove = atomicBestMove.get();
     }
 
-    private Evaluation minimax(MinimaxParameters parms) {
+    /**
+     * minimax evaluation
+     * makes every possible move and returns the best evaluation found for the current search player
+     * (if is on a max layer, the current search player is the player who called the minimax. if it isn't, it's his opponent)
+     *
+     * @param parms the parms
+     * @return the evaluation
+     */
+    Evaluation minimax(MinimaxParameters parms) {
 
         if (interrupt != null) {
             throw interrupt;
@@ -405,10 +424,6 @@ public class Minimax {
             return evaluation;
         }
 
-        return executeMovesMinimax(parms);
-    }
-
-    private Evaluation executeMovesMinimax(MinimaxParameters parms) {
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, parms.genSettings);
         if (parms.currentDepth < moveOrderingDepthCutoff)
@@ -458,7 +473,12 @@ public class Minimax {
         return getElapsed() > scanTimeInMillis + scanTimeFlexibility;
     }
 
-    private static class QuietInterrupt extends Throwable {
+    /**
+     * Quiet interrupt - an interrupt meant to stop the search quietly. without throwing anything outside the minimax. the returned move will be the best move found until interrupted. it might be null as the search could've found no move yet.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
+    static class QuietInterrupt extends Throwable {
 
     }
 

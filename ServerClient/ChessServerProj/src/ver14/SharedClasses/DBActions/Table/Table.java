@@ -6,24 +6,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
- * Table
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Table -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Table -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public enum Table {
     Games(Col.GameID, Col.Player1, Col.Player2, Col.SavedGame, Col.Winner),

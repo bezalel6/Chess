@@ -2,24 +2,6 @@ package ver14.SharedClasses.Game.GameSetup;
 
 import java.io.Serializable;
 
-/*
- * AiParameters
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * AiParameters -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * AiParameters -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class AiParameters implements Serializable, TimeFormatSettable {
     public static final AiParameters EZ_MY_AI = new AiParameters(AiType.MyAi, TimeFormat.ULTRA_BULLET);

@@ -6,24 +6,6 @@ import ver14.SharedClasses.Game.Evaluation.Evaluation;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
 
-/*
- * MinimaxParameters
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * MinimaxParameters -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * MinimaxParameters -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class MinimaxParameters {
     public final Model model;

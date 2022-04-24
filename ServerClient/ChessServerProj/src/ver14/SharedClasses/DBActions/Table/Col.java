@@ -6,24 +6,6 @@ import ver14.SharedClasses.Utils.StrUtils;
 import java.io.Serializable;
 import java.util.Arrays;
 
-/*
- * Col
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * Col -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * Col -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class Col implements Serializable {
 

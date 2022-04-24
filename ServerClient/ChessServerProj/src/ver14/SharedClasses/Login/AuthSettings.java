@@ -2,24 +2,6 @@ package ver14.SharedClasses.Login;
 
 import org.intellij.lang.annotations.MagicConstant;
 
-/*
- * AuthSettings
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * AuthSettings -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * AuthSettings -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 @MagicConstant(intValues = {AuthSettings.NEVER_AUTH, AuthSettings.GUEST, AuthSettings.USER, AuthSettings.ANY_LOGIN, AuthSettings.NO_AUTH})
 public @interface AuthSettings {

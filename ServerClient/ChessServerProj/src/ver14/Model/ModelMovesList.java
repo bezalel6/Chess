@@ -13,24 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Stream;
 
-/*
- * ModelMovesList
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * ModelMovesList -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * ModelMovesList -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class ModelMovesList extends MovesList {
     private final MoveGenerator generator;

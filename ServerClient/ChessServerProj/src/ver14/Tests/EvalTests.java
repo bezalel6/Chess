@@ -19,24 +19,6 @@ import java.util.stream.IntStream;
 
 import static ver14.SharedClasses.Game.Location.*;
 
-/*
- * EvalTests
- *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
- */
-
-/*
- * EvalTests -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * EvalTests -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 public class EvalTests extends Tests {
 
