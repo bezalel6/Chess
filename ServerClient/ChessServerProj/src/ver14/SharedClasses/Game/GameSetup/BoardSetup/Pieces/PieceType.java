@@ -54,7 +54,7 @@ public enum PieceType implements Serializable {
     /**
      * The King.
      */
-    KING("♔", "♚", 20000000, false) {
+    KING("♔", "♚", 200000, false) {
         @Override
         public boolean isAttack(Direction direction, int maxDistance) {
             return maxDistance == 1 && super.isAttack(direction, maxDistance);

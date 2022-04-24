@@ -1,0 +1,2387 @@
+\begin{theindex}
+
+  \item {add}
+    \subitem {Condition}, 44
+  \item {addDetail}
+    \subitem {Evaluation}, 75
+  \item {addedRes}
+    \subitem {DBResponse}, 62
+  \item {addShouldSync}
+    \subitem {RequestBuilder}, 197
+  \item {addSuggestion}
+    \subitem {Config$<$ V $>$}, 51
+  \item {ALL\_DIRECTIONS}
+    \subitem {Direction}, 66
+  \item {ALL\_PIECES}
+    \subitem {Piece}, 173
+  \item {ALL\_USED\_DIRECTIONS}
+    \subitem {Direction}, 66
+  \item {and}
+    \subitem {Condition}, 45
+  \item {andWith}
+    \subitem {Direction}, 66
+  \item {annotate}
+    \subitem {MoveAnnotation}, 157, 158
+  \item {annotation}
+    \subitem {GameStatus.GameStatusType}, 92
+  \item {Answer}
+    \subitem {Question}, 187
+  \item {AnswerCallback}, 1
+  \item {answerQuestion}
+    \subitem {Message}, 116
+  \item {Any}
+    \subitem {RegEx}, 193
+  \item {apply}
+    \subitem {Math}, 110
+  \item {AppSocket}, 2
+    \subitem {AppSocket}, 2, 3
+    \subitem {close}, 3
+    \subitem {getLocalAddress}, 3
+    \subitem {getMessagesHandler}, 4
+    \subitem {getRemoteAddress}, 4
+    \subitem {handledRun}, 4
+    \subitem {interruptListener}, 4
+    \subitem {isClosed}, 4
+    \subitem {isConnected}, 5
+    \subitem {msgSocket}, 6
+    \subitem {requestMessage}, 5
+    \subitem {respond}, 5
+    \subitem {setMessagesHandler}, 6
+    \subitem {stopReading}, 6
+    \subitem {writeMessage}, 6
+  \item {ArchivedGameInfo}, 6
+    \subitem {ArchivedGameInfo}, 7
+    \subitem {getWinner}, 7
+    \subitem {toString}, 7
+  \item {Arg}, 8
+    \subitem {Arg}, 8, 9
+    \subitem {argType}, 11
+    \subitem {config}, 11
+    \subitem {createVal}, 9
+    \subitem {equals}, 10
+    \subitem {escape}, 11
+    \subitem {isUserInput}, 10
+    \subitem {repInStr}, 11
+    \subitem {setUserInput}, 10
+    \subitem {toString}, 10
+  \item {args}
+    \subitem {RequestBuilder}, 201
+  \item {ArgsUtil}, 11
+    \subitem {create}, 11
+    \subitem {equalsSign}, 12
+    \subitem {OptionalArg}, 12
+    \subitem {plainTextIgnoreCase}, 12
+  \item {ArgType}, 13
+    \subitem {ArgType}, 13
+    \subitem {Date}, 14
+    \subitem {DateRange}, 14
+    \subitem {isUserInput}, 14
+    \subitem {Number}, 14
+    \subitem {Password}, 14
+    \subitem {PictureUrl}, 14
+    \subitem {ServerAddress}, 14
+    \subitem {Text}, 14
+    \subitem {Url}, 14
+    \subitem {Username}, 14
+  \item {argType}
+    \subitem {Arg}, 11
+  \item {ArrUtils}, 15
+    \subitem {concat}, 15
+    \subitem {createList}, 15
+    \subitem {exists}, 16
+  \item {as}
+    \subitem {Col}, 36
+  \item {asFloat}
+    \subitem {Math}, 110
+  \item {asInt}
+    \subitem {CastlingRights.Side}, 207
+    \subitem {Direction}, 66
+    \subitem {Location}, 104
+    \subitem {PieceType}, 179
+    \subitem {PlayerColor}, 183
+  \item {askForGameSettings}
+    \subitem {Message}, 117
+  \item {askForLogin}
+    \subitem {Message}, 117
+  \item {askQuestion}
+    \subitem {Message}, 117
+  \item {asLong}
+    \subitem {Location}, 104
+  \item {assertNotGameOver}
+    \subitem {Evaluation}, 75
+  \item {asUser}
+    \subitem {LoginInfo}, 105
+    \subitem {LoginType}, 108
+  \item {ATTACKING\_DIRECTIONS}
+    \subitem {PieceType}, 179
+  \item {ATTACKING\_PIECE\_TYPES}
+    \subitem {PieceType}, 179
+  \item {authSettings}
+    \subitem {PreMadeRequest}, 185
+  \item {awful}
+    \subitem {StrUtils}, 218
+
+  \indexspace
+
+  \item {B\_B}
+    \subitem {Piece}, 173
+  \item {B\_K}
+    \subitem {Piece}, 173
+  \item {B\_N}
+    \subitem {Piece}, 173
+  \item {B\_P}
+    \subitem {Piece}, 173
+  \item {B\_Q}
+    \subitem {Piece}, 173
+  \item {B\_R}
+    \subitem {Piece}, 174
+  \item {basicAnnotate}
+    \subitem {MoveAnnotation}, 158
+  \item {BasicMove}, 16
+    \subitem {BasicMove}, 17
+    \subitem {cp}, 17
+    \subitem {createBatch}, 17
+    \subitem {equals}, 18
+    \subitem {flip}, 18
+    \subitem {getBasicMoveAnnotation}, 18
+    \subitem {getFlipped}, 18
+    \subitem {getMovingFrom}, 19
+    \subitem {getMovingTo}, 19
+    \subitem {hashCode}, 19
+    \subitem {setMovingFrom}, 19
+    \subitem {setMovingTo}, 20
+    \subitem {toString}, 20
+  \item {between}
+    \subitem {Condition}, 45
+  \item {BISHOP}
+    \subitem {PieceType}, 179
+  \item {BitData}, 20
+    \subitem {everything}, 20
+    \subitem {notAFile}, 20
+    \subitem {notHFile}, 21
+  \item {BLACK}
+    \subitem {PlayerColor}, 183
+  \item {blackIcon}
+    \subitem {PieceType}, 179
+  \item {blockTilRes}
+    \subitem {MessagesHandler}, 136
+  \item {Board}, 21
+    \subitem {Board}, 21, 22
+    \subitem {example}, 25
+    \subitem {fenSetup}, 22
+    \subitem {getPiece}, 22, 23
+    \subitem {getRow}, 23
+    \subitem {getSquare}, 23
+    \subitem {isSquareEmpty}, 23
+    \subitem {iterator}, 24
+    \subitem {print}, 24
+    \subitem {setPiece}, 24
+    \subitem {setSquareEmpty}, 24
+    \subitem {startingFen}, 25
+    \subitem {startingPos}, 25
+    \subitem {toString}, 25
+  \item {book}
+    \subitem {Evaluation}, 75
+  \item {build}
+    \subitem {RequestBuilder}, 197
+  \item {bye}
+    \subitem {Message}, 118
+
+  \indexspace
+
+  \item {callback}
+    \subitem {Callback$<$ T $>$}, 26
+    \subitem {ThrowingCallback$<$ T $>$}, 237
+    \subitem {VoidCallback}, 242
+  \item {Callback$<$ T $>$}, 26
+    \subitem {callback}, 26
+  \item {CAN\_PROMOTE\_TO}
+    \subitem {PieceType}, 179
+  \item {canBeEmpty}
+    \subitem {RegEx}, 191
+  \item {CANCEL}
+    \subitem {LoginType}, 108
+  \item {canUseDefault}
+    \subitem {Config$<$ V $>$}, 52
+  \item {canUseId}
+    \subitem {IDsGenerator}, 95
+  \item {castledKingCol}
+    \subitem {CastlingRights.Side}, 207
+  \item {castledRookCol}
+    \subitem {CastlingRights.Side}, 207
+  \item {castling}
+    \subitem {Move}, 149
+  \item {CASTLING\_FLAGS}
+    \subitem {Move.MoveFlag}, 160
+  \item {castlingNotation}
+    \subitem {CastlingRights.Side}, 207
+  \item {CastlingRights}, 27
+    \subitem {CastlingRights}, 27, 28
+    \subitem {createFromStr}, 28
+    \subitem {disableCastling}, 28
+    \subitem {enable}, 29
+    \subitem {enableCastling}, 29
+    \subitem {getPlayersCastling}, 29
+    \subitem {getRights}, 29
+    \subitem {hasAny}, 30
+    \subitem {isEnabled}, 30
+    \subitem {main}, 30
+    \subitem {NO\_CASTLING\_ABILITY}, 31
+    \subitem {toString}, 31
+    \subitem {whosCastling}, 31
+  \item {CastlingRights.Side}, 205
+    \subitem {asInt}, 207
+    \subitem {castledKingCol}, 207
+    \subitem {castledRookCol}, 207
+    \subitem {castlingNotation}, 207
+    \subitem {KING}, 207
+    \subitem {kingFinalLoc}, 206
+    \subitem {kingTravelDistance}, 207
+    \subitem {mult}, 207
+    \subitem {QUEEN}, 207
+    \subitem {rookStartingCol}, 207
+    \subitem {Side}, 206
+    \subitem {SIDES}, 207
+    \subitem {toString}, 206
+  \item {castlingSide}
+    \subitem {Move.MoveFlag}, 160
+  \item {changePassword}
+    \subitem {RequestBuilder}, 198
+  \item {ChangeProfilePic}
+    \subitem {PreMadeRequest}, 185
+  \item {changeProfilePic}
+    \subitem {RequestBuilder}, 198
+  \item {CHECK}
+    \subitem {GameStatus.GameStatusType}, 92
+  \item {check}
+    \subitem {RegEx}, 192
+  \item {checkClosingVal}
+    \subitem {MyJFrame.BooleanClosing}, 25
+    \subitem {MyJFrame.Closing$<$ T $>$}, 32
+    \subitem {MyJFrame.StringClosing}, 217
+  \item {Checkmate}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {checkmate}
+    \subitem {GameStatus}, 85
+  \item {checkUsernameAvailability}
+    \subitem {Message}, 118
+  \item {clean}
+    \subitem {DBResponse}, 60
+    \subitem {StatusResponse}, 216
+    \subitem {StrUtils}, 219
+    \subitem {TableDBResponse}, 233
+  \item {close}
+    \subitem {AppSocket}, 3
+  \item {closing}
+    \subitem {MyJFrame.BooleanClosing}, 26
+    \subitem {MyJFrame.Closing$<$ T $>$}, 32
+  \item {Col}, 33
+    \subitem {as}, 36
+    \subitem {Col}, 34, 36
+    \subitem {colName}, 36
+    \subitem {count}, 37
+    \subitem {countIf}, 37
+    \subitem {CreatedDateTime}, 42
+    \subitem {date}, 38
+    \subitem {GameID}, 42
+    \subitem {label}, 38
+    \subitem {math}, 38
+    \subitem {nested}, 39
+    \subitem {of}, 39
+    \subitem {Password}, 42
+    \subitem {Player1}, 42
+    \subitem {Player2}, 42
+    \subitem {PlayerToMove}, 42
+    \subitem {ProfilePic}, 42
+    \subitem {replace}, 40
+    \subitem {SavedGame}, 42
+    \subitem {setColName}, 40
+    \subitem {setWrapped}, 40
+    \subitem {sum}, 40
+    \subitem {switchCase}, 41
+    \subitem {time}, 41
+    \subitem {toString}, 41
+    \subitem {Username}, 42
+    \subitem {Winner}, 42
+    \subitem {wrap}, 41
+  \item {col}
+    \subitem {Location}, 104
+    \subitem {Math}, 113
+  \item {colName}
+    \subitem {Col}, 36
+  \item {cols}
+    \subitem {Table}, 231
+  \item {columns}
+    \subitem {TableDBResponse}, 236
+  \item {combination}
+    \subitem {Direction}, 66
+  \item {compareMovementType}
+    \subitem {PieceType}, 176
+  \item {compareTo}
+    \subitem {MinimaxMove}, 144
+    \subitem {Move}, 149
+  \item {concat}
+    \subitem {ArrUtils}, 15
+  \item {Condition}, 43
+    \subitem {add}, 44
+    \subitem {and}, 45
+    \subitem {between}, 45
+    \subitem {Condition}, 44
+    \subitem {equals}, 45
+    \subitem {getStr}, 47
+    \subitem {math}, 47
+    \subitem {noNulls}, 47
+    \subitem {notEquals}, 47
+    \subitem {setStr}, 48
+    \subitem {toString}, 48
+    \subitem {wrap}, 48
+  \item {condition}
+    \subitem {SwitchCase}, 229
+  \item {Config}
+    \subitem {Config$<$ V $>$}, 49, 50
+  \item {config}
+    \subitem {Arg}, 11
+  \item {Config$<$ V $>$}, 49
+    \subitem {addSuggestion}, 51
+    \subitem {canUseDefault}, 52
+    \subitem {Config}, 49, 50
+    \subitem {description}, 52
+    \subitem {getDefault}, 51
+    \subitem {getDefaultDesc}, 51
+    \subitem {getDescribedDefault}, 51
+    \subitem {getValuesSuggestion}, 52
+    \subitem {toString}, 52
+  \item {confirm}
+    \subitem {ConfirmDialogs}, 53
+  \item {ConfirmDialogs}, 52
+    \subitem {confirm}, 53
+    \subitem {main}, 54
+  \item {convertFromCentipawns}
+    \subitem {Evaluation}, 76
+  \item {copyMove}
+    \subitem {Move}, 150
+  \item {count}
+    \subitem {Col}, 37
+  \item {countIf}
+    \subitem {Col}, 37
+  \item {countMatches}
+    \subitem {StrUtils}, 219
+  \item {cp}
+    \subitem {BasicMove}, 17
+  \item {create}
+    \subitem {ArgsUtil}, 11
+    \subitem {PreMadeRequest.VariationCreator}, 241
+  \item {createBatch}
+    \subitem {BasicMove}, 17
+  \item {createBuilder}
+    \subitem {PreMadeRequest}, 184
+  \item {createdAt}
+    \subitem {EstablishedGameInfo}, 73
+  \item {CreatedDateTime}
+    \subitem {Col}, 42
+  \item {CreatedGame}, 54
+    \subitem {CreatedGame}, 54
+    \subitem {getGameDesc}, 55
+  \item {createDisconnectedError}
+    \subitem {MessagesHandler}, 136
+  \item {createFromStr}
+    \subitem {CastlingRights}, 28
+  \item {createList}
+    \subitem {ArrUtils}, 15
+  \item {createMatIndicesStr}
+    \subitem {Location}, 98
+  \item {createResponse}
+    \subitem {RequestBuilder}, 198
+  \item {createStatement}
+    \subitem {CustomStatement}, 56
+    \subitem {Delete}, 63
+    \subitem {Selection}, 204
+    \subitem {SQLStatement}, 211
+    \subitem {Update}, 240
+  \item {createThread}
+    \subitem {ThreadsManager}, 236
+  \item {createTimeGreeting}
+    \subitem {StrUtils}, 219
+  \item {createTimeStr}
+    \subitem {StrUtils}, 219
+  \item {createVal}
+    \subitem {Arg}, 9
+  \item {createVariation}
+    \subitem {RequestBuilder}, 198
+  \item {creatorUsername}
+    \subitem {GameInfo}, 84
+  \item {criticalErr}
+    \subitem {EnvManager}, 69
+  \item {currentThread}
+    \subitem {MyThread}, 169
+  \item {CustomStatement}, 55
+    \subitem {createStatement}, 56
+    \subitem {CustomStatement}, 55
+
+  \indexspace
+
+  \item {D}
+    \subitem {Direction}, 67
+  \item {D\_D}
+    \subitem {Direction}, 67
+  \item {D\_D\_L}
+    \subitem {Direction}, 67
+  \item {D\_D\_R}
+    \subitem {Direction}, 67
+  \item {D\_L}
+    \subitem {Direction}, 67
+  \item {D\_L\_L}
+    \subitem {Direction}, 67
+  \item {D\_R}
+    \subitem {Direction}, 67
+  \item {D\_R\_R}
+    \subitem {Direction}, 67
+  \item {Date}
+    \subitem {ArgType}, 14
+  \item {date}
+    \subitem {Col}, 38
+  \item {DateRange}
+    \subitem {ArgType}, 14
+  \item {dateTimePrefix}
+    \subitem {StrUtils}, 220
+  \item {DBRequest}, 56
+    \subitem {DBRequest}, 57
+    \subitem {getBuilder}, 58
+    \subitem {getRequest}, 58
+    \subitem {getSubRequest}, 58
+    \subitem {setSubRequest}, 58
+    \subitem {toString}, 58
+    \subitem {type}, 59
+  \item {dbRequest}
+    \subitem {Message}, 118
+  \item {DBResponse}, 59
+    \subitem {addedRes}, 62
+    \subitem {clean}, 60
+    \subitem {DBResponse}, 60
+    \subitem {getAddedRes}, 60
+    \subitem {getRequest}, 60
+    \subitem {getStatus}, 61
+    \subitem {isAnyData}, 61
+    \subitem {isSuccess}, 61
+    \subitem {print}, 61
+    \subitem {request}, 62
+    \subitem {setAddedRes}, 61
+    \subitem {status}, 62
+    \subitem {toString}, 62
+  \item {debugAdapter}
+    \subitem {MyJFrame}, 167
+  \item {defaultCase}
+    \subitem {SwitchCase}, 229
+  \item {Delete}, 62
+    \subitem {createStatement}, 63
+    \subitem {Delete}, 63
+  \item {deleteAllUnFinishedGames}
+    \subitem {RequestBuilder}, 199
+  \item {DeleteUnfGames}
+    \subitem {PreMadeRequest}, 185
+  \item {description}
+    \subitem {Config$<$ V $>$}, 52
+  \item {diff}
+    \subitem {PlayerColor}, 183
+  \item {Direction}, 63
+    \subitem {ALL\_DIRECTIONS}, 66
+    \subitem {ALL\_USED\_DIRECTIONS}, 66
+    \subitem {andWith}, 66
+    \subitem {asInt}, 66
+    \subitem {combination}, 66
+    \subitem {D}, 67
+    \subitem {D\_D}, 67
+    \subitem {D\_D\_L}, 67
+    \subitem {D\_D\_R}, 67
+    \subitem {D\_L}, 67
+    \subitem {D\_L\_L}, 67
+    \subitem {D\_R}, 67
+    \subitem {D\_R\_R}, 67
+    \subitem {getCombination}, 65
+    \subitem {getDirectionByOffset}, 65
+    \subitem {getRelative}, 65
+    \subitem {L}, 67
+    \subitem {normalPerspective}, 67
+    \subitem {NUM\_OF\_DIRECTIONS}, 67
+    \subitem {NUM\_OF\_DIRECTIONS\_WO\_KNIGHT}, 68
+    \subitem {NUM\_OF\_KNIGHT\_DIRECTIONS}, 68
+    \subitem {offset}, 68
+    \subitem {opposite}, 65
+    \subitem {perspective}, 66
+    \subitem {R}, 68
+    \subitem {U}, 68
+    \subitem {U\_L}, 68
+    \subitem {U\_L\_L}, 68
+    \subitem {U\_R}, 68
+    \subitem {U\_R\_R}, 68
+    \subitem {U\_U}, 68
+    \subitem {U\_U\_L}, 68
+    \subitem {U\_U\_R}, 69
+  \item {disableCastling}
+    \subitem {CastlingRights}, 28
+  \item {Div}
+    \subitem {Math}, 113
+  \item {dontCapFull}
+    \subitem {StrUtils}, 220
+  \item {dontCapWord}
+    \subitem {StrUtils}, 220
+  \item {dontMatch}
+    \subitem {RegEx}, 193
+  \item {DontSaveGame}
+    \subitem {RegEx}, 194
+  \item {DoublePawnPush}
+    \subitem {Move.MoveFlag}, 160
+  \item {doXClick}
+    \subitem {MyJFrame}, 167
+  \item {drawOffer}
+    \subitem {Question}, 188
+
+  \indexspace
+
+  \item {EG\_WEIGHT}
+    \subitem {EvaluationParameters}, 80
+  \item {EMPTY\_PIECE}
+    \subitem {Square}, 215
+  \item {enable}
+    \subitem {CastlingRights}, 29
+  \item {enableCastling}
+    \subitem {CastlingRights}, 29
+  \item {endPress}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, 95
+  \item {EnPassant}
+    \subitem {Move.MoveFlag}, 160
+  \item {EnvManager}, 69
+    \subitem {criticalErr}, 69
+    \subitem {handledErr}, 69
+  \item {equals}
+    \subitem {Arg}, 10
+    \subitem {BasicMove}, 18
+    \subitem {Condition}, 45
+    \subitem {Evaluation}, 76
+    \subitem {GameInfo}, 82
+    \subitem {MinimaxMove}, 144
+    \subitem {Move}, 150
+    \subitem {Move.MoveFlag}, 159
+    \subitem {Question}, 188
+    \subitem {SwitchCase}, 229
+  \item {equalsSign}
+    \subitem {ArgsUtil}, 12
+  \item {error}
+    \subitem {Message}, 119
+  \item {ErrorHandler$<$ E extends MyError $>$}, 70
+    \subitem {handle}, 70
+    \subitem {ignore}, 70
+  \item {errToString}
+    \subitem {MyError}, 162
+  \item {escape}
+    \subitem {Arg}, 11
+  \item {escapeValues}
+    \subitem {Table}, 231
+  \item {EstablishedGameInfo}, 71
+    \subitem {createdAt}, 73
+    \subitem {EstablishedGameInfo}, 71
+    \subitem {getCreatedAt}, 72
+    \subitem {getGameDesc}, 72
+    \subitem {getMoveStack}, 72
+    \subitem {opponentUsername}, 73
+    \subitem {setCreatedAt}, 72
+    \subitem {toString}, 73
+  \item {Evaluation}, 73
+    \subitem {addDetail}, 75
+    \subitem {assertNotGameOver}, 75
+    \subitem {book}, 75
+    \subitem {convertFromCentipawns}, 76
+    \subitem {equals}, 76
+    \subitem {Evaluation}, 74, 75
+    \subitem {EvaluationDetail}, 76
+    \subitem {flipEval}, 76
+    \subitem {getEval}, 76
+    \subitem {getEvaluationDepth}, 77
+    \subitem {getEvaluationFor}, 77
+    \subitem {getGameStatus}, 77
+    \subitem {isCheck}, 77
+    \subitem {isGameOver}, 77
+    \subitem {isGreaterThan}, 77
+    \subitem {LOSS\_EVAL}, 79
+    \subitem {print}, 78
+    \subitem {setEval}, 78
+    \subitem {setEvaluationDepth}, 78
+    \subitem {setPerspective}, 78
+    \subitem {TIE\_EVAL}, 79
+    \subitem {toString}, 79
+    \subitem {WIN\_EVAL}, 79
+  \item {EvaluationDetail}
+    \subitem {Evaluation}, 76
+  \item {EvaluationParameters}, 79
+    \subitem {EG\_WEIGHT}, 80
+    \subitem {FORCE\_KING\_TO\_CORNER}, 80
+    \subitem {HANGING\_PIECES}, 80
+    \subitem {KING\_SAFETY}, 80
+    \subitem {MATERIAL}, 80
+    \subitem {MOVEMENT\_ABILITY}, 80
+    \subitem {PIECE\_TABLES}, 80
+    \subitem {SQUARE\_CONTROL}, 80
+    \subitem {STOCKFISH\_SAYS}, 80
+    \subitem {weight}, 81
+  \item {everything}
+    \subitem {BitData}, 20
+  \item {example}
+    \subitem {Board}, 25
+    \subitem {GameInfo}, 82
+  \item {execute}
+    \subitem {Math}, 110, 111
+  \item {exists}
+    \subitem {ArrUtils}, 16
+
+  \indexspace
+
+  \item {Fen}
+    \subitem {RegEx}, 194
+  \item {fenSetup}
+    \subitem {Board}, 22
+  \item {FiftyMoveRule}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {fiftyMoveRule}
+    \subitem {GameStatus}, 85
+  \item {fitInside}
+    \subitem {StrUtils}, 221
+  \item {fixHtml}
+    \subitem {StrUtils}, 221
+  \item {flip}
+    \subitem {BasicMove}, 18
+    \subitem {Location}, 98
+  \item {flipEval}
+    \subitem {Evaluation}, 76
+  \item {flipMove}
+    \subitem {Move}, 150
+  \item {FORCE\_KING\_TO\_CORNER}
+    \subitem {EvaluationParameters}, 80
+  \item {format}
+    \subitem {StrUtils}, 221, 222
+  \item {formatDate}
+    \subitem {StrUtils}, 222, 223
+  \item {formatDateSQL}
+    \subitem {StrUtils}, 223
+  \item {formatNum}
+    \subitem {Math}, 111
+
+  \indexspace
+
+  \item {GAME\_GOES\_ON}
+    \subitem {GameStatus.GameStatusType}, 92
+  \item {GameGoesOn}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {gameGoesOn}
+    \subitem {GameStatus}, 85
+  \item {GameID}
+    \subitem {Col}, 42
+  \item {gameId}
+    \subitem {GameInfo}, 84
+  \item {GameInfo}, 81
+    \subitem {creatorUsername}, 84
+    \subitem {equals}, 82
+    \subitem {example}, 82
+    \subitem {gameId}, 84
+    \subitem {GameInfo}, 81
+    \subitem {gameSettings}, 84
+    \subitem {getGameDesc}, 82
+    \subitem {getJoiningPlayerColor}, 82
+    \subitem {getStartingColor}, 83
+    \subitem {ID}, 83
+    \subitem {isCreator}, 83
+    \subitem {toString}, 83
+  \item {gameOver}
+    \subitem {Message}, 119
+  \item {gameOverStr}
+    \subitem {GameStatus.GameStatusType}, 92
+  \item {Games}
+    \subitem {PreMadeRequest}, 185
+    \subitem {Table}, 231
+  \item {games}
+    \subitem {RequestBuilder}, 199
+  \item {gameSettings}
+    \subitem {GameInfo}, 84
+  \item {GameStatus}, 84
+    \subitem {checkmate}, 85
+    \subitem {fiftyMoveRule}, 85
+    \subitem {gameGoesOn}, 85
+    \subitem {getCheckedKingLoc}, 86
+    \subitem {getDetailedStr}, 86
+    \subitem {getGameStatusType}, 86
+    \subitem {getSpecificStatus}, 87
+    \subitem {getWinningColor}, 87
+    \subitem {insufficientMaterial}, 87
+    \subitem {isCheck}, 87
+    \subitem {isDisconnected}, 87
+    \subitem {isGameOver}, 88
+    \subitem {playerDisconnected}, 88
+    \subitem {playerResigned}, 88
+    \subitem {serverStoppedGame}, 89
+    \subitem {setCustomStr}, 89
+    \subitem {setDepth}, 89
+    \subitem {setInCheck}, 89
+    \subitem {stalemate}, 90
+    \subitem {threeFoldRepetition}, 90
+    \subitem {tieByAgreement}, 90
+    \subitem {timedOut}, 90
+    \subitem {toString}, 91
+  \item {GameStatus.GameStatusType}, 91
+    \subitem {annotation}, 92
+    \subitem {CHECK}, 92
+    \subitem {GAME\_GOES\_ON}, 92
+    \subitem {gameOverStr}, 92
+    \subitem {GameStatusType}, 91, 92
+    \subitem {isGameOver}, 92
+    \subitem {TIE}, 93
+    \subitem {UNFINISHED}, 93
+    \subitem {WIN\_OR\_LOSS}, 93
+  \item {GameStatus.SpecificStatus}, 208
+    \subitem {Checkmate}, 209
+    \subitem {FiftyMoveRule}, 209
+    \subitem {GameGoesOn}, 209
+    \subitem {gameStatusType}, 209
+    \subitem {InsufficientMaterial}, 209
+    \subitem {PlayerDisconnectedVsAi}, 209
+    \subitem {PlayerDisconnectedVsReal}, 209
+    \subitem {Resignation}, 210
+    \subitem {ServerStoppedGame}, 210
+    \subitem {SpecificStatus}, 208
+    \subitem {Stalemate}, 210
+    \subitem {ThreeFoldRepetition}, 210
+    \subitem {TieByAgreement}, 210
+    \subitem {TimedOut}, 210
+    \subitem {TimedOutVsInsufficientMaterial}, 210
+    \subitem {toString}, 209
+  \item {GameStatusType}
+    \subitem {GameStatus.GameStatusType}, 91, 92
+  \item {gameStatusType}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {generate}
+    \subitem {IDsGenerator}, 96
+  \item {get}
+    \subitem {RegEx}, 192
+  \item {getAddedRes}
+    \subitem {DBResponse}, 60
+  \item {getAnnotation}
+    \subitem {Move}, 151
+  \item {getArgs}
+    \subitem {RequestBuilder}, 199
+  \item {getArgVal}
+    \subitem {RequestBuilder}, 199
+  \item {getAttackingDirections}
+    \subitem {PieceType}, 176
+  \item {getAvailable}
+    \subitem {Message}, 119
+  \item {getBasicMoveAnnotation}
+    \subitem {BasicMove}, 18
+  \item {getBoard}
+    \subitem {Message}, 119
+  \item {getBuilder}
+    \subitem {DBRequest}, 58
+  \item {getCapturingPieceType}
+    \subitem {Move}, 151
+  \item {getCell}
+    \subitem {TableDBResponse}, 233, 234
+  \item {getCheckedKingLoc}
+    \subitem {GameStatus}, 86
+  \item {getColor}
+    \subitem {PlayerColor}, 182
+  \item {getColString}
+    \subitem {Location}, 98
+  \item {getColumnIndex}
+    \subitem {TableDBResponse}, 234
+  \item {getColumns}
+    \subitem {TableDBResponse}, 234
+  \item {getCombination}
+    \subitem {Direction}, 65
+  \item {getCreatedAt}
+    \subitem {EstablishedGameInfo}, 72
+  \item {getCreatorList}
+    \subitem {Move}, 151
+  \item {getDBRequest}
+    \subitem {Message}, 120
+  \item {getDBResponse}
+    \subitem {Message}, 120
+  \item {getDefault}
+    \subitem {Config$<$ V $>$}, 51
+  \item {getDefaultAnswer}
+    \subitem {Question}, 188
+  \item {getDefaultDesc}
+    \subitem {Config$<$ V $>$}, 51
+  \item {getDescribedDefault}
+    \subitem {Config$<$ V $>$}, 51
+  \item {getDetailedStr}
+    \subitem {GameStatus}, 86
+  \item {getDetails}
+    \subitem {RegEx}, 192
+    \subitem {StatusResponse}, 216
+  \item {getDirectionByOffset}
+    \subitem {Direction}, 65
+  \item {getDisabledCastling}
+    \subitem {Move}, 151
+  \item {getEnPassantLoc}
+    \subitem {Move}, 151
+  \item {getError}
+    \subitem {Message}, 120
+  \item {getEval}
+    \subitem {Evaluation}, 76
+  \item {getEvaluationDepth}
+    \subitem {Evaluation}, 77
+  \item {getEvaluationFor}
+    \subitem {Evaluation}, 77
+  \item {getFen}
+    \subitem {Piece}, 171
+    \subitem {Square}, 213
+  \item {getFirstRow}
+    \subitem {TableDBResponse}, 234
+  \item {getFlipped}
+    \subitem {BasicMove}, 18
+  \item {getGameDesc}
+    \subitem {CreatedGame}, 55
+    \subitem {EstablishedGameInfo}, 72
+    \subitem {GameInfo}, 82
+  \item {getGameSettings}
+    \subitem {Message}, 120
+  \item {getGameStatus}
+    \subitem {Evaluation}, 77
+    \subitem {Message}, 120
+  \item {getGameStatusType}
+    \subitem {GameStatus}, 86
+  \item {getGameTime}
+    \subitem {Message}, 121
+  \item {getHandledStr}
+    \subitem {MyError}, 162
+  \item {getIntermediateMove}
+    \subitem {Move}, 152
+  \item {getJoiningPlayerColor}
+    \subitem {GameInfo}, 82
+  \item {getLoc}
+    \subitem {Location}, 99--101
+    \subitem {Square}, 213
+  \item {getLocalAddress}
+    \subitem {AppSocket}, 3
+  \item {getLoginInfo}
+    \subitem {Message}, 121
+  \item {getLoginType}
+    \subitem {LoginInfo}, 106
+  \item {getMaxDistance}
+    \subitem {Location}, 101
+  \item {getMessagesHandler}
+    \subitem {AppSocket}, 4
+  \item {getMessageType}
+    \subitem {Message}, 121
+  \item {getMinSize}
+    \subitem {MyJButton}, 165
+  \item {getMove}
+    \subitem {Message}, 121
+    \subitem {MinimaxMove}, 145
+  \item {getMoveDepth}
+    \subitem {MinimaxMove}, 145
+  \item {getMoveEvaluation}
+    \subitem {MinimaxMove}, 145
+    \subitem {Move}, 152
+  \item {getMoveFlag}
+    \subitem {Move}, 152
+  \item {getMoveStack}
+    \subitem {EstablishedGameInfo}, 72
+    \subitem {Message}, 121
+  \item {getMovingColor}
+    \subitem {Move}, 152
+  \item {getMovingFrom}
+    \subitem {BasicMove}, 19
+  \item {getMovingTo}
+    \subitem {BasicMove}, 19
+  \item {getMyAdapter}
+    \subitem {MyJFrame}, 167
+  \item {getName}
+    \subitem {PlayerColor}, 182
+    \subitem {RequestBuilder}, 200
+  \item {getOpponent}
+    \subitem {PlayerColor}, 182
+  \item {getOtherPlayer}
+    \subitem {Message}, 122
+  \item {getPassword}
+    \subitem {LoginInfo}, 106
+  \item {getPiece}
+    \subitem {Board}, 22, 23
+    \subitem {Piece}, 171
+    \subitem {Square}, 214
+  \item {getPieceFromFen}
+    \subitem {Piece}, 172
+  \item {getPieceIcon}
+    \subitem {Piece}, 172
+    \subitem {PieceType}, 177
+    \subitem {Square}, 214
+  \item {getPieceName}
+    \subitem {PieceType}, 177
+  \item {getPieceType}
+    \subitem {PieceType}, 177
+  \item {getPlayerColor}
+    \subitem {Message}, 122
+  \item {getPlayerFromFen}
+    \subitem {PlayerColor}, 182
+  \item {getPlayersCastling}
+    \subitem {CastlingRights}, 29
+  \item {getPort}
+    \subitem {StrUtils}, 224
+  \item {getPossibleAnswers}
+    \subitem {Question}, 188
+  \item {getPossibleMoves}
+    \subitem {Message}, 122
+  \item {getPostDescription}
+    \subitem {RequestBuilder}, 200
+  \item {getPreDescription}
+    \subitem {RequestBuilder}, 200
+  \item {getPreMoves}
+    \subitem {Message}, 122
+  \item {getPrevFullMoveClock}
+    \subitem {Move}, 152
+  \item {getPrevHalfMoveClock}
+    \subitem {Move}, 153
+  \item {getProfilePic}
+    \subitem {LoginInfo}, 106
+  \item {getPromotingTo}
+    \subitem {Move}, 153
+  \item {getQuestion}
+    \subitem {Message}, 122
+  \item {getQuestionStr}
+    \subitem {Question}, 189
+  \item {getRegex}
+    \subitem {RegEx}, 193
+  \item {getRelative}
+    \subitem {Direction}, 65
+  \item {getRemoteAddress}
+    \subitem {AppSocket}, 4
+  \item {getRequest}
+    \subitem {DBRequest}, 58
+    \subitem {DBResponse}, 60
+  \item {getRequestVariations}
+    \subitem {PreMadeRequest}, 185
+  \item {getRespondingToMsgId}
+    \subitem {Message}, 123
+  \item {getRights}
+    \subitem {CastlingRights}, 29
+  \item {getRow}
+    \subitem {Board}, 23
+  \item {getRows}
+    \subitem {TableDBResponse}, 235
+  \item {getRowString}
+    \subitem {Location}, 102
+  \item {getShortPrintingStr}
+    \subitem {MinimaxMove}, 145
+  \item {getShouldSync}
+    \subitem {RequestBuilder}, 200
+  \item {getSpecificStatus}
+    \subitem {GameStatus}, 87
+  \item {getSquare}
+    \subitem {Board}, 23
+  \item {getStartingColor}
+    \subitem {GameInfo}, 83
+  \item {getStatement}
+    \subitem {SQLStatement}, 211
+  \item {getStatus}
+    \subitem {DBResponse}, 61
+  \item {getStr}
+    \subitem {Condition}, 47
+  \item {getSubject}
+    \subitem {Message}, 123
+  \item {getSubRequest}
+    \subitem {DBRequest}, 58
+  \item {getSyncedLists}
+    \subitem {Message}, 123
+  \item {getUrl}
+    \subitem {StrUtils}, 224
+  \item {getUsername}
+    \subitem {LoginInfo}, 106
+    \subitem {Message}, 123
+  \item {getUsernameSuggestions}
+    \subitem {Message}, 123
+  \item {getValuesSuggestion}
+    \subitem {Config$<$ V $>$}, 52
+  \item {getWalkingDirections}
+    \subitem {PieceType}, 177
+  \item {getWhitePieceFen}
+    \subitem {PieceType}, 178
+  \item {getWinner}
+    \subitem {ArchivedGameInfo}, 7
+  \item {getWinningColor}
+    \subitem {GameStatus}, 87
+  \item {GUEST}
+    \subitem {LoginType}, 109
+
+  \indexspace
+
+  \item {handle}
+    \subitem {ErrorHandler$<$ E extends MyError $>$}, 70
+  \item {handledErr}
+    \subitem {EnvManager}, 69
+  \item {handledRun}
+    \subitem {AppSocket}, 4
+    \subitem {HandledThread}, 94
+    \subitem {MyThread}, 169
+  \item {HandledThread}, 93
+    \subitem {handledRun}, 94
+    \subitem {HandledThread}, 93
+    \subitem {runInHandledThread}, 94
+    \subitem {setRunnable}, 94
+  \item {handleErrors}
+    \subitem {ThreadsManager}, 237
+  \item {HANGING\_PIECES}
+    \subitem {EvaluationParameters}, 80
+  \item {hasAny}
+    \subitem {CastlingRights}, 30
+  \item {hash}
+    \subitem {Location}, 102
+  \item {hashCode}
+    \subitem {BasicMove}, 19
+    \subitem {MinimaxMove}, 145
+  \item {header}
+    \subitem {MyJFrame.Closing$<$ T $>$}, 33
+  \item {htmlNewLines}
+    \subitem {StrUtils}, 225
+
+  \indexspace
+
+  \item {Icon}
+    \subitem {RegEx}, 194
+  \item {icon}
+    \subitem {MyJFrame.Closing$<$ T $>$}, 33
+  \item {ID}
+    \subitem {GameInfo}, 83
+  \item {IDsGenerator}, 95
+    \subitem {canUseId}, 95
+    \subitem {generate}, 96
+  \item {ifTrue}
+    \subitem {SwitchCase}, 230
+  \item {ignore}
+    \subitem {ErrorHandler$<$ E extends MyError $>$}, 70
+  \item {ignoreErrs}
+    \subitem {MyThread}, 170
+  \item {indexOf2}
+    \subitem {PlayerColor}, 183
+  \item {initDebugLoginValues}
+    \subitem {LoginInfo}, 106
+  \item {initGame}
+    \subitem {Message}, 124
+  \item {InsufficientMaterial}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {insufficientMaterial}
+    \subitem {GameStatus}, 87
+  \item {interrupt}
+    \subitem {Message}, 124
+  \item {interruptBlocking}
+    \subitem {MessagesHandler}, 136
+  \item {interruptListener}
+    \subitem {AppSocket}, 4
+  \item {IPPAddress}
+    \subitem {RegEx}, 194
+  \item {isAnyData}
+    \subitem {DBResponse}, 61
+    \subitem {StatusResponse}, 216
+    \subitem {TableDBResponse}, 235
+  \item {isAttack}
+    \subitem {PieceType}, 178
+  \item {isBlackSquare}
+    \subitem {Location}, 102
+  \item {isCapturing}
+    \subitem {Move}, 153
+  \item {isCastling}
+    \subitem {Move.MoveFlag}, 160
+  \item {isCheck}
+    \subitem {Evaluation}, 77
+    \subitem {GameStatus}, 87
+    \subitem {Move}, 153
+  \item {isClosed}
+    \subitem {AppSocket}, 4
+  \item {isConnected}
+    \subitem {AppSocket}, 5
+  \item {isCreator}
+    \subitem {GameInfo}, 83
+  \item {isCreatorToMove}
+    \subitem {UnfinishedGame}, 239
+  \item {isDeeperAndBetterThan}
+    \subitem {MinimaxMove}, 145
+  \item {isDiagonalPiece}
+    \subitem {PieceType}, 178
+  \item {isDisconnected}
+    \subitem {GameStatus}, 87
+  \item {isEmpty}
+    \subitem {Square}, 214
+    \subitem {StrUtils}, 225
+  \item {isEnabled}
+    \subitem {CastlingRights}, 30
+  \item {isGameOver}
+    \subitem {Evaluation}, 77
+    \subitem {GameStatus}, 88
+    \subitem {GameStatus.GameStatusType}, 92
+  \item {isGreaterThan}
+    \subitem {Evaluation}, 77
+  \item {isGuest}
+    \subitem {LoginInfo}, 106
+  \item {isInBounds}
+    \subitem {Location}, 102
+  \item {isLinePiece}
+    \subitem {PieceType}, 179
+  \item {isOnMyTeam}
+    \subitem {Piece}, 172, 173
+  \item {isResponse}
+    \subitem {Message}, 124
+  \item {isReversible}
+    \subitem {Move}, 153
+  \item {isSavedDate}
+    \subitem {RegEx}, 193
+  \item {isSliding}
+    \subitem {PieceType}, 179
+  \item {isSquareEmpty}
+    \subitem {Board}, 23
+  \item {isSubject}
+    \subitem {Message}, 124
+  \item {isSuccess}
+    \subitem {DBResponse}, 61
+  \item {isUserInput}
+    \subitem {Arg}, 10
+    \subitem {ArgType}, 14
+  \item {isWhiteSquare}
+    \subitem {Location}, 103
+  \item {iteration}
+    \subitem {StrUtils.IterationThingy$<$ T $>$}, 96
+  \item {iterator}
+    \subitem {Board}, 24
+
+  \indexspace
+
+  \item {join}
+    \subitem {Selection}, 204
+
+  \indexspace
+
+  \item {key}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, 95
+  \item {KING}
+    \subitem {CastlingRights.Side}, 207
+    \subitem {PieceType}, 180
+  \item {KING\_SAFETY}
+    \subitem {EvaluationParameters}, 80
+  \item {kingFinalLoc}
+    \subitem {CastlingRights.Side}, 206
+  \item {kingTravelDistance}
+    \subitem {CastlingRights.Side}, 207
+  \item {KNIGHT}
+    \subitem {PieceType}, 180
+
+  \indexspace
+
+  \item {L}
+    \subitem {Direction}, 67
+  \item {label}
+    \subitem {Col}, 38
+  \item {Location}, 97
+    \subitem {asInt}, 104
+    \subitem {asLong}, 104
+    \subitem {col}, 104
+    \subitem {createMatIndicesStr}, 98
+    \subitem {flip}, 98
+    \subitem {getColString}, 98
+    \subitem {getLoc}, 99--101
+    \subitem {getMaxDistance}, 101
+    \subitem {getRowString}, 102
+    \subitem {hash}, 102
+    \subitem {isBlackSquare}, 102
+    \subitem {isInBounds}, 102
+    \subitem {isWhiteSquare}, 103
+    \subitem {Location}, 98
+    \subitem {locsMat}, 103
+    \subitem {locsMatStr}, 103
+    \subitem {matrixStr}, 103
+    \subitem {row}, 104
+    \subitem {toString}, 103
+    \subitem {valueOf}, 103
+  \item {locsMat}
+    \subitem {Location}, 103
+  \item {locsMatStr}
+    \subitem {Location}, 103
+  \item {LOGIN}
+    \subitem {LoginType}, 109
+  \item {LoginInfo}, 104
+    \subitem {asUser}, 105
+    \subitem {getLoginType}, 106
+    \subitem {getPassword}, 106
+    \subitem {getProfilePic}, 106
+    \subitem {getUsername}, 106
+    \subitem {initDebugLoginValues}, 106
+    \subitem {isGuest}, 106
+    \subitem {LoginInfo}, 105
+    \subitem {setLoginType}, 106
+    \subitem {setPassword}, 107
+    \subitem {setProfilePic}, 107
+    \subitem {setUsername}, 107
+    \subitem {toString}, 107
+  \item {LoginType}, 108
+    \subitem {asUser}, 108
+    \subitem {CANCEL}, 108
+    \subitem {GUEST}, 109
+    \subitem {LOGIN}, 109
+    \subitem {NOT\_SET\_YET}, 109
+    \subitem {REGISTER}, 109
+    \subitem {toString}, 108
+  \item {LongCastle}
+    \subitem {Move.MoveFlag}, 160
+  \item {LOSS\_EVAL}
+    \subitem {Evaluation}, 79
+
+  \indexspace
+
+  \item {main}
+    \subitem {CastlingRights}, 30
+    \subitem {ConfirmDialogs}, 54
+    \subitem {StrUtils}, 225
+  \item {MAJOR\_PIECES}
+    \subitem {PieceType}, 180
+  \item {MATERIAL}
+    \subitem {EvaluationParameters}, 80
+  \item {Math}, 109
+    \subitem {apply}, 110
+    \subitem {asFloat}, 110
+    \subitem {col}, 113
+    \subitem {Div}, 113
+    \subitem {execute}, 110, 111
+    \subitem {formatNum}, 111
+    \subitem {Mult}, 113
+    \subitem {nullIf0}, 112
+    \subitem {Plus}, 113
+    \subitem {simpleOperation}, 112
+    \subitem {str}, 112
+    \subitem {strSource}, 112
+    \subitem {strVal}, 113
+    \subitem {zeroIfNull}, 113
+  \item {math}
+    \subitem {Col}, 38
+    \subitem {Condition}, 47
+  \item {matrixStr}
+    \subitem {Location}, 103
+  \item {Message}, 114
+    \subitem {answerQuestion}, 116
+    \subitem {askForGameSettings}, 117
+    \subitem {askForLogin}, 117
+    \subitem {askQuestion}, 117
+    \subitem {bye}, 118
+    \subitem {checkUsernameAvailability}, 118
+    \subitem {dbRequest}, 118
+    \subitem {error}, 119
+    \subitem {gameOver}, 119
+    \subitem {getAvailable}, 119
+    \subitem {getBoard}, 119
+    \subitem {getDBRequest}, 120
+    \subitem {getDBResponse}, 120
+    \subitem {getError}, 120
+    \subitem {getGameSettings}, 120
+    \subitem {getGameStatus}, 120
+    \subitem {getGameTime}, 121
+    \subitem {getLoginInfo}, 121
+    \subitem {getMessageType}, 121
+    \subitem {getMove}, 121
+    \subitem {getMoveStack}, 121
+    \subitem {getOtherPlayer}, 122
+    \subitem {getPlayerColor}, 122
+    \subitem {getPossibleMoves}, 122
+    \subitem {getPreMoves}, 122
+    \subitem {getQuestion}, 122
+    \subitem {getRespondingToMsgId}, 123
+    \subitem {getSubject}, 123
+    \subitem {getSyncedLists}, 123
+    \subitem {getUsername}, 123
+    \subitem {getUsernameSuggestions}, 123
+    \subitem {initGame}, 124
+    \subitem {interrupt}, 124
+    \subitem {isResponse}, 124
+    \subitem {isSubject}, 124
+    \subitem {Message}, 115, 116
+    \subitem {messageID}, 133
+    \subitem {returnDBResponse}, 125
+    \subitem {returnGameSettings}, 125
+    \subitem {returnLogin}, 125
+    \subitem {returnMove}, 126
+    \subitem {returnUsernameAvailable}, 126
+    \subitem {returnUsernameNotAvailable}, 126
+    \subitem {setAvailable}, 127
+    \subitem {setBoard}, 127
+    \subitem {setDbRequest}, 127
+    \subitem {setDBResponse}, 127
+    \subitem {setError}, 128
+    \subitem {setGameSettings}, 128
+    \subitem {setGameStatus}, 128
+    \subitem {setGameTime}, 128
+    \subitem {setLoginInfo}, 129
+    \subitem {setMove}, 129
+    \subitem {setMoveStack}, 129
+    \subitem {setOtherPlayer}, 129
+    \subitem {setPlayerColor}, 129
+    \subitem {setPossibleMoves}, 130
+    \subitem {setPreMoves}, 130
+    \subitem {setQuestion}, 130
+    \subitem {setRespondingTo}, 130
+    \subitem {setRespondingToMsgId}, 131
+    \subitem {setSyncedLists}, 131
+    \subitem {setUsername}, 131
+    \subitem {setUsernameSuggestions}, 131
+    \subitem {syncLists}, 132
+    \subitem {throwError}, 132
+    \subitem {updateByMove}, 132
+    \subitem {waitForMatch}, 132
+    \subitem {waitForYourTurn}, 133
+    \subitem {welcomeMessage}, 133
+  \item {MessageCallback}, 134
+    \subitem {onMsg}, 134
+  \item {messageID}
+    \subitem {Message}, 133
+  \item {MessagesHandler}, 134
+    \subitem {blockTilRes}, 136
+    \subitem {createDisconnectedError}, 136
+    \subitem {interruptBlocking}, 136
+    \subitem {MessagesHandler}, 135
+    \subitem {noBlockRequest}, 136
+    \subitem {onAddTime}, 137
+    \subitem {onAlive}, 137
+    \subitem {onAnyDisconnection}, 137
+    \subitem {onAnyMsg}, 137
+    \subitem {onBye}, 137
+    \subitem {onCancelQuestion}, 138
+    \subitem {onDBRequest}, 138
+    \subitem {onDBResponse}, 138
+    \subitem {onDisconnected}, 138
+    \subitem {onError}, 138
+    \subitem {onGameOver}, 138
+    \subitem {onGetGameSettings}, 139
+    \subitem {onGetMove}, 139
+    \subitem {onInitGame}, 139
+    \subitem {onInterrupt}, 139
+    \subitem {onIsAlive}, 139
+    \subitem {onLogin}, 140
+    \subitem {onOfferDraw}, 140
+    \subitem {onPlannedDisconnect}, 140
+    \subitem {onQuestion}, 140
+    \subitem {onResign}, 140
+    \subitem {onUnplannedDisconnect}, 141
+    \subitem {onUpdateByMove}, 141
+    \subitem {onUpdateSyncedList}, 141
+    \subitem {onUsernameAvailability}, 141
+    \subitem {onWaitForMatch}, 141
+    \subitem {onWaitTurn}, 142
+    \subitem {onWelcomeMessage}, 142
+    \subitem {prepareForDisconnect}, 142
+    \subitem {receivedMessage}, 142
+    \subitem {socket}, 142
+  \item {MinimaxMove}, 143
+    \subitem {compareTo}, 144
+    \subitem {equals}, 144
+    \subitem {getMove}, 145
+    \subitem {getMoveDepth}, 145
+    \subitem {getMoveEvaluation}, 145
+    \subitem {getShortPrintingStr}, 145
+    \subitem {hashCode}, 145
+    \subitem {isDeeperAndBetterThan}, 145
+    \subitem {MinimaxMove}, 143, 144
+    \subitem {setMove}, 146
+    \subitem {setMoveEvaluation}, 146
+    \subitem {toString}, 146
+  \item {MINOR\_PIECES}
+    \subitem {PieceType}, 180
+  \item {Move}, 146
+    \subitem {castling}, 149
+    \subitem {compareTo}, 149
+    \subitem {copyMove}, 150
+    \subitem {equals}, 150
+    \subitem {flipMove}, 150
+    \subitem {getAnnotation}, 151
+    \subitem {getCapturingPieceType}, 151
+    \subitem {getCreatorList}, 151
+    \subitem {getDisabledCastling}, 151
+    \subitem {getEnPassantLoc}, 151
+    \subitem {getIntermediateMove}, 152
+    \subitem {getMoveEvaluation}, 152
+    \subitem {getMoveFlag}, 152
+    \subitem {getMovingColor}, 152
+    \subitem {getPrevFullMoveClock}, 152
+    \subitem {getPrevHalfMoveClock}, 153
+    \subitem {getPromotingTo}, 153
+    \subitem {isCapturing}, 153
+    \subitem {isCheck}, 153
+    \subitem {isReversible}, 153
+    \subitem {Move}, 148, 149
+    \subitem {setCapturing}, 153
+    \subitem {setCreatorList}, 154
+    \subitem {setDisabledCastling}, 154
+    \subitem {setEnPassantLoc}, 154
+    \subitem {setIntermediateMove}, 154
+    \subitem {setMoveAnnotation}, 155
+    \subitem {setMoveEvaluation}, 155
+    \subitem {setMoveFlag}, 155
+    \subitem {setMovingColor}, 155
+    \subitem {setPrevFullMoveClock}, 155
+    \subitem {setPrevHalfMoveClock}, 156
+    \subitem {setPromotingTo}, 156
+    \subitem {setReversible}, 156
+    \subitem {setThreefoldOption}, 156
+    \subitem {strictEquals}, 156
+    \subitem {threefoldClaim}, 157
+    \subitem {toString}, 157
+  \item {Move.MoveFlag}, 158
+    \subitem {CASTLING\_FLAGS}, 160
+    \subitem {castlingSide}, 160
+    \subitem {DoublePawnPush}, 160
+    \subitem {EnPassant}, 160
+    \subitem {equals}, 159
+    \subitem {isCastling}, 160
+    \subitem {LongCastle}, 160
+    \subitem {MoveFlag}, 159
+    \subitem {NormalMove}, 160
+    \subitem {Promotion}, 160
+    \subitem {ShortCastle}, 161
+  \item {MoveAnnotation}, 157
+    \subitem {annotate}, 157, 158
+    \subitem {basicAnnotate}, 158
+  \item {MoveFlag}
+    \subitem {Move.MoveFlag}, 159
+  \item {MOVEMENT\_ABILITY}
+    \subitem {EvaluationParameters}, 80
+  \item {msgSocket}
+    \subitem {AppSocket}, 6
+  \item {Mult}
+    \subitem {Math}, 113
+  \item {mult}
+    \subitem {CastlingRights.Side}, 207
+  \item {MyError}, 161
+    \subitem {errToString}, 162
+    \subitem {getHandledStr}, 162
+    \subitem {MyError}, 161, 162
+    \subitem {toString}, 163
+  \item {MyJButton}, 163
+    \subitem {getMinSize}, 165
+    \subitem {MyJButton}, 163--165
+    \subitem {replaceWithCancel}, 165
+    \subitem {resetState}, 165
+    \subitem {setFont}, 166
+    \subitem {setOnClick}, 166
+    \subitem {setText}, 166
+  \item {MyJFrame}, 166
+    \subitem {debugAdapter}, 167
+    \subitem {doXClick}, 167
+    \subitem {getMyAdapter}, 167
+    \subitem {MyJFrame}, 167
+    \subitem {onClose}, 168
+    \subitem {setOnExit}, 168
+    \subitem {setOnResize}, 168
+  \item {MyJFrame.BooleanClosing}, 25
+    \subitem {checkClosingVal}, 25
+    \subitem {closing}, 26
+    \subitem {show}, 26
+  \item {MyJFrame.Closing$<$ T $>$}, 31
+    \subitem {checkClosingVal}, 32
+    \subitem {closing}, 32
+    \subitem {header}, 33
+    \subitem {icon}, 33
+    \subitem {show}, 32
+    \subitem {title}, 33
+    \subitem {tryClose}, 33
+  \item {MyJFrame.MyAdapter.HeldDown}, 95
+    \subitem {endPress}, 95
+    \subitem {key}, 95
+    \subitem {startPress}, 95
+  \item {MyJFrame.StringClosing}, 217
+    \subitem {checkClosingVal}, 217
+    \subitem {show}, 217
+  \item {MyThread}, 168
+    \subitem {currentThread}, 169
+    \subitem {handledRun}, 169
+    \subitem {ignoreErrs}, 170
+    \subitem {MyThread}, 169
+    \subitem {reactivateErrs}, 170
+    \subitem {stopRun}, 170
+
+  \indexspace
+
+  \item {name}
+    \subitem {RequestBuilder}, 201
+  \item {nested}
+    \subitem {Col}, 39
+  \item {nestMe}
+    \subitem {Selection}, 204
+  \item {NO\_CASTLING\_ABILITY}
+    \subitem {CastlingRights}, 31
+  \item {NO\_PLAYER}
+    \subitem {PlayerColor}, 183
+  \item {noBlockRequest}
+    \subitem {MessagesHandler}, 136
+  \item {noNulls}
+    \subitem {Condition}, 47
+  \item {NormalMove}
+    \subitem {Move.MoveFlag}, 160
+  \item {normalPerspective}
+    \subitem {Direction}, 67
+  \item {NOT\_SET\_YET}
+    \subitem {LoginType}, 109
+  \item {notAFile}
+    \subitem {BitData}, 20
+  \item {notEquals}
+    \subitem {Condition}, 47
+  \item {notHFile}
+    \subitem {BitData}, 21
+  \item {nullIf0}
+    \subitem {Math}, 112
+  \item {NUM\_OF\_DIRECTIONS}
+    \subitem {Direction}, 67
+  \item {NUM\_OF\_DIRECTIONS\_WO\_KNIGHT}
+    \subitem {Direction}, 68
+  \item {NUM\_OF\_KNIGHT\_DIRECTIONS}
+    \subitem {Direction}, 68
+  \item {NUM\_OF\_PIECE\_TYPES}
+    \subitem {PieceType}, 180
+  \item {NUM\_OF\_PLAYERS}
+    \subitem {PlayerColor}, 183
+  \item {Number}
+    \subitem {ArgType}, 14
+  \item {Numbers}
+    \subitem {RegEx}, 194
+  \item {numOfRows}
+    \subitem {TableDBResponse}, 235
+
+  \indexspace
+
+  \item {ObjCallback$<$ T $>$}, 170
+  \item {of}
+    \subitem {Col}, 39
+  \item {offset}
+    \subitem {Direction}, 68
+  \item {onAddTime}
+    \subitem {MessagesHandler}, 137
+  \item {onAlive}
+    \subitem {MessagesHandler}, 137
+  \item {onAnyDisconnection}
+    \subitem {MessagesHandler}, 137
+  \item {onAnyMsg}
+    \subitem {MessagesHandler}, 137
+  \item {onBye}
+    \subitem {MessagesHandler}, 137
+  \item {onCancelQuestion}
+    \subitem {MessagesHandler}, 138
+  \item {onClose}
+    \subitem {MyJFrame}, 168
+  \item {onDBRequest}
+    \subitem {MessagesHandler}, 138
+  \item {onDBResponse}
+    \subitem {MessagesHandler}, 138
+  \item {onDisconnected}
+    \subitem {MessagesHandler}, 138
+  \item {onError}
+    \subitem {MessagesHandler}, 138
+  \item {onGameOver}
+    \subitem {MessagesHandler}, 138
+  \item {onGetGameSettings}
+    \subitem {MessagesHandler}, 139
+  \item {onGetMove}
+    \subitem {MessagesHandler}, 139
+  \item {onInitGame}
+    \subitem {MessagesHandler}, 139
+  \item {onInterrupt}
+    \subitem {MessagesHandler}, 139
+  \item {onIsAlive}
+    \subitem {MessagesHandler}, 139
+  \item {onLogin}
+    \subitem {MessagesHandler}, 140
+  \item {onMsg}
+    \subitem {MessageCallback}, 134
+  \item {onOfferDraw}
+    \subitem {MessagesHandler}, 140
+  \item {onPlannedDisconnect}
+    \subitem {MessagesHandler}, 140
+  \item {onQuestion}
+    \subitem {MessagesHandler}, 140
+  \item {onResign}
+    \subitem {MessagesHandler}, 140
+  \item {onUnplannedDisconnect}
+    \subitem {MessagesHandler}, 141
+  \item {onUpdateByMove}
+    \subitem {MessagesHandler}, 141
+  \item {onUpdateSyncedList}
+    \subitem {MessagesHandler}, 141
+  \item {onUsernameAvailability}
+    \subitem {MessagesHandler}, 141
+  \item {onWaitForMatch}
+    \subitem {MessagesHandler}, 141
+  \item {onWaitTurn}
+    \subitem {MessagesHandler}, 142
+  \item {onWelcomeMessage}
+    \subitem {MessagesHandler}, 142
+  \item {opponentUsername}
+    \subitem {EstablishedGameInfo}, 73
+  \item {opposite}
+    \subitem {Direction}, 65
+  \item {OptionalArg}
+    \subitem {ArgsUtil}, 12
+  \item {orderBy}
+    \subitem {Selection}, 204
+
+  \indexspace
+
+  \item {parseURLS}
+    \subitem {StrUtils}, 226
+  \item {Password}
+    \subitem {ArgType}, 14
+    \subitem {Col}, 42
+    \subitem {RegEx}, 194
+  \item {PAWN}
+    \subitem {PieceType}, 180
+  \item {perspective}
+    \subitem {Direction}, 66
+  \item {PictureUrl}
+    \subitem {ArgType}, 14
+  \item {Piece}, 170
+    \subitem {ALL\_PIECES}, 173
+    \subitem {B\_B}, 173
+    \subitem {B\_K}, 173
+    \subitem {B\_N}, 173
+    \subitem {B\_P}, 173
+    \subitem {B\_Q}, 173
+    \subitem {B\_R}, 174
+    \subitem {getFen}, 171
+    \subitem {getPiece}, 171
+    \subitem {getPieceFromFen}, 172
+    \subitem {getPieceIcon}, 172
+    \subitem {isOnMyTeam}, 172, 173
+    \subitem {pieceType}, 174
+    \subitem {playerColor}, 174
+    \subitem {W\_B}, 174
+    \subitem {W\_K}, 174
+    \subitem {W\_N}, 174
+    \subitem {W\_P}, 174
+    \subitem {W\_Q}, 174
+    \subitem {W\_R}, 174
+  \item {PIECE\_TABLES}
+    \subitem {EvaluationParameters}, 80
+  \item {PIECE\_TYPES}
+    \subitem {PieceType}, 180
+  \item {PieceType}, 175
+    \subitem {asInt}, 179
+    \subitem {ATTACKING\_DIRECTIONS}, 179
+    \subitem {ATTACKING\_PIECE\_TYPES}, 179
+    \subitem {BISHOP}, 179
+    \subitem {blackIcon}, 179
+    \subitem {CAN\_PROMOTE\_TO}, 179
+    \subitem {compareMovementType}, 176
+    \subitem {getAttackingDirections}, 176
+    \subitem {getPieceIcon}, 177
+    \subitem {getPieceName}, 177
+    \subitem {getPieceType}, 177
+    \subitem {getWalkingDirections}, 177
+    \subitem {getWhitePieceFen}, 178
+    \subitem {isAttack}, 178
+    \subitem {isDiagonalPiece}, 178
+    \subitem {isLinePiece}, 179
+    \subitem {isSliding}, 179
+    \subitem {KING}, 180
+    \subitem {KNIGHT}, 180
+    \subitem {MAJOR\_PIECES}, 180
+    \subitem {MINOR\_PIECES}, 180
+    \subitem {NUM\_OF\_PIECE\_TYPES}, 180
+    \subitem {PAWN}, 180
+    \subitem {PIECE\_TYPES}, 180
+    \subitem {QUEEN}, 180
+    \subitem {ROOK}, 180
+    \subitem {UNIQUE\_MOVES\_PIECE\_TYPES}, 180
+    \subitem {value}, 180
+    \subitem {whiteIcon}, 181
+  \item {pieceType}
+    \subitem {Piece}, 174
+  \item {plainTextIgnoreCase}
+    \subitem {ArgsUtil}, 12
+  \item {Player1}
+    \subitem {Col}, 42
+  \item {Player2}
+    \subitem {Col}, 42
+  \item {PLAYER\_COLORS}
+    \subitem {PlayerColor}, 183
+  \item {PlayerColor}, 181
+    \subitem {asInt}, 183
+    \subitem {BLACK}, 183
+    \subitem {diff}, 183
+    \subitem {getColor}, 182
+    \subitem {getName}, 182
+    \subitem {getOpponent}, 182
+    \subitem {getPlayerFromFen}, 182
+    \subitem {indexOf2}, 183
+    \subitem {NO\_PLAYER}, 183
+    \subitem {NUM\_OF\_PLAYERS}, 183
+    \subitem {PLAYER\_COLORS}, 183
+    \subitem {PlayerColor}, 181
+    \subitem {startingRow}, 184
+    \subitem {toString}, 183
+    \subitem {WHITE}, 184
+  \item {playerColor}
+    \subitem {Piece}, 174
+  \item {playerColorToMove}
+    \subitem {UnfinishedGame}, 239
+  \item {playerDisconnected}
+    \subitem {GameStatus}, 88
+  \item {PlayerDisconnectedVsAi}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {PlayerDisconnectedVsReal}
+    \subitem {GameStatus.SpecificStatus}, 209
+  \item {playerResigned}
+    \subitem {GameStatus}, 88
+  \item {PlayerToMove}
+    \subitem {Col}, 42
+  \item {playerToMove}
+    \subitem {UnfinishedGame}, 239
+  \item {Plus}
+    \subitem {Math}, 113
+  \item {postDescription}
+    \subitem {RequestBuilder}, 201
+  \item {preDescription}
+    \subitem {RequestBuilder}, 201
+  \item {PreMadeRequest}, 184
+    \subitem {authSettings}, 185
+    \subitem {ChangeProfilePic}, 185
+    \subitem {createBuilder}, 184
+    \subitem {DeleteUnfGames}, 185
+    \subitem {Games}, 185
+    \subitem {getRequestVariations}, 185
+    \subitem {statistics}, 185
+    \subitem {StatsByTimeOfDay}, 185
+    \subitem {TopPlayers}, 185
+  \item {PreMadeRequest.VariationCreator}, 241
+    \subitem {create}, 241
+  \item {prepareForDisconnect}
+    \subitem {MessagesHandler}, 142
+  \item {print}
+    \subitem {Board}, 24
+    \subitem {DBResponse}, 61
+    \subitem {Evaluation}, 78
+  \item {ProfilePic}
+    \subitem {Col}, 42
+  \item {Promotion}
+    \subitem {Move.MoveFlag}, 160
+
+  \indexspace
+
+  \item {QUEEN}
+    \subitem {CastlingRights.Side}, 207
+    \subitem {PieceType}, 180
+  \item {Question}, 186
+    \subitem {Answer}, 187
+    \subitem {drawOffer}, 188
+    \subitem {equals}, 188
+    \subitem {getDefaultAnswer}, 188
+    \subitem {getPossibleAnswers}, 188
+    \subitem {getQuestionStr}, 189
+    \subitem {Question}, 187
+    \subitem {questionStr}, 189
+    \subitem {questionType}, 189
+    \subitem {Rematch}, 190
+    \subitem {setDefaultAnswer}, 189
+    \subitem {Threefold}, 190
+    \subitem {toString}, 189
+  \item {questionStr}
+    \subitem {Question}, 189
+  \item {questionType}
+    \subitem {Question}, 189
+
+  \indexspace
+
+  \item {R}
+    \subitem {Direction}, 68
+  \item {reactivateErrs}
+    \subitem {MyThread}, 170
+  \item {receivedMessage}
+    \subitem {MessagesHandler}, 142
+  \item {RegEx}, 190
+    \subitem {Any}, 193
+    \subitem {canBeEmpty}, 191
+    \subitem {check}, 192
+    \subitem {dontMatch}, 193
+    \subitem {DontSaveGame}, 194
+    \subitem {Fen}, 194
+    \subitem {get}, 192
+    \subitem {getDetails}, 192
+    \subitem {getRegex}, 193
+    \subitem {Icon}, 194
+    \subitem {IPPAddress}, 194
+    \subitem {isSavedDate}, 193
+    \subitem {Numbers}, 194
+    \subitem {Password}, 194
+    \subitem {RegEx}, 191
+    \subitem {setUseDontMatch}, 193
+    \subitem {StrUtilSkip}, 194
+    \subitem {URL}, 194
+    \subitem {Username}, 194
+  \item {REGISTER}
+    \subitem {LoginType}, 109
+  \item {Rematch}
+    \subitem {Question}, 190
+  \item {repeat}
+    \subitem {StrUtils}, 226
+  \item {repInStr}
+    \subitem {Arg}, 11
+  \item {replace}
+    \subitem {Col}, 40
+    \subitem {SQLStatement}, 211
+  \item {replaceWithCancel}
+    \subitem {MyJButton}, 165
+  \item {request}
+    \subitem {DBResponse}, 62
+  \item {RequestBuilder}, 195
+    \subitem {addShouldSync}, 197
+    \subitem {args}, 201
+    \subitem {build}, 197
+    \subitem {changePassword}, 198
+    \subitem {changeProfilePic}, 198
+    \subitem {createResponse}, 198
+    \subitem {createVariation}, 198
+    \subitem {deleteAllUnFinishedGames}, 199
+    \subitem {games}, 199
+    \subitem {getArgs}, 199
+    \subitem {getArgVal}, 199
+    \subitem {getName}, 200
+    \subitem {getPostDescription}, 200
+    \subitem {getPreDescription}, 200
+    \subitem {getShouldSync}, 200
+    \subitem {name}, 201
+    \subitem {postDescription}, 201
+    \subitem {preDescription}, 201
+    \subitem {RequestBuilder}, 196, 197
+    \subitem {setSubBuilder}, 200
+    \subitem {statement}, 201
+    \subitem {statsByTimeOfDay}, 201
+    \subitem {subBuilder}, 202
+    \subitem {TIE\_STR}, 202
+    \subitem {top}, 201
+  \item {requestMessage}
+    \subitem {AppSocket}, 5
+  \item {resetState}
+    \subitem {MyJButton}, 165
+  \item {Resignation}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {respond}
+    \subitem {AppSocket}, 5
+  \item {returnDBResponse}
+    \subitem {Message}, 125
+  \item {returnGameSettings}
+    \subitem {Message}, 125
+  \item {returnLogin}
+    \subitem {Message}, 125
+  \item {returnMove}
+    \subitem {Message}, 126
+  \item {returnUsernameAvailable}
+    \subitem {Message}, 126
+  \item {returnUsernameNotAvailable}
+    \subitem {Message}, 126
+  \item {ROOK}
+    \subitem {PieceType}, 180
+  \item {rookStartingCol}
+    \subitem {CastlingRights.Side}, 207
+  \item {row}
+    \subitem {Location}, 104
+  \item {rows}
+    \subitem {TableDBResponse}, 236
+  \item {rowToString}
+    \subitem {TableDBResponse}, 235
+  \item {runInHandledThread}
+    \subitem {HandledThread}, 94
+
+  \indexspace
+
+  \item {SavedGame}
+    \subitem {Col}, 42
+  \item {Selection}, 202
+    \subitem {createStatement}, 204
+    \subitem {join}, 204
+    \subitem {nestMe}, 204
+    \subitem {orderBy}, 204
+    \subitem {Selection}, 203
+    \subitem {top}, 205
+  \item {ServerAddress}
+    \subitem {ArgType}, 14
+  \item {ServerStoppedGame}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {serverStoppedGame}
+    \subitem {GameStatus}, 89
+  \item {setAddedRes}
+    \subitem {DBResponse}, 61
+  \item {setAvailable}
+    \subitem {Message}, 127
+  \item {setBoard}
+    \subitem {Message}, 127
+  \item {setCapturing}
+    \subitem {Move}, 153
+  \item {setColName}
+    \subitem {Col}, 40
+  \item {setCreatedAt}
+    \subitem {EstablishedGameInfo}, 72
+  \item {setCreatorList}
+    \subitem {Move}, 154
+  \item {setCustomStr}
+    \subitem {GameStatus}, 89
+  \item {setDbRequest}
+    \subitem {Message}, 127
+  \item {setDBResponse}
+    \subitem {Message}, 127
+  \item {setDefaultAnswer}
+    \subitem {Question}, 189
+  \item {setDepth}
+    \subitem {GameStatus}, 89
+  \item {setDisabledCastling}
+    \subitem {Move}, 154
+  \item {setEmpty}
+    \subitem {Square}, 214
+  \item {setEnPassantLoc}
+    \subitem {Move}, 154
+  \item {setError}
+    \subitem {Message}, 128
+  \item {setEval}
+    \subitem {Evaluation}, 78
+  \item {setEvaluationDepth}
+    \subitem {Evaluation}, 78
+  \item {setFont}
+    \subitem {MyJButton}, 166
+  \item {setGameSettings}
+    \subitem {Message}, 128
+  \item {setGameStatus}
+    \subitem {Message}, 128
+  \item {setGameTime}
+    \subitem {Message}, 128
+  \item {setInCheck}
+    \subitem {GameStatus}, 89
+  \item {setIntermediateMove}
+    \subitem {Move}, 154
+  \item {setLoginInfo}
+    \subitem {Message}, 129
+  \item {setLoginType}
+    \subitem {LoginInfo}, 106
+  \item {setMessagesHandler}
+    \subitem {AppSocket}, 6
+  \item {setMove}
+    \subitem {Message}, 129
+    \subitem {MinimaxMove}, 146
+  \item {setMoveAnnotation}
+    \subitem {Move}, 155
+  \item {setMoveEvaluation}
+    \subitem {MinimaxMove}, 146
+    \subitem {Move}, 155
+  \item {setMoveFlag}
+    \subitem {Move}, 155
+  \item {setMoveStack}
+    \subitem {Message}, 129
+  \item {setMovingColor}
+    \subitem {Move}, 155
+  \item {setMovingFrom}
+    \subitem {BasicMove}, 19
+  \item {setMovingTo}
+    \subitem {BasicMove}, 20
+  \item {setOnClick}
+    \subitem {MyJButton}, 166
+  \item {setOnExit}
+    \subitem {MyJFrame}, 168
+  \item {setOnResize}
+    \subitem {MyJFrame}, 168
+  \item {setOtherPlayer}
+    \subitem {Message}, 129
+  \item {setPassword}
+    \subitem {LoginInfo}, 107
+  \item {setPerspective}
+    \subitem {Evaluation}, 78
+  \item {setPiece}
+    \subitem {Board}, 24
+    \subitem {Square}, 214
+  \item {setPlayerColor}
+    \subitem {Message}, 129
+  \item {setPossibleMoves}
+    \subitem {Message}, 130
+  \item {setPreMoves}
+    \subitem {Message}, 130
+  \item {setPrevFullMoveClock}
+    \subitem {Move}, 155
+  \item {setPrevHalfMoveClock}
+    \subitem {Move}, 156
+  \item {setProfilePic}
+    \subitem {LoginInfo}, 107
+  \item {setPromotingTo}
+    \subitem {Move}, 156
+  \item {setQuestion}
+    \subitem {Message}, 130
+  \item {setRespondingTo}
+    \subitem {Message}, 130
+  \item {setRespondingToMsgId}
+    \subitem {Message}, 131
+  \item {setReversible}
+    \subitem {Move}, 156
+  \item {setRunnable}
+    \subitem {HandledThread}, 94
+  \item {setSquareEmpty}
+    \subitem {Board}, 24
+  \item {setStr}
+    \subitem {Condition}, 48
+  \item {setSubBuilder}
+    \subitem {RequestBuilder}, 200
+  \item {setSubRequest}
+    \subitem {DBRequest}, 58
+  \item {setSyncedLists}
+    \subitem {Message}, 131
+  \item {setText}
+    \subitem {MyJButton}, 166
+  \item {setThreefoldOption}
+    \subitem {Move}, 156
+  \item {setUseDontMatch}
+    \subitem {RegEx}, 193
+  \item {setUserInput}
+    \subitem {Arg}, 10
+  \item {setUsername}
+    \subitem {LoginInfo}, 107
+    \subitem {Message}, 131
+  \item {setUsernameSuggestions}
+    \subitem {Message}, 131
+  \item {setWrapped}
+    \subitem {Col}, 40
+  \item {ShortCastle}
+    \subitem {Move.MoveFlag}, 161
+  \item {show}
+    \subitem {MyJFrame.BooleanClosing}, 26
+    \subitem {MyJFrame.Closing$<$ T $>$}, 32
+    \subitem {MyJFrame.StringClosing}, 217
+  \item {Side}
+    \subitem {CastlingRights.Side}, 206
+  \item {SIDES}
+    \subitem {CastlingRights.Side}, 207
+  \item {simpleOperation}
+    \subitem {Math}, 112
+  \item {socket}
+    \subitem {MessagesHandler}, 142
+  \item {SpecificStatus}
+    \subitem {GameStatus.SpecificStatus}, 208
+  \item {splitArr}
+    \subitem {StrUtils}, 226, 227
+  \item {SQLStatement}, 210
+    \subitem {createStatement}, 211
+    \subitem {getStatement}, 211
+    \subitem {replace}, 211
+    \subitem {SQLStatement}, 211
+    \subitem {toString}, 212
+    \subitem {type}, 212
+  \item {Square}, 212
+    \subitem {EMPTY\_PIECE}, 215
+    \subitem {getFen}, 213
+    \subitem {getLoc}, 213
+    \subitem {getPiece}, 214
+    \subitem {getPieceIcon}, 214
+    \subitem {isEmpty}, 214
+    \subitem {setEmpty}, 214
+    \subitem {setPiece}, 214
+    \subitem {Square}, 213
+    \subitem {toString}, 215
+  \item {SQUARE\_CONTROL}
+    \subitem {EvaluationParameters}, 80
+  \item {Stalemate}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {stalemate}
+    \subitem {GameStatus}, 90
+  \item {startingFen}
+    \subitem {Board}, 25
+  \item {startingPos}
+    \subitem {Board}, 25
+  \item {startingRow}
+    \subitem {PlayerColor}, 184
+  \item {startPress}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, 95
+  \item {statement}
+    \subitem {RequestBuilder}, 201
+  \item {statistics}
+    \subitem {PreMadeRequest}, 185
+  \item {StatsByTimeOfDay}
+    \subitem {PreMadeRequest}, 185
+  \item {statsByTimeOfDay}
+    \subitem {RequestBuilder}, 201
+  \item {status}
+    \subitem {DBResponse}, 62
+  \item {StatusResponse}, 215
+    \subitem {clean}, 216
+    \subitem {getDetails}, 216
+    \subitem {isAnyData}, 216
+    \subitem {StatusResponse}, 215, 216
+  \item {STOCKFISH\_SAYS}
+    \subitem {EvaluationParameters}, 80
+  \item {stopReading}
+    \subitem {AppSocket}, 6
+  \item {stopRun}
+    \subitem {MyThread}, 170
+  \item {str}
+    \subitem {Math}, 112
+  \item {strictEquals}
+    \subitem {Move}, 156
+  \item {strINN}
+    \subitem {StrUtils}, 227
+  \item {strSource}
+    \subitem {Math}, 112
+  \item {StrUtils}, 218
+    \subitem {awful}, 218
+    \subitem {clean}, 219
+    \subitem {countMatches}, 219
+    \subitem {createTimeGreeting}, 219
+    \subitem {createTimeStr}, 219
+    \subitem {dateTimePrefix}, 220
+    \subitem {dontCapFull}, 220
+    \subitem {dontCapWord}, 220
+    \subitem {fitInside}, 221
+    \subitem {fixHtml}, 221
+    \subitem {format}, 221, 222
+    \subitem {formatDate}, 222, 223
+    \subitem {formatDateSQL}, 223
+    \subitem {getPort}, 224
+    \subitem {getUrl}, 224
+    \subitem {htmlNewLines}, 225
+    \subitem {isEmpty}, 225
+    \subitem {main}, 225
+    \subitem {parseURLS}, 226
+    \subitem {repeat}, 226
+    \subitem {splitArr}, 226, 227
+    \subitem {strINN}, 227
+    \subitem {uppercase}, 228
+  \item {StrUtils.IterationThingy$<$ T $>$}, 96
+    \subitem {iteration}, 96
+  \item {StrUtilSkip}
+    \subitem {RegEx}, 194
+  \item {strVal}
+    \subitem {Math}, 113
+  \item {subBuilder}
+    \subitem {RequestBuilder}, 202
+  \item {sum}
+    \subitem {Col}, 40
+  \item {SwitchCase}, 228
+    \subitem {condition}, 229
+    \subitem {defaultCase}, 229
+    \subitem {equals}, 229
+    \subitem {ifTrue}, 230
+    \subitem {SwitchCase}, 228
+    \subitem {toString}, 230
+  \item {switchCase}
+    \subitem {Col}, 41
+  \item {syncLists}
+    \subitem {Message}, 132
+
+  \indexspace
+
+  \item {Table}, 230
+    \subitem {cols}, 231
+    \subitem {escapeValues}, 231
+    \subitem {Games}, 231
+    \subitem {Table}, 230
+    \subitem {tableAndValues}, 231
+    \subitem {UnfinishedGames}, 231
+    \subitem {Users}, 232
+  \item {tableAndValues}
+    \subitem {Table}, 231
+  \item {TableDBResponse}, 232
+    \subitem {clean}, 233
+    \subitem {columns}, 236
+    \subitem {getCell}, 233, 234
+    \subitem {getColumnIndex}, 234
+    \subitem {getColumns}, 234
+    \subitem {getFirstRow}, 234
+    \subitem {getRows}, 235
+    \subitem {isAnyData}, 235
+    \subitem {numOfRows}, 235
+    \subitem {rows}, 236
+    \subitem {rowToString}, 235
+    \subitem {TableDBResponse}, 232, 233
+    \subitem {toString}, 236
+  \item {Text}
+    \subitem {ArgType}, 14
+  \item {ThreadsManager}, 236
+    \subitem {createThread}, 236
+    \subitem {handleErrors}, 237
+  \item {Threefold}
+    \subitem {Question}, 190
+  \item {threefoldClaim}
+    \subitem {Move}, 157
+  \item {ThreeFoldRepetition}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {threeFoldRepetition}
+    \subitem {GameStatus}, 90
+  \item {throwError}
+    \subitem {Message}, 132
+  \item {ThrowingCallback$<$ T $>$}, 237
+    \subitem {callback}, 237
+  \item {TIE}
+    \subitem {GameStatus.GameStatusType}, 93
+  \item {TIE\_EVAL}
+    \subitem {Evaluation}, 79
+  \item {TIE\_STR}
+    \subitem {RequestBuilder}, 202
+  \item {TieByAgreement}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {tieByAgreement}
+    \subitem {GameStatus}, 90
+  \item {time}
+    \subitem {Col}, 41
+  \item {TimedOut}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {timedOut}
+    \subitem {GameStatus}, 90
+  \item {TimedOutVsInsufficientMaterial}
+    \subitem {GameStatus.SpecificStatus}, 210
+  \item {title}
+    \subitem {MyJFrame.Closing$<$ T $>$}, 33
+  \item {top}
+    \subitem {RequestBuilder}, 201
+    \subitem {Selection}, 205
+  \item {TopPlayers}
+    \subitem {PreMadeRequest}, 185
+  \item {toString}
+    \subitem {ArchivedGameInfo}, 7
+    \subitem {Arg}, 10
+    \subitem {BasicMove}, 20
+    \subitem {Board}, 25
+    \subitem {CastlingRights}, 31
+    \subitem {CastlingRights.Side}, 206
+    \subitem {Col}, 41
+    \subitem {Condition}, 48
+    \subitem {Config$<$ V $>$}, 52
+    \subitem {DBRequest}, 58
+    \subitem {DBResponse}, 62
+    \subitem {EstablishedGameInfo}, 73
+    \subitem {Evaluation}, 79
+    \subitem {GameInfo}, 83
+    \subitem {GameStatus}, 91
+    \subitem {GameStatus.SpecificStatus}, 209
+    \subitem {Location}, 103
+    \subitem {LoginInfo}, 107
+    \subitem {LoginType}, 108
+    \subitem {MinimaxMove}, 146
+    \subitem {Move}, 157
+    \subitem {MyError}, 163
+    \subitem {PlayerColor}, 183
+    \subitem {Question}, 189
+    \subitem {SQLStatement}, 212
+    \subitem {Square}, 215
+    \subitem {SwitchCase}, 230
+    \subitem {TableDBResponse}, 236
+  \item {tryClose}
+    \subitem {MyJFrame.Closing$<$ T $>$}, 33
+  \item {type}
+    \subitem {DBRequest}, 59
+    \subitem {SQLStatement}, 212
+
+  \indexspace
+
+  \item {U}
+    \subitem {Direction}, 68
+  \item {U\_L}
+    \subitem {Direction}, 68
+  \item {U\_L\_L}
+    \subitem {Direction}, 68
+  \item {U\_R}
+    \subitem {Direction}, 68
+  \item {U\_R\_R}
+    \subitem {Direction}, 68
+  \item {U\_U}
+    \subitem {Direction}, 68
+  \item {U\_U\_L}
+    \subitem {Direction}, 68
+  \item {U\_U\_R}
+    \subitem {Direction}, 69
+  \item {UNFINISHED}
+    \subitem {GameStatus.GameStatusType}, 93
+  \item {UnfinishedGame}, 238
+    \subitem {isCreatorToMove}, 239
+    \subitem {playerColorToMove}, 239
+    \subitem {playerToMove}, 239
+    \subitem {UnfinishedGame}, 238
+  \item {UnfinishedGames}
+    \subitem {Table}, 231
+  \item {UNIQUE\_MOVES\_PIECE\_TYPES}
+    \subitem {PieceType}, 180
+  \item {Update}, 239
+    \subitem {createStatement}, 240
+    \subitem {Update}, 240
+  \item {updateByMove}
+    \subitem {Message}, 132
+  \item {uppercase}
+    \subitem {StrUtils}, 228
+  \item {URL}
+    \subitem {RegEx}, 194
+  \item {Url}
+    \subitem {ArgType}, 14
+  \item {Username}
+    \subitem {ArgType}, 14
+    \subitem {Col}, 42
+    \subitem {RegEx}, 194
+  \item {Users}
+    \subitem {Table}, 232
+
+  \indexspace
+
+  \item {value}
+    \subitem {PieceType}, 180
+  \item {ValueBtn}
+    \subitem {ValueBtn$<$ T $>$}, 241
+  \item {ValueBtn$<$ T $>$}, 240
+    \subitem {ValueBtn}, 241
+  \item {valueOf}
+    \subitem {Location}, 103
+  \item {ver14::SharedClasses::DBActions::Condition::Relation}, 43
+  \item {ver14::SharedClasses::DBActions::DBRequest::DBRequest::Type}, 
+		56
+  \item {ver14::SharedClasses::DBActions::DBResponse::DBResponse::Status}, 
+		59
+  \item {ver14::SharedClasses::DBActions::Statements::Selection::Join}, 
+		202
+  \item {ver14::SharedClasses::DBActions::Statements::Selection::Order}, 
+		203
+  \item {ver14::SharedClasses::Game::Moves::Move::ThreefoldStatus}, 148
+  \item {ver14::SharedClasses::Misc::Question::QuestionType}, 186
+  \item {VoidCallback}, 242
+    \subitem {callback}, 242
+
+  \indexspace
+
+  \item {W\_B}
+    \subitem {Piece}, 174
+  \item {W\_K}
+    \subitem {Piece}, 174
+  \item {W\_N}
+    \subitem {Piece}, 174
+  \item {W\_P}
+    \subitem {Piece}, 174
+  \item {W\_Q}
+    \subitem {Piece}, 174
+  \item {W\_R}
+    \subitem {Piece}, 174
+  \item {waitForMatch}
+    \subitem {Message}, 132
+  \item {waitForYourTurn}
+    \subitem {Message}, 133
+  \item {weight}
+    \subitem {EvaluationParameters}, 81
+  \item {welcomeMessage}
+    \subitem {Message}, 133
+  \item {WHITE}
+    \subitem {PlayerColor}, 184
+  \item {whiteIcon}
+    \subitem {PieceType}, 181
+  \item {whosCastling}
+    \subitem {CastlingRights}, 31
+  \item {WIN\_EVAL}
+    \subitem {Evaluation}, 79
+  \item {WIN\_OR\_LOSS}
+    \subitem {GameStatus.GameStatusType}, 93
+  \item {Winner}
+    \subitem {Col}, 42
+  \item {wrap}
+    \subitem {Col}, 41
+    \subitem {Condition}, 48
+  \item {writeMessage}
+    \subitem {AppSocket}, 6
+
+  \indexspace
+
+  \item {zeroIfNull}
+    \subitem {Math}, 113
+
+\end{theindex}

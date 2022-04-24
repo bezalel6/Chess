@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The type Shapes helper.
+ * The utility class Shapes helper.
+ * can paint some shapes
  */
 public class ShapesHelper {
 

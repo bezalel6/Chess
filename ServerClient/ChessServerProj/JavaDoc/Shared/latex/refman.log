@@ -1,0 +1,3622 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.24)  24 APR 2022 22:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./refman.tex
+(refman.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24>
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\array.sty
+Rollback for package 'array' requested -> date 2016-10-06.
+         Best approximation is the release introduced on 2016-10-06.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\array-2016-10-06.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen139
+\extrarowheight=\dimen140
+\NC@list=\toks16
+\extratabsurround=\skip49
+\backup@length=\skip50
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+fixltx2e.sty
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+) (doxygen.sty
+Package: doxygen 
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+alltt.sty
+Package: alltt 2021/01/29 v2.0g defines alltt environment
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count193
+\calc@Bcount=\count194
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count195
+\calc@Cskip=\skip53
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/float
+\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count196
+\float@exts=\toks17
+\float@box=\box50
+\@float@everytoks=\toks18
+\@floatcapt=\box51
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks19
+\verbatim@line=\toks20
+\verbatim@in@stream=\read2
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/xcolo
+r\xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/color
+tbl\colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks21
+\minrowclearance=\skip54
+)
+\rownum=\count197
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+) (longtable_doxygen.sty
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count198
+\LTcapwidth=\dimen143
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@cols=\count199
+\LT@rows=\count266
+\c@LT@tables=\count267
+\c@LT@chunks=\count268
+\LT@p@ftn=\toks22
+) (tabu_doxygen.sty
+Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen ve
+rsion for doxygen
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/varwi
+dth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box56
+\sift@deathcycles=\count269
+\@vwid@loff=\dimen144
+\@vwid@roff=\dimen145
+)
+\c@taburow=\count270
+\tabu@nbcols=\count271
+\tabu@cnt=\count272
+\tabu@Xcol=\count273
+\tabu@alloc=\count274
+\tabu@nested=\count275
+\tabu@target=\dimen146
+\tabu@spreadtarget=\dimen147
+\tabu@naturalX=\dimen148
+\tabucolX=\dimen149
+\tabu@Xsum=\dimen150
+\extrarowdepth=\dimen151
+\abovetabulinesep=\dimen152
+\belowtabulinesep=\dimen153
+\tabustrutrule=\dimen154
+\tabu@thebody=\toks23
+\tabu@footnotes=\toks24
+\tabu@box=\box57
+\tabu@arstrutbox=\box58
+\tabu@hleads=\box59
+\tabu@vleads=\box60
+\tabu@cellskip=\skip59
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/fancy
+vrb\fancyvrb.sty
+Package: fancyvrb 2022/04/12 4.2 verbatim text (tvz,hv)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+\FV@CodeLineNo=\count276
+\FV@InFile=\read3
+\FV@TabBox=\box61
+\c@FancyVerbLine=\count277
+\FV@StepNumber=\count278
+\FV@OutFile=\write3
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen155
+\TX@old@table=\dimen156
+\TX@old@col=\dimen157
+\TX@target=\dimen158
+\TX@delta=\dimen159
+\TX@cols=\count279
+\TX@ftn=\toks26
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/tools
+\multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count280
+\mult@box=\box62
+\multicol@leftmargin=\dimen160
+\c@unbalance=\count281
+\c@collectmore=\count282
+\doublecol@number=\count283
+\multicoltolerance=\count284
+\multicolpretolerance=\count285
+\full@width=\dimen161
+\page@free=\dimen162
+\premulticols=\dimen163
+\postmulticols=\dimen164
+\multicolsep=\skip60
+\multicolbaselineskip=\skip61
+\partial@page=\box63
+\last@line=\box64
+\maxbalancingoverflow=\dimen165
+\mult@rightbox=\box65
+\mult@grightbox=\box66
+\mult@firstbox=\box67
+\mult@gfirstbox=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\c@minrows=\count286
+\c@columnbadness=\count287
+\c@finalcolumnbadness=\count288
+\last@try=\dimen166
+\multicolovershoot=\dimen167
+\multicolundershoot=\dimen168
+\mult@nat@firstbox=\box105
+\colbreak@box=\box106
+\mc@col@check@num=\count289
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/multi
+row\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip62
+\multirow@cntb=\count290
+\multirow@dima=\skip63
+\bigstrutjot=\dimen169
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/hangi
+ng\hanging.sty
+Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
+\h@ngcommawd=\skip64
+\h@ngfstopwd=\skip65
+\h@ngquotewd=\skip66
+\h@ngdquotewd=\skip67
+\h@ngquerywd=\skip68
+\h@ngexclwd=\skip69
+\h@ngcolonwd=\skip70
+\h@ngscolonwd=\skip71
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/ift
+ex\ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/ift
+ex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/adjus
+tbox\adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/xkeyv
+al\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/xke
+yval\xkeyval.tex
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/xke
+yval\xkvutils.tex
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count291
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/adjus
+tbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/adjus
+tbox\trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/graph
+ics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen170
+\Gin@req@width=\dimen171
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/colle
+ctbox\collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box107
+)
+\tc@llx=\dimen172
+\tc@lly=\dimen173
+\tc@urx=\dimen174
+\tc@ury=\dimen175
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/adjus
+tbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen176
+\adjbox@Height=\dimen177
+\adjbox@Depth=\dimen178
+\adjbox@Totalheight=\dimen179
+\adjbox@pwidth=\dimen180
+\adjbox@pheight=\dimen181
+\adjbox@pdepth=\dimen182
+\adjbox@ptotalheight=\dimen183
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/ifodd
+page\ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count292
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/amsfo
+nts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/amsfo
+nts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks29
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/stack
+engine\stackengine.sty
+Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient 
+ways
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/etool
+box\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count293
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/listo
+fitems\listofitems.sty
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/lis
+tofitems\listofitems.tex
+\loi_cnt_foreach_nest=\count294
+\loi_nestcnt=\count295
+)
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
+sep char (CT)
+)
+\c@@stackindex=\count296
+\@boxshift=\skip72
+\stack@tmplength=\skip73
+\temp@stkl=\skip74
+\@stackedboxwidth=\skip75
+\@addedbox=\box108
+\@anchorbox=\box109
+\@insetbox=\box110
+\se@backgroundbox=\box111
+\stackedbox=\box112
+\@centerbox=\box113
+\c@ROWcellindex@=\count297
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/enumi
+tem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip76
+\enit@outerparindent=\dimen184
+\enit@toks=\toks30
+\enit@inbox=\box114
+\enit@count@id=\count298
+\enitdp@description=\count299
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/alp
+halph\alphalph.sty
+Package: alphalph 2019/12/09 v2.6 Convert numbers to letters (HO)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/inf
+warerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/int
+calc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/ulem\
+ulem.sty
+\UL@box=\box115
+\UL@hyphenbox=\box116
+\UL@skip=\skip77
+\UL@hook=\toks31
+\UL@height=\dimen185
+\UL@pe=\count300
+\UL@pixel=\dimen186
+\ULC@box=\box117
+Package: ulem 2019/11/18
+\ULdepth=\dimen187
+)
+\xrefbox=\box118
+\xreflength=\skip78
+\CodeWidthChar=\skip79
+\CodeHeightChar=\skip80
+\DoxyCodeWidth=\skip81
+\c@DoxyEnumeratei=\count301
+\c@DoxyEnumerateii=\count302
+\c@DoxyEnumerateiii=\count303
+\c@DoxyEnumerateiv=\count304
+\c@DoxyEnumeratev=\count305
+\c@DoxyEnumeratevi=\count306
+\c@DoxyEnumeratevii=\count307
+\c@DoxyEnumerateviii=\count308
+\c@DoxyEnumerateix=\count309
+\c@DoxyEnumeratex=\count310
+\c@DoxyEnumeratexi=\count311
+\c@DoxyEnumeratexii=\count312
+\enitdp@DoxyEnumerate=\count313
+\enitdp@DoxyItemize=\count314
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks32
+\inpenc@posthook=\toks33
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+makeidx.sty
+Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/wasys
+ym\wasysym.sty
+Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/ift
+ex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/base\
+fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/psnfs
+s\helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/psnfs
+s\courier.sty
+Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/sects
+ty\sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/geome
+try\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/generic/ift
+ex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count315
+\Gm@cntv=\count316
+\c@Gm@tempcnt=\count317
+\Gm@bindingoffset=\dimen188
+\Gm@wd@mp=\dimen189
+\Gm@odd@mp=\dimen190
+\Gm@even@mp=\dimen191
+\Gm@layoutwidth=\dimen192
+\Gm@layoutheight=\dimen193
+\Gm@layouthoffset=\dimen194
+\Gm@layoutvoffset=\dimen195
+\Gm@dimlist=\toks34
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/geome
+try\geometry.cfg))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/fancy
+hdr\fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip82
+\f@nch@O@elh=\skip83
+\f@nch@O@erh=\skip84
+\f@nch@O@olh=\skip85
+\f@nch@O@orh=\skip86
+\f@nch@O@elf=\skip87
+\f@nch@O@erf=\skip88
+\f@nch@O@olf=\skip89
+\f@nch@O@orf=\skip90
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/natbi
+b\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip91
+\bibsep=\skip92
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count318
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/toclo
+ft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 51.
+\cftparskip=\skip93
+\cftbeforetoctitleskip=\skip94
+\cftaftertoctitleskip=\skip95
+\cftbeforepartskip=\skip96
+\cftpartnumwidth=\skip97
+\cftpartindent=\skip98
+\cftbeforesecskip=\skip99
+\cftsecindent=\skip100
+\cftsecnumwidth=\skip101
+\cftbeforesubsecskip=\skip102
+\cftsubsecindent=\skip103
+\cftsubsecnumwidth=\skip104
+\cftbeforesubsubsecskip=\skip105
+\cftsubsubsecindent=\skip106
+\cftsubsubsecnumwidth=\skip107
+\cftbeforeparaskip=\skip108
+\cftparaindent=\skip109
+\cftparanumwidth=\skip110
+\cftbeforesubparaskip=\skip111
+\cftsubparaindent=\skip112
+\cftsubparanumwidth=\skip113
+\cftbeforeloftitleskip=\skip114
+\cftafterloftitleskip=\skip115
+\cftbeforefigskip=\skip116
+\cftfigindent=\skip117
+\cftfignumwidth=\skip118
+\c@lofdepth=\count319
+\c@lotdepth=\count320
+\cftbeforelottitleskip=\skip119
+\cftafterlottitleskip=\skip120
+\cftbeforetabskip=\skip121
+\cfttabindent=\skip122
+\cfttabnumwidth=\skip123
+)
+\@indexfile=\write4
+\openout4 = `refman.idx'.
+
+Writing index file refman.idx
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/newun
+icodechar\newunicodechar.sty
+Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
+)
+
+Package newunicodechar Warning: Redefining Unicode character on input line 114.
+
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 115.
+
+
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/capti
+on\caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/capti
+on\caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen196
+\captionmargin=\dimen197
+\caption@leftmargin=\dimen198
+\caption@rightmargin=\dimen199
+\caption@width=\dimen256
+\caption@indent=\dimen257
+\caption@parindent=\dimen258
+\caption@hangindent=\dimen259
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count321
+\c@continuedfloat=\count322
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/capti
+on\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+))
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/etoc\
+etoc.sty
+Package: etoc 2021/09/23 v1.09e Completely customisable TOCs (JFB)
+\Etoc@toctoks=\toks35
+\c@etoc@tocid=\count323
+\c@etoc@tocdepth=\count324
+\etoc@framed@titlebox=\box119
+\etoc@framed@contentsbox=\box120
+)
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 13
+2.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/psnfs
+s\t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 132.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/l3bac
+kend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count325
+\l__pdf_internal_box=\box121
+) (refman.aux)
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/context/bas
+e/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count326
+\scratchdimen=\dimen260
+\scratchbox=\box122
+\nofMPsegments=\count327
+\nofMParguments=\count328
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen261
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
+\everyMPtoPDFconversion=\toks37
+)
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/epsto
+pdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/00mik
+tex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=121.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+\Etoc@tf=\read4
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 139.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 141.
+[1
+
+{C:/Users/בצלאל אברהמי/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.
+map}]
+\tf@toc=\write5
+\openout5 = `refman.toc'.
+
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 146.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146
+.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/amsfo
+nts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146
+.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/amsfo
+nts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 14
+6.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/wasys
+ym\uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 146.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 146.
+[1] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 148.
+(interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.tex
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 1.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 9.
+
+Underfull \hbox (badness 10000) detected at line 9
+[][][]
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
+.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/psnfs
+s\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)) (classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.tex
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6
+.
+
+(C:\Users\בצלאל אברהמי\AppData\Local\Programs\MiKTeX\tex/latex/psnfs
+s\ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 6.
+[1]
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 64.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 64.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 64.
+[2] [3]
+Underfull \hbox (badness 10000) detected at line 128
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 139
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 150
+[][][]
+ []
+
+[4]
+Underfull \hbox (badness 10000) detected at line 184
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 195
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 202.
+
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+[5])
+(classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.
+tex [6]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 58
+[][][]
+ []
+
+[7]
+Underfull \hbox (badness 10000) detected at line 69
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.tex
+Underfull \hbox (badness 10000) detected at line 38
+[][][]
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 121
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 132
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 156
+[][][]
+ []
+
+[10]) (classver14_1_1_shared_classes_1_1_utils_1_1_args_util.tex
+Underfull \hbox (badness 10000) detected at line 22
+[][][]
+ []
+
+[11]
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 57
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 68
+[][][]
+ []
+
+[12]
+Underfull \hbox (badness 10000) detected at line 84
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.tex
+Underfull \hbox (badness 10000) detected at line 38
+[][][]
+ []
+
+[13]) (classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils.tex [14]
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][][]
+ []
+
+
+Overfull \vbox (11.67609pt too high) has occurred while \output is active []
+
+[15]
+Underfull \hbox (badness 10000) detected at line 60
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.tex
+Underfull \hbox (badness 10000) detected at line 44
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+[17]
+Underfull \hbox (badness 10000) detected at line 118
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 134
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 155
+[][][]
+ []
+
+[18]
+Underfull \hbox (badness 10000) detected at line 171
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 182
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 193
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+
+Overfull \vbox (4.13753pt too high) has occurred while \output is active []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 241
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_bit_data.tex
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_boar
+d.tex [20]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+[21]
+Underfull \hbox (badness 10000) detected at line 118
+[][][]
+ []
+
+[22]
+Underfull \hbox (badness 10000) detected at line 136
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 154
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+[23]
+Underfull \hbox (badness 10000) detected at line 186
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 197
+[][][]
+ []
+
+[24]
+Underfull \hbox (badness 10000) detected at line 242
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 253
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.t
+ex [25]
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+) (interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+[26]) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.tex
+
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+[27]
+Underfull \hbox (badness 10000) detected at line 106
+[][][]
+ []
+
+[28]
+Underfull \hbox (badness 10000) detected at line 124
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 168
+[][][]
+ []
+
+[29]
+Underfull \hbox (badness 10000) detected at line 179
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 195
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 213
+[][][]
+ []
+
+[30]
+Underfull \hbox (badness 10000) detected at line 237
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 253
+[][][]
+ []
+
+) (interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_closing.tex [31
+]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+[32]
+Underfull \hbox (badness 10000) detected at line 73
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.tex [33]
+Underfull \hbox (badness 10000) detected at line 85
+[][][]
+ []
+
+[34] [35]
+Underfull \hbox (badness 10000) detected at line 143
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 159
+[][][]
+ []
+
+[36]
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 186
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+[37]
+Underfull \hbox (badness 10000) detected at line 222
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 233
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 244
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 262
+[][][]
+ []
+
+[38]
+Underfull \hbox (badness 10000) detected at line 282
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 293
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 309
+[][][]
+ []
+
+[39]
+Underfull \hbox (badness 10000) detected at line 325
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 343
+[][][]
+ []
+
+[40]
+Underfull \hbox (badness 10000) detected at line 387
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 405
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 416
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 427
+[][][]
+ []
+
+[41]) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.tex [42]
+Underfull \hbox (badness 10000) detected at line 45
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_con
+dition_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition_1_1_relation'
+ on page 43 undefined on input line 53.
+
+
+Underfull \hbox (badness 10000) detected at line 55
+[][][]
+ []
+
+[43]
+Underfull \hbox (badness 10000) detected at line 104
+[][][]
+ []
+
+[44]
+Underfull \hbox (badness 10000) detected at line 124
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 140
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 160
+[][][]
+ []
+
+[45] [46]
+Underfull \hbox (badness 10000) detected at line 178
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 189
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 209
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 220
+[][][]
+ []
+
+[47]
+Underfull \hbox (badness 10000) detected at line 238
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 262
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.tex [48]
+Underfull \hbox (badness 10000) detected at line 47
+[][][]
+ []
+
+[49] [50]
+Underfull \hbox (badness 10000) detected at line 160
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 171
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 182
+[][][]
+ []
+
+[51]
+Underfull \hbox (badness 10000) detected at line 193
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_u_i_1_1dialogs_1_1_confirm_dialogs.tex [52
+]
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+[53]
+Underfull \hbox (badness 10000) detected at line 63
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.tex
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+
+Overfull \vbox (12.43259pt too high) has occurred while \output is active []
+
+[54]
+Underfull \hbox (badness 10000) detected at line 50
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statem
+ent.tex
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+[55]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.
+tex
+Underfull \hbox (badness 10000) detected at line 37
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_request_1_1_d_b_request_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_r
+equest_1_1_d_b_request_1_1_type' on page 56 undefined on input line 45.
+
+
+Underfull \hbox (badness 10000) detected at line 47
+[][][]
+ []
+
+[56] [57]
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][][]
+ []
+
+[58]
+Underfull \hbox (badness 10000) detected at line 165
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_request_1_1_d_b_request_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_r
+equest_1_1_d_b_request_1_1_type' on page 59 undefined on input line 177.
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_respons
+e.tex
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_response_1_1_d_b_response_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_response_1_1_d_b_response_1_1_status' on page 59 undefined on input line 56.
+
+
+Underfull \hbox (badness 10000) detected at line 58
+[][][]
+ []
+
+[59]
+Underfull \hbox (badness 10000) detected at line 100
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][][]
+ []
+
+[60]
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+[61]
+Underfull \hbox (badness 10000) detected at line 193
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_response_1_1_d_b_response_enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b
+_response_1_1_d_b_response_1_1_status' on page 62 undefined on input line 221.
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.tex
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+[62]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction.tex [63]
+Underfull \vbox (badness 10000) detected at line 90
+ []
+
+[64]
+Underfull \hbox (badness 10000) detected at line 93
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 107
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][][]
+ []
+
+[65]
+Underfull \hbox (badness 10000) detected at line 152
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 168
+[][][]
+ []
+
+[66] [67])
+(interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manag
+er.tex [68]
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_error_han
+dler.tex [69]
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_in
+fo.tex [70]
+Underfull \hbox (badness 10000) detected at line 37
+[][][]
+ []
+
+[71]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 86
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 101
+[][][]
+ []
+
+[72]
+Underfull \hbox (badness 10000) detected at line 125
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.tex [73
+]
+Underfull \hbox (badness 10000) detected at line 69
+[][][]
+ []
+
+[74] [75]
+Underfull \hbox (badness 10000) detected at line 165
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 176
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 192
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 203
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 220
+[][][]
+ []
+
+[76]
+Underfull \hbox (badness 10000) detected at line 231
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 242
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 253
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 264
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 275
+[][][]
+ []
+
+[77]
+Underfull \hbox (badness 10000) detected at line 291
+[][][]
+ []
+
+[78]
+Underfull \hbox (badness 10000) detected at line 339
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 350
+[][][]
+ []
+
+)
+(enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters
+.tex
+Underfull \hbox (badness 10000) detected at line 31
+[][][]
+ []
+
+[79]) (classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.tex
+[80]
+Underfull \hbox (badness 10000) detected at line 44
+[][][]
+ []
+
+[81]
+Underfull \hbox (badness 10000) detected at line 83
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 120
+[][][]
+ []
+
+[82]
+Underfull \hbox (badness 10000) detected at line 131
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 142
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 158
+[][][]
+ []
+
+[83]
+Underfull \hbox (badness 10000) detected at line 169
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.tex [8
+4]
+Underfull \hbox (badness 10000) detected at line 69
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 101
+[][][]
+ []
+
+[85]
+Underfull \hbox (badness 10000) detected at line 112
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 134
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 150
+[][][]
+ []
+
+[86]
+Underfull \hbox (badness 10000) detected at line 161
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 183
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 194
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 205
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 216
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 227
+[][][]
+ []
+
+[87]
+Underfull \hbox (badness 10000) detected at line 245
+[][][]
+ []
+
+[88]
+Underfull \hbox (badness 10000) detected at line 261
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 277
+[][][]
+ []
+
+[89]
+Underfull \hbox (badness 10000) detected at line 327
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 338
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 349
+[][][]
+ []
+
+[90]
+Underfull \hbox (badness 10000) detected at line 367
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 378
+[][][]
+ []
+
+)
+(enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_
+status_type.tex
+Underfull \hbox (badness 10000) detected at line 34
+[][][]
+ []
+
+[91]
+Underfull \hbox (badness 10000) detected at line 79
+[][][]
+ []
+
+[92]) (classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.tex [93]
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_he
+ld_down.tex [94]
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator.tex
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+[95]
+Underfull \hbox (badness 10000) detected at line 34
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 45
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_iteration_thingy
+.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+[96]
+Underfull \hbox (badness 10000) detected at line 34
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_game_1_1_location.tex
+Underfull \hbox (badness 10000) detected at line 72
+[][][]
+ []
+
+[97]
+Underfull \hbox (badness 10000) detected at line 95
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 106
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+[98]
+Underfull \hbox (badness 10000) detected at line 133
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 149
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 167
+[][][]
+ []
+
+[99]
+Underfull \hbox (badness 10000) detected at line 187
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 205
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 223
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+[100]
+Underfull \hbox (badness 10000) detected at line 246
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 262
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 265
+[][][]
+ []
+
+[101]
+Underfull \hbox (badness 10000) detected at line 281
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 292
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 308
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 319
+[][][]
+ []
+
+
+Overfull \vbox (0.65417pt too high) has occurred while \output is active []
+
+[102]
+Underfull \hbox (badness 10000) detected at line 335
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 346
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 357
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 368
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 379
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 390
+[][][]
+ []
+
+[103]
+Underfull \hbox (badness 10000) detected at line 406
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_login_1_1_login_info.tex
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+[104] [105]
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 116
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 127
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 138
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 155
+[][][]
+ []
+
+[106]
+Underfull \hbox (badness 10000) detected at line 218
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_login_1_1_login_type.tex [107]
+Underfull \hbox (badness 10000) detected at line 28
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+[108]) (enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math.tex
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+[109]
+Underfull \hbox (badness 10000) detected at line 84
+[][][]
+ []
+
+[110]
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 138
+[][][]
+ []
+
+
+Overfull \vbox (1.69986pt too high) has occurred while \output is active []
+
+[111]
+Underfull \hbox (badness 10000) detected at line 156
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 205
+[][][]
+ []
+
+[112]
+Underfull \hbox (badness 10000) detected at line 216
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 232
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.tex [1
+13] [114] [115] [116]
+Underfull \hbox (badness 10000) detected at line 241
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 259
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 270
+[][][]
+ []
+
+[117]
+Underfull \hbox (badness 10000) detected at line 286
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 302
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 318
+[][][]
+ []
+
+
+Overfull \vbox (2.67831pt too high) has occurred while \output is active []
+
+[118]
+Underfull \hbox (badness 10000) detected at line 334
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 350
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 366
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 377
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 388
+[][][]
+ []
+
+[119]
+Underfull \hbox (badness 10000) detected at line 399
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 410
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 421
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 432
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 443
+[][][]
+ []
+
+[120]
+Underfull \hbox (badness 10000) detected at line 454
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 465
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 476
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 487
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 498
+[][][]
+ []
+
+[121]
+Underfull \hbox (badness 10000) detected at line 509
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 520
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 531
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 542
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 553
+[][][]
+ []
+
+[122]
+Underfull \hbox (badness 10000) detected at line 564
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 575
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 586
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 597
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 608
+[][][]
+ []
+
+[123]
+Underfull \hbox (badness 10000) detected at line 632
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 643
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 654
+[][][]
+ []
+
+[124]
+Underfull \hbox (badness 10000) detected at line 665
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 683
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 701
+[][][]
+ []
+
+[125]
+Underfull \hbox (badness 10000) detected at line 719
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 737
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 753
+[][][]
+ []
+
+[126]
+Underfull \hbox (badness 10000) detected at line 771
+[][][]
+ []
+
+[127] [128] [129] [130]
+Overfull \vbox (4.45186pt too high) has occurred while \output is active []
+
+[131]
+Underfull \hbox (badness 10000) detected at line 1060
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1076
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1094
+[][][]
+ []
+
+[132]
+Underfull \hbox (badness 10000) detected at line 1105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1123
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1141
+[][][]
+ []
+
+) (interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback.tex [13
+3]
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.tex [134]
+Underfull \hbox (badness 10000) detected at line 89
+[][][]
+ []
+
+[135]
+Underfull \hbox (badness 10000) detected at line 124
+[][][]
+ []
+
+
+Overfull \hbox (23.36104pt too wide) in paragraph at lines 131--132
+ \T1/phv/b/n/10 1.43.3.2 cre-ate-Dis-con-nect-ed-Er-ror()[] \T1/pcr/m/n/8 My[]E
+rror.[]Disconnected[]Error create[]Disconnected[]Error ( ) [protected] 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 135
+[][][]
+ []
+
+[136]
+Underfull \hbox (badness 10000) detected at line 174
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 185
+[][][]
+ []
+
+[137]
+Underfull \hbox (badness 10000) detected at line 215
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 237
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 248
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 265
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 276
+[][][]
+ []
+
+[138]
+Underfull \hbox (badness 10000) detected at line 287
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 298
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 309
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 320
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 331
+[][][]
+ []
+
+[139]
+Underfull \hbox (badness 10000) detected at line 342
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 353
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 370
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 381
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 398
+[][][]
+ []
+
+[140]
+Underfull \hbox (badness 10000) detected at line 409
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 420
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 431
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 442
+[][][]
+ []
+
+[141]
+Underfull \hbox (badness 10000) detected at line 453
+[][][]
+ []
+
+[142]) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.tex
+Underfull \hbox (badness 10000) detected at line 39
+[][][]
+ []
+
+[143]
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+[144]
+Underfull \hbox (badness 10000) detected at line 118
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 129
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 140
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 151
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 162
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 173
+[][][]
+ []
+
+[145]
+Underfull \hbox (badness 10000) detected at line 189
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.tex [146]
+Underfull \hbox (badness 10000) detected at line 103
+[][][]
+ []
+
+[147]
+Underfull \hbox (badness 10000) detected at line 113
+[][][]
+ []
+
+[148]
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+[149]
+Underfull \hbox (badness 10000) detected at line 227
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 243
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 259
+[][][]
+ []
+
+[150]
+Underfull \hbox (badness 10000) detected at line 279
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 290
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 301
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 312
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 323
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 334
+[][][]
+ []
+
+[151]
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 356
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 367
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 378
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 389
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 400
+[][][]
+ []
+
+[152]
+Underfull \hbox (badness 10000) detected at line 411
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 422
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 433
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 444
+[][][]
+ []
+
+[153] [154] [155] [156]
+Underfull \hbox (badness 10000) detected at line 635
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 646
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 657
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation.tex
+Underfull \hbox (badness 10000) detected at line 17
+[][][]
+ []
+
+[157]
+Underfull \hbox (badness 10000) detected at line 38
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 58
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag.tex [
+158]
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+[159]
+Underfull \hbox (badness 10000) detected at line 84
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.te
+x [160]
+Underfull \hbox (badness 10000) detected at line 28
+[][][]
+ []
+
+
+Overfull \vbox (8.46568pt too high) has occurred while \output is active []
+
+[161]
+Underfull \hbox (badness 10000) detected at line 97
+[][][]
+ []
+
+[162]
+Underfull \hbox (badness 10000) detected at line 108
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.tex
+Underfull \hbox (badness 10000) detected at line 35
+[][][]
+ []
+
+[163]
+Overfull \vbox (29.24054pt too high) has occurred while \output is active []
+
+[164]
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+[165]) (classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.tex [166]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
+
+[167]
+Underfull \hbox (badness 10000) detected at line 87
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.tex [168] [169]) (in
+terfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.tex)
+(enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_piece
+s_1_1_piece.tex [170]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 83
+[][][]
+ []
+
+
+Overfull \vbox (20.05472pt too high) has occurred while \output is active []
+
+[171]
+Underfull \hbox (badness 10000) detected at line 101
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 117
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 128
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 144
+[][][]
+ []
+
+[172]
+Underfull \hbox (badness 10000) detected at line 160
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 176
+[][][]
+ []
+
+[173])
+(enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_piece
+s_1_1_piece_type.tex [174]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+[175]
+Underfull \hbox (badness 10000) detected at line 101
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+[176]
+Underfull \hbox (badness 10000) detected at line 146
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 162
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 173
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 189
+[][][]
+ []
+
+[177]
+Underfull \hbox (badness 10000) detected at line 200
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 229
+[][][]
+ []
+
+[178]
+Underfull \hbox (badness 10000) detected at line 245
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 261
+[][][]
+ []
+
+[179]) (enumver14_1_1_shared_classes_1_1_game_1_1_player_color.tex [180]
+Underfull \hbox (badness 10000) detected at line 50
+[][][]
+ []
+
+[181]
+Underfull \hbox (badness 10000) detected at line 87
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 98
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 109
+[][][]
+ []
+
+[182]
+Underfull \hbox (badness 10000) detected at line 125
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 136
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_req
+uest.tex [183]
+Underfull \hbox (badness 10000) detected at line 40
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+[184]
+Underfull \hbox (badness 10000) detected at line 65
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_misc_1_1_question.tex [185]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 63
+[][][]
+ []
+
+[186] [187]
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 146
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 162
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 173
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 184
+[][][]
+ []
+
+[188]
+Underfull \hbox (badness 10000) detected at line 195
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 219
+[][][]
+ []
+
+[189]) (classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.tex
+Underfull \hbox (badness 10000) detected at line 60
+[][][]
+ []
+
+[190] [191]
+Underfull \hbox (badness 10000) detected at line 120
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 136
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 152
+[][][]
+ []
+
+[192]
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 174
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 190
+[][][]
+ []
+
+[193]) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.tex [
+194]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+[195] [196] [197]
+Underfull \hbox (badness 10000) detected at line 189
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 200
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 229
+[][][]
+ []
+
+[198]
+Underfull \hbox (badness 10000) detected at line 247
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 258
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 269
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 280
+[][][]
+ []
+
+[199]
+Underfull \hbox (badness 10000) detected at line 296
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 307
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 318
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 329
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 340
+[][][]
+ []
+
+[200]
+Underfull \hbox (badness 10000) detected at line 364
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 375
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.tex
+[201]
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_1_1_join' on page 202 undefined on input line 44.
+
+
+Underfull \hbox (badness 10000) detected at line 46
+[][][]
+ []
+
+[202]
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_1_1_order' on page 203 undefined on input line 59.
+
+
+Underfull \hbox (badness 10000) detected at line 61
+[][][]
+ []
+
+[203]
+Underfull \hbox (badness 10000) detected at line 124
+[][][]
+ []
+
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_1_1_join' on page 204 undefined on input line 137.
+
+
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+[204]
+
+LaTeX Warning: Reference `classver14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_sta
+tements_1_1_selection_1_1_order' on page 205 undefined on input line 172.
+
+)
+(enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side.t
+ex
+Underfull \hbox (badness 10000) detected at line 43
+[][][]
+ []
+
+[205]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+[206]
+Underfull \hbox (badness 10000) detected at line 93
+[][][]
+ []
+
+)
+(enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_speci
+fic_status.tex [207]
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
+ []
+
+[208]
+Underfull \hbox (badness 10000) detected at line 84
+[][][]
+ []
+
+[209])
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_stateme
+nt.tex
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+[210]
+Underfull \hbox (badness 10000) detected at line 59
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+[211]
+Underfull \hbox (badness 10000) detected at line 100
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_squa
+re.tex
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+[212]
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+[213]
+Underfull \hbox (badness 10000) detected at line 92
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 103
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 125
+[][][]
+ []
+
+[214]
+Underfull \hbox (badness 10000) detected at line 155
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_resp
+onse.tex
+Underfull \hbox (badness 10000) detected at line 22
+[][][]
+ []
+
+[215]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 101
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.te
+x [216]
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 41
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_utils_1_1_str_utils.tex [217]
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
+
+[218]
+Underfull \hbox (badness 10000) detected at line 97
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 113
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 131
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 142
+[][][]
+ []
+
+[219]
+Underfull \hbox (badness 10000) detected at line 158
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 174
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 190
+[][][]
+ []
+
+[220]
+Underfull \hbox (badness 10000) detected at line 206
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 224
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 240
+[][][]
+ []
+
+[221]
+Underfull \hbox (badness 10000) detected at line 256
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 272
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 288
+[][][]
+ []
+
+[222]
+Underfull \hbox (badness 10000) detected at line 304
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 322
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 338
+[][][]
+ []
+
+[223]
+Underfull \hbox (badness 10000) detected at line 354
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 370
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 386
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 402
+[][][]
+ []
+
+[224]
+Underfull \hbox (badness 10000) detected at line 418
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 434
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 450
+[][][]
+ []
+
+[225]
+Underfull \hbox (badness 10000) detected at line 479
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 497
+[][][]
+ []
+
+[226]
+Underfull \hbox (badness 10000) detected at line 513
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 531
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 551
+[][][]
+ []
+
+
+Overfull \vbox (3.28381pt too high) has occurred while \output is active []
+
+[227]
+Underfull \hbox (badness 10000) detected at line 567
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 583
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case.tex
+
+LaTeX Warning: Reference `' on page 228 undefined on input line 24.
+
+
+LaTeX Warning: Reference `' on page 228 undefined on input line 24.
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
+[228]
+Underfull \hbox (badness 10000) detected at line 58
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 74
+[][][]
+ []
+
+[229]
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 116
+[][][]
+ []
+
+) (enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table.tex
+Underfull \hbox (badness 10000) detected at line 31
+[][][]
+ []
+
+[230]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+)
+(classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_r
+esponse.tex [231]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+[232]
+Underfull \hbox (badness 10000) detected at line 108
+[][][]
+ []
+
+[233]
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 164
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 175
+[][][]
+ []
+
+[234]
+Underfull \hbox (badness 10000) detected at line 186
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 197
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 208
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 223
+[][][]
+ []
+
+[235]
+Underfull \hbox (badness 10000) detected at line 239
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 250
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager.tex [236]
+Underfull \hbox (badness 10000) detected at line 31
+[][][]
+ []
+
+) (interfacever14_1_1_shared_classes_1_1_callbacks_1_1_throwing_callback.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+[237])
+(classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.tex
+
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+[238]
+Underfull \hbox (badness 10000) detected at line 65
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.tex
+Underfull \hbox (badness 10000) detected at line 19
+[][][]
+ []
+
+[239]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+) (classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.tex [240]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+)
+(interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made
+_request_1_1_variation_creator.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+[241]
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+) (interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback.tex
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+) [242] (refman.ind
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 12.9599pt on input line 1.
+[243
+
+
+] [244] [245] [246] [247] [248] [249] [250] [251] [252] [253] [254] [255] [256]
+[257] [258] [259] [260] [261]
+Underfull \hbox (badness 10000) in paragraph at lines 2328--2329
+[]\T1/phv/m/n/10 ver14::SharedClasses::DBActions::Condition::Relation,
+ []
+
+
+Overfull \hbox (41.17192pt too wide) in paragraph at lines 2329--2331
+[]\T1/phv/m/n/10 ver14::SharedClasses::DBActions::DBRequest::DBRequest::Type,
+ []
+
+
+Overfull \hbox (61.76357pt too wide) in paragraph at lines 2331--2333
+[]\T1/phv/m/n/10 ver14::SharedClasses::DBActions::DBResponse::DBResponse::Statu
+s,
+ []
+
+
+Overfull \hbox (29.25578pt too wide) in paragraph at lines 2333--2335
+[]\T1/phv/m/n/10 ver14::SharedClasses::DBActions::Statements::Selection::Join,
+ []
+
+
+Overfull \hbox (35.75359pt too wide) in paragraph at lines 2335--2337
+[]\T1/phv/m/n/10 ver14::SharedClasses::DBActions::Statements::Selection::Order,
+
+ []
+
+
+Overfull \hbox (23.75725pt too wide) in paragraph at lines 2337--2338
+[]\T1/phv/m/n/10 ver14::SharedClasses::Game::Moves::Move::ThreefoldStatus,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2338--2339
+[]\T1/phv/m/n/10 ver14::SharedClasses::Misc::Question::QuestionType,
+ []
+
+[262] [263
+
+]) (refman.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 12878 strings out of 478582
+ 328458 string characters out of 2835812
+ 708877 words of memory out of 3000000
+ 30603 multiletter control sequences out of 15000+600000
+ 517312 words of font info for 100 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,16n,117p,829b,580s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{C:/Users/בצלאל אברהמי/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/base/8r.enc}<C:/Users/בצלאל אברהמי/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/בצלאל אברהמי/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/
+בצלאל אברהמי/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb><C:/Users/בצלאל אברהמי/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/בצלאל אברהמי/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+בצלאל אברהמי/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb><C:/Users/בצלאל אברהמי/AppData/Local/Programs/MiKTeX
+/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/בצלאל אברהמי/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/בצלאל א
+ברהמי/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C
+:/Users/בצלאל אברהמי/AppData/Local/Programs/MiKTeX/fonts/type1/urw/h
+elvetic/uhvb8a.pfb><C:/Users/בצלאל אברהמי/AppData/Local/Programs/MiK
+TeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Users/בצלאל אברהמי/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/בצל�
+�ל אברהמי/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a
+.pfb>
+Output written on refman.pdf (271 pages, 547615 bytes).
+PDF statistics:
+ 938 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

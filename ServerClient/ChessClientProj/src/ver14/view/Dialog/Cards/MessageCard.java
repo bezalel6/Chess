@@ -57,7 +57,8 @@ public class MessageCard extends DialogCard {
 
     public enum MessageType {
         INFO(IconManager.infoIcon, FontManager.Dialogs.MessageDialogs.info, Color.BLACK),
-        ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED), ServerError(IconManager.serverError, FontManager.Dialogs.MessageDialogs.error, Color.RED);
+        ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED),
+        ServerError(IconManager.serverError, FontManager.Dialogs.MessageDialogs.error, Color.RED);
         public final ImageIcon icon;
         public final Font font;
         public final Color clr;

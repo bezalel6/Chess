@@ -1,63 +1,45 @@
-\hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{}\doxysection{ver14.\+Shared\+Classes.\+Game.\+Player\+Color Enum Reference}
-\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsection*{Public Member Functions}
+\doxysubsection{Player\+Color Enum Reference}
+\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}\index{PlayerColor@{PlayerColor}}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}{Player\+Color}} (int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a556c3a6fb627ff3c26c7116103a8c65c}{starting\+Row}}, int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ad25e44e4c95f7514ffe2718784afcde9}{diff}})
+\textbf{ WHITE}
 \item 
-abstract \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}{get\+Opponent}} ()
+\textbf{ BLACK}
 \item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc9218ad73f7d5e6529e8472b838ea58}{to\+String}} ()
+\textbf{ NO\+\_\+\+PLAYER}
 \item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aa7d3bee220c56a4c89e15d3549a86944}{get\+Name}} ()
+final int \textbf{ as\+Int}
+\item 
+final int \textbf{ index\+Of2}
+\item 
+final int \textbf{ starting\+Row}
+\item 
+final int \textbf{ diff}
 \end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
+\doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aed9d51392128a524ebfde290a11429f7}{get\+Color}} (int clr)
+static final \textbf{ Player\+Color}[$\,$] \textbf{ PLAYER\+\_\+\+COLORS}
 \item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a85ccecd9bdee1a3b089b6aee12ed805a}{get\+Player\+From\+Fen}} (String player\+To\+Move)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{WHITE}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}{BLACK}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac47a3510846c99a2a7acd97c4c190568}{NO\+\_\+\+PLAYER}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc7f359ab1d34273b3a6017a543c9f4f}{as\+Int}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a773f4ad55f1281647c7c49e27629c34e}{index\+Of2}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a556c3a6fb627ff3c26c7116103a8c65c}{starting\+Row}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ad25e44e4c95f7514ffe2718784afcde9}{diff}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aabfcb6abd24b49da09798fba88e75201}{PLAYER\+\_\+\+COLORS}} = \{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{WHITE}}, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}{BLACK}}\}
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_af3438d3e0123073dc13ee557607b87b8}{NUM\+\_\+\+OF\+\_\+\+PLAYERS}} = 2
+static final int \textbf{ NUM\+\_\+\+OF\+\_\+\+PLAYERS}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsubsection{Detailed Description}
 Player color -\/ represents a player color.
 
 \begin{DoxyAuthor}{Author}
-Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
 \end{DoxyAuthor}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!PlayerColor@{PlayerColor}}
-\index{PlayerColor@{PlayerColor}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{PlayerColor()}{PlayerColor()}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+Player\+Color (\begin{DoxyParamCaption}\item[{int}]{starting\+Row,  }\item[{int}]{diff }\end{DoxyParamCaption})}
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a23c1818333724d836bb4f16f5edfb283}} 
+\index{PlayerColor@{PlayerColor}!PlayerColor@{PlayerColor}}
+\index{PlayerColor@{PlayerColor}!PlayerColor@{PlayerColor}}
+\doxyparagraph{PlayerColor()}
+{\footnotesize\ttfamily \textbf{ Player\+Color} (\begin{DoxyParamCaption}\item[{int}]{starting\+Row,  }\item[{int}]{diff }\end{DoxyParamCaption})}
 
 Instantiates a new Player color.
 
@@ -70,12 +52,12 @@ Instantiates a new Player color.
 \end{DoxyParams}
 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aed9d51392128a524ebfde290a11429f7}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aed9d51392128a524ebfde290a11429f7}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!getColor@{getColor}}
-\index{getColor@{getColor}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+get\+Color (\begin{DoxyParamCaption}\item[{int}]{clr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_af57979f2f748e27b4c9a6871b0f5d00c}} 
+\index{PlayerColor@{PlayerColor}!getColor@{getColor}}
+\index{getColor@{getColor}!PlayerColor@{PlayerColor}}
+\doxyparagraph{getColor()}
+{\footnotesize\ttfamily static \textbf{ Player\+Color} get\+Color (\begin{DoxyParamCaption}\item[{int}]{clr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets color.
 
@@ -87,33 +69,33 @@ Gets color.
 \begin{DoxyReturn}{Returns}
 the color 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aa7d3bee220c56a4c89e15d3549a86944}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aa7d3bee220c56a4c89e15d3549a86944}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!getName@{getName}}
-\index{getName@{getName}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a78ee178b6a73658d65ca60da4d1e6683}} 
+\index{PlayerColor@{PlayerColor}!getName@{getName}}
+\index{getName@{getName}!PlayerColor@{PlayerColor}}
+\doxyparagraph{getName()}
+{\footnotesize\ttfamily String get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Gets name.
 
 \begin{DoxyReturn}{Returns}
 the name 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!getOpponent@{getOpponent}}
-\index{getOpponent@{getOpponent}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{getOpponent()}{getOpponent()}}
-{\footnotesize\ttfamily abstract \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+get\+Opponent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a8216870526a1a8ca3865a725d268eb37}} 
+\index{PlayerColor@{PlayerColor}!getOpponent@{getOpponent}}
+\index{getOpponent@{getOpponent}!PlayerColor@{PlayerColor}}
+\doxyparagraph{getOpponent()}
+{\footnotesize\ttfamily abstract \textbf{ Player\+Color} get\+Opponent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
 
 Gets opponent.
 
 \begin{DoxyReturn}{Returns}
 the opponent 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a85ccecd9bdee1a3b089b6aee12ed805a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a85ccecd9bdee1a3b089b6aee12ed805a}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!getPlayerFromFen@{getPlayerFromFen}}
-\index{getPlayerFromFen@{getPlayerFromFen}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{getPlayerFromFen()}{getPlayerFromFen()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+get\+Player\+From\+Fen (\begin{DoxyParamCaption}\item[{String}]{player\+To\+Move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a428513541e9c51dceb849c74e481dd06}} 
+\index{PlayerColor@{PlayerColor}!getPlayerFromFen@{getPlayerFromFen}}
+\index{getPlayerFromFen@{getPlayerFromFen}!PlayerColor@{PlayerColor}}
+\doxyparagraph{getPlayerFromFen()}
+{\footnotesize\ttfamily static \textbf{ Player\+Color} get\+Player\+From\+Fen (\begin{DoxyParamCaption}\item[{String}]{player\+To\+Move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets player from fen.
 
@@ -125,11 +107,11 @@ Gets player from fen.
 \begin{DoxyReturn}{Returns}
 the player from fen 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc9218ad73f7d5e6529e8472b838ea58}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc9218ad73f7d5e6529e8472b838ea58}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!toString@{toString}}
-\index{toString@{toString}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ad146fa8579a5f8a876c4688cc5a68520}} 
+\index{PlayerColor@{PlayerColor}!toString@{toString}}
+\index{toString@{toString}!PlayerColor@{PlayerColor}}
+\doxyparagraph{toString()}
+{\footnotesize\ttfamily String to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 To string string.
 
@@ -138,93 +120,59 @@ the string
 \end{DoxyReturn}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc7f359ab1d34273b3a6017a543c9f4f}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc7f359ab1d34273b3a6017a543c9f4f}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!asInt@{asInt}}
-\index{asInt@{asInt}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{asInt}{asInt}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+as\+Int}
+\doxysubsubsection{Member Data Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a7b026bd4c0b7f9084b44eced98825a62}} 
+\index{PlayerColor@{PlayerColor}!asInt@{asInt}}
+\index{asInt@{asInt}!PlayerColor@{PlayerColor}}
+\doxyparagraph{asInt}
+{\footnotesize\ttfamily final int as\+Int}
 
-The As int. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!BLACK@{BLACK}}
-\index{BLACK@{BLACK}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{BLACK}{BLACK}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+BLACK}
+The As int. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac2cc41bc81abbc0fab3c522655ed08c1}} 
+\index{PlayerColor@{PlayerColor}!BLACK@{BLACK}}
+\index{BLACK@{BLACK}!PlayerColor@{PlayerColor}}
+\doxyparagraph{BLACK}
+{\footnotesize\ttfamily BLACK}
 
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=(Location.BLACK\_STARTING\_ROW, Location.BLACK\_DIFF) \{}
-\DoxyCodeLine{        @Override}
-\DoxyCodeLine{        \textcolor{keyword}{public} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}{PlayerColor}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}{getOpponent}}() \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{return} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{WHITE}};}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
+Black. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a7014d8887d26836ac9108265487bfdd9}} 
+\index{PlayerColor@{PlayerColor}!diff@{diff}}
+\index{diff@{diff}!PlayerColor@{PlayerColor}}
+\doxyparagraph{diff}
+{\footnotesize\ttfamily final int diff}
 
-\end{DoxyCode}
-Black. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ad25e44e4c95f7514ffe2718784afcde9}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ad25e44e4c95f7514ffe2718784afcde9}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!diff@{diff}}
-\index{diff@{diff}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{diff}{diff}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+diff}
+The moving up ratio. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ae3b15ec77a3d6e59c35e9f4f4e78bcdc}} 
+\index{PlayerColor@{PlayerColor}!indexOf2@{indexOf2}}
+\index{indexOf2@{indexOf2}!PlayerColor@{PlayerColor}}
+\doxyparagraph{indexOf2}
+{\footnotesize\ttfamily final int index\+Of2}
 
-The moving up ratio. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a773f4ad55f1281647c7c49e27629c34e}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a773f4ad55f1281647c7c49e27629c34e}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!indexOf2@{indexOf2}}
-\index{indexOf2@{indexOf2}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{indexOf2}{indexOf2}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+index\+Of2}
+index of two. calculated at initialization for performance. calculation\+: {\ttfamily \doxyref{as\+Int}{p.}{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a7b026bd4c0b7f9084b44eced98825a62}}$\ast$2 \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_af18ed5a2daaa0a9e3014472a6f0bc70b}} 
+\index{PlayerColor@{PlayerColor}!NO\_PLAYER@{NO\_PLAYER}}
+\index{NO\_PLAYER@{NO\_PLAYER}!PlayerColor@{PlayerColor}}
+\doxyparagraph{NO\_PLAYER}
+{\footnotesize\ttfamily NO\+\_\+\+PLAYER}
 
-index of two. calculated at initialization for performance. calculation\+: {\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abc7f359ab1d34273b3a6017a543c9f4f}{as\+Int}}}$\ast$2 \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac47a3510846c99a2a7acd97c4c190568}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac47a3510846c99a2a7acd97c4c190568}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!NO\_PLAYER@{NO\_PLAYER}}
-\index{NO\_PLAYER@{NO\_PLAYER}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{NO\_PLAYER}{NO\_PLAYER}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+NO\+\_\+\+PLAYER}
+No player. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a7a2809fc47e2f3bbc70d91ed307d5800}} 
+\index{PlayerColor@{PlayerColor}!NUM\_OF\_PLAYERS@{NUM\_OF\_PLAYERS}}
+\index{NUM\_OF\_PLAYERS@{NUM\_OF\_PLAYERS}!PlayerColor@{PlayerColor}}
+\doxyparagraph{NUM\_OF\_PLAYERS}
+{\footnotesize\ttfamily  final int NUM\+\_\+\+OF\+\_\+\+PLAYERS\hspace{0.3cm}{\ttfamily [static]}}
 
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=(-\/1, 0) \{}
-\DoxyCodeLine{        @Override}
-\DoxyCodeLine{        \textcolor{keyword}{public} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}{PlayerColor}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}{getOpponent}}() \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{return} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac47a3510846c99a2a7acd97c4c190568}{NO\_PLAYER}};}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
+The constant NUM\+\_\+\+OF\+\_\+\+PLAYERS. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aadf5db327a7b39c24f60994f2a20ba40}} 
+\index{PlayerColor@{PlayerColor}!PLAYER\_COLORS@{PLAYER\_COLORS}}
+\index{PLAYER\_COLORS@{PLAYER\_COLORS}!PlayerColor@{PlayerColor}}
+\doxyparagraph{PLAYER\_COLORS}
+{\footnotesize\ttfamily  final \textbf{ Player\+Color} [$\,$] PLAYER\+\_\+\+COLORS\hspace{0.3cm}{\ttfamily [static]}}
 
-\end{DoxyCode}
-No player. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_af3438d3e0123073dc13ee557607b87b8}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_af3438d3e0123073dc13ee557607b87b8}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!NUM\_OF\_PLAYERS@{NUM\_OF\_PLAYERS}}
-\index{NUM\_OF\_PLAYERS@{NUM\_OF\_PLAYERS}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{NUM\_OF\_PLAYERS}{NUM\_OF\_PLAYERS}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+NUM\+\_\+\+OF\+\_\+\+PLAYERS = 2\hspace{0.3cm}{\ttfamily [static]}}
+The constant PLAYER\+\_\+\+COLORS. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a293ccd52cbeba7ffd7b2dcd8a94e31ed}} 
+\index{PlayerColor@{PlayerColor}!startingRow@{startingRow}}
+\index{startingRow@{startingRow}!PlayerColor@{PlayerColor}}
+\doxyparagraph{startingRow}
+{\footnotesize\ttfamily final int starting\+Row}
 
-The constant NUM\+\_\+\+OF\+\_\+\+PLAYERS. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aabfcb6abd24b49da09798fba88e75201}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_aabfcb6abd24b49da09798fba88e75201}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!PLAYER\_COLORS@{PLAYER\_COLORS}}
-\index{PLAYER\_COLORS@{PLAYER\_COLORS}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{PLAYER\_COLORS}{PLAYER\_COLORS}}
-{\footnotesize\ttfamily  final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{[}$\,$\mbox{]} ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+PLAYER\+\_\+\+COLORS = \{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{WHITE}}, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}{BLACK}}\}\hspace{0.3cm}{\ttfamily [static]}}
+The player\textquotesingle{}s Starting row. \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a0c5954c21065820baacaccaa6b986b15}} 
+\index{PlayerColor@{PlayerColor}!WHITE@{WHITE}}
+\index{WHITE@{WHITE}!PlayerColor@{PlayerColor}}
+\doxyparagraph{WHITE}
+{\footnotesize\ttfamily WHITE}
 
-The constant PLAYER\+\_\+\+COLORS. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a556c3a6fb627ff3c26c7116103a8c65c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a556c3a6fb627ff3c26c7116103a8c65c}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!startingRow@{startingRow}}
-\index{startingRow@{startingRow}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{startingRow}{startingRow}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+starting\+Row}
-
-The player\textquotesingle{}s Starting row. \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}\label{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}} 
-\index{ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}!WHITE@{WHITE}}
-\index{WHITE@{WHITE}!ver14.SharedClasses.Game.PlayerColor@{ver14.SharedClasses.Game.PlayerColor}}
-\doxysubsubsection{\texorpdfstring{WHITE}{WHITE}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Player\+Color.\+WHITE}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=(Location.WHITE\_STARTING\_ROW, Location.WHITE\_DIFF) \{}
-\DoxyCodeLine{        @Override}
-\DoxyCodeLine{        \textcolor{keyword}{public} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_abb99867f9ef662407ec32937419de81c}{PlayerColor}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_ac382598fe61e294407c2dcc6d319ef2d}{getOpponent}}() \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{return} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a6891fc6c091c8235f74275e439832b87}{BLACK}};}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
-
-\end{DoxyCode}
 White. 
-
-The documentation for this enum was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-Game/\mbox{\hyperlink{_player_color_8java}{Player\+Color.\+java}}\end{DoxyCompactItemize}

@@ -14,7 +14,7 @@ public enum EvaluationParameters {
     /**
      * Piece tables evaluation parameters.
      */
-    PIECE_TABLES(1),
+    PIECE_TABLES(1.1),
     /**
      * King safety evaluation parameters.
      */
@@ -34,7 +34,7 @@ public enum EvaluationParameters {
     /**
      * Force king to corner evaluation parameters.
      */
-    FORCE_KING_TO_CORNER(0),
+    FORCE_KING_TO_CORNER(1.5),
     /**
      * Eg weight evaluation parameters.
      */

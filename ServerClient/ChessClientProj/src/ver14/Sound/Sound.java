@@ -1,21 +1,27 @@
 package ver14.Sound;
 
-/**
- * Sound - utility for playing music files.
- * 13/4/2021
- * By Ilan Peretz (ilanperets@gmail.com)
- */
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 
+/**
+ * The type Sound.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Sound {
     private final static String soundEffectsPath = "/assets/SoundEffects/";
     private final SoundManager manager;
     private Clip clip;
 
+    /**
+     * Instantiates a new Sound.
+     *
+     * @param relativePath the relative path
+     * @param manager      the manager
+     */
     public Sound(String relativePath, SoundManager manager) {
         this.manager = manager;
         if (!relativePath.endsWith(".wav")) {
@@ -42,7 +48,10 @@ public class Sound {
         }
     }
 
-    // Play forver (loop)
+    /**
+     * Play loop.
+     */
+// Play forver (loop)
     public void playLoop() {
         if (clip == null || !manager.isSoundEnabled())
             return;
@@ -50,14 +59,20 @@ public class Sound {
         clip.start();
     }
 
-    // Stop play
+    /**
+     * Stop.
+     */
+// Stop play
     public void stop() {
         if (clip == null)
             return;
         clip.stop();
     }
 
-    // Play only once
+    /**
+     * Play.
+     */
+// Play only once
     public void play() {
         if (clip == null || !manager.isSoundEnabled())
             return;

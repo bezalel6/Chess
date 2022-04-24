@@ -1,287 +1,64 @@
-\hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location}{}\doxysection{ver14.\+Shared\+Classes.\+Game.\+Location Enum Reference}
-\label{enumver14_1_1_shared_classes_1_1_game_1_1_location}\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsection*{Public Member Functions}
+\doxysubsection{Location Enum Reference}
+\label{enumver14_1_1_shared_classes_1_1_game_1_1_location}\index{Location@{Location}}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a099b4e40e084eee6da4c12dd4f468312}{Location}} ()
+final long \textbf{ as\+Long}
 \item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_acd67ab94de1de37ff11732656dac5150}{matrix\+Str}} ()
+final int \textbf{ as\+Int}
 \item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac8d2855677b22e53c978dd4c1b3f51d1}{get\+Col\+String}} ()
+final int \textbf{ row}
 \item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5ee1c8ce06cc8d7df0981e04a9a70980}{flip}} ()
-\item 
-boolean \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9fecdb0455884909992b0de6d9baf2da}{is\+Black\+Square}} ()
-\item 
-boolean \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6a76dbacecdeb2e95c7b3736779c5b40}{is\+White\+Square}} ()
-\item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac4fc87304b1cb709a31d5bd7bb59b485}{to\+String}} ()
-\item 
-int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_af3786e35b6788a71f7f2982ebbf6cb0d}{get\+Max\+Distance}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} other)
-\item 
-String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a84b11cba2df5fb67bbe70c0ffaad432b}{get\+Row\+String}} ()
-\item 
-int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_abacaf9a75414a6ea57db6797246b6676}{hash}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}} piece\+Type)
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6b16e6db5f0b5edbdf0ab5780eff5a1f}{\mbox{[}static initializer\mbox{]}}}
-\item 
-static String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_af8f808277d706a631de0e6f00e0df19e}{locs\+Mat\+Str}} ()
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae5e641b5955f787d112b031f0a12a7fb}{locs\+Mat}} ()
-\item 
-static String \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aae2b6620a52ac993688fc1685d797c2b}{create\+Mat\+Indices\+Str}} ()
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a16a44b039ede88abddd2d8504f83796c}{get\+Loc}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} loc, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}} direction)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a886b29c973724fff93f1072610dd5445}{get\+Loc}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} loc, int num\+Of\+Mult, \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}} direction)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa95c77c28af8a6300be4164523e0c21b}{get\+Loc}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} loc, int add)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae89685a92cd40c898cbb63c2c572c2b2}{get\+Loc}} (int loc\+Index)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae4117083446b14dfb4ee26a02697f79b}{value\+Of}} (int loc\+Index)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae548676b7d54548089f7ec9f3b20a93e}{get\+Loc}} (String str)
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a05045c5478d8ca99014dd0d42badee70}{get\+Loc}} (int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab48ef3f409bb1e8617611ead7671628e}{row}}, int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_afb8b1cc72a9a1023590e4c2aa1f9e8ca}{col}})
-\item 
-static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a995dcf31ba3553c1f75b8c5e94a3db8c}{get\+Loc}} (int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab48ef3f409bb1e8617611ead7671628e}{row}}, int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_afb8b1cc72a9a1023590e4c2aa1f9e8ca}{col}}, boolean \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}{flip}})
-\item 
-static int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}{flip}} (int num)
-\item 
-static boolean \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3a42ae0a1f0c72e03c483d8d89c811f1}{is\+In\+Bounds}} (\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} loc)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a60a47ed76bbed5e735639ff0b9583caf}{A8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a57534a7526b1e086b536debec7b78708}{B8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa1e115e44fe1adbe1a75f5de0828f0b0}{C8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac785aaff635ecd2f04ccbf3ac8860362}{D8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab6606eeb342af700d347e4519f805ece}{E8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69d4e341f02947a063b9c4e4197f7e89}{F8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae8867459dfa8bf27879537e667846bc3}{G8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aac1c52f37756f36d0c06d12603e26d34}{H8}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a370e8cea287d1bfb21df29dceea80f11}{A7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7321f19167807e8cc72d62f4b22df618}{B7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a79af339974ac48ddc0c299a4497cfebb}{C7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a38246de0cd57956d04f266519a708310}{D7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab79eed3c4b6179e6b97d92431753c9e3}{E7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_acb25754ff88f31b9d402c3fb4b3537b1}{F7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a83f750f335ccb7b00b078e325057d77f}{G7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae264a224e8a0423cdf4fa1a1b48fd6a0}{H7}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a084554b0c0d3000f3f3658bc13ce611a}{A6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a114c6fd4d58007f3538bb18ad8e580e3}{B6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2a34d186eb0a083e18ca1530b35e2ddb}{C6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a66f38f97966f5ec7072e202767cfa4dd}{D6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf1972f823418445cbaea2932935c746}{E6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac2e14d4c3609c607e1ec43539534fb22}{F6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4dcec727c947039b32b918985d7d8b4a}{G6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf929f46cfa53c35e5af1b704717800d}{H6}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaec73697467e56a0b375e3ca26656018}{A5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a15960350da09b7b15517fcb5d650112c}{B5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7f119f285ef6e47dfad31f99a11cafdb}{C5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4484fa2ad60bfbfcafa1bb97345728b0}{D5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae2d6a9ef60c94db505ce832c4209cc60}{E5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a99e899b76b70995d0161fdf0a2c2520d}{F5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a247388c0c9b7841651d945b5d2ca21b4}{G5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a092d2dcf94089b0381ba353c27e30f0b}{H5}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a284af325889b87382a4f3f85e9977763}{A4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a18c29653e919273c3c7b01dd81924a2f}{B4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a36cfeabd888aa5abe20e20f938c58a0b}{C4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a77474a77d30fc48a6517867c26f92e27}{D4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a716a4c50e87f11605028c2ee01467f3c}{E4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa8b7204805e548fbc3a0b003a95cf6f7}{F4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b3ad23de845ed63f4f656302f172fbf}{G4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6f6e799980e1c17389a12f1801e16483}{H4}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9de5d1eecfe7cdccabee25f56867b53a}{A3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a707a4d687d9ccdf0b85184d0f0110557}{B3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7efa02a11af888d64c3f5f3d9f4e035d}{C3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a414ba1001d31733d56bf96cf58715bb4}{D3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a94ed5df9c3c76e494c74fe8a21abe480}{E3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a73a5cd71c085f7bd48aad88c4f510fed}{F3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a057d695f391f4f7164f45f5d79b675e1}{G3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a873217dd7308229fc60c5a7ed604b94c}{H3}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a501ab78b2f730155a0e062d9b04a9bcb}{A2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_abf9386f96d39b4d695f8041ddcd0d839}{B2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_afadad6d8af6113dba6e4902066df3b09}{C2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b16966664e0b55a7a25b070ca3e5f5c}{D2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2285d942fb7b51b8d9728de26e423259}{E2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4aeddf77938f0f259e1389a35e423dd7}{F2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2c085799796df74f18c8206908a47e83}{G2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a52f0564c0e535ad13caf09a35f8f4855}{H2}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a207239897ef4d693203337406388d0fe}{A1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1e5bc9c0872e33ce80e07793f4bb5c28}{B1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7456cab3adea26e27c25b7ac173f764a}{C1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a355f37c62b337be26edf2f0e799b5f2c}{D1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a93cbed200b74f0483111f24b135cce18}{E1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69eaca3590ca89fc981e739796c1873a}{F1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a898077962653698867a6917fd3947d37}{G1}}
-\item 
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a8d0604b38e4447f59953298b51491256}{H1}}
-\item 
-final long \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab12c67909e1aeed0ec5550befa540855}{as\+Long}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a41d987882a44b6243de185156c406629}{as\+Int}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab48ef3f409bb1e8617611ead7671628e}{row}}
-\item 
-final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_afb8b1cc72a9a1023590e4c2aa1f9e8ca}{col}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_af147d80bd05fc17482e2ac4bf53b7303}{A}} = A1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_af6167e4aad68102678533f68e4992075}{B}} = B1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a567d40460a3d9879c4b10bdc5ef4b201}{C}} = C1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1f51894de0bca4c3b565f4107fdedd35}{D}} = D1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aed18a416b00a81f02197edfa554b551d}{E}} = E1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a17558e041bb8d7f0c4f1211717da0934}{F}} = F1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a107387124a2a39ac0292cee2a2b1a371}{G}} = G1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab4b5d1f6bce117b12fb63664260f7457}{H}} = H1.\+col
-\item 
-static final Array\+List$<$ \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} $>$ \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9f0d0d630b737d97462ad76dfd0b7283}{ALL\+\_\+\+LOCS}}
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_abdaf0e0d149ceebdb7138052fa05dd99}{NUM\+\_\+\+OF\+\_\+\+SQUARES}} = 64
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a39a6b0d5ebb91c610256d39d9ae3b23e}{KING\+\_\+\+STARTING\+\_\+\+COL}} = E1.\+col
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}{WHITE\+\_\+\+STARTING\+\_\+\+ROW}} = E1.\+row
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9a69c6f6127e17e4174cbb83012acc22}{BLACK\+\_\+\+STARTING\+\_\+\+ROW}} = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}{flip}}(\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}{WHITE\+\_\+\+STARTING\+\_\+\+ROW}})
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaa8618b28d290c744662c6da01764919}{WHITE\+\_\+\+DIFF}} = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}{WHITE\+\_\+\+STARTING\+\_\+\+ROW}} $>$ \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9a69c6f6127e17e4174cbb83012acc22}{BLACK\+\_\+\+STARTING\+\_\+\+ROW}} ? -\/1 \+: 1
-\item 
-static final int \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4e3f399a19aa9bf46a368b9978b4bd2b}{BLACK\+\_\+\+DIFF}} = -\/\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaa8618b28d290c744662c6da01764919}{WHITE\+\_\+\+DIFF}}
-\item 
-static final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac893ae57444f018688ddefb2c860ec96}{normal\+Perspective}} = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{Player\+Color.\+WHITE}}
+final int \textbf{ col}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} -\/ an enum consisting of 64 values representing all 64 squares on the board. used to access squares on the board ~\newline
+\doxysubsubsection{Detailed Description}
+\doxyref{Location}{p.}{enumver14_1_1_shared_classes_1_1_game_1_1_location} -\/ an enum consisting of 64 values representing all 64 squares on the board. used to access squares on the board ~\newline
 an enum is used for performance reasons.
 
 \begin{DoxyAuthor}{Author}
-Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
 \end{DoxyAuthor}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a099b4e40e084eee6da4c12dd4f468312}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a099b4e40e084eee6da4c12dd4f468312}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!Location@{Location}}
-\index{Location@{Location}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{Location()}{Location()}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aae456ae24175445c9c797b0d58d5716b}} 
+\index{Location@{Location}!Location@{Location}}
+\index{Location@{Location}!Location@{Location}}
+\doxyparagraph{Location()}
+{\footnotesize\ttfamily \textbf{ Location} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Instantiates a new \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}. 
+Instantiates a new \doxyref{Location}{p.}{enumver14_1_1_shared_classes_1_1_game_1_1_location}. 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6b16e6db5f0b5edbdf0ab5780eff5a1f}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6b16e6db5f0b5edbdf0ab5780eff5a1f}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!\mbox{[}static initializer\mbox{]}@{[static initializer]}}
-\index{\mbox{[}static initializer\mbox{]}@{[static initializer]}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{[static initializer]()}{[static initializer]()}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\mbox{[}static initializer\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aae2b6620a52ac993688fc1685d797c2b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aae2b6620a52ac993688fc1685d797c2b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!createMatIndicesStr@{createMatIndicesStr}}
-\index{createMatIndicesStr@{createMatIndicesStr}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{createMatIndicesStr()}{createMatIndicesStr()}}
-{\footnotesize\ttfamily static String ver14.\+Shared\+Classes.\+Game.\+Location.\+create\+Mat\+Indices\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab3fde615ebef10d2c7990fd0b62b75c2}} 
+\index{Location@{Location}!createMatIndicesStr@{createMatIndicesStr}}
+\index{createMatIndicesStr@{createMatIndicesStr}!Location@{Location}}
+\doxyparagraph{createMatIndicesStr()}
+{\footnotesize\ttfamily static String create\+Mat\+Indices\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Create mat indices str string.
 
 \begin{DoxyReturn}{Returns}
 the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5ee1c8ce06cc8d7df0981e04a9a70980}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5ee1c8ce06cc8d7df0981e04a9a70980}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!flip@{flip}}
-\index{flip@{flip}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{flip()}{flip()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+flip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a774d782eceae9db22a8ac6731916a3c2}} 
+\index{Location@{Location}!flip@{flip}}
+\index{flip@{flip}!Location@{Location}}
+\doxyparagraph{flip()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Location} flip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Flip location.
 
 \begin{DoxyReturn}{Returns}
 the location 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!flip@{flip}}
-\index{flip@{flip}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{flip()}{flip()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily static int ver14.\+Shared\+Classes.\+Game.\+Location.\+flip (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9b3ddbc5a1139b0be7167657ad8ecf6a}} 
+\index{Location@{Location}!flip@{flip}}
+\index{flip@{flip}!Location@{Location}}
+\doxyparagraph{flip()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int flip (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Flip int.
 
@@ -293,22 +70,22 @@ Flip int.
 \begin{DoxyReturn}{Returns}
 the int 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac8d2855677b22e53c978dd4c1b3f51d1}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac8d2855677b22e53c978dd4c1b3f51d1}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getColString@{getColString}}
-\index{getColString@{getColString}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getColString()}{getColString()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Col\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab8d62870da4e69dba8d9d3b4592b2a81}} 
+\index{Location@{Location}!getColString@{getColString}}
+\index{getColString@{getColString}!Location@{Location}}
+\doxyparagraph{getColString()}
+{\footnotesize\ttfamily String get\+Col\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Gets col string.
 
 \begin{DoxyReturn}{Returns}
 the col string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae89685a92cd40c898cbb63c2c572c2b2}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae89685a92cd40c898cbb63c2c572c2b2}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{int}]{loc\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a0887c7c83a018399d99b0b6851b01937}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{int}]{loc\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets location corresponding to the loc\+Index provided (0..63)
 
@@ -320,11 +97,11 @@ Gets location corresponding to the loc\+Index provided (0..63)
 \begin{DoxyReturn}{Returns}
 the location if the provided index is inside the bounds(0...\+63). null otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a05045c5478d8ca99014dd0d42badee70}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a05045c5478d8ca99014dd0d42badee70}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a63aa2db938cf9d3d0133a6cf9fc87bcf}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets loc.
 
@@ -338,11 +115,11 @@ Gets loc.
 \begin{DoxyReturn}{Returns}
 the loc 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a995dcf31ba3553c1f75b8c5e94a3db8c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a995dcf31ba3553c1f75b8c5e94a3db8c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{boolean}]{flip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a34b9856143fc1a4f6ba7f1918f378a38}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{boolean}]{flip }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets loc.
 
@@ -358,11 +135,11 @@ Gets loc.
 \begin{DoxyReturn}{Returns}
 the loc 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a16a44b039ede88abddd2d8504f83796c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a16a44b039ede88abddd2d8504f83796c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}}}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a0d13b360737d27eae114c194d70ac133}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{\textbf{ Location}}]{loc,  }\item[{\textbf{ Direction}}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets the location relative to loc in the direction
 
@@ -376,11 +153,11 @@ Gets the location relative to loc in the direction
 \begin{DoxyReturn}{Returns}
 the location if the calculated index is inside the bounds(0...\+63). null otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa95c77c28af8a6300be4164523e0c21b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa95c77c28af8a6300be4164523e0c21b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc,  }\item[{int}]{add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a16c41f3be6aeb5c77c9275309f120e47}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{\textbf{ Location}}]{loc,  }\item[{int}]{add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets the location that is exactly add squares from loc NOTE\+: add should be in bitboard format
 
@@ -397,11 +174,11 @@ the location if the calculated index is inside the bounds(0...\+63). null otherw
 \begin{DoxySeeAlso}{See also}
 ver14.\+Model.\+Bitboard 
 \end{DoxySeeAlso}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a886b29c973724fff93f1072610dd5445}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a886b29c973724fff93f1072610dd5445}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc,  }\item[{int}]{num\+Of\+Mult,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}}}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab4555f9b946d988cee7bbf27c14616ee}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{\textbf{ Location}}]{loc,  }\item[{int}]{num\+Of\+Mult,  }\item[{\textbf{ Direction}}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets the location relative to loc in the direction given and the distance is determined by the num\+Of\+Mult
 
@@ -417,11 +194,11 @@ Gets the location relative to loc in the direction given and the distance is det
 \begin{DoxyReturn}{Returns}
 the location if the calculated index is inside the bounds(0...\+63). null otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae548676b7d54548089f7ec9f3b20a93e}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae548676b7d54548089f7ec9f3b20a93e}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getLoc@{getLoc}}
-\index{getLoc@{getLoc}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getLoc()}{getLoc()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Loc (\begin{DoxyParamCaption}\item[{String}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ace27aa0e94805ddecb6d64c2d2cc8716}} 
+\index{Location@{Location}!getLoc@{getLoc}}
+\index{getLoc@{getLoc}!Location@{Location}}
+\doxyparagraph{getLoc()\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily static \textbf{ Location} get\+Loc (\begin{DoxyParamCaption}\item[{String}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 gets the location corresponding to the provided location string.
 
@@ -434,13 +211,13 @@ gets the location corresponding to the provided location string.
 the loc if given str is valid. null otherwise 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\href{https://en.wikipedia.org/wiki/Algebraic_notation_(chess)}{\texttt{ ...}} 
+{\texttt{ ...}} 
 \end{DoxySeeAlso}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_af3786e35b6788a71f7f2982ebbf6cb0d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_af3786e35b6788a71f7f2982ebbf6cb0d}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getMaxDistance@{getMaxDistance}}
-\index{getMaxDistance@{getMaxDistance}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getMaxDistance()}{getMaxDistance()}}
-{\footnotesize\ttfamily int ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Max\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{other }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_afdb27a3099bdf7529b761dd663207d5c}} 
+\index{Location@{Location}!getMaxDistance@{getMaxDistance}}
+\index{getMaxDistance@{getMaxDistance}!Location@{Location}}
+\doxyparagraph{getMaxDistance()}
+{\footnotesize\ttfamily int get\+Max\+Distance (\begin{DoxyParamCaption}\item[{\textbf{ Location}}]{other }\end{DoxyParamCaption})}
 
 Gets max distance.
 
@@ -452,22 +229,22 @@ Gets max distance.
 \begin{DoxyReturn}{Returns}
 the max distance 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a84b11cba2df5fb67bbe70c0ffaad432b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a84b11cba2df5fb67bbe70c0ffaad432b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!getRowString@{getRowString}}
-\index{getRowString@{getRowString}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{getRowString()}{getRowString()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Location.\+get\+Row\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a47a279e89da737b63275f8845ca2a500}} 
+\index{Location@{Location}!getRowString@{getRowString}}
+\index{getRowString@{getRowString}!Location@{Location}}
+\doxyparagraph{getRowString()}
+{\footnotesize\ttfamily String get\+Row\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Gets row string.
 
 \begin{DoxyReturn}{Returns}
 the row string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_abacaf9a75414a6ea57db6797246b6676}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_abacaf9a75414a6ea57db6797246b6676}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!hash@{hash}}
-\index{hash@{hash}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
-{\footnotesize\ttfamily int ver14.\+Shared\+Classes.\+Game.\+Location.\+hash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{piece\+Type }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4a9c8ac766a809e084295933d43f3e47}} 
+\index{Location@{Location}!hash@{hash}}
+\index{hash@{hash}!Location@{Location}}
+\doxyparagraph{hash()}
+{\footnotesize\ttfamily int hash (\begin{DoxyParamCaption}\item[{\textbf{ Piece\+Type}}]{piece\+Type }\end{DoxyParamCaption})}
 
 Hash int.
 
@@ -479,22 +256,22 @@ Hash int.
 \begin{DoxyReturn}{Returns}
 the int 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9fecdb0455884909992b0de6d9baf2da}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9fecdb0455884909992b0de6d9baf2da}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!isBlackSquare@{isBlackSquare}}
-\index{isBlackSquare@{isBlackSquare}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{isBlackSquare()}{isBlackSquare()}}
-{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Location.\+is\+Black\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ad8a011344f6f0014873a5e47e32d9faa}} 
+\index{Location@{Location}!isBlackSquare@{isBlackSquare}}
+\index{isBlackSquare@{isBlackSquare}!Location@{Location}}
+\doxyparagraph{isBlackSquare()}
+{\footnotesize\ttfamily boolean is\+Black\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Is black square boolean.
 
 \begin{DoxyReturn}{Returns}
 the boolean 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3a42ae0a1f0c72e03c483d8d89c811f1}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3a42ae0a1f0c72e03c483d8d89c811f1}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!isInBounds@{isInBounds}}
-\index{isInBounds@{isInBounds}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{isInBounds()}{isInBounds()}}
-{\footnotesize\ttfamily static boolean ver14.\+Shared\+Classes.\+Game.\+Location.\+is\+In\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a72f2b0e398b57502623fe710dd577f54}} 
+\index{Location@{Location}!isInBounds@{isInBounds}}
+\index{isInBounds@{isInBounds}!Location@{Location}}
+\doxyparagraph{isInBounds()}
+{\footnotesize\ttfamily static boolean is\+In\+Bounds (\begin{DoxyParamCaption}\item[{\textbf{ Location}}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Is in bounds boolean.
 
@@ -506,66 +283,66 @@ Is in bounds boolean.
 \begin{DoxyReturn}{Returns}
 the boolean 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6a76dbacecdeb2e95c7b3736779c5b40}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6a76dbacecdeb2e95c7b3736779c5b40}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!isWhiteSquare@{isWhiteSquare}}
-\index{isWhiteSquare@{isWhiteSquare}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{isWhiteSquare()}{isWhiteSquare()}}
-{\footnotesize\ttfamily boolean ver14.\+Shared\+Classes.\+Game.\+Location.\+is\+White\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a90698be274c23b99a39abd812b8b4b9a}} 
+\index{Location@{Location}!isWhiteSquare@{isWhiteSquare}}
+\index{isWhiteSquare@{isWhiteSquare}!Location@{Location}}
+\doxyparagraph{isWhiteSquare()}
+{\footnotesize\ttfamily boolean is\+White\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Is white square boolean.
 
 \begin{DoxyReturn}{Returns}
 the boolean 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae5e641b5955f787d112b031f0a12a7fb}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae5e641b5955f787d112b031f0a12a7fb}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!locsMat@{locsMat}}
-\index{locsMat@{locsMat}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{locsMat()}{locsMat()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} ver14.\+Shared\+Classes.\+Game.\+Location.\+locs\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_abbd6116896117670cf3d7b4d2445616b}} 
+\index{Location@{Location}!locsMat@{locsMat}}
+\index{locsMat@{locsMat}!Location@{Location}}
+\doxyparagraph{locsMat()}
+{\footnotesize\ttfamily static \textbf{ Location}[$\,$][$\,$] locs\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Locs mat location \mbox{[} \mbox{]} \mbox{[} \mbox{]}.
+Locs mat location [ ] [ ].
 
 \begin{DoxyReturn}{Returns}
-the location \mbox{[} \mbox{]} \mbox{[} \mbox{]} 
+the location [ ] [ ] 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_af8f808277d706a631de0e6f00e0df19e}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_af8f808277d706a631de0e6f00e0df19e}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!locsMatStr@{locsMatStr}}
-\index{locsMatStr@{locsMatStr}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{locsMatStr()}{locsMatStr()}}
-{\footnotesize\ttfamily static String ver14.\+Shared\+Classes.\+Game.\+Location.\+locs\+Mat\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a0723dd6c5d3791979a95005b2c1daf4d}} 
+\index{Location@{Location}!locsMatStr@{locsMatStr}}
+\index{locsMatStr@{locsMatStr}!Location@{Location}}
+\doxyparagraph{locsMatStr()}
+{\footnotesize\ttfamily static String locs\+Mat\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Locs mat str string.
 
 \begin{DoxyReturn}{Returns}
 the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_acd67ab94de1de37ff11732656dac5150}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_acd67ab94de1de37ff11732656dac5150}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!matrixStr@{matrixStr}}
-\index{matrixStr@{matrixStr}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{matrixStr()}{matrixStr()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Location.\+matrix\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a171a761d9c6632ee7d86108df87314eb}} 
+\index{Location@{Location}!matrixStr@{matrixStr}}
+\index{matrixStr@{matrixStr}!Location@{Location}}
+\doxyparagraph{matrixStr()}
+{\footnotesize\ttfamily String matrix\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Matrix str string.
 
 \begin{DoxyReturn}{Returns}
 the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac4fc87304b1cb709a31d5bd7bb59b485}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac4fc87304b1cb709a31d5bd7bb59b485}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!toString@{toString}}
-\index{toString@{toString}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
-{\footnotesize\ttfamily String ver14.\+Shared\+Classes.\+Game.\+Location.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ad146fa8579a5f8a876c4688cc5a68520}} 
+\index{Location@{Location}!toString@{toString}}
+\index{toString@{toString}!Location@{Location}}
+\doxyparagraph{toString()}
+{\footnotesize\ttfamily String to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 To string string.
 
 \begin{DoxyReturn}{Returns}
 the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae4117083446b14dfb4ee26a02697f79b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae4117083446b14dfb4ee26a02697f79b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!valueOf@{valueOf}}
-\index{valueOf@{valueOf}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{valueOf()}{valueOf()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} ver14.\+Shared\+Classes.\+Game.\+Location.\+value\+Of (\begin{DoxyParamCaption}\item[{int}]{loc\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1a1697a7f5b64c735a2b5c7085b6b485}} 
+\index{Location@{Location}!valueOf@{valueOf}}
+\index{valueOf@{valueOf}!Location@{Location}}
+\doxyparagraph{valueOf()}
+{\footnotesize\ttfamily static \textbf{ Location} value\+Of (\begin{DoxyParamCaption}\item[{int}]{loc\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Value of location.
 
@@ -579,513 +356,29 @@ the location if the provided index is inside the bounds(0...\+63). null otherwis
 \end{DoxyReturn}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_af147d80bd05fc17482e2ac4bf53b7303}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_af147d80bd05fc17482e2ac4bf53b7303}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A@{A}}
-\index{A@{A}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A}{A}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+A = A1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a207239897ef4d693203337406388d0fe}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a207239897ef4d693203337406388d0fe}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A1@{A1}}
-\index{A1@{A1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A1}{A1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a501ab78b2f730155a0e062d9b04a9bcb}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a501ab78b2f730155a0e062d9b04a9bcb}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A2@{A2}}
-\index{A2@{A2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A2}{A2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9de5d1eecfe7cdccabee25f56867b53a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9de5d1eecfe7cdccabee25f56867b53a}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A3@{A3}}
-\index{A3@{A3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A3}{A3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a284af325889b87382a4f3f85e9977763}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a284af325889b87382a4f3f85e9977763}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A4@{A4}}
-\index{A4@{A4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A4}{A4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaec73697467e56a0b375e3ca26656018}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaec73697467e56a0b375e3ca26656018}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A5@{A5}}
-\index{A5@{A5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A5}{A5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a084554b0c0d3000f3f3658bc13ce611a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a084554b0c0d3000f3f3658bc13ce611a}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A6@{A6}}
-\index{A6@{A6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A6}{A6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a370e8cea287d1bfb21df29dceea80f11}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a370e8cea287d1bfb21df29dceea80f11}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A7@{A7}}
-\index{A7@{A7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A7}{A7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a60a47ed76bbed5e735639ff0b9583caf}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a60a47ed76bbed5e735639ff0b9583caf}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!A8@{A8}}
-\index{A8@{A8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{A8}{A8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+A8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9f0d0d630b737d97462ad76dfd0b7283}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9f0d0d630b737d97462ad76dfd0b7283}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!ALL\_LOCS@{ALL\_LOCS}}
-\index{ALL\_LOCS@{ALL\_LOCS}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{ALL\_LOCS}{ALL\_LOCS}}
-{\footnotesize\ttfamily final Array\+List$<$\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}$>$ ver14.\+Shared\+Classes.\+Game.\+Location.\+ALL\+\_\+\+LOCS\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a41d987882a44b6243de185156c406629}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a41d987882a44b6243de185156c406629}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!asInt@{asInt}}
-\index{asInt@{asInt}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{asInt}{asInt}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+as\+Int}
-
-the calculated index \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab12c67909e1aeed0ec5550befa540855}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab12c67909e1aeed0ec5550befa540855}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!asLong@{asLong}}
-\index{asLong@{asLong}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{asLong}{asLong}}
-{\footnotesize\ttfamily final long ver14.\+Shared\+Classes.\+Game.\+Location.\+as\+Long}
-
-a long value with a bit set on this location \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_af6167e4aad68102678533f68e4992075}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_af6167e4aad68102678533f68e4992075}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B@{B}}
-\index{B@{B}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B}{B}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+B = B1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1e5bc9c0872e33ce80e07793f4bb5c28}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1e5bc9c0872e33ce80e07793f4bb5c28}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B1@{B1}}
-\index{B1@{B1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B1}{B1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_abf9386f96d39b4d695f8041ddcd0d839}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_abf9386f96d39b4d695f8041ddcd0d839}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B2@{B2}}
-\index{B2@{B2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B2}{B2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a707a4d687d9ccdf0b85184d0f0110557}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a707a4d687d9ccdf0b85184d0f0110557}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B3@{B3}}
-\index{B3@{B3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B3}{B3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a18c29653e919273c3c7b01dd81924a2f}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a18c29653e919273c3c7b01dd81924a2f}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B4@{B4}}
-\index{B4@{B4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B4}{B4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a15960350da09b7b15517fcb5d650112c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a15960350da09b7b15517fcb5d650112c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B5@{B5}}
-\index{B5@{B5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B5}{B5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a114c6fd4d58007f3538bb18ad8e580e3}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a114c6fd4d58007f3538bb18ad8e580e3}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B6@{B6}}
-\index{B6@{B6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B6}{B6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7321f19167807e8cc72d62f4b22df618}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7321f19167807e8cc72d62f4b22df618}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B7@{B7}}
-\index{B7@{B7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B7}{B7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a57534a7526b1e086b536debec7b78708}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a57534a7526b1e086b536debec7b78708}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!B8@{B8}}
-\index{B8@{B8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{B8}{B8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+B8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4e3f399a19aa9bf46a368b9978b4bd2b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4e3f399a19aa9bf46a368b9978b4bd2b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!BLACK\_DIFF@{BLACK\_DIFF}}
-\index{BLACK\_DIFF@{BLACK\_DIFF}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{BLACK\_DIFF}{BLACK\_DIFF}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+BLACK\+\_\+\+DIFF = -\/\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaa8618b28d290c744662c6da01764919}{WHITE\+\_\+\+DIFF}}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9a69c6f6127e17e4174cbb83012acc22}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9a69c6f6127e17e4174cbb83012acc22}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!BLACK\_STARTING\_ROW@{BLACK\_STARTING\_ROW}}
-\index{BLACK\_STARTING\_ROW@{BLACK\_STARTING\_ROW}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{BLACK\_STARTING\_ROW}{BLACK\_STARTING\_ROW}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+BLACK\+\_\+\+STARTING\+\_\+\+ROW = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a3e405d657c261dca5fa6e2390179f087}{flip}}(\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}{WHITE\+\_\+\+STARTING\+\_\+\+ROW}})\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a567d40460a3d9879c4b10bdc5ef4b201}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a567d40460a3d9879c4b10bdc5ef4b201}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C@{C}}
-\index{C@{C}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C}{C}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+C = C1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7456cab3adea26e27c25b7ac173f764a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7456cab3adea26e27c25b7ac173f764a}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C1@{C1}}
-\index{C1@{C1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C1}{C1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_afadad6d8af6113dba6e4902066df3b09}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_afadad6d8af6113dba6e4902066df3b09}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C2@{C2}}
-\index{C2@{C2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C2}{C2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7efa02a11af888d64c3f5f3d9f4e035d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7efa02a11af888d64c3f5f3d9f4e035d}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C3@{C3}}
-\index{C3@{C3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C3}{C3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a36cfeabd888aa5abe20e20f938c58a0b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a36cfeabd888aa5abe20e20f938c58a0b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C4@{C4}}
-\index{C4@{C4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C4}{C4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7f119f285ef6e47dfad31f99a11cafdb}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7f119f285ef6e47dfad31f99a11cafdb}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C5@{C5}}
-\index{C5@{C5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C5}{C5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2a34d186eb0a083e18ca1530b35e2ddb}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2a34d186eb0a083e18ca1530b35e2ddb}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C6@{C6}}
-\index{C6@{C6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C6}{C6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a79af339974ac48ddc0c299a4497cfebb}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a79af339974ac48ddc0c299a4497cfebb}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C7@{C7}}
-\index{C7@{C7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C7}{C7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa1e115e44fe1adbe1a75f5de0828f0b0}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa1e115e44fe1adbe1a75f5de0828f0b0}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!C8@{C8}}
-\index{C8@{C8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{C8}{C8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+C8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_afb8b1cc72a9a1023590e4c2aa1f9e8ca}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_afb8b1cc72a9a1023590e4c2aa1f9e8ca}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!col@{col}}
-\index{col@{col}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{col}{col}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+col}
-
-this location\textquotesingle{}s column \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1f51894de0bca4c3b565f4107fdedd35}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a1f51894de0bca4c3b565f4107fdedd35}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D@{D}}
-\index{D@{D}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D}{D}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+D = D1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a355f37c62b337be26edf2f0e799b5f2c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a355f37c62b337be26edf2f0e799b5f2c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D1@{D1}}
-\index{D1@{D1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D1}{D1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b16966664e0b55a7a25b070ca3e5f5c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b16966664e0b55a7a25b070ca3e5f5c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D2@{D2}}
-\index{D2@{D2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D2}{D2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a414ba1001d31733d56bf96cf58715bb4}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a414ba1001d31733d56bf96cf58715bb4}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D3@{D3}}
-\index{D3@{D3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D3}{D3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a77474a77d30fc48a6517867c26f92e27}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a77474a77d30fc48a6517867c26f92e27}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D4@{D4}}
-\index{D4@{D4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D4}{D4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4484fa2ad60bfbfcafa1bb97345728b0}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4484fa2ad60bfbfcafa1bb97345728b0}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D5@{D5}}
-\index{D5@{D5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D5}{D5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a66f38f97966f5ec7072e202767cfa4dd}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a66f38f97966f5ec7072e202767cfa4dd}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D6@{D6}}
-\index{D6@{D6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D6}{D6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a38246de0cd57956d04f266519a708310}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a38246de0cd57956d04f266519a708310}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D7@{D7}}
-\index{D7@{D7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D7}{D7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac785aaff635ecd2f04ccbf3ac8860362}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac785aaff635ecd2f04ccbf3ac8860362}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!D8@{D8}}
-\index{D8@{D8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{D8}{D8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+D8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aed18a416b00a81f02197edfa554b551d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aed18a416b00a81f02197edfa554b551d}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E@{E}}
-\index{E@{E}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E}{E}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+E = E1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a93cbed200b74f0483111f24b135cce18}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a93cbed200b74f0483111f24b135cce18}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E1@{E1}}
-\index{E1@{E1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E1}{E1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2285d942fb7b51b8d9728de26e423259}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2285d942fb7b51b8d9728de26e423259}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E2@{E2}}
-\index{E2@{E2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E2}{E2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a94ed5df9c3c76e494c74fe8a21abe480}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a94ed5df9c3c76e494c74fe8a21abe480}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E3@{E3}}
-\index{E3@{E3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E3}{E3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a716a4c50e87f11605028c2ee01467f3c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a716a4c50e87f11605028c2ee01467f3c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E4@{E4}}
-\index{E4@{E4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E4}{E4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae2d6a9ef60c94db505ce832c4209cc60}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae2d6a9ef60c94db505ce832c4209cc60}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E5@{E5}}
-\index{E5@{E5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E5}{E5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf1972f823418445cbaea2932935c746}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf1972f823418445cbaea2932935c746}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E6@{E6}}
-\index{E6@{E6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E6}{E6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab79eed3c4b6179e6b97d92431753c9e3}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab79eed3c4b6179e6b97d92431753c9e3}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E7@{E7}}
-\index{E7@{E7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E7}{E7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab6606eeb342af700d347e4519f805ece}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab6606eeb342af700d347e4519f805ece}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!E8@{E8}}
-\index{E8@{E8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{E8}{E8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+E8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a17558e041bb8d7f0c4f1211717da0934}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a17558e041bb8d7f0c4f1211717da0934}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F@{F}}
-\index{F@{F}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F}{F}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+F = F1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69eaca3590ca89fc981e739796c1873a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69eaca3590ca89fc981e739796c1873a}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F1@{F1}}
-\index{F1@{F1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F1}{F1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4aeddf77938f0f259e1389a35e423dd7}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4aeddf77938f0f259e1389a35e423dd7}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F2@{F2}}
-\index{F2@{F2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F2}{F2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a73a5cd71c085f7bd48aad88c4f510fed}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a73a5cd71c085f7bd48aad88c4f510fed}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F3@{F3}}
-\index{F3@{F3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F3}{F3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa8b7204805e548fbc3a0b003a95cf6f7}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa8b7204805e548fbc3a0b003a95cf6f7}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F4@{F4}}
-\index{F4@{F4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F4}{F4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a99e899b76b70995d0161fdf0a2c2520d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a99e899b76b70995d0161fdf0a2c2520d}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F5@{F5}}
-\index{F5@{F5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F5}{F5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac2e14d4c3609c607e1ec43539534fb22}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac2e14d4c3609c607e1ec43539534fb22}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F6@{F6}}
-\index{F6@{F6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F6}{F6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_acb25754ff88f31b9d402c3fb4b3537b1}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_acb25754ff88f31b9d402c3fb4b3537b1}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F7@{F7}}
-\index{F7@{F7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F7}{F7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69d4e341f02947a063b9c4e4197f7e89}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a69d4e341f02947a063b9c4e4197f7e89}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!F8@{F8}}
-\index{F8@{F8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{F8}{F8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+F8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a107387124a2a39ac0292cee2a2b1a371}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a107387124a2a39ac0292cee2a2b1a371}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G@{G}}
-\index{G@{G}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G}{G}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+G = G1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a898077962653698867a6917fd3947d37}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a898077962653698867a6917fd3947d37}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G1@{G1}}
-\index{G1@{G1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G1}{G1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2c085799796df74f18c8206908a47e83}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a2c085799796df74f18c8206908a47e83}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G2@{G2}}
-\index{G2@{G2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G2}{G2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a057d695f391f4f7164f45f5d79b675e1}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a057d695f391f4f7164f45f5d79b675e1}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G3@{G3}}
-\index{G3@{G3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G3}{G3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b3ad23de845ed63f4f656302f172fbf}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b3ad23de845ed63f4f656302f172fbf}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G4@{G4}}
-\index{G4@{G4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G4}{G4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a247388c0c9b7841651d945b5d2ca21b4}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a247388c0c9b7841651d945b5d2ca21b4}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G5@{G5}}
-\index{G5@{G5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G5}{G5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4dcec727c947039b32b918985d7d8b4a}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a4dcec727c947039b32b918985d7d8b4a}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G6@{G6}}
-\index{G6@{G6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G6}{G6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a83f750f335ccb7b00b078e325057d77f}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a83f750f335ccb7b00b078e325057d77f}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G7@{G7}}
-\index{G7@{G7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G7}{G7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae8867459dfa8bf27879537e667846bc3}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae8867459dfa8bf27879537e667846bc3}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!G8@{G8}}
-\index{G8@{G8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{G8}{G8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+G8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab4b5d1f6bce117b12fb63664260f7457}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab4b5d1f6bce117b12fb63664260f7457}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H@{H}}
-\index{H@{H}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H}{H}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+H = H1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a8d0604b38e4447f59953298b51491256}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a8d0604b38e4447f59953298b51491256}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H1@{H1}}
-\index{H1@{H1}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H1}{H1}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H1}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a52f0564c0e535ad13caf09a35f8f4855}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a52f0564c0e535ad13caf09a35f8f4855}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H2@{H2}}
-\index{H2@{H2}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H2}{H2}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H2}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a873217dd7308229fc60c5a7ed604b94c}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a873217dd7308229fc60c5a7ed604b94c}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H3@{H3}}
-\index{H3@{H3}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H3}{H3}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H3}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6f6e799980e1c17389a12f1801e16483}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a6f6e799980e1c17389a12f1801e16483}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H4@{H4}}
-\index{H4@{H4}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H4}{H4}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H4}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a092d2dcf94089b0381ba353c27e30f0b}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a092d2dcf94089b0381ba353c27e30f0b}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H5@{H5}}
-\index{H5@{H5}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H5}{H5}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H5}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf929f46cfa53c35e5af1b704717800d}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_adf929f46cfa53c35e5af1b704717800d}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H6@{H6}}
-\index{H6@{H6}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H6}{H6}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H6}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae264a224e8a0423cdf4fa1a1b48fd6a0}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ae264a224e8a0423cdf4fa1a1b48fd6a0}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H7@{H7}}
-\index{H7@{H7}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H7}{H7}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H7}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aac1c52f37756f36d0c06d12603e26d34}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aac1c52f37756f36d0c06d12603e26d34}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!H8@{H8}}
-\index{H8@{H8}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{H8}{H8}}
-{\footnotesize\ttfamily ver14.\+Shared\+Classes.\+Game.\+Location.\+H8}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a39a6b0d5ebb91c610256d39d9ae3b23e}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a39a6b0d5ebb91c610256d39d9ae3b23e}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!KING\_STARTING\_COL@{KING\_STARTING\_COL}}
-\index{KING\_STARTING\_COL@{KING\_STARTING\_COL}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{KING\_STARTING\_COL}{KING\_STARTING\_COL}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+KING\+\_\+\+STARTING\+\_\+\+COL = E1.\+col\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac893ae57444f018688ddefb2c860ec96}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ac893ae57444f018688ddefb2c860ec96}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!normalPerspective@{normalPerspective}}
-\index{normalPerspective@{normalPerspective}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{normalPerspective}{normalPerspective}}
-{\footnotesize\ttfamily  final \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}} ver14.\+Shared\+Classes.\+Game.\+Location.\+normal\+Perspective = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color_a43a51da47ded8ec7cb1533bc3f972e61}{Player\+Color.\+WHITE}}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_abdaf0e0d149ceebdb7138052fa05dd99}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_abdaf0e0d149ceebdb7138052fa05dd99}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!NUM\_OF\_SQUARES@{NUM\_OF\_SQUARES}}
-\index{NUM\_OF\_SQUARES@{NUM\_OF\_SQUARES}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{NUM\_OF\_SQUARES}{NUM\_OF\_SQUARES}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+NUM\+\_\+\+OF\+\_\+\+SQUARES = 64\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab48ef3f409bb1e8617611ead7671628e}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_ab48ef3f409bb1e8617611ead7671628e}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!row@{row}}
-\index{row@{row}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{row}{row}}
-{\footnotesize\ttfamily final int ver14.\+Shared\+Classes.\+Game.\+Location.\+row}
-
-this location\textquotesingle{}s row \mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaa8618b28d290c744662c6da01764919}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aaa8618b28d290c744662c6da01764919}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!WHITE\_DIFF@{WHITE\_DIFF}}
-\index{WHITE\_DIFF@{WHITE\_DIFF}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{WHITE\_DIFF}{WHITE\_DIFF}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+WHITE\+\_\+\+DIFF = \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}{WHITE\+\_\+\+STARTING\+\_\+\+ROW}} $>$ \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location_a9a69c6f6127e17e4174cbb83012acc22}{BLACK\+\_\+\+STARTING\+\_\+\+ROW}} ? -\/1 \+: 1\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a5694df5519655c8e6def6269cac00eda}} 
-\index{ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}!WHITE\_STARTING\_ROW@{WHITE\_STARTING\_ROW}}
-\index{WHITE\_STARTING\_ROW@{WHITE\_STARTING\_ROW}!ver14.SharedClasses.Game.Location@{ver14.SharedClasses.Game.Location}}
-\doxysubsubsection{\texorpdfstring{WHITE\_STARTING\_ROW}{WHITE\_STARTING\_ROW}}
-{\footnotesize\ttfamily  final int ver14.\+Shared\+Classes.\+Game.\+Location.\+WHITE\+\_\+\+STARTING\+\_\+\+ROW = E1.\+row\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-The documentation for this enum was generated from the following file\+:\begin{DoxyCompactItemize}
-\item 
-Game/\mbox{\hyperlink{_location_8java}{Location.\+java}}\end{DoxyCompactItemize}
+\doxysubsubsection{Member Data Documentation}
+\mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a7b026bd4c0b7f9084b44eced98825a62}} 
+\index{Location@{Location}!asInt@{asInt}}
+\index{asInt@{asInt}!Location@{Location}}
+\doxyparagraph{asInt}
+{\footnotesize\ttfamily final int as\+Int}
+
+the calculated index \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_af898e835b3902435257f327198aee492}} 
+\index{Location@{Location}!asLong@{asLong}}
+\index{asLong@{asLong}!Location@{Location}}
+\doxyparagraph{asLong}
+{\footnotesize\ttfamily final long as\+Long}
+
+a long value with a bit set on this location \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_a8688be4ba0fc99394f816dc2ac5141fa}} 
+\index{Location@{Location}!col@{col}}
+\index{col@{col}!Location@{Location}}
+\doxyparagraph{col}
+{\footnotesize\ttfamily final int col}
+
+this location\textquotesingle{}s column \mbox{\label{enumver14_1_1_shared_classes_1_1_game_1_1_location_aa3562004f8681b13f76fcabde24eec0c}} 
+\index{Location@{Location}!row@{row}}
+\index{row@{row}!Location@{Location}}
+\doxyparagraph{row}
+{\footnotesize\ttfamily final int row}
+
+this location\textquotesingle{}s row 

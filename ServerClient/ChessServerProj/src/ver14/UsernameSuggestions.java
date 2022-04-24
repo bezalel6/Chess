@@ -5,6 +5,7 @@ import ver14.DB.DB;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
@@ -65,6 +66,7 @@ public class UsernameSuggestions {
         }, preUnderscore, postUnderscore, bothUnderscore));
         options.addAll(createOptions("([A-Z])", username, preUnderscore, postUnderscore, bothUnderscore));
         options.addAll(createOptions("(^[a-z])|(([0-9]|_)[a-z])", username, upper, lower));
+        options.addAll(createOptions("(.*)^", username, (matchGroup, i) -> matchGroup.group() + Math.abs(new Random().nextInt())));
 
 //        options.addAll(createOptions("(.*$)",username,))
 

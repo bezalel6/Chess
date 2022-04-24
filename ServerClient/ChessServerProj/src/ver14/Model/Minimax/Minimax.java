@@ -406,7 +406,6 @@ public class Minimax {
     }
 
     /**
-     * minimax evaluation
      * makes every possible move and returns the best evaluation found for the current search player
      * (if is on a max layer, the current search player is the player who called the minimax. if it isn't, it's his opponent)
      *

@@ -525,7 +525,6 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
     private JComponent createSingleComp(DBResponse _response) {
         if (_response instanceof TableDBResponse response) {
-//            System.out.println(response);
             Header header = new Header(response.getRequest().getBuilder().getPostDescription());
             String[][] rowData = response.getRows();
             String[] colsNames = StrUtils.format(response.getColumns());
