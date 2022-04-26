@@ -8,7 +8,6 @@ import ver14.view.View;
 import javax.swing.*;
 import javax.swing.plaf.LayerUI;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
@@ -139,25 +138,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         jlayer.repaint();
     }
 
-    public KeyAdapter createKeyAdapter() {
-        return new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                super.keyPressed(e);
-                pressedKey = e.getKeyCode();
-                System.out.println("pressed key " + e);
-                repaintLayer();
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                super.keyReleased(e);
-                pressedKey = NO_KEY;
-                System.out.println("released key " + e);
-                repaintLayer();
-            }
-        };
-    }
 
     public void setBlockBoard(boolean blockBoard) {
         this.blockBoard = blockBoard;

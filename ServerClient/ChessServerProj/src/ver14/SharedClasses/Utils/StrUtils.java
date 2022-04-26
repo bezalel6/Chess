@@ -126,7 +126,8 @@ public class StrUtils {
         if (isEmpty(str)) return str;
         if (str.contains(RegEx.Prefixes.DONT_CAP_FULL)) {
 //            return str.replace(RegEx.Prefixes.DONT_CAP_FULL, "");
-            return str;
+//            return str;
+            return clean(str);
         }
         StringBuilder ret = new StringBuilder();
 
@@ -164,6 +165,16 @@ public class StrUtils {
     }
 
     /**
+     * Clean string.
+     *
+     * @param str the str
+     * @return the string
+     */
+    public static String clean(String str) {
+        return str.replaceAll("[%s%s]".formatted(RegEx.Prefixes.DONT_CAP_FULL, RegEx.Prefixes.DONT_CAP_WORD), "");
+    }
+
+    /**
      * Format date string.
      *
      * @param longStr the long str
@@ -176,16 +187,6 @@ public class StrUtils {
         } catch (NumberFormatException e) {
         }
         return longStr;
-    }
-
-    /**
-     * Clean string.
-     *
-     * @param str the str
-     * @return the string
-     */
-    public static String clean(String str) {
-        return str.replaceAll("[%s%s]".formatted(RegEx.Prefixes.DONT_CAP_FULL, RegEx.Prefixes.DONT_CAP_WORD), "");
     }
 
     /**

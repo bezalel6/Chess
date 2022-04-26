@@ -18,8 +18,6 @@ import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
@@ -78,7 +76,6 @@ public class Minimax {
      */
     private ZonedDateTime minimaxStartedTime;
 
-    private Map<Long, Evaluation> transposition = new ConcurrentHashMap<>();
 
     //    region some statistics that are disabled for performance's sake
     private long positionsReached;
@@ -329,7 +326,6 @@ public class Minimax {
 
             minimaxUI.update(bestMoveSoFar);
 
-            transposition.clear();
 
         }
         minimaxUI.stopTimer();
