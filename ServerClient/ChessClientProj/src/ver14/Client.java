@@ -465,10 +465,11 @@ public class Client implements EnvManager {
      */
     public void disconnectFromServer() {
         if (clientSocket != null && clientSocket.isConnected()) {
-            clientSocket.requestMessage(Message.bye(""), response -> {
-                view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
-                closeClient();
-            });
+            clientSocket.writeMessage(Message.bye(""));
+//            clientSocket.requestMessage(, response -> {
+//                view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
+//                closeClient();
+//            });
         } else {
             closeClient();
         }

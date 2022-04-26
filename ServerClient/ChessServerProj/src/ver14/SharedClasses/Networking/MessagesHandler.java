@@ -8,7 +8,6 @@ import ver14.SharedClasses.Threads.ThreadsManager;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -16,19 +15,23 @@ import java.util.concurrent.Semaphore;
 
 
 /**
- * The type Messages handler.
+ * Messages handler - handles all types of messages by using a hash map to make all the routing as fast as possible.
+ * when a request is sent to the server, a callback is passed with it. when a response is received,
+ * that callback is called with the response message.
+ * <br/>
+ * if a message that isn't a response is received, the handling is differed to the default callbacks map. which is where
+ * most of the implementation of this abstract class comes in. the individual message type handling.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class MessagesHandler {
-
 
     /**
      * The Socket.
      */
     protected final AppSocket socket;
     /**
-     * The Waiting.
+     * The Waiting queue. contains all blocking message callbacks. used to interrupt on disconnect or on error.
      */
     private final Vector<CompletableFuture<Message>> waiting;
     /**
@@ -36,23 +39,19 @@ public abstract class MessagesHandler {
      */
     private final Map<MessageType, MessageCallback> defaultCallbacks;
     /**
-     * The Received messages.
-     */
-    private final Stack<Message> receivedMessages = new Stack<>();
-    /**
-     * The Custom callbacks.
+     * The Custom callbacks. set by requesting a message. the keys are the request id.
      */
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
     /**
-     * The Chronological semaphore.
+     * The Chronological semaphore. some messages have chronological importance, and since all messages are processed on a new thread, some synchronization is sometimes needed
      */
     private final Semaphore chronologicalSemaphore = new Semaphore(1);
     /**
-     * The Is expecting disconnect.
+     * is expecting disconnect.
      */
     private boolean isExpectingDisconnect = false;
     /**
-     * The Did disconnect.
+     * Did disconnect.
      */
     private boolean didDisconnect = false;
 
@@ -110,20 +109,16 @@ public abstract class MessagesHandler {
         };
     }
 
+
     /**
-     * Interrupt blocking.
-     *
-     * @param err the err
+     * @param err
      */
-//    public void interruptBlocking() {
-//        interruptBlocking();
-//    }
     public void interruptBlocking(MyError err) {
         waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     /**
-     * Block til res message.
+     * Blocking this thread until a response is received
      *
      * @param request the request
      * @return the message
@@ -194,16 +189,16 @@ public abstract class MessagesHandler {
                  */
         ThreadsManager.createThread(() -> {
             if (message.getMessageType().chronologicalImportance) {
-                System.out.println(message.getMessageType() + " acquiring semaphore");
+//                System.out.println(message.getMessageType() + " acquiring semaphore");
                 chronologicalSemaphore.acquire();
-                System.out.println(message.getMessageType() + " acquired semaphore");
+//                System.out.println(message.getMessageType() + " acquired semaphore");
             }
             processMessage(message);
             if (message.getMessageType().chronologicalImportance) {
                 chronologicalSemaphore.release();
-                System.out.println(message.getMessageType() + " released semaphore");
+//                System.out.println(message.getMessageType() + " released semaphore");
             }
-        }, true);
+        }, true).setName("Messages worker");
     }
 
     /**
@@ -222,10 +217,12 @@ public abstract class MessagesHandler {
         onAnyMsg(message);
         String respondingTo = message.getRespondingToMsgId();
         MessageCallback callback;
-        if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
-            callback = customCallbacks.remove(respondingTo);
-        } else {
-            callback = defaultCallbacks.get(message.getMessageType());
+        synchronized (customCallbacks) {
+            if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
+                callback = customCallbacks.remove(respondingTo);
+            } else {
+                callback = defaultCallbacks.get(message.getMessageType());
+            }
         }
         callback.onMsg(message);
     }
@@ -236,7 +233,7 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void onAnyMsg(Message message) {
-        System.out.println("received  " + message);
+//        System.out.println("received  " + message);
 
 //        if (message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE) {
 //            receivedMessages.push(message);
@@ -274,12 +271,20 @@ public abstract class MessagesHandler {
      * On planned disconnect.
      */
     protected void onPlannedDisconnect() {
+        synchronized (customCallbacks) {
+            customCallbacks.values().forEach(messageCallback -> {
+                messageCallback.onMsg(null);
+            });
+        }
     }
 
     /**
      * On unplanned disconnect.
      */
     protected void onUnplannedDisconnect() {
+        synchronized (customCallbacks) {
+            customCallbacks.values().forEach(messageCallback -> messageCallback.onMsg(Message.throwError(createDisconnectedError())));
+        }
     }
 
     /**

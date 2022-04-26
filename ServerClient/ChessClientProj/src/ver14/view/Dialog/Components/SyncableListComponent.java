@@ -44,11 +44,6 @@ public abstract class SyncableListComponent extends ListComponent implements Syn
     }
 
     @Override
-    protected Size maxSize() {
-        return listSize;
-    }
-
-    @Override
     public SyncedListType syncedListType() {
         return listType;
     }

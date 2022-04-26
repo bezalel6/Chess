@@ -37,7 +37,7 @@ public class Menu extends JMenu implements AuthorizedComponent {
 
 
     @Override
-    public int authSettings() {
+    public int authRequirements() {
         return authSettings;
     }
 

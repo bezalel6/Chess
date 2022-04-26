@@ -5,7 +5,7 @@ import ver14.SharedClasses.Game.Evaluation.GameStatus;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Misc.Enviornment;
+import ver14.SharedClasses.Misc.Environment;
 import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Board.BoardOverlay;
@@ -83,9 +83,7 @@ public class IconManager {
 
         userIcon = loadImage("user", PROFILE_PIC_SIZE);
         defaultUserIcon = userIcon;
-        System.out.println("user icon desc " + defaultUserIcon.getDescription());
-//        defaultUserIcon = scaleImage(userIcon, PROFILE_PIC_SIZE);
-//
+
         loginIcon = loadImage("login", LOGIN_PROCESS_SIZES);
         registerIcon = loadImage("register", LOGIN_PROCESS_SIZES);
 
@@ -178,15 +176,12 @@ public class IconManager {
         if (!relativePath.contains("/assets/"))
             relativePath = "/assets/" + relativePath;
         URL path;
-//        System.out.println(Arrays.toString(new File("./assets").listFiles()));
-        if (Enviornment.IS_JAR) {
-//            relativePath = "." + relativePath.substring(1);
+        if (Environment.IS_JAR) {
             try {
                 if (!relativePath.contains("./")) {
                     relativePath = "./" + relativePath;
                 }
                 File file = new File(relativePath);
-//                File file = new File("./assets/White/Pawn.png");
                 if (!file.exists())
                     System.out.println("didnt find file");
                 path = file.toURI().toURL();

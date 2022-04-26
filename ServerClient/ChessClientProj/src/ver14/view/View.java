@@ -793,6 +793,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param title        the title
      */
     public void showDBResponse(DBResponse response, String respondingTo, String title) {
+        if (response == null)
+            return;
         WinPnl pnl = new WinPnl();
         respondingTo = StrUtils.format(respondingTo);
 

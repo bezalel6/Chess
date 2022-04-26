@@ -2,7 +2,6 @@ package ver14.view.Dialog;
 
 import ver14.view.Dialog.DialogFields.DialogField;
 import ver14.view.Dialog.Dialogs.Header;
-import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,15 +75,6 @@ public class WinPnl extends JPanel {
 
     public void setInsets(Insets myInsets) {
         this.myInsets = myInsets;
-    }
-
-    /**
-     * only relevant when scrollable
-     *
-     * @return
-     */
-    protected Size maxSize() {
-        return new Size(500);
     }
 
     public void setBorder() {

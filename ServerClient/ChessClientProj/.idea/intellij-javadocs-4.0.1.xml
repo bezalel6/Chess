@@ -3,7 +3,7 @@
   <component name="JavaDocConfiguration">
     <GENERAL>
       <MODE>UPDATE</MODE>
-      <OVERRIDDEN_METHODS>false</OVERRIDDEN_METHODS>
+      <OVERRIDDEN_METHODS>true</OVERRIDDEN_METHODS>
       <SPLITTED_CLASS_NAME>true</SPLITTED_CLASS_NAME>
       <LEVELS>
         <LEVEL>TYPE</LEVEL>

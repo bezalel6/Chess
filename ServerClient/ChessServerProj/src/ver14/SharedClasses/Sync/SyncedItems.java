@@ -2,7 +2,6 @@ package ver14.SharedClasses.Sync;
 
 import org.jetbrains.annotations.NotNull;
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.Game.SavedGames.GameInfo;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,26 +10,7 @@ import java.util.stream.Stream;
 
 
 public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<String, E> {
-    public final static SyncedItems<UserInfo> exampleUsers1 = new SyncedItems<>(SyncedListType.CONNECTED_USERS) {{
-        for (int i = 1; i <= 5; i++) {
-            add(new UserInfo("id " + i));
-        }
-    }};
-    public final static SyncedItems exampleUsers2 = new SyncedItems(SyncedListType.CONNECTED_USERS) {{
-        for (int i = 1; i <= 5; i++) {
-            add(new UserInfo("id " + i));
-        }
-    }};
-    public final static SyncedItems exampleGames1 = new SyncedItems(SyncedListType.RESUMABLE_GAMES) {{
-        for (int i = 1; i <= 10; i++) {
-            add(GameInfo.example());
-        }
-    }};
-    public final static SyncedItems exampleGames2 = new SyncedItems(SyncedListType.JOINABLE_GAMES) {{
-        for (int i = 1; i <= 5; i++) {
-            add(GameInfo.example());
-        }
-    }};
+
     public final SyncedListType syncedListType;
     //only used by the server ↓
     private final Callback<SyncedItems<E>> onUpdate;

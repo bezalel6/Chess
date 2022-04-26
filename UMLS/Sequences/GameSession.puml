@@ -1,0 +1,20 @@
+
+
+@startuml
+'!theme vibrant
+
+start
+while (players want to play?) is (yes)
+:start a new game;
+while(game over?) is (no)
+:get move from the current player\n to move;
+:make the move;
+:switch turns;
+endwhile (yes)
+:send game over to both players;
+endwhile(no)
+:end the game session;
+stop
+
+
+@enduml

@@ -30,7 +30,7 @@ public interface AuthorizedComponent {
     }
 
     default boolean auth(@AuthSettings int authing) {
-        return (authSettings() & authing) != 0;
+        return (authRequirements() & authing) != 0;
     }
 
     default void enableComp(boolean e) {
@@ -39,5 +39,5 @@ public interface AuthorizedComponent {
     }
 
     @AuthSettings
-    int authSettings();
+    int authRequirements();
 }

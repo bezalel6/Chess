@@ -20,7 +20,7 @@ import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
-import ver14.SharedClasses.Misc.Enviornment;
+import ver14.SharedClasses.Misc.Environment;
 import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
@@ -106,7 +106,7 @@ public class DB {
         //#####################################################################
         dbPath = "src" + dbPath;
 
-        if (Enviornment.IS_JAR) {
+        if (Environment.IS_JAR) {
             dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
         }
 

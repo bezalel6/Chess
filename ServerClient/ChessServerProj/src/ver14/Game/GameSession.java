@@ -199,7 +199,7 @@ public class GameSession extends HandledThread implements SyncableItem {
     public boolean askForRematch() {
         if (getPlayers().stream().anyMatch(p -> !p.isConnected()))
             return false;
-
+        System.out.println("both players are still connected");
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
 
         AtomicInteger numOfRes = new AtomicInteger(0);
@@ -210,8 +210,9 @@ public class GameSession extends HandledThread implements SyncableItem {
         log("asking rematch");
         getPlayers().forEach(player -> {
             player.askQuestion(Question.Rematch, ans -> {
+                log(player + " ans = " + ans);
                 synchronized (atomicBoolean) {
-                    if (!player.isConnected() || !player.getPartner().isConnected() || (atomicBoolean.get() && !ans.equals(Question.Answer.YES))) {
+                    if (!player.isConnected() || !player.getPartner().isConnected() || (!ans.equals(Question.Answer.YES))) {
                         atomicBoolean.set(false);
                         rematch.complete(false);
                         if (canceledPlayer.get() == null)

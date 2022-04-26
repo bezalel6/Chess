@@ -23,7 +23,7 @@ public class ProfilePnl extends WinPnl implements AuthorizedComponent {
     }
 
     @Override
-    public int authSettings() {
+    public int authRequirements() {
         return AuthSettings.ANY_LOGIN;
     }
 }

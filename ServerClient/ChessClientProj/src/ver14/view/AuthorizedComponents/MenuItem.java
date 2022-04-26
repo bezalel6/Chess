@@ -20,7 +20,7 @@ public class MenuItem extends JMenuItem implements AuthorizedComponent {
     }
 
     @Override
-    public int authSettings() {
+    public int authRequirements() {
         return authSettings;
     }
 }

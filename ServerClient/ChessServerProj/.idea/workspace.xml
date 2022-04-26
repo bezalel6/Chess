@@ -14,265 +14,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="done profile pic">
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/artifacts/ChessClientProj_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/DJNativeSwing-SWT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/DJNativeSwing.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/annotations-20.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Bishop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/King.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Knight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Pawn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Queen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Rook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Lost/Black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Lost/White.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Tie/Black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Tie/White.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Won/Black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Won/White.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/ServerIcon/hover.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/ServerIcon/normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/hover.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/normal.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/capture.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/castle.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/check.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/game-end.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/game-start.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/opponent-move.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/promote.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/self-move.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/ten-seconds.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/tenSeconds.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Statistics/StatisticsIcon/hover.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Statistics/StatisticsIcon/normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/Error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/Info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/serverError.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Bishop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/King.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Knight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Pawn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Queen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Rook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/greenCheck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/hidePassword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/promotion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/random.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/redX.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/register.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/rules.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/showPassword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/flatlaf-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/flatlaf-intellij-themes-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jcalendar-1.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jgoodies-common-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jgoodies-looks-2.4.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/junit-4.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/swt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/Enviornment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/Environment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../UMLS/Sequences/GameSession.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/runConfigurations/Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/runConfigurations/Client.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/DialogCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/MessageCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/SimpleDialogCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Cards/SimpleDialogCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/AuthorizedComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/AuthorizedComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/AuthorizedComponents/MenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/SyncableListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Components/SyncableListComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/DialogFields/DialogField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/ChangePassword/ChangePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/ChangePassword/ChangePassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/ConfirmPasswordPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/ConfirmPasswordPnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Scrollable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Scrollable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/WinPnl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MyTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MyTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/MoveLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/SidePanel/MoveLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/ProfilePnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/ProfilePnl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/ChessServerProj_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ChessServerProj_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Server.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessServerProj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChessServerProj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/annotated.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/annotated.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_login_1_1_login_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_login_1_1_login_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_misc_1_1_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_misc_1_1_question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/dir_663adc3b4f119cf28c7c5a71f9f7d7c1.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/dir_663adc3b4f119cf28c7c5a71f9f7d7c1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/dir_68267d1309a1af8e8297ef4c3efbcdba.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/dir_68267d1309a1af8e8297ef4c3efbcdba.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_location.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_location.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_player_color.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/enumver14_1_1_shared_classes_1_1_game_1_1_player_color.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_b.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_b.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_c.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_c.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_d.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_e.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_e.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_f.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_f.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_b.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_b.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_c.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_c.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_d.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_e.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_e.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_f.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_f.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_g.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_g.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_h.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_i.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_i.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_l.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_l.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_m.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_m.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_n.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_n.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_o.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_o.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_p.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_p.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_q.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_q.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_r.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_r.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_s.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_s.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_t.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_t.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_u.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_func_u.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_g.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_g.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_h.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_h.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_i.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_i.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_l.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_l.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_m.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_m.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_n.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_n.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_o.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_o.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_p.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_p.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_q.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_q.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_r.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_r.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_s.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_s.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_t.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_t.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_u.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_u.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_c.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_c.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_d.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_d.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_g.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_g.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_l.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_l.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_n.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_n.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_r.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_r.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_s.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_s.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_t.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/functions_vars_t.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/hierarchy.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/hierarchy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/html/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/annotated.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/annotated.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_login_1_1_login_info.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_login_1_1_login_info.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_misc_1_1_question.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_misc_1_1_question.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_location.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_location.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_player_color.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/enumver14_1_1_shared_classes_1_1_game_1_1_player_color.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/hierarchy.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/hierarchy.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_obj_callback.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/latex/refman.tex" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/latex/refman.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/rtf/annotated.rtf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/rtf/annotated.rtf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/rtf/hierarchy.rtf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/rtf/hierarchy.rtf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/rtf/refman.rtf" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/rtf/refman.rtf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Game/GameSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/PlayerColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/PlayerColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/Enviornment.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/AppSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/AppSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/MessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/MyThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/MyThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Tests/MoveGenerationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Tests/MoveGenerationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,8 +70,8 @@
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Salt Wireframe" />
-        <option value="UML Sequence" />
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -367,7 +151,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/SharedCo/Chess/ServerClient/ChessServerProj/src/assets/db.accdb",
+    "last_opened_file_path": "E:/SharedCo/Chess/ServerClient/ChessServerProj/src/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -375,7 +159,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "copyright.filetypes.JAVA"
+    "settings.editor.selected.configurable": "advanced.settings"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -456,7 +240,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimaxTests.testEval" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MinimaxTests.minimaxVsStockfish" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ChessServerProj" />
       <extension name="coverage">
         <pattern>
@@ -466,7 +250,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ver14.Tests" />
       <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
-      <option name="METHOD_NAME" value="testEval" />
+      <option name="METHOD_NAME" value="minimaxVsStockfish" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -516,17 +300,17 @@
       <item itemvalue="Application.DB" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
       <item itemvalue="TestNG.Tests" />
+      <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
       <item itemvalue="TestNG.MinimaxTests.testM1" />
       <item itemvalue="TestNG.MinimaxTests.testStarting" />
-      <item itemvalue="TestNG.MinimaxTests.testEval" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MinimaxTests.minimaxVsStockfish" />
         <item itemvalue="Application.DB" />
         <item itemvalue="Application.ConfirmDialogs" />
         <item itemvalue="TestNG.MinimaxTests.testM1" />
         <item itemvalue="TestNG.MinimaxTests.testStarting" />
-        <item itemvalue="TestNG.MinimaxTests.testEval" />
       </list>
     </recent_temporary>
   </component>
@@ -552,6 +336,7 @@
       <workItem from="1650787826870" duration="85000" />
       <workItem from="1650787928295" duration="6609000" />
       <workItem from="1650800998204" duration="37932000" />
+      <workItem from="1650937189303" duration="13423000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>
@@ -746,9 +531,23 @@
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ver14/SharedClasses/Threads/MyThread.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="165" />
+          <url>file://$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java</url>
+          <line>158</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="player instanceof PlayerNet" language="JAVA" custom="ver14.Players.PlayerNet.PlayerNet" />
+          <url>file://$PROJECT_DIR$/src/ver14/Game/GameSession.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ver14/Game/GameSession.java</url>
+          <line>212</line>
+          <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/ver14/DB/DB.java</url>
@@ -761,7 +560,11 @@
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
-        <breakpoint enabled="true" type="java-exception" />
+        <breakpoint enabled="true" type="java-exception">
+          <properties>
+            <option name="NOTIFY_CAUGHT" value="false" />
+          </properties>
+        </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

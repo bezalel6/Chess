@@ -18,14 +18,12 @@ public abstract class MyThread extends Thread {
     private boolean ignoreErrs = false;
     private ThreadStatus threadStatus = ThreadStatus.NOT_STARTED;
 
-    private Exception debuggingStack;
 
     /**
      * Instantiates a new My thread.
      */
     public MyThread() {
         ThreadsManager.addThread(this);
-        debuggingStack = new Exception();
         setDaemon(false);
     }
 
@@ -67,8 +65,6 @@ public abstract class MyThread extends Thread {
      */
     public void stopRun() {
         if (threadStatus == ThreadStatus.RUNNING) {
-            System.out.println(this + " was still running printing created context");
-            debuggingStack.printStackTrace();
             this.interrupt();
         }
     }

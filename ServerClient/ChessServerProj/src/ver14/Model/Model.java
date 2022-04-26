@@ -23,10 +23,16 @@ import java.util.Stack;
 
 
 /**
- * The type Model.
+ * Model - handles all game logic.
  */
 public class Model implements Serializable {
-    //    only used while the book is still working
+    /**
+     * a concatenating string builder of the main (= not searches) game progress.
+     * done in the pgn format(Portable Game Notation).
+     * used for searching inside the book
+     *
+     * @see ver14.Model.Eval.Book
+     */
     private StringBuilder pgnBuilder = new StringBuilder();
     /**
      * stack to keep track of the applied moves

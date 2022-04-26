@@ -2,7 +2,7 @@
   <configuration default="false" name="Server" type="Application" factoryName="Application" singleton="false">
     <option name="MAIN_CLASS_NAME" value="ver14.Server" />
     <module name="ChessServerProj" />
-    <option name="PROGRAM_PARAMETERS" value="p=12345" />
+    <option name="PROGRAM_PARAMETERS" value="//p=12345" />
     <option name="VM_PARAMETERS" value="-ea " />
     <method v="2">
       <option name="Make" enabled="true" />

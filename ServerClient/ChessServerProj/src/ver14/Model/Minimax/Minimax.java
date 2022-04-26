@@ -48,6 +48,10 @@ public class Minimax {
      */
     public static boolean LOG = false;
     /**
+     * the number of threads the minimax's Thread Pool will run on
+     */
+    public static int NUMBER_OF_THREADS = 10;
+    /**
      * the scan time in milliseconds
      */
     private final long scanTimeInMillis;
@@ -67,10 +71,6 @@ public class Minimax {
      * the model for the search's starting position
      */
     private Model model;
-    /**
-     * the number of threads the minimax's Thread Pool will run on
-     */
-    private int numOfThreads = 10;
     /**
      * before starting the search the time is being captured so the elapsed time could be measured
      */
@@ -206,7 +206,7 @@ public class Minimax {
      * @param numOfThreads the num of threads
      */
     public void setNumOfThreads(int numOfThreads) {
-        this.numOfThreads = numOfThreads;
+        this.NUMBER_OF_THREADS = numOfThreads;
     }
 
     /**
@@ -259,7 +259,7 @@ public class Minimax {
     private void initSearch() {
         log("Current eval:\n" + Eval.getEvaluation(model));
         cpuUsageRecords.clear();
-        minimaxUI.setNumOfThreads(numOfThreads);
+        minimaxUI.setNumOfThreads(NUMBER_OF_THREADS);
         minimaxUI.startTime();
         minimaxStartedTime = ZonedDateTime.now();
     }
@@ -350,7 +350,7 @@ public class Minimax {
      */
     MinimaxMove minimaxRoot(Model model, int maxDepth) {
         isCompleteSearch = new AtomicBoolean(true);
-        threadPool = new ForkJoinPool(numOfThreads);
+        threadPool = new ForkJoinPool(NUMBER_OF_THREADS);
 
         try {
             startMultithreaded(model, model.getCurrentPlayer(), maxDepth);

@@ -129,7 +129,7 @@ public class StrUtils {
             }
             ret.append(word);
         }
-        return ret.toString();
+        return clean(ret.toString());
     }
 
     /**
@@ -158,6 +158,16 @@ public class StrUtils {
     }
 
     /**
+     * Clean string.
+     *
+     * @param str the str
+     * @return the string
+     */
+    public static String clean(String str) {
+        return str.replaceAll("[%s%s]".formatted(RegEx.Prefixes.DONT_CAP_FULL, RegEx.Prefixes.DONT_CAP_WORD), "");
+    }
+
+    /**
      * Format date string.
      *
      * @param date the date
@@ -177,7 +187,6 @@ public class StrUtils {
     public static String formatDate(Date date, String format) {
         return new SimpleDateFormat(format, Locale.US).format(date);
     }
-
 
     /**
      * Parse urls string.
@@ -279,7 +288,6 @@ public class StrUtils {
         return "<html><body><p style='width: %spx;'>%s</p></body></html>".formatted(Math.max(comp.getWidth(), 20), str);
     }
 
-
     /**
      * Fix html string.
      *
@@ -293,6 +301,11 @@ public class StrUtils {
         }
         return str;
     }
+
+//    public static String wrapInHtml(String str) {
+//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
+////        return str;
+//    }
 
     /**
      * Str inn string.
@@ -310,11 +323,6 @@ public class StrUtils {
         }
         return bldr.toString();
     }
-
-//    public static String wrapInHtml(String str) {
-//        return "<html><body><p style='width: 300px;'>" + str + "</p></body></html>";
-////        return str;
-//    }
 
     /**
      * Split arr string.
@@ -355,16 +363,6 @@ public class StrUtils {
             }
         }
         return bldr.toString();
-    }
-
-    /**
-     * Clean string.
-     *
-     * @param str the str
-     * @return the string
-     */
-    public static String clean(String str) {
-        return str.replaceAll("[%s%s]".formatted(RegEx.Prefixes.DONT_CAP_FULL, RegEx.Prefixes.DONT_CAP_WORD), "");
     }
 
     /**

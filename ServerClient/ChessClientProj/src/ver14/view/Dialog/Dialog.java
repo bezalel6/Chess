@@ -6,7 +6,6 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Networking.AppSocket;
 import ver14.SharedClasses.Networking.Messages.Message;
-import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.UI.MyJFrame;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.BackOk.BackOkInterface;
@@ -59,6 +58,8 @@ public abstract class Dialog extends JDialog implements Parent {
         this.pane = getContentPane();
         this.socketToServer = properties.socketToServer();
 
+        setMinimumSize(new Size(300, 200));
+
         cardStack = new Stack<>();
         cardsPnl = new JPanel(new CardLayout());
 
@@ -69,7 +70,7 @@ public abstract class Dialog extends JDialog implements Parent {
         bottomPnl = new JPanel(new BorderLayout());
 
         myAdapter = MyJFrame.debugAdapter(this);
-        MyJFrame.addResizeEvent(getRootPane(), this::onUpdate);
+//        MyJFrame.addResizeEvent(getRootPane(), this::onUpdate);
         pane.add(topPnl, BorderLayout.PAGE_START);
         pane.add(bottomPnl, BorderLayout.PAGE_END);
 
@@ -97,25 +98,6 @@ public abstract class Dialog extends JDialog implements Parent {
 
     }
 
-    private void verifyCurrentCard() {
-        if (currentCard == null)
-            return;
-        String err = currentCard.checkVerifiedComponents();
-        if (currentCard.dialogWideErrors()) {
-            dialogWideErr(err);
-        }
-    }
-
-    public void repackWin() {
-        SwingUtilities.invokeLater(this::pack);
-    }
-
-    protected void recenter() {
-        SwingUtilities.invokeLater(() -> {
-            setLocationRelativeTo(parentWin);
-        });
-    }
-
     @Override
     public MyJFrame.MyAdapter keyAdapter() {
         return myAdapter;
@@ -123,10 +105,6 @@ public abstract class Dialog extends JDialog implements Parent {
 
     @Override
     public void registerSyncedList(SyncableList list) {
-        if (socketToServer == null) {
-            list.sync(SyncedItems.exampleGames1);
-            return;
-        }
         ((ClientMessagesHandler) socketToServer.getMessagesHandler()).registerSyncableList(list);
     }
 
@@ -240,6 +218,25 @@ public abstract class Dialog extends JDialog implements Parent {
 
     private CardLayout getCardsLayout() {
         return (CardLayout) (cardsPnl.getLayout());
+    }
+
+    private void verifyCurrentCard() {
+        if (currentCard == null)
+            return;
+        String err = currentCard.checkVerifiedComponents();
+        if (currentCard.dialogWideErrors()) {
+            dialogWideErr(err);
+        }
+    }
+
+    public void repackWin() {
+        SwingUtilities.invokeLater(this::pack);
+    }
+
+    protected void recenter() {
+        SwingUtilities.invokeLater(() -> {
+            setLocationRelativeTo(parentWin);
+        });
     }
 
     public void closeDialog() {

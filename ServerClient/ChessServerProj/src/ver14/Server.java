@@ -2,6 +2,7 @@ package ver14;
 
 import ver14.DB.DB;
 import ver14.Game.GameSession;
+import ver14.Model.Eval.Book;
 import ver14.Model.Minimax.Minimax;
 import ver14.Players.Player;
 import ver14.Players.PlayerAI.PlayerAI;
@@ -78,7 +79,7 @@ public class Server implements EnvManager {
      */
     private final static IDsGenerator gameIDGenerator;
     /**
-     * the port to start with. default is nothing unless one is passed through the cli
+     * the port to start with. default is nothing unless one is passed through to the main
      */
     private static int START_AT_PORT = -1;
 
@@ -184,7 +185,6 @@ public class Server implements EnvManager {
                 }
             });
 
-//            setAlwaysOnTop(true);
         }};
         JPanel bottomPnl = new JPanel();
         MyJButton connectedUsersBtn = new MyJButton("Connected Users", () -> {
@@ -243,9 +243,9 @@ public class Server implements EnvManager {
 
         // show window
         frmWin.setLocationRelativeTo(null);
-        SwingUtilities.invokeLater(() -> {
-            frmWin.setVisible(true);
-        });
+//        SwingUtilities.invokeLater(() -> {
+        frmWin.setVisible(true);
+//        });
     }
 
     /**
@@ -267,14 +267,16 @@ public class Server implements EnvManager {
             serverIP = InetAddress.getLocalHost().getHostAddress(); // get Computer IP
 
             if (serverPort == -1) {
-                String port = System.getenv("PORT");
-                if (port == null)
-                    port = JOptionPane.showInputDialog(frmWin, "Enter Server PORT Number:", SERVER_DEFAULT_PORT);
 
-                if (port == null) // check if Cancel button was pressed
-                    serverPort = -1;
-                else
-                    serverPort = Integer.parseInt(port);
+                JTextField portField = new JTextField(SERVER_DEFAULT_PORT + "", 30);
+                JTextField threadsField = new JTextField(Minimax.NUMBER_OF_THREADS + "", 30);
+                Object[] messageObj = {"Enter Server PORT Number:", portField, "Enter Number of threads for the minimax:", threadsField};
+                int dialog = JOptionPane.showConfirmDialog(frmWin, messageObj, "Server Setup", JOptionPane.OK_CANCEL_OPTION);
+                if (dialog == JOptionPane.CANCEL_OPTION)
+                    return;
+                serverPort = Integer.parseInt(portField.getText());
+                Minimax.NUMBER_OF_THREADS = Integer.parseInt(threadsField.getText());
+                System.out.println("threads = " + Minimax.NUMBER_OF_THREADS);
             }
 
             // Setup Server Socket ...
@@ -416,6 +418,8 @@ public class Server implements EnvManager {
 
         START_AT_PORT = util.equalsSign("p").getInt(-1);
         Minimax.SHOW_UI = util.plainTextIgnoreCase(Minimax.DEBUG_MINIMAX).exists();
+
+        Book.checkBook();
 
         Server server = new Server();
         server.runServer();

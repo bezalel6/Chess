@@ -12,6 +12,9 @@
       <element id="file-copy" path="$PROJECT_DIR$/src/libs/ucanaccess-5.0.1.jar" />
       <element id="library" level="project" name="mylibs" />
       <element id="library" level="module" name="testng" module-name="ChessServerProj" />
+      <element id="directory" name="assets">
+        <element id="dir-copy" path="$PROJECT_DIR$/src/assets" />
+      </element>
     </root>
   </artifact>
 </component>

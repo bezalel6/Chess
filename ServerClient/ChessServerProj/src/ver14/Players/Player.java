@@ -14,104 +14,255 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 /**
  * Player.
- * ---------------------------------------------------------------------------
- * by Ilan Peretz (ilanperets@gmail.com) 10/11/2021
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class Player {
+    /**
+     * The Game.
+     */
     protected Game game;
+    /**
+     * The Game session.
+     */
     protected GameSession gameSession;
+    /**
+     * The Player color.
+     */
     protected PlayerColor playerColor;
+    /**
+     * The Partner.
+     */
     protected Player partner = null;
+    /**
+     * The Username.
+     */
     private String username;
+    /**
+     * The Created game id.
+     */
     private String createdGameID;
 
+    /**
+     * Instantiates a new Player.
+     *
+     * @param id the id
+     */
     public Player(String id) {
         this.username = id;
     }
 
+    /**
+     * Gets game session.
+     *
+     * @return the game session
+     */
     public GameSession getGameSession() {
         return gameSession;
     }
 
+    /**
+     * Sets game session.
+     *
+     * @param gameSession the game session
+     */
     public void setGameSession(GameSession gameSession) {
         this.gameSession = gameSession;
     }
 
+    /**
+     * Gets partner.
+     *
+     * @return the partner
+     */
     public Player getPartner() {
         return partner;
     }
 
+    /**
+     * Sets partner.
+     *
+     * @param partner the partner
+     */
     public void setPartner(Player partner) {
         this.partner = partner;
     }
 
+    /**
+     * Gets player color.
+     *
+     * @return the player color
+     */
     public PlayerColor getPlayerColor() {
         return playerColor;
     }
 
+    /**
+     * Sets player color.
+     *
+     * @param playerColor the player color
+     */
     public void setPlayerColor(PlayerColor playerColor) {
         this.playerColor = playerColor;
     }
 
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets username.
+     *
+     * @param username the username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Init game.
+     *
+     * @param game the game
+     */
     public void initGame(Game game) {
         this.game = game;
         initGame();
     }
 
+    /**
+     * Init game.
+     */
     protected abstract void initGame();
 
+    /**
+     * Gets created game id.
+     *
+     * @return the created game id
+     */
     public String getCreatedGameID() {
         return createdGameID;
     }
 
+    /**
+     * Sets created game id.
+     *
+     * @param createdGameID the created game id
+     */
     public void setCreatedGameID(String createdGameID) {
         this.createdGameID = createdGameID;
     }
 
+    /**
+     * Error.
+     *
+     * @param error the error
+     */
     public abstract void error(String error);
 
+    /**
+     * Gets move.
+     *
+     * @return the move
+     */
     public abstract Move getMove();
 
+    /**
+     * Wait turn.
+     */
     public abstract void waitTurn();
 
+    /**
+     * Game over.
+     *
+     * @param gameStatus the game status
+     */
     public abstract void gameOver(GameStatus gameStatus);
 
 //    public abstract void cancelQuestion(Question question, String cancelMsg);
 
 
+    /**
+     * Ask question.
+     *
+     * @param question the question
+     * @param onAns    the on ans
+     */
     public void askQuestion(Question question, AnswerCallback onAns) {
+
         onAns.callback(question.getDefaultAnswer());
     }
 
+    /**
+     * Update by move.
+     *
+     * @param move the move
+     */
     public abstract void updateByMove(Move move);
 
+    /**
+     * Cancel question.
+     *
+     * @param question the question
+     * @param cause    the cause
+     */
     public abstract void cancelQuestion(Question question, String cause);
 
+    /**
+     * Interrupt.
+     *
+     * @param error the error
+     */
     public abstract void interrupt(MyError error);
 
+    /**
+     * Disconnect.
+     *
+     * @param cause             the cause
+     * @param notifyGameSession the notify game session
+     */
     public abstract void disconnect(String cause, boolean notifyGameSession);
 
+    /**
+     * Wait for match.
+     */
     public abstract void waitForMatch();
 
+    /**
+     * Gets game settings.
+     *
+     * @param joinableGames  the joinable games
+     * @param resumableGames the resumable games
+     * @return the game settings
+     */
     public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);
 
+    /**
+     * Resigned.
+     */
     public void resigned() {
         assert gameSession != null;
         gameSession.resigned(this);
     }
 
+    /**
+     * Gets on going game.
+     *
+     * @return the on going game
+     */
     public Game getOnGoingGame() {
         return game;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         if (playerColor != null) {
@@ -120,18 +271,43 @@ public abstract class Player {
         return username;
     }
 
+    /**
+     * Is save worthy boolean.
+     *
+     * @return the boolean
+     */
     public boolean isSaveWorthy() {
         return !isGuest() && !isAi();
     }
 
+    /**
+     * Is guest boolean.
+     *
+     * @return the boolean
+     */
     public abstract boolean isGuest();
 
+    /**
+     * Is ai boolean.
+     *
+     * @return the boolean
+     */
     public abstract boolean isAi();
 
+    /**
+     * Is connected boolean.
+     *
+     * @return the boolean
+     */
     public boolean isConnected() {
         return true;
     }
 
+    /**
+     * Is playing boolean.
+     *
+     * @return the boolean
+     */
     public boolean isPlaying() {
         return gameSession != null;
     }

@@ -65,12 +65,13 @@ public class Eval implements Serializable {
             }
             return new Evaluation(GameStatus.stalemate(), playerToMove);
 
-        } else if (model.getHalfMoveClock() >= 100) {
+        }
+        if (model.getHalfMoveClock() >= 100) {
             return new Evaluation(GameStatus.fiftyMoveRule(), playerToMove);
         }
-//        if (checkRepetition()) {
-//            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
-//        }
+        if (checkRepetition()) {
+            return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
+        }
         if (checkForInsufficientMaterial()) {
             return new Evaluation(GameStatus.insufficientMaterial(), playerToMove);
         }
@@ -115,6 +116,47 @@ public class Eval implements Serializable {
 //        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
 
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
+    }
+
+    private boolean checkRepetition() {
+//        if (true)
+//            return false;
+        var stack = model.getMoveStack();
+
+        ArrayList<Long> list = new ArrayList<>();
+        for (int i = stack.size() - 1; i >= 0; i -= 2) {
+            var move = stack.get(i);
+            if (!move.isReversible())
+                break;
+            long l = move.getCreatorList().getHash();
+            list.add(l);
+//            if (i == 0) {
+//                list.add(model.getFirstPositionMovesHash());
+//            }
+        }
+
+        if (PRINT_REP_LIST)
+            System.out.println(list);
+
+        if (list.size() < 4)
+            return false;
+        for (int i = 0; i < list.size(); i++) {
+            int matches = 0;
+            long current = list.get(i);
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j) == current) {
+                    matches++;
+//                    if (matches == 1 && j >= 2) {
+//                        return true;
+//                    }
+                    if (matches == 2) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+//        return count - set.size() >= 1;
     }
 
     private boolean checkForInsufficientMaterial() {
@@ -162,6 +204,11 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.PIECE_TABLES, res);
     }
 
+//
+//    private double compareSquareControl(int player) {
+//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
+//    }
+
     private int forceKingToCorner(double egWeight, PlayerColor playerColor) {
         if (egWeight == 0)
             return 0;
@@ -188,11 +235,6 @@ public class Eval implements Serializable {
         return (int) (ret * egWeight);
     }
 
-//
-//    private double compareSquareControl(int player) {
-//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
-//    }
-
     private static boolean insufficientMaterial(PlayerColor playerColor, Model model) {
         return (
                 model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
@@ -208,6 +250,7 @@ public class Eval implements Serializable {
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
         return new Eval(model, playerColor).evaluation;
     }
+//    private static final double KING_SAFETY_WEIGHT = -0.01;
 
     /**
      * evaluation for current player
@@ -218,7 +261,6 @@ public class Eval implements Serializable {
     public static Evaluation getEvaluation(Model model) {
         return new Eval(model, model.getCurrentPlayer()).evaluation;
     }
-//    private static final double KING_SAFETY_WEIGHT = -0.01;
 
     public static boolean isGameOver(Model model) {
         return new Eval(model, model.getCurrentPlayer(), true).evaluation.isGameOver();
@@ -231,47 +273,6 @@ public class Eval implements Serializable {
         }
         num = Math.floor(num);
         return num + "".length();
-    }
-
-    private boolean checkRepetition() {
-        if (true)
-            return false;
-        var stack = model.getMoveStack();
-
-        ArrayList<Long> list = new ArrayList<>();
-        for (int i = stack.size() - 1; i >= 0; i -= 2) {
-            var move = stack.get(i);
-            if (!move.isReversible())
-                break;
-            long l = move.getCreatorList().getHash();
-            list.add(l);
-//            if (i == 0) {
-//                list.add(model.getFirstPositionMovesHash());
-//            }
-        }
-
-        if (PRINT_REP_LIST)
-            System.out.println(list);
-
-        if (list.size() < 4)
-            return false;
-        for (int i = 0; i < list.size(); i++) {
-            int matches = 0;
-            long current = list.get(i);
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(j) == current) {
-                    matches++;
-//                    if (matches == 1 && j >= 2) {
-//                        return true;
-//                    }
-                    if (matches == 2) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-//        return count - set.size() >= 1;
     }
 
     private int kingSafety(PlayerColor playerColor) {
