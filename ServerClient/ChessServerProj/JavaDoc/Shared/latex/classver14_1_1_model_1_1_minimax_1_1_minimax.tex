@@ -1,0 +1,203 @@
+\doxysubsection{Minimax}
+\label{classver14_1_1_model_1_1_minimax_1_1_minimax}\index{Minimax@{Minimax}}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \textbf{ DEBUG\+\_\+\+MINIMAX}
+\item 
+static boolean \textbf{ SHOW\+\_\+\+UI}
+\item 
+static boolean \textbf{ LOG}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+\doxyref{Minimax}{p.}{classver14_1_1_model_1_1_minimax_1_1_minimax} -\/ represents my implementation of a multithreaded minimax algorithm.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a4be6c1b0ec56ca2385a9a26f4e457130}} 
+\index{Minimax@{Minimax}!Minimax@{Minimax}}
+\index{Minimax@{Minimax}!Minimax@{Minimax}}
+\doxyparagraph{Minimax()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Minimax} (\begin{DoxyParamCaption}\item[{\textbf{ Model}}]{model,  }\item[{long}]{scan\+Time\+In\+Millis }\end{DoxyParamCaption})}
+
+Instantiates a new \doxyref{Minimax}{p.}{classver14_1_1_model_1_1_minimax_1_1_minimax}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+{\em scan\+Time\+In\+Millis} & the scan time in millis \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a76eb6b21c01851f4184e804c0626c1d9}} 
+\index{Minimax@{Minimax}!Minimax@{Minimax}}
+\index{Minimax@{Minimax}!Minimax@{Minimax}}
+\doxyparagraph{Minimax()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ Minimax} (\begin{DoxyParamCaption}\item[{\textbf{ Model}}]{model,  }\item[{long}]{scan\+Time\+In\+Millis,  }\item[{long}]{flexibility }\end{DoxyParamCaption})}
+
+Instantiates a new \doxyref{Minimax}{p.}{classver14_1_1_model_1_1_minimax_1_1_minimax}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+{\em scan\+Time\+In\+Millis} & the scan time in millis \\
+\hline
+{\em flexibility} & the flexibility \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_aaf81d3fdaf258088d7692fa70cece087}} 
+\index{Minimax@{Minimax}!end@{end}}
+\index{end@{end}!Minimax@{Minimax}}
+\doxyparagraph{end()}
+{\footnotesize\ttfamily void end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+End. \mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a3519b7b9f4e85b5be02c9f53cdd9890f}} 
+\index{Minimax@{Minimax}!getBestMove@{getBestMove}}
+\index{getBestMove@{getBestMove}!Minimax@{Minimax}}
+\doxyparagraph{getBestMove()}
+{\footnotesize\ttfamily \textbf{ Move} get\+Best\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets best move using minimax.
+
+\begin{DoxyReturn}{Returns}
+the best move the minimax found 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a332cfe8f00f73e8d82aaea061e6de8c1}} 
+\index{Minimax@{Minimax}!getCpuUsageRecords@{getCpuUsageRecords}}
+\index{getCpuUsageRecords@{getCpuUsageRecords}!Minimax@{Minimax}}
+\doxyparagraph{getCpuUsageRecords()}
+{\footnotesize\ttfamily Cpu\+Usages get\+Cpu\+Usage\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets cpu usage records.
+
+\begin{DoxyReturn}{Returns}
+the cpu usage records 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a03a50d9e4e71fafa14479ae874f45913}} 
+\index{Minimax@{Minimax}!getElapsed@{getElapsed}}
+\index{getElapsed@{getElapsed}!Minimax@{Minimax}}
+\doxyparagraph{getElapsed()}
+{\footnotesize\ttfamily long get\+Elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets elapsed milliseconds from the time the minimax started
+
+\begin{DoxyReturn}{Returns}
+the elapsed 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a4cc447138d6e7e6cfb1d41d1326b09e9}} 
+\index{Minimax@{Minimax}!getEvaluation@{getEvaluation}}
+\index{getEvaluation@{getEvaluation}!Minimax@{Minimax}}
+\doxyparagraph{getEvaluation()}
+{\footnotesize\ttfamily \textbf{ Evaluation} get\+Evaluation (\begin{DoxyParamCaption}\item[{\textbf{ Player\+Color}}]{evaluating\+For }\end{DoxyParamCaption})}
+
+Gets evaluation for the given color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em evaluating\+For} & the evaluating for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the evaluation 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a6f30182590d5f0d5f5ab5a7edf9e7637}} 
+\index{Minimax@{Minimax}!getPositionsReached@{getPositionsReached}}
+\index{getPositionsReached@{getPositionsReached}!Minimax@{Minimax}}
+\doxyparagraph{getPositionsReached()}
+{\footnotesize\ttfamily long get\+Positions\+Reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets positions reached.
+
+\begin{DoxyReturn}{Returns}
+the positions reached 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a6d110727b9d8aa010eb8da7dcc729e90}} 
+\index{Minimax@{Minimax}!interrupt@{interrupt}}
+\index{interrupt@{interrupt}!Minimax@{Minimax}}
+\doxyparagraph{interrupt()}
+{\footnotesize\ttfamily void interrupt (\begin{DoxyParamCaption}\item[{\textbf{ My\+Error}}]{error }\end{DoxyParamCaption})}
+
+Interrupt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & the error to interrupt the search with \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a445f62105c960e7023f4157e6d6cfe93}} 
+\index{Minimax@{Minimax}!quietInterrupt@{quietInterrupt}}
+\index{quietInterrupt@{quietInterrupt}!Minimax@{Minimax}}
+\doxyparagraph{quietInterrupt()}
+{\footnotesize\ttfamily void quiet\+Interrupt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Quiet interrupt. \mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a688d38d7319edf7e1f85a2cece81be7f}} 
+\index{Minimax@{Minimax}!setModel@{setModel}}
+\index{setModel@{setModel}!Minimax@{Minimax}}
+\doxyparagraph{setModel()}
+{\footnotesize\ttfamily void set\+Model (\begin{DoxyParamCaption}\item[{\textbf{ Model}}]{model }\end{DoxyParamCaption})}
+
+Sets model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a37736ea31dbb1a63256d7fbd36d0a7aa}} 
+\index{Minimax@{Minimax}!setNumOfThreads@{setNumOfThreads}}
+\index{setNumOfThreads@{setNumOfThreads}!Minimax@{Minimax}}
+\doxyparagraph{setNumOfThreads()}
+{\footnotesize\ttfamily void set\+Num\+Of\+Threads (\begin{DoxyParamCaption}\item[{int}]{num\+Of\+Threads }\end{DoxyParamCaption})}
+
+Sets num of threads.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Of\+Threads} & the num of threads \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_af4e81544153e7af53880fb9b19b5a19f}} 
+\index{Minimax@{Minimax}!setRecordCpuUsage@{setRecordCpuUsage}}
+\index{setRecordCpuUsage@{setRecordCpuUsage}!Minimax@{Minimax}}
+\doxyparagraph{setRecordCpuUsage()}
+{\footnotesize\ttfamily void set\+Record\+Cpu\+Usage (\begin{DoxyParamCaption}\item[{boolean}]{record\+Cpu\+Usage }\end{DoxyParamCaption})}
+
+Sets record cpu usage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em record\+Cpu\+Usage} & the record cpu usage \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_a83179bef4cdd346aa974fff7bb91e875}} 
+\index{Minimax@{Minimax}!DEBUG\_MINIMAX@{DEBUG\_MINIMAX}}
+\index{DEBUG\_MINIMAX@{DEBUG\_MINIMAX}!Minimax@{Minimax}}
+\doxyparagraph{DEBUG\_MINIMAX}
+{\footnotesize\ttfamily final String DEBUG\+\_\+\+MINIMAX\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant DEBUG\+\_\+\+MINIMAX. \mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_afd5c5a359f1cf41c7dbaa5d52593d0e5}} 
+\index{Minimax@{Minimax}!LOG@{LOG}}
+\index{LOG@{LOG}!Minimax@{Minimax}}
+\doxyparagraph{LOG}
+{\footnotesize\ttfamily boolean LOG\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant LOG. \mbox{\label{classver14_1_1_model_1_1_minimax_1_1_minimax_abfc1210cae2eeb1df8a3df97a6be0779}} 
+\index{Minimax@{Minimax}!SHOW\_UI@{SHOW\_UI}}
+\index{SHOW\_UI@{SHOW\_UI}!Minimax@{Minimax}}
+\doxyparagraph{SHOW\_UI}
+{\footnotesize\ttfamily boolean SHOW\+\_\+\+UI\hspace{0.3cm}{\ttfamily [static]}}
+
+if set to true the debugging ui will show up in the server while the minimax is running 

@@ -39,7 +39,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mylibs" level="project" />
-    <orderEntry type="library" name="ucanaccess-5.0.1" level="project" />
     <orderEntry type="module-library">
       <library name="testng">
         <CLASSES>

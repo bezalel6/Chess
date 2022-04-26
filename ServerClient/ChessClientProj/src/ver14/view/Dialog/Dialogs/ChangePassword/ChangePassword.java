@@ -39,10 +39,14 @@ public class ChangePassword extends Dialog implements BackOkInterface {
         ConfirmPasswordPnl confirmNewPassword = new ConfirmPasswordPnl("Confirm new Password", new LoginInfo(), newPwPnl::getPassword, this);
 
         DialogCard card = SimpleDialogCard.create(new CardHeader("change password"), this, this, confirmCurrentPassword, newPwPnl, confirmNewPassword);
-
+        
+        card.setPreferredSize(new Size(350, 500));
         cardsSetup(null, card);
 
-        setPreferredSize(new Size(350, 400));
+    }
+
+    public static void main(String[] args) {
+        new ChangePassword(new Properties(new Properties.Details()), "123456").start();
     }
 
 

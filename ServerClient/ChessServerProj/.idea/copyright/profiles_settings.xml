@@ -5,7 +5,7 @@
       <element module="Open Files" copyright="MyProf" />
     </module2copyright>
     <LanguageOptions name="JAVA">
-      <option name="fileTypeOverride" value="3" />
+      <option name="fileTypeOverride" value="1" />
       <option name="fileLocation" value="3" />
     </LanguageOptions>
   </settings>

@@ -53,7 +53,7 @@ public class MyError extends Error {
      */
     public String getHandledStr() {
 //        return toString();
-        return this.getMessage() + (getCause() == null ? "" : "  " + getCause().getMessage());
+        return StrUtils.isEmpty(this.getMessage()) ? getClass().getName() : this.getMessage() + (getCause() == null ? "" : "  " + getCause().getMessage());
     }
 
 

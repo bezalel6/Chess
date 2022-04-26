@@ -13,10 +13,10 @@ import java.awt.*;
 public class MessageCard extends DialogCard {
     public MessageCard(Dialog parentDialog, CardHeader header, String message, MessageType messageType) {
         super(header, parentDialog);
-        setPreferredSize(new Size(400));
+//        setMinimumSize(new Size(400));
 
         if (!StrUtils.isEmpty(message)) {
-            MyTextArea pnl = createMsgPnl(message, messageType);
+            MyTextArea pnl = createMsgPnl(message, messageType, new Size(400));
             pnl.getTextArea().setCaretPosition(0);
             pnl.setEditable(false);
 
@@ -34,7 +34,7 @@ public class MessageCard extends DialogCard {
                 type.style(this);
                 setWrap();
                 if (size.length > 0)
-                    setPreferredSize(size[0]);
+                    setPreferredSize(new Size(size[0]).padding(-5));
             }
         };
     }

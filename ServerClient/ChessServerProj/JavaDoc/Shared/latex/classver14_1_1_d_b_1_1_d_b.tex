@@ -1,0 +1,383 @@
+\doxysubsection{DB}
+\label{classver14_1_1_d_b_1_1_d_b}\index{DB@{DB}}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \textbf{ APP\+\_\+\+DB\+\_\+\+FILE\+\_\+\+PATH}
+\item 
+static final String \textbf{ TIE\+\_\+\+STR}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+\doxyref{DB}{p.}{classver14_1_1_d_b_1_1_d_b} -\/ utility class for connecting to the database, and .
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_ae4465c6f9b94dbe56abf0356bd429342}} 
+\index{DB@{DB}!addUser@{addUser}}
+\index{addUser@{addUser}!DB@{DB}}
+\doxyparagraph{addUser()}
+{\footnotesize\ttfamily static void add\+User (\begin{DoxyParamCaption}\item[{String}]{un,  }\item[{String}]{pw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Add user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em un} & the un \\
+\hline
+{\em pw} & the pw \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a5ccee7dbe3fa1a47340e719f73007adc}} 
+\index{DB@{DB}!clearGames@{clearGames}}
+\index{clearGames@{clearGames}!DB@{DB}}
+\doxyparagraph{clearGames()}
+{\footnotesize\ttfamily static void clear\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Clear games. \mbox{\label{classver14_1_1_d_b_1_1_d_b_ac51fbe4538e3317c32dd1a897f641f01}} 
+\index{DB@{DB}!createRndGames@{createRndGames}}
+\index{createRndGames@{createRndGames}!DB@{DB}}
+\doxyparagraph{createRndGames()}
+{\footnotesize\ttfamily static void create\+Rnd\+Games (\begin{DoxyParamCaption}\item[{int}]{num\+Of\+Games }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create rnd games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Of\+Games} & the num of games \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a909b8666a90740ac8169d9ff9974d5df}} 
+\index{DB@{DB}!deleteGame@{deleteGame}}
+\index{deleteGame@{deleteGame}!DB@{DB}}
+\doxyparagraph{deleteGame()}
+{\footnotesize\ttfamily static void delete\+Game (\begin{DoxyParamCaption}\item[{\textbf{ Table}}]{table,  }\item[{String}]{game\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & the table \\
+\hline
+{\em game\+Id} & the game id \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a0a8274a5e3c1b44b3877ac1b3f1e1e66}} 
+\index{DB@{DB}!deleteUnfinishedGame@{deleteUnfinishedGame}}
+\index{deleteUnfinishedGame@{deleteUnfinishedGame}!DB@{DB}}
+\doxyparagraph{deleteUnfinishedGame()}
+{\footnotesize\ttfamily static void delete\+Unfinished\+Game (\begin{DoxyParamCaption}\item[{\textbf{ Unfinished\+Game}}]{game }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete unfinished game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & the game \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a2b9c7d353f19b06eebfce552859c0e72}} 
+\index{DB@{DB}!delUser@{delUser}}
+\index{delUser@{delUser}!DB@{DB}}
+\doxyparagraph{delUser()}
+{\footnotesize\ttfamily static void del\+User (\begin{DoxyParamCaption}\item[{String}]{un,  }\item[{String}]{pw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Del user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em un} & the un \\
+\hline
+{\em pw} & the pw \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a8633f4ddf99d8ef18a125bb5c2df7d5d}} 
+\index{DB@{DB}!getAllUserDetails@{getAllUserDetails}}
+\index{getAllUserDetails@{getAllUserDetails}!DB@{DB}}
+\doxyparagraph{getAllUserDetails()}
+{\footnotesize\ttfamily static Array\+List$<$ \textbf{ User\+Details} $>$ get\+All\+User\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets all user details.
+
+\begin{DoxyReturn}{Returns}
+the all user details 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a55465cf08ee9e315f78108b1aa892249}} 
+\index{DB@{DB}!getConnection@{getConnection}}
+\index{getConnection@{getConnection}!DB@{DB}}
+\doxyparagraph{getConnection()}
+{\footnotesize\ttfamily static Connection get\+Connection (\begin{DoxyParamCaption}\item[{String...}]{db\+File\+Relative\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+הפעולה מבצעת חיבור למסד הנתונים שהנתיב אליו מתקבל כפרמטר
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+File\+Relative\+Path} & הנתיב היחסי למסד הנתונים שאליו רוצים לקבל חיבור \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+מחזיר חיבור למסד הנתונים 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_af8e57a75dd4eccaaf34e7430fe3c8cb7}} 
+\index{DB@{DB}!getProfilePic@{getProfilePic}}
+\index{getProfilePic@{getProfilePic}!DB@{DB}}
+\doxyparagraph{getProfilePic()}
+{\footnotesize\ttfamily static String get\+Profile\+Pic (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets profile pic.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the profile pic 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_adbfa69872afd7d4c0f89013666b506b5}} 
+\index{DB@{DB}!getUnfinishedGames@{getUnfinishedGames}}
+\index{getUnfinishedGames@{getUnfinishedGames}!DB@{DB}}
+\doxyparagraph{getUnfinishedGames()}
+{\footnotesize\ttfamily static Synced\+Items$<$ \textbf{ Game\+Info} $>$ get\+Unfinished\+Games (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets unfinished games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unfinished games 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a061cbcff03061b00a56c8a59d4beed89}} 
+\index{DB@{DB}!isGameIdExists@{isGameIdExists}}
+\index{isGameIdExists@{isGameIdExists}!DB@{DB}}
+\doxyparagraph{isGameIdExists()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static boolean is\+Game\+Id\+Exists (\begin{DoxyParamCaption}\item[{String}]{game\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is game id exists boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+ID} & the game id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a6561c05c11ab77fdd91533ddda824144}} 
+\index{DB@{DB}!isGameIdExists@{isGameIdExists}}
+\index{isGameIdExists@{isGameIdExists}!DB@{DB}}
+\doxyparagraph{isGameIdExists()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static boolean is\+Game\+Id\+Exists (\begin{DoxyParamCaption}\item[{String}]{game\+ID,  }\item[{\textbf{ Table}}]{games\+Table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is game id exists boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+ID} & the game id \\
+\hline
+{\em games\+Table} & the games table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_ab86e4f10440ca2cfc8549e549d468be9}} 
+\index{DB@{DB}!isUserExists@{isUserExists}}
+\index{isUserExists@{isUserExists}!DB@{DB}}
+\doxyparagraph{isUserExists()}
+{\footnotesize\ttfamily static boolean is\+User\+Exists (\begin{DoxyParamCaption}\item[{String}]{un,  }\item[{String}]{pw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+בדיקה האם יוזר ששם המשתמש והסיסמה המתקבלים כפרמטירים קיים בטבלת היוזרים
+
+
+\begin{DoxyParams}{Parameters}
+{\em un} & שם המשתמש של היוזר \\
+\hline
+{\em pw} & הסיסמה של היוזר \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+מחזיר אמת אם קיים יוזר כזה ושקר אחרת 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_ac1334f3f5e24b6c8a480ee6b75d5094c}} 
+\index{DB@{DB}!isUsernameExists@{isUsernameExists}}
+\index{isUsernameExists@{isUsernameExists}!DB@{DB}}
+\doxyparagraph{isUsernameExists()}
+{\footnotesize\ttfamily static boolean is\+Username\+Exists (\begin{DoxyParamCaption}\item[{String}]{un }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is username exists boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em un} & the un \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a52f0b288b63bdf0be756f85328141a8b}} 
+\index{DB@{DB}!loadUnfinishedGame@{loadUnfinishedGame}}
+\index{loadUnfinishedGame@{loadUnfinishedGame}!DB@{DB}}
+\doxyparagraph{loadUnfinishedGame()}
+{\footnotesize\ttfamily static \textbf{ Unfinished\+Game} load\+Unfinished\+Game (\begin{DoxyParamCaption}\item[{String}]{game\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Load unfinished game unfinished game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+ID} & the game id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unfinished game 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a8b260eecbaabcef8473fd87ada040682}} 
+\index{DB@{DB}!main@{main}}
+\index{main@{main}!DB@{DB}}
+\doxyparagraph{main()}
+{\footnotesize\ttfamily static void main (\begin{DoxyParamCaption}\item[{String[$\,$]}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The entry point of application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the input arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a4d9c457f50ad4b2d9695c58903751feb}} 
+\index{DB@{DB}!printTable@{printTable}}
+\index{printTable@{printTable}!DB@{DB}}
+\doxyparagraph{printTable()}
+{\footnotesize\ttfamily static void print\+Table (\begin{DoxyParamCaption}\item[{\textbf{ Table}}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Print table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & the table \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a172f2e6b1db95cb9c654d606c1fcec51}} 
+\index{DB@{DB}!request@{request}}
+\index{request@{request}!DB@{DB}}
+\doxyparagraph{request()}
+{\footnotesize\ttfamily static \textbf{ DBResponse} request (\begin{DoxyParamCaption}\item[{\textbf{ DBRequest}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Request db response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db response 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a1134761114c928052f5de7eda90816f5}} 
+\index{DB@{DB}!runQuery@{runQuery}}
+\index{runQuery@{runQuery}!DB@{DB}}
+\doxyparagraph{runQuery()}
+{\footnotesize\ttfamily static synchronized \textbf{ DBResponse} run\+Query (\begin{DoxyParamCaption}\item[{\textbf{ DBRequest}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Run query db response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db response 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_ae668f11014546dc5da0ad598781ff9f0}} 
+\index{DB@{DB}!runUpdate@{runUpdate}}
+\index{runUpdate@{runUpdate}!DB@{DB}}
+\doxyparagraph{runUpdate()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static synchronized \textbf{ Status\+Response} run\+Update (\begin{DoxyParamCaption}\item[{\textbf{ DBRequest}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Run SQL Update Statement -\/ INSERT, DELETE, UPDATE הפעולה מריצה משפט עדכון
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status response 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a2b5ca901a1143bc6483a7a654456bdba}} 
+\index{DB@{DB}!runUpdate@{runUpdate}}
+\index{runUpdate@{runUpdate}!DB@{DB}}
+\doxyparagraph{runUpdate()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static synchronized \textbf{ Status\+Response} run\+Update (\begin{DoxyParamCaption}\item[{String}]{sql }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Run update status response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sql} & the sql \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status response 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a3b4ffbac95d11bd517759facb9a6560a}} 
+\index{DB@{DB}!saveGameResult@{saveGameResult}}
+\index{saveGameResult@{saveGameResult}!DB@{DB}}
+\doxyparagraph{saveGameResult()}
+{\footnotesize\ttfamily static void save\+Game\+Result (\begin{DoxyParamCaption}\item[{\textbf{ Archived\+Game\+Info}}]{game\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Save game result.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Info} & the game info \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_ab29ae555923ea3d300bcb4f34d771d0d}} 
+\index{DB@{DB}!saveUnFinishedGame@{saveUnFinishedGame}}
+\index{saveUnFinishedGame@{saveUnFinishedGame}!DB@{DB}}
+\doxyparagraph{saveUnFinishedGame()}
+{\footnotesize\ttfamily static void save\+Un\+Finished\+Game (\begin{DoxyParamCaption}\item[{\textbf{ Unfinished\+Game}}]{game\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Save un finished game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Info} & the game info \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_a6dcddfb8cdd2d44c34fe10c4d3a9b046}} 
+\index{DB@{DB}!UserDetails@{UserDetails}}
+\index{UserDetails@{UserDetails}!DB@{DB}}
+\doxyparagraph{UserDetails()}
+{\footnotesize\ttfamily static record User\+Details (\begin{DoxyParamCaption}\item[{String}]{username,  }\item[{String}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+User details -\/ .
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\label{classver14_1_1_d_b_1_1_d_b_afa8e523008249f41b5a8254be40d36c8}} 
+\index{DB@{DB}!APP\_DB\_FILE\_PATH@{APP\_DB\_FILE\_PATH}}
+\index{APP\_DB\_FILE\_PATH@{APP\_DB\_FILE\_PATH}!DB@{DB}}
+\doxyparagraph{APP\_DB\_FILE\_PATH}
+{\footnotesize\ttfamily final String APP\+\_\+\+DB\+\_\+\+FILE\+\_\+\+PATH\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant APP\+\_\+\+DB\+\_\+\+FILE\+\_\+\+PATH. \mbox{\label{classver14_1_1_d_b_1_1_d_b_afab281f6bc4c626bc0c9c56cd4f8f934}} 
+\index{DB@{DB}!TIE\_STR@{TIE\_STR}}
+\index{TIE\_STR@{TIE\_STR}!DB@{DB}}
+\doxyparagraph{TIE\_STR}
+{\footnotesize\ttfamily final String TIE\+\_\+\+STR\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant TIE\+\_\+\+STR. 

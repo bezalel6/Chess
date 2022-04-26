@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: ver14.Server
+Class-Path: testng-7.1.0.jar jcommander-1.72.jar guice-4.1.0-no_aop.jar 
+ javax.inject-1.jar aopalliance-1.0.jar guava-19.0.jar snakeyaml-1.21.ja
+ r annotations-23.0.0.jar commons-lang3-3.8.1.jar commons-logging-1.2.ja
+ r hsqldb-2.5.0.jar jackcess-3.0.1.jar ucanaccess-5.0.1.jar javasysmon-0
+ .3.5.1.jar testng-7.1.0.jar jcommander-1.72.jar guice-4.1.0-no_aop.jar 
+ javax.inject-1.jar aopalliance-1.0.jar guava-19.0.jar snakeyaml-1.21.ja
+ r annotations-20.1.0.jar
+

@@ -284,7 +284,7 @@ public enum PieceType implements Serializable {
      * @return the piece name
      */
     public String getPieceName() {
-        return StrUtils.format(name());
+        return StrUtils.format(name().toLowerCase());
     }
 
     /**

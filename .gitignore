@@ -4,3 +4,6 @@
 /ServerClient/NetBeans/ChessClientProj/nbproject/private/
 /ServerClient/NetBeans/ChessClientProj/build/
 /ServerClient/NetBeans/ChessClientProj/dist/
+**.dot
+ServerClient/ChessServerProj/JavaDoc/Shared/html/*
+*.dot

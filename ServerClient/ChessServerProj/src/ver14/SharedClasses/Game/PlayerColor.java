@@ -117,11 +117,11 @@ public enum PlayerColor {
     }
 
     /**
-     * Gets name.
+     * Gets the players name.
      *
-     * @return the name
+     * @return the players name
      */
     public String getName() {
-        return StrUtils.format(name());
+        return StrUtils.format(name().toLowerCase());
     }
 }

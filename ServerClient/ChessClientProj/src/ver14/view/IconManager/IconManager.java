@@ -5,6 +5,7 @@ import ver14.SharedClasses.Game.Evaluation.GameStatus;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Misc.Enviornment;
 import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Board.BoardOverlay;
@@ -12,6 +13,7 @@ import ver14.view.Board.BoardOverlay;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -80,8 +82,10 @@ public class IconManager {
         randomColorIcon = loadImage("random");
 
         userIcon = loadImage("user", PROFILE_PIC_SIZE);
-        defaultUserIcon = scaleImage(userIcon, PROFILE_PIC_SIZE);
-
+        defaultUserIcon = userIcon;
+        System.out.println("user icon desc " + defaultUserIcon.getDescription());
+//        defaultUserIcon = scaleImage(userIcon, PROFILE_PIC_SIZE);
+//
         loginIcon = loadImage("login", LOGIN_PROCESS_SIZES);
         registerIcon = loadImage("register", LOGIN_PROCESS_SIZES);
 
@@ -102,7 +106,7 @@ public class IconManager {
     }
 
     public static ImageIcon copyImage(ImageIcon og) {
-        return new ImageIcon(og.getImage());
+        return new ImageIcon(og.getImage(), og.getDescription());
     }
 
     public static ImageIcon getGameOverIcon(GameStatus gameStatus, PlayerColor player) {
@@ -140,6 +144,12 @@ public class IconManager {
 
     public static ImageIcon loadNoScale(URL url) {
         ImageIcon icon = new ImageIcon(url, url.getPath());
+//        new JFrame() {{
+//            setSize(500, 500);
+//            setIconImage(icon.getImage());
+//            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            setVisible(true);
+//        }};
         return icon.getIconWidth() == -1 ? null : icon;
     }
 
@@ -152,7 +162,6 @@ public class IconManager {
             return img;
         ImageIcon noScale;
         try {
-
             noScale = loadNoScale(img.getDescription());
             assert noScale != null && noScale.getIconWidth() != 0;
             img = noScale;
@@ -166,10 +175,27 @@ public class IconManager {
         if (!RegEx.Icon.check(relativePath)) {
             relativePath += ".png";
         }
-        relativePath = "/assets/" + relativePath;
-        URL path = IconManager.class.getResource(relativePath);
-//        System.out.println(new File("./").getAbsolutePath());
-//        System.out.println(new File(IconManager.class.getCanonicalName()).getAbsolutePath());
+        if (!relativePath.contains("/assets/"))
+            relativePath = "/assets/" + relativePath;
+        URL path;
+//        System.out.println(Arrays.toString(new File("./assets").listFiles()));
+        if (Enviornment.IS_JAR) {
+//            relativePath = "." + relativePath.substring(1);
+            try {
+                if (!relativePath.contains("./")) {
+                    relativePath = "./" + relativePath;
+                }
+                File file = new File(relativePath);
+//                File file = new File("./assets/White/Pawn.png");
+                if (!file.exists())
+                    System.out.println("didnt find file");
+                path = file.toURI().toURL();
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        } else
+
+            path = IconManager.class.getResource(relativePath);
         assert path != null;
         return loadNoScale(path);
     }
@@ -266,7 +292,7 @@ public class IconManager {
     public static class MyIcon extends ImageIcon {
 
         public MyIcon(ImageIcon image) {
-            super(image.getImage());
+            super(image.getImage(), image.getDescription());
         }
     }
 

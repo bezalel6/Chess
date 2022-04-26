@@ -98,7 +98,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     protected void addSecondaryComp(Component comp) {
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;
+//        gbc.fill = GridBagConstraints.BOTH;
         add(comp, gbc);
     }
 
@@ -151,6 +151,8 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     public DialogCard createCard() {
         assert parent instanceof Dialog;
-        return SimpleDialogCard.create(this, (Dialog) parent);
+        var ret = SimpleDialogCard.create(this, (Dialog) parent);
+        ret.setOverrideableSize();
+        return ret;
     }
 }

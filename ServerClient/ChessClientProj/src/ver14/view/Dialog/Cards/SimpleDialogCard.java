@@ -4,7 +4,7 @@ import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.Components.DialogComponent;
 import ver14.view.Dialog.Dialog;
 
-public class SimpleDialogCard extends DialogCard implements Dialog.OverrideableSize {
+public class SimpleDialogCard extends DialogCard {
     private final BackOkInterface backOk;
 
     public SimpleDialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {

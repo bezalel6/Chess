@@ -1,6 +1,7 @@
 package ver14.Model.Eval;
 
 import ver14.Model.Model;
+import ver14.SharedClasses.Misc.Enviornment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,40 +10,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 
+/**
+ * Book - utility class for interacting with the opening book.
+ * an opening book is a database containing lines of openings.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Book {
-    private final static String pathToBook = "src/assets/GameInfo/Book/Games.txt";
+    /**
+     * The constant pathToBook.
+     */
+    private final static String pathToBook = (!Enviornment.IS_JAR ? "src" : "") + "/assets/GameInfo/Book/Games.txt";
+    /**
+     * The constant book.
+     */
     private final static File book = new File(pathToBook);
-//    private final static ConcurrentHashMap<Long, ArrayList<String>> positionsHashMap = initPositions();
-//
-//    private static ConcurrentHashMap<Long, ArrayList<String>> initPositions() {
-//        System.out.println("initializing positions");
-//        ConcurrentHashMap<Long, ArrayList<String>> ret = new ConcurrentHashMap<>();
-//        try {
-//            Scanner scanner = new Scanner(book);
-//            while (scanner.hasNextLine()) {
-//                Model currentGame = new Model(Positions.getAllPositions().get(0).getFen());
-//                String line = scanner.nextLine();
-//                String[] split = line.split(" ");
-//                for (int i = 0; i < split.length - 1; i++) {
-//                    String moveStr = split[i];
-//                    currentGame.applyMove(moveStr);
-//                    long hash = currentGame.hashBoard().getFullHash();
-//                    if (!ret.containsKey(hash)) {
-//                        ret.put(hash, new ArrayList<>());
-//                    }
-//                    ret.get(hash).add(moveStr);
-//                }
-//            }
-//        } catch (FileNotFoundException e) {
-//
-//        }
-//        return ret;
-//    }
 
-//    public static String getBookMove(Model board) {
-//        long hash = board.getBoardHash().getFullHash();
-//        return positionsHashMap.get(hash).get(new Random().nextInt(positionsHashMap.get(hash).size()));
-//    }
 
     /**
      * looks for a game matching the current game inside the book games database.
@@ -51,7 +34,7 @@ public class Book {
      * if no matching game was found, null is returned.
      *
      * @param model - current game position
-     * @return a random move from every game found in the games database if one is found. null otherwise
+     * @return a random move from every game found in the games' database if one is found. null otherwise
      */
     public static String getBookMove(Model model) {
         try {

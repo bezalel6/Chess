@@ -47,7 +47,9 @@ public class CustomDialog extends Dialog implements CancelOk {
     }
 
     protected void setup(DialogField<?>... components) {
-        cardsSetup(null, SimpleDialogCard.create(new CardHeader(properties), this, this, components));
+        var simple = SimpleDialogCard.create(new CardHeader(properties), this, this, components);
+        simple.setOverrideableSize();
+        cardsSetup(null, simple);
     }
 
     public Object[] getResults() {

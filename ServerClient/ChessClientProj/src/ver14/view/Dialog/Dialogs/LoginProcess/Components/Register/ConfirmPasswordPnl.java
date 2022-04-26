@@ -25,16 +25,6 @@ public class ConfirmPasswordPnl extends PasswordPnl {
     }
 
     @Override
-    public boolean verify() {
-        return super.verify() && isMatching();
-    }
-
-    public boolean isMatching() {
-        return matchWith != null && getPassword().equals(matchWith.get());
-    }
-
-    //why verify AND verify regex?
-    @Override
     protected boolean verifyRegEx() {
         return super.verifyRegEx() && isMatching();
     }
@@ -45,6 +35,10 @@ public class ConfirmPasswordPnl extends PasswordPnl {
             return this.noMatchErr;
         }
         return super.errorDetails();
+    }
+
+    public boolean isMatching() {
+        return matchWith != null && getPassword().equals(matchWith.get());
     }
 
 }

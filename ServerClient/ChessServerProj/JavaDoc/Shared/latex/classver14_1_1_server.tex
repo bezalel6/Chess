@@ -1,0 +1,268 @@
+\doxysubsection{Server}
+\label{classver14_1_1_server}\index{Server@{Server}}
+Inheritance diagram for Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classver14_1_1_server}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \textbf{ SERVER\+\_\+\+WIN\+\_\+\+TITLE}
+\item 
+static final Font \textbf{ SERVER\+\_\+\+LOG\+\_\+\+FONT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+\doxyref{Server}{p.}{classver14_1_1_server} -\/ represents an instance of the chess server
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami ({\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classver14_1_1_server_af2f1305573ef7939b3e8400354878e0d}} 
+\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\doxyparagraph{Server()}
+{\footnotesize\ttfamily \textbf{ Server} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for Chess\+Server. 
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{classver14_1_1_server_a357df8f15c4c6daeaa3ae06e662b68af}} 
+\index{Server@{Server}!createUsernameSuggestions@{createUsernameSuggestions}}
+\index{createUsernameSuggestions@{createUsernameSuggestions}!Server@{Server}}
+\doxyparagraph{createUsernameSuggestions()}
+{\footnotesize\ttfamily Array\+List$<$ String $>$ create\+Username\+Suggestions (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})}
+
+Create username suggestions array list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the array list 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_server_a927c94886c93f110e46675fbaef5f61e}} 
+\index{Server@{Server}!criticalErr@{criticalErr}}
+\index{criticalErr@{criticalErr}!Server@{Server}}
+\doxyparagraph{criticalErr()}
+{\footnotesize\ttfamily void critical\+Err (\begin{DoxyParamCaption}\item[{\textbf{ My\+Error}}]{err }\end{DoxyParamCaption})}
+
+Critical err.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the error \\
+\hline
+\end{DoxyParams}
+
+
+Implements \textbf{ Env\+Manager} \doxyref{}{p.}{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a927c94886c93f110e46675fbaef5f61e}.
+
+\mbox{\label{classver14_1_1_server_ae903a2b9bfb8910e1024e14e9b6378d2}} 
+\index{Server@{Server}!dbRequest@{dbRequest}}
+\index{dbRequest@{dbRequest}!Server@{Server}}
+\doxyparagraph{dbRequest()}
+{\footnotesize\ttfamily \textbf{ DBResponse} db\+Request (\begin{DoxyParamCaption}\item[{\textbf{ DBRequest}}]{request }\end{DoxyParamCaption})}
+
+Db request db response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db response 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_server_ac6b63ae5e01323b6e63b022e8e67fa1a}} 
+\index{Server@{Server}!endOfGameSession@{endOfGameSession}}
+\index{endOfGameSession@{endOfGameSession}!Server@{Server}}
+\doxyparagraph{endOfGameSession()}
+{\footnotesize\ttfamily void end\+Of\+Game\+Session (\begin{DoxyParamCaption}\item[{\textbf{ Game\+Session}}]{session }\end{DoxyParamCaption})}
+
+End of game session.
+
+
+\begin{DoxyParams}{Parameters}
+{\em session} & the session \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_a2475ed62d78c3b61e233bde884237be4}} 
+\index{Server@{Server}!gameSetup@{gameSetup}}
+\index{gameSetup@{gameSetup}!Server@{Server}}
+\doxyparagraph{gameSetup()}
+{\footnotesize\ttfamily void game\+Setup (\begin{DoxyParamCaption}\item[{\textbf{ Player}}]{player }\end{DoxyParamCaption})}
+
+Game setup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_ad950915aee6c9758487a49e94b1f5691}} 
+\index{Server@{Server}!getJoinableGames@{getJoinableGames}}
+\index{getJoinableGames@{getJoinableGames}!Server@{Server}}
+\doxyparagraph{getJoinableGames()}
+{\footnotesize\ttfamily Synced\+Items$<$ \textbf{ Game\+Info} $>$ get\+Joinable\+Games (\begin{DoxyParamCaption}\item[{\textbf{ Player}}]{player }\end{DoxyParamCaption})}
+
+Gets joinable games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player net \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the joinable games 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_server_a5482abe1f083b596722bad0800b6ae4b}} 
+\index{Server@{Server}!getResumableGames@{getResumableGames}}
+\index{getResumableGames@{getResumableGames}!Server@{Server}}
+\doxyparagraph{getResumableGames()}
+{\footnotesize\ttfamily Synced\+Items$<$ \textbf{ Game\+Info} $>$ get\+Resumable\+Games (\begin{DoxyParamCaption}\item[{\textbf{ Player}}]{player }\end{DoxyParamCaption})}
+
+Gets resumable games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the resumable games 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_server_a419d2a8d4758edec632946be02b5ed1f}} 
+\index{Server@{Server}!handledErr@{handledErr}}
+\index{handledErr@{handledErr}!Server@{Server}}
+\doxyparagraph{handledErr()}
+{\footnotesize\ttfamily void handled\+Err (\begin{DoxyParamCaption}\item[{\textbf{ My\+Error}}]{err }\end{DoxyParamCaption})}
+
+Handled err.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the err \\
+\hline
+\end{DoxyParams}
+
+
+Implements \textbf{ Env\+Manager} \doxyref{}{p.}{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a419d2a8d4758edec632946be02b5ed1f}.
+
+\mbox{\label{classver14_1_1_server_a1a62fb26a6cc9fd830b0d12097d9aad2}} 
+\index{Server@{Server}!log@{log}}
+\index{log@{log}!Server@{Server}}
+\doxyparagraph{log()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void log (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})}
+
+Log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_a55486a266e6a0e200c771d28bad54133}} 
+\index{Server@{Server}!log@{log}}
+\index{log@{log}!Server@{Server}}
+\doxyparagraph{log()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void log (\begin{DoxyParamCaption}\item[{String}]{msg,  }\item[{Exception}]{ex,  }\item[{JFrame...}]{win }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+{\em ex} & the ex \\
+\hline
+{\em win} & the win \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_ace515fe25c0d5dcd56f728d39540e469}} 
+\index{Server@{Server}!login@{login}}
+\index{login@{login}!Server@{Server}}
+\doxyparagraph{login()}
+{\footnotesize\ttfamily \textbf{ Player\+Net} login (\begin{DoxyParamCaption}\item[{\textbf{ App\+Socket}}]{app\+Socket }\end{DoxyParamCaption})}
+
+Login player net.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+Socket} & the app socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the player net 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_server_a8b260eecbaabcef8473fd87ada040682}} 
+\index{Server@{Server}!main@{main}}
+\index{main@{main}!Server@{Server}}
+\doxyparagraph{main()}
+{\footnotesize\ttfamily static void main (\begin{DoxyParamCaption}\item[{String[$\,$]}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The entry point of the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the input arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_a6c5df5606881ada0825b2ff25fee198a}} 
+\index{Server@{Server}!playerDisconnected@{playerDisconnected}}
+\index{playerDisconnected@{playerDisconnected}!Server@{Server}}
+\doxyparagraph{playerDisconnected()}
+{\footnotesize\ttfamily synchronized void player\+Disconnected (\begin{DoxyParamCaption}\item[{\textbf{ Player}}]{player,  }\item[{String}]{message }\end{DoxyParamCaption})}
+
+Player disconnected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+{\em message} & the message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_server_ab704e21febb6ba6f62fd7182fabea02b}} 
+\index{Server@{Server}!runServer@{runServer}}
+\index{runServer@{runServer}!Server@{Server}}
+\doxyparagraph{runServer()}
+{\footnotesize\ttfamily void run\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Run the server -\/ wait for clients to connect and handle them \mbox{\label{classver14_1_1_server_a71bc61514735f66fbd22efad49d128e2}} 
+\index{Server@{Server}!syncedListUpdated@{syncedListUpdated}}
+\index{syncedListUpdated@{syncedListUpdated}!Server@{Server}}
+\doxyparagraph{syncedListUpdated()}
+{\footnotesize\ttfamily void synced\+List\+Updated (\begin{DoxyParamCaption}\item[{Synced\+Items$<$?$>$}]{list }\end{DoxyParamCaption})}
+
+notifies all players of a change in a synchronized list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\label{classver14_1_1_server_acf4aa94b6aaf4e774979c5d26a04da79}} 
+\index{Server@{Server}!SERVER\_LOG\_FONT@{SERVER\_LOG\_FONT}}
+\index{SERVER\_LOG\_FONT@{SERVER\_LOG\_FONT}!Server@{Server}}
+\doxyparagraph{SERVER\_LOG\_FONT}
+{\footnotesize\ttfamily final Font SERVER\+\_\+\+LOG\+\_\+\+FONT\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant SERVER\+\_\+\+LOG\+\_\+\+FONT. \mbox{\label{classver14_1_1_server_a1380283f9047c5c2307a55a8b80e7a21}} 
+\index{Server@{Server}!SERVER\_WIN\_TITLE@{SERVER\_WIN\_TITLE}}
+\index{SERVER\_WIN\_TITLE@{SERVER\_WIN\_TITLE}!Server@{Server}}
+\doxyparagraph{SERVER\_WIN\_TITLE}
+{\footnotesize\ttfamily final String SERVER\+\_\+\+WIN\+\_\+\+TITLE\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant SERVER\+\_\+\+WIN\+\_\+\+TITLE. 

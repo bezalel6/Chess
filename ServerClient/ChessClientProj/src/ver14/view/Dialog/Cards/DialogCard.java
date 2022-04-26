@@ -40,6 +40,7 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
     private Header optionalHeader = null;
     private BackOkInterface backOkInterface;
     private String navText = getCardName();
+    private boolean overrideableSize = false;
 
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
@@ -58,17 +59,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         addAncestorListener(this);
         navBtn = new MyJButton(navText, navigationBtnsFont, this::navToMe);
         checkVerifiedComponents();
-//        onUpdate();
     }
 
     public void setBackOk(BackOkInterface backOk) {
         backOk = backOk == null ? BackOkInterface.noInterface : backOk;
         backOkInterface = backOk;
-//        if (backOk != null) {
-//            this.backOkPnl = new BackOkPnl(backOk);
-//            this.bottomPnl.add(backOkPnl);
-//            parentDialog.setFocusOn(backOkPnl.getOk());
-//        }
     }
 
     protected BackOkInterface defaultInterface() {
@@ -112,6 +107,18 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         if (backOkPnl() != null)
             backOkPnl().enableOk(ret == null);
         return ret;
+    }
+
+    public void setOverrideableSize() {
+        setOverrideableSize(true);
+    }
+
+    public boolean isOverrideableSize() {
+        return overrideableSize;
+    }
+
+    public void setOverrideableSize(boolean overrideableSize) {
+        this.overrideableSize = overrideableSize;
     }
 
     @Override

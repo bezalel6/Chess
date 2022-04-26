@@ -101,6 +101,10 @@ public class Server implements EnvManager {
      */
     private final AtomicReference<Player> waitingPlayer = new AtomicReference<>();
     /**
+     * The Is closing.
+     */
+    private boolean isClosing = false;
+    /**
      * synchronized list of the players
      */
     private SyncedItems<PlayerNet> players;
@@ -244,7 +248,10 @@ public class Server implements EnvManager {
         });
     }
 
-    // setup Server Address(IP&Port) and create the ServerSocket
+    /**
+     * Sets server.
+     */
+// setup Server Address(IP&Port) and create the ServerSocket
     private void setupServer() {
         try {
             autoGuestID = 0;
@@ -282,6 +289,11 @@ public class Server implements EnvManager {
 
     }
 
+    /**
+     * Exit server.
+     *
+     * @param cause the cause
+     */
     private void exitServer(String cause) {
         closeServer(cause);
     }
@@ -338,8 +350,15 @@ public class Server implements EnvManager {
         }
     }
 
+    /**
+     * Close server.
+     *
+     * @param cause the cause
+     */
     private synchronized void closeServer(String cause) {
-//        todo make sure only run once
+        if (isClosing)
+            return;
+        isClosing = true;
         if (gameSessions != null) {
             gameSessions.forEachItem(session -> {
                 session.serverStop(cause);
@@ -373,7 +392,13 @@ public class Server implements EnvManager {
         ThreadsManager.stopAll();
     }
 
-    //todo move to synceditems as a func
+    /**
+     * Prepare list for send synced items.
+     *
+     * @param list the list
+     * @return the synced items
+     */
+//todo move to synceditems as a func
     private SyncedItems<?> prepareListForSend(SyncedItems<?> list) {
         SyncedItems<?> ret = new SyncedItems<>(list.syncedListType);
         ret.addAll(list.stream().map(SyncableItem::getSyncableItem).collect(Collectors.toList()));
@@ -385,8 +410,8 @@ public class Server implements EnvManager {
      *
      * @param args the input arguments
      */
-// main
     public static void main(String[] args) {
+
         ArgsUtil util = ArgsUtil.create(args);
 
         START_AT_PORT = util.equalsSign("p").getInt(-1);
@@ -398,6 +423,12 @@ public class Server implements EnvManager {
         System.out.println("**** ChessServer main() finished! ****");
     }
 
+    /**
+     * Send all synced lists.
+     *
+     * @param player       the player
+     * @param excludeLists the exclude lists
+     */
     private void sendAllSyncedLists(PlayerNet player, SyncedItems<?>... excludeLists) {
         ArrayList<SyncedItems<?>> lists = new ArrayList<>();
         for (SyncedItems<?> syncedList : syncedLists) {
@@ -439,7 +470,12 @@ public class Server implements EnvManager {
 
     }
 
-    // handle client in a separate thread
+    /**
+     * Handle client.
+     *
+     * @param playerSocket the player socket
+     */
+// handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         HandledThread.runInHandledThread(() -> {
 
@@ -495,6 +531,12 @@ public class Server implements EnvManager {
         return login(appSocket);
     }
 
+    /**
+     * Response to login message.
+     *
+     * @param loginInfo the login info
+     * @return the message
+     */
     private Message responseToLogin(LoginInfo loginInfo) {
         if (loginInfo == null)
             throw new MyError.DisconnectedError();
@@ -503,7 +545,7 @@ public class Server implements EnvManager {
 
         return switch (loginInfo.getLoginType()) {
             case NOT_SET_YET -> {
-                throw new MyError.DisconnectedError();
+                throw new MyError.DisconnectedError("Received empty login info");
             }
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
@@ -533,6 +575,12 @@ public class Server implements EnvManager {
         };
     }
 
+    /**
+     * Is logged in boolean.
+     *
+     * @param username the username
+     * @return the boolean
+     */
     private boolean isLoggedIn(String username) {
         return players.stream().anyMatch(p -> p.getUsername().equals(username));
     }
@@ -667,6 +715,12 @@ public class Server implements EnvManager {
 
     }
 
+    /**
+     * Start game vs ai.
+     *
+     * @param player       the player
+     * @param gameSettings the game settings
+     */
     private void startGameVsAi(Player player, GameSettings gameSettings) {
         GameSession gameSession;
         if (gameSettings.getGameType() == GameSettings.GameType.CREATE_NEW) {
@@ -684,16 +738,35 @@ public class Server implements EnvManager {
         gameSession.start();
     }
 
+    /**
+     * Start game session.
+     *
+     * @param gameInfo the game info
+     * @param creator  the creator
+     * @param p2       the p 2
+     */
     private void startGameSession(GameInfo gameInfo, Player creator, Player p2) {
         GameSession gameSession = new GameSession(gameInfo, creator, p2, this);
         gameSessions.add(gameSession);
         gameSession.start();
     }
 
+    /**
+     * Remove from game pool game info.
+     *
+     * @param gameID the game id
+     * @return the game info
+     */
     private GameInfo removeFromGamePool(String gameID) {
         return gamePool.remove(gameID);
     }
 
+    /**
+     * Gets player net.
+     *
+     * @param username the username
+     * @return the player net
+     */
     private PlayerNet getPlayerNet(String username) {
         return players.stream()
                 .filter(p -> (p).getUsername().equals(username))
@@ -745,6 +818,11 @@ public class Server implements EnvManager {
         return response;
     }
 
+    /**
+     * Synced list updated.
+     *
+     * @param type the type
+     */
     private void syncedListUpdated(SyncedListType type) {
         syncedListUpdated(switch (type) {
             case RESUMABLE_GAMES -> {

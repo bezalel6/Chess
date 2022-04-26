@@ -48,7 +48,7 @@ public class MyTextArea extends JPanel {
     @Override
     public void setPreferredSize(Dimension preferredSize) {
         super.setPreferredSize(preferredSize);
-//        textArea.setPreferredSize(preferredSize);
+        textArea.setPreferredSize(preferredSize);
     }
 
     @Override

@@ -142,6 +142,7 @@ public abstract class Dialog extends JDialog implements Parent {
             verifyCurrentCard();
         }
         SwingUtilities.invokeLater(() -> {
+
             repackWin();
             recenter();
 
@@ -206,7 +207,7 @@ public abstract class Dialog extends JDialog implements Parent {
         cardsScrollPane.mySetSize(dialogSize);
         cardsPnl.setPreferredSize(cardSize);
         dialogSize = Size.min(dialogSize, MAX_DIALOG_SIZE);
-        if (card instanceof OverrideableSize) {
+        if (card.isOverrideableSize()) {
             dialogSize = new Size(DEFAULT_DIALOG_SIZE);
         }
         setPreferredSize(dialogSize);
@@ -274,14 +275,17 @@ public abstract class Dialog extends JDialog implements Parent {
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
 
-        if (this.focusOn != null)
-            SwingUtilities.invokeLater(() -> focusOn.requestFocus());
+        SwingUtilities.invokeLater(() -> {
+            if (focusOn != null) {
+                focusOn.requestFocus();
+            }
+            onUpdate();
 
-        SwingUtilities.invokeLater(this::onUpdate);
-
+        });
         setVisible(true);
-
         dispose();
+
+
     }
 
     @Override
@@ -318,7 +322,7 @@ public abstract class Dialog extends JDialog implements Parent {
         pane.add(cardsScrollPane, BorderLayout.CENTER);
 
         showCard(startingCard, false);
-        pack();
+        repackWin();
         recenter();
     }
 
@@ -333,9 +337,6 @@ public abstract class Dialog extends JDialog implements Parent {
     public void closeNow() {
         dispose();
         notifyClosed();
-    }
-
-    public interface OverrideableSize {
     }
 
 }

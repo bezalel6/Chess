@@ -274,7 +274,7 @@ public class Client implements EnvManager {
 
     private void unlockPossibleMoves() {
 //        view.enableSources(possibleMoves);
-        view.enableMyPieces(myColor);
+        view.enablePieces(myColor);
     }
 
 
@@ -350,7 +350,7 @@ public class Client implements EnvManager {
                 firstClickLoc = null;
             } else {
                 firstClickLoc = clickedLoc;
-                view.colorCurrentPiece(firstClickLoc.originalLocation);
+                view.setCurrentPiece(firstClickLoc.originalLocation);
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
                         .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))

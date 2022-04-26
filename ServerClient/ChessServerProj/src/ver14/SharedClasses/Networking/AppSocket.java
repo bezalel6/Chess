@@ -23,15 +23,15 @@ public class AppSocket extends MyThread {
     /**
      * The Msg socket.
      */
-    protected final Socket msgSocket;           // Message socket
+    protected final Socket msgSocket;
     /**
-     * The Msg os.
+     * The Msg Output stream to SEND Messages.
      */
-    private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
+    private final ObjectOutputStream msgOS;
     /**
-     * The Msg is.
+     * The Msg Input stream to GET Messages.
      */
-    private final ObjectInputStream msgIS;    // Input stream to GET Messages
+    private final ObjectInputStream msgIS;
     private MessagesHandler messagesHandler;
     private boolean didDisconnect = false;
 

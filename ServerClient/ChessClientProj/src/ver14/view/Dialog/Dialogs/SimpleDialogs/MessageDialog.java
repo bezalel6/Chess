@@ -6,7 +6,7 @@ import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Properties;
 
-public class MessageDialog extends Dialog implements Dialog.OverrideableSize {
+public class MessageDialog extends Dialog {
     private final MessageCard.MessageType messageType;
 
     public MessageDialog(Properties properties, String message, String title, MessageCard.MessageType messageType) {

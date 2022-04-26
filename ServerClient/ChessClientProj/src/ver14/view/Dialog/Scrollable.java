@@ -51,6 +51,7 @@ public class Scrollable extends JScrollPane {
     }
 
     private void scrollTo(int position) {
+        System.out.println("scrolling to " + position);
         SwingUtilities.invokeLater(() -> {
             verticalScrollBar.revalidate();
             verticalScrollBar.setValue(position);
@@ -62,7 +63,7 @@ public class Scrollable extends JScrollPane {
             try {
                 setSize(size);
                 setPreferredSize(size);
-                setMaximumSize(size);
+//                setMaximumSize(size);
 
             } catch (Exception e) {
                 e.printStackTrace();

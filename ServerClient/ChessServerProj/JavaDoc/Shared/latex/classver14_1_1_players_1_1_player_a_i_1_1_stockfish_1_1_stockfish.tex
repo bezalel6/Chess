@@ -1,0 +1,104 @@
+\doxysubsection{Stockfish}
+\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish}\index{Stockfish@{Stockfish}}
+
+
+\doxysubsubsection{Detailed Description}
+{\texttt{ modified version of}} 
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_a2267adac05fac60b2387e2ce9e5fc306}} 
+\index{Stockfish@{Stockfish}!drawBoard@{drawBoard}}
+\index{drawBoard@{drawBoard}!Stockfish@{Stockfish}}
+\doxyparagraph{drawBoard()}
+{\footnotesize\ttfamily void draw\+Board (\begin{DoxyParamCaption}\item[{String}]{fen }\end{DoxyParamCaption})}
+
+Draws the current state of the chess board
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_a4563472435f27839d9d5759238edafbe}} 
+\index{Stockfish@{Stockfish}!getBestMove@{getBestMove}}
+\index{getBestMove@{getBestMove}!Stockfish@{Stockfish}}
+\doxyparagraph{getBestMove()}
+{\footnotesize\ttfamily String get\+Best\+Move (\begin{DoxyParamCaption}\item[{String}]{fen,  }\item[{int}]{wait\+Time }\end{DoxyParamCaption})}
+
+This function returns the best move for a given position after calculating for \textquotesingle{}wait\+Time\textquotesingle{} ms
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+{\em wait\+Time} & in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Best Move in PGN format 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_a085eb54d3953a9da96c731550b190484}} 
+\index{Stockfish@{Stockfish}!getEvalScore@{getEvalScore}}
+\index{getEvalScore@{getEvalScore}!Stockfish@{Stockfish}}
+\doxyparagraph{getEvalScore()}
+{\footnotesize\ttfamily synchronized float get\+Eval\+Score (\begin{DoxyParamCaption}\item[{String}]{fen,  }\item[{int}]{wait\+Time }\end{DoxyParamCaption})}
+
+Get the evaluation score of a given board position
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+{\em wait\+Time} & in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+eval\+Score 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_acca2224e29b089580a8cf535756dab28}} 
+\index{Stockfish@{Stockfish}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!Stockfish@{Stockfish}}
+\doxyparagraph{getOutput()}
+{\footnotesize\ttfamily String get\+Output (\begin{DoxyParamCaption}\item[{int}]{wait\+Time }\end{DoxyParamCaption})}
+
+This is generally called right after \textquotesingle{}send\+Command\textquotesingle{} for getting the raw output from \doxyref{Stockfish}{p.}{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish}
+
+
+\begin{DoxyParams}{Parameters}
+{\em wait\+Time} & Time in milliseconds for which the function waits before reading the output. Useful when a long running command is executed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Raw output from \doxyref{Stockfish}{p.}{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish} 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_a31f746a768fcf4ddcd804674c6ebeae6}} 
+\index{Stockfish@{Stockfish}!sendCommand@{sendCommand}}
+\index{sendCommand@{sendCommand}!Stockfish@{Stockfish}}
+\doxyparagraph{sendCommand()}
+{\footnotesize\ttfamily void send\+Command (\begin{DoxyParamCaption}\item[{String}]{command }\end{DoxyParamCaption})}
+
+Takes in any valid UCI command and executes it
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_aeca473e37f8be784412e1be9c8a2efa7}} 
+\index{Stockfish@{Stockfish}!startEngine@{startEngine}}
+\index{startEngine@{startEngine}!Stockfish@{Stockfish}}
+\doxyparagraph{startEngine()}
+{\footnotesize\ttfamily boolean start\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Starts \doxyref{Stockfish}{p.}{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish} engine as a process and initializes it
+
+\begin{DoxyReturn}{Returns}
+True on success. False otherwise 
+\end{DoxyReturn}
+\mbox{\label{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish_aac691108ef0deed037539619a4ba41bd}} 
+\index{Stockfish@{Stockfish}!stopEngine@{stopEngine}}
+\index{stopEngine@{stopEngine}!Stockfish@{Stockfish}}
+\doxyparagraph{stopEngine()}
+{\footnotesize\ttfamily void stop\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops \doxyref{Stockfish}{p.}{classver14_1_1_players_1_1_player_a_i_1_1_stockfish_1_1_stockfish} and cleans up before closing it 

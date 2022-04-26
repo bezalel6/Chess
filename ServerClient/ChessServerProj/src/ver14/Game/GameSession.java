@@ -27,28 +27,81 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 
+/**
+ * Game session - represents a game session between two players
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class GameSession extends HandledThread implements SyncableItem {
+    /**
+     * The Game id.
+     */
     public final String gameID;
+    /**
+     * The Server.
+     */
     private final Server server;
+    /**
+     * The Game.
+     */
     private final Game game;
+    /**
+     * The Creator.
+     */
     private final Player creator;
+    /**
+     * The P 2.
+     */
     private final Player p2;
 
+    /**
+     * Instantiates a new Game session. resuming an unfinished game.
+     *
+     * @param unfinishedGame the unfinished game
+     * @param creator        the creator
+     * @param otherPlayer    the other player
+     * @param server         the server
+     */
     public GameSession(UnfinishedGame unfinishedGame, Player creator, Player otherPlayer, Server server) {
         this((EstablishedGameInfo) unfinishedGame, creator, otherPlayer, server);
         PlayerColor clr = unfinishedGame.playerColorToMove;
         game.setCreatorColor(unfinishedGame.isCreatorToMove() ? clr : clr.getOpponent());
     }
 
+    /**
+     * Instantiates a new Game session. reloading a saved session
+     *
+     * @param gameInfo    the game info
+     * @param creator     the creator
+     * @param otherPlayer the other player
+     * @param server      the server
+     */
     public GameSession(EstablishedGameInfo gameInfo, Player creator, Player otherPlayer, Server server) {
         this((GameInfo) gameInfo, creator, otherPlayer, server);
         game.setMoveStack(gameInfo.getMoveStack());
     }
 
+    /**
+     * Instantiates a new Game session.
+     *
+     * @param gameInfo    the game info
+     * @param creator     the creator
+     * @param otherPlayer the other player
+     * @param server      the server
+     */
     public GameSession(GameInfo gameInfo, Player creator, Player otherPlayer, Server server) {
         this(gameInfo.gameId, creator, otherPlayer, gameInfo.gameSettings, server);
     }
 
+    /**
+     * Instantiates a new Game session.
+     *
+     * @param gameID       the game id
+     * @param creator      the creator
+     * @param p2           the p 2
+     * @param gameSettings the game settings
+     * @param server       the server
+     */
     public GameSession(String gameID, Player creator, Player p2, GameSettings gameSettings, Server server) {
         setName("Game Session #" + gameID);
         this.gameID = gameID;
@@ -65,10 +118,18 @@ public class GameSession extends HandledThread implements SyncableItem {
         });
     }
 
+    /**
+     * Gets game.
+     *
+     * @return the game
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * Handled run.
+     */
     @Override
     public void handledRun() {
         do {
@@ -82,6 +143,11 @@ public class GameSession extends HandledThread implements SyncableItem {
         server.endOfGameSession(this);
     }
 
+    /**
+     * Save game.
+     *
+     * @param gameResult the game result
+     */
     public void saveGame(GameStatus gameResult) {
         if (!isSaveWorthy(gameResult)) {
             return;
@@ -125,6 +191,11 @@ public class GameSession extends HandledThread implements SyncableItem {
         }
     }
 
+    /**
+     * Ask for rematch boolean.
+     *
+     * @return the boolean
+     */
     public boolean askForRematch() {
         if (getPlayers().stream().anyMatch(p -> !p.isConnected()))
             return false;
@@ -170,6 +241,12 @@ public class GameSession extends HandledThread implements SyncableItem {
         return false;
     }
 
+    /**
+     * Is save worthy boolean.
+     *
+     * @param gameResult the game result
+     * @return the boolean
+     */
     public boolean isSaveWorthy(GameStatus gameResult) {
         if (gameResult.getGameStatusType() == GameStatus.GameStatusType.UNFINISHED) {
             return creator.isSaveWorthy() && p2.isAi();
@@ -177,41 +254,87 @@ public class GameSession extends HandledThread implements SyncableItem {
         return creator.isSaveWorthy() || p2.isSaveWorthy();
     }
 
+    /**
+     * Log.
+     *
+     * @param str the str
+     */
     public void log(String str) {
         server.log(this + "-->" + str);
     }
 
+    /**
+     * Gets players.
+     *
+     * @return the players
+     */
     public List<Player> getPlayers() {
         return List.of(creator, p2);
     }
 
+    /**
+     * Player disconnected.
+     *
+     * @param player the player
+     */
     public void playerDisconnected(Player player) {
         game.interrupt(GameStatus.playerDisconnected(player.getPlayerColor(), player.getPartner().isAi()));
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return "Session(%s) %s".formatted(gameID, game);
     }
 
+    /**
+     * Gets syncable item.
+     *
+     * @return the syncable item
+     */
     @Override
     public SyncableItem getSyncableItem() {
         return game.getCurrentGameState();
     }
 
+    /**
+     * Id string.
+     *
+     * @return the string
+     */
     @Override
     public String ID() {
         return gameID;
     }
 
+    /**
+     * Resigned.
+     *
+     * @param player the player
+     */
     public void resigned(Player player) {
         game.interrupt(GameStatus.playerResigned(player.getPlayerColor()));
     }
 
+    /**
+     * Sessions desc string.
+     *
+     * @return the string
+     */
     public String sessionsDesc() {
         return "Session(%s) %s vs %s".formatted(gameID, StrUtils.dontCapWord(creator.getUsername()), StrUtils.dontCapWord(p2.getUsername()));
     }
 
+    /**
+     * Asked question.
+     *
+     * @param player   the player
+     * @param question the question
+     */
     public void askedQuestion(Player player, Question question) {
         log(player.getUsername() + " asked " + question);
         player.getPartner().askQuestion(question, ans -> {
@@ -220,6 +343,12 @@ public class GameSession extends HandledThread implements SyncableItem {
         });
     }
 
+    /**
+     * Gets answer handler.
+     *
+     * @param question the question
+     * @return the answer handler
+     */
     private AnswerCallback getAnswerHandler(Question question) {
         return switch (question.questionType) {
             case DRAW_OFFER -> ans -> {
@@ -232,6 +361,11 @@ public class GameSession extends HandledThread implements SyncableItem {
         };
     }
 
+    /**
+     * Server stop.
+     *
+     * @param cause the cause
+     */
     public void serverStop(String cause) {
         game.interrupt(GameStatus.serverStoppedGame(cause));
     }

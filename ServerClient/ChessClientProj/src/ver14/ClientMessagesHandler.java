@@ -114,15 +114,15 @@ public class ClientMessagesHandler extends MessagesHandler {
                 Stack<Move> moveStack = message.getMoveStack();
                 Board board = message.getBoard();
                 //if loading a prev game the board should start from the starting pos and make all moves
-                boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
-                if (isLoadingGame) {
-                    board = Board.startingPos();
-                }
+//                boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
+//                if (isLoadingGame) {
+//                    board = Board.startingPos();
+//                }
                 view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
-                if (isLoadingGame) {
-                    for (Move move : moveStack)
-                        client.updateByMove(move, false);
-                }
+//                if (isLoadingGame) {
+//                    for (Move move : moveStack)
+//                        client.updateByMove(move, false);
+//                }
             }
 
         };

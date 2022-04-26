@@ -143,6 +143,12 @@ public class MoveLog extends JPanel {
 
         ViewSavedBoard board = new ViewSavedBoard(boardPanel);
 
+        while (move.getMovingColor() != PlayerColor.WHITE && whiteMoves.getComponents().length <= blackMoves.getComponents().length) {
+            MyJButton empty = new MyJButton("  ");
+            empty.setEnabled(false);
+            whiteMoves.add(empty);
+        }
+
         if (move.getMovingColor() == PlayerColor.WHITE) {
 //            MyFakeBtn lbl = new MyFakeBtn(move.getPrevFullMoveClock() + "");
 //            lbl.setFont(font);

@@ -38,6 +38,7 @@ public interface Parent {
     void back();
 
     default void scrollToTop() {
+
         if (this instanceof Child child)
             child.parent().scrollToTop();
     }

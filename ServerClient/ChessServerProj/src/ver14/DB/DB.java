@@ -6,12 +6,12 @@ import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Statements.CustomStatement;
-import ver14.SharedClasses.DBActions.Statements.Delete;
 import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
@@ -20,6 +20,7 @@ import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
+import ver14.SharedClasses.Misc.Enviornment;
 import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
@@ -33,16 +34,9 @@ import java.sql.*;
 import java.util.Date;
 import java.util.*;
 
-/*
- * DB -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
 
 /**
- * DB - SQLמחלקת שירות לביצוע חיבור למסד נתונים מסוג אקסס וביצוע משפטי .
- * ---------------------------------------------------------------------------
- * by Ilan Peretz(ilanperets@gmail.com) 5/11/2021
+ * DB - utility class for connecting to the database, and .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -111,7 +105,11 @@ public class DB {
 
         //#####################################################################
         dbPath = "src" + dbPath;
-        //dbPath = dbPath.substring(dbPath.lastIndexOf("/")+1); //TurnON for JAR
+
+        if (Enviornment.IS_JAR) {
+            dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
+        }
+
         //#####################################################################
 
         // dbURL: Access DB Driver Name + dbPath
@@ -141,14 +139,25 @@ public class DB {
         return select(Table.Users, Condition.equals(Col.Username, un)).isAnyData();
     }
 
+    /**
+     * Select db response.
+     *
+     * @param selectFromTable the select from table
+     * @param condition       the condition
+     * @param select          the select
+     * @return the db response
+     */
     private static DBResponse select(Table selectFromTable, Condition condition, String... select) {
         return select(selectFromTable.name(), condition, select);
     }
 
     /**
-     * @param condition
-     * @param select    the cols to select. default is *
-     * @return
+     * Select db response.
+     *
+     * @param selectFrom the select from
+     * @param condition  the condition
+     * @param select     the cols to select. default is *
+     * @return db response
      */
     private static DBResponse select(String selectFrom, Condition condition, String... select) {
 
@@ -203,8 +212,9 @@ public class DB {
      */
     public static void main(String[] args) {
         try {
-
-            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
+            System.out.println(request(PreMadeRequest.Games.createBuilder().build("bezalel6", new Date(0), new Date())));
+//            createRndGames(30);
+//            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
 //            addUser("testing", "123456");
 
 //            System.out.println(request(PreMadeRequest.ChangeProfilePic.createBuilder().build("bezalel6", "https://stackoverflow.com/questions/4275525/regex-for-urls-without-http-https-ftp")));
@@ -239,10 +249,23 @@ public class DB {
         insert(Table.Users, un, pw);
     }
 
+    /**
+     * Insert.
+     *
+     * @param table  the table
+     * @param values the values
+     */
     private static void insert(Table table, String... values) {
         insertAtDate(table, new Date(), values);
     }
 
+    /**
+     * Insert at date.
+     *
+     * @param table  the table
+     * @param date   the date
+     * @param values the values
+     */
     private static void insertAtDate(Table table, Date date, String... values) {
         Object[] vals = new ArrayList<>(List.of(values)) {{
             add((date.getTime() / 1000) + "");
@@ -294,11 +317,17 @@ public class DB {
         return select(Table.Users, condition).isAnyData();
     }
 
+    /**
+     * Reset games tables.
+     */
     private static void resetGamesTables() {
         runUpdate("delete from " + Table.Games.name());
         runUpdate("delete from " + Table.UnfinishedGames.name());
     }
 
+    /**
+     * Add users.
+     */
     private static void addUsers() {
         for (int i = 0; i < 10; i++) {
             String un = "bezalel" + i;
@@ -330,6 +359,13 @@ public class DB {
         return gameInfos;
     }
 
+    /**
+     * Unstringify t.
+     *
+     * @param <T> the type parameter
+     * @param str the str
+     * @return the t
+     */
     private static <T extends Serializable> T unstringify(String str) {
         str = StrUtils.clean(str);
         str = str.replace("[", "").replace("]", "");
@@ -345,6 +381,9 @@ public class DB {
         }
     }
 
+    /**
+     * Print all tables.
+     */
     private static void printAllTables() {
         for (Table table : Table.values()) {
             printTable(table);
@@ -360,14 +399,31 @@ public class DB {
         System.out.println(select(table, null));
     }
 
+    /**
+     * Stringify string.
+     *
+     * @param obj the obj
+     * @return the string
+     */
     private static String stringify(Serializable obj) {
         return Arrays.toString(SerializationUtils.serialize(obj));
     }
 
+    /**
+     * Add games.
+     *
+     * @param winner the winner
+     */
     private static void addGames(String winner) {
         addGames(winner, "bezalel7");
     }
 
+    /**
+     * Add games.
+     *
+     * @param winner the winner
+     * @param loser  the loser
+     */
     private static void addGames(String winner, String loser) {
         for (int i = 0; i < 5; i++) {
             saveGameResult(new ArchivedGameInfo(new Random().nextInt() + "", winner, loser, null, winner, new Stack<>()));
