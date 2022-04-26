@@ -47,11 +47,6 @@ import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-/**
- * Client דוגמה ללקוח צאט פשוט .
- * ---------------------------------------------------------------------------
- * by Ilan Perez (ilanperets@gmail.com) 20/10/2021
- */
 public class Client implements EnvManager {
 
     // constatns
@@ -83,7 +78,7 @@ public class Client implements EnvManager {
     private boolean isGettingMove = false;
 
     /**
-     * Constractor for Chat Client.
+     * Constructor for Chess Client.
      */
     public Client() {
         MyThread.setEnvManager(this);

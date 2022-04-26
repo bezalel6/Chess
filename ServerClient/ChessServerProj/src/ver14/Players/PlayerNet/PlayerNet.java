@@ -156,7 +156,7 @@ public class PlayerNet extends Player implements SyncableItem {
      */
     @Override
     public void askQuestion(Question question, AnswerCallback onAns) {
-        socketToClient.requestMessage(Message.askQuestion(question), msg -> onAns.callback(msg.getAnswer()));
+        socketToClient.requestMessage(Message.askQuestion(question), msg -> onAns.callback(msg != null ? msg.getAnswer() : null));
     }
 
     /**
