@@ -1,49 +1,38 @@
-package ver14.SharedClasses.networking;
+package ver14.SharedClasses.Networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.Threads.ErrorHandling.*;
-import ver14.SharedClasses.Threads.ThreadsManager;
-import ver14.SharedClasses.messages.Message;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.Networking.Messages.MessageType;
+import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
+import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.MyThread;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+
 /**
- * AppSocket -טיפוס המייצג שקע תקשורת המאפשר העברת הודעות ברשת בין השרת ללקוח .
- * ---------------------------------------------------------------------------
- * by Ilan Peretz(ilanperets@gmail.com) 10/11/2021
+ * App socket - represents a communications socket able to send and receive  messages from the client to the server and vice versa.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
-    static {
-//        ErrorManager.setHandler(MyError.ErrorType.AppSocketWrite, err -> {
-//            AppSocket socket = (AppSocket) err.getContext(MyError.ContextType.AppSocket);
-//            socket.messagesHandler.receivedMessage(null);
-//        });
-        ErrorManager.setHandler(ErrorType.AppSocketRead, err -> {
-            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-            socket.messagesHandler.onDisconnected();
-
-        });
-        ErrorManager.setHandler(ErrorType.Disconnected, err -> {
-
-        });
-        ErrorManager.setHandler(ErrorType.AppSocketWrite, err -> {
-            System.out.println();
-//            AppSocket socket = (AppSocket) err.getContext(ContextType.AppSocket);
-//            socket.messagesHandler.onDisconnected();
-        });
-    }
+public class AppSocket extends MyThread {
 
     /**
      * The Msg socket.
      */
-    protected final Socket msgSocket;           // Message socket
-    private final ObjectOutputStream msgOS;   // Output stream to SEND Messages
-    private final ObjectInputStream msgIS;    // Input stream to GET Messages
+    protected final Socket msgSocket;
+    /**
+     * The Msg Output stream to SEND Messages.
+     */
+    private final ObjectOutputStream msgOS;
+    /**
+     * The Msg Input stream to GET Messages.
+     */
+    private final ObjectInputStream msgIS;
     private MessagesHandler messagesHandler;
-    private boolean keepReading;
     private boolean didDisconnect = false;
 
     /**
@@ -65,11 +54,48 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
      */
     public AppSocket(Socket socket) throws IOException {
         this.msgSocket = socket;
+
+        addHandler(AppSocketError.class, e -> {
+            didDisconnect = true;
+            if (messagesHandler != null) {
+                messagesHandler.onDisconnected();
+            }
+            close();
+        });
+
         // Create MESSAGE streams. Output Stream must be created FIRST!
         // ------------------------------------------------------------
         msgOS = new ObjectOutputStream(socket.getOutputStream());
         msgOS.flush();
         msgIS = new ObjectInputStream(socket.getInputStream());
+    }
+
+    /**
+     * Close.
+     */
+    public void close() {
+        close(messagesHandler.createDisconnectedError());
+    }
+
+    /**
+     * Close.
+     *
+     * @param err the error
+     */
+    public void close(MyError err) {
+        ErrorHandler.ignore(() -> {
+            interruptListener(err);
+            msgSocket.close();  // will close the IS & OS streams
+        });
+    }
+
+    /**
+     * Interrupt listener.
+     *
+     * @param err the err to interrupt with
+     */
+    public void interruptListener(MyError err) {
+        messagesHandler.interruptBlocking(err);
     }
 
     /**
@@ -89,16 +115,12 @@ public class AppSocket extends ThreadsManager.MyThread implements ErrorContext {
     @Override
     protected void handledRun() {
         assert messagesHandler != null;
-        keepReading = true;
-        while (keepReading) {
+        while (!didDisconnect) {
             try {
                 Message msg = (Message) msgIS.readObject();
                 messagesHandler.receivedMessage(msg);
             } catch (Exception e) {
-                didDisconnect = true;
-                if (!messagesHandler.isBye())
-                    throw MyError.AppSocket(true, this, e);
-else break;
+                throw new AppSocketError(e);
             }
         }
     }
@@ -140,14 +162,13 @@ else break;
     public synchronized void writeMessage(Message msg) {
         if (!isConnected())
             return;
+        if (messagesHandler != null && msg.getMessageType() == MessageType.BYE)
+            messagesHandler.prepareForDisconnect();
         try {
-            msg = new Message(msg);
             msgOS.writeObject(msg);
             msgOS.flush(); // send object now! (dont wait)
         } catch (Exception e) {
-            didDisconnect = true;
-            throw MyError.AppSocket(false, this, e);
-//            ErrorHandler.thrown(ex);
+            throw new AppSocketError(e);
         }
     }
 
@@ -158,20 +179,6 @@ else break;
      */
     public boolean isConnected() {
         return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
-    }
-
-
-    /**
-     * Close.
-     */
-    public void close() {
-        ErrorHandler.ignore(() -> {
-            keepReading = false;
-            if (messagesHandler != null) {
-                messagesHandler.interruptBlocking(new MyError(ErrorType.Disconnected));
-            }
-            msgSocket.close();  // will close the IS & OS streams
-        });
     }
 
     /**
@@ -205,7 +212,7 @@ else break;
      * sending request and blocking til res
      *
      * @param requestMsg = "can i have x message?"
-     * @return message
+     * @return response
      */
     public Message requestMessage(Message requestMsg) {
         assert messagesHandler != null;
@@ -216,25 +223,22 @@ else break;
      * Stop reading.
      */
     public void stopReading() {
-        keepReading = false;
+        System.out.println("stopping reading");
+        didDisconnect = true;
         interruptListener(null);
     }
 
     /**
-     * Interrupt listener.
-     */
-    public void interruptListener(MyError err) {
-        messagesHandler.interruptBlocking(err);
-//        interrupt();
-    }
-
-    /**
-     * Context type my error . context type.
+     * App socket error .
      *
-     * @return the my error . context type
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
-    @Override
-    public ContextType contextType() {
-        return ContextType.AppSocket;
+    public static class AppSocketError extends MyError.DisconnectedError {
+        /**
+         * @param err err
+         */
+        public AppSocketError(Exception err) {
+            super(err);
+        }
     }
 }

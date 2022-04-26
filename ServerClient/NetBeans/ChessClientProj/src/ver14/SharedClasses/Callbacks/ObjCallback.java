@@ -1,5 +1,10 @@
 package ver14.SharedClasses.Callbacks;
 
-public interface ObjCallback<T> {
-    T get();
+
+import java.util.function.Supplier;
+
+/**
+ * @param <T> the type
+ */
+public interface ObjCallback<T> extends Supplier<T> {
 }

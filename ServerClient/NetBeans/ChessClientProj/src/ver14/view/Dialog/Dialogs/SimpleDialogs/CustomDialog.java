@@ -6,9 +6,10 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.DialogField;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Properties;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +27,12 @@ public class CustomDialog extends Dialog implements CancelOk {
         super(properties);
         this.resultsArrSize = args.length;
         ArrayList<DialogField<?>> fields = new ArrayList<>();
+        int numOfUserInputs = (int) Arrays.stream(args).filter(Arg::isUserInput).count();
         for (int i = 0; i < args.length; i++) {
             Arg arg = args[i];
             DialogField<?> field = DialogField.createField(arg, this);
             if (field != null) {
+                field.setOnDefaultClickOk(numOfUserInputs == 1);
                 fields.add(field);
                 map.put(field, i);
             }
@@ -44,7 +47,9 @@ public class CustomDialog extends Dialog implements CancelOk {
     }
 
     protected void setup(DialogField<?>... components) {
-        cardsSetup(null, SimpleDialogCard.create(new CardHeader(properties), this, this, components));
+        var simple = SimpleDialogCard.create(new CardHeader(properties), this, this, components);
+        simple.setOverrideableSize();
+        cardsSetup(null, simple);
     }
 
     public Object[] getResults() {
@@ -54,13 +59,6 @@ public class CustomDialog extends Dialog implements CancelOk {
         map.forEach((key, value) -> results[value] = key.getResult());
         return results;
     }
-
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-
-    }
-
 
     @Override
     public void onBack() {

@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Dialogs;
 
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.IconManager.Size;
 
@@ -14,10 +15,10 @@ public class Header extends JPanel {
     //    public final static Insets insets = WinPnl.insets;
     public final static Insets insets = new Insets(10, 10, 10, 10);
     protected final static Size maximumSize = new Size(500);
-    private final String text;
-    private final JLabel lbl;
-    private final ImageIcon icon;
+    private final MyLbl lbl;
     private final boolean center;
+    private ImageIcon icon;
+    private String text;
 
     public Header(String text) {
         this(text, true);
@@ -34,9 +35,8 @@ public class Header extends JPanel {
         this.center = center;
 
         lbl = createHeader();
-
         setToolTipText(lbl.getText());
-        
+
         add(lbl);
 
         Border border = getBorder();
@@ -46,14 +46,26 @@ public class Header extends JPanel {
         setMaximumSize(maximumSize);
     }
 
-    protected JLabel createHeader() {
-        return new JLabel(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {{
-            setFont(FontManager.Dialogs.dialog);
-        }};
+    protected MyLbl createHeader() {
+        return new MyLbl(text, icon, center ? SwingConstants.CENTER : SwingConstants.LEFT) {
+            {
+                setFont(FontManager.Dialogs.dialog);
+            }
+
+            @Override
+            public void setText(String text) {
+                super.setText(text);
+                setToolTipText(text);
+            }
+        };
     }
 
     public Header(ImageIcon icon, boolean center) {
         this(null, icon, center);
+    }
+
+    public MyLbl getLbl() {
+        return lbl;
     }
 
     public void spaceLblIcon() {
@@ -71,8 +83,17 @@ public class Header extends JPanel {
         return icon;
     }
 
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
+        lbl.setIcon(icon);
+    }
+
     public String getText() {
         return text;
     }
 
+    public void setText(String s) {
+        this.text = s;
+        this.lbl.setText(text);
+    }
 }

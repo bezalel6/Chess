@@ -1,12 +1,11 @@
 package ver14.SharedClasses.Game.GameSetup;
 
-import ver14.SharedClasses.Game.TimeFormat;
-
 import java.io.Serializable;
 
-public class AiParameters implements Serializable {
-    public static final AiParameters EZ_MY_AI = new AiParameters(AiType.MyAi, TimeFormat.BULLET);
-    public static final AiParameters EZ_STOCKFISH = new AiParameters(AiType.Stockfish, TimeFormat.BULLET);
+
+public class AiParameters implements Serializable, TimeFormatSettable {
+    public static final AiParameters EZ_MY_AI = new AiParameters(AiType.MyAi, TimeFormat.ULTRA_BULLET);
+    public static final AiParameters EZ_STOCKFISH = new AiParameters(AiType.Stockfish, TimeFormat.ULTRA_BULLET);
     public static final int numOfFields = 1 + TimeFormat.numOfFields;
     private AiType aiType;
     private TimeFormat moveSearchTimeout;
@@ -54,6 +53,11 @@ public class AiParameters implements Serializable {
 
     public boolean isEmpty() {
         return aiType == null || moveSearchTimeout == null;
+    }
+
+    @Override
+    public void setTimeFormat(TimeFormat timeFormat) {
+        setMoveSearchTimeout(timeFormat);
     }
 
     public enum AiType {

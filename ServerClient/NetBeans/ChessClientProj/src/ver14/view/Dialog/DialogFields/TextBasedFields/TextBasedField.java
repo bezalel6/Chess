@@ -1,7 +1,7 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.DialogField;
 import ver14.view.Dialog.Dialogs.Header;
@@ -14,7 +14,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public abstract class TextBasedField<T> extends DialogField<T> {
-    protected static final Dimension defaultTextFieldSize = new Dimension(250, 20);
+    protected static final Dimension defaultTextFieldSize = new Dimension(100, 35);
     protected final JTextField textField;
     protected RegEx verifyRegEx;
 
@@ -52,11 +52,15 @@ public abstract class TextBasedField<T> extends DialogField<T> {
         });
         addMainComp(this.textField);
 
+        setToolTipText("please dont inject sql");
+
     }
 
     protected static JTextField styleTextField(JTextField textField) {
         textField.setForeground(Color.BLUE);
         textField.setPreferredSize(defaultTextFieldSize);
+//        textField.setMinimumSize(defaultTextFieldSize);
+//        textField.setMaximumSize(defaultTextFieldSize);
         textField.setFont(FontManager.Dialogs.dialogInput);
         return textField;
     }

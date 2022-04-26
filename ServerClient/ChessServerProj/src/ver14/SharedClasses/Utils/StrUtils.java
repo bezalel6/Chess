@@ -3,8 +3,10 @@ package ver14.SharedClasses.Utils;
 import org.intellij.lang.annotations.Language;
 
 import javax.swing.*;
+import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +20,25 @@ import java.util.regex.Pattern;
  */
 public class StrUtils {
 
+
+    /**
+     * Is absolute url boolean.
+     *
+     * @param urlString the url string
+     * @return the boolean
+     */
+    public static boolean isAbsoluteUrl(String urlString) {
+        boolean result = false;
+        try {
+            URL url = new URL(urlString);
+            String protocol = url.getProtocol();
+            if (protocol != null && protocol.trim().length() > 0)
+                result = true;
+        } catch (MalformedURLException e) {
+            return false;
+        }
+        return result || RegEx.URL.check(urlString);
+    }
 
     /**
      * Dont cap full string.
@@ -496,7 +517,8 @@ public class StrUtils {
         /**
          * The Start.
          */
-        final int start, /**
+        final int start,
+        /**
          * End time range.
          */
         end;

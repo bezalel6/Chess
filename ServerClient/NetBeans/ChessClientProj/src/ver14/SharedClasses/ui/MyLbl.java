@@ -1,41 +1,64 @@
-package ver14.SharedClasses.ui;
+package ver14.SharedClasses.UI;
 
 import javax.swing.*;
 import java.awt.*;
 
+
 public class MyLbl extends JLabel {
+    private StringModifier modifier;
+
     public MyLbl(String text, Font font) {
-        super(text);
+        this(text);
         setFont(font);
     }
 
-    public MyLbl(Icon image) {
-        super(image);
+    public MyLbl(String text) {
+        this(text, null, SwingConstants.LEADING);
+
     }
 
+    public MyLbl(String text, Icon icon, int horizontalAlignment) {
+        super(text, icon, horizontalAlignment);
+        this.modifier = (str) -> str;
+        setText(text);//for modifier
+    }
+
+    @Override
+    public void setText(String text) {
+        if (modifier != null)
+            super.setText(modifier.modify(text));
+        else super.setText(text);
+    }
+
+
     public MyLbl(Icon icon, Font font) {
+        this();
         setFont(font);
         setIcon(icon);
     }
 
     public MyLbl() {
-    }
-
-    public MyLbl(String text) {
-        super(text);
-    }
-
-    public MyLbl(String text, Icon icon, int horizontalAlignment) {
-        super(text, icon, horizontalAlignment);
+        this("");
     }
 
     public static void toggle() {
 
     }
 
-    @Override
-    public void setText(String text) {
-//        text = StrUtils.fitInside(text, this);
-        super.setText(text);
+    public void underline() {
+        modifier = "<html><u>%s</u></html>"::formatted;
+        setText(getText());
+    }
+
+    public void setAllSizes(Dimension size) {
+        this.setSize(size);
+        this.setPreferredSize(size);
+        this.setMaximumSize(size);
+        this.setMinimumSize(size);
+        this.invalidate();
+    }
+
+    public interface StringModifier {
+        String modify(String modifying);
     }
 }

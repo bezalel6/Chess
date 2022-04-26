@@ -1,13 +1,14 @@
 package ver14.view.SidePanel;
 
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.MyJButton;
-import ver14.SharedClasses.ui.MyLbl;
 import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewSavedBoard;
+import ver14.view.Dialog.Scrollable;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,13 +21,10 @@ public class MoveLog extends JPanel {
     private final MyJButton forward, back, start, end;
     private final ArrayList<ViewSavedBoard> boardsList = new ArrayList<>();
     private final ArrayList<MyJButton> movesBtns;
+    private final JPanel whiteMoves, blackMoves;
     private BoardPanel boardPanel;
-    private JPanel moveLogPnl;
-    private JScrollPane moveLogScroll;
+    private Scrollable moveLogScroll;
     private int currentMoveIndex = 0;
-    private boolean justAddedMove = false;
-    private int currentRow = 0;
-    private int currentCol = 0;
 
     public MoveLog() {
         movesBtns = new ArrayList<>();
@@ -34,9 +32,16 @@ public class MoveLog extends JPanel {
         back = new MyJButton("<", FontManager.sidePanel, this::back);
         start = new MyJButton("|<", FontManager.sidePanel, this::start);
         end = new MyJButton(">|", FontManager.sidePanel, this::end);
+
+        whiteMoves = new JPanel();
+        whiteMoves.setLayout(new BoxLayout(whiteMoves, BoxLayout.Y_AXIS));
+        blackMoves = new JPanel();
+        blackMoves.setLayout(new BoxLayout(blackMoves, BoxLayout.Y_AXIS));
+
         addLayout();
         enableNavBtns();
     }
+
 
     private void forward() {
         if (currentMoveIndex > lastMoveIndex() - 1) {
@@ -82,22 +87,19 @@ public class MoveLog extends JPanel {
     }
 
     private void createMoveLogPnl() {
-        moveLogPnl = new JPanel(new GridBagLayout()) {{
-            setAutoscrolls(true);
-        }};
-        moveLogScroll = new JScrollPane(moveLogPnl) {{
-            setAutoscrolls(true);
-            setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-            setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-            JScrollBar scrollBar = getVerticalScrollBar();
-            scrollBar.setBlockIncrement(100);
-            scrollBar.addAdjustmentListener(e -> {
-                if (justAddedMove) {
-                    e.getAdjustable().setValue(e.getAdjustable().getMaximum());
-                    justAddedMove = false;
-                }
-            });
-        }};
+
+        JPanel moves = new JPanel(new GridLayout(1, 0));
+//        moves.setInsets(new Insets(0, 0, 0, 0));
+        moves.add(whiteMoves);
+        moves.add(blackMoves);
+        JPanel container = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        container.add(moves, gbc);
+
+        moveLogScroll = new Scrollable(container, new Size(225, 104));
     }
 
     public void preAdding() {
@@ -134,26 +136,28 @@ public class MoveLog extends JPanel {
      * @param move
      */
     public synchronized void addMove(Move move) {
-        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()));
+        Font font = FontManager.sidePanel;
+        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font);
+//        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
 
         ViewSavedBoard board = new ViewSavedBoard(boardPanel);
-        GridBagConstraints gbc = new GridBagConstraints();
+
+        while (move.getMovingColor() != PlayerColor.WHITE && whiteMoves.getComponents().length <= blackMoves.getComponents().length) {
+            MyJButton empty = new MyJButton("  ");
+            empty.setEnabled(false);
+            whiteMoves.add(empty);
+        }
 
         if (move.getMovingColor() == PlayerColor.WHITE) {
-            gbc.insets = new Insets(5, 5, 5, 5);
-            gbc.gridy = currentRow++;
-            gbc.gridx = currentCol++;
-            moveLogPnl.add(new MyLbl(move.getPrevFullMoveClock() + ""), gbc);
+//            MyFakeBtn lbl = new MyFakeBtn(move.getPrevFullMoveClock() + "");
+//            lbl.setFont(font);
+
+            moveBtn.setText(move.getPrevFullMoveClock() + ". " + moveBtn.getText());
+//            lbl.setSize(10, lbl.getHeight());
         }
-        gbc.insets = new Insets(0, 0, 0, 0);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.weightx = 1;
-        gbc.gridx = currentCol++;
-        if (currentCol == 3)
-            currentCol = 0;
-        justAddedMove = true;
-        moveLogPnl.add(moveBtn, gbc);
+        moveLogScroll.scrollToBottom();
+        (move.getMovingColor() == PlayerColor.WHITE ? whiteMoves : blackMoves).add(moveBtn);
         boardsList.add(board);
 
         if (currentMoveIndex == lastMoveIndex() - 1) {
@@ -177,7 +181,6 @@ public class MoveLog extends JPanel {
         }
     }
 
-
     public void enableNavBtns() {
         enableForwardNav(!movesBtns.isEmpty() && !isCaughtUp());
         enableBackNav(currentMoveIndex > 0);
@@ -190,10 +193,13 @@ public class MoveLog extends JPanel {
         }
     }
 
+
     private void scroll() {
         int row = currentMoveIndex / 2;
         row = (row - 1) * movesBtns.get(0).getHeight();
+        moveLogScroll.getVerticalScrollBar().revalidate();
         moveLogScroll.getVerticalScrollBar().setValue(row);
+//        moveLogScroll.scrollToBottom();
     }
 
     public synchronized void switchToCurrentIndex() {
@@ -225,10 +231,10 @@ public class MoveLog extends JPanel {
     }
 
     public synchronized void reset() {
-        moveLogPnl.removeAll();
+        whiteMoves.removeAll();
+        blackMoves.removeAll();
+
         currentMoveIndex = 0;
-        currentCol = 0;
-        currentRow = 0;
         movesBtns.clear();
         boardsList.clear();
         setBoardPanel(boardPanel);

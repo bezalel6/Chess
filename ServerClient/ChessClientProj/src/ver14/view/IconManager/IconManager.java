@@ -141,7 +141,7 @@ public class IconManager {
     }
 
     public static ImageIcon loadNoScale(URL url) {
-        ImageIcon icon = new ImageIcon(url, url.getPath());
+        ImageIcon icon = new ImageIcon(url, url.toString());
 //        new JFrame() {{
 //            setSize(500, 500);
 //            setIconImage(icon.getImage());
@@ -170,21 +170,32 @@ public class IconManager {
     }
 
     public static ImageIcon loadNoScale(String relativePath) {
-        if (!RegEx.Icon.check(relativePath)) {
+        relativePath = StrUtils.clean(relativePath);
+        boolean isNotComplete = !StrUtils.isAbsoluteUrl(relativePath);
+        if (isNotComplete && !RegEx.Icon.check(relativePath)) {
             relativePath += ".png";
         }
-        if (!relativePath.contains("/assets/"))
+        if (isNotComplete && !relativePath.contains("/assets/"))
             relativePath = "/assets/" + relativePath;
         URL path;
         if (Environment.IS_JAR) {
             try {
-                if (!relativePath.contains("./")) {
+                if (isNotComplete && !relativePath.contains("./")) {
                     relativePath = "./" + relativePath;
                 }
-                File file = new File(relativePath);
-                if (!file.exists())
-                    System.out.println("didnt find file");
-                path = file.toURI().toURL();
+                if (!isNotComplete && relativePath.contains("./")) {
+                    relativePath = relativePath.replaceAll("\\./", "");
+                }
+                relativePath = relativePath.replaceFirst("file:/", "");
+                if (isNotComplete) {
+                    File file = new File(relativePath);
+                    if (!file.exists())
+                        System.out.println("didnt find file " + relativePath);
+                    path = file.toURI().toURL();
+
+                } else {
+                    path = new URL(relativePath);
+                }
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }

@@ -1,12 +1,14 @@
 package ver14.SharedClasses.Threads;
 
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 import java.util.ArrayList;
 
+
+/**
+ * The type Threads manager.
+ */
 public class ThreadsManager {
     private final static ArrayList<MyThread> threads;
 
@@ -16,15 +18,31 @@ public class ThreadsManager {
     }
 
 
-    public static void stopAll() {
-        try {
-            threads.forEach(MyThread::stopRun);
-        } catch (Exception e) {
-            System.out.println("stopping threads");
-            System.out.println(e.getClass());
-        }
+    public static void addThread(MyThread thread) {
+        threads.add(thread);
     }
 
+
+    public static void stopAll() {
+        new Thread(() -> {
+            int ms = 1500;
+            System.out.println("pausing for " + ms + " ms before stopping all threads");
+
+            try {
+                Thread.sleep(ms);
+                threads.forEach(MyThread::stopRun);
+            } catch (Exception e) {
+                System.out.println("stopping threads");
+                System.out.println(e.getClass());
+            }
+        }).start();
+    }
+
+    /**
+     * Handle errors.
+     *
+     * @param runnable the runnable
+     */
     public static void handleErrors(ThrowingRunnable runnable) {
         MyError err = null;
         try {
@@ -35,13 +53,17 @@ public class ThreadsManager {
         } catch (Throwable throwable) {
             err = new MyError(throwable);
         }
-
-//        if (err != null)
-//            throw err;
-        if (err != null && ErrorHandler.canThrow())
-            ErrorManager.handle(err);
+        if (err != null && !(Thread.currentThread() instanceof MyThread m && m.isIgnoreErrs()))
+            throw err;
     }
 
+    /**
+     * Create thread my thread.
+     *
+     * @param runnable the runnable
+     * @param start    the start
+     * @return the my thread
+     */
     public static MyThread createThread(ThrowingRunnable runnable, boolean start) {
         MyThread thread = new HandledThread(runnable);
         if (start)
@@ -50,52 +72,4 @@ public class ThreadsManager {
     }
 
 
-    public static abstract class MyThread extends Thread {
-
-        public MyThread() {
-            threads.add(this);
-            setDaemon(false);
-        }
-
-        public void stopRun() {
-            ErrorHandler.ignore(this::interrupt);
-        }
-
-
-        @Override
-        public final void run() {
-            handleErrors(this::handledRun);
-        }
-
-        protected abstract void handledRun() throws Throwable;
-    }
-
-    public static class HandledThread extends MyThread {
-
-        private ThrowingRunnable runnable;
-
-        public HandledThread() {
-            this(null);
-        }
-
-        public HandledThread(ThrowingRunnable runnable) {
-            this.runnable = runnable;
-        }
-
-        public static HandledThread runInHandledThread(ThrowingRunnable runnable) {
-            HandledThread thread = new HandledThread(runnable);
-            thread.start();
-            return thread;
-        }
-
-        public void setRunnable(ThrowingRunnable runnable) {
-            this.runnable = runnable;
-        }
-
-        @Override
-        protected void handledRun() throws Throwable {
-            if (runnable != null)
-                this.runnable.run();
-        }
-    }
 }

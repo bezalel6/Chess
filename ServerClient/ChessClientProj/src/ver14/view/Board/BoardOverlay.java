@@ -305,18 +305,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 hoveredBtn = null;
                 break;
             case MouseEvent.MOUSE_PRESSED:
-//                if (clickingBtn != null && btn != null && clickingBtn != btn) {
-//                    if (!clickingBtn.canMoveTo())
-//                        clickingBtn.clickMe();
-//                    clickingBtn = null;
-//                }
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     stopDrawingArrows();
-//                    if (clickingBtn == null && btn != null && !isDragging() && btn.isEnabled() && !btn.canMoveTo() && btn.getIcon() != null) {
-//                        currentDragging = btn;
-//                        btn.hideIcon();
-//                        btn.clickMe();
-//                    }
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
                     startDrawing();
                 }
@@ -328,33 +318,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
                     currentDragging.unHideIcon();
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-//                        if (isDragging()) {
-//                            if (currentlyAbove == currentDragging) {
-//                                if (clickingBtn == null)
-//                                    clickingBtn = currentlyAbove;
-//                                else {
-//                                    currentlyAbove.clickMe();
-//                                    clickingBtn = null;
-//                                }
-//                            } else if (currentlyAbove.isEnabled()) {
-//                                currentlyAbove.clickMe();
-//                            } else {
-//                                currentDragging.clickMe();
-//                            }
-//                        } else if (currentlyAbove.isEnabled()) {
-//                            if (clickingBtn == null) {
-//                                clickingBtn = currentlyAbove;
-//                            } else if (clickingBtn == currentlyAbove) {
-//                                clickingBtn.clickMe();
-//                                clickingBtn = null;
-//                            } else {
-//                                currentlyAbove.clickMe();
-//                                clickingBtn = null;
-//                            }
-//                        } else {
-//                            clickingBtn = currentDragging = null;
-//                        }
-//                        currentDragging = null;
                         if (btn.isEnabled())
                             btn.clickMe();
                         clearAllArrows();

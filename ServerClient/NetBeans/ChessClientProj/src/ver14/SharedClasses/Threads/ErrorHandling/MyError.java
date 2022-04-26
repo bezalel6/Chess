@@ -1,61 +1,82 @@
 package ver14.SharedClasses.Threads.ErrorHandling;
 
-import ver14.SharedClasses.networking.AppSocket;
+import ver14.SharedClasses.Utils.StrUtils;
 
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * My error - .
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MyError extends Error {
 
-    public final ErrorType type;
-    private final Map<ContextType, ErrorContext> context;
+    /**
+     * Instantiates a new My error.
+     */
+    public MyError() {
+    }
 
+    /**
+     * Instantiates a new My error.
+     *
+     * @param throwable the throwable
+     */
     public MyError(Throwable throwable) {
         super(throwable);
-
-        this.type = ErrorType.UnKnown;
-        this.context = new HashMap<>();
     }
 
-    public MyError(ErrorType type) {
-        this(type.name(), type);
-    }
 
-    public MyError(String message, ErrorType type) {
+    /**
+     * Instantiates a new My error.
+     *
+     * @param message the message
+     */
+    public MyError(String message) {
         super(message);
-        this.type = type;
-        context = new HashMap<>();
     }
 
-    public static MyError AppSocket(boolean isRead, AppSocket appSocket, Throwable source) {
-        return new MyError(isRead ? ErrorType.AppSocketRead : ErrorType.AppSocketWrite) {{
-            addContext(appSocket);
-            initCause(source);
-        }};
+    /**
+     * Instantiates a new My error.
+     *
+     * @param message the message
+     * @param cause   the cause
+     */
+    public MyError(String message, Throwable cause) {
+        super(message, cause);
     }
 
-    public void addContext(ErrorContext context) {
-        this.context.put(context.contextType(), context);
-    }
 
+    /**
+     * Gets handled str.
+     *
+     * @return the handled str
+     */
     public String getHandledStr() {
-        return toString();
-//        return type + "";
+//        return toString();
+        return StrUtils.isEmpty(this.getMessage()) ? getClass().getName() : this.getMessage() + (getCause() == null ? "" : "  " + getCause().getMessage());
     }
 
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
 
         return "MyError{" +
-                "" + getStackTrace()[0] + "\n" +
-//                "error=" + errToString(this) +
-                "type=" + type +
-                ", context=" + context +
+                "error=" + errToString(this) +
                 ", source=" + errToString(getCause()) +
                 '}';
     }
 
+    /**
+     * Err to string string.
+     *
+     * @param error the error
+     * @return the string
+     */
     public static String errToString(Throwable error) {
         if (error == null) {
             return "";
@@ -67,24 +88,73 @@ public class MyError extends Error {
         StringBuilder errMsg = new StringBuilder(">> " + toStr + "\n");
         for (StackTraceElement element : error.getStackTrace())
             errMsg.append(">>> ").append(element).append("\n");
-        return errMsg.toString();
+        return StrUtils.dontCapFull(errMsg.toString());
     }
 
+    /**
+     * Super to string string.
+     *
+     * @return the string
+     */
     private String superToString() {
         return super.toString();
     }
 
-    public ErrorContext getContext(ContextType contextType) {
-        return context.get(contextType);
+    /**
+     * Db err - .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
+    public static class DBErr extends MyError {
+        /**
+         * Instantiates a new Db err.
+         *
+         * @param throwable the throwable
+         */
+        public DBErr(Throwable throwable) {
+            super(throwable);
+        }
+
+        /**
+         * Instantiates a new Db err.
+         *
+         * @param message the message
+         * @param cause   the cause
+         */
+        public DBErr(String message, Throwable cause) {
+            super(message, cause);
+        }
     }
 
+    /**
+     * a Disconnected error .
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class DisconnectedError extends MyError {
+        /**
+         * Instantiates a new Disconnected error.
+         */
         public DisconnectedError() {
             this("");
         }
 
+        /**
+         * Instantiates a new Disconnected error.
+         *
+         * @param message the message
+         */
         public DisconnectedError(String message) {
-            super(message, ErrorType.Disconnected);
+            super(message);
+        }
+
+        /**
+         * Instantiates a new Disconnected error.
+         *
+         * @param throwable the throwable
+         */
+        public DisconnectedError(Throwable throwable) {
+            super(throwable);
         }
     }
 

@@ -1,8 +1,9 @@
 package ver14.view.Dialog.Cards;
 
-import ver14.SharedClasses.FontManager;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.Dialog.Dialogs.Header;
+import ver14.view.Dialog.Properties;
 
 import javax.swing.*;
 
@@ -42,12 +43,12 @@ public class CardHeader extends Header {
     }
 
     public String getCardName() {
-        return cardName;
+        return (cardName);
     }
 
     @Override
-    protected JLabel createHeader() {
-        JLabel lbl = super.createHeader();
+    protected MyLbl createHeader() {
+        MyLbl lbl = super.createHeader();
         lbl.setFont(FontManager.Dialogs.dialogHeader);
         return lbl;
     }

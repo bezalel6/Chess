@@ -1,42 +1,52 @@
 package ver14;
 
-import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.Arg.Described;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
-import ver14.SharedClasses.DBActions.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponsePackage.DBResponse;
 import ver14.SharedClasses.DBActions.RequestBuilder;
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.Evaluation.GameStatus;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.Moves.BasicMove;
+import ver14.SharedClasses.Game.Moves.Move;
+import ver14.SharedClasses.Game.Moves.MovesList;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.moves.Move;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.Game.pieces.PieceType;
-import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.Login.LoginType;
+import ver14.SharedClasses.Misc.Question;
+import ver14.SharedClasses.Networking.AppSocket;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.Networking.Messages.MessageType;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
-import ver14.SharedClasses.Threads.ErrorHandling.ErrorManager;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.MyThread;
+import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.networking.AppSocket;
+import ver14.Sound.SoundManager;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
+import ver14.view.Dialog.Properties;
 import ver14.view.View;
 
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import ver14.SharedClasses.networking.AppSocket;
 
 /**
  * Client דוגמה ללקוח צאט פשוט .
@@ -49,6 +59,11 @@ public class Client implements EnvManager {
     private static final int SERVER_DEFAULT_PORT = 1234;
     private static final String teacherIP = "192.168.21.239";
     private static final String teacherAddress = teacherIP + ":" + SERVER_DEFAULT_PORT;
+
+
+    private static String START_AT_ADDRESS = null;
+
+    public final SoundManager soundManager;
     // for GUI
     private View view;
     // for Client
@@ -57,18 +72,23 @@ public class Client implements EnvManager {
     private String serverIP;
     private AppSocket clientSocket;
     private PlayerColor myColor;
-    private ArrayList<Move> possibleMoves = null;
+    private MovesList possibleMoves = null;
     private ViewLocation firstClickLoc;
     private Message lastGetMoveMsg;
     private LoginInfo loginInfo;
     private ClientMessagesHandler msgHandler;
+    private boolean isClosing = false;
+
+    private Map<PlayerColor, String> playerUsernames = new HashMap<>();
+    private boolean isPremoving = false;
+    private boolean isGettingMove = false;
 
     /**
-     * Constractor for Chess Client.
+     * Constractor for Chat Client.
      */
     public Client() {
-        ErrorManager.setEnvManager(this);
-
+        MyThread.setEnvManager(this);
+        soundManager = new SoundManager();
         setupClientGui();
         setupClient();
     }
@@ -80,6 +100,9 @@ public class Client implements EnvManager {
      */
 // main
     public static void main(String[] args) {
+        ArgsUtil util = ArgsUtil.create(args);
+        START_AT_ADDRESS = util.equalsSign("address").getString();
+
         Client client = new Client();
         client.runClient();
     }
@@ -107,25 +130,33 @@ public class Client implements EnvManager {
         view = new View(this);
     }
 
+    private String showServerAddressDialog() throws UnknownHostException {
+        // set the Server Address (DEFAULT IP&PORT)
+        serverPort = SERVER_DEFAULT_PORT;
+        serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
+        Properties properties = dialogProperties("Server Address");
+        String desc = "Enter SERVER Address";
+        Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
+        Config<String> config = new Config<>(desc, defaultValue);
+        config.addSuggestion(Described.d(teacherAddress, "teacher address"));
+        properties.setArgConfig(config);
+
+        InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
+        return inputDialog.getInput();
+    }
+
     /**
      * Sets client.
      */
     public void setupClient() {
         try {
 
-            // set the Server Adress (DEFAULT IP&PORT)
-            serverPort = SERVER_DEFAULT_PORT;
-            serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
-            Properties properties = dialogProperties("Server Address");
-            String desc = "Enter SERVER Address";
-            Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
-            Config<String> config = new Config<>(desc, defaultValue);
-            config.addSuggestion(Described.d(teacherAddress, "teacher address"));
-            properties.setArgConfig(config);
-
-            InputDialog inputDialog = view.showDialog(new InputDialog(properties, ArgType.ServerAddress));
-
-            String serverAddress = inputDialog.getInput();
+            String serverAddress;
+            if (StrUtils.isEmpty(START_AT_ADDRESS)) {
+                serverAddress = showServerAddressDialog();
+            } else {
+                serverAddress = START_AT_ADDRESS;
+            }
 
             // check if Cancel button was pressed
             if (serverAddress == null) {
@@ -149,15 +180,6 @@ public class Client implements EnvManager {
             String serverAddress = serverIP + ":" + serverPort;
             closeClient("Client can't connect to Server(" + serverAddress + ")", exp);
         }
-    }
-
-    /**
-     * Gets username.
-     *
-     * @return the username
-     */
-    public String getUsername() {
-        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
     }
 
     /**
@@ -185,14 +207,19 @@ public class Client implements EnvManager {
      * @param closeType the close type
      */
     public void closeClient(String cause, String title, MessageCard.MessageType closeType) {
+        if (isClosing)
+            return;
+        isClosing = true;
         if (clientSocket != null) {
             clientSocket.close(); // will throw 'SocketException' and unblock I/O. see close() API
 
         }
+
         if (cause != null) {
             title = title == null ? "Closing" : title;
             view.showMessage(cause, title, closeType);
         }
+
         log("Client Closed!");
 
         // close GUI
@@ -218,13 +245,8 @@ public class Client implements EnvManager {
         return msgHandler;
     }
 
-    /**
-     * Sets my color.
-     *
-     * @param myColor the my color
-     */
-    public void setMyColor(PlayerColor myColor) {
-        this.myColor = myColor;
+    public Map<PlayerColor, String> getPlayerUsernames() {
+        return playerUsernames;
     }
 
     /**
@@ -245,59 +267,25 @@ public class Client implements EnvManager {
         view.setGameTime(message.getGameTime());
     }
 
-    /**
-     * Update by move.
-     *
-     * @param move the move
-     */
-    public void updateByMove(Move move) {
-        updateByMove(move, true);
-    }
-
-    /**
-     * Update by move.
-     *
-     * @param move        the move
-     * @param moveEffects the move effects: sound and color
-     */
-    public void updateByMove(Move move, boolean moveEffects) {
-        view.resetBackground();
-        if (move.getMoveFlag() == Move.MoveType.Promotion) {
-            Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
-            view.setBtnPiece(move.getMovingFrom(), piece);
-        }
-        processGameStatus(move.getMoveEvaluation().getGameStatus());
-
-        view.updateByMove(move);
-
-        if (moveEffects) {
-            view.colorMove(move);
-        }
-
-    }
-
-    private void processGameStatus(GameStatus gameStatus) {
-        if (gameStatus.isCheck()) {
-            view.inCheck(gameStatus.getCheckedKingLoc());
-        }
-
-    }
-
     void unlockMovableSquares(Message message) {
+        this.isGettingMove = true;
         possibleMoves = message.getPossibleMoves();
         unlockPossibleMoves();
     }
 
     private void unlockPossibleMoves() {
-        hideQuestionPnl();
-        view.enableSources(possibleMoves);
+//        view.enableSources(possibleMoves);
+        view.enablePieces(myColor);
     }
 
-    /**
-     * Hide question pnl.
-     */
-    void hideQuestionPnl() {
-        view.getSidePanel().askPlayerPnl.showPnl(false);
+
+    public void enablePreMove() {
+//        isPremoving = true;
+//        view.enableSources(PremovesGenerator.generatePreMoves(view.getBoardPnl().createBoard(), getMyColor()));
+    }
+
+    public PlayerColor getMyColor() {
+        return myColor;
     }
 
     /**
@@ -318,19 +306,19 @@ public class Client implements EnvManager {
         Message response = clientSocket.requestMessage(Message.returnLogin(loginInfo, loginMessage));
 
         if (this.loginInfo.getLoginType() == LoginType.CANCEL) {
-            closeClient("canceled", "");
+            closeClient();
             return null;
         }
 
         if (response == null) {
             return login("Error reading response from server", loginMessage);
         }
-        view.authChange(response.getLoginInfo());
         if (response.getMessageType() == MessageType.ERROR) {
             return login(response.getSubject(), response);
         }
         if (response.getMessageType() == MessageType.WELCOME_MESSAGE) {
             this.loginInfo = response.getLoginInfo();
+            view.authChange(response.getLoginInfo());
         }
         return this.loginInfo.getUsername();
     }
@@ -338,46 +326,38 @@ public class Client implements EnvManager {
     /**
      * Board button pressed.
      *
-     * @param loc the loc
+     * @param clickedLoc the clickedLoc
      */
-    public void boardButtonPressed(ViewLocation loc) {
+    public void boardButtonPressed(ViewLocation clickedLoc) {
         if (possibleMoves != null) {
             view.resetBackground();
             view.enableAllSquares(false);
-            Move completeMove = getMoveFromDest(loc);
+            BasicMove basicMove = null;
+            Move completeMove = null;
+            if (firstClickLoc != null) {
+                basicMove = new BasicMove(firstClickLoc.originalLocation, clickedLoc.originalLocation);
+                completeMove = possibleMoves.findMove(basicMove);
+            }
             if (completeMove != null) {
-                if (completeMove.getMoveFlag() == Move.MoveType.Promotion) {
-                    completeMove.setPromotingTo(showPromotionDialog(myColor));
+                if (completeMove.getMoveFlag() == Move.MoveFlag.Promotion) {
+                    PieceType promotingTo = showPromotionDialog(myColor);
+                    completeMove = possibleMoves.findMove(basicMove, m -> m.getPromotingTo() == promotingTo);
+                    assert completeMove != null;
                 }
                 returnMove(completeMove);
                 firstClickLoc = null;
-            } else if (loc.equals(firstClickLoc)) {
+            } else if (clickedLoc.equals(firstClickLoc)) {
                 unlockPossibleMoves();
                 firstClickLoc = null;
             } else {
-                firstClickLoc = loc;
-                view.colorCurrentPiece(firstClickLoc.originalLocation);
+                firstClickLoc = clickedLoc;
+                view.setCurrentPiece(firstClickLoc.originalLocation);
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
-                        .filter(move -> move.getMovingFrom().equals(loc.originalLocation))
-                        .collect(Collectors.toCollection(ArrayList::new)));
+                        .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))
+                        .toList());
             }
         }
-    }
-
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
-
-    private Move getMoveFromDest(ViewLocation clickedOn) {
-        if (firstClickLoc == null)
-            return null;
-        return possibleMoves.stream()
-                .filter(move ->
-                        move.getMovingFrom().equals(firstClickLoc.originalLocation) &&
-                                move.getMovingTo().equals(clickedOn.originalLocation))
-                .findAny().orElse(null);
     }
 
     /**
@@ -391,7 +371,53 @@ public class Client implements EnvManager {
     }
 
     private void returnMove(Move move) {
+        this.isGettingMove = false;
+        updateByMove(move);
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
+    }
+
+//    private void initGame(Message message) {
+//        myColor = message.getPlayerColor();
+//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
+//    }
+
+    /**
+     * Update by move.
+     *
+     * @param move the move
+     */
+    public void updateByMove(Move move) {
+        updateByMove(move, true);
+    }
+
+    /**
+     * Update by move.
+     *
+     * @param move        the move
+     * @param moveEffects the move effects: sound and color
+     */
+    public void updateByMove(Move move, boolean moveEffects) {
+        view.resetBackground();
+        if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
+            Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
+            view.setBtnPiece(move.getMovingFrom(), piece);
+        }
+        processGameStatus(move.getMoveEvaluation().getGameStatus());
+
+        view.updateByMove(move);
+
+        if (moveEffects) {
+            view.colorMove(move);
+            soundManager.moved(move, myColor);
+        }
+
+    }
+
+    private void processGameStatus(GameStatus gameStatus) {
+        if (gameStatus.isCheck()) {
+            view.inCheck(gameStatus.getCheckedKingLoc());
+        }
+
     }
 
     /**
@@ -405,7 +431,16 @@ public class Client implements EnvManager {
      * Offer draw btn clicked.
      */
     public void offerDrawBtnClicked() {
-        clientSocket.writeMessage(new Message(MessageType.OFFER_DRAW));
+        clientSocket.writeMessage(Message.askQuestion(Question.drawOffer(getUsername())));
+    }
+
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return loginInfo != null ? loginInfo.getUsername() : "not logged in yet";
     }
 
     /**
@@ -430,12 +465,12 @@ public class Client implements EnvManager {
      * Disconnect from server.
      */
     public void disconnectFromServer() {
-
         if (clientSocket != null && clientSocket.isConnected()) {
-            clientSocket.requestMessage(Message.bye(""), response -> {
-                view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
-                closeClient();
-            });
+            clientSocket.writeMessage(Message.bye(""));
+//            clientSocket.requestMessage(, response -> {
+//                view.showMessage(response.getSubject(), "disconnected", MessageCard.MessageType.INFO);
+//                closeClient();
+//            });
         } else {
             closeClient();
         }
@@ -472,9 +507,36 @@ public class Client implements EnvManager {
      * @return the game settings
      */
     public GameSettings showGameSettingsDialog() {
-        String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
-        Properties properties = dialogProperties(msg, "game selection");
-        return view.showDialog(new GameSelect(properties)).getGameSettings();
+        Question.Answer quickMatchVsAi = new Question.Answer("Play Game vs AI");
+        Question.Answer quickMatchVsReal = new Question.Answer("Play Game");
+
+        Question.Answer matchSettings = new Question.Answer("Settings");
+        Question match = new Question("Play Game", quickMatchVsReal, quickMatchVsAi, matchSettings);
+
+        CompletableFuture<Question.Answer> futureAns = new CompletableFuture<>();
+        view.askQuestion(match, futureAns::complete);
+
+        try {
+            Question.Answer answer = futureAns.get();
+            if (answer.equals(quickMatchVsAi)) {
+                GameSettings settings = new GameSettings();
+                settings.initDefault1vAi();
+                return settings;
+            }
+            if (answer.equals(quickMatchVsReal)) {
+                GameSettings settings = new GameSettings();
+                settings.initDefault1v1();
+                settings.setGameType(GameSettings.GameType.QUICK_MATCH);
+                return settings;
+
+            }
+            String msg = "hello %s!\n%s".formatted(loginInfo.getUsername(), StrUtils.createTimeGreeting());
+            Properties properties = dialogProperties(msg, "game selection");
+            return view.showDialog(new GameSelect(properties)).getGameSettings();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -494,8 +556,8 @@ public class Client implements EnvManager {
         ChangePassword changePassword = view.showDialog(new ChangePassword(dialogProperties("change password"), loginInfo.getPassword()));
         String pw = changePassword.getPassword();
         if (pw != null) {
-            request(RequestBuilder.changePassword(), msg -> {
-                if (msg != null && msg.getDBResponse().getStatus() == DBResponse.Status.SUCCESS) {
+            request(RequestBuilder.changePassword(), res -> {
+                if (res != null && res.isSuccess()) {
                     loginInfo.setPassword(pw);
                 }
             }, null, pw);
@@ -510,7 +572,7 @@ public class Client implements EnvManager {
      * @param onResponse the on response
      * @param args       the args
      */
-    public void request(RequestBuilder builder, MessageCallback onResponse, Object... args) {
+    public void request(RequestBuilder builder, Callback<DBResponse> onResponse, Object... args) {
         if (args == null) {
             return;
         }
@@ -529,9 +591,11 @@ public class Client implements EnvManager {
             args[i] = argVal;
         }
         clientSocket.requestMessage(Message.dbRequest(builder.build(args)), msg -> {
+            if (msg == null)
+                return;
             if (onResponse != null)
-                onResponse.onMsg(msg);
-            view.showDBResponse(msg.getDBResponse(), builder.getPostDescription(), builder.getName());
+                onResponse.callback(msg.getDBResponse());
+            view.showDBResponse(msg.getDBResponse(), builder.getName(), builder.getName());
         });
     }
 
@@ -546,18 +610,23 @@ public class Client implements EnvManager {
     }
 
     private void closeClient(String msg, Throwable ex) {
+        msg += "\n\n" + MyError.errToString(ex);
         String title = "Runtime Exception: " + msg;
 
         System.out.println("\n>> " + title);
         System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
 
         // popup dialog with the error message
-        closeClient(msg + "\n\n" + MyError.errToString(ex), "Exception Error", MessageCard.MessageType.ERROR);
+        closeClient(msg, "Exception Error", MessageCard.MessageType.ERROR);
     }
 
     public void delUnf() {
-        request(PreMadeRequest.deleteUnfGames);
+        request(PreMadeRequest.DeleteUnfGames);
 
+    }
+
+    public void request(PreMadeRequest request) {
+        request(request, null);
     }
 
     /**
@@ -565,12 +634,38 @@ public class Client implements EnvManager {
      *
      * @param request the request
      */
-    public void request(PreMadeRequest request) {
+    public void request(PreMadeRequest request, Callback<DBResponse> onResponse) {
         RequestBuilder builder = request.createBuilder();
         Properties properties = dialogProperties(builder.getPreDescription(), builder.getName());
 //        Properties properties = new Properties(builder.getPreDescription(), builder.getName());
         CustomDialog customDialog = view.showDialog(new CustomDialog(properties, builder.getArgs()));
         Object[] args = customDialog.getResults();
-        request(builder, null, args);
+        request(builder, onResponse, args);
+    }
+
+    public void setProfilePic(String profilePic) {
+        loginInfo.setProfilePic(profilePic);
+        view.authChange(loginInfo);
+    }
+
+    public void mapPlayers(PlayerColor myColor, String otherPlayerUn) {
+        this.myColor = myColor;
+        playerUsernames.put(myColor, getUsername());
+        playerUsernames.put(myColor.getOpponent(), otherPlayerUn);
+    }
+
+    public void stopPremoving() {
+
+    }
+
+    public void makeRandomMove() {
+        if (!isGettingMove)
+            return;
+        var lst = lastGetMoveMsg.getPossibleMoves();
+        returnMove(lst.get(new Random().nextInt(lst.size())));
+    }
+
+    public void cancelQuestion(Question.QuestionType questionType) {
+        clientSocket.writeMessage(Message.cancelQuestion(new Question("", questionType), getUsername() + " cancelled"));
     }
 }

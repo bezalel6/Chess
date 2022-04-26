@@ -1,7 +1,7 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.Game.BoardSetup.Board;
-import ver14.SharedClasses.Game.pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 
 import java.util.ArrayList;
 import java.util.Objects;

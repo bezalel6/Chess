@@ -1,8 +1,8 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation;
 
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.UI.LinkLabel;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.ui.LinkLabel;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.Dialogs.GameSelection.Components.FenField;
@@ -32,6 +32,11 @@ public class StartFromPosition extends GameCreationCard {
         add(pnl);
     }
 
+    @Override
+    public Dimension getPreferredSize() {
+        return new Size(500);
+    }
+
     protected void changeState(boolean state) {
         if (!state)
             gameSettings.setFen(null);
@@ -49,6 +54,7 @@ public class StartFromPosition extends GameCreationCard {
         StartingPosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"),
         QueenGambit("queen's gambit", "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"),
         QueenVsPawn("8/5K1P/8/8/3q4/8/8/2k5 w - - 0 1"),
+        Promotion("2nqkbnr/pPpppppp/2b5/p7/r7/8/PPPP1PPP/RNBQKBNR w KQk - 0 1"),
         M1("mate in 1", "rnb1k1nr/pppppppp/5q2/2b5/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1");
         public final String name;
         public final String fen;

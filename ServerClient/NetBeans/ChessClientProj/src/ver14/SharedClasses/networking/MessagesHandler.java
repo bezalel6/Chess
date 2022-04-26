@@ -1,31 +1,59 @@
-package ver14.SharedClasses.networking;
+package ver14.SharedClasses.Networking;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.Networking.Messages.MessageType;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.messages.MessageType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
+import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Semaphore;
+
 
 /**
- * The type Messages handler.
+ * Messages handler - handles all types of messages by using a hash map to make all the routing as fast as possible.
+ * when a request is sent to the server, a callback is passed with it. when a response is received,
+ * that callback is called with the response message.
+ * <br/>
+ * if a message that isn't a response is received, the handling is differed to the default callbacks map. which is where
+ * most of the implementation of this abstract class comes in. the individual message type handling.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class MessagesHandler {
+
     /**
      * The Socket.
      */
     protected final AppSocket socket;
-    private final ArrayList<CompletableFuture<Message>> waiting;
+    /**
+     * The Waiting queue. contains all blocking message callbacks. used to interrupt on disconnect or on error.
+     */
+    private final Vector<CompletableFuture<Message>> waiting;
+    /**
+     * The Default callbacks.
+     */
     private final Map<MessageType, MessageCallback> defaultCallbacks;
-    private final Stack<Message> receivedMessages = new Stack<>();
+    /**
+     * The Custom callbacks. set by requesting a message. the keys are the request id.
+     */
     private final Map<String, MessageCallback> customCallbacks = new HashMap<>();
-    private boolean isBye = false;
+    /**
+     * The Chronological semaphore. some messages have chronological importance, and since all messages are processed on a new thread, some synchronization is sometimes needed
+     */
+    private final Semaphore chronologicalSemaphore = new Semaphore(1);
+    /**
+     * is expecting disconnect.
+     */
+    private boolean isExpectingDisconnect = false;
+    /**
+     * Did disconnect.
+     */
+    private boolean didDisconnect = false;
 
     {
         defaultCallbacks = new HashMap<>();
@@ -34,7 +62,6 @@ public abstract class MessagesHandler {
                 case LOGIN -> onLogin();
                 case RESIGN -> onResign();
                 case ADD_TIME -> onAddTime();
-                case OFFER_DRAW -> onOfferDraw();
                 case WELCOME_MESSAGE -> onWelcomeMessage();
                 case GET_GAME_SETTINGS -> onGetGameSettings();
                 case WAIT_FOR_MATCH -> onWaitForMatch();
@@ -52,8 +79,8 @@ public abstract class MessagesHandler {
                 case DB_RESPONSE -> onDBResponse();
                 case UPDATE_SYNCED_LIST -> onUpdateSyncedList();
                 case INTERRUPT -> onInterrupt();
-                case IS_ALIVE -> onIsAlive();
-                case ALIVE -> onAlive();
+                case CANCEL_QUESTION -> onCancelQuestion();
+                default -> throw new IllegalStateException("Unexpected value: " + messageType);
             };
             defaultCallbacks.put(messageType, callback);
         }
@@ -67,32 +94,49 @@ public abstract class MessagesHandler {
      */
     public MessagesHandler(AppSocket socket) {
         this.socket = socket;
-        waiting = new ArrayList<>();
+        waiting = new Vector<>();
+
+
     }
 
     /**
-     * Block til res message.
+     * On cancel question message callback.
+     *
+     * @return the message callback
+     */
+    public MessageCallback onCancelQuestion() {
+        return msg -> {
+        };
+    }
+
+
+    /**
+     * @param err
+     */
+    public void interruptBlocking(MyError err) {
+        waiting.forEach(w -> w.complete(Message.throwError(err)));
+    }
+
+    /**
+     * Blocking this thread until a response is received
      *
      * @param request the request
      * @return the message
      */
     public Message blockTilRes(Message request) {
+
         CompletableFuture<Message> future = new CompletableFuture<>();
-        synchronized (waiting) {
-            waiting.add(future);
-        }
+        waiting.add(future);
 
         Message msg = null;
         noBlockRequest(request, future::complete);
         try {
             msg = future.get();
-        } catch (InterruptedException e) {//if interrupted, returning null is fine
+        } catch (InterruptedException e) {//if interrupted, null is fine
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        synchronized (waiting) {
-            waiting.remove(future);
-        }
+        waiting.remove(future);
 
         if (msg == null)
             throw new MyError.DisconnectedError();
@@ -115,9 +159,14 @@ public abstract class MessagesHandler {
         socket.writeMessage(request);
     }
 
+    /**
+     * On throw error message callback.
+     *
+     * @return the message callback
+     */
     private MessageCallback onThrowError() {
         return msg -> {
-            throw msg.getError();
+            throw (msg.getError());
         };
     }
 
@@ -127,43 +176,55 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void receivedMessage(Message message) {
+        if (message.getMessageType() == MessageType.BYE) {
+            prepareForDisconnect();
+        }
             /*
-            some messages need to be processed in a new thread to free blocking requests
+            messages need to be processed in a new thread to free blocking requests
 
                 example:
                     client received a login message.
                     client replying with the login info and waiting for a welcome\error response message.
                     gets stuck. because the response message will never get read, bc the reading thread is waiting for a response
                  */
-        if (message != null && !message.getMessageType().shouldBlock) {
-            ThreadsManager.createThread(() -> {
-                processMessage(message);
-            }, true);
-        } else
+        ThreadsManager.createThread(() -> {
+            if (message.getMessageType().chronologicalImportance) {
+//                System.out.println(message.getMessageType() + " acquiring semaphore");
+                chronologicalSemaphore.acquire();
+//                System.out.println(message.getMessageType() + " acquired semaphore");
+            }
             processMessage(message);
-    }
-
-    private void processMessage(Message message) {
-        if (message == null) {
-            onDisconnected();
-            return;
-        }
-        onAnyMsg(message);
-        String respondingTo = message.getRespondingToMsgId();
-        MessageCallback callback;
-        if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
-            callback = customCallbacks.remove(respondingTo);
-        } else {
-            callback = defaultCallbacks.get(message.getMessageType());
-        }
-        callback.onMsg(message);
+            if (message.getMessageType().chronologicalImportance) {
+                chronologicalSemaphore.release();
+//                System.out.println(message.getMessageType() + " released semaphore");
+            }
+        }, true).setName("Messages worker");
     }
 
     /**
-     * On disconnected.
+     * Prepare for disconnect.
      */
-    public void onDisconnected() {
-        socket.close();
+    public void prepareForDisconnect() {
+        isExpectingDisconnect = true;
+    }
+
+    /**
+     * Process message.
+     *
+     * @param message the message
+     */
+    private void processMessage(Message message) {
+        onAnyMsg(message);
+        String respondingTo = message.getRespondingToMsgId();
+        MessageCallback callback;
+        synchronized (customCallbacks) {
+            if (respondingTo != null && customCallbacks.containsKey(respondingTo)) {
+                callback = customCallbacks.remove(respondingTo);
+            } else {
+                callback = defaultCallbacks.get(message.getMessageType());
+            }
+        }
+        callback.onMsg(message);
     }
 
     /**
@@ -172,9 +233,7 @@ public abstract class MessagesHandler {
      * @param message the message
      */
     public void onAnyMsg(Message message) {
-        boolean log = message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE;
-        if (log)
-            System.out.println("received  " + message);
+//        System.out.println("received  " + message);
 
 //        if (message.getMessageType() != MessageType.IS_ALIVE && message.getMessageType() != MessageType.ALIVE) {
 //            receivedMessages.push(message);
@@ -185,17 +244,54 @@ public abstract class MessagesHandler {
     }
 
     /**
-     * Interrupt blocking.
+     * On disconnected.
      */
-//    public void interruptBlocking() {
-//        interruptBlocking();
-//    }
-    public void interruptBlocking(MyError err) {
-        synchronized (waiting) {
-            waiting.forEach(w -> w.complete(Message.throwError(err)));
+    public final void onDisconnected() {
+        if (!didDisconnect)
+            onAnyDisconnection();
+        else return;
+        didDisconnect = true;
+
+        if (isExpectingDisconnect) {
+            onPlannedDisconnect();
+        } else {
+            onUnplannedDisconnect();
+        }
+
+    }
+
+    /**
+     * On any disconnection.
+     */
+    protected void onAnyDisconnection() {
+        socket.close();
+    }
+
+    /**
+     * On planned disconnect.
+     */
+    protected void onPlannedDisconnect() {
+        synchronized (customCallbacks) {
+            customCallbacks.values().forEach(messageCallback -> {
+                messageCallback.onMsg(null);
+            });
         }
     }
 
+    /**
+     * On unplanned disconnect.
+     */
+    protected void onUnplannedDisconnect() {
+        synchronized (customCallbacks) {
+            customCallbacks.values().forEach(messageCallback -> messageCallback.onMsg(Message.throwError(createDisconnectedError())));
+        }
+    }
+
+    /**
+     * Create disconnected error my error . disconnected error.
+     *
+     * @return the my error . disconnected error
+     */
     protected MyError.DisconnectedError createDisconnectedError() {
         return new MyError.DisconnectedError();
     }
@@ -361,12 +457,8 @@ public abstract class MessagesHandler {
      */
     public MessageCallback onBye() {
         return message -> {
-            isBye = true;
+            prepareForDisconnect();
         };
-    }
-
-    public boolean isBye() {
-        return isBye;
     }
 
     /**

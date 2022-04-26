@@ -4,25 +4,32 @@ import ver14.ClientMessagesHandler;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.Sync.SyncedItems;
+import ver14.SharedClasses.Networking.AppSocket;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.UI.MyJFrame;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.networking.AppSocket;
+import ver14.view.Dialog.BackOk.BackOkInterface;
+import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.NavigationCard;
 import ver14.view.Dialog.Components.Parent;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.ErrorPnl;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
 public abstract class Dialog extends JDialog implements Parent {
+    protected final static Size MAX_DIALOG_SIZE = new Size(600);
+    protected final static Size DEFAULT_DIALOG_SIZE = new Size(450);
     protected final JPanel topPnl;
+    protected final JPanel bottomPnl;
     protected final Properties properties;
     private final Component parentWin;
     private final Container pane;
@@ -31,20 +38,27 @@ public abstract class Dialog extends JDialog implements Parent {
     private final ErrorPnl errorPnl;
     private final JPanel cardsPnl;
     private final ArrayList<VoidCallback> onCloseCallbacks = new ArrayList<>();
+    private BackOkPnl backOkPnl = null;
     private Component focusOn;
     private DialogCard currentCard;
     private Callback<Dialog> onClose;
     private boolean isDisposing;
+    private Scrollable cardsScrollPane;
+    private MyJFrame.MyAdapter myAdapter;
 
     public Dialog(Properties properties) {
 //        super((java.awt.Dialog) null);
         super(properties.parentWin());
         this.parentWin = properties.parentWin();
         this.isDisposing = false;
+
         if (properties.getContentPane() != null)
             setContentPane(properties.getContentPane());
+
         this.pane = getContentPane();
         this.socketToServer = properties.socketToServer();
+
+        setMinimumSize(new Size(300, 200));
 
         cardStack = new Stack<>();
         cardsPnl = new JPanel(new CardLayout());
@@ -53,70 +67,49 @@ public abstract class Dialog extends JDialog implements Parent {
         errorPnl = new ErrorPnl();
         topPnl.add(errorPnl);
 
+        bottomPnl = new JPanel(new BorderLayout());
+
+        myAdapter = MyJFrame.debugAdapter(this);
+//        MyJFrame.addResizeEvent(getRootPane(), this::onUpdate);
         pane.add(topPnl, BorderLayout.PAGE_START);
+        pane.add(bottomPnl, BorderLayout.PAGE_END);
 
         this.properties = properties;
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                onXClick();
+            }
+        });
 
         setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
         setTitle(StrUtils.format(properties.details().title()));
         dialogWideErr(properties.details().error());
-        recenter();
     }
 
-    public void dialogWideErr(String error) {
-        if (errorPnl != null)
-            errorPnl.setText(error);
-    }
+    protected void onXClick() {
+        if (!tryCancel() && !tryOk(true))
+            if (properties.parentWin() != null)
+                properties.parentWin().doXClick();
 
-    protected void recenter() {
-        setLocationRelativeTo(parentWin);
-    }
-
-    public void setFocusOn(Component focusOn) {
-        this.focusOn = focusOn;
-    }
-
-    public void start() {
-        start(null);
-    }
-
-    public void start(Callback<Dialog> onClose) {
-        this.onClose = onClose;
-        pack();
-
-        if (this.focusOn != null)
-            SwingUtilities.invokeLater(() -> focusOn.requestFocus());
-
-        setVisible(true);
-
-        dispose();
     }
 
     @Override
-    public void setVisible(boolean b) {
-        super.setVisible(!isDisposing && b);
-    }
-
-    @Override
-    public void dispose() {
-        this.isDisposing = true;
-        super.dispose();
+    public MyJFrame.MyAdapter keyAdapter() {
+        return myAdapter;
     }
 
     @Override
     public void registerSyncedList(SyncableList list) {
-        if (socketToServer == null) {
-            list.sync(SyncedItems.exampleGames1);
-            return;
-        }
         ((ClientMessagesHandler) socketToServer.getMessagesHandler()).registerSyncableList(list);
     }
 
     @Override
     public void askServer(Message msg, MessageCallback onRes) {
-        System.out.println("asking server " + msg);
         if (socketToServer != null) {
             socketToServer.requestMessage(msg, onRes);
         }
@@ -126,8 +119,20 @@ public abstract class Dialog extends JDialog implements Parent {
         if (currentCard != null) {
             verifyCurrentCard();
         }
-        recenter();
-        repackWin();
+        SwingUtilities.invokeLater(() -> {
+
+            repackWin();
+            recenter();
+
+        });
+    }
+
+    public void dialogWideErr(String error) {
+        if (errorPnl != null) {
+            errorPnl.setText(error);
+        } else {
+
+        }
     }
 
     @Override
@@ -141,8 +146,19 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     @Override
+    public void scrollToTop() {
+        Parent.super.scrollToTop();
+        cardsScrollPane.scrollToTop();
+    }
+
+    @Override
     public DialogCard currentCard() {
         return currentCard;
+    }
+
+    @Override
+    public BackOkPnl backOkPnl() {
+        return backOkPnl;
     }
 
     @Override
@@ -163,7 +179,18 @@ public abstract class Dialog extends JDialog implements Parent {
         currentCard = card;
         if (!isCardExists(card))
             addCard(card);
+        setBackOk(card);
+        Size cardSize = new Size(card.getPreferredSize());
+        Size dialogSize = new Size(cardSize).padding(-30);
+        cardsScrollPane.mySetSize(dialogSize);
+        cardsPnl.setPreferredSize(cardSize);
+        dialogSize = Size.min(dialogSize, MAX_DIALOG_SIZE);
+        if (card.isOverrideableSize()) {
+            dialogSize = new Size(DEFAULT_DIALOG_SIZE);
+        }
+        setPreferredSize(dialogSize);
         getCardsLayout().show(cardsPnl, card.getCardID());
+        card.displayed();
         onUpdate();
     }
 
@@ -175,6 +202,18 @@ public abstract class Dialog extends JDialog implements Parent {
         if (!isCardExists(card)) {
             cardsPnl.add(card, card.getCardID());
         }
+    }
+
+    protected void setBackOk(BackOkInterface backOkInterface) {
+        if (this.backOkPnl != null)
+            bottomPnl.remove(this.backOkPnl);
+
+        if (backOkInterface != null && backOkInterface != BackOkInterface.noInterface) {
+            this.backOkPnl = new BackOkPnl(backOkInterface);
+            bottomPnl.add(backOkPnl, BorderLayout.SOUTH);
+        } else this.backOkPnl = null;
+
+
     }
 
     private CardLayout getCardsLayout() {
@@ -194,12 +233,24 @@ public abstract class Dialog extends JDialog implements Parent {
         SwingUtilities.invokeLater(this::pack);
     }
 
+    protected void recenter() {
+        SwingUtilities.invokeLater(() -> {
+            setLocationRelativeTo(parentWin);
+        });
+    }
+
     public void closeDialog() {
         if (!isDisposing) {
             dispose();
             notifyClosed();
         }
         System.gc();
+    }
+
+    @Override
+    public void dispose() {
+        this.isDisposing = true;
+        super.dispose();
     }
 
     protected void notifyClosed() {
@@ -210,9 +261,51 @@ public abstract class Dialog extends JDialog implements Parent {
         onCloseCallbacks.forEach(VoidCallback::callback);
     }
 
-    protected void navigationCardSetup(DialogCard... dialogCards) {
-        cardsSetup(new NavigationCard(createHeader(), this, dialogCards), dialogCards);
+    public void setFocusOn(Component focusOn) {
+        this.focusOn = focusOn;
     }
+
+    public void start() {
+        start(null);
+    }
+
+    public void start(Callback<Dialog> onClose) {
+        this.onClose = onClose;
+
+        SwingUtilities.invokeLater(() -> {
+            if (focusOn != null) {
+                focusOn.requestFocus();
+            }
+            onUpdate();
+
+        });
+        setVisible(true);
+        dispose();
+
+
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        super.setVisible(!isDisposing && b);
+    }
+
+    protected NavigationCard navigationCardSetup(Size navCardSize, DialogCard... dialogCards) {
+        NavigationCard nav = new NavigationCard(createHeader(), this, dialogCards);
+        nav.setPreferredSize(navCardSize);
+        cardsSetup(nav, dialogCards);
+        return nav;
+    }
+
+    protected CardHeader createHeader() {
+        return new CardHeader(properties.details().header());
+    }
+
+//    protected Dimension dialogSize() {
+//        return new Size(300);
+//    }
+
+//    protected void
 
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {
         assert dialogCards.length > 0;
@@ -221,16 +314,13 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(dialogCard);
         }
         addCard(startingCard);
-        
-        pane.add(cardsPnl, BorderLayout.CENTER);
+
+        cardsScrollPane = new Scrollable(cardsPnl);
+        pane.add(cardsScrollPane, BorderLayout.CENTER);
 
         showCard(startingCard, false);
-        pack();
+        repackWin();
         recenter();
-    }
-
-    protected CardHeader createHeader() {
-        return new CardHeader(properties.details().header());
     }
 
     public void switchTo(DialogCard card) {
@@ -245,4 +335,5 @@ public abstract class Dialog extends JDialog implements Parent {
         dispose();
         notifyClosed();
     }
+
 }

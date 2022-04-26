@@ -1,10 +1,10 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation;
 
-import ver14.SharedClasses.Game.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.GameSelection.Components.AiDifficulties;
+import ver14.view.Dialog.DialogFields.Slider.TimeFormatSlider;
 import ver14.view.Dialog.Dialogs.GameSelection.Components.AiTypes;
 
 public class GameVsAi extends GameCreationCard {
@@ -14,7 +14,9 @@ public class GameVsAi extends GameCreationCard {
         super(new CardHeader("Game vs Ai"), parentDialog, gameSettings);
         aiParameters = new AiParameters();
         addDialogComponent(new AiTypes(this, aiParameters));
-        addDialogComponent(new AiDifficulties(this, aiParameters));
+        addDialogComponent(new TimeFormatSlider(this, aiParameters) {{
+            setToMinValue();
+        }});
     }
 
     protected void changeState(boolean state) {

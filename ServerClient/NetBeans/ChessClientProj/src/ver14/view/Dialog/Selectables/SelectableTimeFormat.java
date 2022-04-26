@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.Game.TimeFormat;
+import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ public class SelectableTimeFormat implements Selectable {
 
     @Override
     public String getText() {
-        return StrUtils.createTimeStr(timeFormat.timeInMillis) + "+" + StrUtils.createTimeStr(timeFormat.incrementInMillis);
+        return StrUtils.createTimeStr(timeFormat.timeInMillis);
     }
 
     @Override

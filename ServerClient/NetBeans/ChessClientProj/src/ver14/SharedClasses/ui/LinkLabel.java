@@ -1,14 +1,14 @@
-package ver14.SharedClasses.ui;
+package ver14.SharedClasses.UI;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.FontManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class LinkLabel extends JLabel {
+
+public class LinkLabel extends MyLbl {
     private final static Color normalClr = Color.BLUE.darker();
     private final static Color hoverClr = normalClr.brighter();
 
@@ -44,5 +44,11 @@ public class LinkLabel extends JLabel {
             }));
             setVisible(true);
         }};
+    }
+
+    @Override
+    public void setText(String text) {
+        super.setText(text);
+        setToolTipText(text);
     }
 }

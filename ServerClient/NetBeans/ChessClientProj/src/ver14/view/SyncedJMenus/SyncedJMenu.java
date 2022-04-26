@@ -2,9 +2,10 @@ package ver14.view.SyncedJMenus;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.FontManager;
+import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.messages.Message;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Components.SyncableListComponent;
@@ -35,7 +36,7 @@ public abstract class SyncedJMenu extends SyncableListComponent {
     }
 
     @Override
-    protected void removeContentComponent(Component comp) {
+    public void removeContentComponent(Component comp) {
         super.removeContentComponent(comp);
         getJMenu().remove(comp);
     }
@@ -97,8 +98,13 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         }
 
         @Override
+        public BackOkPnl backOkPnl() {
+            return null;
+        }
+
+        @Override
         public void addOnClose(VoidCallback callback) {
-            
+
         }
     }
 }

@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Components;
 
-import ver14.SharedClasses.Game.GameSettings;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.TextBasedFields.TextField;
 

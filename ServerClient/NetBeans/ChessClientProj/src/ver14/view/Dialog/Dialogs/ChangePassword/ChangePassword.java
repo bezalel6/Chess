@@ -1,15 +1,16 @@
 package ver14.view.Dialog.Dialogs.ChangePassword;
 
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.CanError;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Cards.SimpleDialogCard;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.BackOkInterface;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.ConfirmPasswordPnl;
+import ver14.view.Dialog.Properties;
+import ver14.view.IconManager.Size;
 
 public class ChangePassword extends Dialog implements BackOkInterface {
     private final LoginInfo newInfo;
@@ -38,14 +39,16 @@ public class ChangePassword extends Dialog implements BackOkInterface {
         ConfirmPasswordPnl confirmNewPassword = new ConfirmPasswordPnl("Confirm new Password", new LoginInfo(), newPwPnl::getPassword, this);
 
         DialogCard card = SimpleDialogCard.create(new CardHeader("change password"), this, this, confirmCurrentPassword, newPwPnl, confirmNewPassword);
+        
+        card.setPreferredSize(new Size(350, 500));
         cardsSetup(null, card);
+
     }
 
     public static void main(String[] args) {
-//        ChangePassword changePassword = new ChangePassword(null, Properties.example, null, "123456");
-//        changePassword.start();
-//        System.out.println("new pass = " + changePassword.getPassword());
+        new ChangePassword(new Properties(new Properties.Details()), "123456").start();
     }
+
 
     public String getPassword() {
         return password;

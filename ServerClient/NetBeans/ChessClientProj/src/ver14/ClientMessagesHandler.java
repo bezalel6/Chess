@@ -1,16 +1,17 @@
 package ver14;
 
 import ver14.SharedClasses.Callbacks.MessageCallback;
-import ver14.SharedClasses.Game.BoardSetup.Board;
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.Evaluation.GameStatus;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.evaluation.GameStatus;
-import ver14.SharedClasses.Game.moves.Move;
+import ver14.SharedClasses.Misc.Question;
+import ver14.SharedClasses.Networking.Messages.Message;
+import ver14.SharedClasses.Networking.Messages.MessageType;
+import ver14.SharedClasses.Networking.MessagesHandler;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.messages.Message;
-import ver14.SharedClasses.messages.MessageType;
-import ver14.SharedClasses.networking.MessagesHandler;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.View;
@@ -51,9 +52,11 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     @Override
-    public void onDisconnected() {
-        client.disconnectedFromServer();
-        super.onDisconnected();
+    public MessageCallback onCancelQuestion() {
+        return message -> {
+            super.onCancelQuestion().onMsg(message);
+            client.getView().getSidePanel().askPlayerPnl.replaceWithMsg(message.getQuestion(), message.getCancelingQuestionCause());
+        };
     }
 
     @Override
@@ -69,11 +72,14 @@ public class ClientMessagesHandler extends MessagesHandler {
         if (message.isSubject())
             view.setStatusLbl(message.getSubject());
 
-        if (message.hideQuestion())
-            client.hideQuestionPnl();
-
         client.updateGameTime(message);
 
+    }
+
+    @Override
+    public void onUnplannedDisconnect() {
+        client.disconnectedFromServer();
+        super.onUnplannedDisconnect();
     }
 
     @Override
@@ -98,19 +104,25 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onInitGame() {
         return message -> {
             super.onInitGame().onMsg(message);
-            PlayerColor myColor = message.getPlayerColor();
-            client.setMyColor(myColor);
-            Stack<Move> moveStack = message.getMoveStack();
-            Board board = message.getBoard();
-            //if loading a prev game the board should start from the starting pos and make all moves
-            boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
-            if (isLoadingGame) {
-                board = Board.startingPos();
-            }
-            view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
-            if (isLoadingGame) {
-                for (Move move : moveStack)
-                    client.updateByMove(move, false);
+            client.soundManager.gameStart.play();
+            synchronized (view.boardLock) {
+                view.drawFocus();
+
+                PlayerColor myColor = message.getPlayerColor();
+                assert myColor != null;
+                client.mapPlayers(myColor, message.getOtherPlayer());
+                Stack<Move> moveStack = message.getMoveStack();
+                Board board = message.getBoard();
+                //if loading a prev game the board should start from the starting pos and make all moves
+//                boolean isLoadingGame = moveStack != null && !moveStack.isEmpty();
+//                if (isLoadingGame) {
+//                    board = Board.startingPos();
+//                }
+                view.initGame(message.getGameTime(), board, myColor, message.getOtherPlayer());
+//                if (isLoadingGame) {
+//                    for (Move move : moveStack)
+//                        client.updateByMove(move, false);
+//                }
             }
 
         };
@@ -121,6 +133,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onWaitTurn().onMsg(message);
             client.startOpponentTime();
+            client.enablePreMove();
         };
     }
 
@@ -128,19 +141,24 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onGetMove() {
         return message -> {
             super.onGetMove().onMsg(message);
+
+            client.stopPremoving();
+
             synchronized (view.boardLock) {
                 client.setLatestGetMoveMsg(message);
                 client.unlockMovableSquares(message);
-                view.getWin().toFront();
+                view.drawFocus();
                 client.startMyTime();
             }
         };
+
     }
 
     @Override
     public MessageCallback onUpdateByMove() {
         return message -> {
             super.onUpdateByMove().onMsg(message);
+            view.drawFocus();
             client.updateByMove(message.getMove());
             client.stopRunningTime();
         };
@@ -151,8 +169,9 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onGameOver().onMsg(message);
             client.stopRunningTime();
+            client.soundManager.gameEnd.play();
             GameStatus gameStatus = message.getGameStatus();
-            view.gameOver(gameStatus.getDetailedStr());
+            view.gameOver(gameStatus);
 
         };
     }
@@ -161,7 +180,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onError() {
         return message -> {
             super.onError().onMsg(message);
-            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ERROR);
+            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ServerError);
         };
     }
 
@@ -169,8 +188,17 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onQuestion() {
         return message -> {
             super.onQuestion().onMsg(message);
-            view.getSidePanel().askPlayerPnl.ask(message.getQuestion(), answer -> {
+            Question question = message.getQuestion();
+            Boolean drawOfferBtn = null;
+            if (question.questionType == Question.QuestionType.DRAW_OFFER) {
+                drawOfferBtn = view.getSidePanel().getGameActions().enableDrawOfferBtn(false);
+            }
+            Boolean finalDrawOfferBtn = drawOfferBtn;
+            view.askQuestion(question, answer -> {
                 socket.writeMessage(Message.answerQuestion(answer, message));
+                if (finalDrawOfferBtn != null && answer != Question.Answer.ACCEPT) {
+                    view.getSidePanel().getGameActions().enableDrawOfferBtn(finalDrawOfferBtn);
+                }
             });
         };
     }

@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Cards;
 
-import ver14.SharedClasses.LoginInfo;
-import ver14.SharedClasses.LoginType;
+import ver14.SharedClasses.Login.LoginInfo;
+import ver14.SharedClasses.Login.LoginType;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Cards.DialogCard;
 import ver14.view.Dialog.Dialog;
@@ -21,4 +21,5 @@ public abstract class LoginCard extends DialogCard {
         loginInfo.setLoginType(loginType);
         super.onOk();
     }
+
 }

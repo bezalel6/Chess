@@ -1,12 +1,12 @@
 package ver14.view.Board;
 
 import ver14.SharedClasses.Callbacks.Callback;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.Game.BoardSetup.Board;
-import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.ui.MyLbl;
+import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.IconManager.Size;
 import ver14.view.View;
 
@@ -19,9 +19,9 @@ import java.util.Iterator;
 import java.util.stream.IntStream;
 
 public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
-    public static final Color blackSquareClr = Color.decode("#71828f");
+    public static final MyColor blackSquareClr = new MyColor("#71828f");
+    public static final MyColor whiteSquareClr = new MyColor("#f2f5f3");
     //    public static final Color blackSquareClr = new Color(79, 60, 33, 255);
-    public static final Color whiteSquareClr = Color.decode("#f2f5f3");
     //    public static final Color whiteSquareClr = new Color(222, 213, 187);
     private final static Dimension btnDimension = new Size(50);
     private final static Insets coordinatesInsets = new Insets(1, 1, 1, 1);
@@ -45,7 +45,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         btnMat = new BoardButton[rows][cols];
         buttonsPnl.setLayout(new GridLayout(rows, cols));
         setCoordinates();
-
     }
 
     private void setCoordinates() {
@@ -178,6 +177,26 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resizeIcons();
     }
 
+    public Board createBoard() {
+        Board board = new Board();
+        for (var loc : Location.ALL_LOCS) {
+            board.setPiece(loc, getBtn(loc).getPiece());
+        }
+        return board;
+    }
+
+    public BoardButton getBtn(Location loc) {
+        return getBtn(new ViewLocation(loc));
+    }
+
+    public BoardButton getBtn(ViewLocation loc) {
+        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
+    }
+
+    public BoardButton getBtn(int r, int c) {
+        return btnMat[r][c];
+    }
+
     public void resetOrientation() {
         ViewSavedBoard savedBoard = new ViewSavedBoard(this);
         setCoordinates(false);
@@ -201,7 +220,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
                 {
                     setSize(btnDimension);
                     addActionListener(e -> {
-                        view.boardButtonPressed(((BoardButton) e.getSource()).getBtnLoc());
+//                        view.boardButtonPressed(((BoardButton) e.getSource()).getBtnLoc());
                     });
                     setEnabled(false);
 //                    setMinimumSize(getPreferredSize());
@@ -233,18 +252,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resizeIcons();
     }
 
-    public BoardButton getBtn(Location loc) {
-        return getBtn(new ViewLocation(loc));
-    }
-
-    public BoardButton getBtn(ViewLocation loc) {
-        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
-    }
-
-    public BoardButton getBtn(int r, int c) {
-        return btnMat[r][c];
-    }
-
     public void resetAllButtons(boolean resetIcons) {
         forEachBtnParallel(btn -> {
             btn.resetBackground();
@@ -255,19 +262,22 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     public void onResize() {
-        int diff = lastResize.maxDiff(getSize());
-        if (diff < 5) {
-            return;
-        }
-        lastResize = new Size(getSize());
-        int size = Math.min(getWidth(), getHeight());
-        setAllSizes(me, size, size);
+//        int diff = lastResize.maxDiff(getSize());
+//        if (diff < 5) {
+//            return;
+//        }
+        SwingUtilities.invokeLater(() -> {
+            lastResize = new Size(getSize());
+            int size = Math.min(getWidth(), getHeight());
+            setAllSizes(me, size, size);
 
-        setAllSizes(this, getSize());
+            setAllSizes(this, getSize());
 
-        view.getWin().pack();
-        resizeIcons();
-        repaint();
+            view.getWin().pack();
+            resizeIcons();
+            repaint();
+            view.getWin().pack();
+        });
 
     }
 

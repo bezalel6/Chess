@@ -1,15 +1,17 @@
 package ver14.view;
 
 import org.jetbrains.annotations.NotNull;
-import ver14.view.Dialog.ScrollableComponent;
+import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 
-public class FitWidthTable extends JTable implements ScrollableComponent {
+public class FitWidthTable extends JTable {
     private static final int minWidth = 30;
+
+    private Size computedSize;
 
     public FitWidthTable(@NotNull Object[][] rowData, @NotNull Object[] columnNames) {
         super(rowData, columnNames);
@@ -20,6 +22,7 @@ public class FitWidthTable extends JTable implements ScrollableComponent {
      */
     public void fit() {
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        int h = 0, w = 0;
         final TableColumnModel columnModel = getColumnModel();
         for (int column = 0; column < getColumnCount(); column++) {
 //            getColumnModel().getColumn(column).getHeaderRenderer()
@@ -30,19 +33,28 @@ public class FitWidthTable extends JTable implements ScrollableComponent {
 
 //            int headerW = getColumnModel().getColumn(column).getPreferredWidth();
             int width = Math.max(minWidth, headerW); // Min width
+
             for (int row = 0; row < getRowCount(); row++) {
                 TableCellRenderer renderer = getCellRenderer(row, column);
                 width = calcWidth(renderer, row, column, width);
             }
             if (width > 300)
                 width = 300;
+            w += width;
 
             columnModel.getColumn(column).setPreferredWidth(width);
         }
+        h = getRowCount() * getRowHeight();
+        computedSize = new Size(w, h);
+        System.out.println("table computed size = " + computedSize);
     }
 
     private int calcWidth(TableCellRenderer renderer, int r, int c, int currentW) {
         Component comp = prepareRenderer(renderer, r, c);
         return Math.max(comp.getPreferredSize().width + 1, currentW);
+    }
+
+    public Size getComputedSize() {
+        return computedSize;
     }
 }

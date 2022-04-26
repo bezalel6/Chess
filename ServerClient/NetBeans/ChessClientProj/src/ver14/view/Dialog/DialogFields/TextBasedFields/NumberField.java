@@ -1,6 +1,6 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
@@ -18,7 +18,7 @@ public class NumberField extends TextBasedField<Integer> {
     }
 
     @Override
-    protected void setValue(Integer value) {
+    public void setValue(Integer value) {
         textField.setText(value + "");
     }
 

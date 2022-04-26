@@ -1,8 +1,8 @@
 package ver14.view.Dialog.Cards;
 
+import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.Components.DialogComponent;
 import ver14.view.Dialog.Dialog;
-import ver14.view.Dialog.Dialogs.BackOkInterface;
 
 public class SimpleDialogCard extends DialogCard {
     private final BackOkInterface backOk;

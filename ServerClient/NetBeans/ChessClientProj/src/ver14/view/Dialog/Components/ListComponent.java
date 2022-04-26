@@ -96,7 +96,7 @@ public abstract class ListComponent extends DialogField<Selectable> {
      * @return the int
      */
     public int listSize() {
-        return btns.size();
+        return btns == null ? 0 : btns.size();
     }
 
     /**
@@ -126,7 +126,7 @@ public abstract class ListComponent extends DialogField<Selectable> {
     }
 
     @Override
-    protected void setValue(Selectable value) {
+    public void setValue(Selectable value) {
         onSelect.callback(value);
     }
 }

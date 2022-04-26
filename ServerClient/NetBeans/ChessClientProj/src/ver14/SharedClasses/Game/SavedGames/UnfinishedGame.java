@@ -1,16 +1,39 @@
 package ver14.SharedClasses.Game.SavedGames;
 
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.moves.Move;
 
 import java.util.Stack;
 
+
+/**
+ * The type Unfinished game.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class UnfinishedGame extends EstablishedGameInfo {
+    /**
+     * The Player color to move.
+     */
     public final PlayerColor playerColorToMove;
+    /**
+     * The Player to move.
+     */
     public final String playerToMove;
 
 
+    /**
+     * Instantiates a new Unfinished game.
+     *
+     * @param gameId            the game id
+     * @param creatorUsername   the creator username
+     * @param gameSettings      the game settings
+     * @param opponentUsername  the opponent username
+     * @param playerColorToMove the player color to move
+     * @param playerToMove      the player to move
+     * @param moveStack         the move stack
+     */
     public UnfinishedGame(String gameId,
                           String creatorUsername,
                           GameSettings gameSettings,
@@ -23,6 +46,11 @@ public class UnfinishedGame extends EstablishedGameInfo {
         this.playerToMove = playerToMove;
     }
 
+    /**
+     * Is creator to move boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCreatorToMove() {
         return isCreator(playerToMove);
     }

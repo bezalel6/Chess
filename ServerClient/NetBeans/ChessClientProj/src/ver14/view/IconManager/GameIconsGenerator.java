@@ -1,11 +1,11 @@
 package ver14.view.IconManager;
 
-import ver14.SharedClasses.Game.BoardSetup.Board;
-import ver14.SharedClasses.Game.BoardSetup.Square;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Game.pieces.Piece;
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Board.BoardPanel;
 
@@ -36,10 +36,10 @@ public class GameIconsGenerator {
 
         fen = StrUtils.isEmpty(fen) ? Board.startingFen : fen;
         orientation = (orientation == null || orientation == PlayerColor.NO_PLAYER) ? PlayerColor.WHITE : orientation;
-        iconSize = Size.min(iconSize);
+        iconSize = Size.minSquare(iconSize);
 
         Size squareSize = new Size(iconSize);
-        squareSize.multBy((double) 1 / 8);
+        squareSize.multMe((double) 1 / 8);
 
 //        Font font = FontManager.small;
 //        int textHeight = font.getSize();
@@ -54,7 +54,7 @@ public class GameIconsGenerator {
         Graphics2D g2d = image.createGraphics();
 
         Size pieceSize = new Size(squareSize);
-        pieceSize.multBy(0.8);
+        pieceSize.multMe(0.8);
 
         Board board = new Board(fen);
 

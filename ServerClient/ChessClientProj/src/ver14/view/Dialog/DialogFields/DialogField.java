@@ -56,7 +56,7 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
             case Text -> new TextField(fieldHeader, fieldParent, RegEx.Any);
             case Url -> new TextField(fieldHeader, fieldParent, RegEx.URL);
             case PictureUrl -> new PictureUrlField(fieldHeader, fieldParent);
-            case ServerAddress -> new TextField(fieldHeader, fieldParent, RegEx.IPPAddress);
+            case ServerAddress -> new TextField(fieldHeader, fieldParent, RegEx.IPPortAddress);
             case Number -> new NumberField(fieldHeader, fieldParent);
 
             default -> throw new IllegalStateException("Unexpected value: " + arg.argType);

@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Components;
 
-import ver14.SharedClasses.Game.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.view.Dialog.Components.ListComponent;
 import ver14.view.Dialog.Dialog;
@@ -15,6 +15,7 @@ public class PlayerColors extends ListComponent {
         super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Player Color"), parent);
         this.gameSettings = gameSettings;
         addComponents(SelectablePlayerColor.values());
+        setValue(SelectablePlayerColor.WHITE);
     }
 
     @Override

@@ -1,9 +1,10 @@
-package ver14.SharedClasses.ui;
+package ver14.SharedClasses.UI;
 
-import ver14.SharedClasses.Game.BoardSetup.Board;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
 
 import javax.swing.*;
 import java.awt.*;
+
 
 public class GameView extends JFrame {
     private final Font font = new Font(null, Font.BOLD, 30);

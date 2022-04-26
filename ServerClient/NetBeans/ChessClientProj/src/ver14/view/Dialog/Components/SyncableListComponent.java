@@ -8,10 +8,15 @@ import ver14.view.Dialog.Selectables.Button.SelectableBtn;
 import ver14.view.Dialog.Selectables.Selectable;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.Dialog.WinPnl;
+import ver14.view.IconManager.Size;
 
 import java.util.ArrayList;
 
 public abstract class SyncableListComponent extends ListComponent implements SyncableList {
+    public static final Size listSize = new Size(250);
+    public static final Size listItemSize = new Size(listSize) {{
+        multMe(0.7);
+    }};
     private final SyncedListType listType;
 
     public SyncableListComponent(Header header, SyncedListType listType, Parent parent) {
@@ -32,7 +37,10 @@ public abstract class SyncableListComponent extends ListComponent implements Syn
     @Override
     protected void onUpdate() {
         super.onUpdate();
-        parent.addToNavText(" (" + listSize() + ")");
+        if (parent != null) {
+            parent.addToNavText(" (" + listSize() + ")");
+            parent.enableNavBtn(listSize() > 0);
+        }
     }
 
     @Override

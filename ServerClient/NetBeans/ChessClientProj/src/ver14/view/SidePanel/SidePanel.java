@@ -2,10 +2,10 @@ package ver14.view.SidePanel;
 
 import ver14.Client;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.FontManager;
-import ver14.SharedClasses.Game.GameTime;
+import ver14.SharedClasses.Game.GameSetup.GameTime;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.ui.MyJButton;
+import ver14.SharedClasses.UI.Buttons.MyJButton;
+import ver14.SharedClasses.UI.FontManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,8 +39,8 @@ public class SidePanel extends JPanel {
 
         setLayout(new GridBagLayout());
 
-        bottom = new TimerPnl("White");
-        top = new TimerPnl("Black");
+        bottom = new TimerPnl("White", this);
+        top = new TimerPnl("Black", this);
 
         moveLog = new MoveLog();
 
@@ -78,13 +78,8 @@ public class SidePanel extends JPanel {
 
         int wY, bY;
         int bottomY = 6;
-//        if (isFlipped) {
-//            wY = 0;
-//            bY = bottomY;
-//        } else {
         wY = bottomY;
         bY = 0;
-//        }
 
         gbc.gridx = 0;
         gbc.gridy = bY;
@@ -92,11 +87,8 @@ public class SidePanel extends JPanel {
 
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
         add(gameActions, gbc);
-
-//        gbc.gridx = 2;
-//        gbc.gridy = 1;
-//        add(addTimeBtn, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -113,7 +105,11 @@ public class SidePanel extends JPanel {
 
         gbc.gridx = 0;
         gbc.gridy = bottomY + 3;
-        gbc.gridwidth = GridBagConstraints.NONE;
+        gbc.weighty = 4;
+//        gbc.gridwidth = GridBagConstraints.NONE;
+        gbc.gridheight = GridBagConstraints.REMAINDER;
+        gbc.gridwidth = 4;
+        gbc.fill = GridBagConstraints.BOTH;
         add(askPlayerPnl, gbc);
 
     }
@@ -122,6 +118,7 @@ public class SidePanel extends JPanel {
         return new MyJButton(text, font, onClick) {{
             setFocusable(false);
         }};
+
 
     }
 
@@ -161,7 +158,7 @@ public class SidePanel extends JPanel {
     public void reset(GameTime gameTime) {
         sync(gameTime);
         moveLog.reset();
-        askPlayerPnl.showPnl(false);
+//        askPlayerPnl.showPnl(false);
     }
 
     public void sync(GameTime gameTime) {
@@ -191,6 +188,10 @@ public class SidePanel extends JPanel {
             currentTimer.stop();
         }
         currentlyRunningClr = null;
+    }
+
+    public GameActions getGameActions() {
+        return gameActions;
     }
 
 }

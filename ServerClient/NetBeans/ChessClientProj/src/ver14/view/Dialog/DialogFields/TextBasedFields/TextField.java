@@ -1,6 +1,6 @@
 package ver14.view.Dialog.DialogFields.TextBasedFields;
 
-import ver14.SharedClasses.RegEx;
+import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
 
@@ -19,7 +19,7 @@ public class TextField extends TextBasedField<String> {
     }
 
     @Override
-    protected void setValue(String value) {
+    public void setValue(String value) {
         textField.setText(value);
     }
 }

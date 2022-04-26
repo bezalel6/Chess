@@ -1,7 +1,7 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Register;
 
 import ver14.SharedClasses.Callbacks.ObjCallback;
-import ver14.SharedClasses.LoginInfo;
+import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 
@@ -25,16 +25,6 @@ public class ConfirmPasswordPnl extends PasswordPnl {
     }
 
     @Override
-    public boolean verify() {
-        return super.verify() && isMatching();
-    }
-
-    public boolean isMatching() {
-        return matchWith != null && getPassword().equals(matchWith.get());
-    }
-
-    //why verify AND verify regex?
-    @Override
     protected boolean verifyRegEx() {
         return super.verifyRegEx() && isMatching();
     }
@@ -45,6 +35,10 @@ public class ConfirmPasswordPnl extends PasswordPnl {
             return this.noMatchErr;
         }
         return super.errorDetails();
+    }
+
+    public boolean isMatching() {
+        return matchWith != null && getPassword().equals(matchWith.get());
     }
 
 }

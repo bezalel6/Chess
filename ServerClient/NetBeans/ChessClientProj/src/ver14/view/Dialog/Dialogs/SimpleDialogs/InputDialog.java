@@ -4,7 +4,10 @@ import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.view.Dialog.Dialogs.DialogProperties.Properties;
+import ver14.view.Dialog.Properties;
+import ver14.view.IconManager.Size;
+
+import java.awt.*;
 
 
 public class InputDialog extends CustomDialog {
@@ -27,4 +30,11 @@ public class InputDialog extends CustomDialog {
         }
         return str;
     }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return new Size(450);
+
+    }
+
 }
