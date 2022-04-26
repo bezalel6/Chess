@@ -1,6 +1,7 @@
 package ver14.SharedClasses.Game.GameSetup;
 
 import ver14.SharedClasses.Game.PlayerColor;
+import ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation.StartFromPosition;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -97,6 +98,7 @@ public class GameSettings implements Serializable, TimeFormatSettable {
     public void initDefault1vAi() {
         initDefault1v1();
         setAiParameters(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(3500)));
+        setFen(StartFromPosition.Position.Promotion.fen);
     }
 
     public void initDefault1v1() {

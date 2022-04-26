@@ -1,5 +1,6 @@
 package ver14.view.Board;
 
+import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.FontManager;
@@ -11,7 +12,7 @@ import ver14.view.View;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class BoardButton extends MyJButton {
     private static final double iconMultiplier = .8;
@@ -20,9 +21,10 @@ public class BoardButton extends MyJButton {
     private final static Color promotingColor = new Color(151, 109, 3);
     private static int ICON_SIZE = 50;
     private final MyColor startingBackgroundColor;
-    private final ArrayList<State> btnStates;
+    private final Set<State> btnStates;
     private final View view;
     private final ViewLocation btnLoc;
+    private final Map<State, Callback<Graphics>> statesCallbacks = new HashMap<>();
     private boolean isSelected = false;
     private Icon ogQualityIcon;
     private Piece piece = null;
@@ -35,12 +37,63 @@ public class BoardButton extends MyJButton {
         this.startingBackgroundColor = startingBackgroundColor;
         this.btnLoc = btnLoc;
         this.view = view;
-        this.btnStates = new ArrayList<>();
+        this.btnStates = new HashSet<>();
         this.beforeLockBg = startingBackgroundColor;
         setFont(FontManager.boardButtons);
 
         setActionCommand("");
         setUI(new BasicButtonUI());
+
+        for (var state : State.values()) {
+            Callback<Graphics> callback = g -> {
+                switch (state) {
+                    case CHECK -> {
+                        setBackground(checkColor);
+                    }
+                    case CAPTURE -> {
+                        ShapesHelper.paintTrianglesBorder(g, captureColor, getWidth() / 4, this);
+                    }
+                    case CAN_MOVE_TO -> {
+                        ShapesHelper.paintCircle(g, Color.decode("#9fc0a2"), this);
+                    }
+                    case HOVERED -> {
+                        if (isEnabled()) {
+                            Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+                            setCursor(cursor);
+//                        ShapesHelper.paintTrianglesBorder(g, hoverClr, getWidth() / 3, this);
+                        }
+                    }
+                    case CURRENT -> {
+                        if (!isEnabled())
+                            setEnabled(true);
+                    }
+                    case CLICKED_ONCE -> {
+
+                    }
+                    case DRAGGING -> {
+                        if (getIcon() != null) {
+                            hideIcon();
+                        }
+                    }
+                    case PROMOTING -> {
+//                        setBackground(promotingColor);
+                        IconManager.promotionIcon.paintInMiddle(g, this);
+
+                    }
+                    case MOVING_FROM, MOVING_TO -> {
+                        setBackground(startingBackgroundColor.movedClr());
+                    }
+                }
+                ;
+            };
+
+            statesCallbacks.put(state, callback);
+        }
+    }
+
+    public void hideIcon() {
+        hiddenIcon = getIcon();
+        setIcon(null);
     }
 
     public void endHover() {
@@ -52,26 +105,12 @@ public class BoardButton extends MyJButton {
         repaint();
     }
 
-    public void hideIcon() {
-        hiddenIcon = getIcon();
-        setIcon(null);
-    }
-
     @Override
     public String toString() {
         return "BoardButton{" +
                 "btnLoc=" + btnLoc +
                 ", piece=" + piece +
                 '}';
-    }
-
-    public Icon getHiddenIcon() {
-        return hiddenIcon;
-    }
-
-    public void unHideIcon() {
-        setIcon(hiddenIcon);
-        hiddenIcon = null;
     }
 
     public void setStates(ArrayList<State> states) {
@@ -93,7 +132,7 @@ public class BoardButton extends MyJButton {
         repaint();
     }
 
-    public ArrayList<State> getBtnStates() {
+    public Set<State> getBtnStates() {
         return btnStates;
     }
 
@@ -101,7 +140,7 @@ public class BoardButton extends MyJButton {
         addState(State.CURRENT);
     }
 
-    private void addState(State adding) {
+    public void addState(State adding) {
         btnStates.add(adding);
         repaint();
     }
@@ -222,35 +261,11 @@ public class BoardButton extends MyJButton {
         Graphics2D g2 = (Graphics2D) g;
 
         super.paintComponent(g);
+        if (!isState(State.DRAGGING) && hiddenIcon != null)
+            unHideIcon();
+
         for (State state : btnStates) {
-            switch (state) {
-                case CHECK -> {
-                    setBackground(checkColor);
-                }
-                case CAPTURE -> {
-                    ShapesHelper.paintTrianglesBorder(g, captureColor, getWidth() / 4, this);
-                }
-                case CAN_MOVE_TO -> {
-                    ShapesHelper.paintCircle(g2, Color.decode("#9fc0a2"), this);
-                }
-                case HOVERED -> {
-                    if (isEnabled()) {
-                        Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-                        setCursor(cursor);
-//                        ShapesHelper.paintTrianglesBorder(g, hoverClr, getWidth() / 3, this);
-                    }
-                }
-                case CURRENT -> {
-                    if (!isEnabled())
-                        setEnabled(true);
-                }
-                case PROMOTING -> {
-                    setBackground(promotingColor);
-                }
-                case MOVING_FROM, MOVING_TO -> {
-                    setBackground(startingBackgroundColor.movedClr());
-                }
-            }
+            statesCallbacks.get(state).callback(g);
         }
         if (isSelected) {
             g2.setStroke(new BasicStroke(5));
@@ -267,6 +282,15 @@ public class BoardButton extends MyJButton {
         }
 
 //        g2.dispose();
+    }
+
+    public boolean isState(State state) {
+        return btnStates.contains(state);
+    }
+
+    public void unHideIcon() {
+        setIcon(hiddenIcon);
+        hiddenIcon = null;
     }
 
     public void toggleSelected() {
@@ -305,8 +329,33 @@ public class BoardButton extends MyJButton {
         addState(State.MOVING_TO);
     }
 
+    public void endState(State s) {
+        btnStates.remove(s);
+    }
+
+    /**
+     * allows a button to draw on the global, full board, 'canvas'
+     *
+     * @param g2
+     * @param mouseCoordinates
+     */
+    public void globalPaint(Graphics2D g2, Point mouseCoordinates, Component c) {
+        if (isState(State.DRAGGING)) {
+            int x = mouseCoordinates.x - getHeight() / 2;
+            int y = mouseCoordinates.y - getWidth() / 2;
+            if (getHiddenIcon() != null)
+                getHiddenIcon().paintIcon(c, g2, x, y);
+        }
+    }
+
+    public Icon getHiddenIcon() {
+        return hiddenIcon;
+    }
+
 
     public enum State {
-        CHECK, CAPTURE, CAN_MOVE_TO, CURRENT, PROMOTING, MOVING_FROM, MOVING_TO, HOVERED;
+        CHECK, CAPTURE, CAN_MOVE_TO, CURRENT, PROMOTING, MOVING_FROM, MOVING_TO, HOVERED, CLICKED_ONCE, DRAGGING;
+
+        public final int shift = 1 << ordinal();
     }
 }

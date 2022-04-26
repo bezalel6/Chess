@@ -1,5 +1,6 @@
 package ver14.view.Board;
 
+import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.UI.MyJFrame;
@@ -74,13 +75,14 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private JLayer<?> jlayer;
     private boolean blockBoard = false;
     private Integer pressedKey = NO_KEY;
-    private BoardButton currentDragging = null;
-    private BoardButton hoveredBtn = null;
-    private BoardButton clickingBtn = null;
+    private BoardButton currentBtn = null;
+    private Map<BoardButton.State, Callback<BoardButton>> buttonStatesMap = new HashMap<>();
 
     public BoardOverlay(View view) {
         this.view = view;
         arrows = new ArrayList<>();
+
+//        buttonStatesMap.put(BoardButton.State.CL)
 
     }
 
@@ -138,7 +140,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         jlayer.repaint();
     }
 
-
     public void setBlockBoard(boolean blockBoard) {
         this.blockBoard = blockBoard;
         repaintLayer();
@@ -148,25 +149,16 @@ public class BoardOverlay extends LayerUI<JPanel> {
     public void paint(Graphics g, JComponent c) {
         Graphics2D g2 = (Graphics2D) g.create();
         super.paint(g2, c);
-
         if (mouseCoordinates != null) {
-            if (isDragging()) {
-                int x = mouseCoordinates.x - currentDragging.getHeight() / 2;
-                int y = mouseCoordinates.y - currentDragging.getWidth() / 2;
-                if (currentDragging.getHiddenIcon() != null)
-                    currentDragging.getHiddenIcon().paintIcon(c, g, x, y);
+            if (currentBtn != null) {
+//                view.getBoardPnl().forEachBtnParallel(b -> b.globalPaint(g2, mouseCoordinates, c));
+                currentBtn.globalPaint(g2, mouseCoordinates, c);
             }
             g2.setStroke(new BasicStroke(10));
 
             if (isDrawing) {
                 Arrow arrow = newArrow(startedAt, mouseCoordinates);
                 arrow.draw(g2);
-            }
-        } else {
-            if (isDragging()) {
-                currentDragging.unHideIcon();
-                currentDragging.clickMe();
-                currentDragging = null;
             }
         }
 
@@ -180,10 +172,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
             g2.setColor(new Color(0, 0, 0, (int) (255 * 0.1)));
             g2.fill(shape);
         }
-    }
-
-    private boolean isDragging() {
-        return currentDragging != null;
     }
 
     private Arrow newArrow(Point start, Point end) {
@@ -275,17 +263,19 @@ public class BoardOverlay extends LayerUI<JPanel> {
 //            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
-                if (hoveredBtn != null)
-                    hoveredBtn.endHover();
-                hoveredBtn = btn;
+                if (currentBtn != null && currentBtn.isState(BoardButton.State.HOVERED)) {
+                    currentBtn.endHover();
+                }
                 btn.startHover();
                 break;
             case MouseEvent.MOUSE_EXITED:
                 btn.endHover();
-                hoveredBtn = null;
                 break;
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
+                    currentBtn = btn;
+                    currentBtn.clickMe();
+                    currentBtn.addState(BoardButton.State.DRAGGING);
                     stopDrawingArrows();
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
                     startDrawing();
@@ -294,17 +284,36 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_RELEASED:
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
 
-                if (isDragging())
-                    currentDragging.unHideIcon();
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1 -> {
-                        if (btn.isEnabled())
-                            btn.clickMe();
+
+                        if (currentBtn != null) {
+                            if (currentBtn.isState(BoardButton.State.CLICKED_ONCE)) {
+                                if (currentBtn == currentlyAbove || !currentlyAbove.canMoveTo()) {
+                                    currentBtn.clickMe();
+                                } else {
+                                    currentlyAbove.clickMe();
+                                }
+
+                                currentBtn.endState(BoardButton.State.CLICKED_ONCE);
+                            } else if (currentBtn.isState(BoardButton.State.DRAGGING)) {
+                                if (currentlyAbove != currentBtn && !currentlyAbove.canMoveTo()) {
+                                    currentBtn.clickMe();
+                                } else if (currentlyAbove.canMoveTo()) {
+                                    currentlyAbove.clickMe();
+                                }
+                                currentBtn.endState(BoardButton.State.DRAGGING);
+                            } else if (currentBtn == currentlyAbove) {
+                                currentBtn.addState(BoardButton.State.CLICKED_ONCE);
+                            }
+                        }
+
+//                        if (btn.isEnabled())
+//                            btn.clickMe();
                         clearAllArrows();
                         view.resetSelectedButtons();
                     }
                     case MouseEvent.BUTTON3 -> {
-                        currentDragging = null;
                         if (isSameBtn(btn) && isDrawing)
                             btn.toggleSelected();
                         stopDrawingArrows();
@@ -312,11 +321,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
                 }
                 break;
         }
-    }
-
-
-    private void debugCurrentMouseInfo(MouseEvent e) {
-        System.out.printf("current dragging: %s\ncurrent clicking: %s\nevent: %s", currentDragging, clickingBtn, MouseEvent.getMouseModifiersText(e.getModifiersEx()));
     }
 
     public void stopDrawingArrows() {
@@ -342,21 +346,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         isDrawing = true;
     }
 
-    private void stopDragging(BoardButton currentlyHoveringOver, boolean doClick) {
-        if (isDragging()) {
-            if (currentDragging != currentlyHoveringOver) {
-//                if (!doClick)
-//                    currentDragging.clickMe();
-                if (currentlyHoveringOver.canMoveTo() && doClick)
-                    currentlyHoveringOver.clickMe();
-                else
-                    currentDragging.clickMe();
-            }
-            currentDragging.unHideIcon();
-            currentDragging = null;
-        }
-    }
-
     private boolean isSameBtn(JButton btn) {
         return btn.getBounds().contains(mouseCoordinates);
     }
@@ -364,7 +353,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
     public void clearAllArrows() {
         arrows = new ArrayList<>();
     }
-
 
     public JLayer getJlayer() {
         return jlayer;
@@ -386,6 +374,5 @@ public class BoardOverlay extends LayerUI<JPanel> {
         arrows.add(newArrow(start, end, clr));
         jlayer.repaint();
     }
-
 
 }

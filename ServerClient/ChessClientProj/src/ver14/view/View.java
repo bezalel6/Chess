@@ -589,6 +589,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
             enableSquare(movingTo, true);
         }
+        boardPnl.repaint();
     }
 
     /**

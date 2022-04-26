@@ -23,18 +23,18 @@ public class IconManager {
     public static final DynamicIcon dynamicStatisticsIcon;
     public static final DynamicIcon dynamicServerIcon;
 
-    public static final ImageIcon promotionIcon;
-    public static final ImageIcon capturingIcon;
-    public static final ImageIcon loadingIcon;
-    public static final ImageIcon loginIcon;
-    public static final ImageIcon userIcon;
-    public static final ImageIcon defaultUserIcon;
-    public static final ImageIcon registerIcon;
-    public static final ImageIcon randomColorIcon;
-    public static final ImageIcon greenCheck;
-    public static final ImageIcon redX;
-    public static final ImageIcon showPassword;
-    public static final ImageIcon hidePassword;
+    public static final MyIcon promotionIcon;
+    public static final MyIcon capturingIcon;
+    public static final MyIcon loadingIcon;
+    public static final MyIcon loginIcon;
+    public static final MyIcon userIcon;
+    public static final MyIcon defaultUserIcon;
+    public static final MyIcon registerIcon;
+    public static final MyIcon randomColorIcon;
+    public static final MyIcon greenCheck;
+    public static final MyIcon redX;
+    public static final MyIcon showPassword;
+    public static final MyIcon hidePassword;
     public final static Size SECONDARY_COMP_SIZE = new Size(30);
     public final static Size PROFILE_PIC_SIZE = new Size(25);
     public final static Size PROFILE_PIC_BIG_SIZE = new Size(50);
@@ -42,20 +42,20 @@ public class IconManager {
     public final static Size LOGIN_PROCESS_SIZES = new Size(150);
     public final static Size ABOVE_BTNS_SIZES = new Size(10);
     public final static Size MESSAGES_ICONS = new Size(20);
-    public static final ImageIcon infoIcon;
-    public static final ImageIcon errorIcon;
+    public static final MyIcon infoIcon;
+    public static final MyIcon errorIcon;
     public static final Size OG_SIZE = new Size(-1);
-    public static final ImageIcon serverError;
-    private static final ImageIcon[][] gameOverIcons;
-    private final static ImageIcon[][] piecesIcons;
+    public static final MyIcon serverError;
+    private static final MyIcon[][] gameOverIcons;
+    private final static MyIcon[][] piecesIcons;
     private static final int WON = 0;
     private static final int LOST = 1;
     private static final int TIE = 2;
 
     //todo vars for path
     static {
-        piecesIcons = new ImageIcon[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
-        gameOverIcons = new ImageIcon[PlayerColor.NUM_OF_PLAYERS][3];
+        piecesIcons = new MyIcon[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        gameOverIcons = new MyIcon[PlayerColor.NUM_OF_PLAYERS][3];
 
         for (PlayerColor player : PlayerColor.PLAYER_COLORS) {
 
@@ -140,8 +140,8 @@ public class IconManager {
         return new MyIcon(ret);
     }
 
-    public static ImageIcon loadNoScale(URL url) {
-        ImageIcon icon = new ImageIcon(url, url.toString());
+    public static MyIcon loadNoScale(URL url) {
+        MyIcon icon = new MyIcon(url, url.toString());
 //        new JFrame() {{
 //            setSize(500, 500);
 //            setIconImage(icon.getImage());
@@ -169,7 +169,7 @@ public class IconManager {
         return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
     }
 
-    public static ImageIcon loadNoScale(String relativePath) {
+    public static MyIcon loadNoScale(String relativePath) {
         relativePath = StrUtils.clean(relativePath);
         boolean isNotComplete = !StrUtils.isAbsoluteUrl(relativePath);
         if (isNotComplete && !RegEx.Icon.check(relativePath)) {
@@ -272,12 +272,12 @@ public class IconManager {
         return relativePath.endsWith(".png") ? loadImage(relativePath, size) : loadGif(relativePath, size);
     }
 
-    public static ImageIcon loadGif(String relativePath, Dimension... _size) {
+    public static MyIcon loadGif(String relativePath, Dimension... _size) {
         if (!relativePath.endsWith(".gif")) {
             relativePath += ".gif";
         }
         Size size = Size.size(_size);
-        ImageIcon icon = loadNoScale(relativePath);
+        MyIcon icon = loadNoScale(relativePath);
         icon.setImage(icon.getImage().getScaledInstance(size.width, size.height, Image.SCALE_DEFAULT));
         return icon;
     }
@@ -296,10 +296,34 @@ public class IconManager {
     }
 
     public static class MyIcon extends ImageIcon {
+        public MyIcon(String filename, String description) {
+            super(filename, description);
+        }
+
+        public MyIcon(URL location, String description) {
+            super(location, description);
+        }
+
+        public MyIcon(URL location) {
+            super(location);
+        }
+
+        public MyIcon(Image image, String description) {
+            super(image, description);
+        }
 
         public MyIcon(ImageIcon image) {
             super(image.getImage(), image.getDescription());
         }
+
+        public void paintInMiddle(Graphics g, Component c) {
+//            g.setColor(Color.BLACK);
+            Size size = new Size(c.getWidth() / 2, c.getHeight() / 2);
+            int x = (getIconWidth() + size.width) / 2;
+            int y = (getIconHeight() + size.height) / 2;
+            scaleImage(this, size).paintIcon(c, g, x, y);
+        }
+
     }
 
 
