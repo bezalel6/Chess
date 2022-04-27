@@ -240,6 +240,7 @@ public class Tests implements ITest {
     private void genExample() {
         model.setup("8/5N2/8/2N5/8/8/6N1/8 w - - 0 1");
         Bitboard bb = model.getPlayersPieces(PlayerColor.WHITE).getBB(PieceType.KNIGHT);
+        System.out.println(bb);
         bb.prettyPrint();
         AttackedSquares.getAttackedSquares(model, PlayerColor.WHITE).prettyPrint();
 

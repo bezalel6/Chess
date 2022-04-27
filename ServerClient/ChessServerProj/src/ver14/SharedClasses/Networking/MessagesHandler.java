@@ -15,12 +15,12 @@ import java.util.concurrent.Semaphore;
 
 
 /**
- * Messages handler - handles all types of messages by using a hash map to make all the routing as fast as possible.
+ * Messages handler - handles all types of messages by using a hash map to make all routing as fast as possible.
  * when a request is sent to the server, a callback is passed with it. when a response is received,
  * that callback is called with the response message.
  * <br/>
  * if a message that isn't a response is received, the handling is differed to the default callbacks map. which is where
- * most of the implementation of this abstract class comes in. the individual message type handling.
+ * most of the implementation of this abstract class comes in. the individual message type handling
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -189,14 +189,11 @@ public abstract class MessagesHandler {
                  */
         ThreadsManager.createThread(() -> {
             if (message.getMessageType().chronologicalImportance) {
-//                System.out.println(message.getMessageType() + " acquiring semaphore");
                 chronologicalSemaphore.acquire();
-//                System.out.println(message.getMessageType() + " acquired semaphore");
             }
             processMessage(message);
             if (message.getMessageType().chronologicalImportance) {
                 chronologicalSemaphore.release();
-//                System.out.println(message.getMessageType() + " released semaphore");
             }
         }, true).setName("Messages worker");
     }

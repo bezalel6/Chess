@@ -61,10 +61,13 @@ public class MoveGenerationTest extends Tests {
     @DataProvider(name = "perftPositions")
     private Object[][] perftPositions() {
         ArrayList<Object[]> list = new ArrayList<>();
+//        IntStream.range(0, 10).forEach(i -> {
+//            list.add(new Object[]{"castling-" + (i + 1), FEN.castling, i + 1});
+//        });
+//
         IntStream.range(0, POSITIONS_COUNT_DEPTH).forEach(i -> {
             list.add(new Object[]{(i + 1) + "", FEN.startingFen, i + 1});
         });
-//        list.add(new Object[]{"castling", FEN.castling, 4});
 //        list.add(new Object[]{"pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
 //        list.add(new Object[]{"another pawn check", "r3k2r/p1pppppp/8/8/1p1P4/2K5/PPP1PPPP/R6R w kq - 1 4", 5});
 //        list.add(new Object[]{"another pawn check", "rnbq1bnr/ppp1pppp/2kp4/3P4/8/5N2/PPP1PPPP/RNBQKB1R b KQ - 1 4", 1});
