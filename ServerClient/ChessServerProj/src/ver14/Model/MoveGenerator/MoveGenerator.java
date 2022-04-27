@@ -15,10 +15,23 @@ import ver14.SharedClasses.Game.PlayerColor;
 import java.util.ArrayList;
 
 
+/**
+ * Generates moves from a given position according to GenerationSettings
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MoveGenerator {
-    //    public static final MyHashMap<ModelMovesList> moveGenerationHashMap = new MyHashMap<>(HashManager.Size.MOVE_GENERATOR);
+    /**
+     * a precalculated matrix of a square, and the number of squares to the edge for every direction from that square
+     */
     public static final int[][] numSquaresToEdge;
+    /**
+     * precalculated knight moves from every square on the board
+     */
     private static final ArrayList<Location>[] knightMoves;
+    /**
+     * precalculated king moves from every square on the board
+     */
     private static final ArrayList<Location>[] kingMoves;
 
     static {
@@ -73,14 +86,38 @@ public class MoveGenerator {
 
     }
 
+    /**
+     * The Generation settings.
+     */
     private final @GenerationSettings
     int generationSettings;
+    /**
+     * My pieces.
+     */
     private final PiecesBBs myPieces;
+    /**
+     * The Model.
+     */
     private final Model model;
+    /**
+     * The Moving player color.
+     */
     private final PlayerColor movingPlayerColor;
+    /**
+     * The Logic board.
+     */
     private final Board logicBoard;
+    /**
+     * The Generated moves.
+     */
     private final ModelMovesList generatedMoves;
 
+    /**
+     * Instantiates a new Move generator.
+     *
+     * @param model              the model
+     * @param generationSettings the generation settings
+     */
     private MoveGenerator(Model model, @GenerationSettings int generationSettings) {
 //        long hash = Zobrist.combineHashes(model.getBoardHash().getFullHash(), Zobrist.hash(generationSettings));
 //        if (moveGenerationHashMap.containsKey(hash)) {
@@ -98,15 +135,33 @@ public class MoveGenerator {
 //        moveGenerationHashMap.put(hash, generatedMoves);
     }
 
+    /**
+     * Generate moves model moves list.
+     *
+     * @param model the model
+     * @return the model moves list
+     */
     public static ModelMovesList generateMoves(Model model) {
         return generateMoves(model, GenerationSettings.LEGALIZE);
     }
 
+    /**
+     * Generate moves model moves list.
+     *
+     * @param model              the model
+     * @param generationSettings the generation settings
+     * @return the model moves list
+     */
     public static ModelMovesList generateMoves(Model model, @GenerationSettings int generationSettings) {
         MoveGenerator mvg = new MoveGenerator(model, generationSettings);
         return mvg.getGeneratedMoves();
     }
 
+    /**
+     * Gets generated moves.
+     *
+     * @return the generated moves
+     */
     public ModelMovesList getGeneratedMoves() {
         try {
             generatePawnMoves();
@@ -129,14 +184,14 @@ public class MoveGenerator {
             }
         }
 
-//        generatedMoves.doneAdding();
-
-//        if (generationSettings.legalize && !generationSettings.anyLegal)//!any legal bc it already checked legality before adding moves
-//            legalize();
-
         return generatedMoves;
     }
 
+    /**
+     * Generate pawn moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove when the generation settings are set to find any legal move in the position and one is found
+     */
     public void generatePawnMoves() throws ModelMovesList.FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
         int mult = movingPlayerColor.diff;
@@ -186,6 +241,11 @@ public class MoveGenerator {
         }
     }
 
+    /**
+     * Generate sliding moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove the found legal move
+     */
     public void generateSlidingMoves() throws ModelMovesList.FoundLegalMove {
         for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
             generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
@@ -198,6 +258,11 @@ public class MoveGenerator {
         }
     }
 
+    /**
+     * Generate knight moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove the found legal move
+     */
     public void generateKnightMoves() throws ModelMovesList.FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.KNIGHT);
         for (Location knightLoc : bitboard.getSetLocs()) {
@@ -212,6 +277,11 @@ public class MoveGenerator {
         }
     }
 
+    /**
+     * Generate king moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove the found legal move
+     */
     public void generateKingMoves() throws ModelMovesList.FoundLegalMove {
         Location kingLoc = myPieces.getBB(PieceType.KING).getLastSetLoc();
         if (kingLoc == null)
@@ -248,6 +318,13 @@ public class MoveGenerator {
         }
     }
 
+    /**
+     * Check pawn capture move.
+     *
+     * @param movingFrom the moving from
+     * @param capLoc     the cap loc
+     * @return the move
+     */
     private Move checkPawnCapture(Location movingFrom, Location capLoc) {
         if (capLoc == null || movingFrom.getMaxDistance(capLoc) > 1)
             return null;
@@ -267,6 +344,13 @@ public class MoveGenerator {
         return new Move(movingFrom, capLoc, dest.pieceType);
     }
 
+    /**
+     * Generate sliding piece moves.
+     *
+     * @param pieceLocation   the piece location
+     * @param movingPieceType the moving piece type
+     * @throws ModelMovesList.FoundLegalMove the found legal move
+     */
     public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) throws ModelMovesList.FoundLegalMove {
         for (Direction direction : movingPieceType.getAttackingDirections()) {
             for (int n = 1; n <= numSquaresToEdge[pieceLocation.asInt][direction.asInt]; n++) {
@@ -292,20 +376,41 @@ public class MoveGenerator {
         }
     }
 
+    /**
+     * Num squares to edge int.
+     *
+     * @param loc       the loc
+     * @param direction the direction
+     * @return the int
+     */
     public static int numSquaresToEdge(Location loc, Direction direction) {
         if (direction.getCombination().length != 1)
             return 1;
         return numSquaresToEdge[loc.asInt][direction.asInt];
     }
 
+    /**
+     * Gets model.
+     *
+     * @return the model
+     */
     public Model getModel() {
         return model;
     }
 
+    /**
+     * Legalize.
+     */
     public void legalize() {
         generatedMoves.removeIf(move -> !isLegal(move));
     }
 
+    /**
+     * Is legal boolean.
+     *
+     * @param move the move
+     * @return the boolean
+     */
     public boolean isLegal(Move move) {
         if (move.getMoveFlag().isCastling) {
             if (!canCastle(move)) {
@@ -319,6 +424,12 @@ public class MoveGenerator {
         return ret;
     }
 
+    /**
+     * Can castle boolean.
+     *
+     * @param castling the castling
+     * @return the boolean
+     */
     private boolean canCastle(Move castling) {
         if (model.isInCheck(movingPlayerColor))
             return false;

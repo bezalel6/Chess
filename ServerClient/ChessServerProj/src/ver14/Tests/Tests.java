@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ver14.Game.Game;
 import ver14.Model.AttackedSquares;
+import ver14.Model.Bitboard;
 import ver14.Model.FEN;
 import ver14.Model.Minimax.Minimax;
 import ver14.Model.Model;
@@ -16,6 +17,7 @@ import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Game.Moves.Move;
@@ -47,10 +49,9 @@ public class Tests implements ITest {
     protected Stockfish stockfish;
 
     public static void main(String[] args) throws Exception {
-        System.out.println(0b1 ^ 0b0);
+//        System.out.println(0b1 ^ 0b0);
 //        minimaxVsStockfish();
     }
-
 
     private static void minimaxVsStockfish() {
         Game.showGameView = true;
@@ -232,6 +233,15 @@ public class Tests implements ITest {
             System.out.println(usages);
         }
         minimax.end();
+
+    }
+
+    @Test
+    private void genExample() {
+        model.setup("8/5N2/8/2N5/8/8/6N1/8 w - - 0 1");
+        Bitboard bb = model.getPlayersPieces(PlayerColor.WHITE).getBB(PieceType.KNIGHT);
+        bb.prettyPrint();
+        AttackedSquares.getAttackedSquares(model, PlayerColor.WHITE).prettyPrint();
 
     }
 

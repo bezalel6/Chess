@@ -34,26 +34,26 @@ public class ShapesHelper {
         g.fillPolygon(polygon);
     }
 
-    public static void paintCircle(Graphics2D g2, Color color, JComponent component) {
-        paintCircle(g2, color, 3, component);
+    public static void paintCircle(Graphics g, Color color, JComponent component) {
+        paintCircle(g, color, 3, component);
     }
 
     /**
      * Paint circle.
      *
-     * @param g2            the g 2
+     * @param g             the graphics
      * @param color         the color
      * @param diameterRatio the diameter ratio: smaller is larger
      * @param component     the component
      */
-    public static void paintCircle(Graphics2D g2, Color color, int diameterRatio, JComponent component) {
-        g2.setColor(color);
+    public static void paintCircle(Graphics g, Color color, int diameterRatio, JComponent component) {
+        g.setColor(color);
         int circleDiameter = component.getWidth() / diameterRatio;
 
         int x = (component.getWidth() / 2) - (circleDiameter / 2);
         int y = (component.getHeight() / 2) - (circleDiameter / 2);
 
-        g2.fillOval(x, y, circleDiameter, circleDiameter);
+        g.fillOval(x, y, circleDiameter, circleDiameter);
     }
 
 

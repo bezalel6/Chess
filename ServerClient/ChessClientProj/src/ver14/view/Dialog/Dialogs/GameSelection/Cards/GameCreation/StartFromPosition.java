@@ -50,7 +50,7 @@ public class StartFromPosition extends GameCreationCard {
         iconLbl.setIcon(GameIconsGenerator.generate(gameSettings.getFen(), gameSettings.getPlayerToMove(), new Size(250)));
     }
 
-    enum Position {
+    public enum Position {
         StartingPosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"),
         QueenGambit("queen's gambit", "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"),
         QueenVsPawn("8/5K1P/8/8/3q4/8/8/2k5 w - - 0 1"),

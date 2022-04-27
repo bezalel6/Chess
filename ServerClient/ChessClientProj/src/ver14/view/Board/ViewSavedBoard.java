@@ -21,13 +21,13 @@ public class ViewSavedBoard extends Board {
     }
 
     public static class SavedSquare {
-        private final ArrayList<BoardButton.State> btnStates;
+        private final int btnState;
         private final ViewLocation loc;
         private final Piece piece;
         private boolean isEnabled;
 
         public SavedSquare(BoardButton btn) {
-            this.btnStates = new ArrayList<>(btn.getBtnStates());
+            this.btnState = btn.getBtnState();
             this.loc = btn.getBtnLoc();
             this.piece = btn.getPiece();
             this.isEnabled = btn.isEnabled();
@@ -44,7 +44,7 @@ public class ViewSavedBoard extends Board {
 
         public void restore(BoardButton btn) {
             btn.setPiece(piece);
-            btn.setStates(btnStates);
+            btn.setStates(btnState);
             btn.setEnabled(isEnabled);
         }
     }

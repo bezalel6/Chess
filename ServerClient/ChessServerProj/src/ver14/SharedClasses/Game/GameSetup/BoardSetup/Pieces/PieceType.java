@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 
 /**
- * Piece type - represents the Piece Type .
+ * Piece type - represents the Piece Type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
