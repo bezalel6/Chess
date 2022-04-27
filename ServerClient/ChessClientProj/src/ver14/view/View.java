@@ -659,14 +659,10 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
 
     /**
-     * Resets the selected buttons.
+     * unselects all selected buttons.
      */
     public void resetSelectedButtons() {
-        for (BoardButton[] row : this) {
-            for (BoardButton btn : row) {
-                btn.setSelected(false);
-            }
-        }
+        boardPnl.forEachBtnParallel(b -> b.removeState(BoardButton.State.SELECTED));
     }
 
     /**

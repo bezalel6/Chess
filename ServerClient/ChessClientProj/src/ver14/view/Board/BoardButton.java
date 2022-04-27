@@ -2,8 +2,10 @@ package ver14.view.Board;
 
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
+import ver14.SharedClasses.Misc.EfficientGen;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.FontManager;
+import ver14.SharedClasses.Utils.MathUtils;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
 import ver14.view.Shapes.ShapesHelper;
@@ -12,20 +14,25 @@ import ver14.view.View;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static ver14.view.Board.BoardButton.State.*;
 
 public class BoardButton extends MyJButton {
     private static final double iconMultiplier = .8;
     private final static Color checkColor = new Color(186, 11, 11, 255);
     private final static Color captureColor = new Color(0, 0, 0, 255 / 4);
     private final static Color promotingColor = new Color(151, 109, 3);
+    private static final Cursor hoveredCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
     private static int ICON_SIZE = 50;
     private final MyColor startingBackgroundColor;
-    private final Set<State> btnStates;
     private final View view;
     private final ViewLocation btnLoc;
-    private final Map<State, Callback<Graphics>> statesCallbacks = new HashMap<>();
-    private boolean isSelected = false;
+    private final Map<Integer, Callback<Graphics>> statesCallbacks = new HashMap<>();
+    private final EfficientGen<Integer, ArrayList<Callback<Graphics>>> singleGenEff;
+    private int btnState;
     private Icon ogQualityIcon;
     private Piece piece = null;
     private boolean wasUnlocked = false;
@@ -37,58 +44,75 @@ public class BoardButton extends MyJButton {
         this.startingBackgroundColor = startingBackgroundColor;
         this.btnLoc = btnLoc;
         this.view = view;
-        this.btnStates = new HashSet<>();
+        this.btnState = 0;
         this.beforeLockBg = startingBackgroundColor;
         setFont(FontManager.boardButtons);
 
         setActionCommand("");
         setUI(new BasicButtonUI());
 
-        for (var state : State.values()) {
-            Callback<Graphics> callback = g -> {
-                switch (state) {
-                    case CHECK -> {
-                        setBackground(checkColor);
-                    }
-                    case CAPTURE -> {
-                        ShapesHelper.paintTrianglesBorder(g, captureColor, getWidth() / 4, this);
-                    }
-                    case CAN_MOVE_TO -> {
-                        ShapesHelper.paintCircle(g, Color.decode("#9fc0a2"), this);
-                    }
-                    case HOVERED -> {
-                        if (isEnabled()) {
-                            Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-                            setCursor(cursor);
-//                        ShapesHelper.paintTrianglesBorder(g, hoverClr, getWidth() / 3, this);
-                        }
-                    }
-                    case CURRENT -> {
-                        if (!isEnabled())
-                            setEnabled(true);
-                    }
-                    case CLICKED_ONCE -> {
+        setCallback(CHECK, g -> setBackground(checkColor));
+        setCallback(CAPTURE, g -> ShapesHelper.paintTrianglesBorder(g, captureColor, getWidth() / 4, this));
+        setCallback(CAN_MOVE_TO, g -> ShapesHelper.paintCircle(g, Color.decode("#9fc0a2"), this));
+        setCallback(HOVERED, g -> {
+            if (isEnabled()) {
+                setCursor(hoveredCursor);
+            }
+        });
+        setCallback(CURRENT, g -> {
+            if (!isEnabled())
+                setEnabled(true);
+        });
+        setCallback(DRAGGING, g -> {
+            if (getIcon() != null) {
+                hideIcon();
+            }
+        });
+        setCallback(PROMOTING, g -> {
+            setBackground(promotingColor);
+        });
+        setCallback(MOVING_FROM, g -> {
+            setBackground(startingBackgroundColor.movedClr());
+        });
+        setCallback(MOVING_TO, g -> {
+            setBackground(startingBackgroundColor.movedClr());
+        });
+        setCallback(CLICKED_ONCE, g -> {
+        });
+        setCallback(SELECTED, g -> {
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setStroke(new BasicStroke(5));
+            int nGap = 7;
+            int nXPosition = nGap;
+            int nYPosition = nGap;
+            int nHeight = getHeight() - nGap * 2;
+            int nWidth = getWidth() - nGap * 2;
 
-                    }
-                    case DRAGGING -> {
-                        if (getIcon() != null) {
-                            hideIcon();
-                        }
-                    }
-                    case PROMOTING -> {
-//                        setBackground(promotingColor);
-                        IconManager.promotionIcon.paintInMiddle(g, this);
+            g2.setColor(selectedClr);
+//            g2.setColor(new Color(0, 0, 0, .5f));
+            g2.drawOval(nXPosition, nYPosition, nWidth, nHeight);
+            ((Graphics2D) g).setStroke(new BasicStroke());
+        });
 
-                    }
-                    case MOVING_FROM, MOVING_TO -> {
-                        setBackground(startingBackgroundColor.movedClr());
-                    }
-                }
-                ;
-            };
+        singleGenEff = new EfficientGen<>(() -> {
+            ArrayList<Callback<Graphics>> list = new ArrayList<>();
+            if (!is(State.DRAGGING) && hiddenIcon != null)
+                unHideIcon();
 
-            statesCallbacks.put(state, callback);
-        }
+            int t = btnState;
+            int i = 0;
+            while (t != 0) {
+                if ((t & 1) != 0)
+                    list.add(statesCallbacks.get(i));
+                t >>= 1;
+                i++;
+            }
+            return list;
+        });
+    }
+
+    private void setCallback(int state, Callback<Graphics> callback) {
+        statesCallbacks.put(bitIndex(state), callback);
     }
 
     public void hideIcon() {
@@ -96,12 +120,21 @@ public class BoardButton extends MyJButton {
         setIcon(null);
     }
 
+    public boolean is(int state) {
+        return (btnState & state) != 0;
+    }
+
+    public void unHideIcon() {
+        setIcon(hiddenIcon);
+        hiddenIcon = null;
+    }
+
     public void endHover() {
         removeState(State.HOVERED);
     }
 
-    private void removeState(State removing) {
-        btnStates.remove(removing);
+    public void removeState(int removing) {
+        btnState &= ~(removing);
         repaint();
     }
 
@@ -113,14 +146,13 @@ public class BoardButton extends MyJButton {
                 '}';
     }
 
-    public void setStates(ArrayList<State> states) {
+    public void setStates(int states) {
         resetBackground();
-        btnStates.addAll(states);
+        btnState = (states);
         repaint();
     }
 
     public void resetBackground() {
-        isSelected = false;
         resetStates();
         setBackground(startingBackgroundColor);
         if (view != null)
@@ -128,25 +160,25 @@ public class BoardButton extends MyJButton {
     }
 
     private void resetStates() {
-        btnStates.clear();
+        btnState = 0;
         repaint();
     }
 
-    public Set<State> getBtnStates() {
-        return btnStates;
+    public int getBtnState() {
+        return btnState;
     }
 
     public void setAsCurrent() {
         addState(State.CURRENT);
     }
 
-    public void addState(State adding) {
-        btnStates.add(adding);
+    public void addState(int adding) {
+        btnState |= (adding);
         repaint();
     }
 
     public void setAsCheck() {
-        addState(State.CHECK);
+        addState(CHECK);
     }
 
     public void setAsPromotion() {
@@ -178,10 +210,6 @@ public class BoardButton extends MyJButton {
 
     public ViewLocation getBtnLoc() {
         return btnLoc;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
     }
 
     @Override
@@ -258,45 +286,18 @@ public class BoardButton extends MyJButton {
 
     @Override
     protected void paintComponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
-
         super.paintComponent(g);
-        if (!isState(State.DRAGGING) && hiddenIcon != null)
-            unHideIcon();
-
-        for (State state : btnStates) {
-            statesCallbacks.get(state).callback(g);
-        }
-        if (isSelected) {
-            g2.setStroke(new BasicStroke(5));
-            int nGap = 7;
-            int nXPosition = nGap;
-            int nYPosition = nGap;
-            int nHeight = getHeight() - nGap * 2;
-            int nWidth = getWidth() - nGap * 2;
-
-            g2.setColor(selectedClr);
-//            g2.setColor(new Color(0, 0, 0, .5f));
-            g2.drawOval(nXPosition, nYPosition, nWidth, nHeight);
-            ((Graphics2D) g).setStroke(new BasicStroke());
-        }
-
-//        g2.dispose();
-    }
-
-    public boolean isState(State state) {
-        return btnStates.contains(state);
-    }
-
-    public void unHideIcon() {
-        setIcon(hiddenIcon);
-        hiddenIcon = null;
+        singleGenEff.get(btnState).forEach(callback -> callback.callback(g));
     }
 
     public void toggleSelected() {
-        isSelected = !isSelected;
-        if (isSelected)
+        toggle(SELECTED);
+        if (is(SELECTED))
             captureSelectedClr();
+    }
+
+    public void toggle(int state) {
+        btnState ^= state;
     }
 
     private void captureSelectedClr() {
@@ -306,12 +307,10 @@ public class BoardButton extends MyJButton {
     public void clickMe() {
         System.out.println("clicking " + piece);
         view.boardButtonPressed(btnLoc);
-//        System.out.println(Thread.currentThread().getStackTrace()[2] + "clicked me");
-//        super.doClick();
     }
 
     public boolean canMoveTo() {
-        return btnStates.contains(State.CAN_MOVE_TO) || btnStates.contains(State.CAPTURE);
+        return is(State.CAN_MOVE_TO | State.CAPTURE);
     }
 
     public void reset() {
@@ -329,18 +328,15 @@ public class BoardButton extends MyJButton {
         addState(State.MOVING_TO);
     }
 
-    public void endState(State s) {
-        btnStates.remove(s);
-    }
 
     /**
-     * allows a button to draw on the global, full board, 'canvas'
+     * allows a button to draw on the global, full board's 'canvas'
      *
      * @param g2
      * @param mouseCoordinates
      */
     public void globalPaint(Graphics2D g2, Point mouseCoordinates, Component c) {
-        if (isState(State.DRAGGING)) {
+        if (is(State.DRAGGING)) {
             int x = mouseCoordinates.x - getHeight() / 2;
             int y = mouseCoordinates.y - getWidth() / 2;
             if (getHiddenIcon() != null)
@@ -353,9 +349,22 @@ public class BoardButton extends MyJButton {
     }
 
 
-    public enum State {
-        CHECK, CAPTURE, CAN_MOVE_TO, CURRENT, PROMOTING, MOVING_FROM, MOVING_TO, HOVERED, CLICKED_ONCE, DRAGGING;
+    public static class State {
+        public static final int CHECK = 1;
+        public static final int CAPTURE = 2;
+        public static final int CAN_MOVE_TO = 4;
+        public static final int CURRENT = 8;
+        public static final int PROMOTING = 16;
+        public static final int MOVING_FROM = 32;
+        public static final int MOVING_TO = 64;
+        public static final int HOVERED = 128;
+        public static final int CLICKED_ONCE = 256;
+        public static final int DRAGGING = 512;
+        public static final int SELECTED = 1024;
 
-        public final int shift = 1 << ordinal();
+
+        public static int bitIndex(int powOf2) {
+            return (int) MathUtils.log(powOf2, 2);
+        }
     }
 }

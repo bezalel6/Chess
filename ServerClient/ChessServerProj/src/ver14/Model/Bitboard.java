@@ -386,7 +386,7 @@ public class Bitboard implements Serializable {
     }
 
     /**
-     * performes a bitwise and on a new copy of this bitboard.
+     * performs a bitwise and on a new copy of this bitboard.
      *
      * @param other the other
      * @return the new changed bitboard

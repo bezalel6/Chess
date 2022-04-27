@@ -23,7 +23,6 @@ public class PiecesBBs {
 
     }
 
-    //tosync
     public Bitboard getAll() {
         if (prevAll != null)
             return prevAll;

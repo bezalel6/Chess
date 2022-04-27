@@ -1,6 +1,5 @@
 package ver14.view.Board;
 
-import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.UI.MyJFrame;
@@ -76,13 +75,11 @@ public class BoardOverlay extends LayerUI<JPanel> {
     private boolean blockBoard = false;
     private Integer pressedKey = NO_KEY;
     private BoardButton currentBtn = null;
-    private Map<BoardButton.State, Callback<BoardButton>> buttonStatesMap = new HashMap<>();
 
     public BoardOverlay(View view) {
         this.view = view;
         arrows = new ArrayList<>();
 
-//        buttonStatesMap.put(BoardButton.State.CL)
 
     }
 
@@ -151,7 +148,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
         super.paint(g2, c);
         if (mouseCoordinates != null) {
             if (currentBtn != null) {
-//                view.getBoardPnl().forEachBtnParallel(b -> b.globalPaint(g2, mouseCoordinates, c));
                 currentBtn.globalPaint(g2, mouseCoordinates, c);
             }
             g2.setStroke(new BasicStroke(10));
@@ -263,7 +259,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
 //            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
-                if (currentBtn != null && currentBtn.isState(BoardButton.State.HOVERED)) {
+                if (currentBtn != null && currentBtn.is(BoardButton.State.HOVERED)) {
                     currentBtn.endHover();
                 }
                 btn.startHover();
@@ -274,8 +270,14 @@ public class BoardOverlay extends LayerUI<JPanel> {
             case MouseEvent.MOUSE_PRESSED:
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     currentBtn = btn;
-                    currentBtn.clickMe();
-                    currentBtn.addState(BoardButton.State.DRAGGING);
+                    if (btn.isEnabled()) {
+                        if (!currentBtn.is(BoardButton.State.CLICKED_ONCE))
+                            currentBtn.clickMe();
+                        else {
+                            System.out.println("was clicked once");
+                        }
+                        currentBtn.addState(BoardButton.State.DRAGGING);
+                    }
                     stopDrawingArrows();
                 } else if (e.getButton() == MouseEvent.BUTTON3) {
                     startDrawing();
@@ -288,28 +290,28 @@ public class BoardOverlay extends LayerUI<JPanel> {
                     case MouseEvent.BUTTON1 -> {
 
                         if (currentBtn != null) {
-                            if (currentBtn.isState(BoardButton.State.CLICKED_ONCE)) {
+                            if (currentBtn.is(BoardButton.State.CLICKED_ONCE)) {
                                 if (currentBtn == currentlyAbove || !currentlyAbove.canMoveTo()) {
                                     currentBtn.clickMe();
                                 } else {
                                     currentlyAbove.clickMe();
                                 }
-
-                                currentBtn.endState(BoardButton.State.CLICKED_ONCE);
-                            } else if (currentBtn.isState(BoardButton.State.DRAGGING)) {
+                                System.out.println("removed clicked once");
+                                currentBtn.removeState(BoardButton.State.CLICKED_ONCE);
+                            } else if (currentBtn.is(BoardButton.State.DRAGGING)) {
                                 if (currentlyAbove != currentBtn && !currentlyAbove.canMoveTo()) {
                                     currentBtn.clickMe();
                                 } else if (currentlyAbove.canMoveTo()) {
                                     currentlyAbove.clickMe();
                                 }
-                                currentBtn.endState(BoardButton.State.DRAGGING);
-                            } else if (currentBtn == currentlyAbove) {
-                                currentBtn.addState(BoardButton.State.CLICKED_ONCE);
+                                currentBtn.removeState(BoardButton.State.DRAGGING);
+                                if (currentBtn == currentlyAbove) {
+                                    System.out.println("set click once");
+                                    currentBtn.addState(BoardButton.State.CLICKED_ONCE);
+                                }
                             }
                         }
 
-//                        if (btn.isEnabled())
-//                            btn.clickMe();
                         clearAllArrows();
                         view.resetSelectedButtons();
                     }

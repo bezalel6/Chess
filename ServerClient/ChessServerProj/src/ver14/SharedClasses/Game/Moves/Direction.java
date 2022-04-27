@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * Direction - represents a moving direction on a board. sort of like a vector.
- * has an {@link #offset} that is added to a certain location or bitboard, in order to achieve movement in that direction.
+ * has a {@link #offset} that is added to a certain location or bitboard, in order to achieve movement in that direction.
  * the general direction map looks like this:
  * <table summary="">
  * <tr>
@@ -256,7 +256,7 @@ public enum Direction {
     public final int asInt;
 
     /**
-     * some
+     * some directions are combinations of other directions. the knight movement directions for example, are some combination of up,down,left and right.
      */
     final Direction[] combination;
 
