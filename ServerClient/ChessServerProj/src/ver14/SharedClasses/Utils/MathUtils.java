@@ -6,6 +6,10 @@ package ver14.SharedClasses.Utils;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class MathUtils {
+    public static double log2(double num) {
+        return log(num, 2);
+    }
+
     /**
      * Log.
      *

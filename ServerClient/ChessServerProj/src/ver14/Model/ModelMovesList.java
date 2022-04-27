@@ -39,12 +39,12 @@ public class ModelMovesList extends MovesList {
         adding.setMovingColor(generator.getModel().getCurrentPlayer());
 
         if ((generationSettings == GenerationSettings.ANY_LEGAL)) {
-            if (generator.isLegal(adding)) {
+            if (generator.isLegal(adding, movingPiece)) {
                 super.add(adding);
                 throw new FoundLegalMove();
             }
         } else {
-            if ((generationSettings & GenerationSettings.LEGALIZE) == 0 || (generator.isLegal(adding) && (generationSettings != GenerationSettings.QUIESCE || isQuiescence(adding, movingPiece)))) {
+            if ((generationSettings & GenerationSettings.LEGALIZE) == 0 || (generator.isLegal(adding, movingPiece) && (generationSettings != GenerationSettings.QUIESCE || isQuiescence(adding, movingPiece)))) {
                 super.add(adding);
             } else if (rejectedPseudoLegal != null) {
                 rejectedPseudoLegal.add(adding);

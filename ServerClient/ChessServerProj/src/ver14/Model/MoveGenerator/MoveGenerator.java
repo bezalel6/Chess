@@ -398,24 +398,26 @@ public class MoveGenerator {
         return model;
     }
 
-    /**
-     * Legalize.
-     */
-    public void legalize() {
-        generatedMoves.removeIf(move -> !isLegal(move));
-    }
+//    /**
+//     * Legalize.
+//     */
+//    public void legalize() {
+//        generatedMoves.removeIf(move -> !isLegal(move));
+//    }
 
     /**
      * Is legal boolean.
      *
-     * @param move the move
+     * @param move        the move
+     * @param movingPiece the moving piece
      * @return the boolean
      */
-    public boolean isLegal(Move move) {
-        if (move.getMoveFlag().isCastling) {
-            if (!canCastle(move)) {
+    public boolean isLegal(Move move, PieceType movingPiece) {
+        if (movingPiece == PieceType.KING) {
+            if (move.getMoveFlag().isCastling && !canCastle(move)) {
                 return false;
             }
+//            return !AttackedSquares.isAttacked(model, move.getMovingTo(), movingPlayerColor.getOpponent());
         }
 
         model.applyMove(move);
