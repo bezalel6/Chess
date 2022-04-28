@@ -6,6 +6,7 @@ import ver14.SharedClasses.Game.Moves.BitData;
 import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Utils.MathUtils;
+import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -213,7 +214,11 @@ public class Bitboard implements Serializable {
      */
     @Override
     public String toString() {
-        return Long.toBinaryString(bitBoard);
+        String str = Long.toBinaryString(bitBoard);
+        if (str.length() < 64) {
+            str = StrUtils.repeat((i, b) -> "0", 64 - str.length()) + str;
+        }
+        return str;
     }
 
     /**

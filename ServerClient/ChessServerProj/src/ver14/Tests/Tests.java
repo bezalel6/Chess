@@ -238,11 +238,14 @@ public class Tests implements ITest {
 
     @Test
     private void genExample() {
-        model.setup("8/5N2/8/2N5/8/8/6N1/8 w - - 0 1");
-        Bitboard bb = model.getPlayersPieces(PlayerColor.WHITE).getBB(PieceType.KNIGHT);
+        model.setup("8/8/1P6/8/8/3P4/6P1/8 w - - 0 1");
+        Bitboard bb = model.getPlayersPieces(PlayerColor.WHITE).getBB(PieceType.PAWN);
         System.out.println(bb);
         bb.prettyPrint();
-        AttackedSquares.getAttackedSquares(model, PlayerColor.WHITE).prettyPrint();
+        Bitboard a = AttackedSquares.getAttackedSquares(model, PlayerColor.WHITE);
+        System.out.println(a);
+        a.prettyPrint();
+//        Assert.assertEquals(new Bitboard().toString(), StrUtils.repeat((i, b) -> "0", 64));
 
     }
 

@@ -281,8 +281,11 @@ public class Minimax {
      */
     MinimaxMove checkInterrupt(MinimaxMove returnedMove, MinimaxMove bestMoveSoFar) {
         if (interrupt != null) {
+            System.out.println("interrupting minimux in check interrupt err = " + interrupt);
+
             if (!(interrupt.getCause() instanceof QuietInterrupt))
                 throw interrupt;
+            assert bestMoveSoFar != null;
             return bestMoveSoFar;
         }
         return returnedMove;
@@ -322,6 +325,7 @@ public class Minimax {
             if (bestMoveSoFar == null || isCompleteSearch.get() || minimaxMove.isDeeperAndBetterThan(bestMoveSoFar)) {
                 bestMoveSoFar = minimaxMove;
             }
+            assert bestMoveSoFar != null && bestMoveSoFar.getMoveEvaluation() != null;
             stop = interrupt != null || bestMoveSoFar.getMoveEvaluation().isGameOver();
 
             minimaxUI.update(bestMoveSoFar);

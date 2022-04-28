@@ -572,4 +572,5 @@ public class StrUtils {
         T iteration(int i, boolean isLast);
 
     }
+
 }
