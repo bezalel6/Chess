@@ -94,6 +94,9 @@ public class Model implements Serializable {
      */
     public Model(Model other) {
         this(other.genFenStr());
+        this.moveStack = new Stack<>() {{
+            other.moveStack.forEach(m -> add(other.moveStack.indexOf(m), new Move(m)));
+        }};
     }
 
     /**

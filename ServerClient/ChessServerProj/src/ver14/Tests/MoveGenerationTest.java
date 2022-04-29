@@ -156,6 +156,9 @@ public class MoveGenerationTest extends Tests {
         if (depth <= 0)
             return 1;
         ArrayList<Move> moves = model.generateAllMoves();
+        if (depth == 1) {
+            return moves.size();
+        }
         return (moves.stream().mapToLong(move -> executePos(depth, model, move, root)).sum());
     }
 

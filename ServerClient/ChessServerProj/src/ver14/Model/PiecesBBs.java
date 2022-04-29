@@ -6,11 +6,30 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 
+/**
+ * Pieces b bs.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class PiecesBBs {
+    /**
+     * The Size.
+     */
     private final int size;
+    /**
+     * The Bitboards.
+     */
     private final Bitboard[] bitboards;
-    private volatile Bitboard prevAll = null;
+    /**
+     * The Prev all.
+     */
+    private Bitboard prevAll = null;
 
+    /**
+     * Instantiates a new Pieces b bs.
+     *
+     * @param size the size
+     */
     public PiecesBBs(int size) {
         this.size = size;
 
@@ -23,6 +42,11 @@ public class PiecesBBs {
 
     }
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     public Bitboard getAll() {
         if (prevAll != null)
             return prevAll;
@@ -37,14 +61,32 @@ public class PiecesBBs {
         return ret;
     }
 
+
+    /**
+     * Gets bb.
+     *
+     * @param pieceType the piece type
+     * @return the bb
+     */
     public Bitboard getBB(PieceType pieceType) {
         return bitboards[pieceType.asInt];
     }
 
+    /**
+     * Get bitboards bitboard [ ].
+     *
+     * @return the bitboard [ ]
+     */
     public Bitboard[] getBitboards() {
         return bitboards;
     }
 
+    /**
+     * Gets piece type.
+     *
+     * @param bb the bb
+     * @return the piece type
+     */
     public PieceType getPieceType(Bitboard bb) {
         for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
             Bitboard bitboard = bitboards[i];
@@ -56,6 +98,11 @@ public class PiecesBBs {
     }
 
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return Arrays.stream(bitboards).map(Bitboard::prettyBoard).collect(Collectors.joining("\n"));

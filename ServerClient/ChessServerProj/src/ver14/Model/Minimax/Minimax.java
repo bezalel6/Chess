@@ -39,7 +39,7 @@ public class Minimax {
     public final static String DEBUG_MINIMAX = "DEBUG_MINIMAX";
     private static final boolean USE_OPENING_BOOK = true;
     private static final int DEFAULT_FLEX = (int) TimeUnit.SECONDS.toMillis(0);
-    private static final int moveOrderingDepthCutoff = 3;
+    private static final int MOVE_ORDERING_DEPTH_CUTOFF = 5;
     /**
      * if set to true the debugging ui will show up in the server while the minimax is running and a log will print
      */
@@ -394,6 +394,8 @@ public class Minimax {
             possibleMoves.stream().parallel().forEach(move -> {
                 Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {
                     System.out.println("inside threadpool " + MyError.errToString(e));
+                    if (interrupt == null)
+                        interrupt = new MyError(e);
                 });
                 if (!isOvertime() && interrupt == null) {
                     Model modelCopy = new Model(model);
@@ -446,7 +448,7 @@ public class Minimax {
 
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.LEGALIZE);
-        if (parms.currentDepth < moveOrderingDepthCutoff)
+        if (parms.currentDepth < MOVE_ORDERING_DEPTH_CUTOFF)
             sortMoves(possibleMoves, true);
 
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
@@ -504,7 +506,7 @@ public class Minimax {
     }
 
     /**
-     * The type Cpu usages.
+     * The type Cpu usages. (i should've made an object that has a depth and a usage but i dont have time to change this)
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
