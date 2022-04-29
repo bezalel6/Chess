@@ -46,13 +46,7 @@ public class Eval implements Serializable {
         this.opponentColor = evaluationFor.getOpponent();
         egWeight = endgameWeight();
 
-//        long hash = model.getBoardHash().getFullHash();
-//        if (evaluationHashMap.containsKey(hash)) {
-//            evaluation = (Evaluation) evaluationHashMap.get(hash);
-//        } else {
         calcEvaluation();
-//            evaluationHashMap.put(hash, evaluation);
-//        }
 
         evaluation.assertNotGameOver();
 
@@ -88,20 +82,20 @@ public class Eval implements Serializable {
 
     private void calcEvaluation() {
 
-        evaluation = new Evaluation(evaluationFor);
+        evaluation = new Evaluation(PlayerColor.WHITE);
 //        Check
         if (model.isInCheck()) {
             evaluation.getGameStatus().setInCheck(model.getKing());
         }
 
         //Material
-        evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(evaluationFor) - materialSum(opponentColor));
+        evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(PlayerColor.WHITE) - materialSum(PlayerColor.BLACK));
 
         //Piece Tables
         comparePieceTables();
 
 //        force king to corner
-        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, evaluationFor) - forceKingToCorner(egWeight, opponentColor));
+        evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, PlayerColor.WHITE) - forceKingToCorner(egWeight, PlayerColor.BLACK));
 
         //Hanging Pieces
 //        retEval.addDetail(HANGING_PIECES, calcHangingPieces(player));
@@ -116,13 +110,16 @@ public class Eval implements Serializable {
 //        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
 
 //        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
+        evaluation.setPerspective(evaluationFor);
+
     }
 
     private boolean checkRepetition() {
 //        if (true)
 //            return false;
         var stack = model.getMoveStack();
-
+        if (stack.size() < 8)
+            return false;
         ArrayList<Long> list = new ArrayList<>();
         for (int i = stack.size() - 1; i >= 0; i -= 2) {
             var move = stack.get(i);
@@ -189,7 +186,7 @@ public class Eval implements Serializable {
     private void comparePieceTables() {
         int res = 0;
         for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
-            int mult = currentlyChecking == evaluationFor ? 1 : -1;
+            int mult = currentlyChecking == PlayerColor.WHITE ? 1 : -1;
             PiecesBBs playersPieces = model.getPlayersPieces(currentlyChecking);
             Bitboard[] bitboards = playersPieces.getBitboards();
             for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
@@ -250,7 +247,6 @@ public class Eval implements Serializable {
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
         return new Eval(model, playerColor).evaluation;
     }
-//    private static final double KING_SAFETY_WEIGHT = -0.01;
 
     /**
      * evaluation for current player

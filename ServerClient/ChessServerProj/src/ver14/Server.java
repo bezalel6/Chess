@@ -45,7 +45,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 /**
- * Server - represents the chess server
+ * Server - represents a chess server
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -167,55 +167,6 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Log.
-     *
-     * @param msg the msg
-     * @param ex  the ex
-     * @param win the win
-     */
-    public static void log(String msg, Exception ex, JFrame... win) {
-        String title = "Runtime Exception: " + msg;
-
-        System.out.println("\n>> " + title);
-        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
-
-        String errMsg = ">> " + ex.toString() + "\n";
-        for (StackTraceElement element : ex.getStackTrace())
-            errMsg += ">>> " + element + "\n";
-        System.out.println(errMsg);
-
-        if (win.length != 0) {
-            // bring the window into front (DeIconified)
-            win[0].setVisible(true);
-            win[0].toFront();
-            win[0].setState(JFrame.NORMAL);
-
-            // popup dialog with the error message
-            JOptionPane.showMessageDialog(win[0], msg + "\n\n" + errMsg, "Exception Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    /**
-     * The entry point of the application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-
-        ArgsUtil util = ArgsUtil.create(args);
-
-        START_AT_PORT = util.equalsSign("p").getInt(-1);
-        Minimax.SHOW_UI = util.plainTextIgnoreCase(Minimax.DEBUG_MINIMAX).exists();
-
-        Book.checkBook();
-
-        Server server = new Server();
-        server.runServer();
-
-        System.out.println("**** ChessServer main() finished! ****");
-    }
-
-    /**
      * create server GUI
      */
     private void createServerGUI() {
@@ -252,14 +203,6 @@ public class Server implements EnvManager {
             log("Users Details:");
             DB.getAllUserDetails().forEach(userDetails -> log(StrUtils.dontCapFull(userDetails.toString())));
         });
-
-//        region debug
-//        bottomPnl.add(new MyJButton("Print Fens", () -> {
-//            gameSessions.forEachItem(session -> {
-//                log(session.sessionsDesc() + " " + StrUtils.dontCapFull(session.getGame().getModel().genFenStr()));
-//            });
-//        }));
-//        endregion
 
         bottomPnl.add(connectedUsersBtn);
         bottomPnl.add(gameSessionsBtn);
@@ -373,6 +316,35 @@ public class Server implements EnvManager {
     }
 
     /**
+     * Log.
+     *
+     * @param msg the msg
+     * @param ex  the ex
+     * @param win the win
+     */
+    public static void log(String msg, Exception ex, JFrame... win) {
+        String title = "Runtime Exception: " + msg;
+
+        System.out.println("\n>> " + title);
+        System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
+
+        String errMsg = ">> " + ex.toString() + "\n";
+        for (StackTraceElement element : ex.getStackTrace())
+            errMsg += ">>> " + element + "\n";
+        System.out.println(errMsg);
+
+        if (win.length != 0) {
+            // bring the window into front (DeIconified)
+            win[0].setVisible(true);
+            win[0].toFront();
+            win[0].setState(JFrame.NORMAL);
+
+            // popup dialog with the error message
+            JOptionPane.showMessageDialog(win[0], msg + "\n\n" + errMsg, "Exception Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
      * Close server.
      *
      * @param cause the cause
@@ -425,6 +397,26 @@ public class Server implements EnvManager {
         SyncedItems<?> ret = new SyncedItems<>(list.syncedListType);
         ret.addAll(list.stream().map(SyncableItem::getSyncableItem).collect(Collectors.toList()));
         return ret.clean();
+    }
+
+    /**
+     * The entry point of the application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
+
+        ArgsUtil util = ArgsUtil.create(args);
+
+        START_AT_PORT = util.equalsSign("p").getInt(-1);
+        Minimax.SHOW_UI = Minimax.LOG = util.plainTextIgnoreCase(Minimax.DEBUG_MINIMAX).exists();
+
+        Book.checkBook();
+
+        Server server = new Server();
+        server.runServer();
+
+        System.out.println("**** ChessServer main() finished! ****");
     }
 
     /**

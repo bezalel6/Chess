@@ -12,7 +12,6 @@ import ver14.Model.Minimax.Minimax;
 import ver14.Model.Model;
 import ver14.Players.PlayerAI.MyAi;
 import ver14.Players.PlayerAI.Stockfish.Stockfish;
-import ver14.Players.PlayerNet.DummyPlayerNet;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
@@ -70,14 +69,6 @@ public class Tests implements ITest {
             }
         };
         server.gameSetup(ai);
-    }
-
-    private static void dummyPlayerNet() {
-        Game.showGameView = true;
-        Server server = new Server();
-        server.runServer();
-        DummyPlayerNet dummy = new DummyPlayerNet();
-        server.gameSetup(dummy);
     }
 
     private static void a() {
@@ -203,7 +194,7 @@ public class Tests implements ITest {
             model.setup(null);
             minimax.setModel(model);
             minimax.setNumOfThreads(threads);
-            Move move = minimax.getBestMove();
+            Move move = minimax.getBestMove(PlayerColor.WHITE);
 
             Minimax.CpuUsages cpuUsage = minimax.getCpuUsageRecords();
             ArrayList<Double> usages = cpuUsage.getUsages();

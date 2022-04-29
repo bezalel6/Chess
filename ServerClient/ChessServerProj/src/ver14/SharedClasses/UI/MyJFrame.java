@@ -34,9 +34,7 @@ public class MyJFrame extends JFrame {
     public MyJFrame() throws HeadlessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.myAdapter = debugAdapter(this);
-        myAdapter.addAction(() -> {
-            setExtendedState(getExtendedState() ^ JFrame.MAXIMIZED_BOTH);
-        }, VK_F11);
+        myAdapter.addAction(this::toggleFullscreen, VK_F11);
     }
 
     /**
@@ -71,6 +69,11 @@ public class MyJFrame extends JFrame {
                 addBorderRec(jComponent);
             }
         }
+    }
+
+    public void toggleFullscreen() {
+
+        setExtendedState(getExtendedState() ^ JFrame.MAXIMIZED_BOTH);
     }
 
     /**

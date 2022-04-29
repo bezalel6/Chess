@@ -89,6 +89,7 @@ public abstract class Dialog extends JDialog implements Parent {
         setModalityType(java.awt.Dialog.DEFAULT_MODALITY_TYPE);
         setTitle(StrUtils.format(properties.details().title()));
         dialogWideErr(properties.details().error());
+        recenter();
     }
 
     protected void onXClick() {
@@ -96,6 +97,12 @@ public abstract class Dialog extends JDialog implements Parent {
             if (properties.parentWin() != null)
                 properties.parentWin().doXClick();
 
+    }
+
+    protected void recenter() {
+        SwingUtilities.invokeLater(() -> {
+            setLocationRelativeTo(parentWin);
+        });
     }
 
     @Override
@@ -231,12 +238,6 @@ public abstract class Dialog extends JDialog implements Parent {
 
     public void repackWin() {
         SwingUtilities.invokeLater(this::pack);
-    }
-
-    protected void recenter() {
-        SwingUtilities.invokeLater(() -> {
-            setLocationRelativeTo(parentWin);
-        });
     }
 
     public void closeDialog() {

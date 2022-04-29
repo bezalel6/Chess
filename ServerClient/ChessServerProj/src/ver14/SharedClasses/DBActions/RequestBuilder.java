@@ -400,7 +400,7 @@ public class RequestBuilder implements Serializable {
 
         RequestBuilder builder = new RequestBuilder(selection,
                 "Top Players",
-                "Top %s Players".formatted(topNum.repInStr),
+                "Top Players",
                 "Get Top Players",
                 topNum);
         builder.setSubBuilder(new RequestBuilder(summery, "", topNum));

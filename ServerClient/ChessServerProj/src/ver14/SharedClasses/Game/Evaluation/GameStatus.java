@@ -40,6 +40,15 @@ public class GameStatus implements Serializable {
     private String customStr = null;
 
 
+    public GameStatus(GameStatus other) {
+        this.winningPlayerColor = other.winningPlayerColor;
+        this.specificStatus = other.specificStatus;
+        this.depth = other.depth;
+        this.checkedKingLoc = other.checkedKingLoc;
+        this.gameStatusType = other.gameStatusType;
+        this.customStr = other.customStr;
+    }
+
     /**
      * Instantiates a new Game status.
      *

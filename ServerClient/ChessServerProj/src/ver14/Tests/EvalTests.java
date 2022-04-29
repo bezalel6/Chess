@@ -6,6 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Eval.Tables;
+import ver14.SharedClasses.Game.Evaluation.Evaluation;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.BasicMove;
@@ -73,4 +74,8 @@ public class EvalTests extends Tests {
         Assert.assertEquals(foundInDepth.get(), findInPly);
     }
 
+    public void perspective() {
+        Evaluation e = Eval.getEvaluation(model);
+        Assert.assertEquals(e.setPerspective(PlayerColor.WHITE), e.setPerspective(PlayerColor.BLACK));
+    }
 }

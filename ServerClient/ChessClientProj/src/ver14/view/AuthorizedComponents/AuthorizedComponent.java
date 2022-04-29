@@ -14,10 +14,10 @@ public interface AuthorizedComponent {
 
 
     /**
-     * Sets auth status.
+     * updates the auth status of this client.
      *
      * @param loginInfo the login info
-     * @return the auth
+     * @return true if the login info provided satisfies this component's requirements. false otherwise.
      */
     default boolean setAuth(LoginInfo loginInfo) {
 
@@ -41,7 +41,7 @@ public interface AuthorizedComponent {
     }
 
     /**
-     * check if given auth status of the client satisfies this component's requirements.
+     * check if given client auth status satisfies this component's requirements.
      *
      * @param authing the authing
      * @return the boolean
@@ -51,9 +51,9 @@ public interface AuthorizedComponent {
     }
 
     /**
-     * Enable comp.
+     * enable/disable this component.
      *
-     * @param e the e
+     * @param e did the current client's status satisfies the requirements
      */
     default void enableComp(boolean e) {
         if (this instanceof Component Component)
@@ -61,7 +61,7 @@ public interface AuthorizedComponent {
     }
 
     /**
-     * Auth requirements int.
+     * this component's authentication requirements
      *
      * @return the int
      */

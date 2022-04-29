@@ -4,16 +4,24 @@ package ver14.Sound;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
 
 /**
- * The type Sound.
+ * Sound - represents an audio clip that can be played on command.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Sound {
-    private final static String soundEffectsPath = "/assets/SoundEffects/";
+    /**
+     * The constant soundEffectsPath.
+     */
+    private final static String ASSETS_SOUND_EFFECTS = "/assets/SoundEffects/";
+    /**
+     * The Manager.
+     */
     private final SoundManager manager;
+    /**
+     * The Clip.
+     */
     private Clip clip;
 
     /**
@@ -27,17 +35,14 @@ public class Sound {
         if (!relativePath.endsWith(".wav")) {
             relativePath += ".wav";
         }
-        relativePath = soundEffectsPath + relativePath;
+        relativePath = ASSETS_SOUND_EFFECTS + relativePath;
         try {
             clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(getClass().getResource(relativePath)));
-            clip.addLineListener(new LineListener() {
-                @Override
-                public void update(LineEvent event) {
-                    //System.out.println("addLineListener-update: "+event.getType());
-                    if (event.getType() == LineEvent.Type.STOP) {
-                        clip.setMicrosecondPosition(0);
-                    }
+            clip.addLineListener(event -> {
+                //System.out.println("addLineListener-update: "+event.getType());
+                if (event.getType() == LineEvent.Type.STOP) {
+                    clip.setMicrosecondPosition(0);
                 }
             });
 
@@ -49,9 +54,8 @@ public class Sound {
     }
 
     /**
-     * Play loop.
+     * Play forever (loop).
      */
-// Play forver (loop)
     public void playLoop() {
         if (clip == null || !manager.isSoundEnabled())
             return;
@@ -60,9 +64,8 @@ public class Sound {
     }
 
     /**
-     * Stop.
+     * Stop playing.
      */
-// Stop play
     public void stop() {
         if (clip == null)
             return;
@@ -70,9 +73,8 @@ public class Sound {
     }
 
     /**
-     * Play.
+     * Play once.
      */
-// Play only once
     public void play() {
         if (clip == null || !manager.isSoundEnabled())
             return;

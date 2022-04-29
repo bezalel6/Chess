@@ -1,6 +1,7 @@
 package ver14.Players.PlayerAI;
 
 import ver14.Model.Minimax.Minimax;
+import ver14.SharedClasses.Game.Evaluation.GameStatus;
 import ver14.SharedClasses.Game.GameSetup.AiParameters;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
@@ -20,16 +21,22 @@ public class MyAi extends PlayerAI {
         minimax = new Minimax(game.getModel(), (int) moveSearchTimeout, 0);
     }
 
-
     @Override
     public Move getMove() {
         assert minimax != null;
-        return minimax.getBestMove();
+        return minimax.getBestMove(getPlayerColor());
     }
 
     @Override
     public void disconnect(String cause, boolean notifyGameSession) {
         minimax.end();
+    }
+
+    @Override
+    public void gameOver(GameStatus gameStatus) {
+        super.gameOver(gameStatus);
+        minimax.end();
+
     }
 
     @Override

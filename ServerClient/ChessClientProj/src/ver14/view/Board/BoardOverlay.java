@@ -259,31 +259,38 @@ public class BoardOverlay extends LayerUI<JPanel> {
 //            debugCurrentMouseInfo(e);
         switch (e.getID()) {
             case MouseEvent.MOUSE_ENTERED:
-                if (currentBtn != null && currentBtn.is(BoardButton.State.HOVERED)) {
-                    currentBtn.endHover();
-                }
                 btn.startHover();
                 break;
             case MouseEvent.MOUSE_EXITED:
                 btn.endHover();
                 break;
             case MouseEvent.MOUSE_PRESSED:
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    currentBtn = btn;
+                if (e.getButton() != MouseEvent.BUTTON1) {
+                    stopCurrent();
+                }
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    startDrawing();
+                } else {
                     if (btn.isEnabled()) {
-                        if (!currentBtn.is(BoardButton.State.CLICKED_ONCE))
+                        currentBtn = btn;
+
+                        if (!currentBtn.is(BoardButton.State.CLICKED_ONCE)) {
                             currentBtn.clickMe();
-                        else {
-                            System.out.println("was clicked once");
                         }
-                        currentBtn.addState(BoardButton.State.DRAGGING);
+                        if (!currentBtn.is(BoardButton.State.MOVING_TO))
+                            currentBtn.addState(BoardButton.State.DRAGGING);
+                        else stopCurrent();
+                    } else {
+                        stopCurrent();
                     }
                     stopDrawingArrows();
-                } else if (e.getButton() == MouseEvent.BUTTON3) {
-                    startDrawing();
                 }
                 break;
             case MouseEvent.MOUSE_RELEASED:
+                if (!isInsideBoardPnl()) {
+                    stopCurrent();
+                    return;
+                }
                 BoardButton currentlyAbove = getBtn(mouseCoordinates);
 
                 switch (e.getButton()) {
@@ -296,7 +303,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
                                 } else {
                                     currentlyAbove.clickMe();
                                 }
-                                System.out.println("removed clicked once");
                                 currentBtn.removeState(BoardButton.State.CLICKED_ONCE);
                             } else if (currentBtn.is(BoardButton.State.DRAGGING)) {
                                 if (currentlyAbove != currentBtn && !currentlyAbove.canMoveTo()) {
@@ -306,7 +312,6 @@ public class BoardOverlay extends LayerUI<JPanel> {
                                 }
                                 currentBtn.removeState(BoardButton.State.DRAGGING);
                                 if (currentBtn == currentlyAbove) {
-                                    System.out.println("set click once");
                                     currentBtn.addState(BoardButton.State.CLICKED_ONCE);
                                 }
                             }
@@ -316,12 +321,23 @@ public class BoardOverlay extends LayerUI<JPanel> {
                         view.resetSelectedButtons();
                     }
                     case MouseEvent.BUTTON3 -> {
+                        stopCurrent();
                         if (isSameBtn(btn) && isDrawing)
                             btn.toggleSelected();
                         stopDrawingArrows();
                     }
                 }
                 break;
+        }
+    }
+
+    private void stopCurrent() {
+        if (currentBtn != null) {
+            boolean clickAfter = currentBtn.is(BoardButton.State.DRAGGING | BoardButton.State.HOVERED);
+            currentBtn.removeState(BoardButton.State.CLICKED_ONCE | BoardButton.State.DRAGGING | BoardButton.State.HOVERED);
+            if (clickAfter)
+                currentBtn.clickMe();
+            currentBtn = null;
         }
     }
 

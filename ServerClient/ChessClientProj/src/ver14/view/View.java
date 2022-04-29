@@ -700,7 +700,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             enableAllSquares(false);
             sidePanel.moveLog.preAdding();
             makeMove(move);
-            boardPnl.resizeIcons();
+//            boardPnl.resizeIcons();
             sidePanel.moveLog.addMove(move);
         }
     }

@@ -89,7 +89,6 @@ public class MoveLog extends JPanel {
     private void createMoveLogPnl() {
 
         JPanel moves = new JPanel(new GridLayout(1, 0));
-//        moves.setInsets(new Insets(0, 0, 0, 0));
         moves.add(whiteMoves);
         moves.add(blackMoves);
         JPanel container = new JPanel(new GridBagLayout());
@@ -137,24 +136,27 @@ public class MoveLog extends JPanel {
      */
     public synchronized void addMove(Move move) {
         Font font = FontManager.sidePanel;
-        MyJButton moveBtn = new MyJButton(StrUtils.dontCapFull(move.getAnnotation()), font);
+//        System.out.println("annotations = " + move.getAnnotation());
+        MyJButton moveBtn = new MyJButton((move.getAnnotation()), font) {
+            @Override
+            public void setText(String text) {
+                super.setText(StrUtils.dontCapFull(text));
+            }
+        };
 //        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
 
         ViewSavedBoard board = new ViewSavedBoard(boardPanel);
 
         while (move.getMovingColor() != PlayerColor.WHITE && whiteMoves.getComponents().length <= blackMoves.getComponents().length) {
-            MyJButton empty = new MyJButton("  ");
+            MyJButton empty = new MyJButton("  ") {
+            };
             empty.setEnabled(false);
             whiteMoves.add(empty);
         }
 
         if (move.getMovingColor() == PlayerColor.WHITE) {
-//            MyFakeBtn lbl = new MyFakeBtn(move.getPrevFullMoveClock() + "");
-//            lbl.setFont(font);
-
             moveBtn.setText(move.getPrevFullMoveClock() + ". " + moveBtn.getText());
-//            lbl.setSize(10, lbl.getHeight());
         }
         moveLogScroll.scrollToBottom();
         (move.getMovingColor() == PlayerColor.WHITE ? whiteMoves : blackMoves).add(moveBtn);

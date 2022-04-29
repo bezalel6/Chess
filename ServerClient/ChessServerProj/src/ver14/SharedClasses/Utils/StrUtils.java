@@ -14,11 +14,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Str utils.
+ * utility class for String related utilities
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class StrUtils {
+
+    public static String bitsStr(long num) {
+        if (num == 0)
+            return "no bit is set";
+        StringBuilder bldr = new StringBuilder("bits: ");
+        int pos = 0;
+        while (num != 0) {
+            if ((num & 1) != 0) {
+                bldr.append(pos + 1).append(" ");
+            }
+            num >>= 1;
+            pos++;
+        }
+        bldr.append("are set");
+        return bldr.toString();
+    }
 
 
     /**

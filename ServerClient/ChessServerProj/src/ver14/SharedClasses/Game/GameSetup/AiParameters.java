@@ -3,7 +3,7 @@ package ver14.SharedClasses.Game.GameSetup;
 import java.io.Serializable;
 
 
-public class AiParameters implements Serializable, TimeFormatSettable {
+public class AiParameters implements Serializable, TimeFormatComponent {
     public static final AiParameters EZ_MY_AI = new AiParameters(AiType.MyAi, TimeFormat.ULTRA_BULLET);
     public static final AiParameters EZ_STOCKFISH = new AiParameters(AiType.Stockfish, TimeFormat.ULTRA_BULLET);
     public static final int numOfFields = 1 + TimeFormat.numOfFields;

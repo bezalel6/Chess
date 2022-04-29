@@ -5,7 +5,6 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.BitData;
 import ver14.SharedClasses.Game.Moves.Direction;
 import ver14.SharedClasses.Game.PlayerColor;
-import ver14.SharedClasses.Utils.MathUtils;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
@@ -261,12 +260,12 @@ public class Bitboard implements Serializable {
         int position = 1;
         long num = bitBoard;
         while (num != 0) {
-            if ((num & num - 1) == 0) {
-                Location loc = Location.getLoc((int) MathUtils.log2(num) + position - 1);
-                setLocs.add(loc);
-                lastSetLoc = loc;
-                break;
-            }
+//            if ((num & num - 1) == 0) {
+//                Location loc = Location.getLoc((int) MathUtils.log2(num) + position - 1);
+//                setLocs.add(loc);
+//                lastSetLoc = loc;
+//                break;
+//            }
             if ((num & 1) != 0) {
                 Location loc = Location.getLoc(position - 1);
                 setLocs.add(loc);

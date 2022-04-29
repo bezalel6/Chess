@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 class TimerPnl extends JPanel {
     private static final Color tenSecondsClr = Color.RED;
+    private static long makeNoise = TimeUnit.SECONDS.toMillis(10);
     private final MyLbl timerLbl, nameLbl;
     private final SidePanel sidePanel;
     private boolean played10s = false;
@@ -34,10 +35,12 @@ class TimerPnl extends JPanel {
 
     public void setTimer(long ms) {
         timerLbl.setText(StrUtils.createTimeStr(ms));
-        if (TimeUnit.SECONDS.toMillis(10) >= ms) {
+        if (makeNoise >= ms) {
             if (!played10s) {
                 played10s = true;
-                sidePanel.client.soundManager.tenSeconds.play();
+                System.out.println("my turn = " + sidePanel.client.isMyTurn());
+                if (sidePanel.client.isMyTurn())
+                    sidePanel.client.soundManager.tenSeconds.play();
                 timerLbl.setForeground(tenSecondsClr);
             }
 

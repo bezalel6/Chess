@@ -459,23 +459,6 @@ public class Model implements Serializable {
         return getPlayersPieces(playerColor).getBB(pieceType);
     }
 
-    private void Assert(boolean b, Object... message) {
-        if (!b) {
-            String div = "\n\n\n";
-
-            String str = (moveStack.isEmpty() ? "" : "last move: " + moveStack.peek());
-            str += "\n";
-            str += StrUtils.splitArr(message);
-            str += "\n";
-            str += "assertion failed";
-            str += div;
-            str += genFenStr();
-            str += div;
-            str += board.toString();
-            throw new AssertionError(str);
-        }
-    }
-
     /**
      * Gets king.
      *
@@ -492,9 +475,25 @@ public class Model implements Serializable {
      * @return the boolean
      */
     public boolean anyLegalMove(PlayerColor playerColor) {
-        assert playerColor == currentPlayerColor;
 
-        return !MoveGenerator.generateMoves(this, GenerationSettings.ANY_LEGAL).isEmpty();
+        return playerColor == currentPlayerColor && !MoveGenerator.generateMoves(this, GenerationSettings.ANY_LEGAL).isEmpty();
+    }
+
+    private void Assert(boolean b, Object... message) {
+        if (!b) {
+            String div = "\n\n\n";
+
+            String str = (moveStack.isEmpty() ? "" : "last move: " + moveStack.peek());
+            str += "\n";
+            str += StrUtils.splitArr(message);
+            str += "\n";
+            str += "assertion failed";
+            str += div;
+            str += genFenStr();
+            str += div;
+            str += board.toString();
+            throw new AssertionError(str);
+        }
     }
 
     /**

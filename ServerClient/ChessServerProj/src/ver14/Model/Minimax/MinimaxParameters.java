@@ -1,9 +1,7 @@
 package ver14.Model.Minimax;
 
 import ver14.Model.Model;
-import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.SharedClasses.Game.Evaluation.Evaluation;
-import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
 
 
@@ -12,17 +10,14 @@ public class MinimaxParameters {
     public final boolean isMax;
     public final PlayerColor minimaxPlayerColor;
     public final int currentDepth, maxDepth;
-    public @GenerationSettings
-    int genSettings;
-    public double a, b;
+    public int a, b;
 
-    public MinimaxParameters(Model model, boolean isMax, int maxDepth, PlayerColor minimaxPlayerColor, Move rootMove) {
-        this(model, isMax, 1, maxDepth, minimaxPlayerColor, Evaluation.LOSS_EVAL, Evaluation.WIN_EVAL, GenerationSettings.LEGALIZE);
+    public MinimaxParameters(Model model, boolean isMax, int maxDepth, PlayerColor minimaxPlayerColor) {
+        this(model, isMax, 1, maxDepth, minimaxPlayerColor, Evaluation.LOSS_EVAL, Evaluation.WIN_EVAL);
     }
 
-    public MinimaxParameters(Model model, boolean isMax, int currentDepth, int maxDepth, PlayerColor minimaxPlayerColor, double a, double b, @GenerationSettings int genSettings) {
+    public MinimaxParameters(Model model, boolean isMax, int currentDepth, int maxDepth, PlayerColor minimaxPlayerColor, int a, int b) {
         this.model = model;
-        this.genSettings = genSettings;
         this.isMax = isMax;
         this.maxDepth = maxDepth;
         this.minimaxPlayerColor = minimaxPlayerColor;
@@ -41,8 +36,6 @@ public class MinimaxParameters {
         }
         return b <= a;
     }
-
-//    private static final int
 
 
     public boolean isMax() {
@@ -70,6 +63,6 @@ public class MinimaxParameters {
     }
 
     public MinimaxParameters nextDepth() {
-        return new MinimaxParameters(model, !isMax, currentDepth + 1, maxDepth, minimaxPlayerColor, a, b, genSettings);
+        return new MinimaxParameters(model, !isMax, currentDepth + 1, maxDepth, minimaxPlayerColor, a, b);
     }
 }

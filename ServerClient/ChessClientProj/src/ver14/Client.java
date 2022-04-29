@@ -56,6 +56,7 @@ public class Client implements EnvManager {
 
 
     private static String START_AT_ADDRESS = null;
+    private static boolean START_FULLSCREEN = false;
 
     public final SoundManager soundManager;
     // for GUI
@@ -96,7 +97,7 @@ public class Client implements EnvManager {
     public static void main(String[] args) {
         ArgsUtil util = ArgsUtil.create(args);
         START_AT_ADDRESS = util.equalsSign("address").getString();
-
+        START_FULLSCREEN = util.plainTextIgnoreCase("-f").exists();
         Client client = new Client();
         client.runClient();
     }
@@ -122,6 +123,8 @@ public class Client implements EnvManager {
 
     private void setupClientGui() {
         view = new View(this);
+        if (START_FULLSCREEN)
+            view.getWin().toggleFullscreen();
     }
 
     private String showServerAddressDialog() throws UnknownHostException {
@@ -368,6 +371,7 @@ public class Client implements EnvManager {
         this.isGettingMove = false;
         updateByMove(move);
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
+        this.possibleMoves = null;
     }
 
 //    private void initGame(Message message) {
@@ -661,5 +665,9 @@ public class Client implements EnvManager {
 
     public void cancelQuestion(Question.QuestionType questionType) {
         clientSocket.writeMessage(Message.cancelQuestion(new Question("", questionType), getUsername() + " cancelled"));
+    }
+
+    public boolean isMyTurn() {
+        return isGettingMove;
     }
 }

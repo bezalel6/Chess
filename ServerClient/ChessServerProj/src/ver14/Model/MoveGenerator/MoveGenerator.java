@@ -164,8 +164,8 @@ public class MoveGenerator {
      */
     public ModelMovesList getGeneratedMoves() {
         try {
-            generatePawnMoves();
-            generateSlidingMoves();
+//            generatePawnMoves();
+//            generateSlidingMoves();
             generateKnightMoves();
             generateKingMoves();
         } catch (ModelMovesList.FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
@@ -185,77 +185,6 @@ public class MoveGenerator {
         }
 
         return generatedMoves;
-    }
-
-    /**
-     * Generate pawn moves.
-     *
-     * @throws ModelMovesList.FoundLegalMove when the generation settings are set to find any legal move in the position and one is found
-     */
-    public void generatePawnMoves() throws ModelMovesList.FoundLegalMove {
-        Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
-        int mult = movingPlayerColor.diff;
-        Locs setLocs = bitboard.getSetLocs();
-        for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
-            Location pawnLoc = setLocs.get(i);
-            int promotionRow = movingPlayerColor.getOpponent().startingRow;
-            int startingIndex = generatedMoves.size();
-            boolean promoting = pawnLoc.row + mult == promotionRow;
-            Location oneStep = Location.getLoc(pawnLoc, 8 * mult);
-
-            if (model.isSquareEmpty(oneStep)) {
-                Move m = new Move(pawnLoc, oneStep);
-                boolean added = generatedMoves.add(m, PieceType.PAWN);
-
-                if (added && !promoting && movingPlayerColor.startingRow + mult == pawnLoc.row) {
-                    Location doublePawnPush = Location.getLoc(pawnLoc.asInt + 8 * mult * 2);
-                    if (model.isSquareEmpty(doublePawnPush)) {
-                        m = new Move(pawnLoc, doublePawnPush) {{
-                            setEnPassantLoc(oneStep);
-                            setMoveFlag(MoveFlag.DoublePawnPush);
-                        }};
-                        generatedMoves.add(m, PieceType.PAWN);
-                    }
-                }
-            }
-            generatedMoves.add(checkPawnCapture(pawnLoc, Location.getLoc(pawnLoc, 9 * mult)), PieceType.PAWN);
-
-            generatedMoves.add(checkPawnCapture(pawnLoc, Location.getLoc(pawnLoc, 7 * mult)), PieceType.PAWN);
-
-            if (promoting) {
-                for (int j = startingIndex, size = generatedMoves.size(); j < size; j++) {
-                    Move move = generatedMoves.get(j);
-                    boolean set = false;
-                    for (PieceType pieceType : PieceType.CAN_PROMOTE_TO) {
-                        if (!set) {
-                            move.setPromotingTo(pieceType);
-                            set = true;
-                        } else {
-                            generatedMoves.add(new Move(move) {{
-                                setPromotingTo(pieceType);
-                            }}, PieceType.PAWN);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Generate sliding moves.
-     *
-     * @throws ModelMovesList.FoundLegalMove the found legal move
-     */
-    public void generateSlidingMoves() throws ModelMovesList.FoundLegalMove {
-        for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
-            generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
-        }
-        for (Location bishopLoc : myPieces.getBB(PieceType.BISHOP).getSetLocs()) {
-            generateSlidingPieceMoves(bishopLoc, PieceType.BISHOP);
-        }
-        for (Location queenLoc : myPieces.getBB(PieceType.QUEEN).getSetLocs()) {
-            generateSlidingPieceMoves(queenLoc, PieceType.QUEEN);
-        }
     }
 
     /**
@@ -319,6 +248,73 @@ public class MoveGenerator {
     }
 
     /**
+     * Num squares to edge int.
+     *
+     * @param loc       the loc
+     * @param direction the direction
+     * @return the int
+     */
+    public static int numSquaresToEdge(Location loc, Direction direction) {
+        if (direction.getCombination().length != 1)
+            return 1;
+        return numSquaresToEdge[loc.asInt][direction.asInt];
+    }
+
+    /**
+     * Generate pawn moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove when the generation settings are set to find any legal move in the position and one is found
+     */
+    public void generatePawnMoves() throws ModelMovesList.FoundLegalMove {
+        Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
+        int mult = movingPlayerColor.diff;
+        Locs setLocs = bitboard.getSetLocs();
+        for (int i = 0, setLocsSize = setLocs.size(); i < setLocsSize; i++) {
+            Location pawnLoc = setLocs.get(i);
+            int promotionRow = movingPlayerColor.getOpponent().startingRow;
+            int startingIndex = generatedMoves.size();
+            boolean promoting = pawnLoc.row + mult == promotionRow;
+            Location oneStep = Location.getLoc(pawnLoc, 8 * mult);
+
+            if (model.isSquareEmpty(oneStep)) {
+                Move m = new Move(pawnLoc, oneStep);
+                boolean added = generatedMoves.add(m, PieceType.PAWN);
+
+                if (added && !promoting && movingPlayerColor.startingRow + mult == pawnLoc.row) {
+                    Location doublePawnPush = Location.getLoc(pawnLoc.asInt + 8 * mult * 2);
+                    if (model.isSquareEmpty(doublePawnPush)) {
+                        m = new Move(pawnLoc, doublePawnPush) {{
+                            setEnPassantLoc(oneStep);
+                            setMoveFlag(MoveFlag.DoublePawnPush);
+                        }};
+                        generatedMoves.add(m, PieceType.PAWN);
+                    }
+                }
+            }
+            generatedMoves.add(checkPawnCapture(pawnLoc, Location.getLoc(pawnLoc, 9 * mult)), PieceType.PAWN);
+
+            generatedMoves.add(checkPawnCapture(pawnLoc, Location.getLoc(pawnLoc, 7 * mult)), PieceType.PAWN);
+
+            if (promoting) {
+                for (int j = startingIndex, size = generatedMoves.size(); j < size; j++) {
+                    Move move = generatedMoves.get(j);
+                    boolean set = false;
+                    for (PieceType pieceType : PieceType.CAN_PROMOTE_TO) {
+                        if (!set) {
+                            move.setPromotingTo(pieceType);
+                            set = true;
+                        } else {
+                            generatedMoves.add(new Move(move) {{
+                                setPromotingTo(pieceType);
+                            }}, PieceType.PAWN);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Check pawn capture move.
      *
      * @param movingFrom the moving from
@@ -342,6 +338,23 @@ public class MoveGenerator {
             return null;
         }
         return new Move(movingFrom, capLoc, dest.pieceType);
+    }
+
+    /**
+     * Generate sliding moves.
+     *
+     * @throws ModelMovesList.FoundLegalMove the found legal move
+     */
+    public void generateSlidingMoves() throws ModelMovesList.FoundLegalMove {
+        for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
+            generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
+        }
+        for (Location bishopLoc : myPieces.getBB(PieceType.BISHOP).getSetLocs()) {
+            generateSlidingPieceMoves(bishopLoc, PieceType.BISHOP);
+        }
+        for (Location queenLoc : myPieces.getBB(PieceType.QUEEN).getSetLocs()) {
+            generateSlidingPieceMoves(queenLoc, PieceType.QUEEN);
+        }
     }
 
     /**
@@ -374,19 +387,6 @@ public class MoveGenerator {
                 }
             }
         }
-    }
-
-    /**
-     * Num squares to edge int.
-     *
-     * @param loc       the loc
-     * @param direction the direction
-     * @return the int
-     */
-    public static int numSquaresToEdge(Location loc, Direction direction) {
-        if (direction.getCombination().length != 1)
-            return 1;
-        return numSquaresToEdge[loc.asInt][direction.asInt];
     }
 
     /**

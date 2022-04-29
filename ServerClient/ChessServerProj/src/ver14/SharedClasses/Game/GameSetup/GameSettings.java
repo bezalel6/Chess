@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
-public class GameSettings implements Serializable, TimeFormatSettable {
+public class GameSettings implements Serializable, TimeFormatComponent {
     public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.ULTRA_BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
 
     private PlayerColor playerToMove;

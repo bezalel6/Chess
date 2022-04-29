@@ -67,6 +67,15 @@ public class BasicMove implements Serializable {
     }
 
     /**
+     * Gets flipped.
+     *
+     * @return the flipped
+     */
+    public BasicMove getFlipped() {
+        return getFlipped(this);
+    }
+
+    /**
      * Gets a copy of the provided move with the source and destination flipped
      *
      * @param basicMove the original move

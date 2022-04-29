@@ -44,6 +44,7 @@ public class MinimaxTests extends Tests {
     protected void BeforeMethod(Method method, Object[] testData) {
         super.BeforeMethod(method, testData);
         Minimax.SHOW_UI = true;
+        Minimax.LOG = true;
     }
 
     @Test(testName = "minimax vs minimax")
@@ -65,10 +66,11 @@ public class MinimaxTests extends Tests {
 
     @Test
     private void t() {
-        model.setup("r4k1r/1q6/4pNp1/p3PbQ1/5N1p/1p5P/2p3P1/2R1R2K w - - 0 1");
-        Minimax minimax = new Minimax(model, 500);
-        System.out.println(minimax.getEvaluation(PlayerColor.WHITE));
-        System.out.println(minimax.getBestMove());
+        model.setup(null);
+        model.printBoard();
+        Minimax minimax = new Minimax(model, 100000);
+        System.out.println(minimax.getEvaluation(PlayerColor.BLACK));
+//        System.out.println(minimax.getBestMove());
     }
 
     @Test
@@ -88,7 +90,7 @@ public class MinimaxTests extends Tests {
     private void testStarting() {
 //        model.makeMove(model.findMove(new BasicMove(Location.E2, Location.E4)));
         Minimax minimax = new Minimax(model, 3000);
-        System.out.println(minimax.getBestMove());
+        System.out.println(minimax.getBestMove(PlayerColor.WHITE));
     }
 
     @Test

@@ -4,12 +4,14 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 /**
- * Evaluation.
+ * Evaluation - represents a position's evaluation relative to a player color.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -49,13 +51,13 @@ public class Evaluation implements Serializable {
     }
 
     /**
-     * The Detailed eval.
-     */
-    private final ArrayList<EvaluationDetail> detailedEval;
-    /**
      * The Game status.
      */
     private final GameStatus gameStatus;
+    /**
+     * The Detailed eval.
+     */
+    private Collection<EvaluationDetail> detailedEval;
     /**
      * The Eval.
      */
@@ -77,6 +79,9 @@ public class Evaluation implements Serializable {
      */
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(gameStatusEvalMap.get(gameStatus.getGameStatusType()), gameStatus, evaluationFor);
+        if (gameStatus.getSpecificStatus() == GameStatus.SpecificStatus.ThreeFoldRepetition) {
+            System.out.println("found repet! " + this);
+        }
 
     }
 
@@ -111,7 +116,7 @@ public class Evaluation implements Serializable {
      * @param other the other
      */
     public Evaluation(Evaluation other) {
-        this(other.eval, other.gameStatus, other.evaluationFor);
+        this(other.eval, new GameStatus(other.gameStatus), other.evaluationFor);
         this.evaluationDepth = other.evaluationDepth;
         if (MAKE_DETAILED)
 
@@ -139,14 +144,15 @@ public class Evaluation implements Serializable {
     public void addDetail(EvaluationParameters parm, int value) {
         eval += value * parm.weight;
         if (MAKE_DETAILED)
-            detailedEval.add(new EvaluationDetail(parm, value));
+            detailedEval.add(new EvaluationDetail(parm, (int) (value * parm.weight)));
     }
 
     /**
      * Assert not game over.
      */
     public void assertNotGameOver() {
-        assert eval > LOSS_EVAL && eval < WIN_EVAL;
+        if (eval <= LOSS_EVAL || eval >= WIN_EVAL)
+            throw new AssertionError("evaluation %d is not within limits".formatted(eval));
     }
 
     /**
@@ -245,12 +251,25 @@ public class Evaluation implements Serializable {
     @Override
     public String toString() {
         return "Evaluation{" +
-                "detailedEval=" + detailedEval +
-                ", eval=" + eval +
+                "eval=" + convertFromCentipawns() +
+                ", detailedEval=" + detailedEval +
                 ", gameStatus=" + gameStatus +
                 ", evaluationFor=" + evaluationFor +
                 ", evaluationDepth=" + evaluationDepth +
                 '}';
+    }
+
+    /**
+     * Convert from centipawns float.
+     *
+     * @return the float
+     */
+    public float convertFromCentipawns() {
+        return convertFromCentipawns(eval);
+    }
+
+    public static float convertFromCentipawns(int centipawns) {
+        return ((float) centipawns) / 100;
     }
 
     /**
@@ -293,6 +312,9 @@ public class Evaluation implements Serializable {
      */
     public void flipEval() {
         eval = -eval;
+        if (MAKE_DETAILED) {
+            detailedEval = detailedEval.stream().map(d -> new EvaluationDetail(d.parm, -d.eval)).collect(Collectors.toList());
+        }
     }
 
     /**
@@ -303,20 +325,11 @@ public class Evaluation implements Serializable {
     }
 
     /**
-     * Convert from centipawns float.
-     *
-     * @return the float
-     */
-    public float convertFromCentipawns() {
-        return ((float) eval) / 100;
-    }
-
-    /**
      * Evaluation detail.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
-    public record EvaluationDetail(EvaluationParameters parm, double eval) implements Serializable {
+    public record EvaluationDetail(EvaluationParameters parm, int eval) implements Serializable {
         /**
          * To string string.
          *
@@ -324,7 +337,7 @@ public class Evaluation implements Serializable {
          */
         @Override
         public String toString() {
-            return parm + ": " + eval;
+            return parm + ": " + convertFromCentipawns(eval);
         }
     }
 }

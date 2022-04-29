@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
 
 
 /**
- * Game.
+ * Game - represents a game between two {@link Player}s.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -375,6 +375,8 @@ public class Game {
 
         model.makeMove(move);
         moveStack.push(move);
+
+        session.log(model.getMoveStack().toString());
 
         currentPlayer.getPartner().updateByMove(move);
 
