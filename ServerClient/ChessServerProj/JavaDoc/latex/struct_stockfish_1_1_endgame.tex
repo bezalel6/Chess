@@ -1,0 +1,241 @@
+\hypertarget{struct_stockfish_1_1_endgame}{}\doxysection{Endgame\texorpdfstring{$<$}{<} E, T \texorpdfstring{$>$}{>}}
+\label{struct_stockfish_1_1_endgame}\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+Inheritance diagram for Endgame\texorpdfstring{$<$}{<} E, T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_stockfish_1_1_endgame}
+\end{center}
+\end{figure}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a2abe876a81b2b9fcdbf8c27959fbd390}\label{struct_stockfish_1_1_endgame_a2abe876a81b2b9fcdbf8c27959fbd390}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/21]}}
+{\footnotesize\ttfamily T operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Mate with KX vs K. This function is used to evaluate positions with king and plenty of material vs a lone king. It simply gives the attacking side a bonus for driving the defending king towards the edge of the board, and for keeping the distance between the two kings small. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Mate with KBN vs K. This is similar to KX vs K, but we have to drive the defending king towards a corner square that our bishop attacks. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+KP vs K. This endgame is evaluated with the help of a bitbase. 
+
+
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KR vs KP. This is a somewhat tricky endgame to evaluate precisely without a bitbase. The function below returns drawish scores when the pawn is far advanced with support of the king, while the attacking king is far away. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KR vs KB. This is very simple, and always returns drawish scores. The score is slightly bigger when the defending king is close to the edge. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KR vs KN. The attacking side has slightly better winning chances than in KR vs KB, particularly if the king and the knight are far apart. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KQ vs KP. In general, this is a win for the stronger side, but there are a few important exceptions. A pawn on 7th rank and on the A,C,F or H files with a king positioned next to it can be a draw, so in that case, we only use the distance between the kings. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KQ vs KR. This is almost identical to KX vs K\+: we give the attacking king a bonus for having the kings close together, and for forcing the defending king towards the edge. If we also take care to avoid null move for the defending side in the search, this is usually sufficient to win KQ vs KR. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}\label{struct_stockfish_1_1_endgame_a9c9c188bfcd0fbdcd87dcd714a1a2542}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KNN vs KP. Very drawish, but there are some mate opportunities if we can press the weak\+Side King to a corner before the pawn advances too much. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_afc40e7fe1971df6660bd90fceca48ac2}\label{struct_stockfish_1_1_endgame_afc40e7fe1971df6660bd90fceca48ac2}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/21]}}
+{\footnotesize\ttfamily Value operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Some cases of trivial draws. 
+
+
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KB and one or more pawns vs K. It checks for draws with rook pawns and a bishop of the wrong color. If such a draw is detected, SCALE\+\_\+\+FACTOR\+\_\+\+DRAW is returned. If not, the return value is SCALE\+\_\+\+FACTOR\+\_\+\+NONE, i.\+e. no scaling will be used. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [13/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KQ vs KR and one or more pawns. It tests for fortress draws with a rook on the third rank defended by a pawn. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [14/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KRP vs KR. This function knows a handful of the most important classes of drawn positions, but is far from perfect. It would probably be a good idea to add more knowledge in the future.
+
+It would also be nice to rewrite the actual code for this function, which is mostly copied from Glaurung 1.\+x, and isn\textquotesingle{}t very pretty. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [15/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [16/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KRPP vs KRP. There is just a single rule\+: if the stronger side has no passed pawns and the defending king is actively placed, the position is drawish. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [17/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+K and two or more pawns vs K. There is just a single rule here\+: if all pawns are on the same rook file and are blocked by the defending king, it\textquotesingle{}s a draw. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [18/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KBP vs KB. There are two rules\+: if the defending king is somewhere along the path of the pawn, and the square of the king is not of the same color as the stronger side\textquotesingle{}s bishop, it\textquotesingle{}s a draw. If the two bishops have opposite color, it\textquotesingle{}s almost always a draw. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [19/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+KBPP vs KB. It detects a few basic draws with opposite-\/colored bishops. 
+
+
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [20/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KBP vs KN. There is a single rule\+: if the defending king is somewhere along the path of the pawn, and the square of the king is not of the same color as the stronger side\textquotesingle{}s bishop, it\textquotesingle{}s a draw. 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}\label{struct_stockfish_1_1_endgame_ab6393e14d6764969caca3b3029779098}} 
+\index{Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Endgame$<$ E, T $>$@{Endgame$<$ E, T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [21/21]}}
+{\footnotesize\ttfamily Scale\+Factor operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+KP vs KP. This is done by removing the weakest side\textquotesingle{}s pawn and probing the KP vs K bitbase\+: if the weakest side has a draw without the pawn, it probably has at least a draw with the pawn as well. The exception is when the stronger side\textquotesingle{}s pawn is far advanced and not on a rook file; in this case it is often possible to win (e.\+g. 8/4k3/3p4/3\+P4/6\+K1/8/8/8 w -\/ -\/ 0 1). 
+
+Implements \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base$<$ eg\+\_\+type$<$ E $>$ $>$}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/endgame.\+h\end{DoxyCompactItemize}

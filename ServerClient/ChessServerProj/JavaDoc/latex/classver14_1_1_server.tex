@@ -1,0 +1,272 @@
+\hypertarget{classver14_1_1_server}{}\doxysection{Server}
+\label{classver14_1_1_server}\index{Server@{Server}}
+Inheritance diagram for Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classver14_1_1_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classver14_1_1_server_a1380283f9047c5c2307a55a8b80e7a21}{SERVER\+\_\+\+WIN\+\_\+\+TITLE}} = \char`\"{}Chess \mbox{\hyperlink{classver14_1_1_server}{Server}}\char`\"{}
+\item 
+static final Font \mbox{\hyperlink{classver14_1_1_server_acf4aa94b6aaf4e774979c5d26a04da79}{SERVER\+\_\+\+LOG\+\_\+\+FONT}} = new Font(\char`\"{}Consolas\char`\"{}, Font.\+PLAIN, 16)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classver14_1_1_server}{Server}} -\/ represents a chess server
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_server_af2f1305573ef7939b3e8400354878e0d}\label{classver14_1_1_server_af2f1305573ef7939b3e8400354878e0d}} 
+\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_server}{Server}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for Chess\+Server. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_server_a1a62fb26a6cc9fd830b0d12097d9aad2}\label{classver14_1_1_server_a1a62fb26a6cc9fd830b0d12097d9aad2}} 
+\index{Server@{Server}!log@{log}}
+\index{log@{log}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void log (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})}
+
+Log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_a71bc61514735f66fbd22efad49d128e2}\label{classver14_1_1_server_a71bc61514735f66fbd22efad49d128e2}} 
+\index{Server@{Server}!syncedListUpdated@{syncedListUpdated}}
+\index{syncedListUpdated@{syncedListUpdated}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{syncedListUpdated()}{syncedListUpdated()}}
+{\footnotesize\ttfamily void synced\+List\+Updated (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_sync_1_1_synced_items}{Synced\+Items}}$<$?$>$}]{list }\end{DoxyParamCaption})}
+
+notifies all players of a change in a synchronized list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_a55486a266e6a0e200c771d28bad54133}\label{classver14_1_1_server_a55486a266e6a0e200c771d28bad54133}} 
+\index{Server@{Server}!log@{log}}
+\index{log@{log}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void log (\begin{DoxyParamCaption}\item[{String}]{msg,  }\item[{Exception}]{ex,  }\item[{JFrame...}]{win }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Log.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg \\
+\hline
+{\em ex} & the ex \\
+\hline
+{\em win} & the win \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_a8b260eecbaabcef8473fd87ada040682}\label{classver14_1_1_server_a8b260eecbaabcef8473fd87ada040682}} 
+\index{Server@{Server}!main@{main}}
+\index{main@{main}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The entry point of the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the input arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_ab704e21febb6ba6f62fd7182fabea02b}\label{classver14_1_1_server_ab704e21febb6ba6f62fd7182fabea02b}} 
+\index{Server@{Server}!runServer@{runServer}}
+\index{runServer@{runServer}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{runServer()}{runServer()}}
+{\footnotesize\ttfamily void run\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Run the server -\/ wait for clients to connect and handle them \mbox{\Hypertarget{classver14_1_1_server_ace515fe25c0d5dcd56f728d39540e469}\label{classver14_1_1_server_ace515fe25c0d5dcd56f728d39540e469}} 
+\index{Server@{Server}!login@{login}}
+\index{login@{login}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_players_1_1_player_net_1_1_player_net}{Player\+Net}} login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket}{App\+Socket}}}]{app\+Socket }\end{DoxyParamCaption})}
+
+Login player net.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app\+Socket} & the app socket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the player net 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_server_ac6b63ae5e01323b6e63b022e8e67fa1a}\label{classver14_1_1_server_ac6b63ae5e01323b6e63b022e8e67fa1a}} 
+\index{Server@{Server}!endOfGameSession@{endOfGameSession}}
+\index{endOfGameSession@{endOfGameSession}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{endOfGameSession()}{endOfGameSession()}}
+{\footnotesize\ttfamily void end\+Of\+Game\+Session (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_game_1_1_game_session}{Game\+Session}}}]{session }\end{DoxyParamCaption})}
+
+End of game session.
+
+
+\begin{DoxyParams}{Parameters}
+{\em session} & the session \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_a2475ed62d78c3b61e233bde884237be4}\label{classver14_1_1_server_a2475ed62d78c3b61e233bde884237be4}} 
+\index{Server@{Server}!gameSetup@{gameSetup}}
+\index{gameSetup@{gameSetup}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{gameSetup()}{gameSetup()}}
+{\footnotesize\ttfamily void game\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_players_1_1_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+Game setup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_ad950915aee6c9758487a49e94b1f5691}\label{classver14_1_1_server_ad950915aee6c9758487a49e94b1f5691}} 
+\index{Server@{Server}!getJoinableGames@{getJoinableGames}}
+\index{getJoinableGames@{getJoinableGames}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{getJoinableGames()}{getJoinableGames()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_sync_1_1_synced_items}{Synced\+Items}}$<$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info}{Game\+Info}} $>$ get\+Joinable\+Games (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_players_1_1_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+Gets joinable games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player net \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the joinable games 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_server_a5482abe1f083b596722bad0800b6ae4b}\label{classver14_1_1_server_a5482abe1f083b596722bad0800b6ae4b}} 
+\index{Server@{Server}!getResumableGames@{getResumableGames}}
+\index{getResumableGames@{getResumableGames}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{getResumableGames()}{getResumableGames()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_sync_1_1_synced_items}{Synced\+Items}}$<$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info}{Game\+Info}} $>$ get\+Resumable\+Games (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_players_1_1_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+Gets resumable games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the resumable games 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_server_a6c5df5606881ada0825b2ff25fee198a}\label{classver14_1_1_server_a6c5df5606881ada0825b2ff25fee198a}} 
+\index{Server@{Server}!playerDisconnected@{playerDisconnected}}
+\index{playerDisconnected@{playerDisconnected}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{playerDisconnected()}{playerDisconnected()}}
+{\footnotesize\ttfamily synchronized void player\+Disconnected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_players_1_1_player}{Player}}}]{player,  }\item[{String}]{message }\end{DoxyParamCaption})}
+
+Player disconnected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+{\em message} & the message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_server_a357df8f15c4c6daeaa3ae06e662b68af}\label{classver14_1_1_server_a357df8f15c4c6daeaa3ae06e662b68af}} 
+\index{Server@{Server}!createUsernameSuggestions@{createUsernameSuggestions}}
+\index{createUsernameSuggestions@{createUsernameSuggestions}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{createUsernameSuggestions()}{createUsernameSuggestions()}}
+{\footnotesize\ttfamily Array\+List$<$ String $>$ create\+Username\+Suggestions (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})}
+
+Create username suggestions array list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the array list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_server_a419d2a8d4758edec632946be02b5ed1f}\label{classver14_1_1_server_a419d2a8d4758edec632946be02b5ed1f}} 
+\index{Server@{Server}!handledErr@{handledErr}}
+\index{handledErr@{handledErr}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{handledErr()}{handledErr()}}
+{\footnotesize\ttfamily void handled\+Err (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+Handled err.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the err \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a419d2a8d4758edec632946be02b5ed1f}{Env\+Manager}}.
+
+\mbox{\Hypertarget{classver14_1_1_server_a927c94886c93f110e46675fbaef5f61e}\label{classver14_1_1_server_a927c94886c93f110e46675fbaef5f61e}} 
+\index{Server@{Server}!criticalErr@{criticalErr}}
+\index{criticalErr@{criticalErr}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{criticalErr()}{criticalErr()}}
+{\footnotesize\ttfamily void critical\+Err (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error}{My\+Error}}}]{err }\end{DoxyParamCaption})}
+
+Critical err.
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & the error \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager_a927c94886c93f110e46675fbaef5f61e}{Env\+Manager}}.
+
+\mbox{\Hypertarget{classver14_1_1_server_ae903a2b9bfb8910e1024e14e9b6378d2}\label{classver14_1_1_server_ae903a2b9bfb8910e1024e14e9b6378d2}} 
+\index{Server@{Server}!dbRequest@{dbRequest}}
+\index{dbRequest@{dbRequest}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{dbRequest()}{dbRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response}{DBResponse}} db\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request}{DBRequest}}}]{request }\end{DoxyParamCaption})}
+
+Db request db response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db response 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_server_a1380283f9047c5c2307a55a8b80e7a21}\label{classver14_1_1_server_a1380283f9047c5c2307a55a8b80e7a21}} 
+\index{Server@{Server}!SERVER\_WIN\_TITLE@{SERVER\_WIN\_TITLE}}
+\index{SERVER\_WIN\_TITLE@{SERVER\_WIN\_TITLE}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{SERVER\_WIN\_TITLE}{SERVER\_WIN\_TITLE}}
+{\footnotesize\ttfamily final String SERVER\+\_\+\+WIN\+\_\+\+TITLE = \char`\"{}Chess \mbox{\hyperlink{classver14_1_1_server}{Server}}\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant SERVER\+\_\+\+WIN\+\_\+\+TITLE. \mbox{\Hypertarget{classver14_1_1_server_acf4aa94b6aaf4e774979c5d26a04da79}\label{classver14_1_1_server_acf4aa94b6aaf4e774979c5d26a04da79}} 
+\index{Server@{Server}!SERVER\_LOG\_FONT@{SERVER\_LOG\_FONT}}
+\index{SERVER\_LOG\_FONT@{SERVER\_LOG\_FONT}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{SERVER\_LOG\_FONT}{SERVER\_LOG\_FONT}}
+{\footnotesize\ttfamily final Font SERVER\+\_\+\+LOG\+\_\+\+FONT = new Font(\char`\"{}Consolas\char`\"{}, Font.\+PLAIN, 16)\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant SERVER\+\_\+\+LOG\+\_\+\+FONT. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/Server.\+java\end{DoxyCompactItemize}

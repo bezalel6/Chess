@@ -1,0 +1,28 @@
+\hypertarget{struct_stockfish_1_1_t_t_entry}{}\doxysection{TTEntry}
+\label{struct_stockfish_1_1_t_t_entry}\index{TTEntry@{TTEntry}}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_t_t_entry_a239bd76fb7657a46649aede59fc388a2}\label{struct_stockfish_1_1_t_t_entry_a239bd76fb7657a46649aede59fc388a2}} 
+class {\bfseries Transposition\+Table}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} struct is the 10 bytes transposition table entry, defined as below\+:
+
+key 16 bit depth 8 bit generation 5 bit pv node 1 bit bound type 2 bit move 16 bit value 16 bit eval value 16 bit 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_t_t_entry_a73026a0108836d8581fa13238889ea14}\label{struct_stockfish_1_1_t_t_entry_a73026a0108836d8581fa13238889ea14}} 
+\index{TTEntry@{TTEntry}!save@{save}}
+\index{save@{save}!TTEntry@{TTEntry}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void save (\begin{DoxyParamCaption}\item[{Key}]{k,  }\item[{Value}]{v,  }\item[{bool}]{pv,  }\item[{Bound}]{b,  }\item[{Depth}]{d,  }\item[{\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}}]{m,  }\item[{Value}]{ev }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_t_t_entry_a73026a0108836d8581fa13238889ea14}{TTEntry\+::save()}} populates the \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} with a new node\textquotesingle{}s data, possibly overwriting an old position. Update is not atomic and can be racy. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tt.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tt.\+cpp\end{DoxyCompactItemize}

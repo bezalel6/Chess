@@ -1,0 +1,138 @@
+\hypertarget{classver14_1_1_model_1_1_f_e_n}{}\doxysection{FEN}
+\label{classver14_1_1_model_1_1_f_e_n}\index{FEN@{FEN}}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classver14_1_1_model_1_1_f_e_n_a6d8790630530047f484f22982b93413c}{rnd\+Fens}} = \{\char`\"{}rnb1kb1r/pppppppp/3q1n2/8/4K3/8/PPPPPPPP/RNBQ1\+BNR w kq -\/ 0 1\char`\"{}, \char`\"{}3K4/n2b3q/1PP1r1p1/2k1\+P3/5Qp1/3P1\+N2/P4\+P2/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}3K4/n2b3q/1PP1r1p1/2k1\+P3/5Qp1/3P1\+N2/P4\+P2/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}8/4b2p/P5\+Bk/3KR1p1/1N1pp1pP/q7/1QP5/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}5q2/2n1p3/1P1\+P1\+PN1/7K/5p2/1n6/b1\+P2k\+PP/3B4 w -\/ -\/ 0 1\char`\"{}, \char`\"{}k5n1/3pbp2/2P2\+P2/p2\+N4/P1\+PP3R/8/2K3\+Qp/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}4B2r/8/1P6/6K1/q\+P2p3/Q1\+P2\+Rp1/2P3kp/Nb6 w -\/ -\/ 0 1\char`\"{}\}
+\item 
+static final String \mbox{\hyperlink{classver14_1_1_model_1_1_f_e_n_a8f4771e7c74995a1e7f3b6308f83c187}{castling}} = \char`\"{}r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3\+K2R w KQkq -\/ 0 1\char`\"{}
+\item 
+static final String \mbox{\hyperlink{classver14_1_1_model_1_1_f_e_n_a313fcfe07d9f2f355e50b947587190b2}{starting\+Fen}} = \char`\"{}rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -\/ 0 1\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fen -\/ utility class used for loading a position from a \mbox{\hyperlink{classver14_1_1_model_1_1_f_e_n}{FEN}} string, and creating a \mbox{\hyperlink{classver14_1_1_model_1_1_f_e_n}{FEN}} string from a given position.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\href{https://www.chessprogramming.org/Forsyth-Edwards_Notation}{\texttt{ ...}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a5d2051f4f22e431a1a0279007a621712}\label{classver14_1_1_model_1_1_f_e_n_a5d2051f4f22e431a1a0279007a621712}} 
+\index{FEN@{FEN}!rndFen@{rndFen}}
+\index{rndFen@{rndFen}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{rndFen()}{rndFen()}}
+{\footnotesize\ttfamily static String rnd\+Fen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Rnd fen string. not actually random just random element from the arr
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a2f9508c2d77cb7f19e0130a12d2c8859}\label{classver14_1_1_model_1_1_f_e_n_a2f9508c2d77cb7f19e0130a12d2c8859}} 
+\index{FEN@{FEN}!generateFEN@{generateFEN}}
+\index{generateFEN@{generateFEN}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{generateFEN()}{generateFEN()}}
+{\footnotesize\ttfamily static String generate\+FEN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generate fen string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the fen for the given model\textquotesingle{}s position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a066c5ecdd82c4046f1426ca1868be975}\label{classver14_1_1_model_1_1_f_e_n_a066c5ecdd82c4046f1426ca1868be975}} 
+\index{FEN@{FEN}!assertFen@{assertFen}}
+\index{assertFen@{assertFen}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{assertFen()}{assertFen()}}
+{\footnotesize\ttfamily static void assert\+Fen (\begin{DoxyParamCaption}\item[{String}]{fen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Asserts fen by using regex. NOTE\+: this isn\textquotesingle{}t a legality check.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & the fen \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a793aeab1341a2c036ed232f344617ec8}\label{classver14_1_1_model_1_1_f_e_n_a793aeab1341a2c036ed232f344617ec8}} 
+\index{FEN@{FEN}!isValidFen@{isValidFen}}
+\index{isValidFen@{isValidFen}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{isValidFen()}{isValidFen()}}
+{\footnotesize\ttfamily static boolean is\+Valid\+Fen (\begin{DoxyParamCaption}\item[{String}]{fen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is valid fen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & the fen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the fen is valid and false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a8037789ecd2c7f4a7ab5d2a033257fec}\label{classver14_1_1_model_1_1_f_e_n_a8037789ecd2c7f4a7ab5d2a033257fec}} 
+\index{FEN@{FEN}!extractEnPassantTargetLoc@{extractEnPassantTargetLoc}}
+\index{extractEnPassantTargetLoc@{extractEnPassantTargetLoc}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{extractEnPassantTargetLoc()}{extractEnPassantTargetLoc()}}
+{\footnotesize\ttfamily static String extract\+En\+Passant\+Target\+Loc (\begin{DoxyParamCaption}\item[{String}]{fen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Extract en passant target loc string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & the fen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a1d69d1bb820bdcb5b1a9baa892663862}\label{classver14_1_1_model_1_1_f_e_n_a1d69d1bb820bdcb5b1a9baa892663862}} 
+\index{FEN@{FEN}!loadFEN@{loadFEN}}
+\index{loadFEN@{loadFEN}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{loadFEN()}{loadFEN()}}
+{\footnotesize\ttfamily static void load\+FEN (\begin{DoxyParamCaption}\item[{String}]{fen,  }\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads a fen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & the fen \\
+\hline
+{\em model} & the model \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a6d8790630530047f484f22982b93413c}\label{classver14_1_1_model_1_1_f_e_n_a6d8790630530047f484f22982b93413c}} 
+\index{FEN@{FEN}!rndFens@{rndFens}}
+\index{rndFens@{rndFens}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{rndFens}{rndFens}}
+{\footnotesize\ttfamily final String \mbox{[}$\,$\mbox{]} rnd\+Fens = \{\char`\"{}rnb1kb1r/pppppppp/3q1n2/8/4K3/8/PPPPPPPP/RNBQ1\+BNR w kq -\/ 0 1\char`\"{}, \char`\"{}3K4/n2b3q/1PP1r1p1/2k1\+P3/5Qp1/3P1\+N2/P4\+P2/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}3K4/n2b3q/1PP1r1p1/2k1\+P3/5Qp1/3P1\+N2/P4\+P2/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}8/4b2p/P5\+Bk/3KR1p1/1N1pp1pP/q7/1QP5/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}5q2/2n1p3/1P1\+P1\+PN1/7K/5p2/1n6/b1\+P2k\+PP/3B4 w -\/ -\/ 0 1\char`\"{}, \char`\"{}k5n1/3pbp2/2P2\+P2/p2\+N4/P1\+PP3R/8/2K3\+Qp/8 w -\/ -\/ 0 1\char`\"{}, \char`\"{}4B2r/8/1P6/6K1/q\+P2p3/Q1\+P2\+Rp1/2P3kp/Nb6 w -\/ -\/ 0 1\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant rnd\+Fens. \mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a8f4771e7c74995a1e7f3b6308f83c187}\label{classver14_1_1_model_1_1_f_e_n_a8f4771e7c74995a1e7f3b6308f83c187}} 
+\index{FEN@{FEN}!castling@{castling}}
+\index{castling@{castling}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{castling}{castling}}
+{\footnotesize\ttfamily final String castling = \char`\"{}r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3\+K2R w KQkq -\/ 0 1\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant castling. \mbox{\Hypertarget{classver14_1_1_model_1_1_f_e_n_a313fcfe07d9f2f355e50b947587190b2}\label{classver14_1_1_model_1_1_f_e_n_a313fcfe07d9f2f355e50b947587190b2}} 
+\index{FEN@{FEN}!startingFen@{startingFen}}
+\index{startingFen@{startingFen}!FEN@{FEN}}
+\doxysubsubsection{\texorpdfstring{startingFen}{startingFen}}
+{\footnotesize\ttfamily final String starting\+Fen = \char`\"{}rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -\/ 0 1\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant starting\+Fen. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/\+Model/FEN.\+java\end{DoxyCompactItemize}

@@ -131,7 +131,7 @@
       <data key="d7">
         <uml:UMLNodeStyle fill="#4CAF50" highlightFill="#FFA3F1BB">
           <uml:UMLNodeStyle.model>
-            <uml:UMLClassModel stereotype="interface" constraint="" className="ObjCallback&lt;T&gt;" attributesOpen="true" operationsOpen="true">
+            <uml:UMLClassModel stereotype="interface" constraint="" className="Supplier&lt;T&gt;" attributesOpen="true" operationsOpen="true">
               <uml:UMLClassModel.attributes>
                 <x:Array Type="sys:Object" />
               </uml:UMLClassModel.attributes>

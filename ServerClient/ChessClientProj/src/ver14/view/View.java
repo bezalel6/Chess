@@ -587,6 +587,10 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             if (move.getMoveFlag() == Move.MoveFlag.Promotion)
                 btn.setAsPromotion();
 
+//            if (move.getMoveFlag().isCastling) {
+//                Location rookLoc = Location.getLoc(movingTo.row, move.getMoveFlag().castlingSide.rookStartingCol);
+//                getBtn(rookLoc)();
+//            }
             enableSquare(movingTo, true);
         }
         boardPnl.repaint();

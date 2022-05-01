@@ -1,0 +1,564 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red0\green128\blue0;\red96\green64\blue32;\rede0\green128\blue0;\red128\green0\blue0;\red128\green96\blue32;\red0\green32\blue128;\red0\green128\blue128;\red255\green0\blue255;\red0\green0\blue0;\red112\green0\blue112;\red255\green0\blue0;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\paperw11900\paperh16840\margl1800\margr1800\margt1440\margb1440\gutter0\ltrsect}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext50 Code Example 9;}
+{\s50\li3600\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext51 Code Example 10;}
+{\s51\li3960\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext52 Code Example 11;}
+{\s52\li4320\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 12;}
+{\s53\li4680\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 13;}
+{\s60\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext61 List Continue 0;}
+{\s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext62 List Continue 1;}
+{\s62\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext63 List Continue 2;}
+{\s63\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext64 List Continue 3;}
+{\s64\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext65 List Continue 4;}
+{\s65\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext66 List Continue 5;}
+{\s66\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext67 List Continue 6;}
+{\s67\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext68 List Continue 7;}
+{\s68\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext69 List Continue 8;}
+{\s69\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext70 List Continue 9;}
+{\s70\li3600\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext71 List Continue 10;}
+{\s71\li3960\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext72 List Continue 11;}
+{\s72\li4320\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 12;}
+{\s73\li4680\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 13;}
+{\s80\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext81 DescContinue 0;}
+{\s81\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext82 DescContinue 1;}
+{\s82\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext83 DescContinue 2;}
+{\s83\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext84 DescContinue 3;}
+{\s84\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext85 DescContinue 4;}
+{\s85\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext86 DescContinue 5;}
+{\s86\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext87 DescContinue 6;}
+{\s87\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext88 DescContinue 7;}
+{\s88\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext89 DescContinue 8;}
+{\s89\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext90 DescContinue 9;}
+{\s90\li3600\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext91 DescContinue 10;}
+{\s91\li3960\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext92 DescContinue 11;}
+{\s92\li4320\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 12;}
+{\s93\li4680\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 13;}
+{\s100\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext101 LatexTOC 0;}
+{\s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext102 LatexTOC 1;}
+{\s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext103 LatexTOC 2;}
+{\s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext104 LatexTOC 3;}
+{\s104\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext105 LatexTOC 4;}
+{\s105\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext106 LatexTOC 5;}
+{\s106\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext107 LatexTOC 6;}
+{\s107\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext108 LatexTOC 7;}
+{\s108\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext109 LatexTOC 8;}
+{\s109\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext110 LatexTOC 9;}
+{\s110\li3600\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext111 LatexTOC 10;}
+{\s111\li3960\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext112 LatexTOC 11;}
+{\s112\li4320\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 12;}
+{\s113\li4680\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 13;}
+{\s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext121 \sautoupd List Bullet 0;}
+{\s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext122 \sautoupd List Bullet 1;}
+{\s122\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext123 \sautoupd List Bullet 2;}
+{\s123\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext124 \sautoupd List Bullet 3;}
+{\s124\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext125 \sautoupd List Bullet 4;}
+{\s125\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext126 \sautoupd List Bullet 5;}
+{\s126\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext127 \sautoupd List Bullet 6;}
+{\s127\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext128 \sautoupd List Bullet 7;}
+{\s128\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext129 \sautoupd List Bullet 8;}
+{\s129\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext130 \sautoupd List Bullet 9;}
+{\s130\fi-360\li3960\widctlpar\jclisttab\tx3960{\*\pn \pnlvlbody\ilvl0\ls11\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext131 \sautoupd List Bullet 10;}
+{\s131\fi-360\li4320\widctlpar\jclisttab\tx4320{\*\pn \pnlvlbody\ilvl0\ls12\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext132 \sautoupd List Bullet 11;}
+{\s132\fi-360\li4680\widctlpar\jclisttab\tx4680{\*\pn \pnlvlbody\ilvl0\ls13\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 12;}
+{\s133\fi-360\li5040\widctlpar\jclisttab\tx5040{\*\pn \pnlvlbody\ilvl0\ls14\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 13;}
+{\s140\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext141 \sautoupd List Enum 0;}
+{\s141\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext142 \sautoupd List Enum 1;}
+{\s142\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext143 \sautoupd List Enum 2;}
+{\s143\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext144 \sautoupd List Enum 3;}
+{\s144\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext145 \sautoupd List Enum 4;}
+{\s145\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext146 \sautoupd List Enum 5;}
+{\s146\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext147 \sautoupd List Enum 6;}
+{\s147\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext148 \sautoupd List Enum 7;}
+{\s148\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext149 \sautoupd List Enum 8;}
+{\s149\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext150 \sautoupd List Enum 9;}
+{\s150\fi-360\li3960\widctlpar\fs20\cgrid \sbasedon0 \snext151 \sautoupd List Enum 10;}
+{\s151\fi-360\li4320\widctlpar\fs20\cgrid \sbasedon0 \snext152 \sautoupd List Enum 11;}
+{\s152\fi-360\li4680\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 12;}
+{\s153\fi-360\li5040\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 13;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+types.h\par \pard\plain 
+{\tc\tcl2 \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/types.h}
+{\xe \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/types.h}
+{\bkmkstart AAAAAAAABC}
+{\bkmkend AAAAAAAABC}
+{
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf20 /*}\par
+2 {\cf20   Stockfish, a UCI chess playing engine derived from Glaurung 2.1}\par
+3 {\cf20   Copyright (C) 2004-2021 The Stockfish developers (see AUTHORS file)}\par
+4 {\cf20 }\par
+5 {\cf20   Stockfish is free software: you can redistribute it and/or modify}\par
+6 {\cf20   it under the terms of the GNU General Public License as published by}\par
+7 {\cf20   the Free Software Foundation, either version 3 of the License, or}\par
+8 {\cf20   (at your option) any later version.}\par
+9 {\cf20 }\par
+10 {\cf20   Stockfish is distributed in the hope that it will be useful,}\par
+11 {\cf20   but WITHOUT ANY WARRANTY; without even the implied warranty of}\par
+12 {\cf20   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}\par
+13 {\cf20   GNU General Public License for more details.}\par
+14 {\cf20 }\par
+15 {\cf20   You should have received a copy of the GNU General Public License}\par
+16 {\cf20   along with this program.  If not, see <http://www.gnu.org/licenses/>.}\par
+17 {\cf20 */}\par
+18 \par
+19 {\cf21 #ifndef TYPES_H_INCLUDED}\par
+20 {\cf21 #define TYPES_H_INCLUDED}\par
+21 \par
+38 \par
+39 {\cf21 #include <cassert>}\par
+40 {\cf21 #include <cctype>}\par
+41 {\cf21 #include <cstdint>}\par
+42 {\cf21 #include <cstdlib>}\par
+43 {\cf21 #include <algorithm>}\par
+44 \par
+45 {\cf21 #if defined(_MSC_VER)}\par
+46 {\cf20 // Disable some silly and noisy warning from MSVC compiler}\par
+47 {\cf21 #pragma warning(disable: 4127) }{\cf20 // Conditional expression is constant}\par
+48 {\cf21 #pragma warning(disable: 4146) }{\cf20 // Unary minus operator applied to unsigned type}\par
+49 {\cf21 #pragma warning(disable: 4800) }{\cf20 // Forcing value to bool 'true' or 'false'}\par
+50 {\cf21 #endif}\par
+51 \par
+59 \par
+60 {\cf21 #if defined(__GNUC__ ) && (__GNUC__ < 9 || (__GNUC__ == 9 && __GNUC_MINOR__ <= 2)) && defined(_WIN32) && !defined(__clang__)}\par
+61 {\cf21 #define ALIGNAS_ON_STACK_VARIABLES_BROKEN}\par
+62 {\cf21 #endif}\par
+63 \par
+64 {\cf21 #define ASSERT_ALIGNED(ptr, alignment) assert(reinterpret_cast<uintptr_t>(ptr) % alignment == 0)}\par
+65 \par
+66 {\cf21 #if defined(_WIN64) && defined(_MSC_VER) }{\cf20 // No Makefile used}\par
+67 {\cf21 #  include <intrin.h>} {\cf20 // Microsoft header for _BitScanForward64()}\par
+68 {\cf21 #  define IS_64BIT}\par
+69 {\cf21 #endif}\par
+70 \par
+71 {\cf21 #if defined(USE_POPCNT) && (defined(__INTEL_COMPILER) || defined(_MSC_VER))}\par
+72 {\cf21 #  include <nmmintrin.h>} {\cf20 // Intel and Microsoft header for _mm_popcnt_u64()}\par
+73 {\cf21 #endif}\par
+74 \par
+75 {\cf21 #if !defined(NO_PREFETCH) && (defined(__INTEL_COMPILER) || defined(_MSC_VER))}\par
+76 {\cf21 #  include <xmmintrin.h>} {\cf20 // Intel and Microsoft header for _mm_prefetch()}\par
+77 {\cf21 #endif}\par
+78 \par
+79 {\cf21 #if defined(USE_PEXT)}\par
+80 {\cf21 #  include <immintrin.h>} {\cf20 // Header for _pext_u64() intrinsic}\par
+81 {\cf21 #  define pext(b, m) _pext_u64(b, m)}\par
+82 {\cf21 #else}\par
+83 {\cf21 #  define pext(b, m) 0}\par
+84 {\cf21 #endif}\par
+85 \par
+86 {\cf17 namespace }Stockfish \{\par
+87 \par
+88 {\cf21 #ifdef USE_POPCNT}\par
+89 {\cf17 constexpr} {\cf18 bool} HasPopCnt = {\cf17 true};\par
+90 {\cf21 #else}\par
+91 {\cf17 constexpr} {\cf18 bool} HasPopCnt = {\cf17 false};\par
+92 {\cf21 #endif}\par
+93 \par
+94 {\cf21 #ifdef USE_PEXT}\par
+95 {\cf17 constexpr} {\cf18 bool} HasPext = {\cf17 true};\par
+96 {\cf21 #else}\par
+97 {\cf17 constexpr} {\cf18 bool} HasPext = {\cf17 false};\par
+98 {\cf21 #endif}\par
+99 \par
+100 {\cf21 #ifdef IS_64BIT}\par
+101 {\cf17 constexpr} {\cf18 bool} Is64Bit = {\cf17 true};\par
+102 {\cf21 #else}\par
+103 {\cf17 constexpr} {\cf18 bool} Is64Bit = {\cf17 false};\par
+104 {\cf21 #endif}\par
+105 \par
+106 {\cf17 typedef} uint64_t Key;\par
+107 {\cf17 typedef} uint64_t Bitboard;\par
+108 \par
+109 {\cf17 constexpr} {\cf18 int} MAX_MOVES = 256;\par
+110 {\cf17 constexpr} {\cf18 int} MAX_PLY   = 246;\par
+111 \par
+123 \par
+124 {\cf17 enum} Move : {\cf18 int} \{\par
+125   MOVE_NONE,\par
+126   MOVE_NULL = 65\par
+127 \};\par
+128 \par
+129 {\cf17 enum} MoveFlag \{\par
+130   NORMAL,\par
+131   PROMOTION = 1 << 14,\par
+132   EN_PASSANT = 2 << 14,\par
+133   CASTLING  = 3 << 14\par
+134 \};\par
+135 \par
+136 {\cf17 enum} Color \{\par
+137   WHITE, BLACK, COLOR_NB = 2\par
+138 \};\par
+139 \par
+140 {\cf17 enum} CastlingRights \{\par
+141   NO_CASTLING,\par
+142   WHITE_OO,\par
+143   WHITE_OOO = WHITE_OO << 1,\par
+144   BLACK_OO  = WHITE_OO << 2,\par
+145   BLACK_OOO = WHITE_OO << 3,\par
+146 \par
+147   KING_SIDE      = WHITE_OO  | BLACK_OO,\par
+148   QUEEN_SIDE     = WHITE_OOO | BLACK_OOO,\par
+149   WHITE_CASTLING = WHITE_OO  | WHITE_OOO,\par
+150   BLACK_CASTLING = BLACK_OO  | BLACK_OOO,\par
+151   ANY_CASTLING   = WHITE_CASTLING | BLACK_CASTLING,\par
+152 \par
+153   CASTLING_RIGHT_NB = 16\par
+154 \};\par
+155 \par
+156 {\cf17 enum} Phase \{\par
+157   PHASE_ENDGAME,\par
+158   PHASE_MIDGAME = 128,\par
+159   MG = 0, EG = 1, PHASE_NB = 2\par
+160 \};\par
+161 \par
+162 {\cf17 enum} ScaleFactor \{\par
+163   SCALE_FACTOR_DRAW    = 0,\par
+164   SCALE_FACTOR_NORMAL  = 64,\par
+165   SCALE_FACTOR_MAX     = 128,\par
+166   SCALE_FACTOR_NONE    = 255\par
+167 \};\par
+168 \par
+169 {\cf17 enum} Bound \{\par
+170   BOUND_NONE,\par
+171   BOUND_UPPER,\par
+172   BOUND_LOWER,\par
+173   BOUND_EXACT = BOUND_UPPER | BOUND_LOWER\par
+174 \};\par
+175 \par
+176 {\cf17 enum} ExplosionState \{\par
+177   EXPLOSION_NONE,\par
+178   MUST_CALM_DOWN\par
+179 \};\par
+180 \par
+181 {\cf17 enum} Value : {\cf18 int} \{\par
+182   VALUE_ZERO      = 0,\par
+183   VALUE_DRAW      = 0,\par
+184   VALUE_KNOWN_WIN = 10000,\par
+185   VALUE_MATE      = 32000,\par
+186   VALUE_INFINITE  = 32001,\par
+187   VALUE_NONE      = 32002,\par
+188 \par
+189   VALUE_TB_WIN_IN_MAX_PLY  =  VALUE_MATE - 2 * MAX_PLY,\par
+190   VALUE_TB_LOSS_IN_MAX_PLY = -VALUE_TB_WIN_IN_MAX_PLY,\par
+191   VALUE_MATE_IN_MAX_PLY  =  VALUE_MATE - MAX_PLY,\par
+192   VALUE_MATED_IN_MAX_PLY = -VALUE_MATE_IN_MAX_PLY,\par
+193 \par
+194   PawnValueMg   = 126,   PawnValueEg   = 208,\par
+195   KnightValueMg = 781,   KnightValueEg = 854,\par
+196   BishopValueMg = 825,   BishopValueEg = 915,\par
+197   RookValueMg   = 1276,  RookValueEg   = 1380,\par
+198   QueenValueMg  = 2538,  QueenValueEg  = 2682,\par
+199 \par
+200   MidgameLimit  = 15258, EndgameLimit  = 3915\par
+201 \};\par
+202 \par
+203 {\cf17 enum} PieceType \{\par
+204   NO_PIECE_TYPE, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING,\par
+205   ALL_PIECES = 0,\par
+206   PIECE_TYPE_NB = 8\par
+207 \};\par
+208 \par
+209 {\cf17 enum} Piece \{\par
+210   NO_PIECE,\par
+211   W_PAWN = PAWN,     W_KNIGHT, W_BISHOP, W_ROOK, W_QUEEN, W_KING,\par
+212   B_PAWN = PAWN + 8, B_KNIGHT, B_BISHOP, B_ROOK, B_QUEEN, B_KING,\par
+213   PIECE_NB = 16\par
+214 \};\par
+215 \par
+216 {\cf17 constexpr} Value PieceValue[PHASE_NB][PIECE_NB] = \{\par
+217   \{ VALUE_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE_ZERO, VALUE_ZERO,\par
+218     VALUE_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE_ZERO, VALUE_ZERO \},\par
+219   \{ VALUE_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE_ZERO, VALUE_ZERO,\par
+220     VALUE_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE_ZERO, VALUE_ZERO \}\par
+221 \};\par
+222 \par
+223 {\cf17 typedef} {\cf18 int} Depth;\par
+224 \par
+225 enum : {\cf18 int} \{\par
+226   DEPTH_QS_CHECKS     =  0,\par
+227   DEPTH_QS_NO_CHECKS  = -1,\par
+228   DEPTH_QS_RECAPTURES = -5,\par
+229 \par
+230   DEPTH_NONE   = -6,\par
+231 \par
+232   DEPTH_OFFSET = -7 {\cf20 // value used only for TT entry occupancy check}\par
+233 \};\par
+234 \par
+235 {\cf17 enum} Square : {\cf18 int} \{\par
+236   SQ_A1, SQ_B1, SQ_C1, SQ_D1, SQ_E1, SQ_F1, SQ_G1, SQ_H1,\par
+237   SQ_A2, SQ_B2, SQ_C2, SQ_D2, SQ_E2, SQ_F2, SQ_G2, SQ_H2,\par
+238   SQ_A3, SQ_B3, SQ_C3, SQ_D3, SQ_E3, SQ_F3, SQ_G3, SQ_H3,\par
+239   SQ_A4, SQ_B4, SQ_C4, SQ_D4, SQ_E4, SQ_F4, SQ_G4, SQ_H4,\par
+240   SQ_A5, SQ_B5, SQ_C5, SQ_D5, SQ_E5, SQ_F5, SQ_G5, SQ_H5,\par
+241   SQ_A6, SQ_B6, SQ_C6, SQ_D6, SQ_E6, SQ_F6, SQ_G6, SQ_H6,\par
+242   SQ_A7, SQ_B7, SQ_C7, SQ_D7, SQ_E7, SQ_F7, SQ_G7, SQ_H7,\par
+243   SQ_A8, SQ_B8, SQ_C8, SQ_D8, SQ_E8, SQ_F8, SQ_G8, SQ_H8,\par
+244   SQ_NONE,\par
+245 \par
+246   SQUARE_ZERO = 0,\par
+247   SQUARE_NB   = 64\par
+248 \};\par
+249 \par
+250 {\cf17 enum} Direction : {\cf18 int} \{\par
+251   NORTH =  8,\par
+252   EAST  =  1,\par
+253   SOUTH = -NORTH,\par
+254   WEST  = -EAST,\par
+255 \par
+256   NORTH_EAST = NORTH + EAST,\par
+257   SOUTH_EAST = SOUTH + EAST,\par
+258   SOUTH_WEST = SOUTH + WEST,\par
+259   NORTH_WEST = NORTH + WEST\par
+260 \};\par
+261 \par
+262 {\cf17 enum} File : {\cf18 int} \{\par
+263   FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NB\par
+264 \};\par
+265 \par
+266 {\cf17 enum} Rank : {\cf18 int} \{\par
+267   RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_8, RANK_NB\par
+268 \};\par
+269 \par
+270 {\cf20 // Keep track of what a move changes on the board (used by NNUE)}\par
+271 {\cf17 struct }DirtyPiece \{\par
+272 \par
+273   {\cf20 // Number of changed pieces}\par
+274   {\cf18 int} dirty_num;\par
+275 \par
+276   {\cf20 // Max 3 pieces can change in one move. A promotion with capture moves}\par
+277   {\cf20 // both the pawn and the captured piece to SQ_NONE and the piece promoted}\par
+278   {\cf20 // to from SQ_NONE to the capture square.}\par
+279   Piece piece[3];\par
+280 \par
+281   {\cf20 // From and to squares, which may be SQ_NONE}\par
+282   Square from[3];\par
+283   Square to[3];\par
+284 \};\par
+285 \par
+290 {\cf17 enum} Score : {\cf18 int} \{ SCORE_ZERO \};\par
+291 \par
+292 {\cf17 constexpr} Score make_score({\cf18 int} mg, {\cf18 int} eg) \{\par
+293   {\cf19 return} Score(({\cf18 int})(({\cf18 unsigned} {\cf18 int})eg << 16) + mg);\par
+294 \}\par
+295 \par
+299 {\cf17 inline} Value eg_value(Score s) \{\par
+300   {\cf17 union }\{ uint16_t u; int16_t s; \} eg = \{ uint16_t({\cf18 unsigned}(s + 0x8000) >> 16) \};\par
+301   {\cf19 return} Value(eg.s);\par
+302 \}\par
+303 \par
+304 {\cf17 inline} Value mg_value(Score s) \{\par
+305   {\cf17 union }\{ uint16_t u; int16_t s; \} mg = \{ uint16_t({\cf18 unsigned}(s)) \};\par
+306   {\cf19 return} Value(mg.s);\par
+307 \}\par
+308 \par
+309 {\cf21 #define ENABLE_BASE_OPERATORS_ON(T)                                \\}\par
+310 {\cf21 constexpr T operator+(T d1, int d2) \{ return T(int(d1) + d2); \}    \\}\par
+311 {\cf21 constexpr T operator-(T d1, int d2) \{ return T(int(d1) - d2); \}    \\}\par
+312 {\cf21 constexpr T operator-(T d) \{ return T(-int(d)); \}                  \\}\par
+313 {\cf21 inline T& operator+=(T& d1, int d2) \{ return d1 = d1 + d2; \}       \\}\par
+314 {\cf21 inline T& operator-=(T& d1, int d2) \{ return d1 = d1 - d2; \}}\par
+315 \par
+316 {\cf21 #define ENABLE_INCR_OPERATORS_ON(T)                                \\}\par
+317 {\cf21 inline T& operator++(T& d) \{ return d = T(int(d) + 1); \}           \\}\par
+318 {\cf21 inline T& operator--(T& d) \{ return d = T(int(d) - 1); \}}\par
+319 \par
+320 {\cf21 #define ENABLE_FULL_OPERATORS_ON(T)                                \\}\par
+321 {\cf21 ENABLE_BASE_OPERATORS_ON(T)                                        \\}\par
+322 {\cf21 constexpr T operator*(int i, T d) \{ return T(i * int(d)); \}        \\}\par
+323 {\cf21 constexpr T operator*(T d, int i) \{ return T(int(d) * i); \}        \\}\par
+324 {\cf21 constexpr T operator/(T d, int i) \{ return T(int(d) / i); \}        \\}\par
+325 {\cf21 constexpr int operator/(T d1, T d2) \{ return int(d1) / int(d2); \}  \\}\par
+326 {\cf21 inline T& operator*=(T& d, int i) \{ return d = T(int(d) * i); \}    \\}\par
+327 {\cf21 inline T& operator/=(T& d, int i) \{ return d = T(int(d) / i); \}}\par
+328 \par
+329 ENABLE_FULL_OPERATORS_ON(Value)\par
+330 ENABLE_FULL_OPERATORS_ON(Direction)\par
+331 \par
+332 ENABLE_INCR_OPERATORS_ON(Piece)\par
+333 ENABLE_INCR_OPERATORS_ON(PieceType)\par
+334 ENABLE_INCR_OPERATORS_ON(Square)\par
+335 ENABLE_INCR_OPERATORS_ON(File)\par
+336 ENABLE_INCR_OPERATORS_ON(Rank)\par
+337 \par
+338 ENABLE_BASE_OPERATORS_ON(Score)\par
+339 \par
+340 {\cf21 #undef ENABLE_FULL_OPERATORS_ON}\par
+341 {\cf21 #undef ENABLE_INCR_OPERATORS_ON}\par
+342 {\cf21 #undef ENABLE_BASE_OPERATORS_ON}\par
+343 \par
+345 {\cf17 constexpr} Square operator+(Square s, Direction d) \{ {\cf19 return} Square({\cf18 int}(s) + {\cf18 int}(d)); \}\par
+346 {\cf17 constexpr} Square operator-(Square s, Direction d) \{ {\cf19 return} Square({\cf18 int}(s) - {\cf18 int}(d)); \}\par
+347 {\cf17 inline} Square& operator+=(Square& s, Direction d) \{ {\cf19 return} s = s + d; \}\par
+348 {\cf17 inline} Square& operator-=(Square& s, Direction d) \{ {\cf19 return} s = s - d; \}\par
+349 \par
+352 Score operator*(Score, Score) = {\cf17 delete};\par
+353 \par
+355 {\cf17 inline} Score operator/(Score s, {\cf18 int} i) \{\par
+356   {\cf19 return} make_score(mg_value(s) / i, eg_value(s) / i);\par
+357 \}\par
+358 \par
+360 {\cf17 inline} Score operator*(Score s, {\cf18 int} i) \{\par
+361 \par
+362   Score result = Score({\cf18 int}(s) * i);\par
+363 \par
+364   assert(eg_value(result) == (i * eg_value(s)));\par
+365   assert(mg_value(result) == (i * mg_value(s)));\par
+366   assert((i == 0) || (result / i) == s);\par
+367 \par
+368   {\cf19 return} result;\par
+369 \}\par
+370 \par
+372 {\cf17 inline} Score operator*(Score s, {\cf18 bool} b) \{\par
+373   {\cf19 return} b ? s : SCORE_ZERO;\par
+374 \}\par
+375 \par
+376 {\cf17 constexpr} Color operator~(Color c) \{\par
+377   {\cf19 return} Color(c ^ BLACK); {\cf20 // Toggle color}\par
+378 \}\par
+379 \par
+380 {\cf17 constexpr} Square flip_rank(Square s) \{ {\cf20 // Swap A1 <-> A8}\par
+381   {\cf19 return} Square(s ^ SQ_A8);\par
+382 \}\par
+383 \par
+384 {\cf17 constexpr} Square flip_file(Square s) \{ {\cf20 // Swap A1 <-> H1}\par
+385   {\cf19 return} Square(s ^ SQ_H1);\par
+386 \}\par
+387 \par
+388 {\cf17 constexpr} Piece operator~(Piece pc) \{\par
+389   {\cf19 return} Piece(pc ^ 8); {\cf20 // Swap color of piece B_KNIGHT <-> W_KNIGHT}\par
+390 \}\par
+391 \par
+392 {\cf17 constexpr} CastlingRights operator&(Color c, CastlingRights cr) \{\par
+393   {\cf19 return} CastlingRights((c == WHITE ? WHITE_CASTLING : BLACK_CASTLING) & cr);\par
+394 \}\par
+395 \par
+396 {\cf17 constexpr} Value mate_in({\cf18 int} ply) \{\par
+397   {\cf19 return} VALUE_MATE - ply;\par
+398 \}\par
+399 \par
+400 {\cf17 constexpr} Value mated_in({\cf18 int} ply) \{\par
+401   {\cf19 return} -VALUE_MATE + ply;\par
+402 \}\par
+403 \par
+404 {\cf17 constexpr} Square make_square(File f, Rank r) \{\par
+405   {\cf19 return} Square((r << 3) + f);\par
+406 \}\par
+407 \par
+408 {\cf17 constexpr} Piece make_piece(Color c, PieceType pt) \{\par
+409   {\cf19 return} Piece((c << 3) + pt);\par
+410 \}\par
+411 \par
+412 {\cf17 constexpr} PieceType type_of(Piece pc) \{\par
+413   {\cf19 return} PieceType(pc & 7);\par
+414 \}\par
+415 \par
+416 {\cf17 inline} Color color_of(Piece pc) \{\par
+417   assert(pc != NO_PIECE);\par
+418   {\cf19 return} Color(pc >> 3);\par
+419 \}\par
+420 \par
+421 {\cf17 constexpr} {\cf18 bool} is_ok(Square s) \{\par
+422   {\cf19 return} s >= SQ_A1 && s <= SQ_H8;\par
+423 \}\par
+424 \par
+425 {\cf17 constexpr} File file_of(Square s) \{\par
+426   {\cf19 return} File(s & 7);\par
+427 \}\par
+428 \par
+429 {\cf17 constexpr} Rank rank_of(Square s) \{\par
+430   {\cf19 return} Rank(s >> 3);\par
+431 \}\par
+432 \par
+433 {\cf17 constexpr} Square relative_square(Color c, Square s) \{\par
+434   {\cf19 return} Square(s ^ (c * 56));\par
+435 \}\par
+436 \par
+437 {\cf17 constexpr} Rank relative_rank(Color c, Rank r) \{\par
+438   {\cf19 return} Rank(r ^ (c * 7));\par
+439 \}\par
+440 \par
+441 {\cf17 constexpr} Rank relative_rank(Color c, Square s) \{\par
+442   {\cf19 return} relative_rank(c, rank_of(s));\par
+443 \}\par
+444 \par
+445 {\cf17 constexpr} Direction pawn_push(Color c) \{\par
+446   {\cf19 return} c == WHITE ? NORTH : SOUTH;\par
+447 \}\par
+448 \par
+449 {\cf17 constexpr} Square from_sq(Move m) \{\par
+450   {\cf19 return} Square((m >> 6) & 0x3F);\par
+451 \}\par
+452 \par
+453 {\cf17 constexpr} Square to_sq(Move m) \{\par
+454   {\cf19 return} Square(m & 0x3F);\par
+455 \}\par
+456 \par
+457 {\cf17 constexpr} {\cf18 int} from_to(Move m) \{\par
+458  {\cf19 return} m & 0xFFF;\par
+459 \}\par
+460 \par
+461 {\cf17 constexpr} MoveFlag type_of(Move m) \{\par
+462   {\cf19 return} MoveFlag(m & (3 << 14));\par
+463 \}\par
+464 \par
+465 {\cf17 constexpr} PieceType promotion_type(Move m) \{\par
+466   {\cf19 return} PieceType(((m >> 12) & 3) + KNIGHT);\par
+467 \}\par
+468 \par
+469 {\cf17 constexpr} Move make_move(Square from, Square to) \{\par
+470   {\cf19 return} Move((from << 6) + to);\par
+471 \}\par
+472 \par
+473 {\cf17 constexpr} Move reverse_move(Move m) \{\par
+474   {\cf19 return} make_move(to_sq(m), from_sq(m));\par
+475 \}\par
+476 \par
+477 {\cf17 template}<MoveFlag T>\par
+478 {\cf17 constexpr} Move make(Square from, Square to, PieceType pt = KNIGHT) \{\par
+479   {\cf19 return} Move(T + ((pt - KNIGHT) << 12) + (from << 6) + to);\par
+480 \}\par
+481 \par
+482 {\cf17 constexpr} {\cf18 bool} is_ok(Move m) \{\par
+483   {\cf19 return} from_sq(m) != to_sq(m); {\cf20 // Catch MOVE_NULL and MOVE_NONE}\par
+484 \}\par
+485 \par
+487 {\cf17 constexpr} Key make_key(uint64_t seed) \{\par
+488   {\cf19 return} seed * 6364136223846793005ULL + 1442695040888963407ULL;\par
+489 \}\par
+490 \par
+491 \} {\cf20 // namespace Stockfish}\par
+492 \par
+493 {\cf21 #endif }{\cf20 // #ifndef TYPES_H_INCLUDED}\par
+494 \par
+495 {\cf21 #include "tune.h"} {\cf20 // Global visibility to tuning setup}\par
+}
+}

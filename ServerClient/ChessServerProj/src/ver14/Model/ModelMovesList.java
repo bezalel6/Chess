@@ -34,7 +34,7 @@ public class ModelMovesList extends MovesList {
     public boolean add(Move adding, PieceType movingPiece) throws FoundLegalMove {
         if (adding == null)
             return false;
-        adding.setCreatorList(this);
+        adding.setCreatedListHashSupplier(this::getFinalHash);
 
         adding.setMovingColor(generator.getModel().getCurrentPlayer());
 

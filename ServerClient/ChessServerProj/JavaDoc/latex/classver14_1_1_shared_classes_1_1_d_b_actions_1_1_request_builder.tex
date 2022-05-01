@@ -1,0 +1,387 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{}\doxysection{Request\+Builder}
+\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}\index{RequestBuilder@{RequestBuilder}}
+Inheritance diagram for Request\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Graphable\+Selection}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a3031efae2f0f7f098c2163020764e073}{args}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_afab281f6bc4c626bc0c9c56cd4f8f934}{TIE\+\_\+\+STR}} = \char`\"{}-\/-\/-\/-\/tie-\/-\/-\/-\/\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{SQLStatement}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8904a3232a96584073109635e80b478a}{statement}}
+\item 
+final String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aee5f0118454ca188d26b7db28c890faa}{name}}
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8a1978acc0446a3b9237d99bcb863e8e}{post\+Description}}
+\item 
+String \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a1f32fef282067c95c6b3cb06d6ac3350}{pre\+Description}}
+\item 
+\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_abdeb45d18d66409e8bee06068080301f}{sub\+Builder}} = null
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Request builder -\/ creates builders capable of generating complete sql statements. after building with the required arguments .
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a5fbc81a58d2804c801f508a9c87514b2}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a5fbc81a58d2804c801f508a9c87514b2}} 
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{RequestBuilder()}{RequestBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request}{DBRequest}}}]{request,  }\item[{Pre\+Made\+Request.\+Variation}]{variation }\end{DoxyParamCaption})}
+
+Instantiates a new Request builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the request \\
+\hline
+{\em variation} & the variation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a90bb1214594c19d716f35dd8ce93edc5}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a90bb1214594c19d716f35dd8ce93edc5}} 
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{RequestBuilder()}{RequestBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{SQLStatement}}}]{statement,  }\item[{String}]{name,  }\item[{Arg...}]{args }\end{DoxyParamCaption})}
+
+Instantiates a new Request builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em statement} & the statement \\
+\hline
+{\em name} & the name \\
+\hline
+{\em args} & the args \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aa05197f4d794affb3729afb74a0cbcb0}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aa05197f4d794affb3729afb74a0cbcb0}} 
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{RequestBuilder()}{RequestBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{SQLStatement}}}]{statement,  }\item[{String}]{name,  }\item[{String}]{desc,  }\item[{Arg...}]{args }\end{DoxyParamCaption})}
+
+Instantiates a new Request builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em statement} & the statement \\
+\hline
+{\em name} & the name \\
+\hline
+{\em desc} & the desc \\
+\hline
+{\em args} & the args \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a9b39a2438ac3e67a5d1d63ca8274589c}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a9b39a2438ac3e67a5d1d63ca8274589c}} 
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\index{RequestBuilder@{RequestBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{RequestBuilder()}{RequestBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{SQLStatement}}}]{statement,  }\item[{String}]{name,  }\item[{String}]{post\+Description,  }\item[{String}]{pre\+Description,  }\item[{Arg...}]{args }\end{DoxyParamCaption})}
+
+Instantiates a new Request builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em statement} & the statement \\
+\hline
+{\em name} & the name \\
+\hline
+{\em post\+Description} & the post description \\
+\hline
+{\em pre\+Description} & the pre description \\
+\hline
+{\em args} & the args \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_abf9cc8d6237c14aaadbe700477742638}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_abf9cc8d6237c14aaadbe700477742638}} 
+\index{RequestBuilder@{RequestBuilder}!createVariation@{createVariation}}
+\index{createVariation@{createVariation}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{createVariation()}{createVariation()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} create\+Variation (\begin{DoxyParamCaption}\item[{Supplier$<$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} $>$}]{og,  }\item[{Pre\+Made\+Request.\+Variation\+Creator}]{variation\+Creator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create variation request builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em og} & the og \\
+\hline
+{\em variation\+Creator} & the variation creator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_ab7dbcc72b4bcfcb066085f497478720b}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_ab7dbcc72b4bcfcb066085f497478720b}} 
+\index{RequestBuilder@{RequestBuilder}!changePassword@{changePassword}}
+\index{changePassword@{changePassword}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{changePassword()}{changePassword()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} change\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Change password request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a2e2f4fd5946f6cc2b9a5689835598de5}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a2e2f4fd5946f6cc2b9a5689835598de5}} 
+\index{RequestBuilder@{RequestBuilder}!changeProfilePic@{changeProfilePic}}
+\index{changeProfilePic@{changeProfilePic}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{changeProfilePic()}{changeProfilePic()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} change\+Profile\+Pic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Change profile pic request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a2a6605a399e6990dbb26d66cf33b9e63}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a2a6605a399e6990dbb26d66cf33b9e63}} 
+\index{RequestBuilder@{RequestBuilder}!addShouldSync@{addShouldSync}}
+\index{addShouldSync@{addShouldSync}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{addShouldSync()}{addShouldSync()}}
+{\footnotesize\ttfamily void add\+Should\+Sync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type}{Synced\+List\+Type}}}]{list\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Add should sync.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Type} & the list type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a0216ef8ee22dff93c86999ceb1460231}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a0216ef8ee22dff93c86999ceb1460231}} 
+\index{RequestBuilder@{RequestBuilder}!deleteAllUnFinishedGames@{deleteAllUnFinishedGames}}
+\index{deleteAllUnFinishedGames@{deleteAllUnFinishedGames}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{deleteAllUnFinishedGames()}{deleteAllUnFinishedGames()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} delete\+All\+Un\+Finished\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete all un finished games request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a36aac86f25f88c6b7b7f2fa006e969d4}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a36aac86f25f88c6b7b7f2fa006e969d4}} 
+\index{RequestBuilder@{RequestBuilder}!games@{games}}
+\index{games@{games}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{games()}{games()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Games request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a37ba24109e77045b331b2e5301d9a1d7}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a37ba24109e77045b331b2e5301d9a1d7}} 
+\index{RequestBuilder@{RequestBuilder}!setSubBuilder@{setSubBuilder}}
+\index{setSubBuilder@{setSubBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{setSubBuilder()}{setSubBuilder()}}
+{\footnotesize\ttfamily void set\+Sub\+Builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}}}]{sub\+Builder }\end{DoxyParamCaption})}
+
+Sets sub builder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Builder} & the sub builder \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a90ea89a8d7f87a6708e1c608e97e338e}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a90ea89a8d7f87a6708e1c608e97e338e}} 
+\index{RequestBuilder@{RequestBuilder}!statsByTimeOfDay@{statsByTimeOfDay}}
+\index{statsByTimeOfDay@{statsByTimeOfDay}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{statsByTimeOfDay()}{statsByTimeOfDay()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} stats\+By\+Time\+Of\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stats by time of day request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a00d569cd0f1326b15455dd4e01939b81}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a00d569cd0f1326b15455dd4e01939b81}} 
+\index{RequestBuilder@{RequestBuilder}!top@{top}}
+\index{top@{top}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Top request builder.
+
+\begin{DoxyReturn}{Returns}
+the request builder 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a5c2cc796e8032b8bba84faac179c8280}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a5c2cc796e8032b8bba84faac179c8280}} 
+\index{RequestBuilder@{RequestBuilder}!getShouldSync@{getShouldSync}}
+\index{getShouldSync@{getShouldSync}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getShouldSync()}{getShouldSync()}}
+{\footnotesize\ttfamily Array\+List$<$ \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type}{Synced\+List\+Type}} $>$ get\+Should\+Sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets should sync.
+
+\begin{DoxyReturn}{Returns}
+the should sync 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a1f2e622621f9e72331669f4a20625e45}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a1f2e622621f9e72331669f4a20625e45}} 
+\index{RequestBuilder@{RequestBuilder}!getArgVal@{getArgVal}}
+\index{getArgVal@{getArgVal}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getArgVal()}{getArgVal()}}
+{\footnotesize\ttfamily String get\+Arg\+Val (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Gets arg val.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the arg val 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a7c5c1e845a461bf0ef4e6d83c418afe1}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a7c5c1e845a461bf0ef4e6d83c418afe1}} 
+\index{RequestBuilder@{RequestBuilder}!createResponse@{createResponse}}
+\index{createResponse@{createResponse}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{createResponse()}{createResponse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response}{DBResponse}} create\+Response (\begin{DoxyParamCaption}\item[{Result\+Set}]{rs,  }\item[{\mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request}{DBRequest}}}]{request }\end{DoxyParamCaption})}
+
+Create response db response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rs} & the rs \\
+\hline
+{\em request} & the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db response 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a6026fde7d906cc16b80794f5a8527d43}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a6026fde7d906cc16b80794f5a8527d43}} 
+\index{RequestBuilder@{RequestBuilder}!getPreDescription@{getPreDescription}}
+\index{getPreDescription@{getPreDescription}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getPreDescription()}{getPreDescription()}}
+{\footnotesize\ttfamily String get\+Pre\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets pre description.
+
+\begin{DoxyReturn}{Returns}
+the pre description 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a4b71000caf47a074f6026f374c4d21b8}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a4b71000caf47a074f6026f374c4d21b8}} 
+\index{RequestBuilder@{RequestBuilder}!getPostDescription@{getPostDescription}}
+\index{getPostDescription@{getPostDescription}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getPostDescription()}{getPostDescription()}}
+{\footnotesize\ttfamily String get\+Post\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets post description.
+
+\begin{DoxyReturn}{Returns}
+the post description 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a78ee178b6a73658d65ca60da4d1e6683}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a78ee178b6a73658d65ca60da4d1e6683}} 
+\index{RequestBuilder@{RequestBuilder}!getName@{getName}}
+\index{getName@{getName}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily String get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets name.
+
+\begin{DoxyReturn}{Returns}
+the name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_ae07d4da3bb38445726d277b9760aec44}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_ae07d4da3bb38445726d277b9760aec44}} 
+\index{RequestBuilder@{RequestBuilder}!getArgs@{getArgs}}
+\index{getArgs@{getArgs}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{getArgs()}{getArgs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}}\mbox{[}$\,$\mbox{]} get\+Args (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get args arg \mbox{[} \mbox{]}.
+
+\begin{DoxyReturn}{Returns}
+the arg \mbox{[} \mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aa67da7ab1b086efbb9b28b3a88ed6fc4}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aa67da7ab1b086efbb9b28b3a88ed6fc4}} 
+\index{RequestBuilder@{RequestBuilder}!build@{build}}
+\index{build@{build}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request}{DBRequest}} build (\begin{DoxyParamCaption}\item[{Object...}]{args\+Vals }\end{DoxyParamCaption})}
+
+Build db request.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args\+Vals} & the args vals \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the db request 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_afab281f6bc4c626bc0c9c56cd4f8f934}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_afab281f6bc4c626bc0c9c56cd4f8f934}} 
+\index{RequestBuilder@{RequestBuilder}!TIE\_STR@{TIE\_STR}}
+\index{TIE\_STR@{TIE\_STR}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{TIE\_STR}{TIE\_STR}}
+{\footnotesize\ttfamily final String TIE\+\_\+\+STR = \char`\"{}-\/-\/-\/-\/tie-\/-\/-\/-\/\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The constant TIE\+\_\+\+STR. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a3031efae2f0f7f098c2163020764e073}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a3031efae2f0f7f098c2163020764e073}} 
+\index{RequestBuilder@{RequestBuilder}!args@{args}}
+\index{args@{args}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg}{Arg}} \mbox{[}$\,$\mbox{]} args}
+
+The request Arguments. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8904a3232a96584073109635e80b478a}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8904a3232a96584073109635e80b478a}} 
+\index{RequestBuilder@{RequestBuilder}!statement@{statement}}
+\index{statement@{statement}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{statement}{statement}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement}{SQLStatement}} statement\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Statement. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aee5f0118454ca188d26b7db28c890faa}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_aee5f0118454ca188d26b7db28c890faa}} 
+\index{RequestBuilder@{RequestBuilder}!name@{name}}
+\index{name@{name}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily final String name\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Name. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8a1978acc0446a3b9237d99bcb863e8e}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a8a1978acc0446a3b9237d99bcb863e8e}} 
+\index{RequestBuilder@{RequestBuilder}!postDescription@{postDescription}}
+\index{postDescription@{postDescription}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{postDescription}{postDescription}}
+{\footnotesize\ttfamily String post\+Description\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Post description. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a1f32fef282067c95c6b3cb06d6ac3350}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_a1f32fef282067c95c6b3cb06d6ac3350}} 
+\index{RequestBuilder@{RequestBuilder}!preDescription@{preDescription}}
+\index{preDescription@{preDescription}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{preDescription}{preDescription}}
+{\footnotesize\ttfamily String pre\+Description\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Pre description. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_abdeb45d18d66409e8bee06068080301f}\label{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder_abdeb45d18d66409e8bee06068080301f}} 
+\index{RequestBuilder@{RequestBuilder}!subBuilder@{subBuilder}}
+\index{subBuilder@{subBuilder}!RequestBuilder@{RequestBuilder}}
+\doxysubsubsection{\texorpdfstring{subBuilder}{subBuilder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder}{Request\+Builder}} sub\+Builder = null\hspace{0.3cm}{\ttfamily [protected]}}
+
+The Sub builder. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/\+Shared\+Classes/\+DBActions/Request\+Builder.\+java\end{DoxyCompactItemize}

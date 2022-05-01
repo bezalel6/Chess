@@ -1,0 +1,620 @@
+\hypertarget{nnue__feature__transformer_8h_source}{}\doxysection{nnue\+\_\+feature\+\_\+transformer.\+h}
+\label{nnue__feature__transformer_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_feature\_transformer.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_feature\_transformer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// A class that converts the input features of the NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_FEATURE\_TRANSFORMER\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_FEATURE\_TRANSFORMER\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}nnue\_common.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}nnue\_architecture.h"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <cstring>} \textcolor{comment}{// std::memset()}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keyword}{using} BiasType       = std::int16\_t;}
+\DoxyCodeLine{32   \textcolor{keyword}{using} WeightType     = std::int16\_t;}
+\DoxyCodeLine{33   \textcolor{keyword}{using} PSQTWeightType = std::int32\_t;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{comment}{// If vector instructions are enabled, we update and refresh the}}
+\DoxyCodeLine{36   \textcolor{comment}{// accumulator tile by tile such that each tile fits in the CPU's}}
+\DoxyCodeLine{37   \textcolor{comment}{// vector registers.}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{  \#define VECTOR}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{static\_assert}(PSQTBuckets \% 8 == 0,}
+\DoxyCodeLine{41     \textcolor{stringliteral}{"{}Per feature PSQT values cannot be processed at granularity lower than 8 at a time."{}});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{  \#ifdef USE\_AVX512}}
+\DoxyCodeLine{44   \textcolor{keyword}{typedef} \_\_m512i vec\_t;}
+\DoxyCodeLine{45   \textcolor{keyword}{typedef} \_\_m256i psqt\_vec\_t;}
+\DoxyCodeLine{46 \textcolor{preprocessor}{  \#define vec\_load(a) \_mm512\_load\_si512(a)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{  \#define vec\_store(a,b) \_mm512\_store\_si512(a,b)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{  \#define vec\_add\_16(a,b) \_mm512\_add\_epi16(a,b)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{  \#define vec\_sub\_16(a,b) \_mm512\_sub\_epi16(a,b)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{  \#define vec\_load\_psqt(a) \_mm256\_load\_si256(a)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{  \#define vec\_store\_psqt(a,b) \_mm256\_store\_si256(a,b)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{  \#define vec\_add\_psqt\_32(a,b) \_mm256\_add\_epi32(a,b)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{  \#define vec\_sub\_psqt\_32(a,b) \_mm256\_sub\_epi32(a,b)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{  \#define vec\_zero\_psqt() \_mm256\_setzero\_si256()}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{  \#define NumRegistersSIMD 32}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{  \#elif USE\_AVX2}}
+\DoxyCodeLine{58   \textcolor{keyword}{typedef} \_\_m256i vec\_t;}
+\DoxyCodeLine{59   \textcolor{keyword}{typedef} \_\_m256i psqt\_vec\_t;}
+\DoxyCodeLine{60 \textcolor{preprocessor}{  \#define vec\_load(a) \_mm256\_load\_si256(a)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{  \#define vec\_store(a,b) \_mm256\_store\_si256(a,b)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{  \#define vec\_add\_16(a,b) \_mm256\_add\_epi16(a,b)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{  \#define vec\_sub\_16(a,b) \_mm256\_sub\_epi16(a,b)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{  \#define vec\_load\_psqt(a) \_mm256\_load\_si256(a)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{  \#define vec\_store\_psqt(a,b) \_mm256\_store\_si256(a,b)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{  \#define vec\_add\_psqt\_32(a,b) \_mm256\_add\_epi32(a,b)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{  \#define vec\_sub\_psqt\_32(a,b) \_mm256\_sub\_epi32(a,b)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{  \#define vec\_zero\_psqt() \_mm256\_setzero\_si256()}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{  \#define NumRegistersSIMD 16}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{  \#elif USE\_SSE2}}
+\DoxyCodeLine{72   \textcolor{keyword}{typedef} \_\_m128i vec\_t;}
+\DoxyCodeLine{73   \textcolor{keyword}{typedef} \_\_m128i psqt\_vec\_t;}
+\DoxyCodeLine{74 \textcolor{preprocessor}{  \#define vec\_load(a) (*(a))}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{  \#define vec\_store(a,b) *(a)=(b)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{  \#define vec\_add\_16(a,b) \_mm\_add\_epi16(a,b)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{  \#define vec\_sub\_16(a,b) \_mm\_sub\_epi16(a,b)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{  \#define vec\_load\_psqt(a) (*(a))}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{  \#define vec\_store\_psqt(a,b) *(a)=(b)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{  \#define vec\_add\_psqt\_32(a,b) \_mm\_add\_epi32(a,b)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{  \#define vec\_sub\_psqt\_32(a,b) \_mm\_sub\_epi32(a,b)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{  \#define vec\_zero\_psqt() \_mm\_setzero\_si128()}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{  \#define NumRegistersSIMD (Is64Bit ? 16 : 8)}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{  \#elif USE\_MMX}}
+\DoxyCodeLine{86   \textcolor{keyword}{typedef} \_\_m64 vec\_t;}
+\DoxyCodeLine{87   \textcolor{keyword}{typedef} \_\_m64 psqt\_vec\_t;}
+\DoxyCodeLine{88 \textcolor{preprocessor}{  \#define vec\_load(a) (*(a))}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{  \#define vec\_store(a,b) *(a)=(b)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{  \#define vec\_add\_16(a,b) \_mm\_add\_pi16(a,b)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{  \#define vec\_sub\_16(a,b) \_mm\_sub\_pi16(a,b)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{  \#define vec\_load\_psqt(a) (*(a))}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{  \#define vec\_store\_psqt(a,b) *(a)=(b)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{  \#define vec\_add\_psqt\_32(a,b) \_mm\_add\_pi32(a,b)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{  \#define vec\_sub\_psqt\_32(a,b) \_mm\_sub\_pi32(a,b)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{  \#define vec\_zero\_psqt() \_mm\_setzero\_si64()}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{  \#define NumRegistersSIMD 8}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{  \#elif USE\_NEON}}
+\DoxyCodeLine{100   \textcolor{keyword}{typedef} int16x8\_t vec\_t;}
+\DoxyCodeLine{101   \textcolor{keyword}{typedef} int32x4\_t psqt\_vec\_t;}
+\DoxyCodeLine{102 \textcolor{preprocessor}{  \#define vec\_load(a) (*(a))}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{  \#define vec\_store(a,b) *(a)=(b)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{  \#define vec\_add\_16(a,b) vaddq\_s16(a,b)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{  \#define vec\_sub\_16(a,b) vsubq\_s16(a,b)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{  \#define vec\_load\_psqt(a) (*(a))}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{  \#define vec\_store\_psqt(a,b) *(a)=(b)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{  \#define vec\_add\_psqt\_32(a,b) vaddq\_s32(a,b)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{  \#define vec\_sub\_psqt\_32(a,b) vsubq\_s32(a,b)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{  \#define vec\_zero\_psqt() psqt\_vec\_t\{0\}}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{  \#define NumRegistersSIMD 16}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{  \#undef VECTOR}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{  \#ifdef VECTOR}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121       \textcolor{comment}{// Compute optimal SIMD register count for feature transformer accumulation.}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123       \textcolor{comment}{// We use \_\_m* types as template arguments, which causes GCC to emit warnings}}
+\DoxyCodeLine{124       \textcolor{comment}{// about losing some attribute information. This is irrelevant to us as we}}
+\DoxyCodeLine{125       \textcolor{comment}{// only take their size, so the following pragma are harmless.}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{      \#pragma GCC diagnostic push}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{      \#pragma GCC diagnostic ignored "{}-\/Wignored-\/attributes"{}}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129       \textcolor{keyword}{template} <\textcolor{keyword}{typename} SIMDRegisterType,}
+\DoxyCodeLine{130                 \textcolor{keyword}{typename} LaneType,}
+\DoxyCodeLine{131                 \textcolor{keywordtype}{int}      NumLanes,}
+\DoxyCodeLine{132                 \textcolor{keywordtype}{int}      MaxRegisters>}
+\DoxyCodeLine{133       \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} BestRegisterCount()}
+\DoxyCodeLine{134       \{}
+\DoxyCodeLine{135 \textcolor{preprocessor}{          \#define RegisterSize  sizeof(SIMDRegisterType)}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{          \#define LaneSize      sizeof(LaneType)}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138           \textcolor{keyword}{static\_assert}(RegisterSize >= LaneSize);}
+\DoxyCodeLine{139           \textcolor{keyword}{static\_assert}(MaxRegisters <= NumRegistersSIMD);}
+\DoxyCodeLine{140           \textcolor{keyword}{static\_assert}(MaxRegisters > 0);}
+\DoxyCodeLine{141           \textcolor{keyword}{static\_assert}(NumRegistersSIMD > 0);}
+\DoxyCodeLine{142           \textcolor{keyword}{static\_assert}(RegisterSize \% LaneSize == 0);}
+\DoxyCodeLine{143           \textcolor{keyword}{static\_assert}((NumLanes * LaneSize) \% RegisterSize == 0);}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145           \textcolor{keyword}{const} \textcolor{keywordtype}{int} ideal = (NumLanes * LaneSize) / RegisterSize;}
+\DoxyCodeLine{146           \textcolor{keywordflow}{if} (ideal <= MaxRegisters)}
+\DoxyCodeLine{147             \textcolor{keywordflow}{return} ideal;}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149           \textcolor{comment}{// Look for the largest divisor of the ideal register count that is smaller than MaxRegisters}}
+\DoxyCodeLine{150           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} divisor = MaxRegisters; divisor > 1; -\/-\/divisor)}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if} (ideal \% divisor == 0)}
+\DoxyCodeLine{152               \textcolor{keywordflow}{return} divisor;}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154           \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{155       \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157       \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} NumRegs     = BestRegisterCount<vec\_t, WeightType, TransformedFeatureDimensions, NumRegistersSIMD>();}
+\DoxyCodeLine{158       \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} NumPsqtRegs = BestRegisterCount<psqt\_vec\_t, PSQTWeightType, PSQTBuckets, NumRegistersSIMD>();}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{      \#pragma GCC diagnostic pop}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166   \textcolor{comment}{// Input feature converter}}
+\DoxyCodeLine{167   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer}{FeatureTransformer}} \{}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169    \textcolor{keyword}{private}:}
+\DoxyCodeLine{170     \textcolor{comment}{// Number of output dimensions for one side}}
+\DoxyCodeLine{171     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType HalfDimensions = TransformedFeatureDimensions;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{    \#ifdef VECTOR}}
+\DoxyCodeLine{174     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType TileHeight = NumRegs * \textcolor{keyword}{sizeof}(vec\_t) / 2;}
+\DoxyCodeLine{175     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType PsqtTileHeight = NumPsqtRegs * \textcolor{keyword}{sizeof}(psqt\_vec\_t) / 4;}
+\DoxyCodeLine{176     \textcolor{keyword}{static\_assert}(HalfDimensions \% TileHeight == 0, \textcolor{stringliteral}{"{}TileHeight must divide HalfDimensions"{}});}
+\DoxyCodeLine{177     \textcolor{keyword}{static\_assert}(PSQTBuckets \% PsqtTileHeight == 0, \textcolor{stringliteral}{"{}PsqtTileHeight must divide PSQTBuckets"{}});}
+\DoxyCodeLine{178 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180    \textcolor{keyword}{public}:}
+\DoxyCodeLine{181     \textcolor{comment}{// Output type}}
+\DoxyCodeLine{182     \textcolor{keyword}{using} OutputType = TransformedFeatureType;}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{comment}{// Number of input/output dimensions}}
+\DoxyCodeLine{185     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType InputDimensions = FeatureSet::Dimensions;}
+\DoxyCodeLine{186     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType OutputDimensions = HalfDimensions * 2;}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{comment}{// Size of forward propagation buffer}}
+\DoxyCodeLine{189     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t BufferSize =}
+\DoxyCodeLine{190         OutputDimensions * \textcolor{keyword}{sizeof}(OutputType);}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192     \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{193     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t get\_hash\_value() \{}
+\DoxyCodeLine{194       \textcolor{keywordflow}{return} FeatureSet::HashValue \string^ OutputDimensions;}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{comment}{// Read network parameters}}
+\DoxyCodeLine{198     \textcolor{keywordtype}{bool} read\_parameters(std::istream\& stream) \{}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200       read\_little\_endian<BiasType      >(stream, biases     , HalfDimensions                  );}
+\DoxyCodeLine{201       read\_little\_endian<WeightType    >(stream, weights    , HalfDimensions * InputDimensions);}
+\DoxyCodeLine{202       read\_little\_endian<PSQTWeightType>(stream, psqtWeights, PSQTBuckets    * InputDimensions);}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{205     \}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \textcolor{comment}{// Write network parameters}}
+\DoxyCodeLine{208     \textcolor{keywordtype}{bool} write\_parameters(std::ostream\& stream)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210       write\_little\_endian<BiasType      >(stream, biases     , HalfDimensions                  );}
+\DoxyCodeLine{211       write\_little\_endian<WeightType    >(stream, weights    , HalfDimensions * InputDimensions);}
+\DoxyCodeLine{212       write\_little\_endian<PSQTWeightType>(stream, psqtWeights, PSQTBuckets    * InputDimensions);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{comment}{// Convert input features}}
+\DoxyCodeLine{218     std::int32\_t transform(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, OutputType* output, \textcolor{keywordtype}{int} bucket)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{219       update\_accumulator(pos, WHITE);}
+\DoxyCodeLine{220       update\_accumulator(pos, BLACK);}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222       \textcolor{keyword}{const} Color perspectives[2] = \{pos.side\_to\_move(), \string~pos.side\_to\_move()\};}
+\DoxyCodeLine{223       \textcolor{keyword}{const} \textcolor{keyword}{auto}\& accumulation = pos.state()-\/>accumulator.accumulation;}
+\DoxyCodeLine{224       \textcolor{keyword}{const} \textcolor{keyword}{auto}\& psqtAccumulation = pos.state()-\/>accumulator.psqtAccumulation;}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226       \textcolor{keyword}{const} \textcolor{keyword}{auto} psqt = (}
+\DoxyCodeLine{227             psqtAccumulation[perspectives[0]][bucket]}
+\DoxyCodeLine{228           -\/ psqtAccumulation[perspectives[1]][bucket]}
+\DoxyCodeLine{229         ) / 2;}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232 \textcolor{preprocessor}{  \#if defined(USE\_AVX512)}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / (SimdWidth * 2);}
+\DoxyCodeLine{235       \textcolor{keyword}{static\_assert}(HalfDimensions \% (SimdWidth * 2) == 0);}
+\DoxyCodeLine{236       \textcolor{keyword}{const} \_\_m512i Control = \_mm512\_setr\_epi64(0, 2, 4, 6, 1, 3, 5, 7);}
+\DoxyCodeLine{237       \textcolor{keyword}{const} \_\_m512i Zero = \_mm512\_setzero\_si512();}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{240       \{}
+\DoxyCodeLine{241           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{242           \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m512i*\textcolor{keyword}{>}(\&output[offset]);}
+\DoxyCodeLine{243           \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j)}
+\DoxyCodeLine{244           \{}
+\DoxyCodeLine{245               \_\_m512i sum0 = \_mm512\_load\_si512(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m512i*\textcolor{keyword}{>}}
+\DoxyCodeLine{246                                               (accumulation[perspectives[p]])[j * 2 + 0]);}
+\DoxyCodeLine{247               \_\_m512i sum1 = \_mm512\_load\_si512(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m512i*\textcolor{keyword}{>}}
+\DoxyCodeLine{248                                               (accumulation[perspectives[p]])[j * 2 + 1]);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250               \_mm512\_store\_si512(\&out[j], \_mm512\_permutexvar\_epi64(Control,}
+\DoxyCodeLine{251                                  \_mm512\_max\_epi8(\_mm512\_packs\_epi16(sum0, sum1), Zero)));}
+\DoxyCodeLine{252           \}}
+\DoxyCodeLine{253       \}}
+\DoxyCodeLine{254       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{  \#elif defined(USE\_AVX2)}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;}
+\DoxyCodeLine{259       \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} Control = 0b11011000;}
+\DoxyCodeLine{260       \textcolor{keyword}{const} \_\_m256i Zero = \_mm256\_setzero\_si256();}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{263       \{}
+\DoxyCodeLine{264           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{265           \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m256i*\textcolor{keyword}{>}(\&output[offset]);}
+\DoxyCodeLine{266           \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j)}
+\DoxyCodeLine{267           \{}
+\DoxyCodeLine{268               \_\_m256i sum0 = \_mm256\_load\_si256(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m256i*\textcolor{keyword}{>}}
+\DoxyCodeLine{269                                               (accumulation[perspectives[p]])[j * 2 + 0]);}
+\DoxyCodeLine{270               \_\_m256i sum1 = \_mm256\_load\_si256(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m256i*\textcolor{keyword}{>}}
+\DoxyCodeLine{271                                               (accumulation[perspectives[p]])[j * 2 + 1]);}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273               \_mm256\_store\_si256(\&out[j], \_mm256\_permute4x64\_epi64(}
+\DoxyCodeLine{274                                  \_mm256\_max\_epi8(\_mm256\_packs\_epi16(sum0, sum1), Zero), Control));}
+\DoxyCodeLine{275           \}}
+\DoxyCodeLine{276       \}}
+\DoxyCodeLine{277       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279 \textcolor{preprocessor}{  \#elif defined(USE\_SSE2)}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 \textcolor{preprocessor}{      \#ifdef USE\_SSE41}}
+\DoxyCodeLine{282       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;}
+\DoxyCodeLine{283       \textcolor{keyword}{const} \_\_m128i Zero = \_mm\_setzero\_si128();}
+\DoxyCodeLine{284 \textcolor{preprocessor}{      \#else}}
+\DoxyCodeLine{285       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;}
+\DoxyCodeLine{286       \textcolor{keyword}{const} \_\_m128i k0x80s = \_mm\_set1\_epi8(-\/128);}
+\DoxyCodeLine{287 \textcolor{preprocessor}{      \#endif}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{290       \{}
+\DoxyCodeLine{291           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{292           \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m128i*\textcolor{keyword}{>}(\&output[offset]);}
+\DoxyCodeLine{293           \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j)}
+\DoxyCodeLine{294           \{}
+\DoxyCodeLine{295               \_\_m128i sum0 = \_mm\_load\_si128(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}}
+\DoxyCodeLine{296                                            (accumulation[perspectives[p]])[j * 2 + 0]);}
+\DoxyCodeLine{297               \_\_m128i sum1 = \_mm\_load\_si128(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}}
+\DoxyCodeLine{298                                            (accumulation[perspectives[p]])[j * 2 + 1]);}
+\DoxyCodeLine{299               \textcolor{keyword}{const} \_\_m128i packedbytes = \_mm\_packs\_epi16(sum0, sum1);}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 \textcolor{preprocessor}{              \#ifdef USE\_SSE41}}
+\DoxyCodeLine{302               \_mm\_store\_si128(\&out[j], \_mm\_max\_epi8(packedbytes, Zero));}
+\DoxyCodeLine{303 \textcolor{preprocessor}{              \#else}}
+\DoxyCodeLine{304               \_mm\_store\_si128(\&out[j], \_mm\_subs\_epi8(\_mm\_adds\_epi8(packedbytes, k0x80s), k0x80s));}
+\DoxyCodeLine{305 \textcolor{preprocessor}{              \#endif}}
+\DoxyCodeLine{306           \}}
+\DoxyCodeLine{307       \}}
+\DoxyCodeLine{308       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310 \textcolor{preprocessor}{  \#elif defined(USE\_MMX)}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;}
+\DoxyCodeLine{313       \textcolor{keyword}{const} \_\_m64 k0x80s = \_mm\_set1\_pi8(-\/128);}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{316       \{}
+\DoxyCodeLine{317           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{318           \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m64*\textcolor{keyword}{>}(\&output[offset]);}
+\DoxyCodeLine{319           \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j)}
+\DoxyCodeLine{320           \{}
+\DoxyCodeLine{321               \_\_m64 sum0 = *(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m64*\textcolor{keyword}{>}(accumulation[perspectives[p]])[j * 2 + 0]);}
+\DoxyCodeLine{322               \_\_m64 sum1 = *(\&\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m64*\textcolor{keyword}{>}(accumulation[perspectives[p]])[j * 2 + 1]);}
+\DoxyCodeLine{323               \textcolor{keyword}{const} \_\_m64 packedbytes = \_mm\_packs\_pi16(sum0, sum1);}
+\DoxyCodeLine{324               out[j] = \_mm\_subs\_pi8(\_mm\_adds\_pi8(packedbytes, k0x80s), k0x80s);}
+\DoxyCodeLine{325           \}}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       \_mm\_empty();}
+\DoxyCodeLine{328       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{preprocessor}{  \#elif defined(USE\_NEON)}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332       \textcolor{keyword}{constexpr} IndexType NumChunks = HalfDimensions / (SimdWidth / 2);}
+\DoxyCodeLine{333       \textcolor{keyword}{const} int8x8\_t Zero = \{0\};}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{336       \{}
+\DoxyCodeLine{337           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{338           \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}int8x8\_t*\textcolor{keyword}{>}(\&output[offset]);}
+\DoxyCodeLine{339           \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j)}
+\DoxyCodeLine{340           \{}
+\DoxyCodeLine{341               int16x8\_t sum = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }int16x8\_t*\textcolor{keyword}{>}(accumulation[perspectives[p]])[j];}
+\DoxyCodeLine{342               out[j] = vmax\_s8(vqmovn\_s16(sum), Zero);}
+\DoxyCodeLine{343           \}}
+\DoxyCodeLine{344       \}}
+\DoxyCodeLine{345       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349       \textcolor{keywordflow}{for} (IndexType p = 0; p < 2; ++p)}
+\DoxyCodeLine{350       \{}
+\DoxyCodeLine{351           \textcolor{keyword}{const} IndexType offset = HalfDimensions * p;}
+\DoxyCodeLine{352           \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions; ++j)}
+\DoxyCodeLine{353           \{}
+\DoxyCodeLine{354               BiasType sum = accumulation[perspectives[p]][j];}
+\DoxyCodeLine{355               output[offset + j] = \textcolor{keyword}{static\_cast<}OutputType\textcolor{keyword}{>}(std::max<int>(0, std::min<int>(127, sum)));}
+\DoxyCodeLine{356           \}}
+\DoxyCodeLine{357       \}}
+\DoxyCodeLine{358       \textcolor{keywordflow}{return} psqt;}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362    \} \textcolor{comment}{// end of function transform()}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366    \textcolor{keyword}{private}:}
+\DoxyCodeLine{367     \textcolor{keywordtype}{void} update\_accumulator(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, \textcolor{keyword}{const} Color perspective)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369       \textcolor{comment}{// The size must be enough to contain the largest possible update.}}
+\DoxyCodeLine{370       \textcolor{comment}{// That might depend on the feature set and generally relies on the}}
+\DoxyCodeLine{371       \textcolor{comment}{// feature set's update cost calculation to be correct and never}}
+\DoxyCodeLine{372       \textcolor{comment}{// allow updates with more added/removed features than MaxActiveDimensions.}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374 \textcolor{preprocessor}{  \#ifdef VECTOR}}
+\DoxyCodeLine{375       \textcolor{comment}{// Gcc-\/10.2 unnecessarily spills AVX2 registers if this array}}
+\DoxyCodeLine{376       \textcolor{comment}{// is defined in the VECTOR code below, once in each branch}}
+\DoxyCodeLine{377       vec\_t acc[NumRegs];}
+\DoxyCodeLine{378       psqt\_vec\_t psqt[NumPsqtRegs];}
+\DoxyCodeLine{379 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381       \textcolor{comment}{// Look for a usable accumulator of an earlier position. We keep track}}
+\DoxyCodeLine{382       \textcolor{comment}{// of the estimated gain in terms of features to be added/subtracted.}}
+\DoxyCodeLine{383       \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} *st = pos.state(), *next = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{384       \textcolor{keywordtype}{int} gain = FeatureSet::refresh\_cost(pos);}
+\DoxyCodeLine{385       \textcolor{keywordflow}{while} (st-\/>previous \&\& !st-\/>accumulator.computed[perspective])}
+\DoxyCodeLine{386       \{}
+\DoxyCodeLine{387         \textcolor{comment}{// This governs when a full feature refresh is needed and how many}}
+\DoxyCodeLine{388         \textcolor{comment}{// updates are better than just one full refresh.}}
+\DoxyCodeLine{389         \textcolor{keywordflow}{if} (   FeatureSet::requires\_refresh(st, perspective)}
+\DoxyCodeLine{390             || (gain -\/= FeatureSet::update\_cost(st) + 1) < 0)}
+\DoxyCodeLine{391           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{392         next = st;}
+\DoxyCodeLine{393         st = st-\/>previous;}
+\DoxyCodeLine{394       \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396       \textcolor{keywordflow}{if} (st-\/>accumulator.computed[perspective])}
+\DoxyCodeLine{397       \{}
+\DoxyCodeLine{398         \textcolor{keywordflow}{if} (next == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{399           \textcolor{keywordflow}{return};}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401         \textcolor{comment}{// Update incrementally in two steps. First, we update the "{}next"{}}}
+\DoxyCodeLine{402         \textcolor{comment}{// accumulator. Then, we update the current accumulator (pos.state()).}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404         \textcolor{comment}{// Gather all features to be updated.}}
+\DoxyCodeLine{405         \textcolor{keyword}{const} Square ksq = pos.square<KING>(perspective);}
+\DoxyCodeLine{406         \mbox{\hyperlink{class_stockfish_1_1_value_list}{FeatureSet::IndexList}} removed[2], added[2];}
+\DoxyCodeLine{407         FeatureSet::append\_changed\_indices(}
+\DoxyCodeLine{408           ksq, next-\/>dirtyPiece, perspective, removed[0], added[0]);}
+\DoxyCodeLine{409         \textcolor{keywordflow}{for} (\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} *st2 = pos.state(); st2 != next; st2 = st2-\/>previous)}
+\DoxyCodeLine{410           FeatureSet::append\_changed\_indices(}
+\DoxyCodeLine{411             ksq, st2-\/>dirtyPiece, perspective, removed[1], added[1]);}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413         \textcolor{comment}{// Mark the accumulators as computed.}}
+\DoxyCodeLine{414         next-\/>accumulator.computed[perspective] = \textcolor{keyword}{true};}
+\DoxyCodeLine{415         pos.state()-\/>accumulator.computed[perspective] = \textcolor{keyword}{true};}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417         \textcolor{comment}{// Now update the accumulators listed in states\_to\_update[], where the last element is a sentinel.}}
+\DoxyCodeLine{418         \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} *states\_to\_update[3] =}
+\DoxyCodeLine{419           \{ next, next == pos.state() ? nullptr : pos.state(), \textcolor{keyword}{nullptr} \};}
+\DoxyCodeLine{420 \textcolor{preprocessor}{  \#ifdef VECTOR}}
+\DoxyCodeLine{421         \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions / TileHeight; ++j)}
+\DoxyCodeLine{422         \{}
+\DoxyCodeLine{423           \textcolor{comment}{// Load accumulator}}
+\DoxyCodeLine{424           \textcolor{keyword}{auto} accTile = \textcolor{keyword}{reinterpret\_cast<}vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{425             \&st-\/>accumulator.accumulation[perspective][j * TileHeight]);}
+\DoxyCodeLine{426           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{427             acc[k] = vec\_load(\&accTile[k]);}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429           \textcolor{keywordflow}{for} (IndexType i = 0; states\_to\_update[i]; ++i)}
+\DoxyCodeLine{430           \{}
+\DoxyCodeLine{431             \textcolor{comment}{// Difference calculation for the deactivated features}}
+\DoxyCodeLine{432             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : removed[i])}
+\DoxyCodeLine{433             \{}
+\DoxyCodeLine{434               \textcolor{keyword}{const} IndexType offset = HalfDimensions * index + j * TileHeight;}
+\DoxyCodeLine{435               \textcolor{keyword}{auto} column = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{436               \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{437                 acc[k] = vec\_sub\_16(acc[k], column[k]);}
+\DoxyCodeLine{438             \}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440             \textcolor{comment}{// Difference calculation for the activated features}}
+\DoxyCodeLine{441             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : added[i])}
+\DoxyCodeLine{442             \{}
+\DoxyCodeLine{443               \textcolor{keyword}{const} IndexType offset = HalfDimensions * index + j * TileHeight;}
+\DoxyCodeLine{444               \textcolor{keyword}{auto} column = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{445               \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{446                 acc[k] = vec\_add\_16(acc[k], column[k]);}
+\DoxyCodeLine{447             \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449             \textcolor{comment}{// Store accumulator}}
+\DoxyCodeLine{450             accTile = \textcolor{keyword}{reinterpret\_cast<}vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{451               \&states\_to\_update[i]-\/>accumulator.accumulation[perspective][j * TileHeight]);}
+\DoxyCodeLine{452             \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{453               vec\_store(\&accTile[k], acc[k]);}
+\DoxyCodeLine{454           \}}
+\DoxyCodeLine{455         \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457         \textcolor{keywordflow}{for} (IndexType j = 0; j < PSQTBuckets / PsqtTileHeight; ++j)}
+\DoxyCodeLine{458         \{}
+\DoxyCodeLine{459           \textcolor{comment}{// Load accumulator}}
+\DoxyCodeLine{460           \textcolor{keyword}{auto} accTilePsqt = \textcolor{keyword}{reinterpret\_cast<}psqt\_vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{461             \&st-\/>accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);}
+\DoxyCodeLine{462           \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{463             psqt[k] = vec\_load\_psqt(\&accTilePsqt[k]);}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465           \textcolor{keywordflow}{for} (IndexType i = 0; states\_to\_update[i]; ++i)}
+\DoxyCodeLine{466           \{}
+\DoxyCodeLine{467             \textcolor{comment}{// Difference calculation for the deactivated features}}
+\DoxyCodeLine{468             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : removed[i])}
+\DoxyCodeLine{469             \{}
+\DoxyCodeLine{470               \textcolor{keyword}{const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;}
+\DoxyCodeLine{471               \textcolor{keyword}{auto} columnPsqt = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }psqt\_vec\_t*\textcolor{keyword}{>}(\&psqtWeights[offset]);}
+\DoxyCodeLine{472               \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{473                 psqt[k] = vec\_sub\_psqt\_32(psqt[k], columnPsqt[k]);}
+\DoxyCodeLine{474             \}}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{476             \textcolor{comment}{// Difference calculation for the activated features}}
+\DoxyCodeLine{477             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : added[i])}
+\DoxyCodeLine{478             \{}
+\DoxyCodeLine{479               \textcolor{keyword}{const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;}
+\DoxyCodeLine{480               \textcolor{keyword}{auto} columnPsqt = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }psqt\_vec\_t*\textcolor{keyword}{>}(\&psqtWeights[offset]);}
+\DoxyCodeLine{481               \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{482                 psqt[k] = vec\_add\_psqt\_32(psqt[k], columnPsqt[k]);}
+\DoxyCodeLine{483             \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485             \textcolor{comment}{// Store accumulator}}
+\DoxyCodeLine{486             accTilePsqt = \textcolor{keyword}{reinterpret\_cast<}psqt\_vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{487               \&states\_to\_update[i]-\/>accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);}
+\DoxyCodeLine{488             \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{489               vec\_store\_psqt(\&accTilePsqt[k], psqt[k]);}
+\DoxyCodeLine{490           \}}
+\DoxyCodeLine{491         \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{494         \textcolor{keywordflow}{for} (IndexType i = 0; states\_to\_update[i]; ++i)}
+\DoxyCodeLine{495         \{}
+\DoxyCodeLine{496           std::memcpy(states\_to\_update[i]-\/>accumulator.accumulation[perspective],}
+\DoxyCodeLine{497               st-\/>accumulator.accumulation[perspective],}
+\DoxyCodeLine{498               HalfDimensions * \textcolor{keyword}{sizeof}(BiasType));}
+\DoxyCodeLine{499 }
+\DoxyCodeLine{500           \textcolor{keywordflow}{for} (std::size\_t k = 0; k < PSQTBuckets; ++k)}
+\DoxyCodeLine{501             states\_to\_update[i]-\/>accumulator.psqtAccumulation[perspective][k] = st-\/>accumulator.psqtAccumulation[perspective][k];}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503           st = states\_to\_update[i];}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505           \textcolor{comment}{// Difference calculation for the deactivated features}}
+\DoxyCodeLine{506           for (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : removed[i])}
+\DoxyCodeLine{507           \{}
+\DoxyCodeLine{508             \textcolor{keyword}{const} IndexType offset = HalfDimensions * index;}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510             \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions; ++j)}
+\DoxyCodeLine{511               st-\/>accumulator.accumulation[perspective][j] -\/= weights[offset + j];}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513             for (std::size\_t k = 0; k < PSQTBuckets; ++k)}
+\DoxyCodeLine{514               st-\/>accumulator.psqtAccumulation[perspective][k] -\/= psqtWeights[index * PSQTBuckets + k];}
+\DoxyCodeLine{515           \}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517           \textcolor{comment}{// Difference calculation for the activated features}}
+\DoxyCodeLine{518           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : added[i])}
+\DoxyCodeLine{519           \{}
+\DoxyCodeLine{520             \textcolor{keyword}{const} IndexType offset = HalfDimensions * index;}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{522             \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions; ++j)}
+\DoxyCodeLine{523               st-\/>accumulator.accumulation[perspective][j] += weights[offset + j];}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525             for (std::size\_t k = 0; k < PSQTBuckets; ++k)}
+\DoxyCodeLine{526               st-\/>accumulator.psqtAccumulation[perspective][k] += psqtWeights[index * PSQTBuckets + k];}
+\DoxyCodeLine{527           \}}
+\DoxyCodeLine{528         \}}
+\DoxyCodeLine{529 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{530       \}}
+\DoxyCodeLine{531       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{532       \{}
+\DoxyCodeLine{533         \textcolor{comment}{// Refresh the accumulator}}
+\DoxyCodeLine{534         \textcolor{keyword}{auto}\& accumulator = pos.state()-\/>accumulator;}
+\DoxyCodeLine{535         accumulator.computed[perspective] = \textcolor{keyword}{true};}
+\DoxyCodeLine{536         \mbox{\hyperlink{class_stockfish_1_1_value_list}{FeatureSet::IndexList}} active;}
+\DoxyCodeLine{537         FeatureSet::append\_active\_indices(pos, perspective, active);}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539 \textcolor{preprocessor}{  \#ifdef VECTOR}}
+\DoxyCodeLine{540         \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions / TileHeight; ++j)}
+\DoxyCodeLine{541         \{}
+\DoxyCodeLine{542           \textcolor{keyword}{auto} biasesTile = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{543               \&biases[j * TileHeight]);}
+\DoxyCodeLine{544           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{545             acc[k] = biasesTile[k];}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : active)}
+\DoxyCodeLine{548           \{}
+\DoxyCodeLine{549             \textcolor{keyword}{const} IndexType offset = HalfDimensions * index + j * TileHeight;}
+\DoxyCodeLine{550             \textcolor{keyword}{auto} column = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{552             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{553               acc[k] = vec\_add\_16(acc[k], column[k]);}
+\DoxyCodeLine{554           \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556           \textcolor{keyword}{auto} accTile = \textcolor{keyword}{reinterpret\_cast<}vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{557               \&accumulator.accumulation[perspective][j * TileHeight]);}
+\DoxyCodeLine{558           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} k = 0; k < NumRegs; k++)}
+\DoxyCodeLine{559             vec\_store(\&accTile[k], acc[k]);}
+\DoxyCodeLine{560         \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562         \textcolor{keywordflow}{for} (IndexType j = 0; j < PSQTBuckets / PsqtTileHeight; ++j)}
+\DoxyCodeLine{563         \{}
+\DoxyCodeLine{564           \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{565             psqt[k] = vec\_zero\_psqt();}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{567           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : active)}
+\DoxyCodeLine{568           \{}
+\DoxyCodeLine{569             \textcolor{keyword}{const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;}
+\DoxyCodeLine{570             \textcolor{keyword}{auto} columnPsqt = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }psqt\_vec\_t*\textcolor{keyword}{>}(\&psqtWeights[offset]);}
+\DoxyCodeLine{571 }
+\DoxyCodeLine{572             \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{573               psqt[k] = vec\_add\_psqt\_32(psqt[k], columnPsqt[k]);}
+\DoxyCodeLine{574           \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576           \textcolor{keyword}{auto} accTilePsqt = \textcolor{keyword}{reinterpret\_cast<}psqt\_vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{577             \&accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);}
+\DoxyCodeLine{578           \textcolor{keywordflow}{for} (std::size\_t k = 0; k < NumPsqtRegs; ++k)}
+\DoxyCodeLine{579             vec\_store\_psqt(\&accTilePsqt[k], psqt[k]);}
+\DoxyCodeLine{580         \}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{583         std::memcpy(accumulator.accumulation[perspective], biases,}
+\DoxyCodeLine{584             HalfDimensions * \textcolor{keyword}{sizeof}(BiasType));}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586         \textcolor{keywordflow}{for} (std::size\_t k = 0; k < PSQTBuckets; ++k)}
+\DoxyCodeLine{587           accumulator.psqtAccumulation[perspective][k] = 0;}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589         for (\textcolor{keyword}{const} \textcolor{keyword}{auto} index : active)}
+\DoxyCodeLine{590         \{}
+\DoxyCodeLine{591           \textcolor{keyword}{const} IndexType offset = HalfDimensions * index;}
+\DoxyCodeLine{592 }
+\DoxyCodeLine{593           \textcolor{keywordflow}{for} (IndexType j = 0; j < HalfDimensions; ++j)}
+\DoxyCodeLine{594             accumulator.accumulation[perspective][j] += weights[offset + j];}
+\DoxyCodeLine{595 }
+\DoxyCodeLine{596           for (std::size\_t k = 0; k < PSQTBuckets; ++k)}
+\DoxyCodeLine{597             accumulator.psqtAccumulation[perspective][k] += psqtWeights[index * PSQTBuckets + k];}
+\DoxyCodeLine{598         \}}
+\DoxyCodeLine{599 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{600       \}}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{602 \textcolor{preprocessor}{  \#if defined(USE\_MMX)}}
+\DoxyCodeLine{603       \_mm\_empty();}
+\DoxyCodeLine{604 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{605     \}}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607     \textcolor{keyword}{alignas}(CacheLineSize) BiasType biases[HalfDimensions];}
+\DoxyCodeLine{608     \textcolor{keyword}{alignas}(CacheLineSize) WeightType weights[HalfDimensions * InputDimensions];}
+\DoxyCodeLine{609     \textcolor{keyword}{alignas}(CacheLineSize) PSQTWeightType psqtWeights[InputDimensions * PSQTBuckets];}
+\DoxyCodeLine{610   \};}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE}}
+\DoxyCodeLine{613 }
+\DoxyCodeLine{614 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_FEATURE\_TRANSFORMER\_H\_INCLUDED}}
+
+\end{DoxyCode}

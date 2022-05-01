@@ -1,0 +1,55 @@
+\hypertarget{timeman_8h_source}{}\doxysection{timeman.\+h}
+\label{timeman_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/timeman.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/timeman.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef TIMEMAN\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define TIMEMAN\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}search.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}thread.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_time_management}{TimeManagement}} \{}
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_time_management_abcc9ae5c8834723d34e8f8f5412b1988}{init}}(\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{Search::LimitsType}}\& limits, Color us, \textcolor{keywordtype}{int} ply);}
+\DoxyCodeLine{34   TimePoint optimum()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} optimumTime; \}}
+\DoxyCodeLine{35   TimePoint maximum()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} maximumTime; \}}
+\DoxyCodeLine{36   TimePoint elapsed()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Search::Limits.npmsec ?}
+\DoxyCodeLine{37                                      TimePoint(Threads.nodes\_searched()) : now() -\/ startTime; \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   int64\_t availableNodes; \textcolor{comment}{// When in 'nodes as time' mode}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{private}:}
+\DoxyCodeLine{42   TimePoint startTime;}
+\DoxyCodeLine{43   TimePoint optimumTime;}
+\DoxyCodeLine{44   TimePoint maximumTime;}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \mbox{\hyperlink{class_stockfish_1_1_time_management}{TimeManagement}} Time;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef TIMEMAN\_H\_INCLUDED}}
+
+\end{DoxyCode}

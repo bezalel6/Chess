@@ -1,0 +1,33 @@
+\hypertarget{class_stockfish_1_1_tune}{}\doxysection{Tune}
+\label{class_stockfish_1_1_tune}\index{Tune@{Tune}}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_tune_a110e6856ce51f3271474a21575563b6d}\label{class_stockfish_1_1_tune_a110e6856ce51f3271474a21575563b6d}} 
+static bool {\bfseries update\+\_\+on\+\_\+last}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}} class implements the \textquotesingle{}magic\textquotesingle{} code that makes the setup of a fishtest tuning session as easy as it can be. Mainly you have just to remove const qualifiers from the variables you want to tune and flag them for tuning, so if you have\+:
+
+const Score my\+Score = S(10, 15); const Value my\+Value\mbox{[}\mbox{]}\mbox{[}2\mbox{]} = \{ \{ V(100), V(20) \}, \{ V(7), V(78) \} \};
+
+If you have a my\+\_\+post\+\_\+update() function to run after values have been updated, and a my\+\_\+range() function to set custom Option\textquotesingle{}s min-\/max values, then you just remove the \textquotesingle{}const\textquotesingle{} qualifiers and write somewhere below in the file\+:
+
+TUNE(\+Set\+Range(my\+\_\+range), my\+Score, my\+Value, my\+\_\+post\+\_\+update);
+
+You can also set the range directly, and restore the default at the end
+
+TUNE(\mbox{\hyperlink{struct_stockfish_1_1_set_range}{Set\+Range}}(-\/100, 100), my\+Score, Set\+Default\+Range);
+
+In case update function is slow and you have many parameters, you can add\+:
+
+UPDATE\+\_\+\+ON\+\_\+\+LAST();
+
+And the values update, including post update function call, will be done only once, after the engine receives the last UCI option, that is the one defined and created as the last one, so the GUI should send the options in the same order in which have been defined. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tune.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tune.\+cpp\end{DoxyCompactItemize}

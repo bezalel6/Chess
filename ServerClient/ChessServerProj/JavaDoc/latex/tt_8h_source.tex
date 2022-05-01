@@ -1,0 +1,98 @@
+\hypertarget{tt_8h_source}{}\doxysection{tt.\+h}
+\label{tt_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/tt.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/tt.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef TT\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define TT\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} \{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}  move()\textcolor{keyword}{  const }\{ \textcolor{keywordflow}{return} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} )move16; \}}
+\DoxyCodeLine{41   Value value()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (Value)value16; \}}
+\DoxyCodeLine{42   Value eval()\textcolor{keyword}{  const }\{ \textcolor{keywordflow}{return} (Value)eval16; \}}
+\DoxyCodeLine{43   Depth depth()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (Depth)depth8 + DEPTH\_OFFSET; \}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{bool} is\_pv()\textcolor{keyword}{  const }\{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{bool})(genBound8 \& 0x4); \}}
+\DoxyCodeLine{45   Bound bound()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (Bound)(genBound8 \& 0x3); \}}
+\DoxyCodeLine{46   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry_a73026a0108836d8581fa13238889ea14}{save}}(Key k, Value v, \textcolor{keywordtype}{bool} pv, Bound b, Depth d, \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, Value ev);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{private}:}
+\DoxyCodeLine{49   \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_transposition_table}{TranspositionTable}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   uint16\_t key16;}
+\DoxyCodeLine{52   uint8\_t  depth8;}
+\DoxyCodeLine{53   uint8\_t  genBound8;}
+\DoxyCodeLine{54   uint16\_t move16;}
+\DoxyCodeLine{55   int16\_t  value16;}
+\DoxyCodeLine{56   int16\_t  eval16;}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_transposition_table}{TranspositionTable}} \{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} ClusterSize = 3;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \textcolor{keyword}{struct }Cluster \{}
+\DoxyCodeLine{71     \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} entry[ClusterSize];}
+\DoxyCodeLine{72     \textcolor{keywordtype}{char} padding[2]; \textcolor{comment}{// Pad to 32 bytes}}
+\DoxyCodeLine{73   \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75   \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(Cluster) == 32, \textcolor{stringliteral}{"{}Unexpected Cluster size"{}});}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{comment}{// Constants used to refresh the hash table periodically}}
+\DoxyCodeLine{78   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{unsigned} GENERATION\_BITS  = 3;                                \textcolor{comment}{// nb of bits reserved for other things}}
+\DoxyCodeLine{79   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int}      GENERATION\_DELTA = (1 << GENERATION\_BITS);           \textcolor{comment}{// increment for generation field}}
+\DoxyCodeLine{80   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int}      GENERATION\_CYCLE = 255 + (1 << GENERATION\_BITS);     \textcolor{comment}{// cycle length}}
+\DoxyCodeLine{81   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int}      GENERATION\_MASK  = (0xFF << GENERATION\_BITS) \& 0xFF; \textcolor{comment}{// mask to pull out generation number}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{public}:}
+\DoxyCodeLine{84  \mbox{\hyperlink{class_stockfish_1_1_transposition_table}{\string~TranspositionTable}}() \{ \mbox{\hyperlink{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}{aligned\_large\_pages\_free}}(table); \}}
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} new\_search() \{ generation8 += GENERATION\_DELTA; \} \textcolor{comment}{// Lower bits are used for other things}}
+\DoxyCodeLine{86   \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}}* \mbox{\hyperlink{class_stockfish_1_1_transposition_table_aa7fef3a81a80074fb77ee1cb36a7c342}{probe}}(\textcolor{keyword}{const} Key key, \textcolor{keywordtype}{bool}\& found) \textcolor{keyword}{const};}
+\DoxyCodeLine{87   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_stockfish_1_1_transposition_table_a60b290792892771b03ba1aaebeae1c07}{hashfull}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{88   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_transposition_table_a6ad998c27f601446177293ea31beadf8}{resize}}(\textcolor{keywordtype}{size\_t} mbSize);}
+\DoxyCodeLine{89   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_transposition_table_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}}* first\_entry(\textcolor{keyword}{const} Key key)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{return} \&table[mul\_hi64(key, clusterCount)].entry[0];}
+\DoxyCodeLine{93   \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{private}:}
+\DoxyCodeLine{96   \textcolor{keyword}{friend} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98   \textcolor{keywordtype}{size\_t} clusterCount;}
+\DoxyCodeLine{99   Cluster* table;}
+\DoxyCodeLine{100   uint8\_t generation8; \textcolor{comment}{// Size must be not bigger than TTEntry::genBound8}}
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{extern} \mbox{\hyperlink{class_stockfish_1_1_transposition_table}{TranspositionTable}} TT;}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef TT\_H\_INCLUDED}}
+
+\end{DoxyCode}

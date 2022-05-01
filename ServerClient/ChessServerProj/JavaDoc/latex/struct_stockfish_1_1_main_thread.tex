@@ -1,0 +1,68 @@
+\hypertarget{struct_stockfish_1_1_main_thread}{}\doxysection{Main\+Thread}
+\label{struct_stockfish_1_1_main_thread}\index{MainThread@{MainThread}}
+
+
+\mbox{\hyperlink{struct_stockfish_1_1_main_thread}{Main\+Thread}} is a derived class specific for main thread.  
+
+
+Inheritance diagram for Main\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_stockfish_1_1_main_thread}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_ae8c025c7a0bc548235e614e08872d649}\label{struct_stockfish_1_1_main_thread_ae8c025c7a0bc548235e614e08872d649}} 
+double {\bfseries previous\+Time\+Reduction}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_ac8729b6681f93aa7f894e5c5f144f287}\label{struct_stockfish_1_1_main_thread_ac8729b6681f93aa7f894e5c5f144f287}} 
+Value {\bfseries best\+Previous\+Score}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a0a31f948ddc7c034dc10f1d243433681}\label{struct_stockfish_1_1_main_thread_a0a31f948ddc7c034dc10f1d243433681}} 
+Value {\bfseries iter\+Value} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a1da9a34bd4956e0f1ecd70184292b98d}\label{struct_stockfish_1_1_main_thread_a1da9a34bd4956e0f1ecd70184292b98d}} 
+int {\bfseries calls\+Cnt}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a7074417d7305d2370b5fdbf8239f9b1c}\label{struct_stockfish_1_1_main_thread_a7074417d7305d2370b5fdbf8239f9b1c}} 
+bool {\bfseries stop\+On\+Ponderhit}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_af7abbc3d13dee2875130e16f1f9f4e30}\label{struct_stockfish_1_1_main_thread_af7abbc3d13dee2875130e16f1f9f4e30}} 
+std\+::atomic\+\_\+bool {\bfseries ponder}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_main_thread}{Main\+Thread}} is a derived class specific for main thread. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a52bcc885e3064bfc0bbca8cf7859c27d}\label{struct_stockfish_1_1_main_thread_a52bcc885e3064bfc0bbca8cf7859c27d}} 
+\index{MainThread@{MainThread}!search@{search}}
+\index{search@{search}!MainThread@{MainThread}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily void search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\hyperlink{struct_stockfish_1_1_main_thread_a52bcc885e3064bfc0bbca8cf7859c27d}{Main\+Thread\+::search()}} is started when the program receives the UCI \textquotesingle{}go\textquotesingle{} command. It searches from the root position and outputs the \char`\"{}bestmove\char`\"{}. 
+
+Reimplemented from \mbox{\hyperlink{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}{Thread}}.
+
+\mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a6bb46547a6e0d03100d240a87482645a}\label{struct_stockfish_1_1_main_thread_a6bb46547a6e0d03100d240a87482645a}} 
+\index{MainThread@{MainThread}!check\_time@{check\_time}}
+\index{check\_time@{check\_time}!MainThread@{MainThread}}
+\doxysubsubsection{\texorpdfstring{check\_time()}{check\_time()}}
+{\footnotesize\ttfamily void check\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_main_thread_a6bb46547a6e0d03100d240a87482645a}{Main\+Thread\+::check\+\_\+time()}} is used to print debug info and, more importantly, to detect when we are out of available time and thus stop the search. \mbox{\Hypertarget{struct_stockfish_1_1_main_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}\label{struct_stockfish_1_1_main_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}} 
+\index{MainThread@{MainThread}!Thread@{Thread}}
+\index{Thread@{Thread}!MainThread@{MainThread}}
+\doxysubsubsection{\texorpdfstring{Thread()}{Thread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} constructor launches the thread and waits until it goes to sleep in \mbox{\hyperlink{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}{idle\+\_\+loop()}}. Note that \textquotesingle{}searching\textquotesingle{} and \textquotesingle{}exit\textquotesingle{} should be already set. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/thread.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/search.\+cpp\end{DoxyCompactItemize}

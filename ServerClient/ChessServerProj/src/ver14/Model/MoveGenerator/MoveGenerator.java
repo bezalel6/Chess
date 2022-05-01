@@ -164,12 +164,16 @@ public class MoveGenerator {
      */
     public ModelMovesList getGeneratedMoves() {
         try {
-            generatePawnMoves();
-            generateSlidingMoves();
-            generateKnightMoves();
-            generateKingMoves();
-        } catch (ModelMovesList.FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
-            return generatedMoves;
+            try {
+                generatePawnMoves();
+                generateSlidingMoves();
+                generateKnightMoves();
+                generateKingMoves();
+            } catch (ModelMovesList.FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
+                return generatedMoves;
+            }
+        } finally {
+            generatedMoves.finalizeHash();
         }
 
         if (generationSettings == GenerationSettings.ANNOTATE) {

@@ -2,7 +2,7 @@ package ver14.SharedClasses.Callbacks;
 
 
 /**
- * Void callback - .
+ * represents a callback with no object attached to it.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

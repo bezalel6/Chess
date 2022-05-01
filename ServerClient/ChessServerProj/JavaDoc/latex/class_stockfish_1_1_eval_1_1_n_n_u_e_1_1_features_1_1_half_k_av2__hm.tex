@@ -1,0 +1,65 @@
+\hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm}{}\doxysection{Half\+KAv2\+\_\+hm}
+\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm}\index{HalfKAv2\_hm@{HalfKAv2\_hm}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a99c8e3e0fe4039d7f229e843e87a7682}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a99c8e3e0fe4039d7f229e843e87a7682}} 
+using {\bfseries Index\+List} = \mbox{\hyperlink{class_stockfish_1_1_value_list}{Value\+List}}$<$ Index\+Type, Max\+Active\+Dimensions $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a25a43bf0204060c75d84be02e8563b6e}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a25a43bf0204060c75d84be02e8563b6e}} 
+static constexpr const char $\ast$ {\bfseries Name} = \char`\"{}Half\+KAv2\+\_\+hm(Friend)\char`\"{}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_af9c025452a0f384accb58bd569d43b5a}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_af9c025452a0f384accb58bd569d43b5a}} 
+static constexpr std\+::uint32\+\_\+t {\bfseries Hash\+Value} = 0x7f234cb8u
+\item 
+static constexpr Index\+Type \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_ac0465f81d3cddc74edb8c5677afefd55}{Dimensions}}
+\item 
+static constexpr int \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a74bc0df7731fafcb2d38c35919f50678}{King\+Buckets}} \mbox{[}64\mbox{]}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a89ed18be47055e75421f2b2c59007707}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a89ed18be47055e75421f2b2c59007707}} 
+static constexpr Index\+Type {\bfseries Max\+Active\+Dimensions} = 32
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_ac0465f81d3cddc74edb8c5677afefd55}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_ac0465f81d3cddc74edb8c5677afefd55}} 
+\index{HalfKAv2\_hm@{HalfKAv2\_hm}!Dimensions@{Dimensions}}
+\index{Dimensions@{Dimensions}!HalfKAv2\_hm@{HalfKAv2\_hm}}
+\doxysubsubsection{\texorpdfstring{Dimensions}{Dimensions}}
+{\footnotesize\ttfamily constexpr Index\+Type Dimensions\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        \textcolor{keyword}{static\_cast<}IndexType\textcolor{keyword}{>}(SQUARE\_NB) * \textcolor{keyword}{static\_cast<}IndexType\textcolor{keyword}{>}(PS\_NB) / 2}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a74bc0df7731fafcb2d38c35919f50678}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm_a74bc0df7731fafcb2d38c35919f50678}} 
+\index{HalfKAv2\_hm@{HalfKAv2\_hm}!KingBuckets@{KingBuckets}}
+\index{KingBuckets@{KingBuckets}!HalfKAv2\_hm@{HalfKAv2\_hm}}
+\doxysubsubsection{\texorpdfstring{KingBuckets}{KingBuckets}}
+{\footnotesize\ttfamily constexpr int King\+Buckets\mbox{[}64\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 31, 30, 29, 28,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 27, 26, 25, 24,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 23, 22, 21, 20,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 19, 18, 17, 16,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 15, 14, 13, 12,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1, 11, 10,  9,  8,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1,  7,  6,  5,  4,}
+\DoxyCodeLine{      -\/1, -\/1, -\/1, -\/1,  3,  2,  1,  0}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/nnue/features/half\+\_\+ka\+\_\+v2\+\_\+hm.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/nnue/features/half\+\_\+ka\+\_\+v2\+\_\+hm.\+cpp\end{DoxyCompactItemize}

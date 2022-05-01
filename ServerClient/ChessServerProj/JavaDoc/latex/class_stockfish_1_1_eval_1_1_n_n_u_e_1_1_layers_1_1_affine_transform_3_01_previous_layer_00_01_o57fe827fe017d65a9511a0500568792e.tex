@@ -1,0 +1,81 @@
+\hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e}{}\doxysection{Affine\+Transform\texorpdfstring{$<$}{<} Previous\+Layer, Out\+Dims, std\+::enable\+\_\+if\+\_\+t\texorpdfstring{$<$}{<}(Previous\+Layer\+::Output\+Dimensions\texorpdfstring{$<$}{<} 2 $\ast$64-\/1)\texorpdfstring{$>$}{>} \texorpdfstring{$>$}{>}}
+\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e}\index{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a72d2dc1a57b5a5756359a167455699db}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a72d2dc1a57b5a5756359a167455699db}} 
+using {\bfseries Input\+Type} = typename Previous\+Layer\+::\+Output\+Type
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a29171bca95cb40597549b801ccf64b9c}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a29171bca95cb40597549b801ccf64b9c}} 
+using {\bfseries Output\+Type} = std\+::int32\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr Index\+Type \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a675752eff98c800183ceb53011110a54}{Input\+Dimensions}}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a477162597759d6cbca5b0f2b3c058959}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a477162597759d6cbca5b0f2b3c058959}} 
+static constexpr Index\+Type {\bfseries Output\+Dimensions} = Out\+Dims
+\item 
+static constexpr Index\+Type \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a412b50dc3033f1eedaed088de3da6d04}{Padded\+Input\+Dimensions}}
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a2ed59122e2d60d9f5cb46d37915581f1}{Self\+Buffer\+Size}}
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a1fc8c21d75be32484c9f19c043a309ef}{Buffer\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a675752eff98c800183ceb53011110a54}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a675752eff98c800183ceb53011110a54}} 
+\index{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}!InputDimensions@{InputDimensions}}
+\index{InputDimensions@{InputDimensions}!AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}}
+\doxysubsubsection{\texorpdfstring{InputDimensions}{InputDimensions}}
+{\footnotesize\ttfamily constexpr Index\+Type Input\+Dimensions\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        PreviousLayer::OutputDimensions}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a412b50dc3033f1eedaed088de3da6d04}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a412b50dc3033f1eedaed088de3da6d04}} 
+\index{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}!PaddedInputDimensions@{PaddedInputDimensions}}
+\index{PaddedInputDimensions@{PaddedInputDimensions}!AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}}
+\doxysubsubsection{\texorpdfstring{PaddedInputDimensions}{PaddedInputDimensions}}
+{\footnotesize\ttfamily constexpr Index\+Type Padded\+Input\+Dimensions\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        ceil\_to\_multiple<IndexType>(InputDimensions, MaxSimdWidth)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a2ed59122e2d60d9f5cb46d37915581f1}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a2ed59122e2d60d9f5cb46d37915581f1}} 
+\index{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}!SelfBufferSize@{SelfBufferSize}}
+\index{SelfBufferSize@{SelfBufferSize}!AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}}
+\doxysubsubsection{\texorpdfstring{SelfBufferSize}{SelfBufferSize}}
+{\footnotesize\ttfamily constexpr std\+::size\+\_\+t Self\+Buffer\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{      ceil\_to\_multiple(OutputDimensions * \textcolor{keyword}{sizeof}(OutputType), CacheLineSize)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a1fc8c21d75be32484c9f19c043a309ef}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e_a1fc8c21d75be32484c9f19c043a309ef}} 
+\index{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}!BufferSize@{BufferSize}}
+\index{BufferSize@{BufferSize}!AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$@{AffineTransform$<$ PreviousLayer, OutDims, std::enable\_if\_t$<$(PreviousLayer::OutputDimensions$<$ 2 $\ast$64-\/1)$>$ $>$}}
+\doxysubsubsection{\texorpdfstring{BufferSize}{BufferSize}}
+{\footnotesize\ttfamily constexpr std\+::size\+\_\+t Buffer\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{      PreviousLayer::BufferSize + SelfBufferSize}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/nnue/layers/affine\+\_\+transform.\+h\end{DoxyCompactItemize}

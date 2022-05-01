@@ -1,0 +1,33 @@
+\hypertarget{struct_stockfish_1_1_material_1_1_entry}{}\doxysection{Entry}
+\label{struct_stockfish_1_1_material_1_1_entry}\index{Entry@{Entry}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_a96313403719d705d2df812e3ba166772}\label{struct_stockfish_1_1_material_1_1_entry_a96313403719d705d2df812e3ba166772}} 
+Key {\bfseries key}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_a49e45edd64d7c55d10bff5dcea0b9278}\label{struct_stockfish_1_1_material_1_1_entry_a49e45edd64d7c55d10bff5dcea0b9278}} 
+const \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base}}$<$ Value $>$ $\ast$ {\bfseries evaluation\+Function}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_a34c88d0cbdc472e1124ec3b0a16750ef}\label{struct_stockfish_1_1_material_1_1_entry_a34c88d0cbdc472e1124ec3b0a16750ef}} 
+const \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base}}$<$ Scale\+Factor $>$ $\ast$ {\bfseries scaling\+Function} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_a94014506ee2a0c05dcb878c5f6a1ce0f}\label{struct_stockfish_1_1_material_1_1_entry_a94014506ee2a0c05dcb878c5f6a1ce0f}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries score}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_a6c31814780c954b576838fa71355bb89}\label{struct_stockfish_1_1_material_1_1_entry_a6c31814780c954b576838fa71355bb89}} 
+int16\+\_\+t {\bfseries game\+Phase}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_material_1_1_entry_abe638201e543e58c28c9d99621fa9783}\label{struct_stockfish_1_1_material_1_1_entry_abe638201e543e58c28c9d99621fa9783}} 
+uint8\+\_\+t {\bfseries factor} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_material_1_1_entry}{Material\+::\+Entry}} contains various information about a material configuration. It contains a material imbalance evaluation, a function pointer to a special endgame evaluation function (which in most cases is NULL, meaning that the standard evaluation function will be used), and scale factors.
+
+The scale factors are used to scale the evaluation score up or down. For instance, in KRB vs KR endgames, the score is scaled down by a factor of 4, which will result in scores of absolute value less than one pawn. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/material.\+h\end{DoxyCompactItemize}

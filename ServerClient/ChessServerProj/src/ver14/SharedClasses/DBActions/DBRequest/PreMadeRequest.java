@@ -1,6 +1,5 @@
 package ver14.SharedClasses.DBActions.DBRequest;
 
-import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Login.AuthSettings;
@@ -8,6 +7,7 @@ import ver14.SharedClasses.Login.AuthSettings;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 
 /**
@@ -31,10 +31,10 @@ public class PreMadeRequest {
      */
     public static final PreMadeRequest Games = new PreMadeRequest(RequestBuilder::games, AuthSettings.USER, builder -> {
         Arg un = builder.args[0];
-        return new Variation("All Games", new Object[]{un.repInStr, new Date(0), (ObjCallback<Date>) Date::new}, new Arg[]{un});
+        return new Variation("All Games", new Object[]{un.repInStr, new Date(0), (Supplier<Date>) Date::new}, new Arg[]{un});
     }, builder -> {
         Arg un = builder.args[0];
-        return new Variation("Games from last week", new Object[]{un.repInStr, (ObjCallback<Date>) () -> new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), (ObjCallback<Date>) Date::new}, new Arg[]{un});
+        return new Variation("Games from last week", new Object[]{un.repInStr, (Supplier<Date>) () -> new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)), (Supplier<Date>) Date::new}, new Arg[]{un});
     });
     /**
      * The constant DeleteUnfGames.
@@ -62,7 +62,7 @@ public class PreMadeRequest {
     /**
      * The Builder builder.
      */
-    private final ObjCallback<RequestBuilder> builderBuilder;
+    private final Supplier<RequestBuilder> builderBuilder;
     /**
      * The Request variations.
      */
@@ -75,7 +75,7 @@ public class PreMadeRequest {
      * @param authSettings   the auth settings
      * @param variations     the variations
      */
-    PreMadeRequest(ObjCallback<RequestBuilder> builderBuilder, @AuthSettings int authSettings, VariationCreator... variations) {
+    PreMadeRequest(Supplier<RequestBuilder> builderBuilder, @AuthSettings int authSettings, VariationCreator... variations) {
         this.builderBuilder = builderBuilder;
         this.authSettings = authSettings;
         this.requestVariations = Arrays.stream(variations).map(variation -> new PreMadeRequest(() -> RequestBuilder.createVariation(builderBuilder, variation), authSettings)).toList().toArray(new PreMadeRequest[0]);

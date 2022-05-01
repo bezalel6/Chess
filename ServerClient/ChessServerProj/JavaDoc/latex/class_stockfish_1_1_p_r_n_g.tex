@@ -1,0 +1,31 @@
+\hypertarget{class_stockfish_1_1_p_r_n_g}{}\doxysection{PRNG}
+\label{class_stockfish_1_1_p_r_n_g}\index{PRNG@{PRNG}}
+
+
+\doxysubsection{Detailed Description}
+xorshift64star Pseudo-\/\+Random Number Generator This class is based on original code written and dedicated to the public domain by Sebastiano Vigna (2014). It has the following characteristics\+:
+
+
+\begin{DoxyItemize}
+\item Outputs 64-\/bit numbers
+\item Passes Dieharder and Small\+Crush test batteries
+\item Does not require warm-\/up, no zeroland to escape
+\item Internal state is a single 64-\/bit integer
+\item Period is 2$^\wedge$64 -\/ 1
+\item Speed\+: 1.\+60 ns/call (Core i7 @3.\+40\+GHz)
+\end{DoxyItemize}
+
+For further analysis see \href{http://vigna.di.unimi.it/ftp/papers/xorshift.pdf}{\texttt{ http\+://vigna.\+di.\+unimi.\+it/ftp/papers/xorshift.\+pdf}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_p_r_n_g_a7d8431934a4babcc9f211778567c506b}\label{class_stockfish_1_1_p_r_n_g_a7d8431934a4babcc9f211778567c506b}} 
+\index{PRNG@{PRNG}!sparse\_rand@{sparse\_rand}}
+\index{sparse\_rand@{sparse\_rand}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{sparse\_rand()}{sparse\_rand()}}
+{\footnotesize\ttfamily T sparse\+\_\+rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Special generator used to fast init magic numbers. Output values only have 1/8th of their bits set on average. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/misc.\+h\end{DoxyCompactItemize}

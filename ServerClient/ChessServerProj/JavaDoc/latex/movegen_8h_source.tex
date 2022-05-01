@@ -1,0 +1,81 @@
+\hypertarget{movegen_8h_source}{}\doxysection{movegen.\+h}
+\label{movegen_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/movegen.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/movegen.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef MOVEGEN\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MOVEGEN\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }Position;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{enum} GenType \{}
+\DoxyCodeLine{31   CAPTURES,}
+\DoxyCodeLine{32   QUIETS,}
+\DoxyCodeLine{33   QUIET\_CHECKS,}
+\DoxyCodeLine{34   EVASIONS,}
+\DoxyCodeLine{35   NON\_EVASIONS,}
+\DoxyCodeLine{36   LEGAL}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}} \{}
+\DoxyCodeLine{40   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} move;}
+\DoxyCodeLine{41   \textcolor{keywordtype}{int} value;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   \textcolor{keyword}{operator} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} move; \}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{void} operator=(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{ move = m; \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \textcolor{comment}{// Inhibit unwanted implicit conversions to Move}}
+\DoxyCodeLine{47   \textcolor{comment}{// with an ambiguity that yields to a compile error.}}
+\DoxyCodeLine{48   \textcolor{keyword}{operator} float() \textcolor{keyword}{const} = \textcolor{keyword}{delete};}
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}\& f, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}\& s) \{}
+\DoxyCodeLine{52   \textcolor{keywordflow}{return} f.value < s.value;}
+\DoxyCodeLine{53 \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{template}<GenType>}
+\DoxyCodeLine{56 ExtMove* \mbox{\hyperlink{namespace_stockfish_a0cd2bbe9d46e3e062089bb6fd830ba7d}{generate}}(\textcolor{keyword}{const} Position\& pos, ExtMove* moveList);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{60 \textcolor{keyword}{template}<GenType T>}
+\DoxyCodeLine{61 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_move_list}{MoveList}} \{}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \textcolor{keyword}{explicit} \mbox{\hyperlink{struct_stockfish_1_1_move_list}{MoveList}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos) : last(generate<T>(pos, moveList)) \{\}}
+\DoxyCodeLine{64   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}* begin()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} moveList; \}}
+\DoxyCodeLine{65   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}* end()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} last; \}}
+\DoxyCodeLine{66   \textcolor{keywordtype}{size\_t} size()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} last -\/ moveList; \}}
+\DoxyCodeLine{67   \textcolor{keywordtype}{bool} contains(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} move)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} std::find(begin(), end(), move) != end();}
+\DoxyCodeLine{69   \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{private}:}
+\DoxyCodeLine{72   \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}} moveList[MAX\_MOVES], *last;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef MOVEGEN\_H\_INCLUDED}}
+
+\end{DoxyCode}

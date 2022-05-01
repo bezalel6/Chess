@@ -1,0 +1,1281 @@
+\hypertarget{namespace_stockfish}{}\doxysection{Stockfish Namespace Reference}
+\label{namespace_stockfish}\index{Stockfish@{Stockfish}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_stockfish_1_1_endgames}{Endgames}}
+\item 
+namespace \mbox{\hyperlink{namespace_stockfish_1_1_win_proc_group}{Win\+Proc\+Group}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_dirty_piece}{Dirty\+Piece}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_endgame}{Endgame}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base}}
+\begin{DoxyCompactList}\small\item\em Base and derived functors for endgame evaluation and scaling functions. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Hash\+Table}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} holds all magic bitboards relevant data for a single square. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_main_thread}{Main\+Thread}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_stockfish_1_1_main_thread}{Main\+Thread}} is a derived class specific for main thread. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_move_list}{Move\+List}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_p_r_n_g}{PRNG}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_running_average}{Running\+Average}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_set_range}{Set\+Range}}
+\item 
+struct \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4}{Stats$<$ T, D, Size $>$}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_stats_entry}{Stats\+Entry}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_thread_pool}{Thread\+Pool}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_time_management}{Time\+Management}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_transposition_table}{Transposition\+Table}}
+\item 
+struct \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}
+\item 
+class \mbox{\hyperlink{class_stockfish_1_1_value_list}{Value\+List}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}{Endgame\+Code}} E$>$ }\\using \mbox{\hyperlink{namespace_stockfish_a9f394e5e23b46c5e942bc9adc2704708}{eg\+\_\+type}} = typename std\+::conditional$<$(E$<$ SCALING\+\_\+\+FUNCTIONS), Value, Scale\+Factor $>$\+::type
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac0f9b3a930d49641b8d578e6113824d9}\label{namespace_stockfish_ac0f9b3a930d49641b8d578e6113824d9}} 
+typedef std\+::chrono\+::milliseconds\+::rep {\bfseries Time\+Point}
+\item 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ int16\+\_\+t, 14365, COLOR\+\_\+\+NB, int(SQUARE\+\_\+\+NB) $\ast$int(SQUARE\+\_\+\+NB)$>$ \mbox{\hyperlink{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}{Butterfly\+History}}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a5b6b891549e0e4808ba21bc72e6afc20}\label{namespace_stockfish_a5b6b891549e0e4808ba21bc72e6afc20}} 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ int16\+\_\+t, 10692, \mbox{\hyperlink{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}{MAX\+\_\+\+LPH}}, int(SQUARE\+\_\+\+NB) $\ast$int(SQUARE\+\_\+\+NB)$>$ {\bfseries Low\+Ply\+History}
+\item 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}, NOT\+\_\+\+USED, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB $>$ \mbox{\hyperlink{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}{Counter\+Move\+History}}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}\label{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}} 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ int16\+\_\+t, 10692, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB, PIECE\+\_\+\+TYPE\+\_\+\+NB $>$ {\bfseries Capture\+Piece\+To\+History}
+\begin{DoxyCompactList}\small\item\em Capture\+Piece\+To\+History is addressed by a move\textquotesingle{}s \mbox{[}piece\mbox{]}\mbox{[}to\mbox{]}\mbox{[}captured piece type\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}\label{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}} 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ int16\+\_\+t, 29952, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB $>$ {\bfseries Piece\+To\+History}
+\begin{DoxyCompactList}\small\item\em Piece\+To\+History is like Butterfly\+History but is addressed by a move\textquotesingle{}s \mbox{[}piece\mbox{]}\mbox{[}to\mbox{]}. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$ \mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{Piece\+To\+History}}, NOT\+\_\+\+USED, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB $>$ \mbox{\hyperlink{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}{Continuation\+History}}
+\item 
+typedef std\+::unique\+\_\+ptr$<$ std\+::deque$<$ \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}} $>$ $>$ \mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{State\+List\+Ptr}}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a2110e782cab07bcea988b1a11803daa8}\label{namespace_stockfish_a2110e782cab07bcea988b1a11803daa8}} 
+typedef std\+::thread {\bfseries Native\+Thread}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0850d04bc71b2e21b231df549f82892d}\label{namespace_stockfish_a0850d04bc71b2e21b231df549f82892d}} 
+typedef std\+::pair$<$ int, int $>$ {\bfseries Range}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a91e93c362352c13df6da8bcae4a00498}\label{namespace_stockfish_a91e93c362352c13df6da8bcae4a00498}} 
+typedef Range() {\bfseries Range\+Fun}(int)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a05f14885b17fed9d9c6274891dde9bee}\label{namespace_stockfish_a05f14885b17fed9d9c6274891dde9bee}} 
+typedef uint64\+\_\+t {\bfseries Key}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a02916927ece38442d002be9b8b576f1a}\label{namespace_stockfish_a02916927ece38442d002be9b8b576f1a}} 
+typedef uint64\+\_\+t {\bfseries Bitboard}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac9033244cb1fd6f22749eda9cc0f40a4}\label{namespace_stockfish_ac9033244cb1fd6f22749eda9cc0f40a4}} 
+typedef int {\bfseries Depth}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}\label{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}} 
+enum \mbox{\hyperlink{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}{Endgame\+Code}} \{ \newline
+{\bfseries EVALUATION\+\_\+\+FUNCTIONS}
+, {\bfseries KNNK}
+, {\bfseries KNNKP}
+, {\bfseries KXK}
+, \newline
+{\bfseries KBNK}
+, {\bfseries KPK}
+, {\bfseries KRKP}
+, {\bfseries KRKB}
+, \newline
+{\bfseries KRKN}
+, {\bfseries KQKP}
+, {\bfseries KQKR}
+, {\bfseries SCALING\+\_\+\+FUNCTIONS}
+, \newline
+{\bfseries KBPsK}
+, {\bfseries KQKRPs}
+, {\bfseries KRPKR}
+, {\bfseries KRPKB}
+, \newline
+{\bfseries KRPPKRP}
+, {\bfseries KPsK}
+, {\bfseries KBPKB}
+, {\bfseries KBPPKB}
+, \newline
+{\bfseries KBPKN}
+, {\bfseries KPKP}
+ \}
+\begin{DoxyCompactList}\small\item\em Endgame\+Code lists all supported endgame functions by corresponding codes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a868c92e3495fdfb3da3e7024680c35be}\label{namespace_stockfish_a868c92e3495fdfb3da3e7024680c35be}} 
+enum {\bfseries Sync\+Cout} \{ {\bfseries IO\+\_\+\+LOCK}
+, {\bfseries IO\+\_\+\+UNLOCK}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6614d7dc2ade9602d757dcbcf4583880}\label{namespace_stockfish_a6614d7dc2ade9602d757dcbcf4583880}} 
+enum {\bfseries Gen\+Type} \{ \newline
+{\bfseries CAPTURES}
+, {\bfseries QUIETS}
+, {\bfseries QUIET\+\_\+\+CHECKS}
+, {\bfseries EVASIONS}
+, \newline
+{\bfseries NON\+\_\+\+EVASIONS}
+, {\bfseries LEGAL}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4a2886f97823c0ad80c961a9179cdec4}\label{namespace_stockfish_a4a2886f97823c0ad80c961a9179cdec4}} 
+enum \mbox{\hyperlink{namespace_stockfish_a4a2886f97823c0ad80c961a9179cdec4}{Stats\+Params}} \{ {\bfseries NOT\+\_\+\+USED} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em In stats table, D=0 means that the template parameter is not used. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a16e643ac31b859d65ce7bd86c397eb3a}\label{namespace_stockfish_a16e643ac31b859d65ce7bd86c397eb3a}} 
+enum {\bfseries Stats\+Type} \{ {\bfseries No\+Captures}
+, {\bfseries Captures}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} \+: int \{ {\bfseries MOVE\+\_\+\+NONE}
+, {\bfseries MOVE\+\_\+\+NULL} = 65
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7e1d200778d8c8a345fe6c9000adbbbb}\label{namespace_stockfish_a7e1d200778d8c8a345fe6c9000adbbbb}} 
+enum {\bfseries Move\+Flag} \{ {\bfseries NORMAL}
+, {\bfseries PROMOTION} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 14
+, {\bfseries EN\+\_\+\+PASSANT} = 2 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 14
+, {\bfseries CASTLING} = 3 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 14
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab87bacfdad76e61b9412d7124be44c1c}\label{namespace_stockfish_ab87bacfdad76e61b9412d7124be44c1c}} 
+enum {\bfseries Color} \{ {\bfseries WHITE}
+, {\bfseries BLACK}
+, {\bfseries COLOR\+\_\+\+NB} = 2
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a18f93382760afd75c87fc11231c4170d}\label{namespace_stockfish_a18f93382760afd75c87fc11231c4170d}} 
+enum {\bfseries Castling\+Rights} \{ \newline
+{\bfseries NO\+\_\+\+CASTLING}
+, {\bfseries WHITE\+\_\+\+OO}
+, {\bfseries WHITE\+\_\+\+OOO} = WHITE\+\_\+\+OO \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries BLACK\+\_\+\+OO} = WHITE\+\_\+\+OO \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+{\bfseries BLACK\+\_\+\+OOO} = WHITE\+\_\+\+OO \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, {\bfseries KING\+\_\+\+SIDE} = WHITE\+\_\+\+OO $\vert$ BLACK\+\_\+\+OO
+, {\bfseries QUEEN\+\_\+\+SIDE} = WHITE\+\_\+\+OOO $\vert$ BLACK\+\_\+\+OOO
+, {\bfseries WHITE\+\_\+\+CASTLING} = WHITE\+\_\+\+OO $\vert$ WHITE\+\_\+\+OOO
+, \newline
+{\bfseries BLACK\+\_\+\+CASTLING} = BLACK\+\_\+\+OO $\vert$ BLACK\+\_\+\+OOO
+, {\bfseries ANY\+\_\+\+CASTLING} = WHITE\+\_\+\+CASTLING $\vert$ BLACK\+\_\+\+CASTLING
+, {\bfseries CASTLING\+\_\+\+RIGHT\+\_\+\+NB} = 16
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae1c5184dc404edf057ed537bcfddef84}\label{namespace_stockfish_ae1c5184dc404edf057ed537bcfddef84}} 
+enum {\bfseries Phase} \{ \newline
+{\bfseries PHASE\+\_\+\+ENDGAME}
+, {\bfseries PHASE\+\_\+\+MIDGAME} = 128
+, {\bfseries MG} = 0
+, {\bfseries EG} = 1
+, \newline
+{\bfseries PHASE\+\_\+\+NB} = 2
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_acd654d770cae6efae84510b1cb25ca9f}\label{namespace_stockfish_acd654d770cae6efae84510b1cb25ca9f}} 
+enum {\bfseries Scale\+Factor} \{ {\bfseries SCALE\+\_\+\+FACTOR\+\_\+\+DRAW} = 0
+, {\bfseries SCALE\+\_\+\+FACTOR\+\_\+\+NORMAL} = 64
+, {\bfseries SCALE\+\_\+\+FACTOR\+\_\+\+MAX} = 128
+, {\bfseries SCALE\+\_\+\+FACTOR\+\_\+\+NONE} = 255
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9c227051829479618e4f52c0b3642243}\label{namespace_stockfish_a9c227051829479618e4f52c0b3642243}} 
+enum {\bfseries Bound} \{ {\bfseries BOUND\+\_\+\+NONE}
+, {\bfseries BOUND\+\_\+\+UPPER}
+, {\bfseries BOUND\+\_\+\+LOWER}
+, {\bfseries BOUND\+\_\+\+EXACT} = BOUND\+\_\+\+UPPER $\vert$ BOUND\+\_\+\+LOWER
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a3fd3ef1723af1f64f017493fc70fdc19}\label{namespace_stockfish_a3fd3ef1723af1f64f017493fc70fdc19}} 
+enum {\bfseries Explosion\+State} \{ {\bfseries EXPLOSION\+\_\+\+NONE}
+, {\bfseries MUST\+\_\+\+CALM\+\_\+\+DOWN}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a399dd9f796d37d52f50032fd6bc797ae}\label{namespace_stockfish_a399dd9f796d37d52f50032fd6bc797ae}} 
+enum {\bfseries Value} \+: int \{ \newline
+{\bfseries VALUE\+\_\+\+ZERO} = 0
+, {\bfseries VALUE\+\_\+\+DRAW} = 0
+, {\bfseries VALUE\+\_\+\+KNOWN\+\_\+\+WIN} = 10000
+, {\bfseries VALUE\+\_\+\+MATE} = 32000
+, \newline
+{\bfseries VALUE\+\_\+\+INFINITE} = 32001
+, {\bfseries VALUE\+\_\+\+NONE} = 32002
+, {\bfseries VALUE\+\_\+\+TB\+\_\+\+WIN\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY} = VALUE\+\_\+\+MATE -\/ 2 $\ast$ MAX\+\_\+\+PLY
+, {\bfseries VALUE\+\_\+\+TB\+\_\+\+LOSS\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY} = -\/VALUE\+\_\+\+TB\+\_\+\+WIN\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY
+, \newline
+{\bfseries VALUE\+\_\+\+MATE\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY} = VALUE\+\_\+\+MATE -\/ MAX\+\_\+\+PLY
+, {\bfseries VALUE\+\_\+\+MATED\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY} = -\/VALUE\+\_\+\+MATE\+\_\+\+IN\+\_\+\+MAX\+\_\+\+PLY
+, {\bfseries Pawn\+Value\+Mg} = 126
+, {\bfseries Pawn\+Value\+Eg} = 208
+, \newline
+{\bfseries Knight\+Value\+Mg} = 781
+, {\bfseries Knight\+Value\+Eg} = 854
+, {\bfseries Bishop\+Value\+Mg} = 825
+, {\bfseries Bishop\+Value\+Eg} = 915
+, \newline
+{\bfseries Rook\+Value\+Mg} = 1276
+, {\bfseries Rook\+Value\+Eg} = 1380
+, {\bfseries Queen\+Value\+Mg} = 2538
+, {\bfseries Queen\+Value\+Eg} = 2682
+, \newline
+{\bfseries Midgame\+Limit} = 15258
+, {\bfseries Endgame\+Limit} = 3915
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a12ed9719bbdf7bc596ff7a6f4bf3f021}\label{namespace_stockfish_a12ed9719bbdf7bc596ff7a6f4bf3f021}} 
+enum {\bfseries Piece\+Type} \{ \newline
+{\bfseries NO\+\_\+\+PIECE\+\_\+\+TYPE}
+, {\bfseries PAWN}
+, {\bfseries KNIGHT}
+, {\bfseries BISHOP}
+, \newline
+{\bfseries ROOK}
+, {\bfseries QUEEN}
+, {\bfseries KING}
+, {\bfseries ALL\+\_\+\+PIECES} = 0
+, \newline
+{\bfseries PIECE\+\_\+\+TYPE\+\_\+\+NB} = 8
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ade35c903123b92bed5cc7b84e6a1314e}\label{namespace_stockfish_ade35c903123b92bed5cc7b84e6a1314e}} 
+enum {\bfseries Piece} \{ \newline
+{\bfseries NO\+\_\+\+PIECE}
+, {\bfseries W\+\_\+\+PAWN} = PAWN
+, {\bfseries W\+\_\+\+KNIGHT}
+, {\bfseries W\+\_\+\+BISHOP}
+, \newline
+{\bfseries W\+\_\+\+ROOK}
+, {\bfseries W\+\_\+\+QUEEN}
+, {\bfseries W\+\_\+\+KING}
+, {\bfseries B\+\_\+\+PAWN} = PAWN + 8
+, \newline
+{\bfseries B\+\_\+\+KNIGHT}
+, {\bfseries B\+\_\+\+BISHOP}
+, {\bfseries B\+\_\+\+ROOK}
+, {\bfseries B\+\_\+\+QUEEN}
+, \newline
+{\bfseries B\+\_\+\+KING}
+, {\bfseries PIECE\+\_\+\+NB} = 16
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aef0c5fad27afdf5cd974a7ecfad5eeca}\label{namespace_stockfish_aef0c5fad27afdf5cd974a7ecfad5eeca}} 
+enum \+: int \{ \newline
+{\bfseries DEPTH\+\_\+\+QS\+\_\+\+CHECKS} = 0
+, {\bfseries DEPTH\+\_\+\+QS\+\_\+\+NO\+\_\+\+CHECKS} = -\/1
+, {\bfseries DEPTH\+\_\+\+QS\+\_\+\+RECAPTURES} = -\/5
+, {\bfseries DEPTH\+\_\+\+NONE} = -\/6
+, \newline
+{\bfseries DEPTH\+\_\+\+OFFSET} = -\/7
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a882761226c40b6a64673bcef209f8c90}\label{namespace_stockfish_a882761226c40b6a64673bcef209f8c90}} 
+enum {\bfseries Square} \+: int \{ \newline
+{\bfseries SQ\+\_\+\+A1}
+, {\bfseries SQ\+\_\+\+B1}
+, {\bfseries SQ\+\_\+\+C1}
+, {\bfseries SQ\+\_\+\+D1}
+, \newline
+{\bfseries SQ\+\_\+\+E1}
+, {\bfseries SQ\+\_\+\+F1}
+, {\bfseries SQ\+\_\+\+G1}
+, {\bfseries SQ\+\_\+\+H1}
+, \newline
+{\bfseries SQ\+\_\+\+A2}
+, {\bfseries SQ\+\_\+\+B2}
+, {\bfseries SQ\+\_\+\+C2}
+, {\bfseries SQ\+\_\+\+D2}
+, \newline
+{\bfseries SQ\+\_\+\+E2}
+, {\bfseries SQ\+\_\+\+F2}
+, {\bfseries SQ\+\_\+\+G2}
+, {\bfseries SQ\+\_\+\+H2}
+, \newline
+{\bfseries SQ\+\_\+\+A3}
+, {\bfseries SQ\+\_\+\+B3}
+, {\bfseries SQ\+\_\+\+C3}
+, {\bfseries SQ\+\_\+\+D3}
+, \newline
+{\bfseries SQ\+\_\+\+E3}
+, {\bfseries SQ\+\_\+\+F3}
+, {\bfseries SQ\+\_\+\+G3}
+, {\bfseries SQ\+\_\+\+H3}
+, \newline
+{\bfseries SQ\+\_\+\+A4}
+, {\bfseries SQ\+\_\+\+B4}
+, {\bfseries SQ\+\_\+\+C4}
+, {\bfseries SQ\+\_\+\+D4}
+, \newline
+{\bfseries SQ\+\_\+\+E4}
+, {\bfseries SQ\+\_\+\+F4}
+, {\bfseries SQ\+\_\+\+G4}
+, {\bfseries SQ\+\_\+\+H4}
+, \newline
+{\bfseries SQ\+\_\+\+A5}
+, {\bfseries SQ\+\_\+\+B5}
+, {\bfseries SQ\+\_\+\+C5}
+, {\bfseries SQ\+\_\+\+D5}
+, \newline
+{\bfseries SQ\+\_\+\+E5}
+, {\bfseries SQ\+\_\+\+F5}
+, {\bfseries SQ\+\_\+\+G5}
+, {\bfseries SQ\+\_\+\+H5}
+, \newline
+{\bfseries SQ\+\_\+\+A6}
+, {\bfseries SQ\+\_\+\+B6}
+, {\bfseries SQ\+\_\+\+C6}
+, {\bfseries SQ\+\_\+\+D6}
+, \newline
+{\bfseries SQ\+\_\+\+E6}
+, {\bfseries SQ\+\_\+\+F6}
+, {\bfseries SQ\+\_\+\+G6}
+, {\bfseries SQ\+\_\+\+H6}
+, \newline
+{\bfseries SQ\+\_\+\+A7}
+, {\bfseries SQ\+\_\+\+B7}
+, {\bfseries SQ\+\_\+\+C7}
+, {\bfseries SQ\+\_\+\+D7}
+, \newline
+{\bfseries SQ\+\_\+\+E7}
+, {\bfseries SQ\+\_\+\+F7}
+, {\bfseries SQ\+\_\+\+G7}
+, {\bfseries SQ\+\_\+\+H7}
+, \newline
+{\bfseries SQ\+\_\+\+A8}
+, {\bfseries SQ\+\_\+\+B8}
+, {\bfseries SQ\+\_\+\+C8}
+, {\bfseries SQ\+\_\+\+D8}
+, \newline
+{\bfseries SQ\+\_\+\+E8}
+, {\bfseries SQ\+\_\+\+F8}
+, {\bfseries SQ\+\_\+\+G8}
+, {\bfseries SQ\+\_\+\+H8}
+, \newline
+{\bfseries SQ\+\_\+\+NONE}
+, {\bfseries SQUARE\+\_\+\+ZERO} = 0
+, {\bfseries SQUARE\+\_\+\+NB} = 64
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a347bb0ed16bb774767ead80ac9019d51}\label{namespace_stockfish_a347bb0ed16bb774767ead80ac9019d51}} 
+enum {\bfseries Direction} \+: int \{ \newline
+{\bfseries NORTH} = 8
+, {\bfseries EAST} = 1
+, {\bfseries SOUTH} = -\/NORTH
+, {\bfseries WEST} = -\/EAST
+, \newline
+{\bfseries NORTH\+\_\+\+EAST} = NORTH + EAST
+, {\bfseries SOUTH\+\_\+\+EAST} = SOUTH + EAST
+, {\bfseries SOUTH\+\_\+\+WEST} = SOUTH + WEST
+, {\bfseries NORTH\+\_\+\+WEST} = NORTH + WEST
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a00b65361f7e80e28924e43f006592dd0}\label{namespace_stockfish_a00b65361f7e80e28924e43f006592dd0}} 
+enum {\bfseries File} \+: int \{ \newline
+{\bfseries FILE\+\_\+A}
+, {\bfseries FILE\+\_\+B}
+, {\bfseries FILE\+\_\+C}
+, {\bfseries FILE\+\_\+D}
+, \newline
+{\bfseries FILE\+\_\+E}
+, {\bfseries FILE\+\_\+F}
+, {\bfseries FILE\+\_\+G}
+, {\bfseries FILE\+\_\+H}
+, \newline
+{\bfseries FILE\+\_\+\+NB}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad110352f6681e25df1afd7dea08e0b31}\label{namespace_stockfish_ad110352f6681e25df1afd7dea08e0b31}} 
+enum {\bfseries Rank} \+: int \{ \newline
+{\bfseries RANK\+\_\+1}
+, {\bfseries RANK\+\_\+2}
+, {\bfseries RANK\+\_\+3}
+, {\bfseries RANK\+\_\+4}
+, \newline
+{\bfseries RANK\+\_\+5}
+, {\bfseries RANK\+\_\+6}
+, {\bfseries RANK\+\_\+7}
+, {\bfseries RANK\+\_\+8}
+, \newline
+{\bfseries RANK\+\_\+\+NB}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \+: int \{ {\bfseries SCORE\+\_\+\+ZERO}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{namespace_stockfish_ab973ac5be45d16dce7c2e403057cbc4b}{setup\+\_\+bench}} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&current, istream \&is)
+\item 
+Bitboard \mbox{\hyperlink{namespace_stockfish_af7a8eadef4947a544d1163d16f3eb32a}{safe\+\_\+destination}} (Square s, int step)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a8afc46081f7868efddf1d858a866d4d6}\label{namespace_stockfish_a8afc46081f7868efddf1d858a866d4d6}} 
+Bitboard {\bfseries square\+\_\+bb} (Square s)
+\item 
+Bitboard \mbox{\hyperlink{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}{operator\&}} (Bitboard b, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a17f0700cbd1d1de982f375cc3f7b6796}\label{namespace_stockfish_a17f0700cbd1d1de982f375cc3f7b6796}} 
+Bitboard {\bfseries operator$\vert$} (Bitboard b, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ace623cd91852d9940a64e92619a6de62}\label{namespace_stockfish_ace623cd91852d9940a64e92619a6de62}} 
+Bitboard {\bfseries operator$^\wedge$} (Bitboard b, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a50de9b6564c872e90b9788fb02673b1f}\label{namespace_stockfish_a50de9b6564c872e90b9788fb02673b1f}} 
+Bitboard \& {\bfseries operator$\vert$=} (Bitboard \&b, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad400b8e6380225f709e72e6fa890cb29}\label{namespace_stockfish_ad400b8e6380225f709e72e6fa890cb29}} 
+Bitboard \& {\bfseries operator$^\wedge$=} (Bitboard \&b, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a33177f21b4342b795c93718d7a121085}\label{namespace_stockfish_a33177f21b4342b795c93718d7a121085}} 
+Bitboard {\bfseries operator\&} (Square s, Bitboard b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a8c452b40b5669f4ca673ea8aef464542}\label{namespace_stockfish_a8c452b40b5669f4ca673ea8aef464542}} 
+Bitboard {\bfseries operator$\vert$} (Square s, Bitboard b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a04391cbb58048c0c0aef572cc4e550c7}\label{namespace_stockfish_a04391cbb58048c0c0aef572cc4e550c7}} 
+Bitboard {\bfseries operator$^\wedge$} (Square s, Bitboard b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9f9f3e832de65ade45e789a78b010c6e}\label{namespace_stockfish_a9f9f3e832de65ade45e789a78b010c6e}} 
+Bitboard {\bfseries operator$\vert$} (Square s1, Square s2)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0ca4bba128ad2e372802f5704440791b}\label{namespace_stockfish_a0ca4bba128ad2e372802f5704440791b}} 
+constexpr bool {\bfseries more\+\_\+than\+\_\+one} (Bitboard b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aedb4a05f37b436d63ef89dc0fb53f83f}\label{namespace_stockfish_aedb4a05f37b436d63ef89dc0fb53f83f}} 
+constexpr bool {\bfseries opposite\+\_\+colors} (Square s1, Square s2)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}{rank\+\_\+bb}} (Rank r)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac55fc8c6904f0af6837aee32bcfee2d6}\label{namespace_stockfish_ac55fc8c6904f0af6837aee32bcfee2d6}} 
+constexpr Bitboard {\bfseries rank\+\_\+bb} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_afc9fc90516573a9dd17b3218e75d9dda}\label{namespace_stockfish_afc9fc90516573a9dd17b3218e75d9dda}} 
+constexpr Bitboard {\bfseries file\+\_\+bb} (File f)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4d27fcff7669e463b6690c6a51bc560c}\label{namespace_stockfish_a4d27fcff7669e463b6690c6a51bc560c}} 
+constexpr Bitboard {\bfseries file\+\_\+bb} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}\label{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}} 
+{\footnotesize template$<$Direction D$>$ }\\constexpr Bitboard {\bfseries shift} (Bitboard b)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}{shift()}} moves a bitboard one or two steps as specified by the direction D \end{DoxyCompactList}\item 
+{\footnotesize template$<$Color C$>$ }\\constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}{pawn\+\_\+attacks\+\_\+bb}} (Bitboard b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae45b2410762f1fc7a373c61c1ae7f323}\label{namespace_stockfish_ae45b2410762f1fc7a373c61c1ae7f323}} 
+Bitboard {\bfseries pawn\+\_\+attacks\+\_\+bb} (Color c, Square s)
+\item 
+{\footnotesize template$<$Color C$>$ }\\constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a450bf2625f404ce3818544f8efd5394c}{pawn\+\_\+double\+\_\+attacks\+\_\+bb}} (Bitboard b)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}{adjacent\+\_\+files\+\_\+bb}} (Square s)
+\item 
+Bitboard \mbox{\hyperlink{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}{line\+\_\+bb}} (Square s1, Square s2)
+\item 
+Bitboard \mbox{\hyperlink{namespace_stockfish_a3f8aa419ce03998196972e5abefb765d}{between\+\_\+bb}} (Square s1, Square s2)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}{forward\+\_\+ranks\+\_\+bb}} (Color c, Square s)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}{forward\+\_\+file\+\_\+bb}} (Color c, Square s)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}{pawn\+\_\+attack\+\_\+span}} (Color c, Square s)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}{passed\+\_\+pawn\+\_\+span}} (Color c, Square s)
+\item 
+bool \mbox{\hyperlink{namespace_stockfish_a0ac77d3eb2b4371422f37fd7570eb4f7}{aligned}} (Square s1, Square s2, Square s3)
+\item 
+{\footnotesize template$<$typename T1  = Square$>$ }\\int \mbox{\hyperlink{namespace_stockfish_ac777fbb968a16c9a5d0c8db7729072c6}{distance}} (Square x, Square y)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab97b3f027945b5739a4db7f9f7f305ea}\label{namespace_stockfish_ab97b3f027945b5739a4db7f9f7f305ea}} 
+template$<$$>$ int {\bfseries distance$<$ File $>$} (Square x, Square y)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a8c6c28cf0d90a584f66e312eff33d519}\label{namespace_stockfish_a8c6c28cf0d90a584f66e312eff33d519}} 
+template$<$$>$ int {\bfseries distance$<$ Rank $>$} (Square x, Square y)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_abce8da54f24b51d5d4bc9428344a1342}\label{namespace_stockfish_abce8da54f24b51d5d4bc9428344a1342}} 
+template$<$$>$ int {\bfseries distance$<$ Square $>$} (Square x, Square y)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a3c59eb21c510a80bad397c2610da700b}\label{namespace_stockfish_a3c59eb21c510a80bad397c2610da700b}} 
+int {\bfseries edge\+\_\+distance} (File f)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aa5bedfc7acd97568f11f738b67edd97e}\label{namespace_stockfish_aa5bedfc7acd97568f11f738b67edd97e}} 
+int {\bfseries edge\+\_\+distance} (Rank r)
+\item 
+{\footnotesize template$<$Piece\+Type Pt$>$ }\\Bitboard \mbox{\hyperlink{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}{attacks\+\_\+bb}} (Square s)
+\item 
+{\footnotesize template$<$Piece\+Type Pt$>$ }\\Bitboard \mbox{\hyperlink{namespace_stockfish_aaaf5b7a624047f13bb106da280f36b44}{attacks\+\_\+bb}} (Square s, Bitboard occupied)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4d64d97001555d297e7404d6f317ed87}\label{namespace_stockfish_a4d64d97001555d297e7404d6f317ed87}} 
+Bitboard {\bfseries attacks\+\_\+bb} (Piece\+Type pt, Square s, Bitboard occupied)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}\label{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}} 
+int {\bfseries popcount} (Bitboard b)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}{popcount()}} counts the number of non-\/zero bits in a bitboard \end{DoxyCompactList}\item 
+Bitboard \mbox{\hyperlink{namespace_stockfish_aa269e1ce4c772847cf4dc9c28e5a530c}{least\+\_\+significant\+\_\+square\+\_\+bb}} (Bitboard b)
+\begin{DoxyCompactList}\small\item\em lsb() and msb() return the least/most significant bit in a non-\/zero bitboard \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_affc473913ad842a71ac8bb358e4bb345}\label{namespace_stockfish_affc473913ad842a71ac8bb358e4bb345}} 
+Square {\bfseries pop\+\_\+lsb} (Bitboard \&b)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_affc473913ad842a71ac8bb358e4bb345}{pop\+\_\+lsb()}} finds and clears the least significant bit in a non-\/zero bitboard \end{DoxyCompactList}\item 
+Square \mbox{\hyperlink{namespace_stockfish_a97ca5c270ef98731fd9c8ac2fe1bfe88}{frontmost\+\_\+sq}} (Color c, Bitboard b)
+\item 
+string \mbox{\hyperlink{namespace_stockfish_ad94379209745fe3fb326da854786b0f8}{engine\+\_\+info}} (bool to\+\_\+uci)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aff1bead546363da736aa6e7d5a356c8f}\label{namespace_stockfish_aff1bead546363da736aa6e7d5a356c8f}} 
+std\+::string {\bfseries compiler\+\_\+info} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_aff1bead546363da736aa6e7d5a356c8f}{compiler\+\_\+info()}} returns a string trying to describe the compiler we use \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a6d055760764b4128bf9f6896affbc393}\label{namespace_stockfish_a6d055760764b4128bf9f6896affbc393}} 
+void {\bfseries dbg\+\_\+hit\+\_\+on} (bool b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_af40268bb8ceece352461432d4773107e}\label{namespace_stockfish_af40268bb8ceece352461432d4773107e}} 
+void {\bfseries dbg\+\_\+hit\+\_\+on} (bool c, bool b)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7eb003f50e709dc4a67812d82866d389}\label{namespace_stockfish_a7eb003f50e709dc4a67812d82866d389}} 
+void {\bfseries dbg\+\_\+mean\+\_\+of} (int v)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a194a50f234d1396d203e861aa76a1a24}\label{namespace_stockfish_a194a50f234d1396d203e861aa76a1a24}} 
+void {\bfseries dbg\+\_\+print} ()
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}{operator$<$$<$}} (std\+::ostream \&os, Sync\+Cout sc)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6bd6736594315e6198795b747190b695}\label{namespace_stockfish_a6bd6736594315e6198795b747190b695}} 
+void {\bfseries start\+\_\+logger} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Trampoline helper to avoid moving Logger to \mbox{\hyperlink{misc_8h_source}{misc.\+h}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_stockfish_aaf77a757436a1344d525555c72847c99}{prefetch}} (void $\ast$addr)
+\item 
+void $\ast$ \mbox{\hyperlink{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}{std\+\_\+aligned\+\_\+alloc}} (size\+\_\+t alignment, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4598778bdce427a35703c0a965e46718}\label{namespace_stockfish_a4598778bdce427a35703c0a965e46718}} 
+void {\bfseries std\+\_\+aligned\+\_\+free} (void $\ast$ptr)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_af714b0c7aff4cf648b004003989cdfea}\label{namespace_stockfish_af714b0c7aff4cf648b004003989cdfea}} 
+void $\ast$ {\bfseries aligned\+\_\+large\+\_\+pages\+\_\+alloc} (size\+\_\+t alloc\+Size)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_af714b0c7aff4cf648b004003989cdfea}{aligned\+\_\+large\+\_\+pages\+\_\+alloc()}} will return suitably aligned memory, if possible using large pages. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}\label{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}} 
+void {\bfseries aligned\+\_\+large\+\_\+pages\+\_\+free} (void $\ast$mem)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}{aligned\+\_\+large\+\_\+pages\+\_\+free()}} will free the previously allocated ttmem \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a307efbaa03d6a2feadcf5c50cef22ff5}\label{namespace_stockfish_a307efbaa03d6a2feadcf5c50cef22ff5}} 
+Time\+Point {\bfseries now} ()
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae76813e9f9033878a0204fa499d215d6}\label{namespace_stockfish_ae76813e9f9033878a0204fa499d215d6}} 
+{\footnotesize template$<$uintptr\+\_\+t Alignment, typename T $>$ }\\T $\ast$ {\bfseries align\+\_\+ptr\+\_\+up} (T $\ast$ptr)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9e9e16e18e44ea50672ab34db2c40311}\label{namespace_stockfish_a9e9e16e18e44ea50672ab34db2c40311}} 
+uint64\+\_\+t {\bfseries mul\+\_\+hi64} (uint64\+\_\+t a, uint64\+\_\+t b)
+\item 
+{\footnotesize template$<$Gen\+Type Type$>$ }\\\mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ \mbox{\hyperlink{namespace_stockfish_a0cd2bbe9d46e3e062089bb6fd830ba7d}{generate}} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&pos, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$move\+List)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a58f07cfa722d02bf4eb2122e9b7c9151}\label{namespace_stockfish_a58f07cfa722d02bf4eb2122e9b7c9151}} 
+template \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ CAPTURES $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_af2871ac7b03173ca112be9d9e06da808}\label{namespace_stockfish_af2871ac7b03173ca112be9d9e06da808}} 
+template \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ QUIETS $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7a49c54bf7c226016d61c409515024f8}\label{namespace_stockfish_a7a49c54bf7c226016d61c409515024f8}} 
+template \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ EVASIONS $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_af98cebd2f8bcc02de7e0811a24e4e580}\label{namespace_stockfish_af98cebd2f8bcc02de7e0811a24e4e580}} 
+template \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ QUIET\+\_\+\+CHECKS $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6c9371057fa93b46a1d43985904642fe}\label{namespace_stockfish_a6c9371057fa93b46a1d43985904642fe}} 
+template \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ NON\+\_\+\+EVASIONS $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9cc2cd379acd89ecd9b5312010f6b8b2}\label{namespace_stockfish_a9cc2cd379acd89ecd9b5312010f6b8b2}} 
+template$<$$>$ \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ {\bfseries generate$<$ LEGAL $>$} (const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&pos, \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$move\+List)
+\begin{DoxyCompactList}\small\item\em generate$<$\+LEGAL$>$ generates all the legal moves in the given position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a814df43a95874101c04f0fe7b89ac6a0}\label{namespace_stockfish_a814df43a95874101c04f0fe7b89ac6a0}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} \&f, const \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} \&s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab7ab267bcecdb85160da8e5a7069a98e}\label{namespace_stockfish_ab7ab267bcecdb85160da8e5a7069a98e}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&pos)
+\begin{DoxyCompactList}\small\item\em operator$<$$<$(\+Position) returns an ASCII representation of the position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a01c3d133ef3a3d639b765aa7db5f1ea2}\label{namespace_stockfish_a01c3d133ef3a3d639b765aa7db5f1ea2}} 
+int {\bfseries H1} (Key h)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a249d41b86074763ac603395f176e8a30}\label{namespace_stockfish_a249d41b86074763ac603395f176e8a30}} 
+int {\bfseries H2} (Key h)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a2dab171074b3ef571841f3e5d91cf2cd}\label{namespace_stockfish_a2dab171074b3ef571841f3e5d91cf2cd}} 
+Range {\bfseries default\+\_\+range} (int v)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac1da9da58bf5b6a263d699020cbe072b}\label{namespace_stockfish_ac1da9da58bf5b6a263d699020cbe072b}} 
+constexpr \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries make\+\_\+score} (int mg, int eg)
+\item 
+Value \mbox{\hyperlink{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}{eg\+\_\+value}} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a5bca68820840f865b967e0216caa55a9}\label{namespace_stockfish_a5bca68820840f865b967e0216caa55a9}} 
+Value {\bfseries mg\+\_\+value} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a1c0752272c64e199e2810b547781581e}\label{namespace_stockfish_a1c0752272c64e199e2810b547781581e}} 
+constexpr Square {\bfseries operator+} (Square s, Direction d)
+\begin{DoxyCompactList}\small\item\em Additional operators to add a Direction to a Square. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a6b36b01492fa6bca7920a3f6b3e2a22f}\label{namespace_stockfish_a6b36b01492fa6bca7920a3f6b3e2a22f}} 
+constexpr Square {\bfseries operator-\/} (Square s, Direction d)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a3c346e091361583565bc4f3558b04419}\label{namespace_stockfish_a3c346e091361583565bc4f3558b04419}} 
+Square \& {\bfseries operator+=} (Square \&s, Direction d)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7f27117d6e648a8ba88646e03289b62d}\label{namespace_stockfish_a7f27117d6e648a8ba88646e03289b62d}} 
+Square \& {\bfseries operator-\/=} (Square \&s, Direction d)
+\item 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}{operator$\ast$}} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}, \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}})=delete
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0de88c047e42cf11e1cb45bd6930d569}\label{namespace_stockfish_a0de88c047e42cf11e1cb45bd6930d569}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries operator/} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, int i)
+\begin{DoxyCompactList}\small\item\em Division of a Score must be handled separately for each term. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_abb12d6a3d6353b4d39fd0219e6c9043c}\label{namespace_stockfish_abb12d6a3d6353b4d39fd0219e6c9043c}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries operator$\ast$} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, int i)
+\begin{DoxyCompactList}\small\item\em Multiplication of a Score by an integer. We check for overflow in debug mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_acd096425e840989cba9d31a5df7c7b17}\label{namespace_stockfish_acd096425e840989cba9d31a5df7c7b17}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries operator$\ast$} (\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, bool b)
+\begin{DoxyCompactList}\small\item\em Multiplication of a Score by a boolean. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_stockfish_a1b6b149a1840bfb71aff088ce5363d85}\label{namespace_stockfish_a1b6b149a1840bfb71aff088ce5363d85}} 
+constexpr Color {\bfseries operator$\sim$} (Color c)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aec20279bc17dc7976791a38148bd8fc2}\label{namespace_stockfish_aec20279bc17dc7976791a38148bd8fc2}} 
+constexpr Square {\bfseries flip\+\_\+rank} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a87dd3ae49f9fc2e3843ba709499a134c}\label{namespace_stockfish_a87dd3ae49f9fc2e3843ba709499a134c}} 
+constexpr Square {\bfseries flip\+\_\+file} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aca7d96fe7d6933e73c1c0cc6b21acbf5}\label{namespace_stockfish_aca7d96fe7d6933e73c1c0cc6b21acbf5}} 
+constexpr Piece {\bfseries operator$\sim$} (Piece pc)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a87c5f02af63aaa658d7822a71bfcfa01}\label{namespace_stockfish_a87c5f02af63aaa658d7822a71bfcfa01}} 
+constexpr Castling\+Rights {\bfseries operator\&} (Color c, Castling\+Rights cr)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a54c8a158db186c150d44ecc733058d0b}\label{namespace_stockfish_a54c8a158db186c150d44ecc733058d0b}} 
+constexpr Value {\bfseries mate\+\_\+in} (int ply)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a42ae81e58f1e42ed765f117da42e1f75}\label{namespace_stockfish_a42ae81e58f1e42ed765f117da42e1f75}} 
+constexpr Value {\bfseries mated\+\_\+in} (int ply)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a2f6a850e5d760f4bcbf190a0725014b9}\label{namespace_stockfish_a2f6a850e5d760f4bcbf190a0725014b9}} 
+constexpr Square {\bfseries make\+\_\+square} (File f, Rank r)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a443ac459030780123143a92a7893e7b2}\label{namespace_stockfish_a443ac459030780123143a92a7893e7b2}} 
+constexpr Piece {\bfseries make\+\_\+piece} (Color c, Piece\+Type pt)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0574a2e4fedcf48c588890b06a774643}\label{namespace_stockfish_a0574a2e4fedcf48c588890b06a774643}} 
+constexpr Piece\+Type {\bfseries type\+\_\+of} (Piece pc)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac9dd3b97fa30fe954c6e8ade664bb286}\label{namespace_stockfish_ac9dd3b97fa30fe954c6e8ade664bb286}} 
+Color {\bfseries color\+\_\+of} (Piece pc)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9ff82964622c836e8381a88c0880de75}\label{namespace_stockfish_a9ff82964622c836e8381a88c0880de75}} 
+constexpr bool {\bfseries is\+\_\+ok} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a1f017c6e83ce2adfefe57a2a3b10fecd}\label{namespace_stockfish_a1f017c6e83ce2adfefe57a2a3b10fecd}} 
+constexpr File {\bfseries file\+\_\+of} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9808f45008cadcb4002f572562844daf}\label{namespace_stockfish_a9808f45008cadcb4002f572562844daf}} 
+constexpr Rank {\bfseries rank\+\_\+of} (Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_abf56955119b28598869d496e1ad94d13}\label{namespace_stockfish_abf56955119b28598869d496e1ad94d13}} 
+constexpr Square {\bfseries relative\+\_\+square} (Color c, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a588c5fcec0263dc7e652dd498790a76f}\label{namespace_stockfish_a588c5fcec0263dc7e652dd498790a76f}} 
+constexpr Rank {\bfseries relative\+\_\+rank} (Color c, Rank r)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a740e7e300240baed5c70006809c511ba}\label{namespace_stockfish_a740e7e300240baed5c70006809c511ba}} 
+constexpr Rank {\bfseries relative\+\_\+rank} (Color c, Square s)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6e16396f0d928d0f95684179fa3f94b5}\label{namespace_stockfish_a6e16396f0d928d0f95684179fa3f94b5}} 
+constexpr Direction {\bfseries pawn\+\_\+push} (Color c)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a19e0e09dd82da91c762fae879601e06f}\label{namespace_stockfish_a19e0e09dd82da91c762fae879601e06f}} 
+constexpr Square {\bfseries from\+\_\+sq} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ac0a2b8ee0b89ab22ea9835ab7291aff3}\label{namespace_stockfish_ac0a2b8ee0b89ab22ea9835ab7291aff3}} 
+constexpr Square {\bfseries to\+\_\+sq} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab967d6b8d9e6af734ae3e29dbe40e058}\label{namespace_stockfish_ab967d6b8d9e6af734ae3e29dbe40e058}} 
+constexpr int {\bfseries from\+\_\+to} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae8137b6ddb129a9275e34e74d47e84a7}\label{namespace_stockfish_ae8137b6ddb129a9275e34e74d47e84a7}} 
+constexpr Move\+Flag {\bfseries type\+\_\+of} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a89ba38c122ece3ca01ee3badeec295b9}\label{namespace_stockfish_a89ba38c122ece3ca01ee3badeec295b9}} 
+constexpr Piece\+Type {\bfseries promotion\+\_\+type} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a1e0180b9243a571c45947fdce6d6f897}\label{namespace_stockfish_a1e0180b9243a571c45947fdce6d6f897}} 
+constexpr \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries make\+\_\+move} (Square from, Square to)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0938f72bd7cbc29ce7707dd343aa41b2}\label{namespace_stockfish_a0938f72bd7cbc29ce7707dd343aa41b2}} 
+constexpr \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries reverse\+\_\+move} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7223b6d1a93fd0e7b28d2fa0837b318d}\label{namespace_stockfish_a7223b6d1a93fd0e7b28d2fa0837b318d}} 
+{\footnotesize template$<$Move\+Flag T$>$ }\\constexpr \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries make} (Square from, Square to, Piece\+Type pt=KNIGHT)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a55a19447d1e02219a6ae52ed8e7afdda}\label{namespace_stockfish_a55a19447d1e02219a6ae52ed8e7afdda}} 
+constexpr bool {\bfseries is\+\_\+ok} (\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ab9085d1b17708c93616c9a012014ffd8}\label{namespace_stockfish_ab9085d1b17708c93616c9a012014ffd8}} 
+constexpr Key {\bfseries make\+\_\+key} (uint64\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Based on a congruential pseudo random number generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a5d62a118130129653fb9b685c7b3d78a}\label{namespace_stockfish_a5d62a118130129653fb9b685c7b3d78a}} 
+uint8\+\_\+t {\bfseries Pop\+Cnt16} \mbox{[}1$<$$<$ 16\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a5b2542bef4197a2ea6c6e8ca0cdb73f3}\label{namespace_stockfish_a5b2542bef4197a2ea6c6e8ca0cdb73f3}} 
+uint8\+\_\+t {\bfseries Square\+Distance} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}\mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7b061a016f0bfeb5a59fd7d5905b315f}\label{namespace_stockfish_a7b061a016f0bfeb5a59fd7d5905b315f}} 
+Bitboard {\bfseries Square\+BB} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a544fdaa2db820594419a2559ca20ceb5}\label{namespace_stockfish_a544fdaa2db820594419a2559ca20ceb5}} 
+Bitboard {\bfseries Line\+BB} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}\mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad05eb9e9566b611c3e738410d73c8274}\label{namespace_stockfish_ad05eb9e9566b611c3e738410d73c8274}} 
+Bitboard {\bfseries Between\+BB} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}\mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad697696422f7455780d9074ebf113561}\label{namespace_stockfish_ad697696422f7455780d9074ebf113561}} 
+Bitboard {\bfseries Pseudo\+Attacks} \mbox{[}PIECE\+\_\+\+TYPE\+\_\+\+NB\mbox{]}\mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a1bf77d1bdb6cd9c4f3bc7207884c98ce}\label{namespace_stockfish_a1bf77d1bdb6cd9c4f3bc7207884c98ce}} 
+Bitboard {\bfseries Pawn\+Attacks} \mbox{[}COLOR\+\_\+\+NB\mbox{]}\mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a364fb47aa61cb4e21a7530de406819d4}\label{namespace_stockfish_a364fb47aa61cb4e21a7530de406819d4}} 
+\mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} {\bfseries Rook\+Magics} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a5ffadd3856a76ad33af116eeb03e1cb1}\label{namespace_stockfish_a5ffadd3856a76ad33af116eeb03e1cb1}} 
+\mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} {\bfseries Bishop\+Magics} \mbox{[}SQUARE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a146039dcefdcfd26239e430806e07654}\label{namespace_stockfish_a146039dcefdcfd26239e430806e07654}} 
+constexpr Bitboard {\bfseries All\+Squares} = $\sim$Bitboard(0)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad8b8c0d755e6b425ecae3dbc25fb7418}\label{namespace_stockfish_ad8b8c0d755e6b425ecae3dbc25fb7418}} 
+constexpr Bitboard {\bfseries Dark\+Squares} = 0x\+AA55\+AA55\+AA55\+AA55\+ULL
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4523bbabe253bd2a6e69f8921b15f4c5}\label{namespace_stockfish_a4523bbabe253bd2a6e69f8921b15f4c5}} 
+constexpr Bitboard {\bfseries File\+ABB} = 0x0101010101010101\+ULL
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae85cb15c601802cac691b0e1d307860c}\label{namespace_stockfish_ae85cb15c601802cac691b0e1d307860c}} 
+constexpr Bitboard {\bfseries File\+BBB} = File\+ABB $<$$<$ 1
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad48feaad264d2b6b7a37fc41bc3a6072}\label{namespace_stockfish_ad48feaad264d2b6b7a37fc41bc3a6072}} 
+constexpr Bitboard {\bfseries File\+CBB} = File\+ABB $<$$<$ 2
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad8795e2b557a4d573db5415afccaf190}\label{namespace_stockfish_ad8795e2b557a4d573db5415afccaf190}} 
+constexpr Bitboard {\bfseries File\+DBB} = File\+ABB $<$$<$ 3
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a65dfd7072b9166682e2b4c0576d40df2}\label{namespace_stockfish_a65dfd7072b9166682e2b4c0576d40df2}} 
+constexpr Bitboard {\bfseries File\+EBB} = File\+ABB $<$$<$ 4
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a43ccf70a8b3e4138c36df7a942ab0c8d}\label{namespace_stockfish_a43ccf70a8b3e4138c36df7a942ab0c8d}} 
+constexpr Bitboard {\bfseries File\+FBB} = File\+ABB $<$$<$ 5
+\item 
+\mbox{\Hypertarget{namespace_stockfish_aef201ddc947cb32b9507ad4a2ed3d190}\label{namespace_stockfish_aef201ddc947cb32b9507ad4a2ed3d190}} 
+constexpr Bitboard {\bfseries File\+GBB} = File\+ABB $<$$<$ 6
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a8d2210dc4bc1ec6e7fe14a4a00d58cbd}\label{namespace_stockfish_a8d2210dc4bc1ec6e7fe14a4a00d58cbd}} 
+constexpr Bitboard {\bfseries File\+HBB} = File\+ABB $<$$<$ 7
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a0edaca7186b5e81981806d1ea91d749a}\label{namespace_stockfish_a0edaca7186b5e81981806d1ea91d749a}} 
+constexpr Bitboard {\bfseries Rank1\+BB} = 0x\+FF
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a982fbd9af680ea654bfd86a66376563d}\label{namespace_stockfish_a982fbd9af680ea654bfd86a66376563d}} 
+constexpr Bitboard {\bfseries Rank2\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 1)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6462746d3ec8883af0039c54496c52be}\label{namespace_stockfish_a6462746d3ec8883af0039c54496c52be}} 
+constexpr Bitboard {\bfseries Rank3\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 2)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a1ecfc60f67d8ea8a303c36ff3315e00c}\label{namespace_stockfish_a1ecfc60f67d8ea8a303c36ff3315e00c}} 
+constexpr Bitboard {\bfseries Rank4\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 3)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a2f05ed6bfb2e798f3a658d411773c68d}\label{namespace_stockfish_a2f05ed6bfb2e798f3a658d411773c68d}} 
+constexpr Bitboard {\bfseries Rank5\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 4)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a93152cda64c39b50c54499d543445974}\label{namespace_stockfish_a93152cda64c39b50c54499d543445974}} 
+constexpr Bitboard {\bfseries Rank6\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 5)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a7ef34af821af128b79a8292a2c50e33f}\label{namespace_stockfish_a7ef34af821af128b79a8292a2c50e33f}} 
+constexpr Bitboard {\bfseries Rank7\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 6)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad083857c8d453a4fe482d17db2387f0c}\label{namespace_stockfish_ad083857c8d453a4fe482d17db2387f0c}} 
+constexpr Bitboard {\bfseries Rank8\+BB} = Rank1\+BB $<$$<$ (8 $\ast$ 7)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ad972c9f9e07d2a94d68c08b9fb98803f}\label{namespace_stockfish_ad972c9f9e07d2a94d68c08b9fb98803f}} 
+constexpr Bitboard {\bfseries Queen\+Side} = File\+ABB $\vert$ File\+BBB $\vert$ File\+CBB $\vert$ File\+DBB
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a3aea3c5d876e56f5a88d26cb60794aac}\label{namespace_stockfish_a3aea3c5d876e56f5a88d26cb60794aac}} 
+constexpr Bitboard {\bfseries Center\+Files} = File\+CBB $\vert$ File\+DBB $\vert$ File\+EBB $\vert$ File\+FBB
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a08dadd75d67acc32baf8b8bf3997a18c}\label{namespace_stockfish_a08dadd75d67acc32baf8b8bf3997a18c}} 
+constexpr Bitboard {\bfseries King\+Side} = File\+EBB $\vert$ File\+FBB $\vert$ File\+GBB $\vert$ File\+HBB
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae38d4af7456217383b4c4d6088419677}\label{namespace_stockfish_ae38d4af7456217383b4c4d6088419677}} 
+constexpr Bitboard {\bfseries Center} = (File\+DBB $\vert$ File\+EBB) \& (Rank4\+BB $\vert$ Rank5\+BB)
+\item 
+constexpr Bitboard \mbox{\hyperlink{namespace_stockfish_a0dd4695c02b8c326df0234afe2e42108}{King\+Flank}} \mbox{[}FILE\+\_\+\+NB\mbox{]}
+\item 
+constexpr int \mbox{\hyperlink{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}{MAX\+\_\+\+LPH}} = 4
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a6026744252be6692a684675c042b792b}\label{namespace_stockfish_a6026744252be6692a684675c042b792b}} 
+Key {\bfseries cuckoo} \mbox{[}8192\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae8553ba0a1557d11218cf0b89c6c2442}\label{namespace_stockfish_ae8553ba0a1557d11218cf0b89c6c2442}} 
+\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries cuckoo\+Move} \mbox{[}8192\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a92992e4220315e920596e15bfe65011b}\label{namespace_stockfish_a92992e4220315e920596e15bfe65011b}} 
+\mbox{\hyperlink{struct_stockfish_1_1_thread_pool}{Thread\+Pool}} {\bfseries Threads}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a78107bdffc98929e9bb7e0a8b80c254a}\label{namespace_stockfish_a78107bdffc98929e9bb7e0a8b80c254a}} 
+\mbox{\hyperlink{class_stockfish_1_1_time_management}{Time\+Management}} {\bfseries Time}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a4db18751e106df15a0412134c6dd4a82}\label{namespace_stockfish_a4db18751e106df15a0412134c6dd4a82}} 
+\mbox{\hyperlink{class_stockfish_1_1_transposition_table}{Transposition\+Table}} {\bfseries TT}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a843e6f0cd989cf619d538386e82baeb6}\label{namespace_stockfish_a843e6f0cd989cf619d538386e82baeb6}} 
+const \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{UCI\+::\+Option}} $\ast$ {\bfseries Last\+Option} = nullptr
+\item 
+\mbox{\Hypertarget{namespace_stockfish_af73953f59f2a9416730d12d9fb09f642}\label{namespace_stockfish_af73953f59f2a9416730d12d9fb09f642}} 
+constexpr bool {\bfseries Has\+Pop\+Cnt} = false
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a996c29efc75b157f1d28cef1fb981e0e}\label{namespace_stockfish_a996c29efc75b157f1d28cef1fb981e0e}} 
+constexpr bool {\bfseries Has\+Pext} = false
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a61667b69ea161685517e6b4b691dc63b}\label{namespace_stockfish_a61667b69ea161685517e6b4b691dc63b}} 
+constexpr bool {\bfseries Is64\+Bit} = false
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a26ab6138657baf2e068281e27e9a6b98}\label{namespace_stockfish_a26ab6138657baf2e068281e27e9a6b98}} 
+constexpr int {\bfseries MAX\+\_\+\+MOVES} = 256
+\item 
+\mbox{\Hypertarget{namespace_stockfish_ae56087e91605ee5dce384566d991047c}\label{namespace_stockfish_ae56087e91605ee5dce384566d991047c}} 
+constexpr int {\bfseries MAX\+\_\+\+PLY} = 246
+\item 
+constexpr Value \mbox{\hyperlink{namespace_stockfish_a707654af6bd4928ef41cb8f81ea9067c}{Piece\+Value}} \mbox{[}PHASE\+\_\+\+NB\mbox{]}\mbox{[}PIECE\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_a9621bdec6a572e6e5e22c7c275a40f84}\label{namespace_stockfish_a9621bdec6a572e6e5e22c7c275a40f84}} 
+UCI\+::\+Options\+Map {\bfseries Options}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+On OSX threads other than the main thread are created with a reduced stack size of 512KB by default, this is too low for deep searches, which require somewhat more than 1MB stack, so adjust it to TH\+\_\+\+STACK\+\_\+\+SIZE. The implementation calls pthread\+\_\+create() with the stack size parameter equal to the linux 8MB default, on platforms that support it. 
+
+\doxysubsection{Class Documentation}
+\index{Stockfish::DirtyPiece@{Stockfish::DirtyPiece}}\label{struct_stockfish_1_1_dirty_piece}
+\Hypertarget{namespace_stockfish_struct_stockfish_1_1_dirty_piece}
+\doxysubsubsection{struct Stockfish\+::Dirty\+Piece}
+\begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{namespace_stockfish_a4eb9194f2f919229d68ae1341e8e01c2}\label{namespace_stockfish_a4eb9194f2f919229d68ae1341e8e01c2}} 
+int&
+dirty\_num&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_ad2d22538d793f2ee6b6f183b98c75ed1}\label{namespace_stockfish_ad2d22538d793f2ee6b6f183b98c75ed1}} 
+Piece&
+piece\mbox{[}3\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a6a28b68d15e5e13df86ae1f8c26579d8}\label{namespace_stockfish_a6a28b68d15e5e13df86ae1f8c26579d8}} 
+Square&
+from\mbox{[}3\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_aacb784edb7a4aa619514e006de2bd83b}\label{namespace_stockfish_aacb784edb7a4aa619514e006de2bd83b}} 
+Square&
+to\mbox{[}3\mbox{]}&
+\\
+\hline
+
+\end{DoxyFields}
+\index{Stockfish::StateInfo@{Stockfish::StateInfo}}\label{struct_stockfish_1_1_state_info}
+\Hypertarget{namespace_stockfish_struct_stockfish_1_1_state_info}
+\doxysubsubsection{struct Stockfish\+::State\+Info}
+\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}} struct stores information needed to restore a \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} object to its previous state when we retract a move. Whenever a move is made on the board (by calling Position\+::do\+\_\+move), a \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}} object must be passed. \begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{namespace_stockfish_a2af23e3f4cdb7569d88e5b03124b96e0}\label{namespace_stockfish_a2af23e3f4cdb7569d88e5b03124b96e0}} 
+Key&
+pawnKey&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a1791fb12678698ca53955e8d000995e8}\label{namespace_stockfish_a1791fb12678698ca53955e8d000995e8}} 
+Key&
+materialKey&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_ab29238cd0e909068f2f68cee3f5189f0}\label{namespace_stockfish_ab29238cd0e909068f2f68cee3f5189f0}} 
+Value&
+nonPawnMaterial\mbox{[}COLOR\_NB\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_ae11954b7c4a443869c93a6274409f774}\label{namespace_stockfish_ae11954b7c4a443869c93a6274409f774}} 
+int&
+castlingRights&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a3e41fbb2fd8a6de60679ff6ad7059411}\label{namespace_stockfish_a3e41fbb2fd8a6de60679ff6ad7059411}} 
+int&
+rule50&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a691f1f3bf80912ea850715a8a85cdfb3}\label{namespace_stockfish_a691f1f3bf80912ea850715a8a85cdfb3}} 
+int&
+pliesFromNull&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_af877d334908e9a2bb5f42bf924352e18}\label{namespace_stockfish_af877d334908e9a2bb5f42bf924352e18}} 
+Square&
+epSquare&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a96313403719d705d2df812e3ba166772}\label{namespace_stockfish_a96313403719d705d2df812e3ba166772}} 
+Key&
+key&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a58cf39401e96452a7bee6acee08e9eee}\label{namespace_stockfish_a58cf39401e96452a7bee6acee08e9eee}} 
+Bitboard&
+checkersBB&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a2fee880bba24bd64103a4c74fcd6df0a}\label{namespace_stockfish_a2fee880bba24bd64103a4c74fcd6df0a}} 
+\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} $\ast$&
+previous&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_ae564a709674f6791cb11bdf44a6d89ad}\label{namespace_stockfish_ae564a709674f6791cb11bdf44a6d89ad}} 
+Bitboard&
+blockersForKing\mbox{[}COLOR\_NB\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a8931a0bd67a7120dabb09c38632f963f}\label{namespace_stockfish_a8931a0bd67a7120dabb09c38632f963f}} 
+Bitboard&
+pinners\mbox{[}COLOR\_NB\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_ac0f44017e9e8c4c515007724f9702d8e}\label{namespace_stockfish_ac0f44017e9e8c4c515007724f9702d8e}} 
+Bitboard&
+checkSquares\mbox{[}PIECE\_TYPE\_NB\mbox{]}&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_a0f2e4d7f8e4b6ed6ecf8aace64647a87}\label{namespace_stockfish_a0f2e4d7f8e4b6ed6ecf8aace64647a87}} 
+Piece&
+capturedPiece&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_aa738600ed631401f380c5726d3b24be9}\label{namespace_stockfish_aa738600ed631401f380c5726d3b24be9}} 
+int&
+repetition&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_abac3baaceae1aae0e2f7a3f5e9b8e3f4}\label{namespace_stockfish_abac3baaceae1aae0e2f7a3f5e9b8e3f4}} 
+Accumulator&
+accumulator&
+\\
+\hline
+
+\mbox{\Hypertarget{namespace_stockfish_af80344382a77e3ca3b6345ab65692b2b}\label{namespace_stockfish_af80344382a77e3ca3b6345ab65692b2b}} 
+\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_dirty_piece}{DirtyPiece}}&
+dirtyPiece&
+\\
+\hline
+
+\end{DoxyFields}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_stockfish_a9f394e5e23b46c5e942bc9adc2704708}\label{namespace_stockfish_a9f394e5e23b46c5e942bc9adc2704708}} 
+\index{Stockfish@{Stockfish}!eg\_type@{eg\_type}}
+\index{eg\_type@{eg\_type}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{eg\_type}{eg\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_stockfish_a9f394e5e23b46c5e942bc9adc2704708}{eg\+\_\+type}} =  typename std\+::conditional$<$(E $<$ SCALING\+\_\+\+FUNCTIONS), Value, Scale\+Factor$>$\+::type}
+
+\mbox{\hyperlink{struct_stockfish_1_1_endgame}{Endgame}} functions can be of two types depending on whether they return a Value or a Scale\+Factor. \mbox{\Hypertarget{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}\label{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}} 
+\index{Stockfish@{Stockfish}!ButterflyHistory@{ButterflyHistory}}
+\index{ButterflyHistory@{ButterflyHistory}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{ButterflyHistory}{ButterflyHistory}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$int16\+\_\+t, 14365, COLOR\+\_\+\+NB, int(SQUARE\+\_\+\+NB) $\ast$ int(SQUARE\+\_\+\+NB)$>$ \mbox{\hyperlink{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}{Butterfly\+History}}}
+
+Butterfly\+History records how often quiet moves have been successful or unsuccessful during the current search, and is used for reduction and move ordering decisions. It uses 2 tables (one for each color) indexed by the move\textquotesingle{}s from and to squares, see www.\+chessprogramming.\+org/\+Butterfly\+\_\+\+Boards \mbox{\Hypertarget{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}\label{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}} 
+\index{Stockfish@{Stockfish}!CounterMoveHistory@{CounterMoveHistory}}
+\index{CounterMoveHistory@{CounterMoveHistory}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{CounterMoveHistory}{CounterMoveHistory}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}, NOT\+\_\+\+USED, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB$>$ \mbox{\hyperlink{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}{Counter\+Move\+History}}}
+
+Counter\+Move\+History stores counter moves indexed by \mbox{[}piece\mbox{]}\mbox{[}to\mbox{]} of the previous move, see www.\+chessprogramming.\+org/\+Countermove\+\_\+\+Heuristic \mbox{\Hypertarget{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}\label{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}} 
+\index{Stockfish@{Stockfish}!ContinuationHistory@{ContinuationHistory}}
+\index{ContinuationHistory@{ContinuationHistory}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{ContinuationHistory}{ContinuationHistory}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}$<$\mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{Piece\+To\+History}}, NOT\+\_\+\+USED, PIECE\+\_\+\+NB, SQUARE\+\_\+\+NB$>$ \mbox{\hyperlink{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}{Continuation\+History}}}
+
+Continuation\+History is the combined history of a given pair of moves, usually the current one given a previous one. The nested history table is based on Piece\+To\+History instead of Butterfly\+Boards. \mbox{\Hypertarget{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}\label{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}} 
+\index{Stockfish@{Stockfish}!StateListPtr@{StateListPtr}}
+\index{StateListPtr@{StateListPtr}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{StateListPtr}{StateListPtr}}
+{\footnotesize\ttfamily typedef std\+::unique\+\_\+ptr$<$std\+::deque$<$\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}}$>$ $>$ \mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{State\+List\+Ptr}}}
+
+A list to keep track of the position states along the setup moves (from the start position to the position just before the search starts). Needed by \textquotesingle{}draw by repetition\textquotesingle{} detection. Use a std\+::deque because pointers to elements are not invalidated upon list resizing. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}\label{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}} 
+\index{Stockfish@{Stockfish}!Move@{Move}}
+\index{Move@{Move}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{Move}{Move}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} \+: int}
+
+A move needs 16 bits to be stored
+
+bit 0-\/ 5\+: destination square (from 0 to 63) bit 6-\/11\+: origin square (from 0 to 63) bit 12-\/13\+: promotion piece type -\/ 2 (from KNIGHT-\/2 to QUEEN-\/2) bit 14-\/15\+: special move flag\+: promotion (1), en passant (2), castling (3) NOTE\+: en passant bit is set only when a pawn can be captured
+
+Special cases are MOVE\+\_\+\+NONE and MOVE\+\_\+\+NULL. We can sneak these in because in any normal move destination square is always different from origin square while MOVE\+\_\+\+NONE and MOVE\+\_\+\+NULL have the same origin and destination square. \mbox{\Hypertarget{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}\label{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}} 
+\index{Stockfish@{Stockfish}!Score@{Score}}
+\index{Score@{Score}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{Score}{Score}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \+: int}
+
+Score enum stores a middlegame and an endgame value in a single integer (enum). The least significant 16 bits are used to store the middlegame value and the upper 16 bits are used to store the endgame value. We have to take care to avoid left-\/shifting a signed int to avoid undefined behavior. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_stockfish_ab973ac5be45d16dce7c2e403057cbc4b}\label{namespace_stockfish_ab973ac5be45d16dce7c2e403057cbc4b}} 
+\index{Stockfish@{Stockfish}!setup\_bench@{setup\_bench}}
+\index{setup\_bench@{setup\_bench}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{setup\_bench()}{setup\_bench()}}
+{\footnotesize\ttfamily vector$<$ string $>$ setup\+\_\+bench (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{current,  }\item[{istream \&}]{is }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_ab973ac5be45d16dce7c2e403057cbc4b}{setup\+\_\+bench()}} builds a list of UCI commands to be run by bench. There are five parameters\+: TT size in MB, number of search threads that should be used, the limit value spent for each position, a file name where to look for positions in FEN format, the type of the limit\+: depth, perft, nodes and movetime (in millisecs), and evaluation type mixed (default), classical, NNUE.
+
+bench -\/\texorpdfstring{$>$}{>} search default positions up to depth 13 bench 64 1 15 -\/\texorpdfstring{$>$}{>} search default positions up to depth 15 (TT = 64MB) bench 64 4 5000 current movetime -\/\texorpdfstring{$>$}{>} search current position with 4 threads for 5 sec bench 64 1 100000 default nodes -\/\texorpdfstring{$>$}{>} search default positions for 100K nodes each bench 16 1 5 default perft -\/\texorpdfstring{$>$}{>} run a perft 5 on default positions \mbox{\Hypertarget{namespace_stockfish_af7a8eadef4947a544d1163d16f3eb32a}\label{namespace_stockfish_af7a8eadef4947a544d1163d16f3eb32a}} 
+\index{Stockfish@{Stockfish}!safe\_destination@{safe\_destination}}
+\index{safe\_destination@{safe\_destination}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{safe\_destination()}{safe\_destination()}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::safe\+\_\+destination (\begin{DoxyParamCaption}\item[{Square}]{s,  }\item[{int}]{step }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_af7a8eadef4947a544d1163d16f3eb32a}{safe\+\_\+destination()}} returns the bitboard of target square for the given step from the given square. If the step is off the board, returns empty bitboard. \mbox{\Hypertarget{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}\label{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}} 
+\index{Stockfish@{Stockfish}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::operator\& (\begin{DoxyParamCaption}\item[{Bitboard}]{b,  }\item[{Square}]{s }\end{DoxyParamCaption})}
+
+Overloads of bitwise operators between a Bitboard and a Square for testing whether a given bit is set in a bitboard, and for setting and clearing bits. \mbox{\Hypertarget{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}\label{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}} 
+\index{Stockfish@{Stockfish}!rank\_bb@{rank\_bb}}
+\index{rank\_bb@{rank\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{rank\_bb()}{rank\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::rank\+\_\+bb (\begin{DoxyParamCaption}\item[{Rank}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}{rank\+\_\+bb()}} and file\+\_\+bb() return a bitboard representing all the squares on the given file or rank. \mbox{\Hypertarget{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}\label{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}} 
+\index{Stockfish@{Stockfish}!pawn\_attacks\_bb@{pawn\_attacks\_bb}}
+\index{pawn\_attacks\_bb@{pawn\_attacks\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{pawn\_attacks\_bb()}{pawn\_attacks\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::pawn\+\_\+attacks\+\_\+bb (\begin{DoxyParamCaption}\item[{Bitboard}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}{pawn\+\_\+attacks\+\_\+bb()}} returns the squares attacked by pawns of the given color from the squares in the given bitboard. \mbox{\Hypertarget{namespace_stockfish_a450bf2625f404ce3818544f8efd5394c}\label{namespace_stockfish_a450bf2625f404ce3818544f8efd5394c}} 
+\index{Stockfish@{Stockfish}!pawn\_double\_attacks\_bb@{pawn\_double\_attacks\_bb}}
+\index{pawn\_double\_attacks\_bb@{pawn\_double\_attacks\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{pawn\_double\_attacks\_bb()}{pawn\_double\_attacks\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::pawn\+\_\+double\+\_\+attacks\+\_\+bb (\begin{DoxyParamCaption}\item[{Bitboard}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a450bf2625f404ce3818544f8efd5394c}{pawn\+\_\+double\+\_\+attacks\+\_\+bb()}} returns the squares doubly attacked by pawns of the given color from the squares in the given bitboard. \mbox{\Hypertarget{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}\label{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}} 
+\index{Stockfish@{Stockfish}!adjacent\_files\_bb@{adjacent\_files\_bb}}
+\index{adjacent\_files\_bb@{adjacent\_files\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{adjacent\_files\_bb()}{adjacent\_files\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::adjacent\+\_\+files\+\_\+bb (\begin{DoxyParamCaption}\item[{Square}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}{adjacent\+\_\+files\+\_\+bb()}} returns a bitboard representing all the squares on the adjacent files of a given square. \mbox{\Hypertarget{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}\label{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}} 
+\index{Stockfish@{Stockfish}!line\_bb@{line\_bb}}
+\index{line\_bb@{line\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{line\_bb()}{line\_bb()}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::line\+\_\+bb (\begin{DoxyParamCaption}\item[{Square}]{s1,  }\item[{Square}]{s2 }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}{line\+\_\+bb()}} returns a bitboard representing an entire line (from board edge to board edge) that intersects the two given squares. If the given squares are not on a same file/rank/diagonal, the function returns 0. For instance, line\+\_\+bb(\+SQ\+\_\+\+C4, SQ\+\_\+\+F7) will return a bitboard with the A2-\/\+G8 diagonal. \mbox{\Hypertarget{namespace_stockfish_a3f8aa419ce03998196972e5abefb765d}\label{namespace_stockfish_a3f8aa419ce03998196972e5abefb765d}} 
+\index{Stockfish@{Stockfish}!between\_bb@{between\_bb}}
+\index{between\_bb@{between\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{between\_bb()}{between\_bb()}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::between\+\_\+bb (\begin{DoxyParamCaption}\item[{Square}]{s1,  }\item[{Square}]{s2 }\end{DoxyParamCaption})}
+
+between\+\_\+bb(s1, s2) returns a bitboard representing the squares in the semi-\/open segment between the squares s1 and s2 (excluding s1 but including s2). If the given squares are not on a same file/rank/diagonal, it returns s2. For instance, between\+\_\+bb(\+SQ\+\_\+\+C4, SQ\+\_\+\+F7) will return a bitboard with squares D5, E6 and F7, but between\+\_\+bb(\+SQ\+\_\+\+E6, SQ\+\_\+\+F8) will return a bitboard with the square F8. This trick allows to generate non-\/king evasion moves faster\+: the defending piece must either interpose itself to cover the check or capture the checking piece. \mbox{\Hypertarget{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}\label{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}} 
+\index{Stockfish@{Stockfish}!forward\_ranks\_bb@{forward\_ranks\_bb}}
+\index{forward\_ranks\_bb@{forward\_ranks\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{forward\_ranks\_bb()}{forward\_ranks\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::forward\+\_\+ranks\+\_\+bb (\begin{DoxyParamCaption}\item[{Color}]{c,  }\item[{Square}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}{forward\+\_\+ranks\+\_\+bb()}} returns a bitboard representing the squares on the ranks in front of the given one, from the point of view of the given color. For instance, forward\+\_\+ranks\+\_\+bb(\+BLACK, SQ\+\_\+\+D3) will return the 16 squares on ranks 1 and 2. \mbox{\Hypertarget{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}\label{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}} 
+\index{Stockfish@{Stockfish}!forward\_file\_bb@{forward\_file\_bb}}
+\index{forward\_file\_bb@{forward\_file\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{forward\_file\_bb()}{forward\_file\_bb()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::forward\+\_\+file\+\_\+bb (\begin{DoxyParamCaption}\item[{Color}]{c,  }\item[{Square}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}{forward\+\_\+file\+\_\+bb()}} returns a bitboard representing all the squares along the line in front of the given one, from the point of view of the given color. \mbox{\Hypertarget{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}\label{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}} 
+\index{Stockfish@{Stockfish}!pawn\_attack\_span@{pawn\_attack\_span}}
+\index{pawn\_attack\_span@{pawn\_attack\_span}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{pawn\_attack\_span()}{pawn\_attack\_span()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::pawn\+\_\+attack\+\_\+span (\begin{DoxyParamCaption}\item[{Color}]{c,  }\item[{Square}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}{pawn\+\_\+attack\+\_\+span()}} returns a bitboard representing all the squares that can be attacked by a pawn of the given color when it moves along its file, starting from the given square. \mbox{\Hypertarget{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}\label{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}} 
+\index{Stockfish@{Stockfish}!passed\_pawn\_span@{passed\_pawn\_span}}
+\index{passed\_pawn\_span@{passed\_pawn\_span}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{passed\_pawn\_span()}{passed\_pawn\_span()}}
+{\footnotesize\ttfamily constexpr Bitboard Stockfish\+::passed\+\_\+pawn\+\_\+span (\begin{DoxyParamCaption}\item[{Color}]{c,  }\item[{Square}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\mbox{\hyperlink{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}{passed\+\_\+pawn\+\_\+span()}} returns a bitboard which can be used to test if a pawn of the given color and on the given square is a passed pawn. \mbox{\Hypertarget{namespace_stockfish_a0ac77d3eb2b4371422f37fd7570eb4f7}\label{namespace_stockfish_a0ac77d3eb2b4371422f37fd7570eb4f7}} 
+\index{Stockfish@{Stockfish}!aligned@{aligned}}
+\index{aligned@{aligned}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{aligned()}{aligned()}}
+{\footnotesize\ttfamily bool Stockfish\+::aligned (\begin{DoxyParamCaption}\item[{Square}]{s1,  }\item[{Square}]{s2,  }\item[{Square}]{s3 }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_a0ac77d3eb2b4371422f37fd7570eb4f7}{aligned()}} returns true if the squares s1, s2 and s3 are aligned either on a straight or on a diagonal line. \mbox{\Hypertarget{namespace_stockfish_ac777fbb968a16c9a5d0c8db7729072c6}\label{namespace_stockfish_ac777fbb968a16c9a5d0c8db7729072c6}} 
+\index{Stockfish@{Stockfish}!distance@{distance}}
+\index{distance@{distance}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily int Stockfish\+::distance (\begin{DoxyParamCaption}\item[{Square}]{x,  }\item[{Square}]{y }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_ac777fbb968a16c9a5d0c8db7729072c6}{distance()}} functions return the distance between x and y, defined as the number of steps for a king in x to reach y. \mbox{\Hypertarget{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}\label{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}} 
+\index{Stockfish@{Stockfish}!attacks\_bb@{attacks\_bb}}
+\index{attacks\_bb@{attacks\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{attacks\_bb()}{attacks\_bb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::attacks\+\_\+bb (\begin{DoxyParamCaption}\item[{Square}]{s }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}{attacks\+\_\+bb(\+Square)}} returns the pseudo attacks of the give piece type assuming an empty board. \mbox{\Hypertarget{namespace_stockfish_aaaf5b7a624047f13bb106da280f36b44}\label{namespace_stockfish_aaaf5b7a624047f13bb106da280f36b44}} 
+\index{Stockfish@{Stockfish}!attacks\_bb@{attacks\_bb}}
+\index{attacks\_bb@{attacks\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{attacks\_bb()}{attacks\_bb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::attacks\+\_\+bb (\begin{DoxyParamCaption}\item[{Square}]{s,  }\item[{Bitboard}]{occupied }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_aaaf5b7a624047f13bb106da280f36b44}{attacks\+\_\+bb(\+Square, Bitboard)}} returns the attacks by the given piece assuming the board is occupied according to the passed Bitboard. Sliding piece attacks do not continue passed an occupied square. \mbox{\Hypertarget{namespace_stockfish_aa269e1ce4c772847cf4dc9c28e5a530c}\label{namespace_stockfish_aa269e1ce4c772847cf4dc9c28e5a530c}} 
+\index{Stockfish@{Stockfish}!least\_significant\_square\_bb@{least\_significant\_square\_bb}}
+\index{least\_significant\_square\_bb@{least\_significant\_square\_bb}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{least\_significant\_square\_bb()}{least\_significant\_square\_bb()}}
+{\footnotesize\ttfamily Bitboard Stockfish\+::least\+\_\+significant\+\_\+square\+\_\+bb (\begin{DoxyParamCaption}\item[{Bitboard}]{b }\end{DoxyParamCaption})}
+
+
+
+lsb() and msb() return the least/most significant bit in a non-\/zero bitboard 
+
+\mbox{\hyperlink{namespace_stockfish_aa269e1ce4c772847cf4dc9c28e5a530c}{least\+\_\+significant\+\_\+square\+\_\+bb()}} returns the bitboard of the least significant square of a non-\/zero bitboard. It is equivalent to square\+\_\+bb(lsb(bb)). \mbox{\Hypertarget{namespace_stockfish_a97ca5c270ef98731fd9c8ac2fe1bfe88}\label{namespace_stockfish_a97ca5c270ef98731fd9c8ac2fe1bfe88}} 
+\index{Stockfish@{Stockfish}!frontmost\_sq@{frontmost\_sq}}
+\index{frontmost\_sq@{frontmost\_sq}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{frontmost\_sq()}{frontmost\_sq()}}
+{\footnotesize\ttfamily Square Stockfish\+::frontmost\+\_\+sq (\begin{DoxyParamCaption}\item[{Color}]{c,  }\item[{Bitboard}]{b }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_a97ca5c270ef98731fd9c8ac2fe1bfe88}{frontmost\+\_\+sq()}} returns the most advanced square for the given color, requires a non-\/zero bitboard. \mbox{\Hypertarget{namespace_stockfish_ad94379209745fe3fb326da854786b0f8}\label{namespace_stockfish_ad94379209745fe3fb326da854786b0f8}} 
+\index{Stockfish@{Stockfish}!engine\_info@{engine\_info}}
+\index{engine\_info@{engine\_info}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{engine\_info()}{engine\_info()}}
+{\footnotesize\ttfamily std\+::string engine\+\_\+info (\begin{DoxyParamCaption}\item[{bool}]{to\+\_\+uci }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_ad94379209745fe3fb326da854786b0f8}{engine\+\_\+info()}} returns the full name of the current \mbox{\hyperlink{namespace_stockfish}{Stockfish}} version. This will be either \char`\"{}\+Stockfish $<$\+Tag$>$ DD-\/\+MM-\/\+YY\char`\"{} (where DD-\/\+MM-\/\+YY is the date when the program was compiled) or \char`\"{}\+Stockfish $<$\+Version$>$\char`\"{}, depending on whether Version is empty. \mbox{\Hypertarget{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}\label{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}} 
+\index{Stockfish@{Stockfish}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{Sync\+Cout}]{sc }\end{DoxyParamCaption})}
+
+Used to serialize access to std\+::cout to avoid multiple threads writing at the same time. \mbox{\Hypertarget{namespace_stockfish_aaf77a757436a1344d525555c72847c99}\label{namespace_stockfish_aaf77a757436a1344d525555c72847c99}} 
+\index{Stockfish@{Stockfish}!prefetch@{prefetch}}
+\index{prefetch@{prefetch}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{prefetch()}{prefetch()}}
+{\footnotesize\ttfamily void prefetch (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_aaf77a757436a1344d525555c72847c99}{prefetch()}} preloads the given address in L1/\+L2 cache. This is a non-\/blocking function that doesn\textquotesingle{}t stall the CPU waiting for data to be loaded from memory, which can be quite slow. \mbox{\Hypertarget{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}\label{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}} 
+\index{Stockfish@{Stockfish}!std\_aligned\_alloc@{std\_aligned\_alloc}}
+\index{std\_aligned\_alloc@{std\_aligned\_alloc}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{std\_aligned\_alloc()}{std\_aligned\_alloc()}}
+{\footnotesize\ttfamily void $\ast$ std\+\_\+aligned\+\_\+alloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{alignment,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}{std\+\_\+aligned\+\_\+alloc()}} is our wrapper for systems where the c++17 implementation does not guarantee the availability of aligned\+\_\+alloc(). Memory allocated with \mbox{\hyperlink{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}{std\+\_\+aligned\+\_\+alloc()}} must be freed with std\+\_\+aligned\+\_\+free(). \mbox{\Hypertarget{namespace_stockfish_a0cd2bbe9d46e3e062089bb6fd830ba7d}\label{namespace_stockfish_a0cd2bbe9d46e3e062089bb6fd830ba7d}} 
+\index{Stockfish@{Stockfish}!generate@{generate}}
+\index{generate@{generate}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$ generate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos,  }\item[{\mbox{\hyperlink{struct_stockfish_1_1_ext_move}{Ext\+Move}} $\ast$}]{move\+List }\end{DoxyParamCaption})}
+
+$<$\+CAPTURES$>$ Generates all pseudo-\/legal captures plus queen promotions $<$\+QUIETS$>$ Generates all pseudo-\/legal non-\/captures and underpromotions $<$\+EVASIONS$>$ Generates all pseudo-\/legal check evasions when the side to move is in check $<$\+QUIET\+\_\+\+CHECKS$>$ Generates all pseudo-\/legal non-\/captures giving check, except castling and promotions $<$\+NON\+\_\+\+EVASIONS$>$ Generates all pseudo-\/legal captures and non-\/captures
+
+Returns a pointer to the end of the move list. \mbox{\Hypertarget{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}\label{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}} 
+\index{Stockfish@{Stockfish}!eg\_value@{eg\_value}}
+\index{eg\_value@{eg\_value}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{eg\_value()}{eg\_value()}}
+{\footnotesize\ttfamily Value Stockfish\+::eg\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}}]{s }\end{DoxyParamCaption})}
+
+Extracting the signed lower and upper 16 bits is not so trivial because according to the standard a simple cast to short is implementation defined and so is a right shift of a signed integer. \mbox{\Hypertarget{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}\label{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}} 
+\index{Stockfish@{Stockfish}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} Stockfish\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}}]{,  }\item[{\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Only declared but not defined. We don\textquotesingle{}t want to multiply two scores due to a very high risk of overflow. So user should explicitly convert to integer. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespace_stockfish_a0dd4695c02b8c326df0234afe2e42108}\label{namespace_stockfish_a0dd4695c02b8c326df0234afe2e42108}} 
+\index{Stockfish@{Stockfish}!KingFlank@{KingFlank}}
+\index{KingFlank@{KingFlank}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{KingFlank}{KingFlank}}
+{\footnotesize\ttfamily constexpr Bitboard King\+Flank\mbox{[}FILE\+\_\+\+NB\mbox{]}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  QueenSide \string^ FileDBB, QueenSide, QueenSide,}
+\DoxyCodeLine{  CenterFiles, CenterFiles,}
+\DoxyCodeLine{  KingSide, KingSide, KingSide \string^ FileEBB}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}\label{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}} 
+\index{Stockfish@{Stockfish}!MAX\_LPH@{MAX\_LPH}}
+\index{MAX\_LPH@{MAX\_LPH}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{MAX\_LPH}{MAX\_LPH}}
+{\footnotesize\ttfamily constexpr int MAX\+\_\+\+LPH = 4\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+At higher depths Low\+Ply\+History records successful quiet moves near the root and quiet moves which are/were in the PV (tt\+Pv). Low\+Ply\+History is populated during iterative deepening and at each new search the data is shifted down by 2 plies \mbox{\Hypertarget{namespace_stockfish_a707654af6bd4928ef41cb8f81ea9067c}\label{namespace_stockfish_a707654af6bd4928ef41cb8f81ea9067c}} 
+\index{Stockfish@{Stockfish}!PieceValue@{PieceValue}}
+\index{PieceValue@{PieceValue}!Stockfish@{Stockfish}}
+\doxysubsubsection{\texorpdfstring{PieceValue}{PieceValue}}
+{\footnotesize\ttfamily constexpr Value Piece\+Value\mbox{[}PHASE\+\_\+\+NB\mbox{]}\mbox{[}PIECE\+\_\+\+NB\mbox{]}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  \{ VALUE\_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE\_ZERO, VALUE\_ZERO,}
+\DoxyCodeLine{    VALUE\_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE\_ZERO, VALUE\_ZERO \},}
+\DoxyCodeLine{  \{ VALUE\_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE\_ZERO, VALUE\_ZERO,}
+\DoxyCodeLine{    VALUE\_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE\_ZERO, VALUE\_ZERO \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

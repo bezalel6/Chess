@@ -1,0 +1,81 @@
+\hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}{}\doxysection{My\+Thread}
+\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}\index{MyThread@{MyThread}}
+Inheritance diagram for My\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status}{Thread\+Status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The type My thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_aed61b5105ab179adf727262284b7a9e5}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_aed61b5105ab179adf727262284b7a9e5}} 
+\index{MyThread@{MyThread}!MyThread@{MyThread}}
+\index{MyThread@{MyThread}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{MyThread()}{MyThread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}{My\+Thread}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Instantiates a new My thread. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a4997a6fb8b2189b9ed6a1f6d9e0ac99c}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a4997a6fb8b2189b9ed6a1f6d9e0ac99c}} 
+\index{MyThread@{MyThread}!currentThread@{currentThread}}
+\index{currentThread@{currentThread}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{currentThread()}{currentThread()}}
+{\footnotesize\ttfamily static void current\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback}{Callback}}$<$ \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}{My\+Thread}} $>$}]{run }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Current thread. will only execute code if inside a \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread}{My\+Thread}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em run} & the run \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_aca1358cfcf601a31050c3cc6aa5c3f55}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_aca1358cfcf601a31050c3cc6aa5c3f55}} 
+\index{MyThread@{MyThread}!stopRun@{stopRun}}
+\index{stopRun@{stopRun}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{stopRun()}{stopRun()}}
+{\footnotesize\ttfamily void stop\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stop run. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a556c016332cfd8e3bfcbcd2b40b267f0}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a556c016332cfd8e3bfcbcd2b40b267f0}} 
+\index{MyThread@{MyThread}!ignoreErrs@{ignoreErrs}}
+\index{ignoreErrs@{ignoreErrs}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{ignoreErrs()}{ignoreErrs()}}
+{\footnotesize\ttfamily void ignore\+Errs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ignore errs. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a1c1ddbd4b449311e8a9e0cc3b48b8818}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a1c1ddbd4b449311e8a9e0cc3b48b8818}} 
+\index{MyThread@{MyThread}!reactivateErrs@{reactivateErrs}}
+\index{reactivateErrs@{reactivateErrs}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{reactivateErrs()}{reactivateErrs()}}
+{\footnotesize\ttfamily void reactivate\+Errs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reactivate errs. \mbox{\Hypertarget{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a6175963d859b204863304362ce9c792a}\label{classver14_1_1_shared_classes_1_1_threads_1_1_my_thread_a6175963d859b204863304362ce9c792a}} 
+\index{MyThread@{MyThread}!handledRun@{handledRun}}
+\index{handledRun@{handledRun}!MyThread@{MyThread}}
+\doxysubsubsection{\texorpdfstring{handledRun()}{handledRun()}}
+{\footnotesize\ttfamily abstract void handled\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Throwable\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+Handled run.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throwable} & the throwable \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_networking_1_1_app_socket_aaabc5f912d38aaafc8568890eab0e64a}{App\+Socket}}, and \mbox{\hyperlink{classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread_aaabc5f912d38aaafc8568890eab0e64a}{Handled\+Thread}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/\+Shared\+Classes/\+Threads/My\+Thread.\+java\end{DoxyCompactItemize}

@@ -1,6 +1,7 @@
 package ver14.SharedClasses.Game.Moves;
 
 
+import ver14.SharedClasses.Callbacks.LazyHashSupplier;
 import ver14.SharedClasses.Game.Evaluation.Evaluation;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
@@ -22,11 +23,7 @@ public class Move extends BasicMove implements Comparable<Move> {
      * an Intermediate move, like moving the rook in a castling.
      */
     BasicMove intermediateMove;
-
-    /**
-     * The list that created this move.
-     */
-    private MovesList creatorList = null;
+    private LazyHashSupplier<Long> createdListHashSupplier = () -> 0L;
     /**
      * The Move annotation.
      */
@@ -122,6 +119,7 @@ public class Move extends BasicMove implements Comparable<Move> {
      */
     public Move(Move other) {
         super(other);
+        this.createdListHashSupplier = other.createdListHashSupplier;
         this.moveAnnotation = other.moveAnnotation;
         this.disabledCastling = other.disabledCastling;
         this.movingPlayerColor = other.movingPlayerColor;
@@ -183,7 +181,6 @@ public class Move extends BasicMove implements Comparable<Move> {
         return ret;
     }
 
-
     /**
      * Copy move.
      *
@@ -194,24 +191,13 @@ public class Move extends BasicMove implements Comparable<Move> {
         return new Move(move);
     }
 
-    /**
-     * Gets creator list.
-     *
-     * @return the creator list
-     */
-    public MovesList getCreatorList() {
-        return creatorList;
+    public LazyHashSupplier<Long> getCreatedListHashSupplier() {
+        return createdListHashSupplier;
     }
 
-    /**
-     * Sets creator list.
-     *
-     * @param creatorList the creator list
-     */
-    public void setCreatorList(MovesList creatorList) {
-        this.creatorList = creatorList;
+    public void setCreatedListHashSupplier(LazyHashSupplier<Long> createdListHashSupplier) {
+        this.createdListHashSupplier = createdListHashSupplier;
     }
-
 
     /**
      * Sets move annotation.

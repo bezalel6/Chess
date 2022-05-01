@@ -1,0 +1,414 @@
+\hypertarget{position_8h_source}{}\doxysection{position.\+h}
+\label{position_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/position.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/position.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef POSITION\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define POSITION\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <memory>} \textcolor{comment}{// For std::unique\_ptr}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}bitboard.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}evaluate.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}psqt.h"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}nnue/nnue\_accumulator.h"{}}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{struct }\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} \{}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{comment}{// Copied when making a move}}
+\DoxyCodeLine{43   Key    pawnKey;}
+\DoxyCodeLine{44   Key    materialKey;}
+\DoxyCodeLine{45   Value  nonPawnMaterial[COLOR\_NB];}
+\DoxyCodeLine{46   \textcolor{keywordtype}{int}    castlingRights;}
+\DoxyCodeLine{47   \textcolor{keywordtype}{int}    rule50;}
+\DoxyCodeLine{48   \textcolor{keywordtype}{int}    pliesFromNull;}
+\DoxyCodeLine{49   Square epSquare;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{comment}{// Not copied when making a move (will be recomputed anyhow)}}
+\DoxyCodeLine{52   Key        key;}
+\DoxyCodeLine{53   Bitboard   checkersBB;}
+\DoxyCodeLine{54   \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* previous;}
+\DoxyCodeLine{55   Bitboard   blockersForKing[COLOR\_NB];}
+\DoxyCodeLine{56   Bitboard   pinners[COLOR\_NB];}
+\DoxyCodeLine{57   Bitboard   checkSquares[PIECE\_TYPE\_NB];}
+\DoxyCodeLine{58   Piece      capturedPiece;}
+\DoxyCodeLine{59   \textcolor{keywordtype}{int}        repetition;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61   \textcolor{comment}{// Used by NNUE}}
+\DoxyCodeLine{62   \mbox{\hyperlink{struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_accumulator}{Eval::NNUE::Accumulator}} accumulator;}
+\DoxyCodeLine{63   \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_dirty_piece}{DirtyPiece}} dirtyPiece;}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71 \textcolor{keyword}{typedef} std::unique\_ptr<std::deque<StateInfo>> \mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{StateListPtr}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \{}
+\DoxyCodeLine{81 \textcolor{keyword}{public}:}
+\DoxyCodeLine{82   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_position_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}();}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{85   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{86   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{comment}{// FEN string input/output}}
+\DoxyCodeLine{89   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& set(\textcolor{keyword}{const} std::string\& fenStr, \textcolor{keywordtype}{bool} isChess960, \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* si, \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}* th);}
+\DoxyCodeLine{90   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& set(\textcolor{keyword}{const} std::string\& code, Color c, \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* si);}
+\DoxyCodeLine{91   std::string \mbox{\hyperlink{class_stockfish_1_1_position_a7f32cf15cdc4d10963b60459608519b4}{fen}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{comment}{// Position representation}}
+\DoxyCodeLine{94   Bitboard pieces(PieceType pt) \textcolor{keyword}{const};}
+\DoxyCodeLine{95   Bitboard pieces(PieceType pt1, PieceType pt2) \textcolor{keyword}{const};}
+\DoxyCodeLine{96   Bitboard pieces(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{97   Bitboard pieces(Color c, PieceType pt) \textcolor{keyword}{const};}
+\DoxyCodeLine{98   Bitboard pieces(Color c, PieceType pt1, PieceType pt2) \textcolor{keyword}{const};}
+\DoxyCodeLine{99   Piece piece\_on(Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{100   Square ep\_square() \textcolor{keyword}{const};}
+\DoxyCodeLine{101   \textcolor{keywordtype}{bool} empty(Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{102   \textcolor{keyword}{template}<PieceType Pt> \textcolor{keywordtype}{int} count(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{103   \textcolor{keyword}{template}<PieceType Pt> \textcolor{keywordtype}{int} count() \textcolor{keyword}{const};}
+\DoxyCodeLine{104   \textcolor{keyword}{template}<PieceType Pt> Square square(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{105   \textcolor{keywordtype}{bool} is\_on\_semiopen\_file(Color c, Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107   \textcolor{comment}{// Castling}}
+\DoxyCodeLine{108   CastlingRights castling\_rights(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{109   \textcolor{keywordtype}{bool} can\_castle(CastlingRights cr) \textcolor{keyword}{const};}
+\DoxyCodeLine{110   \textcolor{keywordtype}{bool} castling\_impeded(CastlingRights cr) \textcolor{keyword}{const};}
+\DoxyCodeLine{111   Square castling\_rook\_square(CastlingRights cr) \textcolor{keyword}{const};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113   \textcolor{comment}{// Checking}}
+\DoxyCodeLine{114   Bitboard checkers() \textcolor{keyword}{const};}
+\DoxyCodeLine{115   Bitboard blockers\_for\_king(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{116   Bitboard check\_squares(PieceType pt) \textcolor{keyword}{const};}
+\DoxyCodeLine{117   Bitboard pinners(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   \textcolor{comment}{// Attacks to/from a given square}}
+\DoxyCodeLine{120   Bitboard attackers\_to(Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{121   Bitboard attackers\_to(Square s, Bitboard occupied) \textcolor{keyword}{const};}
+\DoxyCodeLine{122   Bitboard \mbox{\hyperlink{class_stockfish_1_1_position_a35bf127548e880786cca55bdf09b7f50}{slider\_blockers}}(Bitboard sliders, Square s, Bitboard\& pinners) \textcolor{keyword}{const};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124   \textcolor{comment}{// Properties of moves}}
+\DoxyCodeLine{125   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_af6303db5232c548becc8a14f517c5deb}{legal}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{126   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_a5c97ff268fb33c4882611eaf26ebfa89}{pseudo\_legal}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{127   \textcolor{keywordtype}{bool} capture(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{128   \textcolor{keywordtype}{bool} capture\_or\_promotion(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{129   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_a59807778dfe5c36ee749d07a36f10dd0}{gives\_check}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{130   Piece moved\_piece(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{131   Piece captured\_piece() \textcolor{keyword}{const};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133   \textcolor{comment}{// Piece specific}}
+\DoxyCodeLine{134   \textcolor{keywordtype}{bool} pawn\_passed(Color c, Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{135   \textcolor{keywordtype}{bool} opposite\_bishops() \textcolor{keyword}{const};}
+\DoxyCodeLine{136   \textcolor{keywordtype}{int}  pawns\_on\_same\_color\_squares(Color c, Square s) \textcolor{keyword}{const};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138   \textcolor{comment}{// Doing and undoing moves}}
+\DoxyCodeLine{139   \textcolor{keywordtype}{void} do\_move(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}\& newSt);}
+\DoxyCodeLine{140   \textcolor{keywordtype}{void} do\_move(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}\& newSt, \textcolor{keywordtype}{bool} givesCheck);}
+\DoxyCodeLine{141   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_position_a9a218c5cac6374b2ca206add7bf6bd01}{undo\_move}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m);}
+\DoxyCodeLine{142   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_position_a6cce099c48b2a932739d588556185bd0}{do\_null\_move}}(\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}\& newSt);}
+\DoxyCodeLine{143   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_position_ab1c875c37273df311ce7ed29c190f558}{undo\_null\_move}}();}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145   \textcolor{comment}{// Static Exchange Evaluation}}
+\DoxyCodeLine{146   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_a088533df8cde70e931fe921dacaff06e}{see\_ge}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, Value threshold = VALUE\_ZERO) \textcolor{keyword}{const};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148   \textcolor{comment}{// Accessing hash keys}}
+\DoxyCodeLine{149   Key key() \textcolor{keyword}{const};}
+\DoxyCodeLine{150   Key \mbox{\hyperlink{class_stockfish_1_1_position_afa0c628b3243ac369635bb558be718fe}{key\_after}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \textcolor{keyword}{const};}
+\DoxyCodeLine{151   Key material\_key() \textcolor{keyword}{const};}
+\DoxyCodeLine{152   Key pawn\_key() \textcolor{keyword}{const};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   \textcolor{comment}{// Other properties of the position}}
+\DoxyCodeLine{155   Color side\_to\_move() \textcolor{keyword}{const};}
+\DoxyCodeLine{156   \textcolor{keywordtype}{int} game\_ply() \textcolor{keyword}{const};}
+\DoxyCodeLine{157   \textcolor{keywordtype}{bool} is\_chess960() \textcolor{keyword}{const};}
+\DoxyCodeLine{158   \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}* this\_thread() \textcolor{keyword}{const};}
+\DoxyCodeLine{159   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_af8eaac7ae2542bcfc053e2f848e12436}{is\_draw}}(\textcolor{keywordtype}{int} ply) \textcolor{keyword}{const};}
+\DoxyCodeLine{160   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_a8f91197de3643d7af54822b33e4d29a5}{has\_game\_cycle}}(\textcolor{keywordtype}{int} ply) \textcolor{keyword}{const};}
+\DoxyCodeLine{161   \textcolor{keywordtype}{bool} has\_repeated() \textcolor{keyword}{const};}
+\DoxyCodeLine{162   \textcolor{keywordtype}{int} rule50\_count() \textcolor{keyword}{const};}
+\DoxyCodeLine{163   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} psq\_score() \textcolor{keyword}{const};}
+\DoxyCodeLine{164   Value non\_pawn\_material(Color c) \textcolor{keyword}{const};}
+\DoxyCodeLine{165   Value non\_pawn\_material() \textcolor{keyword}{const};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   \textcolor{comment}{// Position consistency check, for debugging}}
+\DoxyCodeLine{168   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stockfish_1_1_position_ab6a96131312a6bfcef15a77792677555}{pos\_is\_ok}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{169   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_position_a126cb0362ae2e7935520fb27343bad31}{flip}}();}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171   \textcolor{comment}{// Used by NNUE}}
+\DoxyCodeLine{172   \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* state() \textcolor{keyword}{const};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174   \textcolor{keywordtype}{void} put\_piece(Piece pc, Square s);}
+\DoxyCodeLine{175   \textcolor{keywordtype}{void} remove\_piece(Square s);}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{keyword}{private}:}
+\DoxyCodeLine{178   \textcolor{comment}{// Initialization helpers (used while setting up a position)}}
+\DoxyCodeLine{179   \textcolor{keywordtype}{void} set\_castling\_right(Color c, Square rfrom);}
+\DoxyCodeLine{180   \textcolor{keywordtype}{void} set\_state(\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* si) \textcolor{keyword}{const};}
+\DoxyCodeLine{181   \textcolor{keywordtype}{void} set\_check\_info(\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* si) \textcolor{keyword}{const};}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183   \textcolor{comment}{// Other helpers}}
+\DoxyCodeLine{184   \textcolor{keywordtype}{void} move\_piece(Square from, Square to);}
+\DoxyCodeLine{185   \textcolor{keyword}{template}<\textcolor{keywordtype}{bool} Do>}
+\DoxyCodeLine{186   \textcolor{keywordtype}{void} do\_castling(Color us, Square from, Square\& to, Square\& rfrom, Square\& rto);}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188   \textcolor{comment}{// Data members}}
+\DoxyCodeLine{189   Piece board[SQUARE\_NB];}
+\DoxyCodeLine{190   Bitboard byTypeBB[PIECE\_TYPE\_NB];}
+\DoxyCodeLine{191   Bitboard byColorBB[COLOR\_NB];}
+\DoxyCodeLine{192   \textcolor{keywordtype}{int} pieceCount[PIECE\_NB];}
+\DoxyCodeLine{193   \textcolor{keywordtype}{int} castlingRightsMask[SQUARE\_NB];}
+\DoxyCodeLine{194   Square castlingRookSquare[CASTLING\_RIGHT\_NB];}
+\DoxyCodeLine{195   Bitboard castlingPath[CASTLING\_RIGHT\_NB];}
+\DoxyCodeLine{196   \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}* thisThread;}
+\DoxyCodeLine{197   \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* st;}
+\DoxyCodeLine{198   \textcolor{keywordtype}{int} gamePly;}
+\DoxyCodeLine{199   Color sideToMove;}
+\DoxyCodeLine{200   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} psq;}
+\DoxyCodeLine{201   \textcolor{keywordtype}{bool} chess960;}
+\DoxyCodeLine{202 \};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{keyword}{extern} std::ostream\& \mbox{\hyperlink{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{keyword}{inline} Color Position::side\_to\_move()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{207   \textcolor{keywordflow}{return} sideToMove;}
+\DoxyCodeLine{208 \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{keyword}{inline} Piece Position::piece\_on(Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{211   assert(is\_ok(s));}
+\DoxyCodeLine{212   \textcolor{keywordflow}{return} board[s];}
+\DoxyCodeLine{213 \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::empty(Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{216   \textcolor{keywordflow}{return} piece\_on(s) == NO\_PIECE;}
+\DoxyCodeLine{217 \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 \textcolor{keyword}{inline} Piece Position::moved\_piece(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{220   \textcolor{keywordflow}{return} piece\_on(from\_sq(m));}
+\DoxyCodeLine{221 \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{keyword}{inline} Bitboard Position::pieces(PieceType pt = ALL\_PIECES)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{224   \textcolor{keywordflow}{return} byTypeBB[pt];}
+\DoxyCodeLine{225 \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{keyword}{inline} Bitboard Position::pieces(PieceType pt1, PieceType pt2)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{228   \textcolor{keywordflow}{return} pieces(pt1) | pieces(pt2);}
+\DoxyCodeLine{229 \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{keyword}{inline} Bitboard Position::pieces(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{232   \textcolor{keywordflow}{return} byColorBB[c];}
+\DoxyCodeLine{233 \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keyword}{inline} Bitboard Position::pieces(Color c, PieceType pt)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{236   \textcolor{keywordflow}{return} pieces(c) \& pieces(pt);}
+\DoxyCodeLine{237 \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \textcolor{keyword}{inline} Bitboard Position::pieces(Color c, PieceType pt1, PieceType pt2)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{240   \textcolor{keywordflow}{return} pieces(c) \& (pieces(pt1) | pieces(pt2));}
+\DoxyCodeLine{241 \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{keyword}{template}<PieceType Pt> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Position::count(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{244   \textcolor{keywordflow}{return} pieceCount[make\_piece(c, Pt)];}
+\DoxyCodeLine{245 \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{keyword}{template}<PieceType Pt> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Position::count()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{248   \textcolor{keywordflow}{return} count<Pt>(WHITE) + count<Pt>(BLACK);}
+\DoxyCodeLine{249 \}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \textcolor{keyword}{template}<PieceType Pt> \textcolor{keyword}{inline} Square Position::square(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{252   assert(count<Pt>(c) == 1);}
+\DoxyCodeLine{253   \textcolor{keywordflow}{return} lsb(pieces(c, Pt));}
+\DoxyCodeLine{254 \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{keyword}{inline} Square Position::ep\_square()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{257   \textcolor{keywordflow}{return} st-\/>epSquare;}
+\DoxyCodeLine{258 \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::is\_on\_semiopen\_file(Color c, Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{261   \textcolor{keywordflow}{return} !(pieces(c, PAWN) \& file\_bb(s));}
+\DoxyCodeLine{262 \}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::can\_castle(CastlingRights cr)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{265   \textcolor{keywordflow}{return} st-\/>castlingRights \& cr;}
+\DoxyCodeLine{266 \}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 \textcolor{keyword}{inline} CastlingRights Position::castling\_rights(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{269   \textcolor{keywordflow}{return} c \& CastlingRights(st-\/>castlingRights);}
+\DoxyCodeLine{270 \}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::castling\_impeded(CastlingRights cr)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{273   assert(cr == WHITE\_OO || cr == WHITE\_OOO || cr == BLACK\_OO || cr == BLACK\_OOO);}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275   \textcolor{keywordflow}{return} pieces() \& castlingPath[cr];}
+\DoxyCodeLine{276 \}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{keyword}{inline} Square Position::castling\_rook\_square(CastlingRights cr)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{279   assert(cr == WHITE\_OO || cr == WHITE\_OOO || cr == BLACK\_OO || cr == BLACK\_OOO);}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281   \textcolor{keywordflow}{return} castlingRookSquare[cr];}
+\DoxyCodeLine{282 \}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284 \textcolor{keyword}{inline} Bitboard Position::attackers\_to(Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{285   \textcolor{keywordflow}{return} attackers\_to(s, pieces());}
+\DoxyCodeLine{286 \}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288 \textcolor{keyword}{inline} Bitboard Position::checkers()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{289   \textcolor{keywordflow}{return} st-\/>checkersBB;}
+\DoxyCodeLine{290 \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 \textcolor{keyword}{inline} Bitboard Position::blockers\_for\_king(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{293   \textcolor{keywordflow}{return} st-\/>blockersForKing[c];}
+\DoxyCodeLine{294 \}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{keyword}{inline} Bitboard Position::pinners(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{297   \textcolor{keywordflow}{return} st-\/>pinners[c];}
+\DoxyCodeLine{298 \}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 \textcolor{keyword}{inline} Bitboard Position::check\_squares(PieceType pt)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{301   \textcolor{keywordflow}{return} st-\/>checkSquares[pt];}
+\DoxyCodeLine{302 \}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::pawn\_passed(Color c, Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{305   \textcolor{keywordflow}{return} !(pieces(\string~c, PAWN) \& \mbox{\hyperlink{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}{passed\_pawn\_span}}(c, s));}
+\DoxyCodeLine{306 \}}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Position::pawns\_on\_same\_color\_squares(Color c, Square s)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{309   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}{popcount}}(pieces(c, PAWN) \& ((DarkSquares \& s) ? DarkSquares : \string~DarkSquares));}
+\DoxyCodeLine{310 \}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{keyword}{inline} Key Position::key()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{313   \textcolor{keywordflow}{return} st-\/>rule50 < 14 ? st-\/>key}
+\DoxyCodeLine{314                          : st-\/>key \string^ \mbox{\hyperlink{namespace_stockfish_ab9085d1b17708c93616c9a012014ffd8}{make\_key}}((st-\/>rule50 -\/ 14) / 8);}
+\DoxyCodeLine{315 \}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 \textcolor{keyword}{inline} Key Position::pawn\_key()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{318   \textcolor{keywordflow}{return} st-\/>pawnKey;}
+\DoxyCodeLine{319 \}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321 \textcolor{keyword}{inline} Key Position::material\_key()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{322   \textcolor{keywordflow}{return} st-\/>materialKey;}
+\DoxyCodeLine{323 \}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \textcolor{keyword}{inline} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} Position::psq\_score()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{326   \textcolor{keywordflow}{return} psq;}
+\DoxyCodeLine{327 \}}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 \textcolor{keyword}{inline} Value Position::non\_pawn\_material(Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{330   \textcolor{keywordflow}{return} st-\/>nonPawnMaterial[c];}
+\DoxyCodeLine{331 \}}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 \textcolor{keyword}{inline} Value Position::non\_pawn\_material()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{334   \textcolor{keywordflow}{return} non\_pawn\_material(WHITE) + non\_pawn\_material(BLACK);}
+\DoxyCodeLine{335 \}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Position::game\_ply()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{338   \textcolor{keywordflow}{return} gamePly;}
+\DoxyCodeLine{339 \}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} Position::rule50\_count()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{342   \textcolor{keywordflow}{return} st-\/>rule50;}
+\DoxyCodeLine{343 \}}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::opposite\_bishops()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{346   \textcolor{keywordflow}{return}   count<BISHOP>(WHITE) == 1}
+\DoxyCodeLine{347         \&\& count<BISHOP>(BLACK) == 1}
+\DoxyCodeLine{348         \&\& opposite\_colors(square<BISHOP>(WHITE), square<BISHOP>(BLACK));}
+\DoxyCodeLine{349 \}}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::is\_chess960()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{352   \textcolor{keywordflow}{return} chess960;}
+\DoxyCodeLine{353 \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::capture\_or\_promotion(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{356   assert(is\_ok(m));}
+\DoxyCodeLine{357   \textcolor{keywordflow}{return} type\_of(m) != NORMAL ? type\_of(m) != CASTLING : !empty(to\_sq(m));}
+\DoxyCodeLine{358 \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} Position::capture(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{361   assert(is\_ok(m));}
+\DoxyCodeLine{362   \textcolor{comment}{// Castling is encoded as "{}king captures rook"{}}}
+\DoxyCodeLine{363   \textcolor{keywordflow}{return} (!empty(to\_sq(m)) \&\& type\_of(m) != CASTLING) || type\_of(m) == EN\_PASSANT;}
+\DoxyCodeLine{364 \}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366 \textcolor{keyword}{inline} Piece Position::captured\_piece()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{367   \textcolor{keywordflow}{return} st-\/>capturedPiece;}
+\DoxyCodeLine{368 \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370 \textcolor{keyword}{inline} Thread* Position::this\_thread()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{371   \textcolor{keywordflow}{return} thisThread;}
+\DoxyCodeLine{372 \}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Position::put\_piece(Piece pc, Square s) \{}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376   board[s] = pc;}
+\DoxyCodeLine{377   byTypeBB[ALL\_PIECES] |= byTypeBB[type\_of(pc)] |= s;}
+\DoxyCodeLine{378   byColorBB[color\_of(pc)] |= s;}
+\DoxyCodeLine{379   pieceCount[pc]++;}
+\DoxyCodeLine{380   pieceCount[make\_piece(color\_of(pc), ALL\_PIECES)]++;}
+\DoxyCodeLine{381   psq += PSQT::psq[pc][s];}
+\DoxyCodeLine{382 \}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Position::remove\_piece(Square s) \{}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386   Piece pc = board[s];}
+\DoxyCodeLine{387   byTypeBB[ALL\_PIECES] \string^= s;}
+\DoxyCodeLine{388   byTypeBB[type\_of(pc)] \string^= s;}
+\DoxyCodeLine{389   byColorBB[color\_of(pc)] \string^= s;}
+\DoxyCodeLine{390   board[s] = NO\_PIECE;}
+\DoxyCodeLine{391   pieceCount[pc]-\/-\/;}
+\DoxyCodeLine{392   pieceCount[make\_piece(color\_of(pc), ALL\_PIECES)]-\/-\/;}
+\DoxyCodeLine{393   psq -\/= PSQT::psq[pc][s];}
+\DoxyCodeLine{394 \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Position::move\_piece(Square from, Square to) \{}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398   Piece pc = board[from];}
+\DoxyCodeLine{399   Bitboard fromTo = from | to;}
+\DoxyCodeLine{400   byTypeBB[ALL\_PIECES] \string^= fromTo;}
+\DoxyCodeLine{401   byTypeBB[type\_of(pc)] \string^= fromTo;}
+\DoxyCodeLine{402   byColorBB[color\_of(pc)] \string^= fromTo;}
+\DoxyCodeLine{403   board[from] = NO\_PIECE;}
+\DoxyCodeLine{404   board[to] = pc;}
+\DoxyCodeLine{405   psq += PSQT::psq[pc][to] -\/ PSQT::psq[pc][from];}
+\DoxyCodeLine{406 \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Position::do\_move(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, StateInfo\& newSt) \{}
+\DoxyCodeLine{409   do\_move(m, newSt, \mbox{\hyperlink{class_stockfish_1_1_position_a59807778dfe5c36ee749d07a36f10dd0}{gives\_check}}(m));}
+\DoxyCodeLine{410 \}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 \textcolor{keyword}{inline} StateInfo* Position::state()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414   \textcolor{keywordflow}{return} st;}
+\DoxyCodeLine{415 \}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef POSITION\_H\_INCLUDED}}
+
+\end{DoxyCode}

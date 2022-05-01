@@ -55,7 +55,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onCancelQuestion() {
         return message -> {
-            super.onCancelQuestion().onMsg(message);
+            super.onCancelQuestion().callback(message);
             player.getPartner().cancelQuestion(message.getQuestion(), message.getCancelingQuestionCause());
         };
     }
@@ -87,7 +87,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onResign() {
         return message -> {
-            super.onResign().onMsg(message);
+            super.onResign().callback(message);
             player.getGameSession().resigned(player);
         };
     }
@@ -100,7 +100,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onQuestion() {
         return message -> {
-            super.onQuestion().onMsg(message);
+            super.onQuestion().callback(message);
             if (player != null && player.getGameSession() != null) {
                 player.getGameSession().askedQuestion(player, message.getQuestion());
             }
@@ -115,7 +115,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onBye() {
         return message -> {
-            super.onBye().onMsg(message);
+            super.onBye().callback(message);
             String response = "bye";
             if (player != null) {
                 response += " " + player.getUsername();
@@ -135,7 +135,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onUsernameAvailability() {
         return message -> {
-            super.onUsernameAvailability().onMsg(message);
+            super.onUsernameAvailability().callback(message);
 
             boolean res = !DB.isUsernameExists(message.getUsername());
             if (res) {
@@ -156,7 +156,7 @@ public class ServerMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onDBRequest() {
         return message -> {
-            super.onDBRequest().onMsg(message);
+            super.onDBRequest().callback(message);
 
             socket.writeMessage(Message.returnDBResponse(server.dbRequest(message.getDBRequest()), message));
         };

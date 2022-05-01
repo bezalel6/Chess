@@ -1,0 +1,38 @@
+\hypertarget{class_stockfish_1_1_transposition_table}{}\doxysection{Transposition\+Table}
+\label{class_stockfish_1_1_transposition_table}\index{TranspositionTable@{TranspositionTable}}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_transposition_table_addc7475d671c72c9f2962ce189143166}\label{class_stockfish_1_1_transposition_table_addc7475d671c72c9f2962ce189143166}} 
+struct {\bfseries TTEntry}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{class_stockfish_1_1_transposition_table}{Transposition\+Table}} is an array of Cluster, of size cluster\+Count. Each cluster consists of Cluster\+Size number of \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}}. Each non-\/empty \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} contains information on exactly one position. The size of a Cluster should divide the size of a cache line for best performance, as the cacheline is prefetched when possible. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_transposition_table_aa7fef3a81a80074fb77ee1cb36a7c342}\label{class_stockfish_1_1_transposition_table_aa7fef3a81a80074fb77ee1cb36a7c342}} 
+\index{TranspositionTable@{TranspositionTable}!probe@{probe}}
+\index{probe@{probe}!TranspositionTable@{TranspositionTable}}
+\doxysubsubsection{\texorpdfstring{probe()}{probe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} $\ast$ probe (\begin{DoxyParamCaption}\item[{const Key}]{key,  }\item[{bool \&}]{found }\end{DoxyParamCaption}) const}
+
+\mbox{\hyperlink{class_stockfish_1_1_transposition_table_aa7fef3a81a80074fb77ee1cb36a7c342}{Transposition\+Table\+::probe()}} looks up the current position in the transposition table. It returns true and a pointer to the \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} if the position is found. Otherwise, it returns false and a pointer to an empty or least valuable \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} to be replaced later. The replace value of an entry is calculated as its depth minus 8 times its relative age. \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} t1 is considered more valuable than \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}} t2 if its replace value is greater than that of t2. \mbox{\Hypertarget{class_stockfish_1_1_transposition_table_a60b290792892771b03ba1aaebeae1c07}\label{class_stockfish_1_1_transposition_table_a60b290792892771b03ba1aaebeae1c07}} 
+\index{TranspositionTable@{TranspositionTable}!hashfull@{hashfull}}
+\index{hashfull@{hashfull}!TranspositionTable@{TranspositionTable}}
+\doxysubsubsection{\texorpdfstring{hashfull()}{hashfull()}}
+{\footnotesize\ttfamily int hashfull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\hyperlink{class_stockfish_1_1_transposition_table_a60b290792892771b03ba1aaebeae1c07}{Transposition\+Table\+::hashfull()}} returns an approximation of the hashtable occupation during a search. The hash is x permill full, as per UCI protocol. \mbox{\Hypertarget{class_stockfish_1_1_transposition_table_a6ad998c27f601446177293ea31beadf8}\label{class_stockfish_1_1_transposition_table_a6ad998c27f601446177293ea31beadf8}} 
+\index{TranspositionTable@{TranspositionTable}!resize@{resize}}
+\index{resize@{resize}!TranspositionTable@{TranspositionTable}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{mb\+Size }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_transposition_table_a6ad998c27f601446177293ea31beadf8}{Transposition\+Table\+::resize()}} sets the size of the transposition table, measured in megabytes. Transposition table consists of a power of 2 number of clusters and each cluster consists of Cluster\+Size number of \mbox{\hyperlink{struct_stockfish_1_1_t_t_entry}{TTEntry}}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tt.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/tt.\+cpp\end{DoxyCompactItemize}

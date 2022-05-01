@@ -79,9 +79,6 @@ public class Evaluation implements Serializable {
      */
     public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
         this(gameStatusEvalMap.get(gameStatus.getGameStatusType()), gameStatus, evaluationFor);
-        if (gameStatus.getSpecificStatus() == GameStatus.SpecificStatus.ThreeFoldRepetition) {
-            System.out.println("found repet! " + this);
-        }
 
     }
 
@@ -144,7 +141,7 @@ public class Evaluation implements Serializable {
     public void addDetail(EvaluationParameters parm, int value) {
         eval += value * parm.weight;
         if (MAKE_DETAILED)
-            detailedEval.add(new EvaluationDetail(parm, (int) (value * parm.weight)));
+            detailedEval.add(new EvaluationDetail(parm, (int) value));
     }
 
     /**
@@ -190,6 +187,10 @@ public class Evaluation implements Serializable {
      */
     public boolean isCheck() {
         return gameStatus.isCheck();
+    }
+
+    public boolean isCheckOrMate() {
+        return gameStatus.isCheckOrMate();
     }
 
     /**
@@ -337,7 +338,7 @@ public class Evaluation implements Serializable {
          */
         @Override
         public String toString() {
-            return parm + ": " + convertFromCentipawns(eval);
+            return parm + ": " + convertFromCentipawns(eval) + " * " + parm.weight;
         }
     }
 }

@@ -39,7 +39,6 @@ import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
 import ver14.view.Dialog.Properties;
 import ver14.view.View;
 
-import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
@@ -96,7 +95,7 @@ public class Client implements EnvManager {
      */
 // main
     public static void main(String[] args) {
-        Array
+
         ArgsUtil util = ArgsUtil.create(args);
         START_AT_ADDRESS = util.equalsSign("address").getString();
         START_FULLSCREEN = util.plainTextIgnoreCase("-f").exists();
@@ -414,7 +413,7 @@ public class Client implements EnvManager {
     }
 
     private void processGameStatus(GameStatus gameStatus) {
-        if (gameStatus.isCheck()) {
+        if (gameStatus.isCheckOrMate()) {
             view.inCheck(gameStatus.getCheckedKingLoc());
         }
 

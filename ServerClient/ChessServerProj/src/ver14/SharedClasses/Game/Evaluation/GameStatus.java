@@ -245,13 +245,17 @@ public class GameStatus implements Serializable {
         setCheckedKingLoc(checkedKingLoc);
     }
 
+    public boolean isCheckOrMate() {
+        return isCheck() || specificStatus == SpecificStatus.Checkmate;
+    }
+
     /**
      * Is check boolean.
      *
      * @return the boolean
      */
     public boolean isCheck() {
-        return gameStatusType == GameStatusType.CHECK || checkedKingLoc != null;
+        return gameStatusType == GameStatusType.CHECK;
     }
 
     /**

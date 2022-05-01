@@ -1,0 +1,88 @@
+\hypertarget{uci_8h_source}{}\doxysection{uci.\+h}
+\label{uci_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/uci.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/uci.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef UCI\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define UCI\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }Position;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{namespace }UCI \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }Option;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_u_c_i_1_1_case_insensitive_less}{CaseInsensitiveLess}} \{}
+\DoxyCodeLine{37   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_stockfish_1_1_u_c_i_1_1_case_insensitive_less_afcc1da02abc3de20646771cb8c39b41c}{operator() }}(\textcolor{keyword}{const} std::string\&, \textcolor{keyword}{const} std::string\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} std::map<std::string, Option, CaseInsensitiveLess> OptionsMap;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}} \{}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \textcolor{keyword}{typedef} void (*OnChange)(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}\&);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}(OnChange = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{50   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}(\textcolor{keywordtype}{bool} v, OnChange = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{51   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* v, OnChange = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{52   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}(\textcolor{keywordtype}{double} v, \textcolor{keywordtype}{int} minv, \textcolor{keywordtype}{int} maxv, OnChange = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{53   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* v, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* cur, OnChange = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}\& \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a1581d75ad4265bab21f9728af3d6482b}{operator=}}(\textcolor{keyword}{const} std::string\&);}
+\DoxyCodeLine{56   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a2d3f84c2ac72631d5e89ba75f8d4440c}{operator<<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}}\&);}
+\DoxyCodeLine{57   \textcolor{keyword}{operator} double() \textcolor{keyword}{const};}
+\DoxyCodeLine{58   \textcolor{keyword}{operator} std::string() \textcolor{keyword}{const};}
+\DoxyCodeLine{59   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*) \textcolor{keyword}{const};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{private}:}
+\DoxyCodeLine{62   \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a2d3f84c2ac72631d5e89ba75f8d4440c}{operator<<}}(std::ostream\&, \textcolor{keyword}{const} OptionsMap\&);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   std::string defaultValue, currentValue, type;}
+\DoxyCodeLine{65   \textcolor{keywordtype}{int} min, max;}
+\DoxyCodeLine{66   \textcolor{keywordtype}{size\_t} idx;}
+\DoxyCodeLine{67   OnChange on\_change;}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keywordtype}{void} init(OptionsMap\&);}
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} loop(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]);}
+\DoxyCodeLine{72 std::string value(Value v);}
+\DoxyCodeLine{73 std::string square(Square s);}
+\DoxyCodeLine{74 std::string move(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m, \textcolor{keywordtype}{bool} chess960);}
+\DoxyCodeLine{75 std::string pv(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, Depth depth, Value alpha, Value beta);}
+\DoxyCodeLine{76 std::string wdl(Value v, \textcolor{keywordtype}{int} ply);}
+\DoxyCodeLine{77 \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} to\_move(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, std::string\& str);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \} \textcolor{comment}{// namespace UCI}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{extern} UCI::OptionsMap Options;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef UCI\_H\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,65 @@
+\hypertarget{evaluate__nnue_8h_source}{}\doxysection{evaluate\+\_\+nnue.\+h}
+\label{evaluate__nnue_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/evaluate\_nnue.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/evaluate\_nnue.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// header used in NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_EVALUATE\_NNUE\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_EVALUATE\_NNUE\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}nnue\_feature\_transformer.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30   \textcolor{comment}{// Hash value of evaluation function structure}}
+\DoxyCodeLine{31   \textcolor{keyword}{constexpr} std::uint32\_t HashValue =}
+\DoxyCodeLine{32       FeatureTransformer::get\_hash\_value() \string^ Network::get\_hash\_value();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{comment}{// Deleter for automating release of memory area}}
+\DoxyCodeLine{35   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{36   \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_aligned_deleter}{AlignedDeleter}} \{}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} operator()(T* ptr)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{38       ptr-\/>\string~T();}
+\DoxyCodeLine{39       std\_aligned\_free(ptr);}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41   \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{44   \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_large_page_deleter}{LargePageDeleter}} \{}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} operator()(T* ptr)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{46       ptr-\/>\string~T();}
+\DoxyCodeLine{47       \mbox{\hyperlink{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}{aligned\_large\_pages\_free}}(ptr);}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49   \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{52   \textcolor{keyword}{using} AlignedPtr = std::unique\_ptr<T, AlignedDeleter<T>>;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{55   \textcolor{keyword}{using} LargePagePtr = std::unique\_ptr<T, LargePageDeleter<T>>;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_EVALUATE\_NNUE\_H\_INCLUDED}}
+
+\end{DoxyCode}

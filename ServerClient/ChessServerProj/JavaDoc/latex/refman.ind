@@ -1,0 +1,2478 @@
+\begin{theindex}
+
+  \item {add}
+    \subitem {Condition}, \hyperpage{61}
+  \item {addDetail}
+    \subitem {Evaluation}, \hyperpage{100}
+  \item {addedRes}
+    \subitem {DBResponse}, \hyperpage{81}
+  \item {addShouldSync}
+    \subitem {RequestBuilder}, \hyperpage{251}
+  \item {addSuggestion}
+    \subitem {Config$<$ V $>$}, \hyperpage{66}
+  \item {AiParameters}, \hyperpage{9}
+    \subitem {setTimeFormat}, \hyperpage{10}
+  \item {ALL\_DIRECTIONS}
+    \subitem {Direction}, \hyperpage{90}
+  \item {ALL\_PIECES}
+    \subitem {Piece}, \hyperpage{222}
+  \item {ALL\_USED\_DIRECTIONS}
+    \subitem {Direction}, \hyperpage{90}
+  \item {and}
+    \subitem {Condition}, \hyperpage{63}
+  \item {andWith}
+    \subitem {Direction}, \hyperpage{90}
+  \item {annotate}
+    \subitem {MoveAnnotation}, \hyperpage{202}
+  \item {annotation}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {Answer}
+    \subitem {Question}, \hyperpage{241}
+  \item {AnswerCallback}, \hyperpage{10}
+  \item {answerQuestion}
+    \subitem {Message}, \hyperpage{161}
+  \item {Any}
+    \subitem {RegEx}, \hyperpage{248}
+  \item {ANY\_LOGIN}
+    \subitem {AuthSettings}, \hyperpage{27}
+  \item {apply}
+    \subitem {Math}, \hyperpage{150}
+  \item {AppSocket}, \hyperpage{10}
+    \subitem {AppSocket}, \hyperpage{11}
+    \subitem {close}, \hyperpage{12}
+    \subitem {getLocalAddress}, \hyperpage{14}
+    \subitem {getMessagesHandler}, \hyperpage{13}
+    \subitem {getRemoteAddress}, \hyperpage{14}
+    \subitem {handledRun}, \hyperpage{13}
+    \subitem {interruptListener}, \hyperpage{12}
+    \subitem {isClosed}, \hyperpage{15}
+    \subitem {isConnected}, \hyperpage{14}
+    \subitem {msgSocket}, \hyperpage{16}
+    \subitem {requestMessage}, \hyperpage{12}, \hyperpage{15}
+    \subitem {respond}, \hyperpage{14}
+    \subitem {setMessagesHandler}, \hyperpage{13}
+    \subitem {stopReading}, \hyperpage{15}
+    \subitem {writeMessage}, \hyperpage{14}
+  \item {ArchivedGameInfo}, \hyperpage{16}
+    \subitem {ArchivedGameInfo}, \hyperpage{16}
+    \subitem {getWinner}, \hyperpage{17}
+    \subitem {toString}, \hyperpage{17}
+  \item {Arg}, \hyperpage{17}
+    \subitem {Arg}, \hyperpage{18}
+    \subitem {argType}, \hyperpage{21}
+    \subitem {config}, \hyperpage{21}
+    \subitem {createVal}, \hyperpage{20}
+    \subitem {equals}, \hyperpage{19}
+    \subitem {escape}, \hyperpage{20}
+    \subitem {isUserInput}, \hyperpage{19}
+    \subitem {repInStr}, \hyperpage{20}
+    \subitem {setUserInput}, \hyperpage{19}
+    \subitem {toString}, \hyperpage{20}
+  \item {args}
+    \subitem {RequestBuilder}, \hyperpage{255}
+  \item {ArgsUtil}, \hyperpage{21}
+    \subitem {create}, \hyperpage{21}
+    \subitem {equalsSign}, \hyperpage{22}
+    \subitem {OptionalArg}, \hyperpage{22}
+    \subitem {plainTextIgnoreCase}, \hyperpage{22}
+  \item {ArgType}, \hyperpage{23}
+    \subitem {ArgType}, \hyperpage{23}
+    \subitem {Date}, \hyperpage{24}
+    \subitem {DateRange}, \hyperpage{24}
+    \subitem {isUserInput}, \hyperpage{25}
+    \subitem {Number}, \hyperpage{24}
+    \subitem {Password}, \hyperpage{24}
+    \subitem {PictureUrl}, \hyperpage{25}
+    \subitem {ServerAddress}, \hyperpage{24}
+    \subitem {Text}, \hyperpage{24}
+    \subitem {Url}, \hyperpage{25}
+    \subitem {Username}, \hyperpage{24}
+  \item {argType}
+    \subitem {Arg}, \hyperpage{21}
+  \item {ArrUtils}, \hyperpage{25}
+    \subitem {concat}, \hyperpage{25}
+    \subitem {createList}, \hyperpage{26}
+    \subitem {exists}, \hyperpage{26}
+  \item {as}
+    \subitem {Col}, \hyperpage{53}
+  \item {asFloat}
+    \subitem {Math}, \hyperpage{149}
+  \item {asInt}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+    \subitem {Direction}, \hyperpage{90}
+    \subitem {Location}, \hyperpage{140}
+    \subitem {PieceType}, \hyperpage{230}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {askForGameSettings}
+    \subitem {Message}, \hyperpage{159}
+  \item {askForLogin}
+    \subitem {Message}, \hyperpage{155}
+  \item {askQuestion}
+    \subitem {Message}, \hyperpage{161}
+  \item {asLong}
+    \subitem {Location}, \hyperpage{140}
+  \item {assertNotGameOver}
+    \subitem {Evaluation}, \hyperpage{100}
+  \item {asUser}
+    \subitem {LoginInfo}, \hyperpage{144}
+    \subitem {LoginType}, \hyperpage{145}
+  \item {ATTACKING\_DIRECTIONS}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {ATTACKING\_PIECE\_TYPES}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {AuthSettings}, \hyperpage{27}
+    \subitem {ANY\_LOGIN}, \hyperpage{27}
+    \subitem {GUEST}, \hyperpage{27}
+    \subitem {NEVER\_AUTH}, \hyperpage{27}
+    \subitem {NO\_AUTH}, \hyperpage{28}
+    \subitem {USER}, \hyperpage{27}
+  \item {authSettings}
+    \subitem {PreMadeRequest}, \hyperpage{237}
+  \item {awful}
+    \subitem {StrUtils}, \hyperpage{286}
+
+  \indexspace
+
+  \item {B\_B}
+    \subitem {Piece}, \hyperpage{222}
+  \item {B\_K}
+    \subitem {Piece}, \hyperpage{222}
+  \item {B\_N}
+    \subitem {Piece}, \hyperpage{222}
+  \item {B\_P}
+    \subitem {Piece}, \hyperpage{221}
+  \item {B\_Q}
+    \subitem {Piece}, \hyperpage{222}
+  \item {B\_R}
+    \subitem {Piece}, \hyperpage{222}
+  \item {basicAnnotate}
+    \subitem {MoveAnnotation}, \hyperpage{203}
+  \item {BasicMove}, \hyperpage{28}
+    \subitem {BasicMove}, \hyperpage{28, 29}
+    \subitem {cp}, \hyperpage{32}
+    \subitem {createBatch}, \hyperpage{29}
+    \subitem {equals}, \hyperpage{31}
+    \subitem {flip}, \hyperpage{30}
+    \subitem {getBasicMoveAnnotation}, \hyperpage{32}
+    \subitem {getFlipped}, \hyperpage{30}
+    \subitem {getMovingFrom}, \hyperpage{30}
+    \subitem {getMovingTo}, \hyperpage{31}
+    \subitem {hashCode}, \hyperpage{31}
+    \subitem {setMovingFrom}, \hyperpage{30}
+    \subitem {setMovingTo}, \hyperpage{31}
+    \subitem {toString}, \hyperpage{32}
+  \item {between}
+    \subitem {Condition}, \hyperpage{62}
+  \item {BISHOP}
+    \subitem {PieceType}, \hyperpage{228}
+  \item {BitData}, \hyperpage{33}
+    \subitem {everything}, \hyperpage{33}
+    \subitem {notAFile}, \hyperpage{33}
+    \subitem {notHFile}, \hyperpage{33}
+  \item {BLACK}
+    \subitem {PlayerColor}, \hyperpage{233}
+  \item {blackIcon}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {blockTilRes}
+    \subitem {MessagesHandler}, \hyperpage{177}
+  \item {Board}, \hyperpage{34}
+    \subitem {Board}, \hyperpage{34, 35}
+    \subitem {example}, \hyperpage{39}
+    \subitem {fenSetup}, \hyperpage{36}
+    \subitem {getPiece}, \hyperpage{37}
+    \subitem {getRow}, \hyperpage{36}
+    \subitem {getSquare}, \hyperpage{35}
+    \subitem {isSquareEmpty}, \hyperpage{38}
+    \subitem {iterator}, \hyperpage{37}
+    \subitem {print}, \hyperpage{37}
+    \subitem {setPiece}, \hyperpage{35}
+    \subitem {setSquareEmpty}, \hyperpage{38}
+    \subitem {startingFen}, \hyperpage{39}
+    \subitem {startingPos}, \hyperpage{36}
+    \subitem {toString}, \hyperpage{38}
+  \item {book}
+    \subitem {Evaluation}, \hyperpage{100}
+  \item {build}
+    \subitem {RequestBuilder}, \hyperpage{255}
+  \item {bye}
+    \subitem {Message}, \hyperpage{160}
+
+  \indexspace
+
+  \item {callback}
+    \subitem {Callback$<$ T $>$}, \hyperpage{41}
+    \subitem {ThrowingCallback$<$ T $>$}, \hyperpage{302}
+    \subitem {VoidCallback}, \hyperpage{310}
+  \item {Callback$<$ T $>$}, \hyperpage{40}
+    \subitem {callback}, \hyperpage{41}
+  \item {CAN\_PROMOTE\_TO}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {canBeEmpty}
+    \subitem {RegEx}, \hyperpage{244}
+  \item {CANCEL}
+    \subitem {LoginType}, \hyperpage{146}
+  \item {canUseDefault}
+    \subitem {Config$<$ V $>$}, \hyperpage{68}
+  \item {canUseId}
+    \subitem {IDsGenerator}, \hyperpage{128}
+  \item {castledKingCol}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {castledRookCol}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {castling}
+    \subitem {Move}, \hyperpage{192}
+  \item {CASTLING\_FLAGS}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {castlingNotation}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {CastlingRights}, \hyperpage{41}
+    \subitem {CastlingRights}, \hyperpage{42}
+    \subitem {createFromStr}, \hyperpage{42}
+    \subitem {disableCastling}, \hyperpage{44}
+    \subitem {enable}, \hyperpage{45}
+    \subitem {enableCastling}, \hyperpage{43}
+    \subitem {getPlayersCastling}, \hyperpage{46}
+    \subitem {getRights}, \hyperpage{45}
+    \subitem {hasAny}, \hyperpage{45}
+    \subitem {isEnabled}, \hyperpage{44}
+    \subitem {main}, \hyperpage{43}
+    \subitem {NO\_CASTLING\_ABILITY}, \hyperpage{46}
+    \subitem {toString}, \hyperpage{44}
+    \subitem {whosCastling}, \hyperpage{43}
+  \item {CastlingRights.Side}, \hyperpage{260}
+    \subitem {asInt}, \hyperpage{262}
+    \subitem {castledKingCol}, \hyperpage{262}
+    \subitem {castledRookCol}, \hyperpage{262}
+    \subitem {castlingNotation}, \hyperpage{262}
+    \subitem {KING}, \hyperpage{261}
+    \subitem {kingFinalLoc}, \hyperpage{261}
+    \subitem {kingTravelDistance}, \hyperpage{262}
+    \subitem {mult}, \hyperpage{262}
+    \subitem {QUEEN}, \hyperpage{261}
+    \subitem {rookStartingCol}, \hyperpage{262}
+    \subitem {Side}, \hyperpage{260}
+    \subitem {SIDES}, \hyperpage{262}
+    \subitem {toString}, \hyperpage{261}
+  \item {castlingSide}
+    \subitem {Move.MoveFlag}, \hyperpage{206}
+  \item {changePassword}
+    \subitem {RequestBuilder}, \hyperpage{251}
+  \item {ChangeProfilePic}
+    \subitem {PreMadeRequest}, \hyperpage{237}
+  \item {changeProfilePic}
+    \subitem {RequestBuilder}, \hyperpage{251}
+  \item {CHECK}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {check}
+    \subitem {RegEx}, \hyperpage{246}
+  \item {checkClosingVal}
+    \subitem {MyJFrame.BooleanClosing}, \hyperpage{40}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{47}
+    \subitem {MyJFrame.StringClosing}, \hyperpage{274}
+  \item {Checkmate}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{264}
+  \item {checkmate}
+    \subitem {GameStatus}, \hyperpage{113}
+  \item {checkUsernameAvailability}
+    \subitem {Message}, \hyperpage{161}
+  \item {clean}
+    \subitem {DBResponse}, \hyperpage{80}
+    \subitem {StatusResponse}, \hyperpage{273}
+    \subitem {StrUtils}, \hyperpage{278}
+    \subitem {TableDBResponse}, \hyperpage{298}
+  \item {close}
+    \subitem {AppSocket}, \hyperpage{12}
+  \item {closing}
+    \subitem {MyJFrame.BooleanClosing}, \hyperpage{40}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{47}
+  \item {Col}, \hyperpage{48}
+    \subitem {as}, \hyperpage{53}
+    \subitem {Col}, \hyperpage{49, 50}
+    \subitem {colName}, \hyperpage{54}
+    \subitem {count}, \hyperpage{50}
+    \subitem {countIf}, \hyperpage{51}
+    \subitem {CreatedDateTime}, \hyperpage{58}
+    \subitem {date}, \hyperpage{52}
+    \subitem {GameID}, \hyperpage{57}
+    \subitem {label}, \hyperpage{51}
+    \subitem {math}, \hyperpage{55}, \hyperpage{57}
+    \subitem {nested}, \hyperpage{55}
+    \subitem {of}, \hyperpage{54}
+    \subitem {Password}, \hyperpage{58}
+    \subitem {Player1}, \hyperpage{58}
+    \subitem {Player2}, \hyperpage{58}
+    \subitem {PlayerToMove}, \hyperpage{58}
+    \subitem {ProfilePic}, \hyperpage{59}
+    \subitem {replace}, \hyperpage{55}
+    \subitem {SavedGame}, \hyperpage{58}
+    \subitem {setColName}, \hyperpage{54}
+    \subitem {setWrapped}, \hyperpage{53}
+    \subitem {sum}, \hyperpage{51}
+    \subitem {switchCase}, \hyperpage{52}
+    \subitem {time}, \hyperpage{52}
+    \subitem {toString}, \hyperpage{57}
+    \subitem {Username}, \hyperpage{58}
+    \subitem {Winner}, \hyperpage{58}
+    \subitem {wrap}, \hyperpage{52}
+  \item {col}
+    \subitem {Location}, \hyperpage{140}
+    \subitem {Math}, \hyperpage{152}
+  \item {colName}
+    \subitem {Col}, \hyperpage{54}
+  \item {cols}
+    \subitem {Table}, \hyperpage{295}
+  \item {columns}
+    \subitem {TableDBResponse}, \hyperpage{300}
+  \item {combination}
+    \subitem {Direction}, \hyperpage{90}
+  \item {compareMovementType}
+    \subitem {PieceType}, \hyperpage{225}
+  \item {compareTo}
+    \subitem {MinimaxMove}, \hyperpage{189}
+    \subitem {Move}, \hyperpage{201}
+  \item {concat}
+    \subitem {ArrUtils}, \hyperpage{25}
+  \item {Condition}, \hyperpage{59}
+    \subitem {add}, \hyperpage{61}
+    \subitem {and}, \hyperpage{63}
+    \subitem {between}, \hyperpage{62}
+    \subitem {Condition}, \hyperpage{60}
+    \subitem {equals}, \hyperpage{60}
+    \subitem {getStr}, \hyperpage{63}
+    \subitem {math}, \hyperpage{62}
+    \subitem {noNulls}, \hyperpage{60}
+    \subitem {notEquals}, \hyperpage{62}
+    \subitem {setStr}, \hyperpage{63}
+    \subitem {toString}, \hyperpage{64}
+    \subitem {wrap}, \hyperpage{62}
+  \item {condition}
+    \subitem {SwitchCase}, \hyperpage{290}
+  \item {Config}
+    \subitem {Config$<$ V $>$}, \hyperpage{65, 66}
+  \item {config}
+    \subitem {Arg}, \hyperpage{21}
+  \item {Config$<$ V $>$}, \hyperpage{64}
+    \subitem {addSuggestion}, \hyperpage{66}
+    \subitem {canUseDefault}, \hyperpage{68}
+    \subitem {Config}, \hyperpage{65, 66}
+    \subitem {description}, \hyperpage{68}
+    \subitem {getDefault}, \hyperpage{67}
+    \subitem {getDefaultDesc}, \hyperpage{68}
+    \subitem {getDescribedDefault}, \hyperpage{67}
+    \subitem {getValuesSuggestion}, \hyperpage{67}
+    \subitem {toString}, \hyperpage{67}
+  \item {confirm}
+    \subitem {ConfirmDialogs}, \hyperpage{69}
+  \item {ConfirmDialogs}, \hyperpage{68}
+    \subitem {confirm}, \hyperpage{69}
+    \subitem {main}, \hyperpage{69}
+  \item {CONNECTED\_USERS}
+    \subitem {SyncedListType}, \hyperpage{292}
+  \item {convertFromCentipawns}
+    \subitem {Evaluation}, \hyperpage{103}
+  \item {copyMove}
+    \subitem {Move}, \hyperpage{193}
+  \item {count}
+    \subitem {Col}, \hyperpage{50}
+  \item {countIf}
+    \subitem {Col}, \hyperpage{51}
+  \item {countMatches}
+    \subitem {StrUtils}, \hyperpage{276}
+  \item {cp}
+    \subitem {BasicMove}, \hyperpage{32}
+  \item {create}
+    \subitem {ArgsUtil}, \hyperpage{21}
+    \subitem {PreMadeRequest.VariationCreator}, \hyperpage{309}
+  \item {createBatch}
+    \subitem {BasicMove}, \hyperpage{29}
+  \item {createBuilder}
+    \subitem {PreMadeRequest}, \hyperpage{236}
+  \item {createdAt}
+    \subitem {EstablishedGameInfo}, \hyperpage{98}
+  \item {CreatedDateTime}
+    \subitem {Col}, \hyperpage{58}
+  \item {CreatedGame}, \hyperpage{71}
+    \subitem {CreatedGame}, \hyperpage{71}
+    \subitem {getGameDesc}, \hyperpage{72}
+  \item {createDisconnectedError}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {createFromStr}
+    \subitem {CastlingRights}, \hyperpage{42}
+  \item {createList}
+    \subitem {ArrUtils}, \hyperpage{26}
+  \item {createMatIndicesStr}
+    \subitem {Location}, \hyperpage{133}
+  \item {createResponse}
+    \subitem {RequestBuilder}, \hyperpage{253}
+  \item {createStatement}
+    \subitem {CustomStatement}, \hyperpage{73}
+    \subitem {Delete}, \hyperpage{82}
+    \subitem {Selection}, \hyperpage{258}
+    \subitem {SQLStatement}, \hyperpage{267}
+    \subitem {Update}, \hyperpage{307}
+  \item {createThread}
+    \subitem {ThreadsManager}, \hyperpage{300}
+  \item {createTimeGreeting}
+    \subitem {StrUtils}, \hyperpage{286}
+  \item {createTimeStr}
+    \subitem {StrUtils}, \hyperpage{286}
+  \item {createVal}
+    \subitem {Arg}, \hyperpage{20}
+  \item {createVariation}
+    \subitem {RequestBuilder}, \hyperpage{251}
+  \item {creatorUsername}
+    \subitem {GameInfo}, \hyperpage{111}
+  \item {criticalErr}
+    \subitem {EnvManager}, \hyperpage{94}
+  \item {currentThread}
+    \subitem {MyThread}, \hyperpage{216}
+  \item {CustomStatement}, \hyperpage{72}
+    \subitem {createStatement}, \hyperpage{73}
+    \subitem {CustomStatement}, \hyperpage{73}
+
+  \indexspace
+
+  \item {D}
+    \subitem {Direction}, \hyperpage{85}
+  \item {D\_D}
+    \subitem {Direction}, \hyperpage{86}
+  \item {D\_D\_L}
+    \subitem {Direction}, \hyperpage{88}
+  \item {D\_D\_R}
+    \subitem {Direction}, \hyperpage{88}
+  \item {D\_L}
+    \subitem {Direction}, \hyperpage{87}
+  \item {D\_L\_L}
+    \subitem {Direction}, \hyperpage{89}
+  \item {D\_R}
+    \subitem {Direction}, \hyperpage{87}
+  \item {D\_R\_R}
+    \subitem {Direction}, \hyperpage{89}
+  \item {Date}
+    \subitem {ArgType}, \hyperpage{24}
+  \item {date}
+    \subitem {Col}, \hyperpage{52}
+  \item {DateRange}
+    \subitem {ArgType}, \hyperpage{24}
+  \item {dateTimePrefix}
+    \subitem {StrUtils}, \hyperpage{287}
+  \item {DBRequest}, \hyperpage{73}
+    \subitem {DBRequest}, \hyperpage{74, 75}
+    \subitem {getBuilder}, \hyperpage{75}
+    \subitem {getRequest}, \hyperpage{76}
+    \subitem {getSubRequest}, \hyperpage{75}
+    \subitem {setSubRequest}, \hyperpage{76}
+    \subitem {toString}, \hyperpage{76}
+    \subitem {type}, \hyperpage{77}
+  \item {dbRequest}
+    \subitem {Message}, \hyperpage{163}
+  \item {DBResponse}, \hyperpage{77}
+    \subitem {addedRes}, \hyperpage{81}
+    \subitem {clean}, \hyperpage{80}
+    \subitem {DBResponse}, \hyperpage{78}
+    \subitem {getAddedRes}, \hyperpage{79}
+    \subitem {getRequest}, \hyperpage{78}
+    \subitem {getStatus}, \hyperpage{78}
+    \subitem {isAnyData}, \hyperpage{79}
+    \subitem {isSuccess}, \hyperpage{78}
+    \subitem {print}, \hyperpage{80}
+    \subitem {request}, \hyperpage{80}
+    \subitem {setAddedRes}, \hyperpage{79}
+    \subitem {status}, \hyperpage{80}
+    \subitem {toString}, \hyperpage{80}
+  \item {debugAdapter}
+    \subitem {MyJFrame}, \hyperpage{214}
+  \item {defaultCase}
+    \subitem {SwitchCase}, \hyperpage{290}
+  \item {Delete}, \hyperpage{81}
+    \subitem {createStatement}, \hyperpage{82}
+    \subitem {Delete}, \hyperpage{81}
+  \item {deleteAllUnFinishedGames}
+    \subitem {RequestBuilder}, \hyperpage{252}
+  \item {DeleteUnfGames}
+    \subitem {PreMadeRequest}, \hyperpage{236}
+  \item {description}
+    \subitem {Config$<$ V $>$}, \hyperpage{68}
+  \item {diff}
+    \subitem {PlayerColor}, \hyperpage{235}
+  \item {Direction}, \hyperpage{82}
+    \subitem {ALL\_DIRECTIONS}, \hyperpage{90}
+    \subitem {ALL\_USED\_DIRECTIONS}, \hyperpage{90}
+    \subitem {andWith}, \hyperpage{90}
+    \subitem {asInt}, \hyperpage{90}
+    \subitem {combination}, \hyperpage{90}
+    \subitem {D}, \hyperpage{85}
+    \subitem {D\_D}, \hyperpage{86}
+    \subitem {D\_D\_L}, \hyperpage{88}
+    \subitem {D\_D\_R}, \hyperpage{88}
+    \subitem {D\_L}, \hyperpage{87}
+    \subitem {D\_L\_L}, \hyperpage{89}
+    \subitem {D\_R}, \hyperpage{87}
+    \subitem {D\_R\_R}, \hyperpage{89}
+    \subitem {getCombination}, \hyperpage{84}
+    \subitem {getDirectionByOffset}, \hyperpage{83}
+    \subitem {getRelative}, \hyperpage{83}
+    \subitem {L}, \hyperpage{85}
+    \subitem {normalPerspective}, \hyperpage{90}
+    \subitem {NUM\_OF\_DIRECTIONS}, \hyperpage{89}
+    \subitem {NUM\_OF\_DIRECTIONS\_WO\_KNIGHT}, \hyperpage{89}
+    \subitem {NUM\_OF\_KNIGHT\_DIRECTIONS}, \hyperpage{89}
+    \subitem {offset}, \hyperpage{90}
+    \subitem {opposite}, \hyperpage{84}
+    \subitem {perspective}, \hyperpage{84}
+    \subitem {R}, \hyperpage{85}
+    \subitem {U}, \hyperpage{85}
+    \subitem {U\_L}, \hyperpage{86}
+    \subitem {U\_L\_L}, \hyperpage{88}
+    \subitem {U\_R}, \hyperpage{86}
+    \subitem {U\_R\_R}, \hyperpage{88}
+    \subitem {U\_U}, \hyperpage{86}
+    \subitem {U\_U\_L}, \hyperpage{87}
+    \subitem {U\_U\_R}, \hyperpage{87}
+  \item {disableCastling}
+    \subitem {CastlingRights}, \hyperpage{44}
+  \item {Div}
+    \subitem {Math}, \hyperpage{152}
+  \item {DONE}
+    \subitem {MyThread.ThreadStatus}, \hyperpage{302}
+  \item {dontCapFull}
+    \subitem {StrUtils}, \hyperpage{276}
+  \item {dontCapWord}
+    \subitem {StrUtils}, \hyperpage{280}
+  \item {dontMatch}
+    \subitem {RegEx}, \hyperpage{248}
+  \item {DontSaveGame}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {DoublePawnPush}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {doXClick}
+    \subitem {MyJFrame}, \hyperpage{215}
+  \item {drawOffer}
+    \subitem {Question}, \hyperpage{239}
+
+  \indexspace
+
+  \item {EfficientGen}
+    \subitem {EfficientGen$<$ K, V $>$}, \hyperpage{91}
+  \item {EfficientGen$<$ K, V $>$}, \hyperpage{91}
+    \subitem {EfficientGen}, \hyperpage{91}
+    \subitem {get}, \hyperpage{91}
+  \item {EG\_WEIGHT}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {EMPTY\_PIECE}
+    \subitem {Square}, \hyperpage{272}
+  \item {enable}
+    \subitem {CastlingRights}, \hyperpage{45}
+  \item {enableCastling}
+    \subitem {CastlingRights}, \hyperpage{43}
+  \item {endPress}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, \hyperpage{127}
+  \item {EnPassant}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {Environment}, \hyperpage{93}
+    \subitem {IS\_JAR}, \hyperpage{93}
+  \item {EnvManager}, \hyperpage{93}
+    \subitem {criticalErr}, \hyperpage{94}
+    \subitem {handledErr}, \hyperpage{93}
+  \item {equals}
+    \subitem {Arg}, \hyperpage{19}
+    \subitem {BasicMove}, \hyperpage{31}
+    \subitem {Condition}, \hyperpage{60}
+    \subitem {Evaluation}, \hyperpage{102}
+    \subitem {GameInfo}, \hyperpage{109}
+    \subitem {MinimaxMove}, \hyperpage{189}
+    \subitem {Move}, \hyperpage{199}
+    \subitem {Move.MoveFlag}, \hyperpage{204}
+    \subitem {Question}, \hyperpage{241}
+    \subitem {SwitchCase}, \hyperpage{288}
+  \item {equalsSign}
+    \subitem {ArgsUtil}, \hyperpage{22}
+  \item {error}
+    \subitem {Message}, \hyperpage{160}
+  \item {ErrorHandler$<$ E extends MyError $>$}, \hyperpage{94}
+    \subitem {handle}, \hyperpage{95}
+    \subitem {ignore}, \hyperpage{94}
+  \item {errToString}
+    \subitem {MyError}, \hyperpage{208}
+  \item {escape}
+    \subitem {Arg}, \hyperpage{20}
+  \item {escapeValues}
+    \subitem {Table}, \hyperpage{294}
+  \item {EstablishedGameInfo}, \hyperpage{95}
+    \subitem {createdAt}, \hyperpage{98}
+    \subitem {EstablishedGameInfo}, \hyperpage{96}
+    \subitem {getCreatedAt}, \hyperpage{96}
+    \subitem {getGameDesc}, \hyperpage{97}
+    \subitem {getMoveStack}, \hyperpage{97}
+    \subitem {opponentUsername}, \hyperpage{98}
+    \subitem {setCreatedAt}, \hyperpage{96}
+    \subitem {toString}, \hyperpage{97}
+  \item {Evaluation}, \hyperpage{98}
+    \subitem {addDetail}, \hyperpage{100}
+    \subitem {assertNotGameOver}, \hyperpage{100}
+    \subitem {book}, \hyperpage{100}
+    \subitem {convertFromCentipawns}, \hyperpage{103}
+    \subitem {equals}, \hyperpage{102}
+    \subitem {Evaluation}, \hyperpage{98, 99}
+    \subitem {EvaluationDetail}, \hyperpage{104}
+    \subitem {flipEval}, \hyperpage{104}
+    \subitem {getEval}, \hyperpage{102}
+    \subitem {getEvaluationDepth}, \hyperpage{100}
+    \subitem {getEvaluationFor}, \hyperpage{103}
+    \subitem {getGameStatus}, \hyperpage{102}
+    \subitem {isCheck}, \hyperpage{101}
+    \subitem {isGameOver}, \hyperpage{101}
+    \subitem {isGreaterThan}, \hyperpage{101}
+    \subitem {LOSS\_EVAL}, \hyperpage{105}
+    \subitem {print}, \hyperpage{104}
+    \subitem {setEval}, \hyperpage{102}
+    \subitem {setEvaluationDepth}, \hyperpage{100}
+    \subitem {setPerspective}, \hyperpage{103}
+    \subitem {TIE\_EVAL}, \hyperpage{104}
+    \subitem {toString}, \hyperpage{103}
+    \subitem {WIN\_EVAL}, \hyperpage{104}
+  \item {EvaluationDetail}
+    \subitem {Evaluation}, \hyperpage{104}
+  \item {EvaluationParameters}, \hyperpage{105}
+    \subitem {EG\_WEIGHT}, \hyperpage{106}
+    \subitem {FORCE\_KING\_TO\_CORNER}, \hyperpage{106}
+    \subitem {HANGING\_PIECES}, \hyperpage{106}
+    \subitem {KING\_SAFETY}, \hyperpage{106}
+    \subitem {MATERIAL}, \hyperpage{105}
+    \subitem {MOVEMENT\_ABILITY}, \hyperpage{106}
+    \subitem {PIECE\_TABLES}, \hyperpage{105}
+    \subitem {SQUARE\_CONTROL}, \hyperpage{106}
+    \subitem {STOCKFISH\_SAYS}, \hyperpage{106}
+    \subitem {weight}, \hyperpage{106}
+  \item {everything}
+    \subitem {BitData}, \hyperpage{33}
+  \item {example}
+    \subitem {Board}, \hyperpage{39}
+    \subitem {GameInfo}, \hyperpage{108}
+  \item {execute}
+    \subitem {Math}, \hyperpage{149}
+  \item {exists}
+    \subitem {ArrUtils}, \hyperpage{26}
+
+  \indexspace
+
+  \item {Fen}
+    \subitem {RegEx}, \hyperpage{246}
+  \item {fenSetup}
+    \subitem {Board}, \hyperpage{36}
+  \item {FiftyMoveRule}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {fiftyMoveRule}
+    \subitem {GameStatus}, \hyperpage{114}
+  \item {fitInside}
+    \subitem {StrUtils}, \hyperpage{283}
+  \item {fixHtml}
+    \subitem {StrUtils}, \hyperpage{284}
+  \item {flip}
+    \subitem {BasicMove}, \hyperpage{30}
+    \subitem {Location}, \hyperpage{137, 138}
+  \item {flipEval}
+    \subitem {Evaluation}, \hyperpage{104}
+  \item {flipMove}
+    \subitem {Move}, \hyperpage{193}
+  \item {FontManager}, \hyperpage{107}
+  \item {FORCE\_KING\_TO\_CORNER}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {format}
+    \subitem {StrUtils}, \hyperpage{277}
+  \item {formatDate}
+    \subitem {StrUtils}, \hyperpage{279}
+  \item {formatDateSQL}
+    \subitem {StrUtils}, \hyperpage{281}
+  \item {formatNum}
+    \subitem {Math}, \hyperpage{147, 148}
+
+  \indexspace
+
+  \item {GAME\_GOES\_ON}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {GameGoesOn}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {gameGoesOn}
+    \subitem {GameStatus}, \hyperpage{114}
+  \item {GameID}
+    \subitem {Col}, \hyperpage{57}
+  \item {gameId}
+    \subitem {GameInfo}, \hyperpage{111}
+  \item {GameInfo}, \hyperpage{107}
+    \subitem {creatorUsername}, \hyperpage{111}
+    \subitem {equals}, \hyperpage{109}
+    \subitem {example}, \hyperpage{108}
+    \subitem {gameId}, \hyperpage{111}
+    \subitem {GameInfo}, \hyperpage{108}
+    \subitem {gameSettings}, \hyperpage{111}
+    \subitem {getGameDesc}, \hyperpage{110}
+    \subitem {getJoiningPlayerColor}, \hyperpage{110}
+    \subitem {getStartingColor}, \hyperpage{110}
+    \subitem {ID}, \hyperpage{109}
+    \subitem {isCreator}, \hyperpage{108}
+    \subitem {toString}, \hyperpage{109}
+  \item {gameOver}
+    \subitem {Message}, \hyperpage{158}
+  \item {gameOverStr}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {Games}
+    \subitem {PreMadeRequest}, \hyperpage{236}
+    \subitem {Table}, \hyperpage{294}
+  \item {games}
+    \subitem {RequestBuilder}, \hyperpage{252}
+  \item {GameSettings}, \hyperpage{111}
+    \subitem {setTimeFormat}, \hyperpage{112}
+  \item {gameSettings}
+    \subitem {GameInfo}, \hyperpage{111}
+  \item {GameStatus}, \hyperpage{112}
+    \subitem {checkmate}, \hyperpage{113}
+    \subitem {fiftyMoveRule}, \hyperpage{114}
+    \subitem {gameGoesOn}, \hyperpage{114}
+    \subitem {getCheckedKingLoc}, \hyperpage{117}
+    \subitem {getDetailedStr}, \hyperpage{118, 119}
+    \subitem {getGameStatusType}, \hyperpage{118}
+    \subitem {getSpecificStatus}, \hyperpage{120}
+    \subitem {getWinningColor}, \hyperpage{117}
+    \subitem {insufficientMaterial}, \hyperpage{116}
+    \subitem {isCheck}, \hyperpage{118}
+    \subitem {isDisconnected}, \hyperpage{117}
+    \subitem {isGameOver}, \hyperpage{119}
+    \subitem {playerDisconnected}, \hyperpage{116}
+    \subitem {playerResigned}, \hyperpage{117}
+    \subitem {serverStoppedGame}, \hyperpage{115}
+    \subitem {setCustomStr}, \hyperpage{115}
+    \subitem {setDepth}, \hyperpage{119}
+    \subitem {setInCheck}, \hyperpage{118}
+    \subitem {stalemate}, \hyperpage{114}
+    \subitem {threeFoldRepetition}, \hyperpage{115}
+    \subitem {tieByAgreement}, \hyperpage{114}
+    \subitem {timedOut}, \hyperpage{116}
+    \subitem {toString}, \hyperpage{119}
+  \item {GameStatus.GameStatusType}, \hyperpage{120}
+    \subitem {annotation}, \hyperpage{122}
+    \subitem {CHECK}, \hyperpage{122}
+    \subitem {GAME\_GOES\_ON}, \hyperpage{122}
+    \subitem {gameOverStr}, \hyperpage{122}
+    \subitem {GameStatusType}, \hyperpage{121}
+    \subitem {isGameOver}, \hyperpage{121}
+    \subitem {TIE}, \hyperpage{122}
+    \subitem {UNFINISHED}, \hyperpage{122}
+    \subitem {WIN\_OR\_LOSS}, \hyperpage{122}
+  \item {GameStatus.SpecificStatus}, \hyperpage{263}
+    \subitem {Checkmate}, \hyperpage{264}
+    \subitem {FiftyMoveRule}, \hyperpage{265}
+    \subitem {GameGoesOn}, \hyperpage{265}
+    \subitem {gameStatusType}, \hyperpage{266}
+    \subitem {InsufficientMaterial}, \hyperpage{265}
+    \subitem {PlayerDisconnectedVsAi}, \hyperpage{265}
+    \subitem {PlayerDisconnectedVsReal}, \hyperpage{266}
+    \subitem {Resignation}, \hyperpage{264}
+    \subitem {ServerStoppedGame}, \hyperpage{266}
+    \subitem {SpecificStatus}, \hyperpage{263}
+    \subitem {Stalemate}, \hyperpage{265}
+    \subitem {ThreeFoldRepetition}, \hyperpage{265}
+    \subitem {TieByAgreement}, \hyperpage{265}
+    \subitem {TimedOut}, \hyperpage{264}
+    \subitem {TimedOutVsInsufficientMaterial}, \hyperpage{264}
+    \subitem {toString}, \hyperpage{264}
+  \item {GameStatusType}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{121}
+  \item {gameStatusType}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{266}
+  \item {GameTime}, \hyperpage{123}
+  \item {GameView}, \hyperpage{123}
+  \item {generate}
+    \subitem {IDsGenerator}, \hyperpage{128}
+  \item {get}
+    \subitem {EfficientGen$<$ K, V $>$}, \hyperpage{91}
+    \subitem {RegEx}, \hyperpage{245}
+  \item {getAddedRes}
+    \subitem {DBResponse}, \hyperpage{79}
+  \item {getAnnotation}
+    \subitem {Move}, \hyperpage{199}
+  \item {getArgs}
+    \subitem {RequestBuilder}, \hyperpage{254}
+  \item {getArgVal}
+    \subitem {RequestBuilder}, \hyperpage{253}
+  \item {getAttackingDirections}
+    \subitem {PieceType}, \hyperpage{224}, \hyperpage{227}
+  \item {getAvailable}
+    \subitem {Message}, \hyperpage{169}
+  \item {getBasicMoveAnnotation}
+    \subitem {BasicMove}, \hyperpage{32}
+  \item {getBoard}
+    \subitem {Message}, \hyperpage{174}
+  \item {getBuilder}
+    \subitem {DBRequest}, \hyperpage{75}
+  \item {getCapturingPieceType}
+    \subitem {Move}, \hyperpage{198}
+  \item {getCell}
+    \subitem {TableDBResponse}, \hyperpage{297, 298}
+  \item {getCheckedKingLoc}
+    \subitem {GameStatus}, \hyperpage{117}
+  \item {getColor}
+    \subitem {PlayerColor}, \hyperpage{232}
+  \item {getColString}
+    \subitem {Location}, \hyperpage{138}
+  \item {getColumnIndex}
+    \subitem {TableDBResponse}, \hyperpage{297}
+  \item {getColumns}
+    \subitem {TableDBResponse}, \hyperpage{299}
+  \item {getCombination}
+    \subitem {Direction}, \hyperpage{84}
+  \item {getCreatedAt}
+    \subitem {EstablishedGameInfo}, \hyperpage{96}
+  \item {getDBRequest}
+    \subitem {Message}, \hyperpage{164}
+  \item {getDBResponse}
+    \subitem {Message}, \hyperpage{165}
+  \item {getDefault}
+    \subitem {Config$<$ V $>$}, \hyperpage{67}
+  \item {getDefaultAnswer}
+    \subitem {Question}, \hyperpage{240}
+  \item {getDefaultDesc}
+    \subitem {Config$<$ V $>$}, \hyperpage{68}
+  \item {getDescribedDefault}
+    \subitem {Config$<$ V $>$}, \hyperpage{67}
+  \item {getDetailedStr}
+    \subitem {GameStatus}, \hyperpage{118, 119}
+  \item {getDetails}
+    \subitem {RegEx}, \hyperpage{245}
+    \subitem {StatusResponse}, \hyperpage{273}
+  \item {getDirectionByOffset}
+    \subitem {Direction}, \hyperpage{83}
+  \item {getDisabledCastling}
+    \subitem {Move}, \hyperpage{194}
+  \item {getEnPassantLoc}
+    \subitem {Move}, \hyperpage{201}
+  \item {getError}
+    \subitem {Message}, \hyperpage{164}
+  \item {getEval}
+    \subitem {Evaluation}, \hyperpage{102}
+  \item {getEvaluationDepth}
+    \subitem {Evaluation}, \hyperpage{100}
+  \item {getEvaluationFor}
+    \subitem {Evaluation}, \hyperpage{103}
+  \item {getFen}
+    \subitem {Piece}, \hyperpage{220}
+    \subitem {Square}, \hyperpage{271}
+  \item {getFirstRow}
+    \subitem {TableDBResponse}, \hyperpage{297}
+  \item {getFlipped}
+    \subitem {BasicMove}, \hyperpage{30}
+  \item {getGameDesc}
+    \subitem {CreatedGame}, \hyperpage{72}
+    \subitem {EstablishedGameInfo}, \hyperpage{97}
+    \subitem {GameInfo}, \hyperpage{110}
+  \item {getGameSettings}
+    \subitem {Message}, \hyperpage{170}
+  \item {getGameStatus}
+    \subitem {Evaluation}, \hyperpage{102}
+    \subitem {Message}, \hyperpage{173}
+  \item {getGameStatusType}
+    \subitem {GameStatus}, \hyperpage{118}
+  \item {getGameTime}
+    \subitem {Message}, \hyperpage{172}
+  \item {getHandledStr}
+    \subitem {MyError}, \hyperpage{208}
+  \item {getIntermediateMove}
+    \subitem {Move}, \hyperpage{196}
+  \item {getJoiningPlayerColor}
+    \subitem {GameInfo}, \hyperpage{110}
+  \item {getLoc}
+    \subitem {Location}, \hyperpage{134--136}
+    \subitem {Square}, \hyperpage{270}
+  \item {getLocalAddress}
+    \subitem {AppSocket}, \hyperpage{14}
+  \item {getLoginInfo}
+    \subitem {Message}, \hyperpage{174}
+  \item {getLoginType}
+    \subitem {LoginInfo}, \hyperpage{142}
+  \item {getMaxDistance}
+    \subitem {Location}, \hyperpage{139}
+  \item {getMessagesHandler}
+    \subitem {AppSocket}, \hyperpage{13}
+  \item {getMessageType}
+    \subitem {Message}, \hyperpage{175}
+  \item {getMinSize}
+    \subitem {MyJButton}, \hyperpage{212}
+  \item {getMove}
+    \subitem {Message}, \hyperpage{172}
+    \subitem {MinimaxMove}, \hyperpage{187}
+  \item {getMoveDepth}
+    \subitem {MinimaxMove}, \hyperpage{187}
+  \item {getMoveEvaluation}
+    \subitem {MinimaxMove}, \hyperpage{188}
+    \subitem {Move}, \hyperpage{197}
+  \item {getMoveFlag}
+    \subitem {Move}, \hyperpage{200}
+  \item {getMoveStack}
+    \subitem {EstablishedGameInfo}, \hyperpage{97}
+    \subitem {Message}, \hyperpage{166}
+  \item {getMovingColor}
+    \subitem {Move}, \hyperpage{194}
+  \item {getMovingFrom}
+    \subitem {BasicMove}, \hyperpage{30}
+  \item {getMovingTo}
+    \subitem {BasicMove}, \hyperpage{31}
+  \item {getMyAdapter}
+    \subitem {MyJFrame}, \hyperpage{214}
+  \item {getName}
+    \subitem {PlayerColor}, \hyperpage{233}
+    \subitem {RequestBuilder}, \hyperpage{254}
+  \item {getOpponent}
+    \subitem {PlayerColor}, \hyperpage{232}
+  \item {getOtherPlayer}
+    \subitem {Message}, \hyperpage{168}
+  \item {getPassword}
+    \subitem {LoginInfo}, \hyperpage{143}
+  \item {getPiece}
+    \subitem {Board}, \hyperpage{37}
+    \subitem {Piece}, \hyperpage{219}
+    \subitem {Square}, \hyperpage{270}
+  \item {getPieceFromFen}
+    \subitem {Piece}, \hyperpage{218}
+  \item {getPieceIcon}
+    \subitem {Piece}, \hyperpage{219}
+    \subitem {PieceType}, \hyperpage{225}
+    \subitem {Square}, \hyperpage{271}
+  \item {getPieceName}
+    \subitem {PieceType}, \hyperpage{227}
+  \item {getPieceType}
+    \subitem {PieceType}, \hyperpage{224}
+  \item {getPlayerColor}
+    \subitem {Message}, \hyperpage{171}
+  \item {getPlayerFromFen}
+    \subitem {PlayerColor}, \hyperpage{232}
+  \item {getPlayersCastling}
+    \subitem {CastlingRights}, \hyperpage{46}
+  \item {getPort}
+    \subitem {StrUtils}, \hyperpage{281}
+  \item {getPossibleAnswers}
+    \subitem {Question}, \hyperpage{241}
+  \item {getPossibleMoves}
+    \subitem {Message}, \hyperpage{173}
+  \item {getPostDescription}
+    \subitem {RequestBuilder}, \hyperpage{254}
+  \item {getPreDescription}
+    \subitem {RequestBuilder}, \hyperpage{254}
+  \item {getPreMoves}
+    \subitem {Message}, \hyperpage{170}
+  \item {getPrevFullMoveClock}
+    \subitem {Move}, \hyperpage{195}
+  \item {getPrevHalfMoveClock}
+    \subitem {Move}, \hyperpage{195}
+  \item {getProfilePic}
+    \subitem {LoginInfo}, \hyperpage{142}
+  \item {getPromotingTo}
+    \subitem {Move}, \hyperpage{196}
+  \item {getQuestion}
+    \subitem {Message}, \hyperpage{168}
+  \item {getQuestionStr}
+    \subitem {Question}, \hyperpage{240}
+  \item {getRegex}
+    \subitem {RegEx}, \hyperpage{246}
+  \item {getRelative}
+    \subitem {Direction}, \hyperpage{83}
+  \item {getRemoteAddress}
+    \subitem {AppSocket}, \hyperpage{14}
+  \item {getRequest}
+    \subitem {DBRequest}, \hyperpage{76}
+    \subitem {DBResponse}, \hyperpage{78}
+  \item {getRequestVariations}
+    \subitem {PreMadeRequest}, \hyperpage{236}
+  \item {getRespondingToMsgId}
+    \subitem {Message}, \hyperpage{167}
+  \item {getRights}
+    \subitem {CastlingRights}, \hyperpage{45}
+  \item {getRow}
+    \subitem {Board}, \hyperpage{36}
+  \item {getRows}
+    \subitem {TableDBResponse}, \hyperpage{299}
+  \item {getRowString}
+    \subitem {Location}, \hyperpage{139}
+  \item {getShortPrintingStr}
+    \subitem {MinimaxMove}, \hyperpage{189}
+  \item {getShouldSync}
+    \subitem {RequestBuilder}, \hyperpage{253}
+  \item {getSpecificStatus}
+    \subitem {GameStatus}, \hyperpage{120}
+  \item {getSquare}
+    \subitem {Board}, \hyperpage{35}
+  \item {getStartingColor}
+    \subitem {GameInfo}, \hyperpage{110}
+  \item {getStatement}
+    \subitem {SQLStatement}, \hyperpage{268}
+  \item {getStatus}
+    \subitem {DBResponse}, \hyperpage{78}
+  \item {getStr}
+    \subitem {Condition}, \hyperpage{63}
+  \item {getSubject}
+    \subitem {Message}, \hyperpage{171}
+  \item {getSubRequest}
+    \subitem {DBRequest}, \hyperpage{75}
+  \item {getSyncedLists}
+    \subitem {Message}, \hyperpage{166}
+  \item {getUrl}
+    \subitem {StrUtils}, \hyperpage{283}
+  \item {getUsername}
+    \subitem {LoginInfo}, \hyperpage{143}
+    \subitem {Message}, \hyperpage{169}
+  \item {getUsernameSuggestions}
+    \subitem {Message}, \hyperpage{165}
+  \item {getValuesSuggestion}
+    \subitem {Config$<$ V $>$}, \hyperpage{67}
+  \item {getWalkingDirections}
+    \subitem {PieceType}, \hyperpage{227}
+  \item {getWhitePieceFen}
+    \subitem {PieceType}, \hyperpage{224}
+  \item {getWinner}
+    \subitem {ArchivedGameInfo}, \hyperpage{17}
+  \item {getWinningColor}
+    \subitem {GameStatus}, \hyperpage{117}
+  \item {Graphable}, \hyperpage{124}
+  \item {GraphableDBResponse}, \hyperpage{124}
+    \subitem {toString}, \hyperpage{124}
+  \item {GraphElement}, \hyperpage{125}
+  \item {GraphElementType}, \hyperpage{125}
+  \item {GUEST}
+    \subitem {AuthSettings}, \hyperpage{27}
+    \subitem {LoginType}, \hyperpage{146}
+
+  \indexspace
+
+  \item {handle}
+    \subitem {ErrorHandler$<$ E extends MyError $>$}, \hyperpage{95}
+  \item {handledErr}
+    \subitem {EnvManager}, \hyperpage{93}
+  \item {handledRun}
+    \subitem {AppSocket}, \hyperpage{13}
+    \subitem {HandledThread}, \hyperpage{127}
+    \subitem {MyThread}, \hyperpage{217}
+  \item {HandledThread}, \hyperpage{125}
+    \subitem {handledRun}, \hyperpage{127}
+    \subitem {HandledThread}, \hyperpage{126}
+    \subitem {runInHandledThread}, \hyperpage{126}
+    \subitem {setRunnable}, \hyperpage{126}
+  \item {handleErrors}
+    \subitem {ThreadsManager}, \hyperpage{300}
+  \item {HANGING\_PIECES}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {hasAny}
+    \subitem {CastlingRights}, \hyperpage{45}
+  \item {hash}
+    \subitem {Location}, \hyperpage{139}
+  \item {hashCode}
+    \subitem {BasicMove}, \hyperpage{31}
+    \subitem {MinimaxMove}, \hyperpage{189}
+  \item {header}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{48}
+  \item {htmlNewLines}
+    \subitem {StrUtils}, \hyperpage{276}
+
+  \indexspace
+
+  \item {Icon}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {icon}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{48}
+  \item {ID}
+    \subitem {GameInfo}, \hyperpage{109}
+    \subitem {SyncableItem}, \hyperpage{291}
+    \subitem {UserInfo}, \hyperpage{307}
+  \item {IDsGenerator}, \hyperpage{128}
+    \subitem {canUseId}, \hyperpage{128}
+    \subitem {generate}, \hyperpage{128}
+  \item {ifTrue}
+    \subitem {SwitchCase}, \hyperpage{290}
+  \item {ignore}
+    \subitem {ErrorHandler$<$ E extends MyError $>$}, \hyperpage{94}
+  \item {ignoreErrs}
+    \subitem {MyThread}, \hyperpage{217}
+  \item {indexOf2}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {initDebugLoginValues}
+    \subitem {LoginInfo}, \hyperpage{144}
+  \item {initGame}
+    \subitem {Message}, \hyperpage{156}
+  \item {InsufficientMaterial}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {insufficientMaterial}
+    \subitem {GameStatus}, \hyperpage{116}
+  \item {interrupt}
+    \subitem {Message}, \hyperpage{159}
+  \item {interruptBlocking}
+    \subitem {MessagesHandler}, \hyperpage{177}
+  \item {interruptListener}
+    \subitem {AppSocket}, \hyperpage{12}
+  \item {IPPortAddress}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {IS\_JAR}
+    \subitem {Environment}, \hyperpage{93}
+  \item {isAbsoluteUrl}
+    \subitem {StrUtils}, \hyperpage{275}
+  \item {isAnyData}
+    \subitem {DBResponse}, \hyperpage{79}
+    \subitem {StatusResponse}, \hyperpage{273}
+    \subitem {TableDBResponse}, \hyperpage{298}
+  \item {isAttack}
+    \subitem {PieceType}, \hyperpage{227}
+  \item {isBlackSquare}
+    \subitem {Location}, \hyperpage{138}
+  \item {isCapturing}
+    \subitem {Move}, \hyperpage{198}
+  \item {isCastling}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {isCheck}
+    \subitem {Evaluation}, \hyperpage{101}
+    \subitem {GameStatus}, \hyperpage{118}
+    \subitem {Move}, \hyperpage{197}
+  \item {isClosed}
+    \subitem {AppSocket}, \hyperpage{15}
+  \item {isConnected}
+    \subitem {AppSocket}, \hyperpage{14}
+  \item {isCreator}
+    \subitem {GameInfo}, \hyperpage{108}
+  \item {isCreatorToMove}
+    \subitem {UnfinishedGame}, \hyperpage{305}
+  \item {isDeeperAndBetterThan}
+    \subitem {MinimaxMove}, \hyperpage{187}
+  \item {isDiagonalPiece}
+    \subitem {PieceType}, \hyperpage{226}
+  \item {isDisconnected}
+    \subitem {GameStatus}, \hyperpage{117}
+  \item {isEmpty}
+    \subitem {Square}, \hyperpage{271}
+    \subitem {StrUtils}, \hyperpage{278}
+  \item {isEnabled}
+    \subitem {CastlingRights}, \hyperpage{44}
+  \item {isGameOver}
+    \subitem {Evaluation}, \hyperpage{101}
+    \subitem {GameStatus}, \hyperpage{119}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{121}
+  \item {isGreaterThan}
+    \subitem {Evaluation}, \hyperpage{101}
+  \item {isGuest}
+    \subitem {LoginInfo}, \hyperpage{142}
+  \item {isInBounds}
+    \subitem {Location}, \hyperpage{137}
+  \item {isLinePiece}
+    \subitem {PieceType}, \hyperpage{226}
+  \item {isOnMyTeam}
+    \subitem {Piece}, \hyperpage{220}
+  \item {isResponse}
+    \subitem {Message}, \hyperpage{168}
+  \item {isReversible}
+    \subitem {Move}, \hyperpage{198}
+  \item {isSavedDate}
+    \subitem {RegEx}, \hyperpage{244}
+  \item {isSliding}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {isSquareEmpty}
+    \subitem {Board}, \hyperpage{38}
+  \item {isSubject}
+    \subitem {Message}, \hyperpage{175}
+  \item {isSuccess}
+    \subitem {DBResponse}, \hyperpage{78}
+  \item {isUserInput}
+    \subitem {Arg}, \hyperpage{19}
+    \subitem {ArgType}, \hyperpage{25}
+  \item {isWhiteSquare}
+    \subitem {Location}, \hyperpage{138}
+  \item {iteration}
+    \subitem {StrUtils.IterationThingy$<$ T $>$}, \hyperpage{129}
+  \item {iterator}
+    \subitem {Board}, \hyperpage{37}
+
+  \indexspace
+
+  \item {join}
+    \subitem {Selection}, \hyperpage{259}
+  \item {JOINABLE\_GAMES}
+    \subitem {SyncedListType}, \hyperpage{292}
+
+  \indexspace
+
+  \item {key}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, \hyperpage{128}
+  \item {KING}
+    \subitem {CastlingRights.Side}, \hyperpage{261}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {KING\_SAFETY}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {kingFinalLoc}
+    \subitem {CastlingRights.Side}, \hyperpage{261}
+  \item {kingTravelDistance}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {KNIGHT}
+    \subitem {PieceType}, \hyperpage{228}
+
+  \indexspace
+
+  \item {L}
+    \subitem {Direction}, \hyperpage{85}
+  \item {label}
+    \subitem {Col}, \hyperpage{51}
+  \item {LazyHashSupplier$<$ T $>$}, \hyperpage{130}
+  \item {LinkLabel}, \hyperpage{130}
+    \subitem {setText}, \hyperpage{130}
+  \item {Location}, \hyperpage{131}
+    \subitem {asInt}, \hyperpage{140}
+    \subitem {asLong}, \hyperpage{140}
+    \subitem {col}, \hyperpage{140}
+    \subitem {createMatIndicesStr}, \hyperpage{133}
+    \subitem {flip}, \hyperpage{137, 138}
+    \subitem {getColString}, \hyperpage{138}
+    \subitem {getLoc}, \hyperpage{134--136}
+    \subitem {getMaxDistance}, \hyperpage{139}
+    \subitem {getRowString}, \hyperpage{139}
+    \subitem {hash}, \hyperpage{139}
+    \subitem {isBlackSquare}, \hyperpage{138}
+    \subitem {isInBounds}, \hyperpage{137}
+    \subitem {isWhiteSquare}, \hyperpage{138}
+    \subitem {Location}, \hyperpage{132}
+    \subitem {locsMat}, \hyperpage{133}
+    \subitem {locsMatStr}, \hyperpage{133}
+    \subitem {matrixStr}, \hyperpage{133}
+    \subitem {row}, \hyperpage{140}
+    \subitem {toString}, \hyperpage{138}
+    \subitem {valueOf}, \hyperpage{135}
+  \item {locsMat}
+    \subitem {Location}, \hyperpage{133}
+  \item {locsMatStr}
+    \subitem {Location}, \hyperpage{133}
+  \item {log}
+    \subitem {MathUtils}, \hyperpage{153}
+  \item {LOGIN}
+    \subitem {LoginType}, \hyperpage{145}
+  \item {LoginInfo}, \hyperpage{140}
+    \subitem {asUser}, \hyperpage{144}
+    \subitem {getLoginType}, \hyperpage{142}
+    \subitem {getPassword}, \hyperpage{143}
+    \subitem {getProfilePic}, \hyperpage{142}
+    \subitem {getUsername}, \hyperpage{143}
+    \subitem {initDebugLoginValues}, \hyperpage{144}
+    \subitem {isGuest}, \hyperpage{142}
+    \subitem {LoginInfo}, \hyperpage{141}
+    \subitem {setLoginType}, \hyperpage{142}
+    \subitem {setPassword}, \hyperpage{143}
+    \subitem {setProfilePic}, \hyperpage{142}
+    \subitem {setUsername}, \hyperpage{143}
+    \subitem {toString}, \hyperpage{144}
+  \item {LoginType}, \hyperpage{145}
+    \subitem {asUser}, \hyperpage{145}
+    \subitem {CANCEL}, \hyperpage{146}
+    \subitem {GUEST}, \hyperpage{146}
+    \subitem {LOGIN}, \hyperpage{145}
+    \subitem {NOT\_SET\_YET}, \hyperpage{146}
+    \subitem {REGISTER}, \hyperpage{146}
+    \subitem {toString}, \hyperpage{145}
+  \item {LongCastle}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {LOSS\_EVAL}
+    \subitem {Evaluation}, \hyperpage{105}
+
+  \indexspace
+
+  \item {main}
+    \subitem {CastlingRights}, \hyperpage{43}
+    \subitem {ConfirmDialogs}, \hyperpage{69}
+    \subitem {StrUtils}, \hyperpage{286}
+  \item {MAJOR\_PIECES}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {MATERIAL}
+    \subitem {EvaluationParameters}, \hyperpage{105}
+  \item {Math}, \hyperpage{146}
+    \subitem {apply}, \hyperpage{150}
+    \subitem {asFloat}, \hyperpage{149}
+    \subitem {col}, \hyperpage{152}
+    \subitem {Div}, \hyperpage{152}
+    \subitem {execute}, \hyperpage{149}
+    \subitem {formatNum}, \hyperpage{147, 148}
+    \subitem {Mult}, \hyperpage{152}
+    \subitem {nullIf0}, \hyperpage{147}
+    \subitem {Plus}, \hyperpage{152}
+    \subitem {simpleOperation}, \hyperpage{150}
+    \subitem {str}, \hyperpage{148}
+    \subitem {strSource}, \hyperpage{150}
+    \subitem {strVal}, \hyperpage{147}
+    \subitem {zeroIfNull}, \hyperpage{149}
+  \item {math}
+    \subitem {Col}, \hyperpage{55}, \hyperpage{57}
+    \subitem {Condition}, \hyperpage{62}
+  \item {MathUtils}, \hyperpage{153}
+    \subitem {log}, \hyperpage{153}
+  \item {matrixStr}
+    \subitem {Location}, \hyperpage{133}
+  \item {Message}, \hyperpage{154}
+    \subitem {answerQuestion}, \hyperpage{161}
+    \subitem {askForGameSettings}, \hyperpage{159}
+    \subitem {askForLogin}, \hyperpage{155}
+    \subitem {askQuestion}, \hyperpage{161}
+    \subitem {bye}, \hyperpage{160}
+    \subitem {checkUsernameAvailability}, \hyperpage{161}
+    \subitem {dbRequest}, \hyperpage{163}
+    \subitem {error}, \hyperpage{160}
+    \subitem {gameOver}, \hyperpage{158}
+    \subitem {getAvailable}, \hyperpage{169}
+    \subitem {getBoard}, \hyperpage{174}
+    \subitem {getDBRequest}, \hyperpage{164}
+    \subitem {getDBResponse}, \hyperpage{165}
+    \subitem {getError}, \hyperpage{164}
+    \subitem {getGameSettings}, \hyperpage{170}
+    \subitem {getGameStatus}, \hyperpage{173}
+    \subitem {getGameTime}, \hyperpage{172}
+    \subitem {getLoginInfo}, \hyperpage{174}
+    \subitem {getMessageType}, \hyperpage{175}
+    \subitem {getMove}, \hyperpage{172}
+    \subitem {getMoveStack}, \hyperpage{166}
+    \subitem {getOtherPlayer}, \hyperpage{168}
+    \subitem {getPlayerColor}, \hyperpage{171}
+    \subitem {getPossibleMoves}, \hyperpage{173}
+    \subitem {getPreMoves}, \hyperpage{170}
+    \subitem {getQuestion}, \hyperpage{168}
+    \subitem {getRespondingToMsgId}, \hyperpage{167}
+    \subitem {getSubject}, \hyperpage{171}
+    \subitem {getSyncedLists}, \hyperpage{166}
+    \subitem {getUsername}, \hyperpage{169}
+    \subitem {getUsernameSuggestions}, \hyperpage{165}
+    \subitem {initGame}, \hyperpage{156}
+    \subitem {interrupt}, \hyperpage{159}
+    \subitem {isResponse}, \hyperpage{168}
+    \subitem {isSubject}, \hyperpage{175}
+    \subitem {Message}, \hyperpage{154, 155}
+    \subitem {messageID}, \hyperpage{175}
+    \subitem {returnDBResponse}, \hyperpage{163}
+    \subitem {returnGameSettings}, \hyperpage{159}
+    \subitem {returnLogin}, \hyperpage{156}
+    \subitem {returnMove}, \hyperpage{160}
+    \subitem {returnUsernameAvailable}, \hyperpage{162}
+    \subitem {returnUsernameNotAvailable}, \hyperpage{162}
+    \subitem {setAvailable}, \hyperpage{169}
+    \subitem {setBoard}, \hyperpage{174}
+    \subitem {setDbRequest}, \hyperpage{163}
+    \subitem {setDBResponse}, \hyperpage{165}
+    \subitem {setError}, \hyperpage{164}
+    \subitem {setGameSettings}, \hyperpage{170}
+    \subitem {setGameStatus}, \hyperpage{173}
+    \subitem {setGameTime}, \hyperpage{172}
+    \subitem {setLoginInfo}, \hyperpage{174}
+    \subitem {setMove}, \hyperpage{172}
+    \subitem {setMoveStack}, \hyperpage{166}
+    \subitem {setOtherPlayer}, \hyperpage{168}
+    \subitem {setPlayerColor}, \hyperpage{171}
+    \subitem {setPossibleMoves}, \hyperpage{173}
+    \subitem {setPreMoves}, \hyperpage{171}
+    \subitem {setQuestion}, \hyperpage{169}
+    \subitem {setRespondingTo}, \hyperpage{167}
+    \subitem {setRespondingToMsgId}, \hyperpage{167}
+    \subitem {setSyncedLists}, \hyperpage{166}
+    \subitem {setUsername}, \hyperpage{170}
+    \subitem {setUsernameSuggestions}, \hyperpage{165}
+    \subitem {syncLists}, \hyperpage{164}
+    \subitem {throwError}, \hyperpage{157}
+    \subitem {updateByMove}, \hyperpage{157}
+    \subitem {waitForMatch}, \hyperpage{158}
+    \subitem {waitForYourTurn}, \hyperpage{158}
+    \subitem {welcomeMessage}, \hyperpage{156}
+  \item {MessageCallback}, \hyperpage{176}
+  \item {messageID}
+    \subitem {Message}, \hyperpage{175}
+  \item {MessagesHandler}, \hyperpage{176}
+    \subitem {blockTilRes}, \hyperpage{177}
+    \subitem {createDisconnectedError}, \hyperpage{179}
+    \subitem {interruptBlocking}, \hyperpage{177}
+    \subitem {MessagesHandler}, \hyperpage{176}
+    \subitem {noBlockRequest}, \hyperpage{177}
+    \subitem {onAddTime}, \hyperpage{180}
+    \subitem {onAlive}, \hyperpage{184}
+    \subitem {onAnyDisconnection}, \hyperpage{179}
+    \subitem {onAnyMsg}, \hyperpage{178}
+    \subitem {onBye}, \hyperpage{183}
+    \subitem {onCancelQuestion}, \hyperpage{177}
+    \subitem {onDBRequest}, \hyperpage{183}
+    \subitem {onDBResponse}, \hyperpage{183}
+    \subitem {onDisconnected}, \hyperpage{178}
+    \subitem {onError}, \hyperpage{182}
+    \subitem {onGameOver}, \hyperpage{182}
+    \subitem {onGetGameSettings}, \hyperpage{180}
+    \subitem {onGetMove}, \hyperpage{181}
+    \subitem {onInitGame}, \hyperpage{181}
+    \subitem {onInterrupt}, \hyperpage{184}
+    \subitem {onIsAlive}, \hyperpage{184}
+    \subitem {onLogin}, \hyperpage{179}
+    \subitem {onOfferDraw}, \hyperpage{180}
+    \subitem {onPlannedDisconnect}, \hyperpage{179}
+    \subitem {onQuestion}, \hyperpage{182}
+    \subitem {onResign}, \hyperpage{179}
+    \subitem {onUnplannedDisconnect}, \hyperpage{179}
+    \subitem {onUpdateByMove}, \hyperpage{182}
+    \subitem {onUpdateSyncedList}, \hyperpage{184}
+    \subitem {onUsernameAvailability}, \hyperpage{183}
+    \subitem {onWaitForMatch}, \hyperpage{181}
+    \subitem {onWaitTurn}, \hyperpage{181}
+    \subitem {onWelcomeMessage}, \hyperpage{180}
+    \subitem {prepareForDisconnect}, \hyperpage{178}
+    \subitem {receivedMessage}, \hyperpage{178}
+    \subitem {socket}, \hyperpage{185}
+  \item {MessageType}, \hyperpage{185}
+  \item {MinimaxMove}, \hyperpage{186}
+    \subitem {compareTo}, \hyperpage{189}
+    \subitem {equals}, \hyperpage{189}
+    \subitem {getMove}, \hyperpage{187}
+    \subitem {getMoveDepth}, \hyperpage{187}
+    \subitem {getMoveEvaluation}, \hyperpage{188}
+    \subitem {getShortPrintingStr}, \hyperpage{189}
+    \subitem {hashCode}, \hyperpage{189}
+    \subitem {isDeeperAndBetterThan}, \hyperpage{187}
+    \subitem {MinimaxMove}, \hyperpage{186, 187}
+    \subitem {setMove}, \hyperpage{188}
+    \subitem {setMoveEvaluation}, \hyperpage{188}
+    \subitem {toString}, \hyperpage{189}
+  \item {MINOR\_PIECES}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {Move}, \hyperpage{190}
+    \subitem {castling}, \hyperpage{192}
+    \subitem {compareTo}, \hyperpage{201}
+    \subitem {copyMove}, \hyperpage{193}
+    \subitem {equals}, \hyperpage{199}
+    \subitem {flipMove}, \hyperpage{193}
+    \subitem {getAnnotation}, \hyperpage{199}
+    \subitem {getCapturingPieceType}, \hyperpage{198}
+    \subitem {getDisabledCastling}, \hyperpage{194}
+    \subitem {getEnPassantLoc}, \hyperpage{201}
+    \subitem {getIntermediateMove}, \hyperpage{196}
+    \subitem {getMoveEvaluation}, \hyperpage{197}
+    \subitem {getMoveFlag}, \hyperpage{200}
+    \subitem {getMovingColor}, \hyperpage{194}
+    \subitem {getPrevFullMoveClock}, \hyperpage{195}
+    \subitem {getPrevHalfMoveClock}, \hyperpage{195}
+    \subitem {getPromotingTo}, \hyperpage{196}
+    \subitem {isCapturing}, \hyperpage{198}
+    \subitem {isCheck}, \hyperpage{197}
+    \subitem {isReversible}, \hyperpage{198}
+    \subitem {Move}, \hyperpage{191, 192}
+    \subitem {setCapturing}, \hyperpage{198}
+    \subitem {setDisabledCastling}, \hyperpage{194}
+    \subitem {setEnPassantLoc}, \hyperpage{201}
+    \subitem {setIntermediateMove}, \hyperpage{196}
+    \subitem {setMoveAnnotation}, \hyperpage{193}
+    \subitem {setMoveEvaluation}, \hyperpage{197}
+    \subitem {setMoveFlag}, \hyperpage{200}
+    \subitem {setMovingColor}, \hyperpage{194}
+    \subitem {setPrevFullMoveClock}, \hyperpage{195}
+    \subitem {setPrevHalfMoveClock}, \hyperpage{195}
+    \subitem {setPromotingTo}, \hyperpage{196}
+    \subitem {setReversible}, \hyperpage{198}
+    \subitem {setThreefoldOption}, \hyperpage{194}
+    \subitem {strictEquals}, \hyperpage{200}
+    \subitem {threefoldClaim}, \hyperpage{192}
+    \subitem {toString}, \hyperpage{199}
+  \item {Move.MoveFlag}, \hyperpage{203}
+    \subitem {CASTLING\_FLAGS}, \hyperpage{205}
+    \subitem {castlingSide}, \hyperpage{206}
+    \subitem {DoublePawnPush}, \hyperpage{205}
+    \subitem {EnPassant}, \hyperpage{205}
+    \subitem {equals}, \hyperpage{204}
+    \subitem {isCastling}, \hyperpage{205}
+    \subitem {LongCastle}, \hyperpage{205}
+    \subitem {MoveFlag}, \hyperpage{204}
+    \subitem {NormalMove}, \hyperpage{204}
+    \subitem {Promotion}, \hyperpage{205}
+    \subitem {ShortCastle}, \hyperpage{205}
+  \item {MoveAnnotation}, \hyperpage{202}
+    \subitem {annotate}, \hyperpage{202}
+    \subitem {basicAnnotate}, \hyperpage{203}
+  \item {MoveFlag}
+    \subitem {Move.MoveFlag}, \hyperpage{204}
+  \item {MoveFlags}, \hyperpage{206}
+  \item {MOVEMENT\_ABILITY}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {MovesList}, \hyperpage{206}
+  \item {MovesList.CompareMoves}, \hyperpage{59}
+  \item {msgSocket}
+    \subitem {AppSocket}, \hyperpage{16}
+  \item {Mult}
+    \subitem {Math}, \hyperpage{152}
+  \item {mult}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {MyError}, \hyperpage{207}
+    \subitem {errToString}, \hyperpage{208}
+    \subitem {getHandledStr}, \hyperpage{208}
+    \subitem {MyError}, \hyperpage{207, 208}
+    \subitem {toString}, \hyperpage{208}
+  \item {MyJButton}, \hyperpage{209}
+    \subitem {getMinSize}, \hyperpage{212}
+    \subitem {MyJButton}, \hyperpage{209--211}
+    \subitem {replaceWithCancel}, \hyperpage{212}
+    \subitem {resetState}, \hyperpage{212}
+    \subitem {setFont}, \hyperpage{212}
+    \subitem {setOnClick}, \hyperpage{211}
+    \subitem {setText}, \hyperpage{211}
+  \item {MyJFrame}, \hyperpage{213}
+    \subitem {debugAdapter}, \hyperpage{214}
+    \subitem {doXClick}, \hyperpage{215}
+    \subitem {getMyAdapter}, \hyperpage{214}
+    \subitem {MyJFrame}, \hyperpage{213}
+    \subitem {onClose}, \hyperpage{215}
+    \subitem {setOnExit}, \hyperpage{214}
+    \subitem {setOnResize}, \hyperpage{215}
+  \item {MyJFrame.BooleanClosing}, \hyperpage{39}
+    \subitem {checkClosingVal}, \hyperpage{40}
+    \subitem {closing}, \hyperpage{40}
+    \subitem {show}, \hyperpage{39}
+  \item {MyJFrame.Closing$<$ T $>$}, \hyperpage{46}
+    \subitem {checkClosingVal}, \hyperpage{47}
+    \subitem {closing}, \hyperpage{47}
+    \subitem {header}, \hyperpage{48}
+    \subitem {icon}, \hyperpage{48}
+    \subitem {show}, \hyperpage{47}
+    \subitem {title}, \hyperpage{48}
+    \subitem {tryClose}, \hyperpage{47}
+  \item {MyJFrame.MyAdapter.HeldDown}, \hyperpage{127}
+    \subitem {endPress}, \hyperpage{127}
+    \subitem {key}, \hyperpage{128}
+    \subitem {startPress}, \hyperpage{127}
+  \item {MyJFrame.StringClosing}, \hyperpage{274}
+    \subitem {checkClosingVal}, \hyperpage{274}
+    \subitem {show}, \hyperpage{274}
+  \item {MyLbl}, \hyperpage{215}
+  \item {MyLbl.StringModifier}, \hyperpage{275}
+  \item {MyThread}, \hyperpage{216}
+    \subitem {currentThread}, \hyperpage{216}
+    \subitem {handledRun}, \hyperpage{217}
+    \subitem {ignoreErrs}, \hyperpage{217}
+    \subitem {MyThread}, \hyperpage{216}
+    \subitem {reactivateErrs}, \hyperpage{217}
+    \subitem {stopRun}, \hyperpage{217}
+  \item {MyThread.ThreadStatus}, \hyperpage{301}
+    \subitem {DONE}, \hyperpage{302}
+    \subitem {NOT\_STARTED}, \hyperpage{301}
+    \subitem {RUNNING}, \hyperpage{301}
+
+  \indexspace
+
+  \item {name}
+    \subitem {RequestBuilder}, \hyperpage{255}
+  \item {nested}
+    \subitem {Col}, \hyperpage{55}
+  \item {nestMe}
+    \subitem {Selection}, \hyperpage{258}
+  \item {NEVER\_AUTH}
+    \subitem {AuthSettings}, \hyperpage{27}
+  \item {NO\_AUTH}
+    \subitem {AuthSettings}, \hyperpage{28}
+  \item {NO\_CASTLING\_ABILITY}
+    \subitem {CastlingRights}, \hyperpage{46}
+  \item {NO\_PLAYER}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {noBlockRequest}
+    \subitem {MessagesHandler}, \hyperpage{177}
+  \item {noNulls}
+    \subitem {Condition}, \hyperpage{60}
+  \item {NormalMove}
+    \subitem {Move.MoveFlag}, \hyperpage{204}
+  \item {normalPerspective}
+    \subitem {Direction}, \hyperpage{90}
+  \item {NOT\_SET\_YET}
+    \subitem {LoginType}, \hyperpage{146}
+  \item {NOT\_STARTED}
+    \subitem {MyThread.ThreadStatus}, \hyperpage{301}
+  \item {notAFile}
+    \subitem {BitData}, \hyperpage{33}
+  \item {notEquals}
+    \subitem {Condition}, \hyperpage{62}
+  \item {notHFile}
+    \subitem {BitData}, \hyperpage{33}
+  \item {nullIf0}
+    \subitem {Math}, \hyperpage{147}
+  \item {NUM\_OF\_DIRECTIONS}
+    \subitem {Direction}, \hyperpage{89}
+  \item {NUM\_OF\_DIRECTIONS\_WO\_KNIGHT}
+    \subitem {Direction}, \hyperpage{89}
+  \item {NUM\_OF\_KNIGHT\_DIRECTIONS}
+    \subitem {Direction}, \hyperpage{89}
+  \item {NUM\_OF\_PIECE\_TYPES}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {NUM\_OF\_PLAYERS}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {Number}
+    \subitem {ArgType}, \hyperpage{24}
+  \item {Numbers}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {numOfRows}
+    \subitem {TableDBResponse}, \hyperpage{296}
+
+  \indexspace
+
+  \item {of}
+    \subitem {Col}, \hyperpage{54}
+  \item {offset}
+    \subitem {Direction}, \hyperpage{90}
+  \item {onAddTime}
+    \subitem {MessagesHandler}, \hyperpage{180}
+  \item {onAlive}
+    \subitem {MessagesHandler}, \hyperpage{184}
+  \item {onAnyDisconnection}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {onAnyMsg}
+    \subitem {MessagesHandler}, \hyperpage{178}
+  \item {onBye}
+    \subitem {MessagesHandler}, \hyperpage{183}
+  \item {onCancelQuestion}
+    \subitem {MessagesHandler}, \hyperpage{177}
+  \item {onClose}
+    \subitem {MyJFrame}, \hyperpage{215}
+  \item {onDBRequest}
+    \subitem {MessagesHandler}, \hyperpage{183}
+  \item {onDBResponse}
+    \subitem {MessagesHandler}, \hyperpage{183}
+  \item {onDisconnected}
+    \subitem {MessagesHandler}, \hyperpage{178}
+  \item {onError}
+    \subitem {MessagesHandler}, \hyperpage{182}
+  \item {onGameOver}
+    \subitem {MessagesHandler}, \hyperpage{182}
+  \item {onGetGameSettings}
+    \subitem {MessagesHandler}, \hyperpage{180}
+  \item {onGetMove}
+    \subitem {MessagesHandler}, \hyperpage{181}
+  \item {ONGOING\_GAMES}
+    \subitem {SyncedListType}, \hyperpage{293}
+  \item {onInitGame}
+    \subitem {MessagesHandler}, \hyperpage{181}
+  \item {onInterrupt}
+    \subitem {MessagesHandler}, \hyperpage{184}
+  \item {onIsAlive}
+    \subitem {MessagesHandler}, \hyperpage{184}
+  \item {onLogin}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {onOfferDraw}
+    \subitem {MessagesHandler}, \hyperpage{180}
+  \item {onPlannedDisconnect}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {onQuestion}
+    \subitem {MessagesHandler}, \hyperpage{182}
+  \item {onResign}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {onUnplannedDisconnect}
+    \subitem {MessagesHandler}, \hyperpage{179}
+  \item {onUpdateByMove}
+    \subitem {MessagesHandler}, \hyperpage{182}
+  \item {onUpdateSyncedList}
+    \subitem {MessagesHandler}, \hyperpage{184}
+  \item {onUsernameAvailability}
+    \subitem {MessagesHandler}, \hyperpage{183}
+  \item {onWaitForMatch}
+    \subitem {MessagesHandler}, \hyperpage{181}
+  \item {onWaitTurn}
+    \subitem {MessagesHandler}, \hyperpage{181}
+  \item {onWelcomeMessage}
+    \subitem {MessagesHandler}, \hyperpage{180}
+  \item {opponentUsername}
+    \subitem {EstablishedGameInfo}, \hyperpage{98}
+  \item {opposite}
+    \subitem {Direction}, \hyperpage{84}
+  \item {OptionalArg}
+    \subitem {ArgsUtil}, \hyperpage{22}
+  \item {orderBy}
+    \subitem {Selection}, \hyperpage{259}
+
+  \indexspace
+
+  \item {parseURLS}
+    \subitem {StrUtils}, \hyperpage{280}
+  \item {Password}
+    \subitem {ArgType}, \hyperpage{24}
+    \subitem {Col}, \hyperpage{58}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {PAWN}
+    \subitem {PieceType}, \hyperpage{228}
+  \item {perspective}
+    \subitem {Direction}, \hyperpage{84}
+  \item {PictureUrl}
+    \subitem {ArgType}, \hyperpage{25}
+  \item {Piece}, \hyperpage{217}
+    \subitem {ALL\_PIECES}, \hyperpage{222}
+    \subitem {B\_B}, \hyperpage{222}
+    \subitem {B\_K}, \hyperpage{222}
+    \subitem {B\_N}, \hyperpage{222}
+    \subitem {B\_P}, \hyperpage{221}
+    \subitem {B\_Q}, \hyperpage{222}
+    \subitem {B\_R}, \hyperpage{222}
+    \subitem {getFen}, \hyperpage{220}
+    \subitem {getPiece}, \hyperpage{219}
+    \subitem {getPieceFromFen}, \hyperpage{218}
+    \subitem {getPieceIcon}, \hyperpage{219}
+    \subitem {isOnMyTeam}, \hyperpage{220}
+    \subitem {pieceType}, \hyperpage{222}
+    \subitem {playerColor}, \hyperpage{222}
+    \subitem {W\_B}, \hyperpage{221}
+    \subitem {W\_K}, \hyperpage{221}
+    \subitem {W\_N}, \hyperpage{221}
+    \subitem {W\_P}, \hyperpage{221}
+    \subitem {W\_Q}, \hyperpage{221}
+    \subitem {W\_R}, \hyperpage{221}
+  \item {PIECE\_TABLES}
+    \subitem {EvaluationParameters}, \hyperpage{105}
+  \item {PIECE\_TYPES}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {PieceType}, \hyperpage{223}
+    \subitem {asInt}, \hyperpage{230}
+    \subitem {ATTACKING\_DIRECTIONS}, \hyperpage{230}
+    \subitem {ATTACKING\_PIECE\_TYPES}, \hyperpage{230}
+    \subitem {BISHOP}, \hyperpage{228}
+    \subitem {blackIcon}, \hyperpage{230}
+    \subitem {CAN\_PROMOTE\_TO}, \hyperpage{229}
+    \subitem {compareMovementType}, \hyperpage{225}
+    \subitem {getAttackingDirections}, \hyperpage{224}, \hyperpage{227}
+    \subitem {getPieceIcon}, \hyperpage{225}
+    \subitem {getPieceName}, \hyperpage{227}
+    \subitem {getPieceType}, \hyperpage{224}
+    \subitem {getWalkingDirections}, \hyperpage{227}
+    \subitem {getWhitePieceFen}, \hyperpage{224}
+    \subitem {isAttack}, \hyperpage{227}
+    \subitem {isDiagonalPiece}, \hyperpage{226}
+    \subitem {isLinePiece}, \hyperpage{226}
+    \subitem {isSliding}, \hyperpage{230}
+    \subitem {KING}, \hyperpage{229}
+    \subitem {KNIGHT}, \hyperpage{228}
+    \subitem {MAJOR\_PIECES}, \hyperpage{229}
+    \subitem {MINOR\_PIECES}, \hyperpage{229}
+    \subitem {NUM\_OF\_PIECE\_TYPES}, \hyperpage{229}
+    \subitem {PAWN}, \hyperpage{228}
+    \subitem {PIECE\_TYPES}, \hyperpage{229}
+    \subitem {QUEEN}, \hyperpage{228}
+    \subitem {ROOK}, \hyperpage{228}
+    \subitem {UNIQUE\_MOVES\_PIECE\_TYPES}, \hyperpage{229}
+    \subitem {value}, \hyperpage{230}
+    \subitem {whiteIcon}, \hyperpage{230}
+  \item {pieceType}
+    \subitem {Piece}, \hyperpage{222}
+  \item {plainTextIgnoreCase}
+    \subitem {ArgsUtil}, \hyperpage{22}
+  \item {Player1}
+    \subitem {Col}, \hyperpage{58}
+  \item {Player2}
+    \subitem {Col}, \hyperpage{58}
+  \item {PLAYER\_COLORS}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {PlayerColor}, \hyperpage{231}
+    \subitem {asInt}, \hyperpage{234}
+    \subitem {BLACK}, \hyperpage{233}
+    \subitem {diff}, \hyperpage{235}
+    \subitem {getColor}, \hyperpage{232}
+    \subitem {getName}, \hyperpage{233}
+    \subitem {getOpponent}, \hyperpage{232}
+    \subitem {getPlayerFromFen}, \hyperpage{232}
+    \subitem {indexOf2}, \hyperpage{234}
+    \subitem {NO\_PLAYER}, \hyperpage{234}
+    \subitem {NUM\_OF\_PLAYERS}, \hyperpage{234}
+    \subitem {PLAYER\_COLORS}, \hyperpage{234}
+    \subitem {PlayerColor}, \hyperpage{231}
+    \subitem {startingRow}, \hyperpage{234}
+    \subitem {toString}, \hyperpage{233}
+    \subitem {WHITE}, \hyperpage{233}
+  \item {playerColor}
+    \subitem {Piece}, \hyperpage{222}
+  \item {playerColorToMove}
+    \subitem {UnfinishedGame}, \hyperpage{305}
+  \item {playerDisconnected}
+    \subitem {GameStatus}, \hyperpage{116}
+  \item {PlayerDisconnectedVsAi}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {PlayerDisconnectedVsReal}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{266}
+  \item {playerResigned}
+    \subitem {GameStatus}, \hyperpage{117}
+  \item {PlayerToMove}
+    \subitem {Col}, \hyperpage{58}
+  \item {playerToMove}
+    \subitem {UnfinishedGame}, \hyperpage{305}
+  \item {Plus}
+    \subitem {Math}, \hyperpage{152}
+  \item {postDescription}
+    \subitem {RequestBuilder}, \hyperpage{256}
+  \item {preDescription}
+    \subitem {RequestBuilder}, \hyperpage{256}
+  \item {PreMadeRequest}, \hyperpage{235}
+    \subitem {authSettings}, \hyperpage{237}
+    \subitem {ChangeProfilePic}, \hyperpage{237}
+    \subitem {createBuilder}, \hyperpage{236}
+    \subitem {DeleteUnfGames}, \hyperpage{236}
+    \subitem {Games}, \hyperpage{236}
+    \subitem {getRequestVariations}, \hyperpage{236}
+    \subitem {statistics}, \hyperpage{237}
+    \subitem {StatsByTimeOfDay}, \hyperpage{237}
+    \subitem {TopPlayers}, \hyperpage{236}
+  \item {PreMadeRequest.VariationCreator}, \hyperpage{309}
+    \subitem {create}, \hyperpage{309}
+  \item {PremovesGenerator}, \hyperpage{237}
+  \item {prepareForDisconnect}
+    \subitem {MessagesHandler}, \hyperpage{178}
+  \item {print}
+    \subitem {Board}, \hyperpage{37}
+    \subitem {DBResponse}, \hyperpage{80}
+    \subitem {Evaluation}, \hyperpage{104}
+  \item {ProfilePic}
+    \subitem {Col}, \hyperpage{59}
+  \item {Promotion}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+
+  \indexspace
+
+  \item {QUEEN}
+    \subitem {CastlingRights.Side}, \hyperpage{261}
+    \subitem {PieceType}, \hyperpage{228}
+  \item {Question}, \hyperpage{238}
+    \subitem {Answer}, \hyperpage{241}
+    \subitem {drawOffer}, \hyperpage{239}
+    \subitem {equals}, \hyperpage{241}
+    \subitem {getDefaultAnswer}, \hyperpage{240}
+    \subitem {getPossibleAnswers}, \hyperpage{241}
+    \subitem {getQuestionStr}, \hyperpage{240}
+    \subitem {Question}, \hyperpage{239}
+    \subitem {questionStr}, \hyperpage{242}
+    \subitem {questionType}, \hyperpage{242}
+    \subitem {Rematch}, \hyperpage{242}
+    \subitem {setDefaultAnswer}, \hyperpage{240}
+    \subitem {Threefold}, \hyperpage{242}
+    \subitem {toString}, \hyperpage{241}
+  \item {questionStr}
+    \subitem {Question}, \hyperpage{242}
+  \item {questionType}
+    \subitem {Question}, \hyperpage{242}
+
+  \indexspace
+
+  \item {R}
+    \subitem {Direction}, \hyperpage{85}
+  \item {reactivateErrs}
+    \subitem {MyThread}, \hyperpage{217}
+  \item {receivedMessage}
+    \subitem {MessagesHandler}, \hyperpage{178}
+  \item {RegEx}, \hyperpage{243}
+    \subitem {Any}, \hyperpage{248}
+    \subitem {canBeEmpty}, \hyperpage{244}
+    \subitem {check}, \hyperpage{246}
+    \subitem {dontMatch}, \hyperpage{248}
+    \subitem {DontSaveGame}, \hyperpage{247}
+    \subitem {Fen}, \hyperpage{246}
+    \subitem {get}, \hyperpage{245}
+    \subitem {getDetails}, \hyperpage{245}
+    \subitem {getRegex}, \hyperpage{246}
+    \subitem {Icon}, \hyperpage{247}
+    \subitem {IPPortAddress}, \hyperpage{247}
+    \subitem {isSavedDate}, \hyperpage{244}
+    \subitem {Numbers}, \hyperpage{247}
+    \subitem {Password}, \hyperpage{247}
+    \subitem {RegEx}, \hyperpage{243, 244}
+    \subitem {setUseDontMatch}, \hyperpage{245}
+    \subitem {StrUtilSkip}, \hyperpage{247}
+    \subitem {URL}, \hyperpage{247}
+    \subitem {Username}, \hyperpage{246}
+  \item {REGISTER}
+    \subitem {LoginType}, \hyperpage{146}
+  \item {Rematch}
+    \subitem {Question}, \hyperpage{242}
+  \item {repeat}
+    \subitem {StrUtils}, \hyperpage{287}
+  \item {repInStr}
+    \subitem {Arg}, \hyperpage{20}
+  \item {replace}
+    \subitem {Col}, \hyperpage{55}
+    \subitem {SQLStatement}, \hyperpage{267}
+  \item {replaceWithCancel}
+    \subitem {MyJButton}, \hyperpage{212}
+  \item {request}
+    \subitem {DBResponse}, \hyperpage{80}
+  \item {RequestBuilder}, \hyperpage{248}
+    \subitem {addShouldSync}, \hyperpage{251}
+    \subitem {args}, \hyperpage{255}
+    \subitem {build}, \hyperpage{255}
+    \subitem {changePassword}, \hyperpage{251}
+    \subitem {changeProfilePic}, \hyperpage{251}
+    \subitem {createResponse}, \hyperpage{253}
+    \subitem {createVariation}, \hyperpage{251}
+    \subitem {deleteAllUnFinishedGames}, \hyperpage{252}
+    \subitem {games}, \hyperpage{252}
+    \subitem {getArgs}, \hyperpage{254}
+    \subitem {getArgVal}, \hyperpage{253}
+    \subitem {getName}, \hyperpage{254}
+    \subitem {getPostDescription}, \hyperpage{254}
+    \subitem {getPreDescription}, \hyperpage{254}
+    \subitem {getShouldSync}, \hyperpage{253}
+    \subitem {name}, \hyperpage{255}
+    \subitem {postDescription}, \hyperpage{256}
+    \subitem {preDescription}, \hyperpage{256}
+    \subitem {RequestBuilder}, \hyperpage{249, 250}
+    \subitem {setSubBuilder}, \hyperpage{252}
+    \subitem {statement}, \hyperpage{255}
+    \subitem {statsByTimeOfDay}, \hyperpage{252}
+    \subitem {subBuilder}, \hyperpage{256}
+    \subitem {TIE\_STR}, \hyperpage{255}
+    \subitem {top}, \hyperpage{253}
+  \item {requestMessage}
+    \subitem {AppSocket}, \hyperpage{12}, \hyperpage{15}
+  \item {resetState}
+    \subitem {MyJButton}, \hyperpage{212}
+  \item {Resignation}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{264}
+  \item {respond}
+    \subitem {AppSocket}, \hyperpage{14}
+  \item {RESUMABLE\_GAMES}
+    \subitem {SyncedListType}, \hyperpage{292}
+  \item {returnDBResponse}
+    \subitem {Message}, \hyperpage{163}
+  \item {returnGameSettings}
+    \subitem {Message}, \hyperpage{159}
+  \item {returnLogin}
+    \subitem {Message}, \hyperpage{156}
+  \item {returnMove}
+    \subitem {Message}, \hyperpage{160}
+  \item {returnUsernameAvailable}
+    \subitem {Message}, \hyperpage{162}
+  \item {returnUsernameNotAvailable}
+    \subitem {Message}, \hyperpage{162}
+  \item {ROOK}
+    \subitem {PieceType}, \hyperpage{228}
+  \item {rookStartingCol}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {row}
+    \subitem {Location}, \hyperpage{140}
+  \item {rows}
+    \subitem {TableDBResponse}, \hyperpage{300}
+  \item {rowToString}
+    \subitem {TableDBResponse}, \hyperpage{299}
+  \item {runInHandledThread}
+    \subitem {HandledThread}, \hyperpage{126}
+  \item {RUNNING}
+    \subitem {MyThread.ThreadStatus}, \hyperpage{301}
+
+  \indexspace
+
+  \item {SavedGame}
+    \subitem {Col}, \hyperpage{58}
+  \item {Selection}, \hyperpage{256}
+    \subitem {createStatement}, \hyperpage{258}
+    \subitem {join}, \hyperpage{259}
+    \subitem {nestMe}, \hyperpage{258}
+    \subitem {orderBy}, \hyperpage{259}
+    \subitem {Selection}, \hyperpage{257, 258}
+    \subitem {top}, \hyperpage{259}
+  \item {ServerAddress}
+    \subitem {ArgType}, \hyperpage{24}
+  \item {ServerStoppedGame}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{266}
+  \item {serverStoppedGame}
+    \subitem {GameStatus}, \hyperpage{115}
+  \item {setAddedRes}
+    \subitem {DBResponse}, \hyperpage{79}
+  \item {setAvailable}
+    \subitem {Message}, \hyperpage{169}
+  \item {setBoard}
+    \subitem {Message}, \hyperpage{174}
+  \item {setCapturing}
+    \subitem {Move}, \hyperpage{198}
+  \item {setColName}
+    \subitem {Col}, \hyperpage{54}
+  \item {setCreatedAt}
+    \subitem {EstablishedGameInfo}, \hyperpage{96}
+  \item {setCustomStr}
+    \subitem {GameStatus}, \hyperpage{115}
+  \item {setDbRequest}
+    \subitem {Message}, \hyperpage{163}
+  \item {setDBResponse}
+    \subitem {Message}, \hyperpage{165}
+  \item {setDefaultAnswer}
+    \subitem {Question}, \hyperpage{240}
+  \item {setDepth}
+    \subitem {GameStatus}, \hyperpage{119}
+  \item {setDisabledCastling}
+    \subitem {Move}, \hyperpage{194}
+  \item {setEmpty}
+    \subitem {Square}, \hyperpage{270}
+  \item {setEnPassantLoc}
+    \subitem {Move}, \hyperpage{201}
+  \item {setError}
+    \subitem {Message}, \hyperpage{164}
+  \item {setEval}
+    \subitem {Evaluation}, \hyperpage{102}
+  \item {setEvaluationDepth}
+    \subitem {Evaluation}, \hyperpage{100}
+  \item {setFont}
+    \subitem {MyJButton}, \hyperpage{212}
+  \item {setGameSettings}
+    \subitem {Message}, \hyperpage{170}
+  \item {setGameStatus}
+    \subitem {Message}, \hyperpage{173}
+  \item {setGameTime}
+    \subitem {Message}, \hyperpage{172}
+  \item {setInCheck}
+    \subitem {GameStatus}, \hyperpage{118}
+  \item {setIntermediateMove}
+    \subitem {Move}, \hyperpage{196}
+  \item {setLoginInfo}
+    \subitem {Message}, \hyperpage{174}
+  \item {setLoginType}
+    \subitem {LoginInfo}, \hyperpage{142}
+  \item {setMessagesHandler}
+    \subitem {AppSocket}, \hyperpage{13}
+  \item {setMove}
+    \subitem {Message}, \hyperpage{172}
+    \subitem {MinimaxMove}, \hyperpage{188}
+  \item {setMoveAnnotation}
+    \subitem {Move}, \hyperpage{193}
+  \item {setMoveEvaluation}
+    \subitem {MinimaxMove}, \hyperpage{188}
+    \subitem {Move}, \hyperpage{197}
+  \item {setMoveFlag}
+    \subitem {Move}, \hyperpage{200}
+  \item {setMoveStack}
+    \subitem {Message}, \hyperpage{166}
+  \item {setMovingColor}
+    \subitem {Move}, \hyperpage{194}
+  \item {setMovingFrom}
+    \subitem {BasicMove}, \hyperpage{30}
+  \item {setMovingTo}
+    \subitem {BasicMove}, \hyperpage{31}
+  \item {setOnClick}
+    \subitem {MyJButton}, \hyperpage{211}
+  \item {setOnExit}
+    \subitem {MyJFrame}, \hyperpage{214}
+  \item {setOnResize}
+    \subitem {MyJFrame}, \hyperpage{215}
+  \item {setOtherPlayer}
+    \subitem {Message}, \hyperpage{168}
+  \item {setPassword}
+    \subitem {LoginInfo}, \hyperpage{143}
+  \item {setPerspective}
+    \subitem {Evaluation}, \hyperpage{103}
+  \item {setPiece}
+    \subitem {Board}, \hyperpage{35}
+    \subitem {Square}, \hyperpage{270}
+  \item {setPlayerColor}
+    \subitem {Message}, \hyperpage{171}
+  \item {setPossibleMoves}
+    \subitem {Message}, \hyperpage{173}
+  \item {setPreMoves}
+    \subitem {Message}, \hyperpage{171}
+  \item {setPrevFullMoveClock}
+    \subitem {Move}, \hyperpage{195}
+  \item {setPrevHalfMoveClock}
+    \subitem {Move}, \hyperpage{195}
+  \item {setProfilePic}
+    \subitem {LoginInfo}, \hyperpage{142}
+  \item {setPromotingTo}
+    \subitem {Move}, \hyperpage{196}
+  \item {setQuestion}
+    \subitem {Message}, \hyperpage{169}
+  \item {setRespondingTo}
+    \subitem {Message}, \hyperpage{167}
+  \item {setRespondingToMsgId}
+    \subitem {Message}, \hyperpage{167}
+  \item {setReversible}
+    \subitem {Move}, \hyperpage{198}
+  \item {setRunnable}
+    \subitem {HandledThread}, \hyperpage{126}
+  \item {setSquareEmpty}
+    \subitem {Board}, \hyperpage{38}
+  \item {setStr}
+    \subitem {Condition}, \hyperpage{63}
+  \item {setSubBuilder}
+    \subitem {RequestBuilder}, \hyperpage{252}
+  \item {setSubRequest}
+    \subitem {DBRequest}, \hyperpage{76}
+  \item {setSyncedLists}
+    \subitem {Message}, \hyperpage{166}
+  \item {setText}
+    \subitem {LinkLabel}, \hyperpage{130}
+    \subitem {MyJButton}, \hyperpage{211}
+  \item {setThreefoldOption}
+    \subitem {Move}, \hyperpage{194}
+  \item {setTimeFormat}
+    \subitem {AiParameters}, \hyperpage{10}
+    \subitem {GameSettings}, \hyperpage{112}
+  \item {setUseDontMatch}
+    \subitem {RegEx}, \hyperpage{245}
+  \item {setUserInput}
+    \subitem {Arg}, \hyperpage{19}
+  \item {setUsername}
+    \subitem {LoginInfo}, \hyperpage{143}
+    \subitem {Message}, \hyperpage{170}
+  \item {setUsernameSuggestions}
+    \subitem {Message}, \hyperpage{165}
+  \item {setWrapped}
+    \subitem {Col}, \hyperpage{53}
+  \item {ShortCastle}
+    \subitem {Move.MoveFlag}, \hyperpage{205}
+  \item {show}
+    \subitem {MyJFrame.BooleanClosing}, \hyperpage{39}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{47}
+    \subitem {MyJFrame.StringClosing}, \hyperpage{274}
+  \item {Side}
+    \subitem {CastlingRights.Side}, \hyperpage{260}
+  \item {SIDES}
+    \subitem {CastlingRights.Side}, \hyperpage{262}
+  \item {simpleOperation}
+    \subitem {Math}, \hyperpage{150}
+  \item {socket}
+    \subitem {MessagesHandler}, \hyperpage{185}
+  \item {SpecificStatus}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{263}
+  \item {splitArr}
+    \subitem {StrUtils}, \hyperpage{284, 285}
+  \item {SQLStatement}, \hyperpage{266}
+    \subitem {createStatement}, \hyperpage{267}
+    \subitem {getStatement}, \hyperpage{268}
+    \subitem {replace}, \hyperpage{267}
+    \subitem {SQLStatement}, \hyperpage{267}
+    \subitem {toString}, \hyperpage{268}
+    \subitem {type}, \hyperpage{268}
+  \item {Square}, \hyperpage{269}
+    \subitem {EMPTY\_PIECE}, \hyperpage{272}
+    \subitem {getFen}, \hyperpage{271}
+    \subitem {getLoc}, \hyperpage{270}
+    \subitem {getPiece}, \hyperpage{270}
+    \subitem {getPieceIcon}, \hyperpage{271}
+    \subitem {isEmpty}, \hyperpage{271}
+    \subitem {setEmpty}, \hyperpage{270}
+    \subitem {setPiece}, \hyperpage{270}
+    \subitem {Square}, \hyperpage{269}
+    \subitem {toString}, \hyperpage{271}
+  \item {SQUARE\_CONTROL}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {Stalemate}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {stalemate}
+    \subitem {GameStatus}, \hyperpage{114}
+  \item {startingFen}
+    \subitem {Board}, \hyperpage{39}
+  \item {startingPos}
+    \subitem {Board}, \hyperpage{36}
+  \item {startingRow}
+    \subitem {PlayerColor}, \hyperpage{234}
+  \item {startPress}
+    \subitem {MyJFrame.MyAdapter.HeldDown}, \hyperpage{127}
+  \item {statement}
+    \subitem {RequestBuilder}, \hyperpage{255}
+  \item {statistics}
+    \subitem {PreMadeRequest}, \hyperpage{237}
+  \item {StatsByTimeOfDay}
+    \subitem {PreMadeRequest}, \hyperpage{237}
+  \item {statsByTimeOfDay}
+    \subitem {RequestBuilder}, \hyperpage{252}
+  \item {status}
+    \subitem {DBResponse}, \hyperpage{80}
+  \item {StatusResponse}, \hyperpage{272}
+    \subitem {clean}, \hyperpage{273}
+    \subitem {getDetails}, \hyperpage{273}
+    \subitem {isAnyData}, \hyperpage{273}
+    \subitem {StatusResponse}, \hyperpage{272, 273}
+  \item {STOCKFISH\_SAYS}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {stopReading}
+    \subitem {AppSocket}, \hyperpage{15}
+  \item {stopRun}
+    \subitem {MyThread}, \hyperpage{217}
+  \item {str}
+    \subitem {Math}, \hyperpage{148}
+  \item {strictEquals}
+    \subitem {Move}, \hyperpage{200}
+  \item {strINN}
+    \subitem {StrUtils}, \hyperpage{284}
+  \item {strSource}
+    \subitem {Math}, \hyperpage{150}
+  \item {StrUtils}, \hyperpage{275}
+    \subitem {awful}, \hyperpage{286}
+    \subitem {clean}, \hyperpage{278}
+    \subitem {countMatches}, \hyperpage{276}
+    \subitem {createTimeGreeting}, \hyperpage{286}
+    \subitem {createTimeStr}, \hyperpage{286}
+    \subitem {dateTimePrefix}, \hyperpage{287}
+    \subitem {dontCapFull}, \hyperpage{276}
+    \subitem {dontCapWord}, \hyperpage{280}
+    \subitem {fitInside}, \hyperpage{283}
+    \subitem {fixHtml}, \hyperpage{284}
+    \subitem {format}, \hyperpage{277}
+    \subitem {formatDate}, \hyperpage{279}
+    \subitem {formatDateSQL}, \hyperpage{281}
+    \subitem {getPort}, \hyperpage{281}
+    \subitem {getUrl}, \hyperpage{283}
+    \subitem {htmlNewLines}, \hyperpage{276}
+    \subitem {isAbsoluteUrl}, \hyperpage{275}
+    \subitem {isEmpty}, \hyperpage{278}
+    \subitem {main}, \hyperpage{286}
+    \subitem {parseURLS}, \hyperpage{280}
+    \subitem {repeat}, \hyperpage{287}
+    \subitem {splitArr}, \hyperpage{284, 285}
+    \subitem {strINN}, \hyperpage{284}
+    \subitem {uppercase}, \hyperpage{280}
+  \item {StrUtils.IterationThingy$<$ T $>$}, \hyperpage{129}
+    \subitem {iteration}, \hyperpage{129}
+  \item {StrUtilSkip}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {strVal}
+    \subitem {Math}, \hyperpage{147}
+  \item {subBuilder}
+    \subitem {RequestBuilder}, \hyperpage{256}
+  \item {sum}
+    \subitem {Col}, \hyperpage{51}
+  \item {SwitchCase}, \hyperpage{288}
+    \subitem {condition}, \hyperpage{290}
+    \subitem {defaultCase}, \hyperpage{290}
+    \subitem {equals}, \hyperpage{288}
+    \subitem {ifTrue}, \hyperpage{290}
+    \subitem {SwitchCase}, \hyperpage{288}
+    \subitem {toString}, \hyperpage{290}
+  \item {switchCase}
+    \subitem {Col}, \hyperpage{52}
+  \item {SyncableItem}, \hyperpage{291}
+    \subitem {ID}, \hyperpage{291}
+  \item {SyncedItems$<$ E extends SyncableItem $>$}, \hyperpage{292}
+  \item {SyncedItems$<$ E extends SyncableItem $>$.Remover$<$ L $>$}, 
+		\hyperpage{248}
+  \item {SyncedListType}, \hyperpage{292}
+    \subitem {CONNECTED\_USERS}, \hyperpage{292}
+    \subitem {JOINABLE\_GAMES}, \hyperpage{292}
+    \subitem {ONGOING\_GAMES}, \hyperpage{293}
+    \subitem {RESUMABLE\_GAMES}, \hyperpage{292}
+  \item {syncLists}
+    \subitem {Message}, \hyperpage{164}
+
+  \indexspace
+
+  \item {Table}, \hyperpage{293}
+    \subitem {cols}, \hyperpage{295}
+    \subitem {escapeValues}, \hyperpage{294}
+    \subitem {Games}, \hyperpage{294}
+    \subitem {Table}, \hyperpage{293}
+    \subitem {tableAndValues}, \hyperpage{294}
+    \subitem {UnfinishedGames}, \hyperpage{294}
+    \subitem {Users}, \hyperpage{295}
+  \item {tableAndValues}
+    \subitem {Table}, \hyperpage{294}
+  \item {TableDBResponse}, \hyperpage{295}
+    \subitem {clean}, \hyperpage{298}
+    \subitem {columns}, \hyperpage{300}
+    \subitem {getCell}, \hyperpage{297, 298}
+    \subitem {getColumnIndex}, \hyperpage{297}
+    \subitem {getColumns}, \hyperpage{299}
+    \subitem {getFirstRow}, \hyperpage{297}
+    \subitem {getRows}, \hyperpage{299}
+    \subitem {isAnyData}, \hyperpage{298}
+    \subitem {numOfRows}, \hyperpage{296}
+    \subitem {rows}, \hyperpage{300}
+    \subitem {rowToString}, \hyperpage{299}
+    \subitem {TableDBResponse}, \hyperpage{296}
+    \subitem {toString}, \hyperpage{298}
+  \item {Text}
+    \subitem {ArgType}, \hyperpage{24}
+  \item {ThreadsManager}, \hyperpage{300}
+    \subitem {createThread}, \hyperpage{300}
+    \subitem {handleErrors}, \hyperpage{300}
+  \item {Threefold}
+    \subitem {Question}, \hyperpage{242}
+  \item {threefoldClaim}
+    \subitem {Move}, \hyperpage{192}
+  \item {ThreeFoldRepetition}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {threeFoldRepetition}
+    \subitem {GameStatus}, \hyperpage{115}
+  \item {throwError}
+    \subitem {Message}, \hyperpage{157}
+  \item {ThrowingCallback$<$ T $>$}, \hyperpage{302}
+    \subitem {callback}, \hyperpage{302}
+  \item {ThrowingRunnable}, \hyperpage{303}
+  \item {TIE}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {TIE\_EVAL}
+    \subitem {Evaluation}, \hyperpage{104}
+  \item {TIE\_STR}
+    \subitem {RequestBuilder}, \hyperpage{255}
+  \item {TieByAgreement}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{265}
+  \item {tieByAgreement}
+    \subitem {GameStatus}, \hyperpage{114}
+  \item {time}
+    \subitem {Col}, \hyperpage{52}
+  \item {TimedOut}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{264}
+  \item {timedOut}
+    \subitem {GameStatus}, \hyperpage{116}
+  \item {TimedOutVsInsufficientMaterial}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{264}
+  \item {TimeFormat}, \hyperpage{303}
+  \item {TimeFormatComponent}, \hyperpage{304}
+  \item {title}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{48}
+  \item {top}
+    \subitem {RequestBuilder}, \hyperpage{253}
+    \subitem {Selection}, \hyperpage{259}
+  \item {TopPlayers}
+    \subitem {PreMadeRequest}, \hyperpage{236}
+  \item {toString}
+    \subitem {ArchivedGameInfo}, \hyperpage{17}
+    \subitem {Arg}, \hyperpage{20}
+    \subitem {BasicMove}, \hyperpage{32}
+    \subitem {Board}, \hyperpage{38}
+    \subitem {CastlingRights}, \hyperpage{44}
+    \subitem {CastlingRights.Side}, \hyperpage{261}
+    \subitem {Col}, \hyperpage{57}
+    \subitem {Condition}, \hyperpage{64}
+    \subitem {Config$<$ V $>$}, \hyperpage{67}
+    \subitem {DBRequest}, \hyperpage{76}
+    \subitem {DBResponse}, \hyperpage{80}
+    \subitem {EstablishedGameInfo}, \hyperpage{97}
+    \subitem {Evaluation}, \hyperpage{103}
+    \subitem {GameInfo}, \hyperpage{109}
+    \subitem {GameStatus}, \hyperpage{119}
+    \subitem {GameStatus.SpecificStatus}, \hyperpage{264}
+    \subitem {GraphableDBResponse}, \hyperpage{124}
+    \subitem {Location}, \hyperpage{138}
+    \subitem {LoginInfo}, \hyperpage{144}
+    \subitem {LoginType}, \hyperpage{145}
+    \subitem {MinimaxMove}, \hyperpage{189}
+    \subitem {Move}, \hyperpage{199}
+    \subitem {MyError}, \hyperpage{208}
+    \subitem {PlayerColor}, \hyperpage{233}
+    \subitem {Question}, \hyperpage{241}
+    \subitem {SQLStatement}, \hyperpage{268}
+    \subitem {Square}, \hyperpage{271}
+    \subitem {SwitchCase}, \hyperpage{290}
+    \subitem {TableDBResponse}, \hyperpage{298}
+  \item {tryClose}
+    \subitem {MyJFrame.Closing$<$ T $>$}, \hyperpage{47}
+  \item {type}
+    \subitem {DBRequest}, \hyperpage{77}
+    \subitem {SQLStatement}, \hyperpage{268}
+
+  \indexspace
+
+  \item {U}
+    \subitem {Direction}, \hyperpage{85}
+  \item {U\_L}
+    \subitem {Direction}, \hyperpage{86}
+  \item {U\_L\_L}
+    \subitem {Direction}, \hyperpage{88}
+  \item {U\_R}
+    \subitem {Direction}, \hyperpage{86}
+  \item {U\_R\_R}
+    \subitem {Direction}, \hyperpage{88}
+  \item {U\_U}
+    \subitem {Direction}, \hyperpage{86}
+  \item {U\_U\_L}
+    \subitem {Direction}, \hyperpage{87}
+  \item {U\_U\_R}
+    \subitem {Direction}, \hyperpage{87}
+  \item {UNFINISHED}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {UnfinishedGame}, \hyperpage{304}
+    \subitem {isCreatorToMove}, \hyperpage{305}
+    \subitem {playerColorToMove}, \hyperpage{305}
+    \subitem {playerToMove}, \hyperpage{305}
+    \subitem {UnfinishedGame}, \hyperpage{304}
+  \item {UnfinishedGames}
+    \subitem {Table}, \hyperpage{294}
+  \item {UNIQUE\_MOVES\_PIECE\_TYPES}
+    \subitem {PieceType}, \hyperpage{229}
+  \item {Update}, \hyperpage{306}
+    \subitem {createStatement}, \hyperpage{307}
+    \subitem {Update}, \hyperpage{306}
+  \item {updateByMove}
+    \subitem {Message}, \hyperpage{157}
+  \item {uppercase}
+    \subitem {StrUtils}, \hyperpage{280}
+  \item {URL}
+    \subitem {RegEx}, \hyperpage{247}
+  \item {Url}
+    \subitem {ArgType}, \hyperpage{25}
+  \item {USER}
+    \subitem {AuthSettings}, \hyperpage{27}
+  \item {UserInfo}, \hyperpage{307}
+    \subitem {ID}, \hyperpage{307}
+  \item {Username}
+    \subitem {ArgType}, \hyperpage{24}
+    \subitem {Col}, \hyperpage{58}
+    \subitem {RegEx}, \hyperpage{246}
+  \item {Users}
+    \subitem {Table}, \hyperpage{295}
+
+  \indexspace
+
+  \item {value}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {ValueBtn}
+    \subitem {ValueBtn$<$ T $>$}, \hyperpage{308}
+  \item {ValueBtn$<$ T $>$}, \hyperpage{308}
+    \subitem {ValueBtn}, \hyperpage{308}
+  \item {valueOf}
+    \subitem {Location}, \hyperpage{135}
+  \item {ver14::SharedClasses::DBActions::Condition::Relation}, 
+		\hyperpage{59}
+  \item {ver14::SharedClasses::DBActions::DBRequest::DBRequest::Type}, 
+		\hyperpage{74}
+  \item {ver14::SharedClasses::DBActions::DBResponse::DBResponse::Status}, 
+		\hyperpage{77}
+  \item {ver14::SharedClasses::DBActions::Statements::Selection::Join}, 
+		\hyperpage{257}
+  \item {ver14::SharedClasses::DBActions::Statements::Selection::Order}, 
+		\hyperpage{257}
+  \item {ver14::SharedClasses::Game::GameSetup::AiParameters::AiType}, 
+		\hyperpage{9}
+  \item {ver14::SharedClasses::Game::GameSetup::GameSettings::GameType}, 
+		\hyperpage{111}
+  \item {ver14::SharedClasses::Game::Moves::Move::ThreefoldStatus}, 
+		\hyperpage{190}
+  \item {ver14::SharedClasses::Misc::Question::QuestionType}, 
+		\hyperpage{238}
+  \item {VoidCallback}, \hyperpage{310}
+    \subitem {callback}, \hyperpage{310}
+
+  \indexspace
+
+  \item {W\_B}
+    \subitem {Piece}, \hyperpage{221}
+  \item {W\_K}
+    \subitem {Piece}, \hyperpage{221}
+  \item {W\_N}
+    \subitem {Piece}, \hyperpage{221}
+  \item {W\_P}
+    \subitem {Piece}, \hyperpage{221}
+  \item {W\_Q}
+    \subitem {Piece}, \hyperpage{221}
+  \item {W\_R}
+    \subitem {Piece}, \hyperpage{221}
+  \item {waitForMatch}
+    \subitem {Message}, \hyperpage{158}
+  \item {waitForYourTurn}
+    \subitem {Message}, \hyperpage{158}
+  \item {weight}
+    \subitem {EvaluationParameters}, \hyperpage{106}
+  \item {welcomeMessage}
+    \subitem {Message}, \hyperpage{156}
+  \item {WHITE}
+    \subitem {PlayerColor}, \hyperpage{233}
+  \item {whiteIcon}
+    \subitem {PieceType}, \hyperpage{230}
+  \item {whosCastling}
+    \subitem {CastlingRights}, \hyperpage{43}
+  \item {WIN\_EVAL}
+    \subitem {Evaluation}, \hyperpage{104}
+  \item {WIN\_OR\_LOSS}
+    \subitem {GameStatus.GameStatusType}, \hyperpage{122}
+  \item {Winner}
+    \subitem {Col}, \hyperpage{58}
+  \item {wrap}
+    \subitem {Col}, \hyperpage{52}
+    \subitem {Condition}, \hyperpage{62}
+  \item {writeMessage}
+    \subitem {AppSocket}, \hyperpage{14}
+
+  \indexspace
+
+  \item {zeroIfNull}
+    \subitem {Math}, \hyperpage{149}
+
+\end{theindex}

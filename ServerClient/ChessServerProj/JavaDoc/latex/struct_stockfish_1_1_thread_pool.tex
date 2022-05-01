@@ -1,0 +1,41 @@
+\hypertarget{struct_stockfish_1_1_thread_pool}{}\doxysection{Thread\+Pool}
+\label{struct_stockfish_1_1_thread_pool}\index{ThreadPool@{ThreadPool}}
+Inheritance diagram for Thread\+Pool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_stockfish_1_1_thread_pool}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_thread_pool_abe60efbf76cf018af07982ab67b53932}\label{struct_stockfish_1_1_thread_pool_abe60efbf76cf018af07982ab67b53932}} 
+std\+::atomic\+\_\+bool {\bfseries stop}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_thread_pool_a50b49627d5e4174358149a1ea2894245}\label{struct_stockfish_1_1_thread_pool_a50b49627d5e4174358149a1ea2894245}} 
+std\+::atomic\+\_\+bool {\bfseries increase\+Depth}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_thread_pool}{Thread\+Pool}} struct handles all the threads-\/related stuff like init, starting, parking and, most importantly, launching a thread. All the access to threads is done through this class. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_thread_pool_a4ea5f268c0c9e10e113dcf7794a4d4ab}\label{struct_stockfish_1_1_thread_pool_a4ea5f268c0c9e10e113dcf7794a4d4ab}} 
+\index{ThreadPool@{ThreadPool}!start\_thinking@{start\_thinking}}
+\index{start\_thinking@{start\_thinking}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{start\_thinking()}{start\_thinking()}}
+{\footnotesize\ttfamily void start\+\_\+thinking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos,  }\item[{\mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{State\+List\+Ptr}} \&}]{states,  }\item[{const \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{Search\+::\+Limits\+Type}} \&}]{limits,  }\item[{bool}]{ponder\+Mode = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_thread_pool_a4ea5f268c0c9e10e113dcf7794a4d4ab}{Thread\+Pool\+::start\+\_\+thinking()}} wakes up main thread waiting in idle\+\_\+loop() and returns immediately. Main thread will wake up other threads and start the search. \mbox{\Hypertarget{struct_stockfish_1_1_thread_pool_a3c8b9806e7522469cb75548d9941aff4}\label{struct_stockfish_1_1_thread_pool_a3c8b9806e7522469cb75548d9941aff4}} 
+\index{ThreadPool@{ThreadPool}!set@{set}}
+\index{set@{set}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{requested }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_thread_pool_a3c8b9806e7522469cb75548d9941aff4}{Thread\+Pool\+::set()}} creates/destroys threads to match the requested number. Created and launched threads will immediately go to sleep in idle\+\_\+loop. Upon resizing, threads are recreated to allow for binding if necessary. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/thread.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/thread.\+cpp\end{DoxyCompactItemize}

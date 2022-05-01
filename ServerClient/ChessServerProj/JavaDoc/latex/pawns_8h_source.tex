@@ -1,0 +1,73 @@
+\hypertarget{pawns_8h_source}{}\doxysection{pawns.\+h}
+\label{pawns_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/pawns.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/pawns.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef PAWNS\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define PAWNS\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}position.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }Stockfish::Pawns \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry}{Entry}} \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} pawn\_score(Color c)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} scores[c]; \}}
+\DoxyCodeLine{35   Bitboard pawn\_attacks(Color c)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} pawnAttacks[c]; \}}
+\DoxyCodeLine{36   Bitboard passed\_pawns(Color c)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} passedPawns[c]; \}}
+\DoxyCodeLine{37   Bitboard pawn\_attacks\_span(Color c)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} pawnAttacksSpan[c]; \}}
+\DoxyCodeLine{38   \textcolor{keywordtype}{int} passed\_count()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}{popcount}}(passedPawns[WHITE] | passedPawns[BLACK]); \}}
+\DoxyCodeLine{39   \textcolor{keywordtype}{int} blocked\_count()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} blockedCount; \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{keyword}{template}<Color Us>}
+\DoxyCodeLine{42   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} king\_safety(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos) \{}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return}  kingSquares[Us] == pos.square<KING>(Us) \&\& castlingRights[Us] == pos.castling\_rights(Us)}
+\DoxyCodeLine{44           ? kingSafety[Us] : (kingSafety[Us] = do\_king\_safety<Us>(pos));}
+\DoxyCodeLine{45   \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{keyword}{template}<Color Us>}
+\DoxyCodeLine{48   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry_a0b047c7ea424bed0fa4717b87c0b8a03}{do\_king\_safety}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{keyword}{template}<Color Us>}
+\DoxyCodeLine{51   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry_ab6c1a690507985c9b86bd90cfd4455d6}{evaluate\_shelter}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, Square ksq) \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   Key key;}
+\DoxyCodeLine{54   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} scores[COLOR\_NB];}
+\DoxyCodeLine{55   Bitboard passedPawns[COLOR\_NB];}
+\DoxyCodeLine{56   Bitboard pawnAttacks[COLOR\_NB];}
+\DoxyCodeLine{57   Bitboard pawnAttacksSpan[COLOR\_NB];}
+\DoxyCodeLine{58   Square kingSquares[COLOR\_NB];}
+\DoxyCodeLine{59   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} kingSafety[COLOR\_NB];}
+\DoxyCodeLine{60   \textcolor{keywordtype}{int} castlingRights[COLOR\_NB];}
+\DoxyCodeLine{61   \textcolor{keywordtype}{int} blockedCount;}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{HashTable<Entry, 131072>}} \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Table}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry}{Entry}}* probe(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \} \textcolor{comment}{// namespace Stockfish::Pawns}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef PAWNS\_H\_INCLUDED}}
+
+\end{DoxyCode}

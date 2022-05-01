@@ -1,0 +1,136 @@
+\hypertarget{classver14_1_1_model_1_1_attacked_squares}{}\doxysection{Attacked\+Squares}
+\label{classver14_1_1_model_1_1_attacked_squares}\index{AttackedSquares@{AttackedSquares}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} \mbox{\hyperlink{classver14_1_1_model_1_1_attacked_squares_aa4b62a9269fdfeb44ae1d867883bd9b0}{attacked\+Squares}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Attacked squares -\/ calculates which squares are attacked by using bitwise operations on pieces bit boards. saving a lot of time by batch calculating for each piece type instead of calculating by individual piece
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_aeb87b96025b7398a046087f551f499b9}\label{classver14_1_1_model_1_1_attacked_squares_aeb87b96025b7398a046087f551f499b9}} 
+\index{AttackedSquares@{AttackedSquares}!AttackedSquares@{AttackedSquares}}
+\index{AttackedSquares@{AttackedSquares}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{AttackedSquares()}{AttackedSquares()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_attacked_squares}{Attacked\+Squares}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{attacking\+Player\+Color }\end{DoxyParamCaption})}
+
+Instantiates a new Attacked squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+{\em attacking\+Player\+Color} & the attacking player color \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_a78bffc98b04c7fdd6ae226ecd79b7280}\label{classver14_1_1_model_1_1_attacked_squares_a78bffc98b04c7fdd6ae226ecd79b7280}} 
+\index{AttackedSquares@{AttackedSquares}!getAttackedSquares@{getAttackedSquares}}
+\index{getAttackedSquares@{getAttackedSquares}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{getAttackedSquares()}{getAttackedSquares()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} get\+Attacked\+Squares (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{attacking\+Player\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a bitboard of all the attacked squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+{\em attacking\+Player\+Color} & the attacking player color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bitboard of all the attacked squares 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_ac01ce710528de6a03e7d12643fd44580}\label{classver14_1_1_model_1_1_attacked_squares_ac01ce710528de6a03e7d12643fd44580}} 
+\index{AttackedSquares@{AttackedSquares}!getAttackedSquares@{getAttackedSquares}}
+\index{getAttackedSquares@{getAttackedSquares}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{getAttackedSquares()}{getAttackedSquares()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} get\+Attacked\+Squares (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets attacked squares.
+
+\begin{DoxyReturn}{Returns}
+the attacked squares 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_a6399124d12dd09c59202ae389c6a9166}\label{classver14_1_1_model_1_1_attacked_squares_a6399124d12dd09c59202ae389c6a9166}} 
+\index{AttackedSquares@{AttackedSquares}!attack@{attack}}
+\index{attack@{attack}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{piece\+Type,  }\item[{Direction...}]{attacking\+Directions }\end{DoxyParamCaption})}
+
+Attack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece\+Type} & the piece type \\
+\hline
+{\em attacking\+Directions} & the attacking directions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_af5adf414de3781dfe5ccb29d8f127b10}\label{classver14_1_1_model_1_1_attacked_squares_af5adf414de3781dfe5ccb29d8f127b10}} 
+\index{AttackedSquares@{AttackedSquares}!isAttacked@{isAttacked}}
+\index{isAttacked@{isAttacked}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{isAttacked()}{isAttacked()}}
+{\footnotesize\ttfamily static boolean is\+Attacked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{attacking\+Player\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is attacked boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & the model \\
+\hline
+{\em loc} & the loc \\
+\hline
+{\em attacking\+Player\+Color} & the attacking player color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_abd39965580af9b83f6dc4529301bd474}\label{classver14_1_1_model_1_1_attacked_squares_abd39965580af9b83f6dc4529301bd474}} 
+\index{AttackedSquares@{AttackedSquares}!getPieceAttacksFrom@{getPieceAttacksFrom}}
+\index{getPieceAttacksFrom@{getPieceAttacksFrom}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{getPieceAttacksFrom()}{getPieceAttacksFrom()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} get\+Piece\+Attacks\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type}{Piece\+Type}}}]{piece\+Type,  }\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{piece\+BB,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{attacking\+Player\+Color,  }\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_model}{Model}}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets piece attacks from.
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece\+Type} & the piece type \\
+\hline
+{\em piece\+BB} & the piece bb \\
+\hline
+{\em attacking\+Player\+Color} & the attacking player color \\
+\hline
+{\em model} & the model \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the piece attacks from 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_attacked_squares_aa4b62a9269fdfeb44ae1d867883bd9b0}\label{classver14_1_1_model_1_1_attacked_squares_aa4b62a9269fdfeb44ae1d867883bd9b0}} 
+\index{AttackedSquares@{AttackedSquares}!attackedSquares@{attackedSquares}}
+\index{attackedSquares@{attackedSquares}!AttackedSquares@{AttackedSquares}}
+\doxysubsubsection{\texorpdfstring{attackedSquares}{attackedSquares}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} attacked\+Squares}
+
+The Attacked squares. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/\+Model/Attacked\+Squares.\+java\end{DoxyCompactItemize}

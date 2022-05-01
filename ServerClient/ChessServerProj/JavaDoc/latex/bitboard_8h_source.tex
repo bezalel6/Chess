@@ -1,0 +1,408 @@
+\hypertarget{bitboard_8h_source}{}\doxysection{bitboard.\+h}
+\label{bitboard_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/bitboard.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/bitboard.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef BITBOARD\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define BITBOARD\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{namespace }Bitbases \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{31 \textcolor{keywordtype}{bool} probe(Square wksq, Square wpsq, Square bksq, Color us);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \} \textcolor{comment}{// namespace Stockfish::Bitbases}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{namespace }Bitboards \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{38 std::string pretty(Bitboard b);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \} \textcolor{comment}{// namespace Stockfish::Bitboards}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{constexpr} Bitboard AllSquares = \string~Bitboard(0);}
+\DoxyCodeLine{43 \textcolor{keyword}{constexpr} Bitboard DarkSquares = 0xAA55AA55AA55AA55ULL;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{constexpr} Bitboard FileABB = 0x0101010101010101ULL;}
+\DoxyCodeLine{46 \textcolor{keyword}{constexpr} Bitboard FileBBB = FileABB << 1;}
+\DoxyCodeLine{47 \textcolor{keyword}{constexpr} Bitboard FileCBB = FileABB << 2;}
+\DoxyCodeLine{48 \textcolor{keyword}{constexpr} Bitboard FileDBB = FileABB << 3;}
+\DoxyCodeLine{49 \textcolor{keyword}{constexpr} Bitboard FileEBB = FileABB << 4;}
+\DoxyCodeLine{50 \textcolor{keyword}{constexpr} Bitboard FileFBB = FileABB << 5;}
+\DoxyCodeLine{51 \textcolor{keyword}{constexpr} Bitboard FileGBB = FileABB << 6;}
+\DoxyCodeLine{52 \textcolor{keyword}{constexpr} Bitboard FileHBB = FileABB << 7;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{constexpr} Bitboard Rank1BB = 0xFF;}
+\DoxyCodeLine{55 \textcolor{keyword}{constexpr} Bitboard Rank2BB = Rank1BB << (8 * 1);}
+\DoxyCodeLine{56 \textcolor{keyword}{constexpr} Bitboard Rank3BB = Rank1BB << (8 * 2);}
+\DoxyCodeLine{57 \textcolor{keyword}{constexpr} Bitboard Rank4BB = Rank1BB << (8 * 3);}
+\DoxyCodeLine{58 \textcolor{keyword}{constexpr} Bitboard Rank5BB = Rank1BB << (8 * 4);}
+\DoxyCodeLine{59 \textcolor{keyword}{constexpr} Bitboard Rank6BB = Rank1BB << (8 * 5);}
+\DoxyCodeLine{60 \textcolor{keyword}{constexpr} Bitboard Rank7BB = Rank1BB << (8 * 6);}
+\DoxyCodeLine{61 \textcolor{keyword}{constexpr} Bitboard Rank8BB = Rank1BB << (8 * 7);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{constexpr} Bitboard QueenSide   = FileABB | FileBBB | FileCBB | FileDBB;}
+\DoxyCodeLine{64 \textcolor{keyword}{constexpr} Bitboard CenterFiles = FileCBB | FileDBB | FileEBB | FileFBB;}
+\DoxyCodeLine{65 \textcolor{keyword}{constexpr} Bitboard KingSide    = FileEBB | FileFBB | FileGBB | FileHBB;}
+\DoxyCodeLine{66 \textcolor{keyword}{constexpr} Bitboard Center      = (FileDBB | FileEBB) \& (Rank4BB | Rank5BB);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{constexpr} Bitboard KingFlank[FILE\_NB] = \{}
+\DoxyCodeLine{69   QueenSide \string^ FileDBB, QueenSide, QueenSide,}
+\DoxyCodeLine{70   CenterFiles, CenterFiles,}
+\DoxyCodeLine{71   KingSide, KingSide, KingSide \string^ FileEBB}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{extern} uint8\_t PopCnt16[1 << 16];}
+\DoxyCodeLine{75 \textcolor{keyword}{extern} uint8\_t SquareDistance[SQUARE\_NB][SQUARE\_NB];}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{extern} Bitboard SquareBB[SQUARE\_NB];}
+\DoxyCodeLine{78 \textcolor{keyword}{extern} Bitboard BetweenBB[SQUARE\_NB][SQUARE\_NB];}
+\DoxyCodeLine{79 \textcolor{keyword}{extern} Bitboard LineBB[SQUARE\_NB][SQUARE\_NB];}
+\DoxyCodeLine{80 \textcolor{keyword}{extern} Bitboard PseudoAttacks[PIECE\_TYPE\_NB][SQUARE\_NB];}
+\DoxyCodeLine{81 \textcolor{keyword}{extern} Bitboard PawnAttacks[COLOR\_NB][SQUARE\_NB];}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{85 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} \{}
+\DoxyCodeLine{86   Bitboard  mask;}
+\DoxyCodeLine{87   Bitboard  magic;}
+\DoxyCodeLine{88   Bitboard* attacks;}
+\DoxyCodeLine{89   \textcolor{keywordtype}{unsigned}  shift;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{comment}{// Compute the attack's index using the 'magic bitboards' approach}}
+\DoxyCodeLine{92   \textcolor{keywordtype}{unsigned} index(Bitboard occupied)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordflow}{if} (HasPext)}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} unsigned(pext(occupied, mask));}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (Is64Bit)}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} unsigned(((occupied \& mask) * magic) >> \mbox{\hyperlink{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}{shift}});}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{unsigned} lo = unsigned(occupied) \& unsigned(mask);}
+\DoxyCodeLine{101     \textcolor{keywordtype}{unsigned} hi = unsigned(occupied >> 32) \& unsigned(mask >> 32);}
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} (lo * \textcolor{keywordtype}{unsigned}(magic) \string^ hi * \textcolor{keywordtype}{unsigned}(magic >> 32)) >> \mbox{\hyperlink{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}{shift}};}
+\DoxyCodeLine{103   \}}
+\DoxyCodeLine{104 \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} RookMagics[SQUARE\_NB];}
+\DoxyCodeLine{107 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_stockfish_1_1_magic}{Magic}} BishopMagics[SQUARE\_NB];}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{inline} Bitboard square\_bb(Square s) \{}
+\DoxyCodeLine{110   assert(is\_ok(s));}
+\DoxyCodeLine{111   \textcolor{keywordflow}{return} SquareBB[s];}
+\DoxyCodeLine{112 \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{keyword}{inline} Bitboard  \mbox{\hyperlink{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}{operator\&}}( Bitboard  b, Square s) \{ \textcolor{keywordflow}{return} b \&  square\_bb(s); \}}
+\DoxyCodeLine{119 \textcolor{keyword}{inline} Bitboard  operator|( Bitboard  b, Square s) \{ \textcolor{keywordflow}{return} b |  square\_bb(s); \}}
+\DoxyCodeLine{120 \textcolor{keyword}{inline} Bitboard  operator\string^( Bitboard  b, Square s) \{ \textcolor{keywordflow}{return} b \string^  square\_bb(s); \}}
+\DoxyCodeLine{121 \textcolor{keyword}{inline} Bitboard\& operator|=(Bitboard\& b, Square s) \{ \textcolor{keywordflow}{return} b |= square\_bb(s); \}}
+\DoxyCodeLine{122 \textcolor{keyword}{inline} Bitboard\& operator\string^=(Bitboard\& b, Square s) \{ \textcolor{keywordflow}{return} b \string^= square\_bb(s); \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{inline} Bitboard  \mbox{\hyperlink{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}{operator\&}}(Square s, Bitboard b) \{ \textcolor{keywordflow}{return} b \& s; \}}
+\DoxyCodeLine{125 \textcolor{keyword}{inline} Bitboard  operator|(Square s, Bitboard b) \{ \textcolor{keywordflow}{return} b | s; \}}
+\DoxyCodeLine{126 \textcolor{keyword}{inline} Bitboard  operator\string^(Square s, Bitboard b) \{ \textcolor{keywordflow}{return} b \string^ s; \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{keyword}{inline} Bitboard  operator|(Square s1, Square s2) \{ \textcolor{keywordflow}{return} square\_bb(s1) | s2; \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} more\_than\_one(Bitboard b) \{}
+\DoxyCodeLine{131   \textcolor{keywordflow}{return} b \& (b -\/ 1);}
+\DoxyCodeLine{132 \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} opposite\_colors(Square s1, Square s2) \{}
+\DoxyCodeLine{136   \textcolor{keywordflow}{return} (s1 + rank\_of(s1) + s2 + rank\_of(s2)) \& 1;}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 }
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}{rank\_bb}}(Rank r) \{}
+\DoxyCodeLine{144   \textcolor{keywordflow}{return} Rank1BB << (8 * r);}
+\DoxyCodeLine{145 \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}{rank\_bb}}(Square s) \{}
+\DoxyCodeLine{148   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a10e81f8515bf7b1cbdd9a51388171409}{rank\_bb}}(rank\_of(s));}
+\DoxyCodeLine{149 \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{constexpr} Bitboard file\_bb(File f) \{}
+\DoxyCodeLine{152   \textcolor{keywordflow}{return} FileABB << f;}
+\DoxyCodeLine{153 \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{keyword}{constexpr} Bitboard file\_bb(Square s) \{}
+\DoxyCodeLine{156   \textcolor{keywordflow}{return} file\_bb(file\_of(s));}
+\DoxyCodeLine{157 \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{keyword}{template}<Direction D>}
+\DoxyCodeLine{163 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_aaac28b4aed013241dfdf572117f3724e}{shift}}(Bitboard b) \{}
+\DoxyCodeLine{164   \textcolor{keywordflow}{return}  D == NORTH      ?  b             << 8 : D == SOUTH      ?  b             >> 8}
+\DoxyCodeLine{165         : D == NORTH+NORTH?  b             <<16 : D == SOUTH+SOUTH?  b             >>16}
+\DoxyCodeLine{166         : D == EAST       ? (b \& \string~FileHBB) << 1 : D == WEST       ? (b \& \string~FileABB) >> 1}
+\DoxyCodeLine{167         : D == NORTH\_EAST ? (b \& \string~FileHBB) << 9 : D == NORTH\_WEST ? (b \& \string~FileABB) << 7}
+\DoxyCodeLine{168         : D == SOUTH\_EAST ? (b \& \string~FileHBB) >> 7 : D == SOUTH\_WEST ? (b \& \string~FileABB) >> 9}
+\DoxyCodeLine{169         : 0;}
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{keyword}{template}<Color C>}
+\DoxyCodeLine{177 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}{pawn\_attacks\_bb}}(Bitboard b) \{}
+\DoxyCodeLine{178   \textcolor{keywordflow}{return} C == WHITE ? shift<NORTH\_WEST>(b) | shift<NORTH\_EAST>(b)}
+\DoxyCodeLine{179                     : shift<SOUTH\_WEST>(b) | shift<SOUTH\_EAST>(b);}
+\DoxyCodeLine{180 \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a5e16bfab24f7ce8d33057d6dbd20db14}{pawn\_attacks\_bb}}(Color c, Square s) \{}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184   assert(is\_ok(s));}
+\DoxyCodeLine{185   \textcolor{keywordflow}{return} PawnAttacks[c][s];}
+\DoxyCodeLine{186 \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 }
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{keyword}{template}<Color C>}
+\DoxyCodeLine{193 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a450bf2625f404ce3818544f8efd5394c}{pawn\_double\_attacks\_bb}}(Bitboard b) \{}
+\DoxyCodeLine{194   \textcolor{keywordflow}{return} C == WHITE ? shift<NORTH\_WEST>(b) \& shift<NORTH\_EAST>(b)}
+\DoxyCodeLine{195                     : shift<SOUTH\_WEST>(b) \& shift<SOUTH\_EAST>(b);}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 }
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}{adjacent\_files\_bb}}(Square s) \{}
+\DoxyCodeLine{203   \textcolor{keywordflow}{return} shift<EAST>(file\_bb(s)) | shift<WEST>(file\_bb(s));}
+\DoxyCodeLine{204 \}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 }
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}{line\_bb}}(Square s1, Square s2) \{}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214   assert(is\_ok(s1) \&\& is\_ok(s2));}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216   \textcolor{keywordflow}{return} LineBB[s1][s2];}
+\DoxyCodeLine{217 \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 }
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a3f8aa419ce03998196972e5abefb765d}{between\_bb}}(Square s1, Square s2) \{}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230   assert(is\_ok(s1) \&\& is\_ok(s2));}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232   \textcolor{keywordflow}{return} BetweenBB[s1][s2];}
+\DoxyCodeLine{233 \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 }
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}{forward\_ranks\_bb}}(Color c, Square s) \{}
+\DoxyCodeLine{241   \textcolor{keywordflow}{return} c == WHITE ? \string~Rank1BB << 8 * relative\_rank(WHITE, s)}
+\DoxyCodeLine{242                     : \string~Rank8BB >> 8 * relative\_rank(BLACK, s);}
+\DoxyCodeLine{243 \}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 }
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}{forward\_file\_bb}}(Color c, Square s) \{}
+\DoxyCodeLine{250   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}{forward\_ranks\_bb}}(c, s) \& file\_bb(s);}
+\DoxyCodeLine{251 \}}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 }
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}{pawn\_attack\_span}}(Color c, Square s) \{}
+\DoxyCodeLine{259   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a49a6f856c7e99ddf15d3880ff174bea6}{forward\_ranks\_bb}}(c, s) \& \mbox{\hyperlink{namespace_stockfish_ab8e60bc7e8c2394393a15670bc18108b}{adjacent\_files\_bb}}(s);}
+\DoxyCodeLine{260 \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 }
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{keyword}{constexpr} Bitboard \mbox{\hyperlink{namespace_stockfish_a3e56237c7546874486b2bfff0980e1e7}{passed\_pawn\_span}}(Color c, Square s) \{}
+\DoxyCodeLine{267   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a5f67e6b7c2c04462609f1c95ed5a97e1}{pawn\_attack\_span}}(c, s) | \mbox{\hyperlink{namespace_stockfish_a4edbe3ade22c2dd2337da31aac305904}{forward\_file\_bb}}(c, s);}
+\DoxyCodeLine{268 \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 }
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_stockfish_a0ac77d3eb2b4371422f37fd7570eb4f7}{aligned}}(Square s1, Square s2, Square s3) \{}
+\DoxyCodeLine{275   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a9a309d54222dca241f8cab6055a08e2a}{line\_bb}}(s1, s2) \& s3;}
+\DoxyCodeLine{276 \}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 }
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T1 = Square> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_stockfish_ac777fbb968a16c9a5d0c8db7729072c6}{distance}}(Square x, Square y);}
+\DoxyCodeLine{283 \textcolor{keyword}{template}<> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} distance<File>(Square x, Square y) \{ \textcolor{keywordflow}{return} std::abs(file\_of(x) -\/ file\_of(y)); \}}
+\DoxyCodeLine{284 \textcolor{keyword}{template}<> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} distance<Rank>(Square x, Square y) \{ \textcolor{keywordflow}{return} std::abs(rank\_of(x) -\/ rank\_of(y)); \}}
+\DoxyCodeLine{285 \textcolor{keyword}{template}<> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} distance<Square>(Square x, Square y) \{ \textcolor{keywordflow}{return} SquareDistance[x][y]; \}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} edge\_distance(File f) \{ \textcolor{keywordflow}{return} std::min(f, File(FILE\_H -\/ f)); \}}
+\DoxyCodeLine{288 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} edge\_distance(Rank r) \{ \textcolor{keywordflow}{return} std::min(r, Rank(RANK\_8 -\/ r)); \}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290 }
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 \textcolor{keyword}{template}<PieceType Pt>}
+\DoxyCodeLine{295 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}{attacks\_bb}}(Square s) \{}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297   assert((Pt != PAWN) \&\& (is\_ok(s)));}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299   \textcolor{keywordflow}{return} PseudoAttacks[Pt][s];}
+\DoxyCodeLine{300 \}}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302 }
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 \textcolor{keyword}{template}<PieceType Pt>}
+\DoxyCodeLine{308 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}{attacks\_bb}}(Square s, Bitboard occupied) \{}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310   assert((Pt != PAWN) \&\& (is\_ok(s)));}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312   \textcolor{keywordflow}{switch} (Pt)}
+\DoxyCodeLine{313   \{}
+\DoxyCodeLine{314   \textcolor{keywordflow}{case} BISHOP: \textcolor{keywordflow}{return} BishopMagics[s].attacks[BishopMagics[s].index(occupied)];}
+\DoxyCodeLine{315   \textcolor{keywordflow}{case} ROOK  : \textcolor{keywordflow}{return}   RookMagics[s].attacks[  RookMagics[s].index(occupied)];}
+\DoxyCodeLine{316   \textcolor{keywordflow}{case} QUEEN : \textcolor{keywordflow}{return} attacks\_bb<BISHOP>(s, occupied) | attacks\_bb<ROOK>(s, occupied);}
+\DoxyCodeLine{317   default    : \textcolor{keywordflow}{return} PseudoAttacks[Pt][s];}
+\DoxyCodeLine{318   \}}
+\DoxyCodeLine{319 \}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_a5ca3cb639f224747c8541f6600d73d5e}{attacks\_bb}}(PieceType pt, Square s, Bitboard occupied) \{}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323   assert((pt != PAWN) \&\& (is\_ok(s)));}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325   \textcolor{keywordflow}{switch} (pt)}
+\DoxyCodeLine{326   \{}
+\DoxyCodeLine{327   \textcolor{keywordflow}{case} BISHOP: \textcolor{keywordflow}{return} attacks\_bb<BISHOP>(s, occupied);}
+\DoxyCodeLine{328   \textcolor{keywordflow}{case} ROOK  : \textcolor{keywordflow}{return} attacks\_bb<  ROOK>(s, occupied);}
+\DoxyCodeLine{329   \textcolor{keywordflow}{case} QUEEN : \textcolor{keywordflow}{return} attacks\_bb<BISHOP>(s, occupied) | attacks\_bb<ROOK>(s, occupied);}
+\DoxyCodeLine{330   default    : \textcolor{keywordflow}{return} PseudoAttacks[pt][s];}
+\DoxyCodeLine{331   \}}
+\DoxyCodeLine{332 \}}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334 }
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_stockfish_ab6d346fd5f5a47223303507815283b8e}{popcount}}(Bitboard b) \{}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#ifndef USE\_POPCNT}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341   \textcolor{keyword}{union }\{ Bitboard bb; uint16\_t u[4]; \} v = \{ b \};}
+\DoxyCodeLine{342   \textcolor{keywordflow}{return} PopCnt16[v.u[0]] + PopCnt16[v.u[1]] + PopCnt16[v.u[2]] + PopCnt16[v.u[3]];}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#elif defined(\_MSC\_VER) || defined(\_\_INTEL\_COMPILER)}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346   \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})\_mm\_popcnt\_u64(b);}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#else }\textcolor{comment}{// Assumed gcc or compatible compiler}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350   \textcolor{keywordflow}{return} \_\_builtin\_popcountll(b);}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{353 \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 }
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_)  }\textcolor{comment}{// GCC, Clang, ICC}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{keyword}{inline} Square lsb(Bitboard b) \{}
+\DoxyCodeLine{361   assert(b);}
+\DoxyCodeLine{362   \textcolor{keywordflow}{return} Square(\_\_builtin\_ctzll(b));}
+\DoxyCodeLine{363 \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365 \textcolor{keyword}{inline} Square msb(Bitboard b) \{}
+\DoxyCodeLine{366   assert(b);}
+\DoxyCodeLine{367   \textcolor{keywordflow}{return} Square(63 \string^ \_\_builtin\_clzll(b));}
+\DoxyCodeLine{368 \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#elif defined(\_MSC\_VER)  }\textcolor{comment}{// MSVC}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#ifdef \_WIN64  }\textcolor{comment}{// MSVC, WIN64}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374 \textcolor{keyword}{inline} Square lsb(Bitboard b) \{}
+\DoxyCodeLine{375   assert(b);}
+\DoxyCodeLine{376   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} idx;}
+\DoxyCodeLine{377   \_BitScanForward64(\&idx, b);}
+\DoxyCodeLine{378   \textcolor{keywordflow}{return} (Square) idx;}
+\DoxyCodeLine{379 \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 \textcolor{keyword}{inline} Square msb(Bitboard b) \{}
+\DoxyCodeLine{382   assert(b);}
+\DoxyCodeLine{383   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} idx;}
+\DoxyCodeLine{384   \_BitScanReverse64(\&idx, b);}
+\DoxyCodeLine{385   \textcolor{keywordflow}{return} (Square) idx;}
+\DoxyCodeLine{386 \}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// MSVC, WIN32}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390 \textcolor{keyword}{inline} Square lsb(Bitboard b) \{}
+\DoxyCodeLine{391   assert(b);}
+\DoxyCodeLine{392   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} idx;}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394   \textcolor{keywordflow}{if} (b \& 0xffffffff) \{}
+\DoxyCodeLine{395       \_BitScanForward(\&idx, int32\_t(b));}
+\DoxyCodeLine{396       \textcolor{keywordflow}{return} Square(idx);}
+\DoxyCodeLine{397   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{398       \_BitScanForward(\&idx, int32\_t(b >> 32));}
+\DoxyCodeLine{399       \textcolor{keywordflow}{return} Square(idx + 32);}
+\DoxyCodeLine{400   \}}
+\DoxyCodeLine{401 \}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403 \textcolor{keyword}{inline} Square msb(Bitboard b) \{}
+\DoxyCodeLine{404   assert(b);}
+\DoxyCodeLine{405   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} idx;}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407   \textcolor{keywordflow}{if} (b >> 32) \{}
+\DoxyCodeLine{408       \_BitScanReverse(\&idx, int32\_t(b >> 32));}
+\DoxyCodeLine{409       \textcolor{keywordflow}{return} Square(idx + 32);}
+\DoxyCodeLine{410   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{411       \_BitScanReverse(\&idx, int32\_t(b));}
+\DoxyCodeLine{412       \textcolor{keywordflow}{return} Square(idx);}
+\DoxyCodeLine{413   \}}
+\DoxyCodeLine{414 \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// Compiler is neither GCC nor MSVC compatible}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#error "{}Compiler not supported."{}}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427 \textcolor{keyword}{inline} Bitboard \mbox{\hyperlink{namespace_stockfish_aa269e1ce4c772847cf4dc9c28e5a530c}{least\_significant\_square\_bb}}(Bitboard b) \{}
+\DoxyCodeLine{428   assert(b);}
+\DoxyCodeLine{429   \textcolor{keywordflow}{return} b \& -\/b;}
+\DoxyCodeLine{430 \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434 \textcolor{keyword}{inline} Square \mbox{\hyperlink{namespace_stockfish_affc473913ad842a71ac8bb358e4bb345}{pop\_lsb}}(Bitboard\& b) \{}
+\DoxyCodeLine{435   assert(b);}
+\DoxyCodeLine{436   \textcolor{keyword}{const} Square s = lsb(b);}
+\DoxyCodeLine{437   b \&= b -\/ 1;}
+\DoxyCodeLine{438   \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{439 \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 }
+\DoxyCodeLine{444 \textcolor{keyword}{inline} Square \mbox{\hyperlink{namespace_stockfish_a97ca5c270ef98731fd9c8ac2fe1bfe88}{frontmost\_sq}}(Color c, Bitboard b) \{}
+\DoxyCodeLine{445   assert(b);}
+\DoxyCodeLine{446   \textcolor{keywordflow}{return} c == WHITE ? msb(b) : lsb(b);}
+\DoxyCodeLine{447 \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef BITBOARD\_H\_INCLUDED}}
+
+\end{DoxyCode}

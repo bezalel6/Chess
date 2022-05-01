@@ -1,0 +1,142 @@
+\hypertarget{struct_stockfish_1_1_search_1_1_stack}{}\doxysection{Stack}
+\label{struct_stockfish_1_1_search_1_1_stack}\index{Stack@{Stack}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a42c5351c7b5574a8b547c0c452429304}\label{struct_stockfish_1_1_search_1_1_stack_a42c5351c7b5574a8b547c0c452429304}} 
+\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} $\ast$ {\bfseries pv}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a2cae578a4965e17d24af0e3927290274}\label{struct_stockfish_1_1_search_1_1_stack_a2cae578a4965e17d24af0e3927290274}} 
+\mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{Piece\+To\+History}} $\ast$ {\bfseries continuation\+History}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a36744b98d746334b1d848e6813190cd7}\label{struct_stockfish_1_1_search_1_1_stack_a36744b98d746334b1d848e6813190cd7}} 
+int {\bfseries ply}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a5893e73376e8ec83f634c1f2e3f129e6}\label{struct_stockfish_1_1_search_1_1_stack_a5893e73376e8ec83f634c1f2e3f129e6}} 
+\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries current\+Move}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a58eb2ff486bf58837f4777ccfc123377}\label{struct_stockfish_1_1_search_1_1_stack_a58eb2ff486bf58837f4777ccfc123377}} 
+\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries excluded\+Move}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a8bcd8315a79e85de172f2e811608019e}\label{struct_stockfish_1_1_search_1_1_stack_a8bcd8315a79e85de172f2e811608019e}} 
+\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} {\bfseries killers} \mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a885ce118682ce65802b3dd883be5f531}\label{struct_stockfish_1_1_search_1_1_stack_a885ce118682ce65802b3dd883be5f531}} 
+Value {\bfseries static\+Eval}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_adf0461c0ea61cbd8f24beea950da4231}\label{struct_stockfish_1_1_search_1_1_stack_adf0461c0ea61cbd8f24beea950da4231}} 
+Depth {\bfseries depth}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a5f1ca3fbb7505dd86f112e637867a963}\label{struct_stockfish_1_1_search_1_1_stack_a5f1ca3fbb7505dd86f112e637867a963}} 
+int {\bfseries stat\+Score}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_aacaef98ccce748a5e200040cfcaa7c42}\label{struct_stockfish_1_1_search_1_1_stack_aacaef98ccce748a5e200040cfcaa7c42}} 
+int {\bfseries move\+Count}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a2dbd9532d3ddc7590494462ec2870041}\label{struct_stockfish_1_1_search_1_1_stack_a2dbd9532d3ddc7590494462ec2870041}} 
+bool {\bfseries in\+Check}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a8f79bfaefbac93dcb411622a40d47d77}\label{struct_stockfish_1_1_search_1_1_stack_a8f79bfaefbac93dcb411622a40d47d77}} 
+bool {\bfseries tt\+Pv}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a47375deee42404c4ab620fdd1df84025}\label{struct_stockfish_1_1_search_1_1_stack_a47375deee42404c4ab620fdd1df84025}} 
+bool {\bfseries tt\+Hit}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a15e03a67b34d39d13c54ceb02c444bab}\label{struct_stockfish_1_1_search_1_1_stack_a15e03a67b34d39d13c54ceb02c444bab}} 
+int {\bfseries double\+Extensions}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_stack}{Stack}} struct keeps track of the information we need to remember from nodes shallower and deeper in the tree during the search. Each search thread has its own array of \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_stack}{Stack}} objects, indexed by the current ply. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a42c5351c7b5574a8b547c0c452429304}\label{struct_stockfish_1_1_search_1_1_stack_a42c5351c7b5574a8b547c0c452429304}} 
+\index{Stack@{Stack}!pv@{pv}}
+\index{pv@{pv}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{pv}{pv}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}$\ast$ pv}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a2cae578a4965e17d24af0e3927290274}\label{struct_stockfish_1_1_search_1_1_stack_a2cae578a4965e17d24af0e3927290274}} 
+\index{Stack@{Stack}!continuationHistory@{continuationHistory}}
+\index{continuationHistory@{continuationHistory}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{continuationHistory}{continuationHistory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{Piece\+To\+History}}$\ast$ continuation\+History}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a36744b98d746334b1d848e6813190cd7}\label{struct_stockfish_1_1_search_1_1_stack_a36744b98d746334b1d848e6813190cd7}} 
+\index{Stack@{Stack}!ply@{ply}}
+\index{ply@{ply}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{ply}{ply}}
+{\footnotesize\ttfamily int ply}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a5893e73376e8ec83f634c1f2e3f129e6}\label{struct_stockfish_1_1_search_1_1_stack_a5893e73376e8ec83f634c1f2e3f129e6}} 
+\index{Stack@{Stack}!currentMove@{currentMove}}
+\index{currentMove@{currentMove}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{currentMove}{currentMove}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} current\+Move}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a58eb2ff486bf58837f4777ccfc123377}\label{struct_stockfish_1_1_search_1_1_stack_a58eb2ff486bf58837f4777ccfc123377}} 
+\index{Stack@{Stack}!excludedMove@{excludedMove}}
+\index{excludedMove@{excludedMove}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{excludedMove}{excludedMove}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} excluded\+Move}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a8bcd8315a79e85de172f2e811608019e}\label{struct_stockfish_1_1_search_1_1_stack_a8bcd8315a79e85de172f2e811608019e}} 
+\index{Stack@{Stack}!killers@{killers}}
+\index{killers@{killers}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{killers}{killers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} killers\mbox{[}2\mbox{]}}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a885ce118682ce65802b3dd883be5f531}\label{struct_stockfish_1_1_search_1_1_stack_a885ce118682ce65802b3dd883be5f531}} 
+\index{Stack@{Stack}!staticEval@{staticEval}}
+\index{staticEval@{staticEval}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{staticEval}{staticEval}}
+{\footnotesize\ttfamily Value static\+Eval}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_adf0461c0ea61cbd8f24beea950da4231}\label{struct_stockfish_1_1_search_1_1_stack_adf0461c0ea61cbd8f24beea950da4231}} 
+\index{Stack@{Stack}!depth@{depth}}
+\index{depth@{depth}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{depth}{depth}}
+{\footnotesize\ttfamily Depth depth}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a5f1ca3fbb7505dd86f112e637867a963}\label{struct_stockfish_1_1_search_1_1_stack_a5f1ca3fbb7505dd86f112e637867a963}} 
+\index{Stack@{Stack}!statScore@{statScore}}
+\index{statScore@{statScore}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{statScore}{statScore}}
+{\footnotesize\ttfamily int stat\+Score}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_aacaef98ccce748a5e200040cfcaa7c42}\label{struct_stockfish_1_1_search_1_1_stack_aacaef98ccce748a5e200040cfcaa7c42}} 
+\index{Stack@{Stack}!moveCount@{moveCount}}
+\index{moveCount@{moveCount}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{moveCount}{moveCount}}
+{\footnotesize\ttfamily int move\+Count}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a2dbd9532d3ddc7590494462ec2870041}\label{struct_stockfish_1_1_search_1_1_stack_a2dbd9532d3ddc7590494462ec2870041}} 
+\index{Stack@{Stack}!inCheck@{inCheck}}
+\index{inCheck@{inCheck}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{inCheck}{inCheck}}
+{\footnotesize\ttfamily bool in\+Check}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a8f79bfaefbac93dcb411622a40d47d77}\label{struct_stockfish_1_1_search_1_1_stack_a8f79bfaefbac93dcb411622a40d47d77}} 
+\index{Stack@{Stack}!ttPv@{ttPv}}
+\index{ttPv@{ttPv}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{ttPv}{ttPv}}
+{\footnotesize\ttfamily bool tt\+Pv}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a47375deee42404c4ab620fdd1df84025}\label{struct_stockfish_1_1_search_1_1_stack_a47375deee42404c4ab620fdd1df84025}} 
+\index{Stack@{Stack}!ttHit@{ttHit}}
+\index{ttHit@{ttHit}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{ttHit}{ttHit}}
+{\footnotesize\ttfamily bool tt\+Hit}
+
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_stack_a15e03a67b34d39d13c54ceb02c444bab}\label{struct_stockfish_1_1_search_1_1_stack_a15e03a67b34d39d13c54ceb02c444bab}} 
+\index{Stack@{Stack}!doubleExtensions@{doubleExtensions}}
+\index{doubleExtensions@{doubleExtensions}!Stack@{Stack}}
+\doxysubsubsection{\texorpdfstring{doubleExtensions}{doubleExtensions}}
+{\footnotesize\ttfamily int double\+Extensions}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/search.\+h\end{DoxyCompactItemize}

@@ -6,7 +6,6 @@ import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
@@ -212,7 +211,8 @@ public class DB {
      */
     public static void main(String[] args) {
         try {
-            System.out.println(request(PreMadeRequest.Games.createBuilder().build("bezalel6", new Date(0), new Date())));
+//            clearGames();
+//            System.out.println(request(PreMadeRequest.Games.createBuilder().build("bezalel6", new Date(0), new Date())));
 //            createRndGames(30);
 //            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
 //            addUser("testing", "123456");
@@ -237,6 +237,14 @@ public class DB {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Clear games.
+     */
+    public static void clearGames() {
+        runUpdate("DELETE FROM " + Table.UnfinishedGames.name());
+        runUpdate("DELETE FROM " + Table.Games.name());
     }
 
     /**
@@ -272,14 +280,6 @@ public class DB {
         }}.toArray();
         assert vals.length == table.cols.length;
         runUpdate("INSERT INTO %s\nVALUES %s".formatted(table.tableAndValues(), Table.escapeValues(vals, true, true)));
-    }
-
-    /**
-     * Clear games.
-     */
-    public static void clearGames() {
-        runUpdate("DELETE FROM " + Table.UnfinishedGames.name());
-        runUpdate("DELETE FROM " + Table.Games.name());
     }
 
     /**

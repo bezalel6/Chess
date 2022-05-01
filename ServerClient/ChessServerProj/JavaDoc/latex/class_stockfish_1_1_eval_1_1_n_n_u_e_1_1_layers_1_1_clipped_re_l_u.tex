@@ -1,0 +1,70 @@
+\hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u}{}\doxysection{Clipped\+Re\+LU\texorpdfstring{$<$}{<} Previous\+Layer \texorpdfstring{$>$}{>}}
+\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u}\index{ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a72d2dc1a57b5a5756359a167455699db}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a72d2dc1a57b5a5756359a167455699db}} 
+using {\bfseries Input\+Type} = typename Previous\+Layer\+::\+Output\+Type
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_adb10b3d855916fd4bd5c807a83d5b55c}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_adb10b3d855916fd4bd5c807a83d5b55c}} 
+using {\bfseries Output\+Type} = std\+::uint8\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a675752eff98c800183ceb53011110a54}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a675752eff98c800183ceb53011110a54}} 
+static constexpr Index\+Type {\bfseries Input\+Dimensions} = Previous\+Layer\+::\+Output\+Dimensions
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a477162597759d6cbca5b0f2b3c058959}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a477162597759d6cbca5b0f2b3c058959}} 
+static constexpr Index\+Type {\bfseries Output\+Dimensions} = Input\+Dimensions
+\item 
+static constexpr Index\+Type \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_ae75b6bdcef4ccac0152ae87fe2524ed1}{Padded\+Output\+Dimensions}}
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a2ed59122e2d60d9f5cb46d37915581f1}{Self\+Buffer\+Size}}
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a1fc8c21d75be32484c9f19c043a309ef}{Buffer\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_ae75b6bdcef4ccac0152ae87fe2524ed1}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_ae75b6bdcef4ccac0152ae87fe2524ed1}} 
+\index{ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}!PaddedOutputDimensions@{PaddedOutputDimensions}}
+\index{PaddedOutputDimensions@{PaddedOutputDimensions}!ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}}
+\doxysubsubsection{\texorpdfstring{PaddedOutputDimensions}{PaddedOutputDimensions}}
+{\footnotesize\ttfamily constexpr Index\+Type Padded\+Output\+Dimensions\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        ceil\_to\_multiple<IndexType>(OutputDimensions, 32)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a2ed59122e2d60d9f5cb46d37915581f1}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a2ed59122e2d60d9f5cb46d37915581f1}} 
+\index{ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}!SelfBufferSize@{SelfBufferSize}}
+\index{SelfBufferSize@{SelfBufferSize}!ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}}
+\doxysubsubsection{\texorpdfstring{SelfBufferSize}{SelfBufferSize}}
+{\footnotesize\ttfamily constexpr std\+::size\+\_\+t Self\+Buffer\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        ceil\_to\_multiple(OutputDimensions * \textcolor{keyword}{sizeof}(OutputType), CacheLineSize)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a1fc8c21d75be32484c9f19c043a309ef}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u_a1fc8c21d75be32484c9f19c043a309ef}} 
+\index{ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}!BufferSize@{BufferSize}}
+\index{BufferSize@{BufferSize}!ClippedReLU$<$ PreviousLayer $>$@{ClippedReLU$<$ PreviousLayer $>$}}
+\doxysubsubsection{\texorpdfstring{BufferSize}{BufferSize}}
+{\footnotesize\ttfamily constexpr std\+::size\+\_\+t Buffer\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        PreviousLayer::BufferSize + SelfBufferSize}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/nnue/layers/clipped\+\_\+relu.\+h\end{DoxyCompactItemize}

@@ -269,10 +269,10 @@ public class BoardButton extends MyJButton {
 
     public synchronized void scaleIcon() {
         if (getIcon() == null || ogQualityIcon == null) return;
-        if (getIcon().getIconWidth() == getIconWidth() && getIcon().getIconHeight() == getIconHeight()) {
-            setDisabledIcon(getIcon());
-            return;
-        }
+//        if (getIcon().getIconWidth() == getIconWidth() && getIcon().getIconHeight() == getIconHeight()) {
+//            setDisabledIcon(getIcon());
+//            return;
+//        }
         ImageIcon newIcon = IconManager.copyImage(ogQualityIcon);
         newIcon = IconManager.scaleImage(newIcon, getIconSize());
         super.setIcon(newIcon);

@@ -1,25 +1,26 @@
 package ver14.view.Dialog.Dialogs.LoginProcess.Components.Register;
 
-import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.Login.LoginInfo;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.LoginProcess.Components.Login.PasswordPnl;
 
+import java.util.function.Supplier;
+
 public class ConfirmPasswordPnl extends PasswordPnl {
-    private ObjCallback<String> matchWith;
+    private Supplier<String> matchWith;
     private String noMatchErr;
 
-    public ConfirmPasswordPnl(LoginInfo loginInfo, ObjCallback<String> matchWith, Parent parent) {
+    public ConfirmPasswordPnl(LoginInfo loginInfo, Supplier<String> matchWith, Parent parent) {
         this("Confirm Password", loginInfo, matchWith, parent);
     }
 
-    public ConfirmPasswordPnl(String dialogLabel, LoginInfo loginInfo, ObjCallback<String> matchWith, Parent parent) {
+    public ConfirmPasswordPnl(String dialogLabel, LoginInfo loginInfo, Supplier<String> matchWith, Parent parent) {
         super(dialogLabel, false, loginInfo, parent);
         this.matchWith = matchWith;
         this.noMatchErr = "Password and Confirm Password must match";
     }
 
-    public void setMatchWith(ObjCallback<String> matchWith, String noMatchErr) {
+    public void setMatchWith(Supplier<String> matchWith, String noMatchErr) {
         this.matchWith = matchWith;
         this.noMatchErr = noMatchErr;
     }

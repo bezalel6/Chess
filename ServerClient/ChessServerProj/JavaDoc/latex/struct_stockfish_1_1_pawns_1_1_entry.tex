@@ -1,0 +1,56 @@
+\hypertarget{struct_stockfish_1_1_pawns_1_1_entry}{}\doxysection{Entry}
+\label{struct_stockfish_1_1_pawns_1_1_entry}\index{Entry@{Entry}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a96313403719d705d2df812e3ba166772}\label{struct_stockfish_1_1_pawns_1_1_entry_a96313403719d705d2df812e3ba166772}} 
+Key {\bfseries key}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a8ce08a61adb628b6432ed282f6e38f0b}\label{struct_stockfish_1_1_pawns_1_1_entry_a8ce08a61adb628b6432ed282f6e38f0b}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries scores} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a5bf7cf4a50c96c515ed3a2bc08240b6e}\label{struct_stockfish_1_1_pawns_1_1_entry_a5bf7cf4a50c96c515ed3a2bc08240b6e}} 
+Bitboard {\bfseries passed\+Pawns} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a91c587014450c2112c9d79b9cd2833b6}\label{struct_stockfish_1_1_pawns_1_1_entry_a91c587014450c2112c9d79b9cd2833b6}} 
+Bitboard {\bfseries pawn\+Attacks} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a7ce5924d27287432cc7fc9c4cf067e29}\label{struct_stockfish_1_1_pawns_1_1_entry_a7ce5924d27287432cc7fc9c4cf067e29}} 
+Bitboard {\bfseries pawn\+Attacks\+Span} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a1587befd123fb168e6473f6c5a3d316d}\label{struct_stockfish_1_1_pawns_1_1_entry_a1587befd123fb168e6473f6c5a3d316d}} 
+Square {\bfseries king\+Squares} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_acda9a054f57fb8566140375ae81c4368}\label{struct_stockfish_1_1_pawns_1_1_entry_acda9a054f57fb8566140375ae81c4368}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries king\+Safety} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_aa9695d90b9d8416e9a3ef65320179b04}\label{struct_stockfish_1_1_pawns_1_1_entry_aa9695d90b9d8416e9a3ef65320179b04}} 
+int {\bfseries castling\+Rights} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a2e49cd5caab1c4efd05523f61184acac}\label{struct_stockfish_1_1_pawns_1_1_entry_a2e49cd5caab1c4efd05523f61184acac}} 
+int {\bfseries blocked\+Count}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry}{Pawns\+::\+Entry}} contains various information about a pawn structure. A lookup to the pawn hash table (performed by calling the probe function) returns a pointer to an \mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry}{Entry}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_a0b047c7ea424bed0fa4717b87c0b8a03}\label{struct_stockfish_1_1_pawns_1_1_entry_a0b047c7ea424bed0fa4717b87c0b8a03}} 
+\index{Entry@{Entry}!do\_king\_safety@{do\_king\_safety}}
+\index{do\_king\_safety@{do\_king\_safety}!Entry@{Entry}}
+\doxysubsubsection{\texorpdfstring{do\_king\_safety()}{do\_king\_safety()}}
+{\footnotesize\ttfamily template \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} do\+\_\+king\+\_\+safety$<$ BLACK $>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry_a0b047c7ea424bed0fa4717b87c0b8a03}{Entry\+::do\+\_\+king\+\_\+safety()}} calculates a bonus for king safety. It is called only when king square changes, which is about 20\% of total king\+\_\+safety() calls. \mbox{\Hypertarget{struct_stockfish_1_1_pawns_1_1_entry_ab6c1a690507985c9b86bd90cfd4455d6}\label{struct_stockfish_1_1_pawns_1_1_entry_ab6c1a690507985c9b86bd90cfd4455d6}} 
+\index{Entry@{Entry}!evaluate\_shelter@{evaluate\_shelter}}
+\index{evaluate\_shelter@{evaluate\_shelter}!Entry@{Entry}}
+\doxysubsubsection{\texorpdfstring{evaluate\_shelter()}{evaluate\_shelter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} evaluate\+\_\+shelter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos,  }\item[{Square}]{ksq }\end{DoxyParamCaption}) const}
+
+\mbox{\hyperlink{struct_stockfish_1_1_pawns_1_1_entry_ab6c1a690507985c9b86bd90cfd4455d6}{Entry\+::evaluate\+\_\+shelter()}} calculates the shelter bonus and the storm penalty for a king, looking at the king file and the two closest files. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/pawns.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/pawns.\+cpp\end{DoxyCompactItemize}

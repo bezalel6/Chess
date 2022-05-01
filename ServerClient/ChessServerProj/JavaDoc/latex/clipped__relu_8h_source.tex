@@ -1,0 +1,207 @@
+\hypertarget{clipped__relu_8h_source}{}\doxysection{clipped\+\_\+relu.\+h}
+\label{clipped__relu_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/clipped\_relu.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/clipped\_relu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Definition of layer ClippedReLU of NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_LAYERS\_CLIPPED\_RELU\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_LAYERS\_CLIPPED\_RELU\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../nnue\_common.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE::Layers \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{comment}{// Clipped ReLU}}
+\DoxyCodeLine{29   \textcolor{keyword}{template} <\textcolor{keyword}{typename} PreviousLayer>}
+\DoxyCodeLine{30   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u}{ClippedReLU}} \{}
+\DoxyCodeLine{31    \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \textcolor{comment}{// Input/output type}}
+\DoxyCodeLine{33     \textcolor{keyword}{using} InputType = \textcolor{keyword}{typename} PreviousLayer::OutputType;}
+\DoxyCodeLine{34     \textcolor{keyword}{using} OutputType = std::uint8\_t;}
+\DoxyCodeLine{35     \textcolor{keyword}{static\_assert}(std::is\_same<InputType, std::int32\_t>::value, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// Number of input/output dimensions}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType InputDimensions = PreviousLayer::OutputDimensions;}
+\DoxyCodeLine{39     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType OutputDimensions = InputDimensions;}
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType PaddedOutputDimensions =}
+\DoxyCodeLine{41         ceil\_to\_multiple<IndexType>(OutputDimensions, 32);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Size of forward propagation buffer used in this layer}}
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t SelfBufferSize =}
+\DoxyCodeLine{45         ceil\_to\_multiple(OutputDimensions * \textcolor{keyword}{sizeof}(OutputType), CacheLineSize);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Size of the forward propagation buffer used from the input layer to this layer}}
+\DoxyCodeLine{48     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t BufferSize =}
+\DoxyCodeLine{49         PreviousLayer::BufferSize + SelfBufferSize;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{52     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t get\_hash\_value() \{}
+\DoxyCodeLine{53       std::uint32\_t hashValue = 0x538D24C7u;}
+\DoxyCodeLine{54       hashValue += PreviousLayer::get\_hash\_value();}
+\DoxyCodeLine{55       \textcolor{keywordflow}{return} hashValue;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// Read network parameters}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{bool} read\_parameters(std::istream\& stream) \{}
+\DoxyCodeLine{60       \textcolor{keywordflow}{return} previousLayer.read\_parameters(stream);}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// Write network parameters}}
+\DoxyCodeLine{64     \textcolor{keywordtype}{bool} write\_parameters(std::ostream\& stream)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{65       \textcolor{keywordflow}{return} previousLayer.write\_parameters(stream);}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{comment}{// Forward propagation}}
+\DoxyCodeLine{69     \textcolor{keyword}{const} OutputType* propagate(}
+\DoxyCodeLine{70         \textcolor{keyword}{const} TransformedFeatureType* transformedFeatures, \textcolor{keywordtype}{char}* buffer)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{71       \textcolor{keyword}{const} \textcolor{keyword}{auto} input = previousLayer.propagate(}
+\DoxyCodeLine{72           transformedFeatures, buffer + SelfBufferSize);}
+\DoxyCodeLine{73       \textcolor{keyword}{const} \textcolor{keyword}{auto} output = \textcolor{keyword}{reinterpret\_cast<}OutputType*\textcolor{keyword}{>}(buffer);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{  \#if defined(USE\_AVX2)}}
+\DoxyCodeLine{76       \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr} (InputDimensions \% SimdWidth == 0) \{}
+\DoxyCodeLine{77         \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / SimdWidth;}
+\DoxyCodeLine{78         \textcolor{keyword}{const} \_\_m256i Zero = \_mm256\_setzero\_si256();}
+\DoxyCodeLine{79         \textcolor{keyword}{const} \_\_m256i Offsets = \_mm256\_set\_epi32(7, 3, 6, 2, 5, 1, 4, 0);}
+\DoxyCodeLine{80         \textcolor{keyword}{const} \textcolor{keyword}{auto} in = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m256i*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{81         \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m256i*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{82         \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; ++i) \{}
+\DoxyCodeLine{83           \textcolor{keyword}{const} \_\_m256i words0 = \_mm256\_srai\_epi16(\_mm256\_packs\_epi32(}
+\DoxyCodeLine{84               \_mm256\_load\_si256(\&in[i * 4 + 0]),}
+\DoxyCodeLine{85               \_mm256\_load\_si256(\&in[i * 4 + 1])), WeightScaleBits);}
+\DoxyCodeLine{86           \textcolor{keyword}{const} \_\_m256i words1 = \_mm256\_srai\_epi16(\_mm256\_packs\_epi32(}
+\DoxyCodeLine{87               \_mm256\_load\_si256(\&in[i * 4 + 2]),}
+\DoxyCodeLine{88               \_mm256\_load\_si256(\&in[i * 4 + 3])), WeightScaleBits);}
+\DoxyCodeLine{89           \_mm256\_store\_si256(\&out[i], \_mm256\_permutevar8x32\_epi32(\_mm256\_max\_epi8(}
+\DoxyCodeLine{90               \_mm256\_packs\_epi16(words0, words1), Zero), Offsets));}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{93         \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / (SimdWidth / 2);}
+\DoxyCodeLine{94         \textcolor{keyword}{const} \_\_m128i Zero = \_mm\_setzero\_si128();}
+\DoxyCodeLine{95         \textcolor{keyword}{const} \textcolor{keyword}{auto} in = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{96         \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m128i*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{97         \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; ++i) \{}
+\DoxyCodeLine{98           \textcolor{keyword}{const} \_\_m128i words0 = \_mm\_srai\_epi16(\_mm\_packs\_epi32(}
+\DoxyCodeLine{99               \_mm\_load\_si128(\&in[i * 4 + 0]),}
+\DoxyCodeLine{100               \_mm\_load\_si128(\&in[i * 4 + 1])), WeightScaleBits);}
+\DoxyCodeLine{101           \textcolor{keyword}{const} \_\_m128i words1 = \_mm\_srai\_epi16(\_mm\_packs\_epi32(}
+\DoxyCodeLine{102               \_mm\_load\_si128(\&in[i * 4 + 2]),}
+\DoxyCodeLine{103               \_mm\_load\_si128(\&in[i * 4 + 3])), WeightScaleBits);}
+\DoxyCodeLine{104           \textcolor{keyword}{const} \_\_m128i packedbytes = \_mm\_packs\_epi16(words0, words1);}
+\DoxyCodeLine{105           \_mm\_store\_si128(\&out[i], \_mm\_max\_epi8(packedbytes, Zero));}
+\DoxyCodeLine{106         \}}
+\DoxyCodeLine{107       \}}
+\DoxyCodeLine{108       \textcolor{keyword}{constexpr} IndexType Start =}
+\DoxyCodeLine{109         InputDimensions \% SimdWidth == 0}
+\DoxyCodeLine{110         ? InputDimensions / SimdWidth * SimdWidth}
+\DoxyCodeLine{111         : InputDimensions / (SimdWidth / 2) * (SimdWidth / 2);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{  \#elif defined(USE\_SSE2)}}
+\DoxyCodeLine{114       \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / SimdWidth;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{  \#ifdef USE\_SSE41}}
+\DoxyCodeLine{117       \textcolor{keyword}{const} \_\_m128i Zero = \_mm\_setzero\_si128();}
+\DoxyCodeLine{118 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{119       \textcolor{keyword}{const} \_\_m128i k0x80s = \_mm\_set1\_epi8(-\/128);}
+\DoxyCodeLine{120 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122       \textcolor{keyword}{const} \textcolor{keyword}{auto} in = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{123       \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m128i*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{124       \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; ++i) \{}
+\DoxyCodeLine{125         \textcolor{keyword}{const} \_\_m128i words0 = \_mm\_srai\_epi16(\_mm\_packs\_epi32(}
+\DoxyCodeLine{126             \_mm\_load\_si128(\&in[i * 4 + 0]),}
+\DoxyCodeLine{127             \_mm\_load\_si128(\&in[i * 4 + 1])), WeightScaleBits);}
+\DoxyCodeLine{128         \textcolor{keyword}{const} \_\_m128i words1 = \_mm\_srai\_epi16(\_mm\_packs\_epi32(}
+\DoxyCodeLine{129             \_mm\_load\_si128(\&in[i * 4 + 2]),}
+\DoxyCodeLine{130             \_mm\_load\_si128(\&in[i * 4 + 3])), WeightScaleBits);}
+\DoxyCodeLine{131         \textcolor{keyword}{const} \_\_m128i packedbytes = \_mm\_packs\_epi16(words0, words1);}
+\DoxyCodeLine{132         \_mm\_store\_si128(\&out[i],}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134   \#ifdef USE\_SSE41}
+\DoxyCodeLine{135           \_mm\_max\_epi8(packedbytes, Zero)}
+\DoxyCodeLine{136   \#\textcolor{keywordflow}{else}}
+\DoxyCodeLine{137           \_mm\_subs\_epi8(\_mm\_adds\_epi8(packedbytes, k0x80s), k0x80s)}
+\DoxyCodeLine{138   \#endif}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140         );}
+\DoxyCodeLine{141       \}}
+\DoxyCodeLine{142       \textcolor{keyword}{constexpr} IndexType Start = NumChunks * SimdWidth;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{  \#elif defined(USE\_MMX)}}
+\DoxyCodeLine{145       \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / SimdWidth;}
+\DoxyCodeLine{146       \textcolor{keyword}{const} \_\_m64 k0x80s = \_mm\_set1\_pi8(-\/128);}
+\DoxyCodeLine{147       \textcolor{keyword}{const} \textcolor{keyword}{auto} in = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m64*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{148       \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}\_\_m64*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{149       \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; ++i) \{}
+\DoxyCodeLine{150         \textcolor{keyword}{const} \_\_m64 words0 = \_mm\_srai\_pi16(}
+\DoxyCodeLine{151             \_mm\_packs\_pi32(in[i * 4 + 0], in[i * 4 + 1]),}
+\DoxyCodeLine{152             WeightScaleBits);}
+\DoxyCodeLine{153         \textcolor{keyword}{const} \_\_m64 words1 = \_mm\_srai\_pi16(}
+\DoxyCodeLine{154             \_mm\_packs\_pi32(in[i * 4 + 2], in[i * 4 + 3]),}
+\DoxyCodeLine{155             WeightScaleBits);}
+\DoxyCodeLine{156         \textcolor{keyword}{const} \_\_m64 packedbytes = \_mm\_packs\_pi16(words0, words1);}
+\DoxyCodeLine{157         out[i] = \_mm\_subs\_pi8(\_mm\_adds\_pi8(packedbytes, k0x80s), k0x80s);}
+\DoxyCodeLine{158       \}}
+\DoxyCodeLine{159       \_mm\_empty();}
+\DoxyCodeLine{160       \textcolor{keyword}{constexpr} IndexType Start = NumChunks * SimdWidth;}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{  \#elif defined(USE\_NEON)}}
+\DoxyCodeLine{163       \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / (SimdWidth / 2);}
+\DoxyCodeLine{164       \textcolor{keyword}{const} int8x8\_t Zero = \{0\};}
+\DoxyCodeLine{165       \textcolor{keyword}{const} \textcolor{keyword}{auto} in = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }int32x4\_t*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{166       \textcolor{keyword}{const} \textcolor{keyword}{auto} out = \textcolor{keyword}{reinterpret\_cast<}int8x8\_t*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{167       \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; ++i) \{}
+\DoxyCodeLine{168         int16x8\_t shifted;}
+\DoxyCodeLine{169         \textcolor{keyword}{const} \textcolor{keyword}{auto} pack = \textcolor{keyword}{reinterpret\_cast<}int16x4\_t*\textcolor{keyword}{>}(\&shifted);}
+\DoxyCodeLine{170         pack[0] = vqshrn\_n\_s32(in[i * 2 + 0], WeightScaleBits);}
+\DoxyCodeLine{171         pack[1] = vqshrn\_n\_s32(in[i * 2 + 1], WeightScaleBits);}
+\DoxyCodeLine{172         out[i] = vmax\_s8(vqmovn\_s16(shifted), Zero);}
+\DoxyCodeLine{173       \}}
+\DoxyCodeLine{174       \textcolor{keyword}{constexpr} IndexType Start = NumChunks * (SimdWidth / 2);}
+\DoxyCodeLine{175 \textcolor{preprocessor}{  \#else}}
+\DoxyCodeLine{176       \textcolor{keyword}{constexpr} IndexType Start = 0;}
+\DoxyCodeLine{177 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179       \textcolor{keywordflow}{for} (IndexType i = Start; i < InputDimensions; ++i) \{}
+\DoxyCodeLine{180         output[i] = \textcolor{keyword}{static\_cast<}OutputType\textcolor{keyword}{>}(}
+\DoxyCodeLine{181             std::max(0, std::min(127, input[i] >> WeightScaleBits)));}
+\DoxyCodeLine{182       \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184       \textcolor{comment}{// Affine transform layers expect that there is at least}}
+\DoxyCodeLine{185       \textcolor{comment}{// ceil\_to\_multiple(OutputDimensions, 32) initialized values.}}
+\DoxyCodeLine{186       \textcolor{comment}{// We cannot do this in the affine transform because it requires}}
+\DoxyCodeLine{187       \textcolor{comment}{// preallocating space here.}}
+\DoxyCodeLine{188       \textcolor{keywordflow}{for} (IndexType i = OutputDimensions; i < PaddedOutputDimensions; ++i) \{}
+\DoxyCodeLine{189         output[i] = 0;}
+\DoxyCodeLine{190       \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192       \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195    \textcolor{keyword}{private}:}
+\DoxyCodeLine{196     PreviousLayer previousLayer;}
+\DoxyCodeLine{197   \};}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE::Layers}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// NNUE\_LAYERS\_CLIPPED\_RELU\_H\_INCLUDED}}
+
+\end{DoxyCode}

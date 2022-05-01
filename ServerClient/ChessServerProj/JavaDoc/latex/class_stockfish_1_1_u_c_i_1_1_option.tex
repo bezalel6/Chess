@@ -1,0 +1,39 @@
+\hypertarget{class_stockfish_1_1_u_c_i_1_1_option}{}\doxysection{Option}
+\label{class_stockfish_1_1_u_c_i_1_1_option}\index{Option@{Option}}
+
+
+\mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}} class implements an option as defined by UCI protocol.  
+
+
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a2c5190e33566118360be808938326306}{operator$<$$<$}} (std\+::ostream \&, const Options\+Map \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}} class implements an option as defined by UCI protocol. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_u_c_i_1_1_option_a1581d75ad4265bab21f9728af3d6482b}\label{class_stockfish_1_1_u_c_i_1_1_option_a1581d75ad4265bab21f9728af3d6482b}} 
+\index{Option@{Option}!operator=@{operator=}}
+\index{operator=@{operator=}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option}{Option}} \& operator= (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a1581d75ad4265bab21f9728af3d6482b}{operator=()}} updates current\+Value and triggers on\+\_\+change() action. It\textquotesingle{}s up to the GUI to check for option\textquotesingle{}s limits, but we could receive the new value from the user by console window, so let\textquotesingle{}s check the bounds anyway. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_u_c_i_1_1_option_a2c5190e33566118360be808938326306}\label{class_stockfish_1_1_u_c_i_1_1_option_a2c5190e33566118360be808938326306}} 
+\index{Option@{Option}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const Options\+Map \&}]{om }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\hyperlink{class_stockfish_1_1_u_c_i_1_1_option_a2d3f84c2ac72631d5e89ba75f8d4440c}{operator$<$$<$()}} is used to print all the options default values in chronological insertion order (the idx field) and in the format defined by the UCI protocol. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/uci.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/ucioption.\+cpp\end{DoxyCompactItemize}

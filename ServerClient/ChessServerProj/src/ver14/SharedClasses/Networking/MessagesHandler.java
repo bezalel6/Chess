@@ -142,7 +142,7 @@ public abstract class MessagesHandler {
             throw new MyError.DisconnectedError();
 
         if (msg.getMessageType() == MessageType.THROW_ERROR) {
-            onThrowError().onMsg(msg);
+            onThrowError().callback(msg);
         }
 
         return msg;
@@ -221,7 +221,7 @@ public abstract class MessagesHandler {
                 callback = defaultCallbacks.get(message.getMessageType());
             }
         }
-        callback.onMsg(message);
+        callback.callback(message);
     }
 
     /**
@@ -270,7 +270,7 @@ public abstract class MessagesHandler {
     protected void onPlannedDisconnect() {
         synchronized (customCallbacks) {
             customCallbacks.values().forEach(messageCallback -> {
-                messageCallback.onMsg(null);
+                messageCallback.callback(null);
             });
         }
     }
@@ -280,7 +280,7 @@ public abstract class MessagesHandler {
      */
     protected void onUnplannedDisconnect() {
         synchronized (customCallbacks) {
-            customCallbacks.values().forEach(messageCallback -> messageCallback.onMsg(Message.throwError(createDisconnectedError())));
+            customCallbacks.values().forEach(messageCallback -> messageCallback.callback(Message.throwError(createDisconnectedError())));
         }
     }
 

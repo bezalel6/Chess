@@ -1,0 +1,130 @@
+\hypertarget{half__ka__v2__hm_8h_source}{}\doxysection{half\+\_\+ka\+\_\+v2\+\_\+hm.\+h}
+\label{half__ka__v2__hm_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/features/half\_ka\_v2\_hm.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/features/half\_ka\_v2\_hm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{//Definition of input features HalfKP of NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_FEATURES\_HALF\_KA\_V2\_HM\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_FEATURES\_HALF\_KA\_V2\_HM\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../nnue\_common.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../../evaluate.h"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}../../misc.h"{}}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{30   \textcolor{keyword}{struct }StateInfo;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE::Features \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{comment}{// Feature HalfKAv2\_hm: Combination of the position of own king}}
+\DoxyCodeLine{36   \textcolor{comment}{// and the position of pieces. Position mirrored such that king always on e..h files.}}
+\DoxyCodeLine{37   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm}{HalfKAv2\_hm}} \{}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// unique number for each piece type on each square}}
+\DoxyCodeLine{40     \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{41       PS\_NONE     =  0,}
+\DoxyCodeLine{42       PS\_W\_PAWN   =  0,}
+\DoxyCodeLine{43       PS\_B\_PAWN   =  1 * SQUARE\_NB,}
+\DoxyCodeLine{44       PS\_W\_KNIGHT =  2 * SQUARE\_NB,}
+\DoxyCodeLine{45       PS\_B\_KNIGHT =  3 * SQUARE\_NB,}
+\DoxyCodeLine{46       PS\_W\_BISHOP =  4 * SQUARE\_NB,}
+\DoxyCodeLine{47       PS\_B\_BISHOP =  5 * SQUARE\_NB,}
+\DoxyCodeLine{48       PS\_W\_ROOK   =  6 * SQUARE\_NB,}
+\DoxyCodeLine{49       PS\_B\_ROOK   =  7 * SQUARE\_NB,}
+\DoxyCodeLine{50       PS\_W\_QUEEN  =  8 * SQUARE\_NB,}
+\DoxyCodeLine{51       PS\_B\_QUEEN  =  9 * SQUARE\_NB,}
+\DoxyCodeLine{52       PS\_KING     =  10 * SQUARE\_NB,}
+\DoxyCodeLine{53       PS\_NB       =  11 * SQUARE\_NB}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType PieceSquareIndex[COLOR\_NB][PIECE\_NB] = \{}
+\DoxyCodeLine{57       \textcolor{comment}{// convention: W -\/ us, B -\/ them}}
+\DoxyCodeLine{58       \textcolor{comment}{// viewed from other side, W and B are reversed}}
+\DoxyCodeLine{59       \{ PS\_NONE, PS\_W\_PAWN, PS\_W\_KNIGHT, PS\_W\_BISHOP, PS\_W\_ROOK, PS\_W\_QUEEN, PS\_KING, PS\_NONE,}
+\DoxyCodeLine{60         PS\_NONE, PS\_B\_PAWN, PS\_B\_KNIGHT, PS\_B\_BISHOP, PS\_B\_ROOK, PS\_B\_QUEEN, PS\_KING, PS\_NONE \},}
+\DoxyCodeLine{61       \{ PS\_NONE, PS\_B\_PAWN, PS\_B\_KNIGHT, PS\_B\_BISHOP, PS\_B\_ROOK, PS\_B\_QUEEN, PS\_KING, PS\_NONE,}
+\DoxyCodeLine{62         PS\_NONE, PS\_W\_PAWN, PS\_W\_KNIGHT, PS\_W\_BISHOP, PS\_W\_ROOK, PS\_W\_QUEEN, PS\_KING, PS\_NONE \}}
+\DoxyCodeLine{63     \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// Orient a square according to perspective (rotates by 180 for black)}}
+\DoxyCodeLine{66     \textcolor{keyword}{static} Square orient(Color perspective, Square s, Square ksq);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{comment}{// Index of a feature for a given king position and another piece on some square}}
+\DoxyCodeLine{69     \textcolor{keyword}{static} IndexType make\_index(Color perspective, Square s, Piece pc, Square ksq);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71    \textcolor{keyword}{public}:}
+\DoxyCodeLine{72     \textcolor{comment}{// Feature name}}
+\DoxyCodeLine{73     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* Name = \textcolor{stringliteral}{"{}HalfKAv2\_hm(Friend)"{}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{76     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t HashValue = 0x7f234cb8u;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{// Number of feature dimensions}}
+\DoxyCodeLine{79     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType Dimensions =}
+\DoxyCodeLine{80         \textcolor{keyword}{static\_cast<}IndexType\textcolor{keyword}{>}(SQUARE\_NB) * \textcolor{keyword}{static\_cast<}IndexType\textcolor{keyword}{>}(PS\_NB) / 2;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} KingBuckets[64] = \{}
+\DoxyCodeLine{83       -\/1, -\/1, -\/1, -\/1, 31, 30, 29, 28,}
+\DoxyCodeLine{84       -\/1, -\/1, -\/1, -\/1, 27, 26, 25, 24,}
+\DoxyCodeLine{85       -\/1, -\/1, -\/1, -\/1, 23, 22, 21, 20,}
+\DoxyCodeLine{86       -\/1, -\/1, -\/1, -\/1, 19, 18, 17, 16,}
+\DoxyCodeLine{87       -\/1, -\/1, -\/1, -\/1, 15, 14, 13, 12,}
+\DoxyCodeLine{88       -\/1, -\/1, -\/1, -\/1, 11, 10,  9,  8,}
+\DoxyCodeLine{89       -\/1, -\/1, -\/1, -\/1,  7,  6,  5,  4,}
+\DoxyCodeLine{90       -\/1, -\/1, -\/1, -\/1,  3,  2,  1,  0}
+\DoxyCodeLine{91     \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{comment}{// Maximum number of simultaneously active features.}}
+\DoxyCodeLine{94     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType MaxActiveDimensions = 32;}
+\DoxyCodeLine{95     \textcolor{keyword}{using} \mbox{\hyperlink{class_stockfish_1_1_value_list}{IndexList}} = \mbox{\hyperlink{class_stockfish_1_1_value_list}{ValueList<IndexType, MaxActiveDimensions>}};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{comment}{// Get a list of indices for active features}}
+\DoxyCodeLine{98     \textcolor{keyword}{static} \textcolor{keywordtype}{void} append\_active\_indices(}
+\DoxyCodeLine{99       \textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos,}
+\DoxyCodeLine{100       Color perspective,}
+\DoxyCodeLine{101       \mbox{\hyperlink{class_stockfish_1_1_value_list}{IndexList}}\& active);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{comment}{// Get a list of indices for recently changed features}}
+\DoxyCodeLine{104     \textcolor{keyword}{static} \textcolor{keywordtype}{void} append\_changed\_indices(}
+\DoxyCodeLine{105       Square ksq,}
+\DoxyCodeLine{106       \textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_dirty_piece}{DirtyPiece}}\& dp,}
+\DoxyCodeLine{107       Color perspective,}
+\DoxyCodeLine{108       \mbox{\hyperlink{class_stockfish_1_1_value_list}{IndexList}}\& removed,}
+\DoxyCodeLine{109       \mbox{\hyperlink{class_stockfish_1_1_value_list}{IndexList}}\& added}
+\DoxyCodeLine{110     );}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{comment}{// Returns the cost of updating one perspective, the most costly one.}}
+\DoxyCodeLine{113     \textcolor{comment}{// Assumes no refresh needed.}}
+\DoxyCodeLine{114     \textcolor{keyword}{static} \textcolor{keywordtype}{int} update\_cost(\textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* st);}
+\DoxyCodeLine{115     \textcolor{keyword}{static} \textcolor{keywordtype}{int} refresh\_cost(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{// Returns whether the change stored in this StateInfo means that}}
+\DoxyCodeLine{118     \textcolor{comment}{// a full accumulator refresh is required.}}
+\DoxyCodeLine{119     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} requires\_refresh(\textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}}* st, Color perspective);}
+\DoxyCodeLine{120   \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE::Features}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_FEATURES\_HALF\_KA\_V2\_HM\_H\_INCLUDED}}
+
+\end{DoxyCode}

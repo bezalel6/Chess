@@ -1,0 +1,79 @@
+\hypertarget{input__slice_8h_source}{}\doxysection{input\+\_\+slice.\+h}
+\label{input__slice_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/input\_slice.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/input\_slice.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// NNUE evaluation function layer InputSlice definition}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_LAYERS\_INPUT\_SLICE\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_LAYERS\_INPUT\_SLICE\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../nnue\_common.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE::Layers \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{// Input layer}}
+\DoxyCodeLine{29 \textcolor{keyword}{template} <IndexType OutDims, IndexType Offset = 0>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_input_slice}{InputSlice}} \{}
+\DoxyCodeLine{31  \textcolor{keyword}{public}:}
+\DoxyCodeLine{32   \textcolor{comment}{// Need to maintain alignment}}
+\DoxyCodeLine{33   \textcolor{keyword}{static\_assert}(Offset \% MaxSimdWidth == 0, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{comment}{// Output type}}
+\DoxyCodeLine{36   \textcolor{keyword}{using} OutputType = TransformedFeatureType;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{comment}{// Output dimensionality}}
+\DoxyCodeLine{39   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType OutputDimensions = OutDims;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{comment}{// Size of forward propagation buffer used from the input layer to this layer}}
+\DoxyCodeLine{42   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t BufferSize = 0;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{45   \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t get\_hash\_value() \{}
+\DoxyCodeLine{46     std::uint32\_t hashValue = 0xEC42E90Du;}
+\DoxyCodeLine{47     hashValue \string^= OutputDimensions \string^ (Offset << 10);}
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} hashValue;}
+\DoxyCodeLine{49   \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{comment}{// Read network parameters}}
+\DoxyCodeLine{52   \textcolor{keywordtype}{bool} read\_parameters(std::istream\& \textcolor{comment}{/*stream*/}) \{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{54   \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{comment}{// Write network parameters}}
+\DoxyCodeLine{57   \textcolor{keywordtype}{bool} write\_parameters(std::ostream\& \textcolor{comment}{/*stream*/})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{59   \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61   \textcolor{comment}{// Forward propagation}}
+\DoxyCodeLine{62   \textcolor{keyword}{const} OutputType* propagate(}
+\DoxyCodeLine{63       \textcolor{keyword}{const} TransformedFeatureType* transformedFeatures,}
+\DoxyCodeLine{64       \textcolor{keywordtype}{char}* \textcolor{comment}{/*buffer*/})\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} transformedFeatures + Offset;}
+\DoxyCodeLine{66   \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68  \textcolor{keyword}{private}:}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE::Layers}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_LAYERS\_INPUT\_SLICE\_H\_INCLUDED}}
+
+\end{DoxyCode}

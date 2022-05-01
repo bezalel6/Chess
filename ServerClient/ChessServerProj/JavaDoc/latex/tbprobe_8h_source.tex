@@ -1,0 +1,84 @@
+\hypertarget{tbprobe_8h_source}{}\doxysection{tbprobe.\+h}
+\label{tbprobe_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/syzygy/tbprobe.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/syzygy/tbprobe.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef TBPROBE\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define TBPROBE\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../search.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }Stockfish::Tablebases \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{enum} WDLScore \{}
+\DoxyCodeLine{29     WDLLoss        = -\/2, \textcolor{comment}{// Loss}}
+\DoxyCodeLine{30     WDLBlessedLoss = -\/1, \textcolor{comment}{// Loss, but draw under 50-\/move rule}}
+\DoxyCodeLine{31     WDLDraw        =  0, \textcolor{comment}{// Draw}}
+\DoxyCodeLine{32     WDLCursedWin   =  1, \textcolor{comment}{// Win, but draw under 50-\/move rule}}
+\DoxyCodeLine{33     WDLWin         =  2, \textcolor{comment}{// Win}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     WDLScoreNone  = -\/1000}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{// Possible states after a probing operation}}
+\DoxyCodeLine{39 \textcolor{keyword}{enum} ProbeState \{}
+\DoxyCodeLine{40     FAIL              =  0, \textcolor{comment}{// Probe failed (missing file table)}}
+\DoxyCodeLine{41     OK                =  1, \textcolor{comment}{// Probe succesful}}
+\DoxyCodeLine{42     CHANGE\_STM        = -\/1, \textcolor{comment}{// DTZ should check the other side}}
+\DoxyCodeLine{43     ZEROING\_BEST\_MOVE =  2  \textcolor{comment}{// Best move zeroes DTZ (capture or pawn move)}}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} MaxCardinality;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{void} init(\textcolor{keyword}{const} std::string\& paths);}
+\DoxyCodeLine{49 WDLScore probe\_wdl(Position\& pos, ProbeState* result);}
+\DoxyCodeLine{50 \textcolor{keywordtype}{int} probe\_dtz(Position\& pos, ProbeState* result);}
+\DoxyCodeLine{51 \textcolor{keywordtype}{bool} root\_probe(Position\& pos, Search::RootMoves\& rootMoves);}
+\DoxyCodeLine{52 \textcolor{keywordtype}{bool} root\_probe\_wdl(Position\& pos, Search::RootMoves\& rootMoves);}
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} rank\_root\_moves(Position\& pos, Search::RootMoves\& rootMoves);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} WDLScore v) \{}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     os << (v == WDLLoss        ? \textcolor{stringliteral}{"{}Loss"{}} :}
+\DoxyCodeLine{58            v == WDLBlessedLoss ? \textcolor{stringliteral}{"{}Blessed loss"{}} :}
+\DoxyCodeLine{59            v == WDLDraw        ? \textcolor{stringliteral}{"{}Draw"{}} :}
+\DoxyCodeLine{60            v == WDLCursedWin   ? \textcolor{stringliteral}{"{}Cursed win"{}} :}
+\DoxyCodeLine{61            v == WDLWin         ? \textcolor{stringliteral}{"{}Win"{}} : \textcolor{stringliteral}{"{}None"{}});}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{64 \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} ProbeState v) \{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     os << (v == FAIL              ? \textcolor{stringliteral}{"{}Failed"{}} :}
+\DoxyCodeLine{69            v == OK                ? \textcolor{stringliteral}{"{}Success"{}} :}
+\DoxyCodeLine{70            v == CHANGE\_STM        ? \textcolor{stringliteral}{"{}Probed opponent side"{}} :}
+\DoxyCodeLine{71            v == ZEROING\_BEST\_MOVE ? \textcolor{stringliteral}{"{}Best move zeroes DTZ"{}} : \textcolor{stringliteral}{"{}None"{}});}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{74 \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \} \textcolor{comment}{// namespace Stockfish::Tablebases}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

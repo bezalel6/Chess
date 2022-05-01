@@ -1,0 +1,75 @@
+\hypertarget{thread__win32__osx_8h_source}{}\doxysection{thread\+\_\+win32\+\_\+osx.\+h}
+\label{thread__win32__osx_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/thread\_win32\_osx.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/thread\_win32\_osx.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef THREAD\_WIN32\_OSX\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define THREAD\_WIN32\_OSX\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#if defined(\_\_APPLE\_\_) || defined(\_\_MINGW32\_\_) || defined(\_\_MINGW64\_\_) || defined(USE\_PTHREADS)}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <pthread.h>}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} TH\_STACK\_SIZE = 8 * 1024 * 1024;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{template} <\textcolor{keyword}{class} T, \textcolor{keyword}{class} P = std::pair<T*, \textcolor{keywordtype}{void}(T::*)()>>}
+\DoxyCodeLine{39 \textcolor{keywordtype}{void}* start\_routine(\textcolor{keywordtype}{void}* ptr)}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41    P* p = \textcolor{keyword}{reinterpret\_cast<}P*\textcolor{keyword}{>}(ptr);}
+\DoxyCodeLine{42    (p-\/>first-\/>*(p-\/>second))(); \textcolor{comment}{// Call member function pointer}}
+\DoxyCodeLine{43    \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{44    \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{class }NativeThread \{}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    pthread\_t thread;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{public}:}
+\DoxyCodeLine{52   \textcolor{keyword}{template}<\textcolor{keyword}{class} T, \textcolor{keyword}{class} P = std::pair<T*, \textcolor{keywordtype}{void}(T::*)()>>}
+\DoxyCodeLine{53   \textcolor{keyword}{explicit} NativeThread(\textcolor{keywordtype}{void}(T::*fun)(), T* obj) \{}
+\DoxyCodeLine{54     pthread\_attr\_t attr\_storage, *attr = \&attr\_storage;}
+\DoxyCodeLine{55     pthread\_attr\_init(attr);}
+\DoxyCodeLine{56     pthread\_attr\_setstacksize(attr, TH\_STACK\_SIZE);}
+\DoxyCodeLine{57     pthread\_create(\&thread, attr, start\_routine<T>, \textcolor{keyword}{new} P(obj, fun));}
+\DoxyCodeLine{58   \}}
+\DoxyCodeLine{59   \textcolor{keywordtype}{void} join() \{ pthread\_join(thread, NULL); \}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#else }\textcolor{comment}{// Default case: use STL classes}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} std::thread NativeThread;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef THREAD\_WIN32\_OSX\_H\_INCLUDED}}
+
+\end{DoxyCode}

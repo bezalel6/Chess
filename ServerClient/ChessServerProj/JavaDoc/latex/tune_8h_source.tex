@@ -1,0 +1,143 @@
+\hypertarget{tune_8h_source}{}\doxysection{tune.\+h}
+\label{tune_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/tune.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/tune.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef TUNE\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define TUNE\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} std::pair<int, int> Range; \textcolor{comment}{// Option's min-\/max values}}
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} Range (RangeFun) (int);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// Default Range function, to calculate Option's min-\/max values}}
+\DoxyCodeLine{33 \textcolor{keyword}{inline} Range default\_range(\textcolor{keywordtype}{int} v) \{}
+\DoxyCodeLine{34   \textcolor{keywordflow}{return} v > 0 ? Range(0, 2 * v) : Range(2 * v, 0);}
+\DoxyCodeLine{35 \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}} \{}
+\DoxyCodeLine{38   \textcolor{keyword}{explicit} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}(RangeFun f) : fun(f) \{\}}
+\DoxyCodeLine{39   \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max) : fun(\textcolor{keyword}{nullptr}), range(min, max) \{\}}
+\DoxyCodeLine{40   Range operator()(\textcolor{keywordtype}{int} v)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} fun ? fun(v) : range; \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   RangeFun* fun;}
+\DoxyCodeLine{43   Range range;}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define SetDefaultRange SetRange(default\_range)}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}} \{}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{keyword}{typedef} void (PostUpdate) (); \textcolor{comment}{// Post-\/update function}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}() \{ read\_results(); \}}
+\DoxyCodeLine{81   \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} read\_results();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keyword}{static} \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}}\& instance() \{ \textcolor{keyword}{static} \mbox{\hyperlink{class_stockfish_1_1_tune}{Tune}} t; \textcolor{keywordflow}{return} t; \} \textcolor{comment}{// Singleton}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{// Use polymorphism to accomodate Entry of different types in the same vector}}
+\DoxyCodeLine{88   \textcolor{keyword}{struct }EntryBase \{}
+\DoxyCodeLine{89     \textcolor{keyword}{virtual} \string~EntryBase() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{90     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} init\_option() = 0;}
+\DoxyCodeLine{91     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} read\_option() = 0;}
+\DoxyCodeLine{92   \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{95   \textcolor{keyword}{struct }Entry : \textcolor{keyword}{public} EntryBase \{}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keyword}{static\_assert}(!std::is\_const<T>::value, \textcolor{stringliteral}{"{}Parameter cannot be const!"{}});}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keyword}{static\_assert}(   std::is\_same<T,   int>::value}
+\DoxyCodeLine{100                   || std::is\_same<T, Value>::value}
+\DoxyCodeLine{101                   || std::is\_same<T, Score>::value}
+\DoxyCodeLine{102                   || std::is\_same<T, PostUpdate>::value, \textcolor{stringliteral}{"{}Parameter type not supported!"{}});}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     Entry(\textcolor{keyword}{const} std::string\& n, T\& v, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\& r) : name(n), value(v), range(r) \{\}}
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} operator=(\textcolor{keyword}{const} Entry\&) = \textcolor{keyword}{delete}; \textcolor{comment}{// Because 'value' is a reference}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} init\_option() \textcolor{keyword}{override};}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} read\_option() \textcolor{keyword}{override};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     std::string name;}
+\DoxyCodeLine{110     T\& value;}
+\DoxyCodeLine{111     \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}} range;}
+\DoxyCodeLine{112   \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114   \textcolor{comment}{// Our facility to fill the container, each Entry corresponds to a parameter}}
+\DoxyCodeLine{115   \textcolor{comment}{// to tune. We use variadic templates to deal with an unspecified number of}}
+\DoxyCodeLine{116   \textcolor{comment}{// entries, each one of a possible different type.}}
+\DoxyCodeLine{117   \textcolor{keyword}{static} std::string next(std::string\& names, \textcolor{keywordtype}{bool} pop = \textcolor{keyword}{true});}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   \textcolor{keywordtype}{int} add(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\&, std::string\&\&) \{ \textcolor{keywordflow}{return} 0; \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{122   \textcolor{keywordtype}{int} add(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\& range, std::string\&\& names, T\& value, Args\&\&... args) \{}
+\DoxyCodeLine{123     list.push\_back(std::unique\_ptr<EntryBase>(\textcolor{keyword}{new} Entry<T>(next(names), value, range)));}
+\DoxyCodeLine{124     \textcolor{keywordflow}{return} add(range, std::move(names), args...);}
+\DoxyCodeLine{125   \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127   \textcolor{comment}{// Template specialization for arrays: recursively handle multi-\/dimensional arrays}}
+\DoxyCodeLine{128   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{size\_t} N, \textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{129   \textcolor{keywordtype}{int} add(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\& range, std::string\&\& names, T (\&value)[N], Args\&\&... args) \{}
+\DoxyCodeLine{130     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < N; i++)}
+\DoxyCodeLine{131         add(range, next(names, i == N -\/ 1) + \textcolor{stringliteral}{"{}["{}} + std::to\_string(i) + \textcolor{stringliteral}{"{}]"{}}, value[i]);}
+\DoxyCodeLine{132     \textcolor{keywordflow}{return} add(range, std::move(names), args...);}
+\DoxyCodeLine{133   \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135   \textcolor{comment}{// Template specialization for SetRange}}
+\DoxyCodeLine{136   \textcolor{keyword}{template}<\textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{137   \textcolor{keywordtype}{int} add(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\&, std::string\&\& names, \mbox{\hyperlink{struct_stockfish_1_1_set_range}{SetRange}}\& value, Args\&\&... args) \{}
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} add(value, (next(names), std::move(names)), args...);}
+\DoxyCodeLine{139   \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141   std::vector<std::unique\_ptr<EntryBase>> list;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{public}:}
+\DoxyCodeLine{144   \textcolor{keyword}{template}<\textcolor{keyword}{typename}... Args>}
+\DoxyCodeLine{145   \textcolor{keyword}{static} \textcolor{keywordtype}{int} add(\textcolor{keyword}{const} std::string\& names, Args\&\&... args) \{}
+\DoxyCodeLine{146     \textcolor{keywordflow}{return} instance().add(SetDefaultRange, names.substr(1, names.size() -\/ 2), args...); \textcolor{comment}{// Remove trailing parenthesis}}
+\DoxyCodeLine{147   \}}
+\DoxyCodeLine{148   \textcolor{keyword}{static} \textcolor{keywordtype}{void} init() \{ \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& e : instance().list) e-\/>init\_option(); read\_options(); \} \textcolor{comment}{// Deferred, due to UCI::Options access}}
+\DoxyCodeLine{149   \textcolor{keyword}{static} \textcolor{keywordtype}{void} read\_options() \{ \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& e : instance().list) e-\/>read\_option(); \}}
+\DoxyCodeLine{150   \textcolor{keyword}{static} \textcolor{keywordtype}{bool} update\_on\_last;}
+\DoxyCodeLine{151 \};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{// Some macro magic :-\/) we define a dummy int variable that compiler initializes calling Tune::add()}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define STRINGIFY(x) \#x}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define UNIQUE2(x, y) x \#\# y}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define UNIQUE(x, y) UNIQUE2(x, y) }\textcolor{comment}{// Two indirection levels to expand \_\_LINE\_\_}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define TUNE(...) int UNIQUE(p, \_\_LINE\_\_) = Tune::add(STRINGIFY((\_\_VA\_ARGS\_\_)), \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define UPDATE\_ON\_LAST() bool UNIQUE(p, \_\_LINE\_\_) = Tune::update\_on\_last = true}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef TUNE\_H\_INCLUDED}}
+
+\end{DoxyCode}

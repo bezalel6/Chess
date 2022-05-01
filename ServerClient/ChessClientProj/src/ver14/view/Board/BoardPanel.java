@@ -286,6 +286,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     public void resizeIcons() {
+        System.out.println("resizing icon. pnl size is = " + getSize());
         forEachBtnParallel(BoardButton::scaleIcon);
         repaint();
     }

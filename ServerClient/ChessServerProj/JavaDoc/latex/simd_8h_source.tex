@@ -1,0 +1,347 @@
+\hypertarget{simd_8h_source}{}\doxysection{simd.\+h}
+\label{simd_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/simd.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/simd.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef STOCKFISH\_SIMD\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define STOCKFISH\_SIMD\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#if defined(USE\_AVX2)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\# include <immintrin.h>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#elif defined(USE\_SSE41)}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\# include <smmintrin.h>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#elif defined(USE\_SSSE3)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\# include <tmmintrin.h>}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#elif defined(USE\_SSE2)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\# include <emmintrin.h>}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#elif defined(USE\_MMX)}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\# include <mmintrin.h>}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#elif defined(USE\_NEON)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\# include <arm\_neon.h>}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// The inline asm is only safe for GCC, where it is necessary to get good codegen.}}
+\DoxyCodeLine{42 \textcolor{comment}{// See https://gcc.gnu.org/bugzilla/show\_bug.cgi?id=101693}}
+\DoxyCodeLine{43 \textcolor{comment}{// Clang does fine without it.}}
+\DoxyCodeLine{44 \textcolor{comment}{// Play around here: https://godbolt.org/z/7EWqrYq51}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if (defined(\_\_GNUC\_\_) \&\& !defined(\_\_clang\_\_) \&\& !defined(\_\_INTEL\_COMPILER))}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define USE\_INLINE\_ASM}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{namespace }Stockfish::Simd \{}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#if defined (USE\_AVX512)}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{int} m512\_hadd(\_\_m512i sum, \textcolor{keywordtype}{int} bias) \{}
+\DoxyCodeLine{54       \textcolor{keywordflow}{return} \_mm512\_reduce\_add\_epi32(sum) + bias;}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{      Parameters:}}
+\DoxyCodeLine{59 \textcolor{comment}{        sum0 = [zmm0.i128[0], zmm0.i128[1], zmm0.i128[2], zmm0.i128[3]]}}
+\DoxyCodeLine{60 \textcolor{comment}{        sum1 = [zmm1.i128[0], zmm1.i128[1], zmm1.i128[2], zmm1.i128[3]]}}
+\DoxyCodeLine{61 \textcolor{comment}{        sum2 = [zmm2.i128[0], zmm2.i128[1], zmm2.i128[2], zmm2.i128[3]]}}
+\DoxyCodeLine{62 \textcolor{comment}{        sum3 = [zmm3.i128[0], zmm3.i128[1], zmm3.i128[2], zmm3.i128[3]]}}
+\DoxyCodeLine{63 \textcolor{comment}{}}
+\DoxyCodeLine{64 \textcolor{comment}{      Returns:}}
+\DoxyCodeLine{65 \textcolor{comment}{        ret = [}}
+\DoxyCodeLine{66 \textcolor{comment}{          reduce\_add\_epi32(zmm0.i128[0]), reduce\_add\_epi32(zmm1.i128[0]), reduce\_add\_epi32(zmm2.i128[0]), reduce\_add\_epi32(zmm3.i128[0]),}}
+\DoxyCodeLine{67 \textcolor{comment}{          reduce\_add\_epi32(zmm0.i128[1]), reduce\_add\_epi32(zmm1.i128[1]), reduce\_add\_epi32(zmm2.i128[1]), reduce\_add\_epi32(zmm3.i128[1]),}}
+\DoxyCodeLine{68 \textcolor{comment}{          reduce\_add\_epi32(zmm0.i128[2]), reduce\_add\_epi32(zmm1.i128[2]), reduce\_add\_epi32(zmm2.i128[2]), reduce\_add\_epi32(zmm3.i128[2]),}}
+\DoxyCodeLine{69 \textcolor{comment}{          reduce\_add\_epi32(zmm0.i128[3]), reduce\_add\_epi32(zmm1.i128[3]), reduce\_add\_epi32(zmm2.i128[3]), reduce\_add\_epi32(zmm3.i128[3])}}
+\DoxyCodeLine{70 \textcolor{comment}{        ]}}
+\DoxyCodeLine{71 \textcolor{comment}{    */}}
+\DoxyCodeLine{72     [[maybe\_unused]] \textcolor{keyword}{static} \_\_m512i m512\_hadd128x16\_interleave(}
+\DoxyCodeLine{73         \_\_m512i sum0, \_\_m512i sum1, \_\_m512i sum2, \_\_m512i sum3) \{}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75       \_\_m512i sum01a = \_mm512\_unpacklo\_epi32(sum0, sum1);}
+\DoxyCodeLine{76       \_\_m512i sum01b = \_mm512\_unpackhi\_epi32(sum0, sum1);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78       \_\_m512i sum23a = \_mm512\_unpacklo\_epi32(sum2, sum3);}
+\DoxyCodeLine{79       \_\_m512i sum23b = \_mm512\_unpackhi\_epi32(sum2, sum3);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81       \_\_m512i sum01 = \_mm512\_add\_epi32(sum01a, sum01b);}
+\DoxyCodeLine{82       \_\_m512i sum23 = \_mm512\_add\_epi32(sum23a, sum23b);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84       \_\_m512i sum0123a = \_mm512\_unpacklo\_epi64(sum01, sum23);}
+\DoxyCodeLine{85       \_\_m512i sum0123b = \_mm512\_unpackhi\_epi64(sum01, sum23);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87       \textcolor{keywordflow}{return} \_mm512\_add\_epi32(sum0123a, sum0123b);}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     [[maybe\_unused]] \textcolor{keyword}{static} \_\_m128i m512\_haddx4(}
+\DoxyCodeLine{91         \_\_m512i sum0, \_\_m512i sum1, \_\_m512i sum2, \_\_m512i sum3,}
+\DoxyCodeLine{92         \_\_m128i bias) \{}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94       \_\_m512i sum = m512\_hadd128x16\_interleave(sum0, sum1, sum2, sum3);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96       \_\_m256i sum256lo = \_mm512\_castsi512\_si256(sum);}
+\DoxyCodeLine{97       \_\_m256i sum256hi = \_mm512\_extracti64x4\_epi64(sum, 1);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99       sum256lo = \_mm256\_add\_epi32(sum256lo, sum256hi);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101       \_\_m128i sum128lo = \_mm256\_castsi256\_si128(sum256lo);}
+\DoxyCodeLine{102       \_\_m128i sum128hi = \_mm256\_extracti128\_si256(sum256lo, 1);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104       \textcolor{keywordflow}{return} \_mm\_add\_epi32(\_mm\_add\_epi32(sum128lo, sum128hi), bias);}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m512\_add\_dpbusd\_epi32(}
+\DoxyCodeLine{108         \_\_m512i\& acc,}
+\DoxyCodeLine{109         \_\_m512i a,}
+\DoxyCodeLine{110         \_\_m512i b) \{}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\# if defined (USE\_VNNI)}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{114       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{115         \textcolor{stringliteral}{"{}vpdpbusd \%[b], \%[a], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{116         : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc)}
+\DoxyCodeLine{117         : [a]\textcolor{stringliteral}{"{}v"{}}(a), [b]\textcolor{stringliteral}{"{}vm"{}}(b)}
+\DoxyCodeLine{118       );}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{120       acc = \_mm512\_dpbusd\_epi32(acc, a, b);}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{124       \_\_m512i tmp = \_mm512\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{125       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{126           \textcolor{stringliteral}{"{}vpmaddwd    \%[tmp], \%[ones], \%[tmp]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{127           \textcolor{stringliteral}{"{}vpaddd      \%[acc], \%[tmp], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{128           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp]\textcolor{stringliteral}{"{}+\&v"{}}(tmp)}
+\DoxyCodeLine{129           : [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm512\_set1\_epi16(1))}
+\DoxyCodeLine{130       );}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{132       \_\_m512i product0 = \_mm512\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{133       product0 = \_mm512\_madd\_epi16(product0, \_mm512\_set1\_epi16(1));}
+\DoxyCodeLine{134       acc = \_mm512\_add\_epi32(acc, product0);}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m512\_add\_dpbusd\_epi32x2(}
+\DoxyCodeLine{140         \_\_m512i\& acc,}
+\DoxyCodeLine{141         \_\_m512i a0, \_\_m512i b0,}
+\DoxyCodeLine{142         \_\_m512i a1, \_\_m512i b1) \{}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\# if defined (USE\_VNNI)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{146       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{147         \textcolor{stringliteral}{"{}vpdpbusd \%[b0], \%[a0], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{148         \textcolor{stringliteral}{"{}vpdpbusd \%[b1], \%[a1], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{149         : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc)}
+\DoxyCodeLine{150         : [a0]\textcolor{stringliteral}{"{}v"{}}(a0), [b0]\textcolor{stringliteral}{"{}vm"{}}(b0), [a1]\textcolor{stringliteral}{"{}v"{}}(a1), [b1]\textcolor{stringliteral}{"{}vm"{}}(b1)}
+\DoxyCodeLine{151       );}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{153       acc = \_mm512\_dpbusd\_epi32(acc, a0, b0);}
+\DoxyCodeLine{154       acc = \_mm512\_dpbusd\_epi32(acc, a1, b1);}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{158       \_\_m512i tmp0 = \_mm512\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{159       \_\_m512i tmp1 = \_mm512\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{160       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{161           \textcolor{stringliteral}{"{}vpaddsw     \%[tmp0], \%[tmp1], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{162           \textcolor{stringliteral}{"{}vpmaddwd    \%[tmp0], \%[ones], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{163           \textcolor{stringliteral}{"{}vpaddd      \%[acc], \%[tmp0], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{164           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp0]\textcolor{stringliteral}{"{}+\&v"{}}(tmp0)}
+\DoxyCodeLine{165           : [tmp1]\textcolor{stringliteral}{"{}v"{}}(tmp1), [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm512\_set1\_epi16(1))}
+\DoxyCodeLine{166       );}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{168       \_\_m512i product0 = \_mm512\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{169       \_\_m512i product1 = \_mm512\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{170       product0 = \_mm512\_adds\_epi16(product0, product1);}
+\DoxyCodeLine{171       product0 = \_mm512\_madd\_epi16(product0, \_mm512\_set1\_epi16(1));}
+\DoxyCodeLine{172       acc = \_mm512\_add\_epi32(acc, product0);}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#if defined (USE\_AVX2)}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{int} m256\_hadd(\_\_m256i sum, \textcolor{keywordtype}{int} bias) \{}
+\DoxyCodeLine{182       \_\_m128i sum128 = \_mm\_add\_epi32(\_mm256\_castsi256\_si128(sum), \_mm256\_extracti128\_si256(sum, 1));}
+\DoxyCodeLine{183       sum128 = \_mm\_add\_epi32(sum128, \_mm\_shuffle\_epi32(sum128, \_MM\_PERM\_BADC));}
+\DoxyCodeLine{184       sum128 = \_mm\_add\_epi32(sum128, \_mm\_shuffle\_epi32(sum128, \_MM\_PERM\_CDAB));}
+\DoxyCodeLine{185       \textcolor{keywordflow}{return} \_mm\_cvtsi128\_si32(sum128) + bias;}
+\DoxyCodeLine{186     \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     [[maybe\_unused]] \textcolor{keyword}{static} \_\_m128i m256\_haddx4(}
+\DoxyCodeLine{189         \_\_m256i sum0, \_\_m256i sum1, \_\_m256i sum2, \_\_m256i sum3,}
+\DoxyCodeLine{190         \_\_m128i bias) \{}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192       sum0 = \_mm256\_hadd\_epi32(sum0, sum1);}
+\DoxyCodeLine{193       sum2 = \_mm256\_hadd\_epi32(sum2, sum3);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195       sum0 = \_mm256\_hadd\_epi32(sum0, sum2);}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197       \_\_m128i sum128lo = \_mm256\_castsi256\_si128(sum0);}
+\DoxyCodeLine{198       \_\_m128i sum128hi = \_mm256\_extracti128\_si256(sum0, 1);}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200       \textcolor{keywordflow}{return} \_mm\_add\_epi32(\_mm\_add\_epi32(sum128lo, sum128hi), bias);}
+\DoxyCodeLine{201     \}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m256\_add\_dpbusd\_epi32(}
+\DoxyCodeLine{204         \_\_m256i\& acc,}
+\DoxyCodeLine{205         \_\_m256i a,}
+\DoxyCodeLine{206         \_\_m256i b) \{}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\# if defined (USE\_VNNI)}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{210       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{211         \textcolor{stringliteral}{"{}vpdpbusd \%[b], \%[a], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{212         : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc)}
+\DoxyCodeLine{213         : [a]\textcolor{stringliteral}{"{}v"{}}(a), [b]\textcolor{stringliteral}{"{}vm"{}}(b)}
+\DoxyCodeLine{214       );}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{216       acc = \_mm256\_dpbusd\_epi32(acc, a, b);}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{220       \_\_m256i tmp = \_mm256\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{221       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{222           \textcolor{stringliteral}{"{}vpmaddwd    \%[tmp], \%[ones], \%[tmp]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{223           \textcolor{stringliteral}{"{}vpaddd      \%[acc], \%[tmp], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{224           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp]\textcolor{stringliteral}{"{}+\&v"{}}(tmp)}
+\DoxyCodeLine{225           : [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm256\_set1\_epi16(1))}
+\DoxyCodeLine{226       );}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{228       \_\_m256i product0 = \_mm256\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{229       product0 = \_mm256\_madd\_epi16(product0, \_mm256\_set1\_epi16(1));}
+\DoxyCodeLine{230       acc = \_mm256\_add\_epi32(acc, product0);}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m256\_add\_dpbusd\_epi32x2(}
+\DoxyCodeLine{236         \_\_m256i\& acc,}
+\DoxyCodeLine{237         \_\_m256i a0, \_\_m256i b0,}
+\DoxyCodeLine{238         \_\_m256i a1, \_\_m256i b1) \{}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{preprocessor}{\# if defined (USE\_VNNI)}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{242       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{243         \textcolor{stringliteral}{"{}vpdpbusd \%[b0], \%[a0], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{244         \textcolor{stringliteral}{"{}vpdpbusd \%[b1], \%[a1], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{245         : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc)}
+\DoxyCodeLine{246         : [a0]\textcolor{stringliteral}{"{}v"{}}(a0), [b0]\textcolor{stringliteral}{"{}vm"{}}(b0), [a1]\textcolor{stringliteral}{"{}v"{}}(a1), [b1]\textcolor{stringliteral}{"{}vm"{}}(b1)}
+\DoxyCodeLine{247       );}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{249       acc = \_mm256\_dpbusd\_epi32(acc, a0, b0);}
+\DoxyCodeLine{250       acc = \_mm256\_dpbusd\_epi32(acc, a1, b1);}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{254       \_\_m256i tmp0 = \_mm256\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{255       \_\_m256i tmp1 = \_mm256\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{256       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{257           \textcolor{stringliteral}{"{}vpaddsw     \%[tmp0], \%[tmp1], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{258           \textcolor{stringliteral}{"{}vpmaddwd    \%[tmp0], \%[ones], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{259           \textcolor{stringliteral}{"{}vpaddd      \%[acc], \%[tmp0], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{260           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp0]\textcolor{stringliteral}{"{}+\&v"{}}(tmp0)}
+\DoxyCodeLine{261           : [tmp1]\textcolor{stringliteral}{"{}v"{}}(tmp1), [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm256\_set1\_epi16(1))}
+\DoxyCodeLine{262       );}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{264       \_\_m256i product0 = \_mm256\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{265       \_\_m256i product1 = \_mm256\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{266       product0 = \_mm256\_adds\_epi16(product0, product1);}
+\DoxyCodeLine{267       product0 = \_mm256\_madd\_epi16(product0, \_mm256\_set1\_epi16(1));}
+\DoxyCodeLine{268       acc = \_mm256\_add\_epi32(acc, product0);}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{271     \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#if defined (USE\_SSSE3)}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{int} m128\_hadd(\_\_m128i sum, \textcolor{keywordtype}{int} bias) \{}
+\DoxyCodeLine{278       sum = \_mm\_add\_epi32(sum, \_mm\_shuffle\_epi32(sum, 0x4E)); \textcolor{comment}{//\_MM\_PERM\_BADC}}
+\DoxyCodeLine{279       sum = \_mm\_add\_epi32(sum, \_mm\_shuffle\_epi32(sum, 0xB1)); \textcolor{comment}{//\_MM\_PERM\_CDAB}}
+\DoxyCodeLine{280       \textcolor{keywordflow}{return} \_mm\_cvtsi128\_si32(sum) + bias;}
+\DoxyCodeLine{281     \}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     [[maybe\_unused]] \textcolor{keyword}{static} \_\_m128i m128\_haddx4(}
+\DoxyCodeLine{284         \_\_m128i sum0, \_\_m128i sum1, \_\_m128i sum2, \_\_m128i sum3,}
+\DoxyCodeLine{285         \_\_m128i bias) \{}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287       sum0 = \_mm\_hadd\_epi32(sum0, sum1);}
+\DoxyCodeLine{288       sum2 = \_mm\_hadd\_epi32(sum2, sum3);}
+\DoxyCodeLine{289       sum0 = \_mm\_hadd\_epi32(sum0, sum2);}
+\DoxyCodeLine{290       \textcolor{keywordflow}{return} \_mm\_add\_epi32(sum0, bias);}
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m128\_add\_dpbusd\_epi32(}
+\DoxyCodeLine{294         \_\_m128i\& acc,}
+\DoxyCodeLine{295         \_\_m128i a,}
+\DoxyCodeLine{296         \_\_m128i b) \{}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{299       \_\_m128i tmp = \_mm\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{300       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{301           \textcolor{stringliteral}{"{}pmaddwd    \%[ones], \%[tmp]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{302           \textcolor{stringliteral}{"{}paddd      \%[tmp], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{303           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp]\textcolor{stringliteral}{"{}+\&v"{}}(tmp)}
+\DoxyCodeLine{304           : [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm\_set1\_epi16(1))}
+\DoxyCodeLine{305       );}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{307       \_\_m128i product0 = \_mm\_maddubs\_epi16(a, b);}
+\DoxyCodeLine{308       product0 = \_mm\_madd\_epi16(product0, \_mm\_set1\_epi16(1));}
+\DoxyCodeLine{309       acc = \_mm\_add\_epi32(acc, product0);}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     [[maybe\_unused]] \textcolor{keyword}{static} \textcolor{keywordtype}{void} m128\_add\_dpbusd\_epi32x2(}
+\DoxyCodeLine{314         \_\_m128i\& acc,}
+\DoxyCodeLine{315         \_\_m128i a0, \_\_m128i b0,}
+\DoxyCodeLine{316         \_\_m128i a1, \_\_m128i b1) \{}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#   if defined (USE\_INLINE\_ASM)}}
+\DoxyCodeLine{319       \_\_m128i tmp0 = \_mm\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{320       \_\_m128i tmp1 = \_mm\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{321       \textcolor{keyword}{asm}(}
+\DoxyCodeLine{322           \textcolor{stringliteral}{"{}paddsw     \%[tmp1], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{323           \textcolor{stringliteral}{"{}pmaddwd    \%[ones], \%[tmp0]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{324           \textcolor{stringliteral}{"{}paddd      \%[tmp0], \%[acc]\(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{325           : [acc]\textcolor{stringliteral}{"{}+v"{}}(acc), [tmp0]\textcolor{stringliteral}{"{}+\&v"{}}(tmp0)}
+\DoxyCodeLine{326           : [tmp1]\textcolor{stringliteral}{"{}v"{}}(tmp1), [ones]\textcolor{stringliteral}{"{}v"{}}(\_mm\_set1\_epi16(1))}
+\DoxyCodeLine{327       );}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#   else}}
+\DoxyCodeLine{329       \_\_m128i product0 = \_mm\_maddubs\_epi16(a0, b0);}
+\DoxyCodeLine{330       \_\_m128i product1 = \_mm\_maddubs\_epi16(a1, b1);}
+\DoxyCodeLine{331       product0 = \_mm\_adds\_epi16(product0, product1);}
+\DoxyCodeLine{332       product0 = \_mm\_madd\_epi16(product0, \_mm\_set1\_epi16(1));}
+\DoxyCodeLine{333       acc = \_mm\_add\_epi32(acc, product0);}
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{335     \}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 \}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STOCKFISH\_SIMD\_H\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,1293 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{5}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ai\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameters}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Class Documentation}{9}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Setup\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Ai\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameters\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Ai\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type}{9}{subsubsection.3.1.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Member Function Documentation}{10}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}setTimeFormat()}{10}{subsubsection.3.1.2.1}%
+\contentsline {section}{\numberline {3.2}Answer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callback}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{10}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}App\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Socket}{10}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Constructor \& Destructor Documentation}{11}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}AppSocket()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{11}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}AppSocket()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{11}{subsubsection.3.3.2.2}%
+\contentsline {subsection}{\numberline {3.3.3}Member Function Documentation}{12}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}close()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{12}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}close()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{12}{subsubsection.3.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3.3}interruptListener()}{12}{subsubsection.3.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.4}requestMessage()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{13}{subsubsection.3.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.3.5}handledRun()}{13}{subsubsection.3.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.3.6}getMessagesHandler()}{13}{subsubsection.3.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.3.7}setMessagesHandler()}{13}{subsubsection.3.3.3.7}%
+\contentsline {subsubsection}{\numberline {3.3.3.8}respond()}{14}{subsubsection.3.3.3.8}%
+\contentsline {subsubsection}{\numberline {3.3.3.9}writeMessage()}{14}{subsubsection.3.3.3.9}%
+\contentsline {subsubsection}{\numberline {3.3.3.10}isConnected()}{14}{subsubsection.3.3.3.10}%
+\contentsline {subsubsection}{\numberline {3.3.3.11}getLocalAddress()}{14}{subsubsection.3.3.3.11}%
+\contentsline {subsubsection}{\numberline {3.3.3.12}getRemoteAddress()}{15}{subsubsection.3.3.3.12}%
+\contentsline {subsubsection}{\numberline {3.3.3.13}isClosed()}{15}{subsubsection.3.3.3.13}%
+\contentsline {subsubsection}{\numberline {3.3.3.14}requestMessage()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{15}{subsubsection.3.3.3.14}%
+\contentsline {subsubsection}{\numberline {3.3.3.15}stopReading()}{15}{subsubsection.3.3.3.15}%
+\contentsline {subsection}{\numberline {3.3.4}Member Data Documentation}{16}{subsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.4.1}msgSocket}{16}{subsubsection.3.3.4.1}%
+\contentsline {section}{\numberline {3.4}Archived\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Constructor \& Destructor Documentation}{16}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}ArchivedGameInfo()}{16}{subsubsection.3.4.2.1}%
+\contentsline {subsection}{\numberline {3.4.3}Member Function Documentation}{17}{subsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.3.1}getWinner()}{17}{subsubsection.3.4.3.1}%
+\contentsline {subsubsection}{\numberline {3.4.3.2}toString()}{17}{subsubsection.3.4.3.2}%
+\contentsline {section}{\numberline {3.5}Arg}{17}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{18}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Constructor \& Destructor Documentation}{18}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.1}Arg()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{18}{subsubsection.3.5.2.1}%
+\contentsline {subsubsection}{\numberline {3.5.2.2}Arg()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{18}{subsubsection.3.5.2.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.3}Arg()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{19}{subsubsection.3.5.2.3}%
+\contentsline {subsection}{\numberline {3.5.3}Member Function Documentation}{19}{subsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.3.1}isUserInput()}{19}{subsubsection.3.5.3.1}%
+\contentsline {subsubsection}{\numberline {3.5.3.2}setUserInput()}{19}{subsubsection.3.5.3.2}%
+\contentsline {subsubsection}{\numberline {3.5.3.3}equals()}{19}{subsubsection.3.5.3.3}%
+\contentsline {subsubsection}{\numberline {3.5.3.4}toString()}{20}{subsubsection.3.5.3.4}%
+\contentsline {subsubsection}{\numberline {3.5.3.5}createVal()}{20}{subsubsection.3.5.3.5}%
+\contentsline {subsection}{\numberline {3.5.4}Member Data Documentation}{20}{subsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.4.1}repInStr}{20}{subsubsection.3.5.4.1}%
+\contentsline {subsubsection}{\numberline {3.5.4.2}escape}{21}{subsubsection.3.5.4.2}%
+\contentsline {subsubsection}{\numberline {3.5.4.3}argType}{21}{subsubsection.3.5.4.3}%
+\contentsline {subsubsection}{\numberline {3.5.4.4}config}{21}{subsubsection.3.5.4.4}%
+\contentsline {section}{\numberline {3.6}Args\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Util}{21}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{21}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Member Function Documentation}{21}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}create()}{21}{subsubsection.3.6.2.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.2}equalsSign()}{22}{subsubsection.3.6.2.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.3}plainTextIgnoreCase()}{22}{subsubsection.3.6.2.3}%
+\contentsline {subsubsection}{\numberline {3.6.2.4}OptionalArg()}{22}{subsubsection.3.6.2.4}%
+\contentsline {section}{\numberline {3.7}Arg\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{23}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Detailed Description}{23}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Constructor \& Destructor Documentation}{23}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}ArgType()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{23}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}ArgType()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{23}{subsubsection.3.7.2.2}%
+\contentsline {subsection}{\numberline {3.7.3}Member Data Documentation}{24}{subsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.3.1}Date}{24}{subsubsection.3.7.3.1}%
+\contentsline {subsubsection}{\numberline {3.7.3.2}DateRange}{24}{subsubsection.3.7.3.2}%
+\contentsline {subsubsection}{\numberline {3.7.3.3}Text}{24}{subsubsection.3.7.3.3}%
+\contentsline {subsubsection}{\numberline {3.7.3.4}ServerAddress}{24}{subsubsection.3.7.3.4}%
+\contentsline {subsubsection}{\numberline {3.7.3.5}Number}{24}{subsubsection.3.7.3.5}%
+\contentsline {subsubsection}{\numberline {3.7.3.6}Username}{24}{subsubsection.3.7.3.6}%
+\contentsline {subsubsection}{\numberline {3.7.3.7}Password}{25}{subsubsection.3.7.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.3.8}Url}{25}{subsubsection.3.7.3.8}%
+\contentsline {subsubsection}{\numberline {3.7.3.9}PictureUrl}{25}{subsubsection.3.7.3.9}%
+\contentsline {subsubsection}{\numberline {3.7.3.10}isUserInput}{25}{subsubsection.3.7.3.10}%
+\contentsline {section}{\numberline {3.8}Arr\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utils}{25}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{25}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Member Function Documentation}{25}{subsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.1}concat()}{25}{subsubsection.3.8.2.1}%
+\contentsline {subsubsection}{\numberline {3.8.2.2}createList()}{26}{subsubsection.3.8.2.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.3}exists()}{26}{subsubsection.3.8.2.3}%
+\contentsline {section}{\numberline {3.9}Auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings}{27}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{27}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Member Data Documentation}{27}{subsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.1}GUEST}{27}{subsubsection.3.9.2.1}%
+\contentsline {subsubsection}{\numberline {3.9.2.2}USER}{27}{subsubsection.3.9.2.2}%
+\contentsline {subsubsection}{\numberline {3.9.2.3}ANY\_LOGIN}{27}{subsubsection.3.9.2.3}%
+\contentsline {subsubsection}{\numberline {3.9.2.4}NEVER\_AUTH}{28}{subsubsection.3.9.2.4}%
+\contentsline {subsubsection}{\numberline {3.9.2.5}NO\_AUTH}{28}{subsubsection.3.9.2.5}%
+\contentsline {section}{\numberline {3.10}Basic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Move}{28}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Detailed Description}{28}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}Constructor \& Destructor Documentation}{28}{subsection.3.10.2}%
+\contentsline {subsubsection}{\numberline {3.10.2.1}BasicMove()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{28}{subsubsection.3.10.2.1}%
+\contentsline {subsubsection}{\numberline {3.10.2.2}BasicMove()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{29}{subsubsection.3.10.2.2}%
+\contentsline {subsubsection}{\numberline {3.10.2.3}BasicMove()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{29}{subsubsection.3.10.2.3}%
+\contentsline {subsection}{\numberline {3.10.3}Member Function Documentation}{29}{subsection.3.10.3}%
+\contentsline {subsubsection}{\numberline {3.10.3.1}createBatch()}{29}{subsubsection.3.10.3.1}%
+\contentsline {subsubsection}{\numberline {3.10.3.2}getFlipped()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{30}{subsubsection.3.10.3.2}%
+\contentsline {subsubsection}{\numberline {3.10.3.3}getFlipped()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{30}{subsubsection.3.10.3.3}%
+\contentsline {subsubsection}{\numberline {3.10.3.4}flip()}{30}{subsubsection.3.10.3.4}%
+\contentsline {subsubsection}{\numberline {3.10.3.5}getMovingFrom()}{30}{subsubsection.3.10.3.5}%
+\contentsline {subsubsection}{\numberline {3.10.3.6}setMovingFrom()}{31}{subsubsection.3.10.3.6}%
+\contentsline {subsubsection}{\numberline {3.10.3.7}getMovingTo()}{31}{subsubsection.3.10.3.7}%
+\contentsline {subsubsection}{\numberline {3.10.3.8}setMovingTo()}{31}{subsubsection.3.10.3.8}%
+\contentsline {subsubsection}{\numberline {3.10.3.9}hashCode()}{31}{subsubsection.3.10.3.9}%
+\contentsline {subsubsection}{\numberline {3.10.3.10}equals()}{32}{subsubsection.3.10.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.3.11}toString()}{32}{subsubsection.3.10.3.11}%
+\contentsline {subsubsection}{\numberline {3.10.3.12}getBasicMoveAnnotation()}{32}{subsubsection.3.10.3.12}%
+\contentsline {subsubsection}{\numberline {3.10.3.13}cp()}{33}{subsubsection.3.10.3.13}%
+\contentsline {section}{\numberline {3.11}Bit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data}{33}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Detailed Description}{33}{subsection.3.11.1}%
+\contentsline {subsection}{\numberline {3.11.2}Member Data Documentation}{33}{subsection.3.11.2}%
+\contentsline {subsubsection}{\numberline {3.11.2.1}notAFile}{33}{subsubsection.3.11.2.1}%
+\contentsline {subsubsection}{\numberline {3.11.2.2}notHFile}{33}{subsubsection.3.11.2.2}%
+\contentsline {subsubsection}{\numberline {3.11.2.3}everything}{34}{subsubsection.3.11.2.3}%
+\contentsline {section}{\numberline {3.12}Board}{34}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{34}{subsection.3.12.1}%
+\contentsline {subsection}{\numberline {3.12.2}Constructor \& Destructor Documentation}{34}{subsection.3.12.2}%
+\contentsline {subsubsection}{\numberline {3.12.2.1}Board()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{34}{subsubsection.3.12.2.1}%
+\contentsline {subsubsection}{\numberline {3.12.2.2}Board()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{35}{subsubsection.3.12.2.2}%
+\contentsline {subsubsection}{\numberline {3.12.2.3}Board()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{35}{subsubsection.3.12.2.3}%
+\contentsline {subsection}{\numberline {3.12.3}Member Function Documentation}{35}{subsection.3.12.3}%
+\contentsline {subsubsection}{\numberline {3.12.3.1}setPiece()}{35}{subsubsection.3.12.3.1}%
+\contentsline {subsubsection}{\numberline {3.12.3.2}getSquare()}{35}{subsubsection.3.12.3.2}%
+\contentsline {subsubsection}{\numberline {3.12.3.3}fenSetup()}{36}{subsubsection.3.12.3.3}%
+\contentsline {subsubsection}{\numberline {3.12.3.4}startingPos()}{36}{subsubsection.3.12.3.4}%
+\contentsline {subsubsection}{\numberline {3.12.3.5}getRow()}{36}{subsubsection.3.12.3.5}%
+\contentsline {subsubsection}{\numberline {3.12.3.6}getPiece()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{37}{subsubsection.3.12.3.6}%
+\contentsline {subsubsection}{\numberline {3.12.3.7}getPiece()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{37}{subsubsection.3.12.3.7}%
+\contentsline {subsubsection}{\numberline {3.12.3.8}print()}{37}{subsubsection.3.12.3.8}%
+\contentsline {subsubsection}{\numberline {3.12.3.9}iterator()}{38}{subsubsection.3.12.3.9}%
+\contentsline {subsubsection}{\numberline {3.12.3.10}setSquareEmpty()}{38}{subsubsection.3.12.3.10}%
+\contentsline {subsubsection}{\numberline {3.12.3.11}isSquareEmpty()}{38}{subsubsection.3.12.3.11}%
+\contentsline {subsubsection}{\numberline {3.12.3.12}toString()}{38}{subsubsection.3.12.3.12}%
+\contentsline {subsection}{\numberline {3.12.4}Member Data Documentation}{39}{subsection.3.12.4}%
+\contentsline {subsubsection}{\numberline {3.12.4.1}startingFen}{39}{subsubsection.3.12.4.1}%
+\contentsline {subsubsection}{\numberline {3.12.4.2}example}{39}{subsubsection.3.12.4.2}%
+\contentsline {section}{\numberline {3.13}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JFrame.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Boolean\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Closing}{39}{section.3.13}%
+\contentsline {subsection}{\numberline {3.13.1}Detailed Description}{39}{subsection.3.13.1}%
+\contentsline {subsection}{\numberline {3.13.2}Member Function Documentation}{39}{subsection.3.13.2}%
+\contentsline {subsubsection}{\numberline {3.13.2.1}show()}{40}{subsubsection.3.13.2.1}%
+\contentsline {subsubsection}{\numberline {3.13.2.2}checkClosingVal()}{40}{subsubsection.3.13.2.2}%
+\contentsline {subsubsection}{\numberline {3.13.2.3}closing()}{40}{subsubsection.3.13.2.3}%
+\contentsline {section}{\numberline {3.14}Callback$<$ T $>$}{40}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}Detailed Description}{40}{subsection.3.14.1}%
+\contentsline {subsection}{\numberline {3.14.2}Member Function Documentation}{41}{subsection.3.14.2}%
+\contentsline {subsubsection}{\numberline {3.14.2.1}callback()}{41}{subsubsection.3.14.2.1}%
+\contentsline {section}{\numberline {3.15}Castling\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rights}{41}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}Detailed Description}{42}{subsection.3.15.1}%
+\contentsline {subsection}{\numberline {3.15.2}Constructor \& Destructor Documentation}{42}{subsection.3.15.2}%
+\contentsline {subsubsection}{\numberline {3.15.2.1}CastlingRights()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{42}{subsubsection.3.15.2.1}%
+\contentsline {subsubsection}{\numberline {3.15.2.2}CastlingRights()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{42}{subsubsection.3.15.2.2}%
+\contentsline {subsubsection}{\numberline {3.15.2.3}CastlingRights()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{42}{subsubsection.3.15.2.3}%
+\contentsline {subsection}{\numberline {3.15.3}Member Function Documentation}{42}{subsection.3.15.3}%
+\contentsline {subsubsection}{\numberline {3.15.3.1}createFromStr()}{43}{subsubsection.3.15.3.1}%
+\contentsline {subsubsection}{\numberline {3.15.3.2}enableCastling()}{43}{subsubsection.3.15.3.2}%
+\contentsline {subsubsection}{\numberline {3.15.3.3}main()}{43}{subsubsection.3.15.3.3}%
+\contentsline {subsubsection}{\numberline {3.15.3.4}whosCastling()}{43}{subsubsection.3.15.3.4}%
+\contentsline {subsubsection}{\numberline {3.15.3.5}toString()}{44}{subsubsection.3.15.3.5}%
+\contentsline {subsubsection}{\numberline {3.15.3.6}isEnabled()}{44}{subsubsection.3.15.3.6}%
+\contentsline {subsubsection}{\numberline {3.15.3.7}disableCastling()}{44}{subsubsection.3.15.3.7}%
+\contentsline {subsubsection}{\numberline {3.15.3.8}getRights()}{45}{subsubsection.3.15.3.8}%
+\contentsline {subsubsection}{\numberline {3.15.3.9}enable()}{45}{subsubsection.3.15.3.9}%
+\contentsline {subsubsection}{\numberline {3.15.3.10}hasAny()}{45}{subsubsection.3.15.3.10}%
+\contentsline {subsubsection}{\numberline {3.15.3.11}getPlayersCastling()}{46}{subsubsection.3.15.3.11}%
+\contentsline {subsection}{\numberline {3.15.4}Member Data Documentation}{46}{subsection.3.15.4}%
+\contentsline {subsubsection}{\numberline {3.15.4.1}NO\_CASTLING\_ABILITY}{46}{subsubsection.3.15.4.1}%
+\contentsline {section}{\numberline {3.16}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JFrame.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Closing$<$ T $>$}{46}{section.3.16}%
+\contentsline {subsection}{\numberline {3.16.1}Detailed Description}{46}{subsection.3.16.1}%
+\contentsline {subsection}{\numberline {3.16.2}Member Function Documentation}{47}{subsection.3.16.2}%
+\contentsline {subsubsection}{\numberline {3.16.2.1}tryClose()}{47}{subsubsection.3.16.2.1}%
+\contentsline {subsubsection}{\numberline {3.16.2.2}show()}{47}{subsubsection.3.16.2.2}%
+\contentsline {subsubsection}{\numberline {3.16.2.3}checkClosingVal()}{47}{subsubsection.3.16.2.3}%
+\contentsline {subsubsection}{\numberline {3.16.2.4}closing()}{47}{subsubsection.3.16.2.4}%
+\contentsline {subsection}{\numberline {3.16.3}Member Data Documentation}{48}{subsection.3.16.3}%
+\contentsline {subsubsection}{\numberline {3.16.3.1}title}{48}{subsubsection.3.16.3.1}%
+\contentsline {subsubsection}{\numberline {3.16.3.2}header}{48}{subsubsection.3.16.3.2}%
+\contentsline {subsubsection}{\numberline {3.16.3.3}icon}{48}{subsubsection.3.16.3.3}%
+\contentsline {section}{\numberline {3.17}Col}{48}{section.3.17}%
+\contentsline {subsection}{\numberline {3.17.1}Detailed Description}{49}{subsection.3.17.1}%
+\contentsline {subsection}{\numberline {3.17.2}Constructor \& Destructor Documentation}{49}{subsection.3.17.2}%
+\contentsline {subsubsection}{\numberline {3.17.2.1}Col()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{49}{subsubsection.3.17.2.1}%
+\contentsline {subsubsection}{\numberline {3.17.2.2}Col()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{49}{subsubsection.3.17.2.2}%
+\contentsline {subsubsection}{\numberline {3.17.2.3}Col()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{50}{subsubsection.3.17.2.3}%
+\contentsline {subsection}{\numberline {3.17.3}Member Function Documentation}{50}{subsection.3.17.3}%
+\contentsline {subsubsection}{\numberline {3.17.3.1}count()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{50}{subsubsection.3.17.3.1}%
+\contentsline {subsubsection}{\numberline {3.17.3.2}count()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{50}{subsubsection.3.17.3.2}%
+\contentsline {subsubsection}{\numberline {3.17.3.3}countIf()}{51}{subsubsection.3.17.3.3}%
+\contentsline {subsubsection}{\numberline {3.17.3.4}sum()}{51}{subsubsection.3.17.3.4}%
+\contentsline {subsubsection}{\numberline {3.17.3.5}label()}{52}{subsubsection.3.17.3.5}%
+\contentsline {subsubsection}{\numberline {3.17.3.6}switchCase()}{52}{subsubsection.3.17.3.6}%
+\contentsline {subsubsection}{\numberline {3.17.3.7}wrap()}{52}{subsubsection.3.17.3.7}%
+\contentsline {subsubsection}{\numberline {3.17.3.8}time()}{52}{subsubsection.3.17.3.8}%
+\contentsline {subsubsection}{\numberline {3.17.3.9}date()}{53}{subsubsection.3.17.3.9}%
+\contentsline {subsubsection}{\numberline {3.17.3.10}setWrapped()}{53}{subsubsection.3.17.3.10}%
+\contentsline {subsubsection}{\numberline {3.17.3.11}as()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{53}{subsubsection.3.17.3.11}%
+\contentsline {subsubsection}{\numberline {3.17.3.12}as()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{53}{subsubsection.3.17.3.12}%
+\contentsline {subsubsection}{\numberline {3.17.3.13}setColName()}{54}{subsubsection.3.17.3.13}%
+\contentsline {subsubsection}{\numberline {3.17.3.14}colName()}{54}{subsubsection.3.17.3.14}%
+\contentsline {subsubsection}{\numberline {3.17.3.15}of()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{54}{subsubsection.3.17.3.15}%
+\contentsline {subsubsection}{\numberline {3.17.3.16}of()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{55}{subsubsection.3.17.3.16}%
+\contentsline {subsubsection}{\numberline {3.17.3.17}replace()}{55}{subsubsection.3.17.3.17}%
+\contentsline {subsubsection}{\numberline {3.17.3.18}nested()}{55}{subsubsection.3.17.3.18}%
+\contentsline {subsubsection}{\numberline {3.17.3.19}math()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{56}{subsubsection.3.17.3.19}%
+\contentsline {subsubsection}{\numberline {3.17.3.20}math()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{57}{subsubsection.3.17.3.20}%
+\contentsline {subsubsection}{\numberline {3.17.3.21}toString()}{57}{subsubsection.3.17.3.21}%
+\contentsline {subsection}{\numberline {3.17.4}Member Data Documentation}{57}{subsection.3.17.4}%
+\contentsline {subsubsection}{\numberline {3.17.4.1}GameID}{58}{subsubsection.3.17.4.1}%
+\contentsline {subsubsection}{\numberline {3.17.4.2}SavedGame}{58}{subsubsection.3.17.4.2}%
+\contentsline {subsubsection}{\numberline {3.17.4.3}Password}{58}{subsubsection.3.17.4.3}%
+\contentsline {subsubsection}{\numberline {3.17.4.4}Player1}{58}{subsubsection.3.17.4.4}%
+\contentsline {subsubsection}{\numberline {3.17.4.5}Player2}{58}{subsubsection.3.17.4.5}%
+\contentsline {subsubsection}{\numberline {3.17.4.6}Username}{58}{subsubsection.3.17.4.6}%
+\contentsline {subsubsection}{\numberline {3.17.4.7}Winner}{58}{subsubsection.3.17.4.7}%
+\contentsline {subsubsection}{\numberline {3.17.4.8}PlayerToMove}{58}{subsubsection.3.17.4.8}%
+\contentsline {subsubsection}{\numberline {3.17.4.9}CreatedDateTime}{59}{subsubsection.3.17.4.9}%
+\contentsline {subsubsection}{\numberline {3.17.4.10}ProfilePic}{59}{subsubsection.3.17.4.10}%
+\contentsline {section}{\numberline {3.18}Moves\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compare\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Moves}{59}{section.3.18}%
+\contentsline {section}{\numberline {3.19}Condition}{59}{section.3.19}%
+\contentsline {subsection}{\numberline {3.19.1}Detailed Description}{59}{subsection.3.19.1}%
+\contentsline {subsection}{\numberline {3.19.2}Class Documentation}{59}{subsection.3.19.2}%
+\contentsline {subsubsection}{\numberline {3.19.2.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBActions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Condition\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Relation}{59}{subsubsection.3.19.2.1}%
+\contentsline {subsection}{\numberline {3.19.3}Constructor \& Destructor Documentation}{60}{subsection.3.19.3}%
+\contentsline {subsubsection}{\numberline {3.19.3.1}Condition()}{60}{subsubsection.3.19.3.1}%
+\contentsline {subsection}{\numberline {3.19.4}Member Function Documentation}{60}{subsection.3.19.4}%
+\contentsline {subsubsection}{\numberline {3.19.4.1}equals()}{60}{subsubsection.3.19.4.1}%
+\contentsline {subsubsection}{\numberline {3.19.4.2}noNulls()}{61}{subsubsection.3.19.4.2}%
+\contentsline {subsubsection}{\numberline {3.19.4.3}add()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{61}{subsubsection.3.19.4.3}%
+\contentsline {subsubsection}{\numberline {3.19.4.4}add()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{61}{subsubsection.3.19.4.4}%
+\contentsline {subsubsection}{\numberline {3.19.4.5}wrap()}{62}{subsubsection.3.19.4.5}%
+\contentsline {subsubsection}{\numberline {3.19.4.6}math()}{62}{subsubsection.3.19.4.6}%
+\contentsline {subsubsection}{\numberline {3.19.4.7}between()}{62}{subsubsection.3.19.4.7}%
+\contentsline {subsubsection}{\numberline {3.19.4.8}notEquals()}{63}{subsubsection.3.19.4.8}%
+\contentsline {subsubsection}{\numberline {3.19.4.9}and()}{63}{subsubsection.3.19.4.9}%
+\contentsline {subsubsection}{\numberline {3.19.4.10}getStr()}{63}{subsubsection.3.19.4.10}%
+\contentsline {subsubsection}{\numberline {3.19.4.11}setStr()}{63}{subsubsection.3.19.4.11}%
+\contentsline {subsubsection}{\numberline {3.19.4.12}toString()}{64}{subsubsection.3.19.4.12}%
+\contentsline {section}{\numberline {3.20}Config$<$ V $>$}{64}{section.3.20}%
+\contentsline {subsection}{\numberline {3.20.1}Detailed Description}{64}{subsection.3.20.1}%
+\contentsline {subsection}{\numberline {3.20.2}Constructor \& Destructor Documentation}{65}{subsection.3.20.2}%
+\contentsline {subsubsection}{\numberline {3.20.2.1}Config()\hspace {0.1cm}{\footnotesize \ttfamily [1/6]}}{65}{subsubsection.3.20.2.1}%
+\contentsline {subsubsection}{\numberline {3.20.2.2}Config()\hspace {0.1cm}{\footnotesize \ttfamily [2/6]}}{65}{subsubsection.3.20.2.2}%
+\contentsline {subsubsection}{\numberline {3.20.2.3}Config()\hspace {0.1cm}{\footnotesize \ttfamily [3/6]}}{65}{subsubsection.3.20.2.3}%
+\contentsline {subsubsection}{\numberline {3.20.2.4}Config()\hspace {0.1cm}{\footnotesize \ttfamily [4/6]}}{65}{subsubsection.3.20.2.4}%
+\contentsline {subsubsection}{\numberline {3.20.2.5}Config()\hspace {0.1cm}{\footnotesize \ttfamily [5/6]}}{66}{subsubsection.3.20.2.5}%
+\contentsline {subsubsection}{\numberline {3.20.2.6}Config()\hspace {0.1cm}{\footnotesize \ttfamily [6/6]}}{66}{subsubsection.3.20.2.6}%
+\contentsline {subsection}{\numberline {3.20.3}Member Function Documentation}{66}{subsection.3.20.3}%
+\contentsline {subsubsection}{\numberline {3.20.3.1}addSuggestion()}{67}{subsubsection.3.20.3.1}%
+\contentsline {subsubsection}{\numberline {3.20.3.2}getValuesSuggestion()}{67}{subsubsection.3.20.3.2}%
+\contentsline {subsubsection}{\numberline {3.20.3.3}getDescribedDefault()}{67}{subsubsection.3.20.3.3}%
+\contentsline {subsubsection}{\numberline {3.20.3.4}getDefault()}{67}{subsubsection.3.20.3.4}%
+\contentsline {subsubsection}{\numberline {3.20.3.5}toString()}{68}{subsubsection.3.20.3.5}%
+\contentsline {subsubsection}{\numberline {3.20.3.6}getDefaultDesc()}{68}{subsubsection.3.20.3.6}%
+\contentsline {subsection}{\numberline {3.20.4}Member Data Documentation}{68}{subsection.3.20.4}%
+\contentsline {subsubsection}{\numberline {3.20.4.1}canUseDefault}{68}{subsubsection.3.20.4.1}%
+\contentsline {subsubsection}{\numberline {3.20.4.2}description}{68}{subsubsection.3.20.4.2}%
+\contentsline {section}{\numberline {3.21}Confirm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dialogs}{68}{section.3.21}%
+\contentsline {subsection}{\numberline {3.21.1}Detailed Description}{68}{subsection.3.21.1}%
+\contentsline {subsection}{\numberline {3.21.2}Member Function Documentation}{69}{subsection.3.21.2}%
+\contentsline {subsubsection}{\numberline {3.21.2.1}confirm()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{69}{subsubsection.3.21.2.1}%
+\contentsline {subsubsection}{\numberline {3.21.2.2}main()}{69}{subsubsection.3.21.2.2}%
+\contentsline {subsubsection}{\numberline {3.21.2.3}confirm()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{69}{subsubsection.3.21.2.3}%
+\contentsline {section}{\numberline {3.22}Created\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Game}{71}{section.3.22}%
+\contentsline {subsection}{\numberline {3.22.1}Detailed Description}{71}{subsection.3.22.1}%
+\contentsline {subsection}{\numberline {3.22.2}Constructor \& Destructor Documentation}{71}{subsection.3.22.2}%
+\contentsline {subsubsection}{\numberline {3.22.2.1}CreatedGame()}{71}{subsubsection.3.22.2.1}%
+\contentsline {subsection}{\numberline {3.22.3}Member Function Documentation}{72}{subsection.3.22.3}%
+\contentsline {subsubsection}{\numberline {3.22.3.1}getGameDesc()}{72}{subsubsection.3.22.3.1}%
+\contentsline {section}{\numberline {3.23}Custom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Statement}{72}{section.3.23}%
+\contentsline {subsection}{\numberline {3.23.1}Detailed Description}{72}{subsection.3.23.1}%
+\contentsline {subsection}{\numberline {3.23.2}Constructor \& Destructor Documentation}{73}{subsection.3.23.2}%
+\contentsline {subsubsection}{\numberline {3.23.2.1}CustomStatement()}{73}{subsubsection.3.23.2.1}%
+\contentsline {subsection}{\numberline {3.23.3}Member Function Documentation}{73}{subsection.3.23.3}%
+\contentsline {subsubsection}{\numberline {3.23.3.1}createStatement()}{73}{subsubsection.3.23.3.1}%
+\contentsline {section}{\numberline {3.24}DBRequest}{73}{section.3.24}%
+\contentsline {subsection}{\numberline {3.24.1}Detailed Description}{74}{subsection.3.24.1}%
+\contentsline {subsection}{\numberline {3.24.2}Class Documentation}{74}{subsection.3.24.2}%
+\contentsline {subsubsection}{\numberline {3.24.2.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBActions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBRequest\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBRequest\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Type}{74}{subsubsection.3.24.2.1}%
+\contentsline {subsection}{\numberline {3.24.3}Constructor \& Destructor Documentation}{74}{subsection.3.24.3}%
+\contentsline {subsubsection}{\numberline {3.24.3.1}DBRequest()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{74}{subsubsection.3.24.3.1}%
+\contentsline {subsubsection}{\numberline {3.24.3.2}DBRequest()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{75}{subsubsection.3.24.3.2}%
+\contentsline {subsubsection}{\numberline {3.24.3.3}DBRequest()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{75}{subsubsection.3.24.3.3}%
+\contentsline {subsection}{\numberline {3.24.4}Member Function Documentation}{75}{subsection.3.24.4}%
+\contentsline {subsubsection}{\numberline {3.24.4.1}getBuilder()}{75}{subsubsection.3.24.4.1}%
+\contentsline {subsubsection}{\numberline {3.24.4.2}getSubRequest()}{76}{subsubsection.3.24.4.2}%
+\contentsline {subsubsection}{\numberline {3.24.4.3}setSubRequest()}{76}{subsubsection.3.24.4.3}%
+\contentsline {subsubsection}{\numberline {3.24.4.4}toString()}{76}{subsubsection.3.24.4.4}%
+\contentsline {subsubsection}{\numberline {3.24.4.5}getRequest()}{76}{subsubsection.3.24.4.5}%
+\contentsline {subsection}{\numberline {3.24.5}Member Data Documentation}{77}{subsection.3.24.5}%
+\contentsline {subsubsection}{\numberline {3.24.5.1}type}{77}{subsubsection.3.24.5.1}%
+\contentsline {section}{\numberline {3.25}DBResponse}{77}{section.3.25}%
+\contentsline {subsection}{\numberline {3.25.1}Detailed Description}{77}{subsection.3.25.1}%
+\contentsline {subsection}{\numberline {3.25.2}Class Documentation}{77}{subsection.3.25.2}%
+\contentsline {subsubsection}{\numberline {3.25.2.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBActions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBResponse\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBResponse\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Status}{77}{subsubsection.3.25.2.1}%
+\contentsline {subsection}{\numberline {3.25.3}Constructor \& Destructor Documentation}{78}{subsection.3.25.3}%
+\contentsline {subsubsection}{\numberline {3.25.3.1}DBResponse()}{78}{subsubsection.3.25.3.1}%
+\contentsline {subsection}{\numberline {3.25.4}Member Function Documentation}{78}{subsection.3.25.4}%
+\contentsline {subsubsection}{\numberline {3.25.4.1}getRequest()}{78}{subsubsection.3.25.4.1}%
+\contentsline {subsubsection}{\numberline {3.25.4.2}getStatus()}{78}{subsubsection.3.25.4.2}%
+\contentsline {subsubsection}{\numberline {3.25.4.3}isSuccess()}{79}{subsubsection.3.25.4.3}%
+\contentsline {subsubsection}{\numberline {3.25.4.4}isAnyData()}{79}{subsubsection.3.25.4.4}%
+\contentsline {subsubsection}{\numberline {3.25.4.5}getAddedRes()}{79}{subsubsection.3.25.4.5}%
+\contentsline {subsubsection}{\numberline {3.25.4.6}setAddedRes()}{79}{subsubsection.3.25.4.6}%
+\contentsline {subsubsection}{\numberline {3.25.4.7}clean()}{80}{subsubsection.3.25.4.7}%
+\contentsline {subsubsection}{\numberline {3.25.4.8}print()}{80}{subsubsection.3.25.4.8}%
+\contentsline {subsubsection}{\numberline {3.25.4.9}toString()}{80}{subsubsection.3.25.4.9}%
+\contentsline {subsection}{\numberline {3.25.5}Member Data Documentation}{80}{subsection.3.25.5}%
+\contentsline {subsubsection}{\numberline {3.25.5.1}status}{80}{subsubsection.3.25.5.1}%
+\contentsline {subsubsection}{\numberline {3.25.5.2}request}{81}{subsubsection.3.25.5.2}%
+\contentsline {subsubsection}{\numberline {3.25.5.3}addedRes}{81}{subsubsection.3.25.5.3}%
+\contentsline {section}{\numberline {3.26}Delete}{81}{section.3.26}%
+\contentsline {subsection}{\numberline {3.26.1}Detailed Description}{81}{subsection.3.26.1}%
+\contentsline {subsection}{\numberline {3.26.2}Constructor \& Destructor Documentation}{81}{subsection.3.26.2}%
+\contentsline {subsubsection}{\numberline {3.26.2.1}Delete()}{81}{subsubsection.3.26.2.1}%
+\contentsline {subsection}{\numberline {3.26.3}Member Function Documentation}{82}{subsection.3.26.3}%
+\contentsline {subsubsection}{\numberline {3.26.3.1}createStatement()}{82}{subsubsection.3.26.3.1}%
+\contentsline {section}{\numberline {3.27}Direction Enum Reference}{82}{section.3.27}%
+\contentsline {subsection}{\numberline {3.27.1}Detailed Description}{83}{subsection.3.27.1}%
+\contentsline {subsection}{\numberline {3.27.2}Member Function Documentation}{83}{subsection.3.27.2}%
+\contentsline {subsubsection}{\numberline {3.27.2.1}getRelative()}{83}{subsubsection.3.27.2.1}%
+\contentsline {subsubsection}{\numberline {3.27.2.2}getDirectionByOffset()}{84}{subsubsection.3.27.2.2}%
+\contentsline {subsubsection}{\numberline {3.27.2.3}getCombination()}{84}{subsubsection.3.27.2.3}%
+\contentsline {subsubsection}{\numberline {3.27.2.4}perspective()}{84}{subsubsection.3.27.2.4}%
+\contentsline {subsubsection}{\numberline {3.27.2.5}opposite()}{85}{subsubsection.3.27.2.5}%
+\contentsline {subsection}{\numberline {3.27.3}Member Data Documentation}{85}{subsection.3.27.3}%
+\contentsline {subsubsection}{\numberline {3.27.3.1}U}{85}{subsubsection.3.27.3.1}%
+\contentsline {subsubsection}{\numberline {3.27.3.2}D}{85}{subsubsection.3.27.3.2}%
+\contentsline {subsubsection}{\numberline {3.27.3.3}L}{85}{subsubsection.3.27.3.3}%
+\contentsline {subsubsection}{\numberline {3.27.3.4}R}{86}{subsubsection.3.27.3.4}%
+\contentsline {subsubsection}{\numberline {3.27.3.5}U\_U}{86}{subsubsection.3.27.3.5}%
+\contentsline {subsubsection}{\numberline {3.27.3.6}D\_D}{86}{subsubsection.3.27.3.6}%
+\contentsline {subsubsection}{\numberline {3.27.3.7}U\_R}{86}{subsubsection.3.27.3.7}%
+\contentsline {subsubsection}{\numberline {3.27.3.8}U\_L}{87}{subsubsection.3.27.3.8}%
+\contentsline {subsubsection}{\numberline {3.27.3.9}D\_R}{87}{subsubsection.3.27.3.9}%
+\contentsline {subsubsection}{\numberline {3.27.3.10}D\_L}{87}{subsubsection.3.27.3.10}%
+\contentsline {subsubsection}{\numberline {3.27.3.11}U\_U\_R}{87}{subsubsection.3.27.3.11}%
+\contentsline {subsubsection}{\numberline {3.27.3.12}U\_U\_L}{88}{subsubsection.3.27.3.12}%
+\contentsline {subsubsection}{\numberline {3.27.3.13}U\_R\_R}{88}{subsubsection.3.27.3.13}%
+\contentsline {subsubsection}{\numberline {3.27.3.14}U\_L\_L}{88}{subsubsection.3.27.3.14}%
+\contentsline {subsubsection}{\numberline {3.27.3.15}D\_D\_R}{88}{subsubsection.3.27.3.15}%
+\contentsline {subsubsection}{\numberline {3.27.3.16}D\_D\_L}{89}{subsubsection.3.27.3.16}%
+\contentsline {subsubsection}{\numberline {3.27.3.17}D\_R\_R}{89}{subsubsection.3.27.3.17}%
+\contentsline {subsubsection}{\numberline {3.27.3.18}D\_L\_L}{89}{subsubsection.3.27.3.18}%
+\contentsline {subsubsection}{\numberline {3.27.3.19}NUM\_OF\_DIRECTIONS}{89}{subsubsection.3.27.3.19}%
+\contentsline {subsubsection}{\numberline {3.27.3.20}NUM\_OF\_KNIGHT\_DIRECTIONS}{89}{subsubsection.3.27.3.20}%
+\contentsline {subsubsection}{\numberline {3.27.3.21}NUM\_OF\_DIRECTIONS\_WO\_KNIGHT}{90}{subsubsection.3.27.3.21}%
+\contentsline {subsubsection}{\numberline {3.27.3.22}ALL\_DIRECTIONS}{90}{subsubsection.3.27.3.22}%
+\contentsline {subsubsection}{\numberline {3.27.3.23}ALL\_USED\_DIRECTIONS}{90}{subsubsection.3.27.3.23}%
+\contentsline {subsubsection}{\numberline {3.27.3.24}normalPerspective}{90}{subsubsection.3.27.3.24}%
+\contentsline {subsubsection}{\numberline {3.27.3.25}andWith}{90}{subsubsection.3.27.3.25}%
+\contentsline {subsubsection}{\numberline {3.27.3.26}offset}{90}{subsubsection.3.27.3.26}%
+\contentsline {subsubsection}{\numberline {3.27.3.27}asInt}{90}{subsubsection.3.27.3.27}%
+\contentsline {subsubsection}{\numberline {3.27.3.28}combination}{91}{subsubsection.3.27.3.28}%
+\contentsline {section}{\numberline {3.28}Efficient\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gen$<$ K, V $>$}{91}{section.3.28}%
+\contentsline {subsection}{\numberline {3.28.1}Detailed Description}{91}{subsection.3.28.1}%
+\contentsline {subsection}{\numberline {3.28.2}Constructor \& Destructor Documentation}{91}{subsection.3.28.2}%
+\contentsline {subsubsection}{\numberline {3.28.2.1}EfficientGen()}{91}{subsubsection.3.28.2.1}%
+\contentsline {subsection}{\numberline {3.28.3}Member Function Documentation}{91}{subsection.3.28.3}%
+\contentsline {subsubsection}{\numberline {3.28.3.1}get()}{91}{subsubsection.3.28.3.1}%
+\contentsline {section}{\numberline {3.29}Environment}{93}{section.3.29}%
+\contentsline {subsection}{\numberline {3.29.1}Member Data Documentation}{93}{subsection.3.29.1}%
+\contentsline {subsubsection}{\numberline {3.29.1.1}IS\_JAR}{93}{subsubsection.3.29.1.1}%
+\contentsline {section}{\numberline {3.30}Env\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager}{93}{section.3.30}%
+\contentsline {subsection}{\numberline {3.30.1}Detailed Description}{93}{subsection.3.30.1}%
+\contentsline {subsection}{\numberline {3.30.2}Member Function Documentation}{93}{subsection.3.30.2}%
+\contentsline {subsubsection}{\numberline {3.30.2.1}handledErr()}{93}{subsubsection.3.30.2.1}%
+\contentsline {subsubsection}{\numberline {3.30.2.2}criticalErr()}{94}{subsubsection.3.30.2.2}%
+\contentsline {section}{\numberline {3.31}Error\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler$<$ E extends My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Error $>$}{94}{section.3.31}%
+\contentsline {subsection}{\numberline {3.31.1}Detailed Description}{94}{subsection.3.31.1}%
+\contentsline {subsection}{\numberline {3.31.2}Member Function Documentation}{94}{subsection.3.31.2}%
+\contentsline {subsubsection}{\numberline {3.31.2.1}ignore()}{94}{subsubsection.3.31.2.1}%
+\contentsline {subsubsection}{\numberline {3.31.2.2}handle()}{95}{subsubsection.3.31.2.2}%
+\contentsline {section}{\numberline {3.32}Established\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info}{95}{section.3.32}%
+\contentsline {subsection}{\numberline {3.32.1}Detailed Description}{95}{subsection.3.32.1}%
+\contentsline {subsection}{\numberline {3.32.2}Constructor \& Destructor Documentation}{96}{subsection.3.32.2}%
+\contentsline {subsubsection}{\numberline {3.32.2.1}EstablishedGameInfo()}{96}{subsubsection.3.32.2.1}%
+\contentsline {subsection}{\numberline {3.32.3}Member Function Documentation}{96}{subsection.3.32.3}%
+\contentsline {subsubsection}{\numberline {3.32.3.1}getCreatedAt()}{96}{subsubsection.3.32.3.1}%
+\contentsline {subsubsection}{\numberline {3.32.3.2}setCreatedAt()}{96}{subsubsection.3.32.3.2}%
+\contentsline {subsubsection}{\numberline {3.32.3.3}getMoveStack()}{97}{subsubsection.3.32.3.3}%
+\contentsline {subsubsection}{\numberline {3.32.3.4}toString()}{97}{subsubsection.3.32.3.4}%
+\contentsline {subsubsection}{\numberline {3.32.3.5}getGameDesc()}{97}{subsubsection.3.32.3.5}%
+\contentsline {subsection}{\numberline {3.32.4}Member Data Documentation}{98}{subsection.3.32.4}%
+\contentsline {subsubsection}{\numberline {3.32.4.1}opponentUsername}{98}{subsubsection.3.32.4.1}%
+\contentsline {subsubsection}{\numberline {3.32.4.2}createdAt}{98}{subsubsection.3.32.4.2}%
+\contentsline {section}{\numberline {3.33}Evaluation}{98}{section.3.33}%
+\contentsline {subsection}{\numberline {3.33.1}Detailed Description}{98}{subsection.3.33.1}%
+\contentsline {subsection}{\numberline {3.33.2}Constructor \& Destructor Documentation}{98}{subsection.3.33.2}%
+\contentsline {subsubsection}{\numberline {3.33.2.1}Evaluation()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{98}{subsubsection.3.33.2.1}%
+\contentsline {subsubsection}{\numberline {3.33.2.2}Evaluation()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{99}{subsubsection.3.33.2.2}%
+\contentsline {subsubsection}{\numberline {3.33.2.3}Evaluation()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{99}{subsubsection.3.33.2.3}%
+\contentsline {subsubsection}{\numberline {3.33.2.4}Evaluation()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{99}{subsubsection.3.33.2.4}%
+\contentsline {subsection}{\numberline {3.33.3}Member Function Documentation}{100}{subsection.3.33.3}%
+\contentsline {subsubsection}{\numberline {3.33.3.1}book()}{100}{subsubsection.3.33.3.1}%
+\contentsline {subsubsection}{\numberline {3.33.3.2}addDetail()}{100}{subsubsection.3.33.3.2}%
+\contentsline {subsubsection}{\numberline {3.33.3.3}assertNotGameOver()}{100}{subsubsection.3.33.3.3}%
+\contentsline {subsubsection}{\numberline {3.33.3.4}getEvaluationDepth()}{100}{subsubsection.3.33.3.4}%
+\contentsline {subsubsection}{\numberline {3.33.3.5}setEvaluationDepth()}{101}{subsubsection.3.33.3.5}%
+\contentsline {subsubsection}{\numberline {3.33.3.6}isGameOver()}{101}{subsubsection.3.33.3.6}%
+\contentsline {subsubsection}{\numberline {3.33.3.7}isCheck()}{101}{subsubsection.3.33.3.7}%
+\contentsline {subsubsection}{\numberline {3.33.3.8}isGreaterThan()}{101}{subsubsection.3.33.3.8}%
+\contentsline {subsubsection}{\numberline {3.33.3.9}getEval()}{102}{subsubsection.3.33.3.9}%
+\contentsline {subsubsection}{\numberline {3.33.3.10}setEval()}{102}{subsubsection.3.33.3.10}%
+\contentsline {subsubsection}{\numberline {3.33.3.11}getGameStatus()}{102}{subsubsection.3.33.3.11}%
+\contentsline {subsubsection}{\numberline {3.33.3.12}equals()}{102}{subsubsection.3.33.3.12}%
+\contentsline {subsubsection}{\numberline {3.33.3.13}toString()}{103}{subsubsection.3.33.3.13}%
+\contentsline {subsubsection}{\numberline {3.33.3.14}convertFromCentipawns()}{103}{subsubsection.3.33.3.14}%
+\contentsline {subsubsection}{\numberline {3.33.3.15}getEvaluationFor()}{103}{subsubsection.3.33.3.15}%
+\contentsline {subsubsection}{\numberline {3.33.3.16}setPerspective()}{103}{subsubsection.3.33.3.16}%
+\contentsline {subsubsection}{\numberline {3.33.3.17}flipEval()}{104}{subsubsection.3.33.3.17}%
+\contentsline {subsubsection}{\numberline {3.33.3.18}print()}{104}{subsubsection.3.33.3.18}%
+\contentsline {subsubsection}{\numberline {3.33.3.19}EvaluationDetail()}{104}{subsubsection.3.33.3.19}%
+\contentsline {subsection}{\numberline {3.33.4}Member Data Documentation}{104}{subsection.3.33.4}%
+\contentsline {subsubsection}{\numberline {3.33.4.1}TIE\_EVAL}{104}{subsubsection.3.33.4.1}%
+\contentsline {subsubsection}{\numberline {3.33.4.2}WIN\_EVAL}{105}{subsubsection.3.33.4.2}%
+\contentsline {subsubsection}{\numberline {3.33.4.3}LOSS\_EVAL}{105}{subsubsection.3.33.4.3}%
+\contentsline {section}{\numberline {3.34}Evaluation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameters Enum Reference}{105}{section.3.34}%
+\contentsline {subsection}{\numberline {3.34.1}Detailed Description}{105}{subsection.3.34.1}%
+\contentsline {subsection}{\numberline {3.34.2}Member Data Documentation}{105}{subsection.3.34.2}%
+\contentsline {subsubsection}{\numberline {3.34.2.1}MATERIAL}{105}{subsubsection.3.34.2.1}%
+\contentsline {subsubsection}{\numberline {3.34.2.2}PIECE\_TABLES}{106}{subsubsection.3.34.2.2}%
+\contentsline {subsubsection}{\numberline {3.34.2.3}KING\_SAFETY}{106}{subsubsection.3.34.2.3}%
+\contentsline {subsubsection}{\numberline {3.34.2.4}HANGING\_PIECES}{106}{subsubsection.3.34.2.4}%
+\contentsline {subsubsection}{\numberline {3.34.2.5}SQUARE\_CONTROL}{106}{subsubsection.3.34.2.5}%
+\contentsline {subsubsection}{\numberline {3.34.2.6}MOVEMENT\_ABILITY}{106}{subsubsection.3.34.2.6}%
+\contentsline {subsubsection}{\numberline {3.34.2.7}FORCE\_KING\_TO\_CORNER}{106}{subsubsection.3.34.2.7}%
+\contentsline {subsubsection}{\numberline {3.34.2.8}EG\_WEIGHT}{106}{subsubsection.3.34.2.8}%
+\contentsline {subsubsection}{\numberline {3.34.2.9}STOCKFISH\_SAYS}{106}{subsubsection.3.34.2.9}%
+\contentsline {subsubsection}{\numberline {3.34.2.10}weight}{107}{subsubsection.3.34.2.10}%
+\contentsline {section}{\numberline {3.35}Font\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager}{107}{section.3.35}%
+\contentsline {section}{\numberline {3.36}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info}{107}{section.3.36}%
+\contentsline {subsection}{\numberline {3.36.1}Detailed Description}{108}{subsection.3.36.1}%
+\contentsline {subsection}{\numberline {3.36.2}Constructor \& Destructor Documentation}{108}{subsection.3.36.2}%
+\contentsline {subsubsection}{\numberline {3.36.2.1}GameInfo()}{108}{subsubsection.3.36.2.1}%
+\contentsline {subsection}{\numberline {3.36.3}Member Function Documentation}{108}{subsection.3.36.3}%
+\contentsline {subsubsection}{\numberline {3.36.3.1}example()}{108}{subsubsection.3.36.3.1}%
+\contentsline {subsubsection}{\numberline {3.36.3.2}isCreator()}{109}{subsubsection.3.36.3.2}%
+\contentsline {subsubsection}{\numberline {3.36.3.3}ID()}{109}{subsubsection.3.36.3.3}%
+\contentsline {subsubsection}{\numberline {3.36.3.4}equals()}{109}{subsubsection.3.36.3.4}%
+\contentsline {subsubsection}{\numberline {3.36.3.5}toString()}{110}{subsubsection.3.36.3.5}%
+\contentsline {subsubsection}{\numberline {3.36.3.6}getGameDesc()}{110}{subsubsection.3.36.3.6}%
+\contentsline {subsubsection}{\numberline {3.36.3.7}getJoiningPlayerColor()}{110}{subsubsection.3.36.3.7}%
+\contentsline {subsubsection}{\numberline {3.36.3.8}getStartingColor()}{110}{subsubsection.3.36.3.8}%
+\contentsline {subsection}{\numberline {3.36.4}Member Data Documentation}{111}{subsection.3.36.4}%
+\contentsline {subsubsection}{\numberline {3.36.4.1}gameId}{111}{subsubsection.3.36.4.1}%
+\contentsline {subsubsection}{\numberline {3.36.4.2}creatorUsername}{111}{subsubsection.3.36.4.2}%
+\contentsline {subsubsection}{\numberline {3.36.4.3}gameSettings}{111}{subsubsection.3.36.4.3}%
+\contentsline {section}{\numberline {3.37}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings}{111}{section.3.37}%
+\contentsline {subsection}{\numberline {3.37.1}Class Documentation}{111}{subsection.3.37.1}%
+\contentsline {subsubsection}{\numberline {3.37.1.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Setup\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type}{111}{subsubsection.3.37.1.1}%
+\contentsline {subsection}{\numberline {3.37.2}Member Function Documentation}{112}{subsection.3.37.2}%
+\contentsline {subsubsection}{\numberline {3.37.2.1}setTimeFormat()}{112}{subsubsection.3.37.2.1}%
+\contentsline {section}{\numberline {3.38}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status}{112}{section.3.38}%
+\contentsline {subsection}{\numberline {3.38.1}Detailed Description}{112}{subsection.3.38.1}%
+\contentsline {subsection}{\numberline {3.38.2}Member Function Documentation}{113}{subsection.3.38.2}%
+\contentsline {subsubsection}{\numberline {3.38.2.1}checkmate()}{113}{subsubsection.3.38.2.1}%
+\contentsline {subsubsection}{\numberline {3.38.2.2}gameGoesOn()}{114}{subsubsection.3.38.2.2}%
+\contentsline {subsubsection}{\numberline {3.38.2.3}tieByAgreement()}{114}{subsubsection.3.38.2.3}%
+\contentsline {subsubsection}{\numberline {3.38.2.4}stalemate()}{114}{subsubsection.3.38.2.4}%
+\contentsline {subsubsection}{\numberline {3.38.2.5}fiftyMoveRule()}{115}{subsubsection.3.38.2.5}%
+\contentsline {subsubsection}{\numberline {3.38.2.6}serverStoppedGame()}{115}{subsubsection.3.38.2.6}%
+\contentsline {subsubsection}{\numberline {3.38.2.7}setCustomStr()}{115}{subsubsection.3.38.2.7}%
+\contentsline {subsubsection}{\numberline {3.38.2.8}threeFoldRepetition()}{115}{subsubsection.3.38.2.8}%
+\contentsline {subsubsection}{\numberline {3.38.2.9}insufficientMaterial()}{116}{subsubsection.3.38.2.9}%
+\contentsline {subsubsection}{\numberline {3.38.2.10}playerDisconnected()}{116}{subsubsection.3.38.2.10}%
+\contentsline {subsubsection}{\numberline {3.38.2.11}timedOut()}{116}{subsubsection.3.38.2.11}%
+\contentsline {subsubsection}{\numberline {3.38.2.12}playerResigned()}{117}{subsubsection.3.38.2.12}%
+\contentsline {subsubsection}{\numberline {3.38.2.13}isDisconnected()}{117}{subsubsection.3.38.2.13}%
+\contentsline {subsubsection}{\numberline {3.38.2.14}getCheckedKingLoc()}{117}{subsubsection.3.38.2.14}%
+\contentsline {subsubsection}{\numberline {3.38.2.15}getWinningColor()}{118}{subsubsection.3.38.2.15}%
+\contentsline {subsubsection}{\numberline {3.38.2.16}getGameStatusType()}{118}{subsubsection.3.38.2.16}%
+\contentsline {subsubsection}{\numberline {3.38.2.17}setInCheck()}{118}{subsubsection.3.38.2.17}%
+\contentsline {subsubsection}{\numberline {3.38.2.18}isCheck()}{118}{subsubsection.3.38.2.18}%
+\contentsline {subsubsection}{\numberline {3.38.2.19}getDetailedStr()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{119}{subsubsection.3.38.2.19}%
+\contentsline {subsubsection}{\numberline {3.38.2.20}getDetailedStr()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{119}{subsubsection.3.38.2.20}%
+\contentsline {subsubsection}{\numberline {3.38.2.21}isGameOver()}{119}{subsubsection.3.38.2.21}%
+\contentsline {subsubsection}{\numberline {3.38.2.22}toString()}{119}{subsubsection.3.38.2.22}%
+\contentsline {subsubsection}{\numberline {3.38.2.23}setDepth()}{120}{subsubsection.3.38.2.23}%
+\contentsline {subsubsection}{\numberline {3.38.2.24}getSpecificStatus()}{120}{subsubsection.3.38.2.24}%
+\contentsline {section}{\numberline {3.39}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{120}{section.3.39}%
+\contentsline {subsection}{\numberline {3.39.1}Detailed Description}{121}{subsection.3.39.1}%
+\contentsline {subsection}{\numberline {3.39.2}Constructor \& Destructor Documentation}{121}{subsection.3.39.2}%
+\contentsline {subsubsection}{\numberline {3.39.2.1}GameStatusType()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{121}{subsubsection.3.39.2.1}%
+\contentsline {subsubsection}{\numberline {3.39.2.2}GameStatusType()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{121}{subsubsection.3.39.2.2}%
+\contentsline {subsection}{\numberline {3.39.3}Member Function Documentation}{121}{subsection.3.39.3}%
+\contentsline {subsubsection}{\numberline {3.39.3.1}isGameOver()}{121}{subsubsection.3.39.3.1}%
+\contentsline {subsection}{\numberline {3.39.4}Member Data Documentation}{122}{subsection.3.39.4}%
+\contentsline {subsubsection}{\numberline {3.39.4.1}TIE}{122}{subsubsection.3.39.4.1}%
+\contentsline {subsubsection}{\numberline {3.39.4.2}CHECK}{122}{subsubsection.3.39.4.2}%
+\contentsline {subsubsection}{\numberline {3.39.4.3}GAME\_GOES\_ON}{122}{subsubsection.3.39.4.3}%
+\contentsline {subsubsection}{\numberline {3.39.4.4}WIN\_OR\_LOSS}{122}{subsubsection.3.39.4.4}%
+\contentsline {subsubsection}{\numberline {3.39.4.5}UNFINISHED}{122}{subsubsection.3.39.4.5}%
+\contentsline {subsubsection}{\numberline {3.39.4.6}annotation}{122}{subsubsection.3.39.4.6}%
+\contentsline {subsubsection}{\numberline {3.39.4.7}gameOverStr}{123}{subsubsection.3.39.4.7}%
+\contentsline {section}{\numberline {3.40}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Time}{123}{section.3.40}%
+\contentsline {section}{\numberline {3.41}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View}{123}{section.3.41}%
+\contentsline {section}{\numberline {3.42}Graphable}{124}{section.3.42}%
+\contentsline {section}{\numberline {3.43}Graphable\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}DBResponse}{124}{section.3.43}%
+\contentsline {subsection}{\numberline {3.43.1}Member Function Documentation}{124}{subsection.3.43.1}%
+\contentsline {subsubsection}{\numberline {3.43.1.1}toString()}{124}{subsubsection.3.43.1.1}%
+\contentsline {section}{\numberline {3.44}Graph\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Element}{125}{section.3.44}%
+\contentsline {section}{\numberline {3.45}Graph\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Element\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{125}{section.3.45}%
+\contentsline {section}{\numberline {3.46}Handled\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread}{125}{section.3.46}%
+\contentsline {subsection}{\numberline {3.46.1}Detailed Description}{126}{subsection.3.46.1}%
+\contentsline {subsection}{\numberline {3.46.2}Constructor \& Destructor Documentation}{126}{subsection.3.46.2}%
+\contentsline {subsubsection}{\numberline {3.46.2.1}HandledThread()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{126}{subsubsection.3.46.2.1}%
+\contentsline {subsubsection}{\numberline {3.46.2.2}HandledThread()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{126}{subsubsection.3.46.2.2}%
+\contentsline {subsection}{\numberline {3.46.3}Member Function Documentation}{126}{subsection.3.46.3}%
+\contentsline {subsubsection}{\numberline {3.46.3.1}runInHandledThread()}{126}{subsubsection.3.46.3.1}%
+\contentsline {subsubsection}{\numberline {3.46.3.2}setRunnable()}{127}{subsubsection.3.46.3.2}%
+\contentsline {subsubsection}{\numberline {3.46.3.3}handledRun()}{127}{subsubsection.3.46.3.3}%
+\contentsline {section}{\numberline {3.47}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JFrame.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Adapter.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Held\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Down}{127}{section.3.47}%
+\contentsline {subsection}{\numberline {3.47.1}Detailed Description}{127}{subsection.3.47.1}%
+\contentsline {subsection}{\numberline {3.47.2}Member Function Documentation}{127}{subsection.3.47.2}%
+\contentsline {subsubsection}{\numberline {3.47.2.1}startPress()}{127}{subsubsection.3.47.2.1}%
+\contentsline {subsubsection}{\numberline {3.47.2.2}endPress()}{128}{subsubsection.3.47.2.2}%
+\contentsline {subsubsection}{\numberline {3.47.2.3}key()}{128}{subsubsection.3.47.2.3}%
+\contentsline {section}{\numberline {3.48}IDs\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generator}{128}{section.3.48}%
+\contentsline {subsection}{\numberline {3.48.1}Detailed Description}{128}{subsection.3.48.1}%
+\contentsline {subsection}{\numberline {3.48.2}Member Function Documentation}{128}{subsection.3.48.2}%
+\contentsline {subsubsection}{\numberline {3.48.2.1}generate()}{128}{subsubsection.3.48.2.1}%
+\contentsline {subsubsection}{\numberline {3.48.2.2}canUseId()}{128}{subsubsection.3.48.2.2}%
+\contentsline {section}{\numberline {3.49}Str\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Iteration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thingy$<$ T $>$}{129}{section.3.49}%
+\contentsline {subsection}{\numberline {3.49.1}Detailed Description}{129}{subsection.3.49.1}%
+\contentsline {subsection}{\numberline {3.49.2}Member Function Documentation}{129}{subsection.3.49.2}%
+\contentsline {subsubsection}{\numberline {3.49.2.1}iteration()}{129}{subsubsection.3.49.2.1}%
+\contentsline {section}{\numberline {3.50}Lazy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Hash\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Supplier$<$ T $>$}{130}{section.3.50}%
+\contentsline {subsection}{\numberline {3.50.1}Detailed Description}{130}{subsection.3.50.1}%
+\contentsline {section}{\numberline {3.51}Link\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Label}{130}{section.3.51}%
+\contentsline {subsection}{\numberline {3.51.1}Member Function Documentation}{130}{subsection.3.51.1}%
+\contentsline {subsubsection}{\numberline {3.51.1.1}setText()}{130}{subsubsection.3.51.1.1}%
+\contentsline {section}{\numberline {3.52}Location Enum Reference}{131}{section.3.52}%
+\contentsline {subsection}{\numberline {3.52.1}Detailed Description}{132}{subsection.3.52.1}%
+\contentsline {subsection}{\numberline {3.52.2}Constructor \& Destructor Documentation}{132}{subsection.3.52.2}%
+\contentsline {subsubsection}{\numberline {3.52.2.1}Location()}{133}{subsubsection.3.52.2.1}%
+\contentsline {subsection}{\numberline {3.52.3}Member Function Documentation}{133}{subsection.3.52.3}%
+\contentsline {subsubsection}{\numberline {3.52.3.1}locsMatStr()}{133}{subsubsection.3.52.3.1}%
+\contentsline {subsubsection}{\numberline {3.52.3.2}locsMat()}{133}{subsubsection.3.52.3.2}%
+\contentsline {subsubsection}{\numberline {3.52.3.3}matrixStr()}{133}{subsubsection.3.52.3.3}%
+\contentsline {subsubsection}{\numberline {3.52.3.4}createMatIndicesStr()}{134}{subsubsection.3.52.3.4}%
+\contentsline {subsubsection}{\numberline {3.52.3.5}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [1/7]}}{134}{subsubsection.3.52.3.5}%
+\contentsline {subsubsection}{\numberline {3.52.3.6}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [2/7]}}{134}{subsubsection.3.52.3.6}%
+\contentsline {subsubsection}{\numberline {3.52.3.7}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [3/7]}}{135}{subsubsection.3.52.3.7}%
+\contentsline {subsubsection}{\numberline {3.52.3.8}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [4/7]}}{135}{subsubsection.3.52.3.8}%
+\contentsline {subsubsection}{\numberline {3.52.3.9}valueOf()}{135}{subsubsection.3.52.3.9}%
+\contentsline {subsubsection}{\numberline {3.52.3.10}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [5/7]}}{136}{subsubsection.3.52.3.10}%
+\contentsline {subsubsection}{\numberline {3.52.3.11}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [6/7]}}{136}{subsubsection.3.52.3.11}%
+\contentsline {subsubsection}{\numberline {3.52.3.12}getLoc()\hspace {0.1cm}{\footnotesize \ttfamily [7/7]}}{137}{subsubsection.3.52.3.12}%
+\contentsline {subsubsection}{\numberline {3.52.3.13}flip()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{137}{subsubsection.3.52.3.13}%
+\contentsline {subsubsection}{\numberline {3.52.3.14}isInBounds()}{137}{subsubsection.3.52.3.14}%
+\contentsline {subsubsection}{\numberline {3.52.3.15}getColString()}{138}{subsubsection.3.52.3.15}%
+\contentsline {subsubsection}{\numberline {3.52.3.16}flip()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{138}{subsubsection.3.52.3.16}%
+\contentsline {subsubsection}{\numberline {3.52.3.17}isBlackSquare()}{138}{subsubsection.3.52.3.17}%
+\contentsline {subsubsection}{\numberline {3.52.3.18}isWhiteSquare()}{138}{subsubsection.3.52.3.18}%
+\contentsline {subsubsection}{\numberline {3.52.3.19}toString()}{139}{subsubsection.3.52.3.19}%
+\contentsline {subsubsection}{\numberline {3.52.3.20}getMaxDistance()}{139}{subsubsection.3.52.3.20}%
+\contentsline {subsubsection}{\numberline {3.52.3.21}getRowString()}{139}{subsubsection.3.52.3.21}%
+\contentsline {subsubsection}{\numberline {3.52.3.22}hash()}{139}{subsubsection.3.52.3.22}%
+\contentsline {subsection}{\numberline {3.52.4}Member Data Documentation}{140}{subsection.3.52.4}%
+\contentsline {subsubsection}{\numberline {3.52.4.1}asLong}{140}{subsubsection.3.52.4.1}%
+\contentsline {subsubsection}{\numberline {3.52.4.2}asInt}{140}{subsubsection.3.52.4.2}%
+\contentsline {subsubsection}{\numberline {3.52.4.3}row}{140}{subsubsection.3.52.4.3}%
+\contentsline {subsubsection}{\numberline {3.52.4.4}col}{140}{subsubsection.3.52.4.4}%
+\contentsline {section}{\numberline {3.53}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info}{140}{section.3.53}%
+\contentsline {subsection}{\numberline {3.53.1}Detailed Description}{141}{subsection.3.53.1}%
+\contentsline {subsection}{\numberline {3.53.2}Constructor \& Destructor Documentation}{141}{subsection.3.53.2}%
+\contentsline {subsubsection}{\numberline {3.53.2.1}LoginInfo()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{141}{subsubsection.3.53.2.1}%
+\contentsline {subsubsection}{\numberline {3.53.2.2}LoginInfo()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{141}{subsubsection.3.53.2.2}%
+\contentsline {subsubsection}{\numberline {3.53.2.3}LoginInfo()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{141}{subsubsection.3.53.2.3}%
+\contentsline {subsection}{\numberline {3.53.3}Member Function Documentation}{142}{subsection.3.53.3}%
+\contentsline {subsubsection}{\numberline {3.53.3.1}getProfilePic()}{142}{subsubsection.3.53.3.1}%
+\contentsline {subsubsection}{\numberline {3.53.3.2}setProfilePic()}{142}{subsubsection.3.53.3.2}%
+\contentsline {subsubsection}{\numberline {3.53.3.3}isGuest()}{142}{subsubsection.3.53.3.3}%
+\contentsline {subsubsection}{\numberline {3.53.3.4}getLoginType()}{142}{subsubsection.3.53.3.4}%
+\contentsline {subsubsection}{\numberline {3.53.3.5}setLoginType()}{143}{subsubsection.3.53.3.5}%
+\contentsline {subsubsection}{\numberline {3.53.3.6}getUsername()}{143}{subsubsection.3.53.3.6}%
+\contentsline {subsubsection}{\numberline {3.53.3.7}setUsername()}{143}{subsubsection.3.53.3.7}%
+\contentsline {subsubsection}{\numberline {3.53.3.8}getPassword()}{143}{subsubsection.3.53.3.8}%
+\contentsline {subsubsection}{\numberline {3.53.3.9}setPassword()}{144}{subsubsection.3.53.3.9}%
+\contentsline {subsubsection}{\numberline {3.53.3.10}toString()}{144}{subsubsection.3.53.3.10}%
+\contentsline {subsubsection}{\numberline {3.53.3.11}asUser()}{144}{subsubsection.3.53.3.11}%
+\contentsline {subsubsection}{\numberline {3.53.3.12}initDebugLoginValues()}{144}{subsubsection.3.53.3.12}%
+\contentsline {section}{\numberline {3.54}Login\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{145}{section.3.54}%
+\contentsline {subsection}{\numberline {3.54.1}Detailed Description}{145}{subsection.3.54.1}%
+\contentsline {subsection}{\numberline {3.54.2}Member Function Documentation}{145}{subsection.3.54.2}%
+\contentsline {subsubsection}{\numberline {3.54.2.1}asUser()}{145}{subsubsection.3.54.2.1}%
+\contentsline {subsubsection}{\numberline {3.54.2.2}toString()}{145}{subsubsection.3.54.2.2}%
+\contentsline {subsection}{\numberline {3.54.3}Member Data Documentation}{145}{subsection.3.54.3}%
+\contentsline {subsubsection}{\numberline {3.54.3.1}LOGIN}{146}{subsubsection.3.54.3.1}%
+\contentsline {subsubsection}{\numberline {3.54.3.2}REGISTER}{146}{subsubsection.3.54.3.2}%
+\contentsline {subsubsection}{\numberline {3.54.3.3}GUEST}{146}{subsubsection.3.54.3.3}%
+\contentsline {subsubsection}{\numberline {3.54.3.4}CANCEL}{146}{subsubsection.3.54.3.4}%
+\contentsline {subsubsection}{\numberline {3.54.3.5}NOT\_SET\_YET}{146}{subsubsection.3.54.3.5}%
+\contentsline {section}{\numberline {3.55}Math Enum Reference}{146}{section.3.55}%
+\contentsline {subsection}{\numberline {3.55.1}Detailed Description}{147}{subsection.3.55.1}%
+\contentsline {subsection}{\numberline {3.55.2}Member Function Documentation}{147}{subsection.3.55.2}%
+\contentsline {subsubsection}{\numberline {3.55.2.1}nullIf0()}{147}{subsubsection.3.55.2.1}%
+\contentsline {subsubsection}{\numberline {3.55.2.2}formatNum()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{147}{subsubsection.3.55.2.2}%
+\contentsline {subsubsection}{\numberline {3.55.2.3}strVal()}{148}{subsubsection.3.55.2.3}%
+\contentsline {subsubsection}{\numberline {3.55.2.4}formatNum()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{148}{subsubsection.3.55.2.4}%
+\contentsline {subsubsection}{\numberline {3.55.2.5}str()}{148}{subsubsection.3.55.2.5}%
+\contentsline {subsubsection}{\numberline {3.55.2.6}asFloat()}{149}{subsubsection.3.55.2.6}%
+\contentsline {subsubsection}{\numberline {3.55.2.7}zeroIfNull()}{149}{subsubsection.3.55.2.7}%
+\contentsline {subsubsection}{\numberline {3.55.2.8}execute()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{149}{subsubsection.3.55.2.8}%
+\contentsline {subsubsection}{\numberline {3.55.2.9}execute()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{150}{subsubsection.3.55.2.9}%
+\contentsline {subsubsection}{\numberline {3.55.2.10}apply()}{150}{subsubsection.3.55.2.10}%
+\contentsline {subsubsection}{\numberline {3.55.2.11}strSource()}{150}{subsubsection.3.55.2.11}%
+\contentsline {subsubsection}{\numberline {3.55.2.12}simpleOperation()}{151}{subsubsection.3.55.2.12}%
+\contentsline {subsection}{\numberline {3.55.3}Member Data Documentation}{152}{subsection.3.55.3}%
+\contentsline {subsubsection}{\numberline {3.55.3.1}Plus}{152}{subsubsection.3.55.3.1}%
+\contentsline {subsubsection}{\numberline {3.55.3.2}Mult}{152}{subsubsection.3.55.3.2}%
+\contentsline {subsubsection}{\numberline {3.55.3.3}Div}{152}{subsubsection.3.55.3.3}%
+\contentsline {subsubsection}{\numberline {3.55.3.4}col}{153}{subsubsection.3.55.3.4}%
+\contentsline {section}{\numberline {3.56}Math\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utils}{153}{section.3.56}%
+\contentsline {subsection}{\numberline {3.56.1}Detailed Description}{153}{subsection.3.56.1}%
+\contentsline {subsection}{\numberline {3.56.2}Member Function Documentation}{153}{subsection.3.56.2}%
+\contentsline {subsubsection}{\numberline {3.56.2.1}log()}{153}{subsubsection.3.56.2.1}%
+\contentsline {section}{\numberline {3.57}Message}{154}{section.3.57}%
+\contentsline {subsection}{\numberline {3.57.1}Detailed Description}{154}{subsection.3.57.1}%
+\contentsline {subsubsection}{\numberline {3.57.1.1}Message.}{154}{subsubsection.3.57.1.1}%
+\contentsline {subsection}{\numberline {3.57.2}Constructor \& Destructor Documentation}{154}{subsection.3.57.2}%
+\contentsline {subsubsection}{\numberline {3.57.2.1}Message()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{154}{subsubsection.3.57.2.1}%
+\contentsline {subsubsection}{\numberline {3.57.2.2}Message()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{154}{subsubsection.3.57.2.2}%
+\contentsline {subsubsection}{\numberline {3.57.2.3}Message()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{155}{subsubsection.3.57.2.3}%
+\contentsline {subsubsection}{\numberline {3.57.2.4}Message()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{155}{subsubsection.3.57.2.4}%
+\contentsline {subsection}{\numberline {3.57.3}Member Function Documentation}{155}{subsection.3.57.3}%
+\contentsline {subsubsection}{\numberline {3.57.3.1}askForLogin()}{155}{subsubsection.3.57.3.1}%
+\contentsline {subsubsection}{\numberline {3.57.3.2}returnLogin()}{156}{subsubsection.3.57.3.2}%
+\contentsline {subsubsection}{\numberline {3.57.3.3}welcomeMessage()}{156}{subsubsection.3.57.3.3}%
+\contentsline {subsubsection}{\numberline {3.57.3.4}initGame()}{156}{subsubsection.3.57.3.4}%
+\contentsline {subsubsection}{\numberline {3.57.3.5}throwError()}{157}{subsubsection.3.57.3.5}%
+\contentsline {subsubsection}{\numberline {3.57.3.6}updateByMove()}{157}{subsubsection.3.57.3.6}%
+\contentsline {subsubsection}{\numberline {3.57.3.7}waitForYourTurn()}{158}{subsubsection.3.57.3.7}%
+\contentsline {subsubsection}{\numberline {3.57.3.8}waitForMatch()}{158}{subsubsection.3.57.3.8}%
+\contentsline {subsubsection}{\numberline {3.57.3.9}gameOver()}{158}{subsubsection.3.57.3.9}%
+\contentsline {subsubsection}{\numberline {3.57.3.10}askForGameSettings()}{159}{subsubsection.3.57.3.10}%
+\contentsline {subsubsection}{\numberline {3.57.3.11}returnGameSettings()}{159}{subsubsection.3.57.3.11}%
+\contentsline {subsubsection}{\numberline {3.57.3.12}interrupt()}{159}{subsubsection.3.57.3.12}%
+\contentsline {subsubsection}{\numberline {3.57.3.13}bye()}{160}{subsubsection.3.57.3.13}%
+\contentsline {subsubsection}{\numberline {3.57.3.14}error()}{160}{subsubsection.3.57.3.14}%
+\contentsline {subsubsection}{\numberline {3.57.3.15}returnMove()}{160}{subsubsection.3.57.3.15}%
+\contentsline {subsubsection}{\numberline {3.57.3.16}answerQuestion()}{161}{subsubsection.3.57.3.16}%
+\contentsline {subsubsection}{\numberline {3.57.3.17}askQuestion()}{161}{subsubsection.3.57.3.17}%
+\contentsline {subsubsection}{\numberline {3.57.3.18}checkUsernameAvailability()}{162}{subsubsection.3.57.3.18}%
+\contentsline {subsubsection}{\numberline {3.57.3.19}returnUsernameNotAvailable()}{162}{subsubsection.3.57.3.19}%
+\contentsline {subsubsection}{\numberline {3.57.3.20}returnUsernameAvailable()}{162}{subsubsection.3.57.3.20}%
+\contentsline {subsubsection}{\numberline {3.57.3.21}dbRequest()}{163}{subsubsection.3.57.3.21}%
+\contentsline {subsubsection}{\numberline {3.57.3.22}setDbRequest()}{163}{subsubsection.3.57.3.22}%
+\contentsline {subsubsection}{\numberline {3.57.3.23}returnDBResponse()}{163}{subsubsection.3.57.3.23}%
+\contentsline {subsubsection}{\numberline {3.57.3.24}syncLists()}{164}{subsubsection.3.57.3.24}%
+\contentsline {subsubsection}{\numberline {3.57.3.25}getError()}{164}{subsubsection.3.57.3.25}%
+\contentsline {subsubsection}{\numberline {3.57.3.26}setError()}{164}{subsubsection.3.57.3.26}%
+\contentsline {subsubsection}{\numberline {3.57.3.27}getDBRequest()}{165}{subsubsection.3.57.3.27}%
+\contentsline {subsubsection}{\numberline {3.57.3.28}getUsernameSuggestions()}{165}{subsubsection.3.57.3.28}%
+\contentsline {subsubsection}{\numberline {3.57.3.29}setUsernameSuggestions()}{165}{subsubsection.3.57.3.29}%
+\contentsline {subsubsection}{\numberline {3.57.3.30}getDBResponse()}{165}{subsubsection.3.57.3.30}%
+\contentsline {subsubsection}{\numberline {3.57.3.31}setDBResponse()}{166}{subsubsection.3.57.3.31}%
+\contentsline {subsubsection}{\numberline {3.57.3.32}getMoveStack()}{166}{subsubsection.3.57.3.32}%
+\contentsline {subsubsection}{\numberline {3.57.3.33}setMoveStack()}{166}{subsubsection.3.57.3.33}%
+\contentsline {subsubsection}{\numberline {3.57.3.34}getSyncedLists()}{166}{subsubsection.3.57.3.34}%
+\contentsline {subsubsection}{\numberline {3.57.3.35}setSyncedLists()}{167}{subsubsection.3.57.3.35}%
+\contentsline {subsubsection}{\numberline {3.57.3.36}getRespondingToMsgId()}{167}{subsubsection.3.57.3.36}%
+\contentsline {subsubsection}{\numberline {3.57.3.37}setRespondingToMsgId()}{167}{subsubsection.3.57.3.37}%
+\contentsline {subsubsection}{\numberline {3.57.3.38}setRespondingTo()}{167}{subsubsection.3.57.3.38}%
+\contentsline {subsubsection}{\numberline {3.57.3.39}isResponse()}{168}{subsubsection.3.57.3.39}%
+\contentsline {subsubsection}{\numberline {3.57.3.40}getOtherPlayer()}{168}{subsubsection.3.57.3.40}%
+\contentsline {subsubsection}{\numberline {3.57.3.41}setOtherPlayer()}{168}{subsubsection.3.57.3.41}%
+\contentsline {subsubsection}{\numberline {3.57.3.42}getQuestion()}{168}{subsubsection.3.57.3.42}%
+\contentsline {subsubsection}{\numberline {3.57.3.43}setQuestion()}{169}{subsubsection.3.57.3.43}%
+\contentsline {subsubsection}{\numberline {3.57.3.44}getAvailable()}{169}{subsubsection.3.57.3.44}%
+\contentsline {subsubsection}{\numberline {3.57.3.45}setAvailable()}{169}{subsubsection.3.57.3.45}%
+\contentsline {subsubsection}{\numberline {3.57.3.46}getUsername()}{169}{subsubsection.3.57.3.46}%
+\contentsline {subsubsection}{\numberline {3.57.3.47}setUsername()}{170}{subsubsection.3.57.3.47}%
+\contentsline {subsubsection}{\numberline {3.57.3.48}getGameSettings()}{170}{subsubsection.3.57.3.48}%
+\contentsline {subsubsection}{\numberline {3.57.3.49}setGameSettings()}{170}{subsubsection.3.57.3.49}%
+\contentsline {subsubsection}{\numberline {3.57.3.50}getPreMoves()}{170}{subsubsection.3.57.3.50}%
+\contentsline {subsubsection}{\numberline {3.57.3.51}setPreMoves()}{171}{subsubsection.3.57.3.51}%
+\contentsline {subsubsection}{\numberline {3.57.3.52}getSubject()}{171}{subsubsection.3.57.3.52}%
+\contentsline {subsubsection}{\numberline {3.57.3.53}getPlayerColor()}{171}{subsubsection.3.57.3.53}%
+\contentsline {subsubsection}{\numberline {3.57.3.54}setPlayerColor()}{171}{subsubsection.3.57.3.54}%
+\contentsline {subsubsection}{\numberline {3.57.3.55}getMove()}{172}{subsubsection.3.57.3.55}%
+\contentsline {subsubsection}{\numberline {3.57.3.56}setMove()}{172}{subsubsection.3.57.3.56}%
+\contentsline {subsubsection}{\numberline {3.57.3.57}getGameTime()}{172}{subsubsection.3.57.3.57}%
+\contentsline {subsubsection}{\numberline {3.57.3.58}setGameTime()}{172}{subsubsection.3.57.3.58}%
+\contentsline {subsubsection}{\numberline {3.57.3.59}getGameStatus()}{173}{subsubsection.3.57.3.59}%
+\contentsline {subsubsection}{\numberline {3.57.3.60}setGameStatus()}{173}{subsubsection.3.57.3.60}%
+\contentsline {subsubsection}{\numberline {3.57.3.61}getPossibleMoves()}{173}{subsubsection.3.57.3.61}%
+\contentsline {subsubsection}{\numberline {3.57.3.62}setPossibleMoves()}{173}{subsubsection.3.57.3.62}%
+\contentsline {subsubsection}{\numberline {3.57.3.63}getBoard()}{174}{subsubsection.3.57.3.63}%
+\contentsline {subsubsection}{\numberline {3.57.3.64}setBoard()}{174}{subsubsection.3.57.3.64}%
+\contentsline {subsubsection}{\numberline {3.57.3.65}getLoginInfo()}{174}{subsubsection.3.57.3.65}%
+\contentsline {subsubsection}{\numberline {3.57.3.66}setLoginInfo()}{174}{subsubsection.3.57.3.66}%
+\contentsline {subsubsection}{\numberline {3.57.3.67}getMessageType()}{175}{subsubsection.3.57.3.67}%
+\contentsline {subsubsection}{\numberline {3.57.3.68}isSubject()}{175}{subsubsection.3.57.3.68}%
+\contentsline {subsection}{\numberline {3.57.4}Member Data Documentation}{175}{subsection.3.57.4}%
+\contentsline {subsubsection}{\numberline {3.57.4.1}messageID}{175}{subsubsection.3.57.4.1}%
+\contentsline {section}{\numberline {3.58}Message\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callback}{176}{section.3.58}%
+\contentsline {subsection}{\numberline {3.58.1}Detailed Description}{176}{subsection.3.58.1}%
+\contentsline {section}{\numberline {3.59}Messages\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler}{176}{section.3.59}%
+\contentsline {subsection}{\numberline {3.59.1}Detailed Description}{176}{subsection.3.59.1}%
+\contentsline {subsection}{\numberline {3.59.2}Constructor \& Destructor Documentation}{176}{subsection.3.59.2}%
+\contentsline {subsubsection}{\numberline {3.59.2.1}MessagesHandler()}{176}{subsubsection.3.59.2.1}%
+\contentsline {subsection}{\numberline {3.59.3}Member Function Documentation}{177}{subsection.3.59.3}%
+\contentsline {subsubsection}{\numberline {3.59.3.1}onCancelQuestion()}{177}{subsubsection.3.59.3.1}%
+\contentsline {subsubsection}{\numberline {3.59.3.2}interruptBlocking()}{177}{subsubsection.3.59.3.2}%
+\contentsline {subsubsection}{\numberline {3.59.3.3}blockTilRes()}{177}{subsubsection.3.59.3.3}%
+\contentsline {subsubsection}{\numberline {3.59.3.4}noBlockRequest()}{178}{subsubsection.3.59.3.4}%
+\contentsline {subsubsection}{\numberline {3.59.3.5}receivedMessage()}{178}{subsubsection.3.59.3.5}%
+\contentsline {subsubsection}{\numberline {3.59.3.6}prepareForDisconnect()}{178}{subsubsection.3.59.3.6}%
+\contentsline {subsubsection}{\numberline {3.59.3.7}onAnyMsg()}{178}{subsubsection.3.59.3.7}%
+\contentsline {subsubsection}{\numberline {3.59.3.8}onDisconnected()}{179}{subsubsection.3.59.3.8}%
+\contentsline {subsubsection}{\numberline {3.59.3.9}onAnyDisconnection()}{179}{subsubsection.3.59.3.9}%
+\contentsline {subsubsection}{\numberline {3.59.3.10}onPlannedDisconnect()}{179}{subsubsection.3.59.3.10}%
+\contentsline {subsubsection}{\numberline {3.59.3.11}onUnplannedDisconnect()}{179}{subsubsection.3.59.3.11}%
+\contentsline {subsubsection}{\numberline {3.59.3.12}createDisconnectedError()}{179}{subsubsection.3.59.3.12}%
+\contentsline {subsubsection}{\numberline {3.59.3.13}onLogin()}{179}{subsubsection.3.59.3.13}%
+\contentsline {subsubsection}{\numberline {3.59.3.14}onResign()}{180}{subsubsection.3.59.3.14}%
+\contentsline {subsubsection}{\numberline {3.59.3.15}onAddTime()}{180}{subsubsection.3.59.3.15}%
+\contentsline {subsubsection}{\numberline {3.59.3.16}onOfferDraw()}{180}{subsubsection.3.59.3.16}%
+\contentsline {subsubsection}{\numberline {3.59.3.17}onWelcomeMessage()}{180}{subsubsection.3.59.3.17}%
+\contentsline {subsubsection}{\numberline {3.59.3.18}onGetGameSettings()}{181}{subsubsection.3.59.3.18}%
+\contentsline {subsubsection}{\numberline {3.59.3.19}onWaitForMatch()}{181}{subsubsection.3.59.3.19}%
+\contentsline {subsubsection}{\numberline {3.59.3.20}onInitGame()}{181}{subsubsection.3.59.3.20}%
+\contentsline {subsubsection}{\numberline {3.59.3.21}onWaitTurn()}{181}{subsubsection.3.59.3.21}%
+\contentsline {subsubsection}{\numberline {3.59.3.22}onGetMove()}{182}{subsubsection.3.59.3.22}%
+\contentsline {subsubsection}{\numberline {3.59.3.23}onUpdateByMove()}{182}{subsubsection.3.59.3.23}%
+\contentsline {subsubsection}{\numberline {3.59.3.24}onGameOver()}{182}{subsubsection.3.59.3.24}%
+\contentsline {subsubsection}{\numberline {3.59.3.25}onError()}{182}{subsubsection.3.59.3.25}%
+\contentsline {subsubsection}{\numberline {3.59.3.26}onQuestion()}{183}{subsubsection.3.59.3.26}%
+\contentsline {subsubsection}{\numberline {3.59.3.27}onBye()}{183}{subsubsection.3.59.3.27}%
+\contentsline {subsubsection}{\numberline {3.59.3.28}onUsernameAvailability()}{183}{subsubsection.3.59.3.28}%
+\contentsline {subsubsection}{\numberline {3.59.3.29}onDBRequest()}{183}{subsubsection.3.59.3.29}%
+\contentsline {subsubsection}{\numberline {3.59.3.30}onDBResponse()}{184}{subsubsection.3.59.3.30}%
+\contentsline {subsubsection}{\numberline {3.59.3.31}onUpdateSyncedList()}{184}{subsubsection.3.59.3.31}%
+\contentsline {subsubsection}{\numberline {3.59.3.32}onInterrupt()}{184}{subsubsection.3.59.3.32}%
+\contentsline {subsubsection}{\numberline {3.59.3.33}onIsAlive()}{184}{subsubsection.3.59.3.33}%
+\contentsline {subsubsection}{\numberline {3.59.3.34}onAlive()}{185}{subsubsection.3.59.3.34}%
+\contentsline {subsection}{\numberline {3.59.4}Member Data Documentation}{185}{subsection.3.59.4}%
+\contentsline {subsubsection}{\numberline {3.59.4.1}socket}{185}{subsubsection.3.59.4.1}%
+\contentsline {section}{\numberline {3.60}Message\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{185}{section.3.60}%
+\contentsline {section}{\numberline {3.61}Minimax\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Move}{186}{section.3.61}%
+\contentsline {subsection}{\numberline {3.61.1}Detailed Description}{186}{subsection.3.61.1}%
+\contentsline {subsection}{\numberline {3.61.2}Constructor \& Destructor Documentation}{186}{subsection.3.61.2}%
+\contentsline {subsubsection}{\numberline {3.61.2.1}MinimaxMove()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{186}{subsubsection.3.61.2.1}%
+\contentsline {subsubsection}{\numberline {3.61.2.2}MinimaxMove()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{186}{subsubsection.3.61.2.2}%
+\contentsline {subsubsection}{\numberline {3.61.2.3}MinimaxMove()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{187}{subsubsection.3.61.2.3}%
+\contentsline {subsection}{\numberline {3.61.3}Member Function Documentation}{187}{subsection.3.61.3}%
+\contentsline {subsubsection}{\numberline {3.61.3.1}isDeeperAndBetterThan()}{187}{subsubsection.3.61.3.1}%
+\contentsline {subsubsection}{\numberline {3.61.3.2}getMoveDepth()}{187}{subsubsection.3.61.3.2}%
+\contentsline {subsubsection}{\numberline {3.61.3.3}getMove()}{188}{subsubsection.3.61.3.3}%
+\contentsline {subsubsection}{\numberline {3.61.3.4}setMove()}{188}{subsubsection.3.61.3.4}%
+\contentsline {subsubsection}{\numberline {3.61.3.5}getMoveEvaluation()}{188}{subsubsection.3.61.3.5}%
+\contentsline {subsubsection}{\numberline {3.61.3.6}setMoveEvaluation()}{188}{subsubsection.3.61.3.6}%
+\contentsline {subsubsection}{\numberline {3.61.3.7}hashCode()}{189}{subsubsection.3.61.3.7}%
+\contentsline {subsubsection}{\numberline {3.61.3.8}equals()}{189}{subsubsection.3.61.3.8}%
+\contentsline {subsubsection}{\numberline {3.61.3.9}toString()}{189}{subsubsection.3.61.3.9}%
+\contentsline {subsubsection}{\numberline {3.61.3.10}getShortPrintingStr()}{189}{subsubsection.3.61.3.10}%
+\contentsline {subsubsection}{\numberline {3.61.3.11}compareTo()}{190}{subsubsection.3.61.3.11}%
+\contentsline {section}{\numberline {3.62}Move}{190}{section.3.62}%
+\contentsline {subsection}{\numberline {3.62.1}Detailed Description}{190}{subsection.3.62.1}%
+\contentsline {subsection}{\numberline {3.62.2}Class Documentation}{190}{subsection.3.62.2}%
+\contentsline {subsubsection}{\numberline {3.62.2.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Moves\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Threefold\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status}{190}{subsubsection.3.62.2.1}%
+\contentsline {subsection}{\numberline {3.62.3}Constructor \& Destructor Documentation}{191}{subsection.3.62.3}%
+\contentsline {subsubsection}{\numberline {3.62.3.1}Move()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{191}{subsubsection.3.62.3.1}%
+\contentsline {subsubsection}{\numberline {3.62.3.2}Move()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{191}{subsubsection.3.62.3.2}%
+\contentsline {subsubsection}{\numberline {3.62.3.3}Move()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{191}{subsubsection.3.62.3.3}%
+\contentsline {subsubsection}{\numberline {3.62.3.4}Move()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{192}{subsubsection.3.62.3.4}%
+\contentsline {subsection}{\numberline {3.62.4}Member Function Documentation}{192}{subsection.3.62.4}%
+\contentsline {subsubsection}{\numberline {3.62.4.1}castling()}{192}{subsubsection.3.62.4.1}%
+\contentsline {subsubsection}{\numberline {3.62.4.2}threefoldClaim()}{192}{subsubsection.3.62.4.2}%
+\contentsline {subsubsection}{\numberline {3.62.4.3}flipMove()}{193}{subsubsection.3.62.4.3}%
+\contentsline {subsubsection}{\numberline {3.62.4.4}copyMove()}{193}{subsubsection.3.62.4.4}%
+\contentsline {subsubsection}{\numberline {3.62.4.5}setMoveAnnotation()}{193}{subsubsection.3.62.4.5}%
+\contentsline {subsubsection}{\numberline {3.62.4.6}getDisabledCastling()}{194}{subsubsection.3.62.4.6}%
+\contentsline {subsubsection}{\numberline {3.62.4.7}setDisabledCastling()}{194}{subsubsection.3.62.4.7}%
+\contentsline {subsubsection}{\numberline {3.62.4.8}setThreefoldOption()}{194}{subsubsection.3.62.4.8}%
+\contentsline {subsubsection}{\numberline {3.62.4.9}getMovingColor()}{194}{subsubsection.3.62.4.9}%
+\contentsline {subsubsection}{\numberline {3.62.4.10}setMovingColor()}{195}{subsubsection.3.62.4.10}%
+\contentsline {subsubsection}{\numberline {3.62.4.11}getPrevFullMoveClock()}{195}{subsubsection.3.62.4.11}%
+\contentsline {subsubsection}{\numberline {3.62.4.12}setPrevFullMoveClock()}{195}{subsubsection.3.62.4.12}%
+\contentsline {subsubsection}{\numberline {3.62.4.13}getPrevHalfMoveClock()}{195}{subsubsection.3.62.4.13}%
+\contentsline {subsubsection}{\numberline {3.62.4.14}setPrevHalfMoveClock()}{196}{subsubsection.3.62.4.14}%
+\contentsline {subsubsection}{\numberline {3.62.4.15}getPromotingTo()}{196}{subsubsection.3.62.4.15}%
+\contentsline {subsubsection}{\numberline {3.62.4.16}setPromotingTo()}{196}{subsubsection.3.62.4.16}%
+\contentsline {subsubsection}{\numberline {3.62.4.17}getIntermediateMove()}{196}{subsubsection.3.62.4.17}%
+\contentsline {subsubsection}{\numberline {3.62.4.18}setIntermediateMove()}{197}{subsubsection.3.62.4.18}%
+\contentsline {subsubsection}{\numberline {3.62.4.19}isCheck()}{197}{subsubsection.3.62.4.19}%
+\contentsline {subsubsection}{\numberline {3.62.4.20}getMoveEvaluation()}{197}{subsubsection.3.62.4.20}%
+\contentsline {subsubsection}{\numberline {3.62.4.21}setMoveEvaluation()}{197}{subsubsection.3.62.4.21}%
+\contentsline {subsubsection}{\numberline {3.62.4.22}getCapturingPieceType()}{198}{subsubsection.3.62.4.22}%
+\contentsline {subsubsection}{\numberline {3.62.4.23}isReversible()}{198}{subsubsection.3.62.4.23}%
+\contentsline {subsubsection}{\numberline {3.62.4.24}setReversible()}{198}{subsubsection.3.62.4.24}%
+\contentsline {subsubsection}{\numberline {3.62.4.25}isCapturing()}{198}{subsubsection.3.62.4.25}%
+\contentsline {subsubsection}{\numberline {3.62.4.26}setCapturing()}{199}{subsubsection.3.62.4.26}%
+\contentsline {subsubsection}{\numberline {3.62.4.27}equals()}{199}{subsubsection.3.62.4.27}%
+\contentsline {subsubsection}{\numberline {3.62.4.28}toString()}{199}{subsubsection.3.62.4.28}%
+\contentsline {subsubsection}{\numberline {3.62.4.29}getAnnotation()}{200}{subsubsection.3.62.4.29}%
+\contentsline {subsubsection}{\numberline {3.62.4.30}strictEquals()}{200}{subsubsection.3.62.4.30}%
+\contentsline {subsubsection}{\numberline {3.62.4.31}getMoveFlag()}{200}{subsubsection.3.62.4.31}%
+\contentsline {subsubsection}{\numberline {3.62.4.32}setMoveFlag()}{200}{subsubsection.3.62.4.32}%
+\contentsline {subsubsection}{\numberline {3.62.4.33}compareTo()}{201}{subsubsection.3.62.4.33}%
+\contentsline {subsubsection}{\numberline {3.62.4.34}getEnPassantLoc()}{201}{subsubsection.3.62.4.34}%
+\contentsline {subsubsection}{\numberline {3.62.4.35}setEnPassantLoc()}{201}{subsubsection.3.62.4.35}%
+\contentsline {section}{\numberline {3.63}Move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Annotation}{202}{section.3.63}%
+\contentsline {subsection}{\numberline {3.63.1}Detailed Description}{202}{subsection.3.63.1}%
+\contentsline {subsection}{\numberline {3.63.2}Member Function Documentation}{202}{subsection.3.63.2}%
+\contentsline {subsubsection}{\numberline {3.63.2.1}annotate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{202}{subsubsection.3.63.2.1}%
+\contentsline {subsubsection}{\numberline {3.63.2.2}annotate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{202}{subsubsection.3.63.2.2}%
+\contentsline {subsubsection}{\numberline {3.63.2.3}basicAnnotate()}{203}{subsubsection.3.63.2.3}%
+\contentsline {section}{\numberline {3.64}Move.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flag Enum Reference}{203}{section.3.64}%
+\contentsline {subsection}{\numberline {3.64.1}Detailed Description}{203}{subsection.3.64.1}%
+\contentsline {subsection}{\numberline {3.64.2}Constructor \& Destructor Documentation}{204}{subsection.3.64.2}%
+\contentsline {subsubsection}{\numberline {3.64.2.1}MoveFlag()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{204}{subsubsection.3.64.2.1}%
+\contentsline {subsubsection}{\numberline {3.64.2.2}MoveFlag()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{204}{subsubsection.3.64.2.2}%
+\contentsline {subsection}{\numberline {3.64.3}Member Function Documentation}{204}{subsection.3.64.3}%
+\contentsline {subsubsection}{\numberline {3.64.3.1}equals()}{204}{subsubsection.3.64.3.1}%
+\contentsline {subsection}{\numberline {3.64.4}Member Data Documentation}{204}{subsection.3.64.4}%
+\contentsline {subsubsection}{\numberline {3.64.4.1}NormalMove}{205}{subsubsection.3.64.4.1}%
+\contentsline {subsubsection}{\numberline {3.64.4.2}EnPassant}{205}{subsubsection.3.64.4.2}%
+\contentsline {subsubsection}{\numberline {3.64.4.3}DoublePawnPush}{205}{subsubsection.3.64.4.3}%
+\contentsline {subsubsection}{\numberline {3.64.4.4}Promotion}{205}{subsubsection.3.64.4.4}%
+\contentsline {subsubsection}{\numberline {3.64.4.5}ShortCastle}{205}{subsubsection.3.64.4.5}%
+\contentsline {subsubsection}{\numberline {3.64.4.6}LongCastle}{205}{subsubsection.3.64.4.6}%
+\contentsline {subsubsection}{\numberline {3.64.4.7}CASTLING\_FLAGS}{205}{subsubsection.3.64.4.7}%
+\contentsline {subsubsection}{\numberline {3.64.4.8}isCastling}{206}{subsubsection.3.64.4.8}%
+\contentsline {subsubsection}{\numberline {3.64.4.9}castlingSide}{206}{subsubsection.3.64.4.9}%
+\contentsline {section}{\numberline {3.65}Move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Flags Enum Reference}{206}{section.3.65}%
+\contentsline {section}{\numberline {3.66}Moves\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List}{206}{section.3.66}%
+\contentsline {section}{\numberline {3.67}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Error}{207}{section.3.67}%
+\contentsline {subsection}{\numberline {3.67.1}Detailed Description}{207}{subsection.3.67.1}%
+\contentsline {subsection}{\numberline {3.67.2}Constructor \& Destructor Documentation}{207}{subsection.3.67.2}%
+\contentsline {subsubsection}{\numberline {3.67.2.1}MyError()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{207}{subsubsection.3.67.2.1}%
+\contentsline {subsubsection}{\numberline {3.67.2.2}MyError()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{207}{subsubsection.3.67.2.2}%
+\contentsline {subsubsection}{\numberline {3.67.2.3}MyError()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{208}{subsubsection.3.67.2.3}%
+\contentsline {subsubsection}{\numberline {3.67.2.4}MyError()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{208}{subsubsection.3.67.2.4}%
+\contentsline {subsection}{\numberline {3.67.3}Member Function Documentation}{208}{subsection.3.67.3}%
+\contentsline {subsubsection}{\numberline {3.67.3.1}getHandledStr()}{208}{subsubsection.3.67.3.1}%
+\contentsline {subsubsection}{\numberline {3.67.3.2}toString()}{208}{subsubsection.3.67.3.2}%
+\contentsline {subsubsection}{\numberline {3.67.3.3}errToString()}{209}{subsubsection.3.67.3.3}%
+\contentsline {section}{\numberline {3.68}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JButton}{209}{section.3.68}%
+\contentsline {subsection}{\numberline {3.68.1}Detailed Description}{209}{subsection.3.68.1}%
+\contentsline {subsection}{\numberline {3.68.2}Constructor \& Destructor Documentation}{209}{subsection.3.68.2}%
+\contentsline {subsubsection}{\numberline {3.68.2.1}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [1/6]}}{209}{subsubsection.3.68.2.1}%
+\contentsline {subsubsection}{\numberline {3.68.2.2}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [2/6]}}{210}{subsubsection.3.68.2.2}%
+\contentsline {subsubsection}{\numberline {3.68.2.3}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [3/6]}}{210}{subsubsection.3.68.2.3}%
+\contentsline {subsubsection}{\numberline {3.68.2.4}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [4/6]}}{210}{subsubsection.3.68.2.4}%
+\contentsline {subsubsection}{\numberline {3.68.2.5}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [5/6]}}{210}{subsubsection.3.68.2.5}%
+\contentsline {subsubsection}{\numberline {3.68.2.6}MyJButton()\hspace {0.1cm}{\footnotesize \ttfamily [6/6]}}{211}{subsubsection.3.68.2.6}%
+\contentsline {subsection}{\numberline {3.68.3}Member Function Documentation}{211}{subsection.3.68.3}%
+\contentsline {subsubsection}{\numberline {3.68.3.1}setOnClick()}{211}{subsubsection.3.68.3.1}%
+\contentsline {subsubsection}{\numberline {3.68.3.2}setText()}{211}{subsubsection.3.68.3.2}%
+\contentsline {subsubsection}{\numberline {3.68.3.3}setFont()}{212}{subsubsection.3.68.3.3}%
+\contentsline {subsubsection}{\numberline {3.68.3.4}getMinSize()}{212}{subsubsection.3.68.3.4}%
+\contentsline {subsubsection}{\numberline {3.68.3.5}replaceWithCancel()}{212}{subsubsection.3.68.3.5}%
+\contentsline {subsubsection}{\numberline {3.68.3.6}resetState()}{213}{subsubsection.3.68.3.6}%
+\contentsline {section}{\numberline {3.69}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JFrame}{213}{section.3.69}%
+\contentsline {subsection}{\numberline {3.69.1}Detailed Description}{213}{subsection.3.69.1}%
+\contentsline {subsection}{\numberline {3.69.2}Constructor \& Destructor Documentation}{213}{subsection.3.69.2}%
+\contentsline {subsubsection}{\numberline {3.69.2.1}MyJFrame()}{213}{subsubsection.3.69.2.1}%
+\contentsline {subsection}{\numberline {3.69.3}Member Function Documentation}{214}{subsection.3.69.3}%
+\contentsline {subsubsection}{\numberline {3.69.3.1}debugAdapter()}{214}{subsubsection.3.69.3.1}%
+\contentsline {subsubsection}{\numberline {3.69.3.2}getMyAdapter()}{214}{subsubsection.3.69.3.2}%
+\contentsline {subsubsection}{\numberline {3.69.3.3}setOnExit()}{214}{subsubsection.3.69.3.3}%
+\contentsline {subsubsection}{\numberline {3.69.3.4}doXClick()}{215}{subsubsection.3.69.3.4}%
+\contentsline {subsubsection}{\numberline {3.69.3.5}setOnResize()}{215}{subsubsection.3.69.3.5}%
+\contentsline {subsection}{\numberline {3.69.4}Member Data Documentation}{215}{subsection.3.69.4}%
+\contentsline {subsubsection}{\numberline {3.69.4.1}onClose}{215}{subsubsection.3.69.4.1}%
+\contentsline {section}{\numberline {3.70}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lbl}{215}{section.3.70}%
+\contentsline {section}{\numberline {3.71}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread}{216}{section.3.71}%
+\contentsline {subsection}{\numberline {3.71.1}Detailed Description}{216}{subsection.3.71.1}%
+\contentsline {subsection}{\numberline {3.71.2}Constructor \& Destructor Documentation}{216}{subsection.3.71.2}%
+\contentsline {subsubsection}{\numberline {3.71.2.1}MyThread()}{216}{subsubsection.3.71.2.1}%
+\contentsline {subsection}{\numberline {3.71.3}Member Function Documentation}{216}{subsection.3.71.3}%
+\contentsline {subsubsection}{\numberline {3.71.3.1}currentThread()}{216}{subsubsection.3.71.3.1}%
+\contentsline {subsubsection}{\numberline {3.71.3.2}stopRun()}{217}{subsubsection.3.71.3.2}%
+\contentsline {subsubsection}{\numberline {3.71.3.3}ignoreErrs()}{217}{subsubsection.3.71.3.3}%
+\contentsline {subsubsection}{\numberline {3.71.3.4}reactivateErrs()}{217}{subsubsection.3.71.3.4}%
+\contentsline {subsubsection}{\numberline {3.71.3.5}handledRun()}{217}{subsubsection.3.71.3.5}%
+\contentsline {section}{\numberline {3.72}Piece Enum Reference}{217}{section.3.72}%
+\contentsline {subsection}{\numberline {3.72.1}Detailed Description}{218}{subsection.3.72.1}%
+\contentsline {subsection}{\numberline {3.72.2}Member Function Documentation}{218}{subsection.3.72.2}%
+\contentsline {subsubsection}{\numberline {3.72.2.1}getPieceFromFen()}{218}{subsubsection.3.72.2.1}%
+\contentsline {subsubsection}{\numberline {3.72.2.2}getPiece()}{219}{subsubsection.3.72.2.2}%
+\contentsline {subsubsection}{\numberline {3.72.2.3}getPieceIcon()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{219}{subsubsection.3.72.2.3}%
+\contentsline {subsubsection}{\numberline {3.72.2.4}getPieceIcon()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{219}{subsubsection.3.72.2.4}%
+\contentsline {subsubsection}{\numberline {3.72.2.5}getFen()}{220}{subsubsection.3.72.2.5}%
+\contentsline {subsubsection}{\numberline {3.72.2.6}isOnMyTeam()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{220}{subsubsection.3.72.2.6}%
+\contentsline {subsubsection}{\numberline {3.72.2.7}isOnMyTeam()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{220}{subsubsection.3.72.2.7}%
+\contentsline {subsection}{\numberline {3.72.3}Member Data Documentation}{221}{subsection.3.72.3}%
+\contentsline {subsubsection}{\numberline {3.72.3.1}W\_P}{221}{subsubsection.3.72.3.1}%
+\contentsline {subsubsection}{\numberline {3.72.3.2}W\_R}{221}{subsubsection.3.72.3.2}%
+\contentsline {subsubsection}{\numberline {3.72.3.3}W\_B}{221}{subsubsection.3.72.3.3}%
+\contentsline {subsubsection}{\numberline {3.72.3.4}W\_N}{221}{subsubsection.3.72.3.4}%
+\contentsline {subsubsection}{\numberline {3.72.3.5}W\_Q}{221}{subsubsection.3.72.3.5}%
+\contentsline {subsubsection}{\numberline {3.72.3.6}W\_K}{221}{subsubsection.3.72.3.6}%
+\contentsline {subsubsection}{\numberline {3.72.3.7}B\_P}{222}{subsubsection.3.72.3.7}%
+\contentsline {subsubsection}{\numberline {3.72.3.8}B\_R}{222}{subsubsection.3.72.3.8}%
+\contentsline {subsubsection}{\numberline {3.72.3.9}B\_B}{222}{subsubsection.3.72.3.9}%
+\contentsline {subsubsection}{\numberline {3.72.3.10}B\_N}{222}{subsubsection.3.72.3.10}%
+\contentsline {subsubsection}{\numberline {3.72.3.11}B\_Q}{222}{subsubsection.3.72.3.11}%
+\contentsline {subsubsection}{\numberline {3.72.3.12}B\_K}{222}{subsubsection.3.72.3.12}%
+\contentsline {subsubsection}{\numberline {3.72.3.13}ALL\_PIECES}{222}{subsubsection.3.72.3.13}%
+\contentsline {subsubsection}{\numberline {3.72.3.14}pieceType}{222}{subsubsection.3.72.3.14}%
+\contentsline {subsubsection}{\numberline {3.72.3.15}playerColor}{223}{subsubsection.3.72.3.15}%
+\contentsline {section}{\numberline {3.73}Piece\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{223}{section.3.73}%
+\contentsline {subsection}{\numberline {3.73.1}Detailed Description}{224}{subsection.3.73.1}%
+\contentsline {subsection}{\numberline {3.73.2}Member Function Documentation}{224}{subsection.3.73.2}%
+\contentsline {subsubsection}{\numberline {3.73.2.1}getPieceType()}{224}{subsubsection.3.73.2.1}%
+\contentsline {subsubsection}{\numberline {3.73.2.2}getAttackingDirections()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{224}{subsubsection.3.73.2.2}%
+\contentsline {subsubsection}{\numberline {3.73.2.3}getWhitePieceFen()}{225}{subsubsection.3.73.2.3}%
+\contentsline {subsubsection}{\numberline {3.73.2.4}getPieceIcon()}{225}{subsubsection.3.73.2.4}%
+\contentsline {subsubsection}{\numberline {3.73.2.5}compareMovementType()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{225}{subsubsection.3.73.2.5}%
+\contentsline {subsubsection}{\numberline {3.73.2.6}compareMovementType()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{226}{subsubsection.3.73.2.6}%
+\contentsline {subsubsection}{\numberline {3.73.2.7}isDiagonalPiece()}{226}{subsubsection.3.73.2.7}%
+\contentsline {subsubsection}{\numberline {3.73.2.8}isLinePiece()}{226}{subsubsection.3.73.2.8}%
+\contentsline {subsubsection}{\numberline {3.73.2.9}getPieceName()}{227}{subsubsection.3.73.2.9}%
+\contentsline {subsubsection}{\numberline {3.73.2.10}isAttack()}{227}{subsubsection.3.73.2.10}%
+\contentsline {subsubsection}{\numberline {3.73.2.11}getAttackingDirections()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{227}{subsubsection.3.73.2.11}%
+\contentsline {subsubsection}{\numberline {3.73.2.12}getWalkingDirections()}{228}{subsubsection.3.73.2.12}%
+\contentsline {subsection}{\numberline {3.73.3}Member Data Documentation}{228}{subsection.3.73.3}%
+\contentsline {subsubsection}{\numberline {3.73.3.1}PAWN}{228}{subsubsection.3.73.3.1}%
+\contentsline {subsubsection}{\numberline {3.73.3.2}ROOK}{228}{subsubsection.3.73.3.2}%
+\contentsline {subsubsection}{\numberline {3.73.3.3}BISHOP}{228}{subsubsection.3.73.3.3}%
+\contentsline {subsubsection}{\numberline {3.73.3.4}KNIGHT}{228}{subsubsection.3.73.3.4}%
+\contentsline {subsubsection}{\numberline {3.73.3.5}QUEEN}{229}{subsubsection.3.73.3.5}%
+\contentsline {subsubsection}{\numberline {3.73.3.6}KING}{229}{subsubsection.3.73.3.6}%
+\contentsline {subsubsection}{\numberline {3.73.3.7}NUM\_OF\_PIECE\_TYPES}{229}{subsubsection.3.73.3.7}%
+\contentsline {subsubsection}{\numberline {3.73.3.8}PIECE\_TYPES}{229}{subsubsection.3.73.3.8}%
+\contentsline {subsubsection}{\numberline {3.73.3.9}UNIQUE\_MOVES\_PIECE\_TYPES}{229}{subsubsection.3.73.3.9}%
+\contentsline {subsubsection}{\numberline {3.73.3.10}MINOR\_PIECES}{229}{subsubsection.3.73.3.10}%
+\contentsline {subsubsection}{\numberline {3.73.3.11}MAJOR\_PIECES}{229}{subsubsection.3.73.3.11}%
+\contentsline {subsubsection}{\numberline {3.73.3.12}CAN\_PROMOTE\_TO}{230}{subsubsection.3.73.3.12}%
+\contentsline {subsubsection}{\numberline {3.73.3.13}ATTACKING\_PIECE\_TYPES}{230}{subsubsection.3.73.3.13}%
+\contentsline {subsubsection}{\numberline {3.73.3.14}ATTACKING\_DIRECTIONS}{230}{subsubsection.3.73.3.14}%
+\contentsline {subsubsection}{\numberline {3.73.3.15}whiteIcon}{230}{subsubsection.3.73.3.15}%
+\contentsline {subsubsection}{\numberline {3.73.3.16}blackIcon}{230}{subsubsection.3.73.3.16}%
+\contentsline {subsubsection}{\numberline {3.73.3.17}value}{230}{subsubsection.3.73.3.17}%
+\contentsline {subsubsection}{\numberline {3.73.3.18}isSliding}{230}{subsubsection.3.73.3.18}%
+\contentsline {subsubsection}{\numberline {3.73.3.19}asInt}{231}{subsubsection.3.73.3.19}%
+\contentsline {section}{\numberline {3.74}Player\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Color Enum Reference}{231}{section.3.74}%
+\contentsline {subsection}{\numberline {3.74.1}Detailed Description}{231}{subsection.3.74.1}%
+\contentsline {subsection}{\numberline {3.74.2}Constructor \& Destructor Documentation}{231}{subsection.3.74.2}%
+\contentsline {subsubsection}{\numberline {3.74.2.1}PlayerColor()}{231}{subsubsection.3.74.2.1}%
+\contentsline {subsection}{\numberline {3.74.3}Member Function Documentation}{232}{subsection.3.74.3}%
+\contentsline {subsubsection}{\numberline {3.74.3.1}getColor()}{232}{subsubsection.3.74.3.1}%
+\contentsline {subsubsection}{\numberline {3.74.3.2}getPlayerFromFen()}{232}{subsubsection.3.74.3.2}%
+\contentsline {subsubsection}{\numberline {3.74.3.3}getOpponent()}{232}{subsubsection.3.74.3.3}%
+\contentsline {subsubsection}{\numberline {3.74.3.4}toString()}{233}{subsubsection.3.74.3.4}%
+\contentsline {subsubsection}{\numberline {3.74.3.5}getName()}{233}{subsubsection.3.74.3.5}%
+\contentsline {subsection}{\numberline {3.74.4}Member Data Documentation}{233}{subsection.3.74.4}%
+\contentsline {subsubsection}{\numberline {3.74.4.1}WHITE}{233}{subsubsection.3.74.4.1}%
+\contentsline {subsubsection}{\numberline {3.74.4.2}BLACK}{234}{subsubsection.3.74.4.2}%
+\contentsline {subsubsection}{\numberline {3.74.4.3}NO\_PLAYER}{234}{subsubsection.3.74.4.3}%
+\contentsline {subsubsection}{\numberline {3.74.4.4}PLAYER\_COLORS}{234}{subsubsection.3.74.4.4}%
+\contentsline {subsubsection}{\numberline {3.74.4.5}NUM\_OF\_PLAYERS}{234}{subsubsection.3.74.4.5}%
+\contentsline {subsubsection}{\numberline {3.74.4.6}asInt}{234}{subsubsection.3.74.4.6}%
+\contentsline {subsubsection}{\numberline {3.74.4.7}indexOf2}{234}{subsubsection.3.74.4.7}%
+\contentsline {subsubsection}{\numberline {3.74.4.8}startingRow}{235}{subsubsection.3.74.4.8}%
+\contentsline {subsubsection}{\numberline {3.74.4.9}diff}{235}{subsubsection.3.74.4.9}%
+\contentsline {section}{\numberline {3.75}Pre\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Made\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Request}{235}{section.3.75}%
+\contentsline {subsection}{\numberline {3.75.1}Detailed Description}{235}{subsection.3.75.1}%
+\contentsline {subsection}{\numberline {3.75.2}Member Function Documentation}{236}{subsection.3.75.2}%
+\contentsline {subsubsection}{\numberline {3.75.2.1}getRequestVariations()}{236}{subsubsection.3.75.2.1}%
+\contentsline {subsubsection}{\numberline {3.75.2.2}createBuilder()}{236}{subsubsection.3.75.2.2}%
+\contentsline {subsection}{\numberline {3.75.3}Member Data Documentation}{236}{subsection.3.75.3}%
+\contentsline {subsubsection}{\numberline {3.75.3.1}TopPlayers}{236}{subsubsection.3.75.3.1}%
+\contentsline {subsubsection}{\numberline {3.75.3.2}Games}{236}{subsubsection.3.75.3.2}%
+\contentsline {subsubsection}{\numberline {3.75.3.3}DeleteUnfGames}{237}{subsubsection.3.75.3.3}%
+\contentsline {subsubsection}{\numberline {3.75.3.4}StatsByTimeOfDay}{237}{subsubsection.3.75.3.4}%
+\contentsline {subsubsection}{\numberline {3.75.3.5}ChangeProfilePic}{237}{subsubsection.3.75.3.5}%
+\contentsline {subsubsection}{\numberline {3.75.3.6}statistics}{237}{subsubsection.3.75.3.6}%
+\contentsline {subsubsection}{\numberline {3.75.3.7}authSettings}{237}{subsubsection.3.75.3.7}%
+\contentsline {section}{\numberline {3.76}Premoves\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generator}{237}{section.3.76}%
+\contentsline {section}{\numberline {3.77}Question}{238}{section.3.77}%
+\contentsline {subsection}{\numberline {3.77.1}Detailed Description}{238}{subsection.3.77.1}%
+\contentsline {subsection}{\numberline {3.77.2}Class Documentation}{238}{subsection.3.77.2}%
+\contentsline {subsubsection}{\numberline {3.77.2.1}enum ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Misc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Question\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Question\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type}{238}{subsubsection.3.77.2.1}%
+\contentsline {subsection}{\numberline {3.77.3}Constructor \& Destructor Documentation}{239}{subsection.3.77.3}%
+\contentsline {subsubsection}{\numberline {3.77.3.1}Question()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{239}{subsubsection.3.77.3.1}%
+\contentsline {subsubsection}{\numberline {3.77.3.2}Question()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{239}{subsubsection.3.77.3.2}%
+\contentsline {subsection}{\numberline {3.77.4}Member Function Documentation}{239}{subsection.3.77.4}%
+\contentsline {subsubsection}{\numberline {3.77.4.1}drawOffer()}{240}{subsubsection.3.77.4.1}%
+\contentsline {subsubsection}{\numberline {3.77.4.2}getDefaultAnswer()}{240}{subsubsection.3.77.4.2}%
+\contentsline {subsubsection}{\numberline {3.77.4.3}setDefaultAnswer()}{240}{subsubsection.3.77.4.3}%
+\contentsline {subsubsection}{\numberline {3.77.4.4}getQuestionStr()}{240}{subsubsection.3.77.4.4}%
+\contentsline {subsubsection}{\numberline {3.77.4.5}getPossibleAnswers()}{241}{subsubsection.3.77.4.5}%
+\contentsline {subsubsection}{\numberline {3.77.4.6}equals()}{241}{subsubsection.3.77.4.6}%
+\contentsline {subsubsection}{\numberline {3.77.4.7}toString()}{241}{subsubsection.3.77.4.7}%
+\contentsline {subsubsection}{\numberline {3.77.4.8}Answer()}{242}{subsubsection.3.77.4.8}%
+\contentsline {subsection}{\numberline {3.77.5}Member Data Documentation}{242}{subsection.3.77.5}%
+\contentsline {subsubsection}{\numberline {3.77.5.1}Threefold}{242}{subsubsection.3.77.5.1}%
+\contentsline {subsubsection}{\numberline {3.77.5.2}Rematch}{242}{subsubsection.3.77.5.2}%
+\contentsline {subsubsection}{\numberline {3.77.5.3}questionStr}{242}{subsubsection.3.77.5.3}%
+\contentsline {subsubsection}{\numberline {3.77.5.4}questionType}{242}{subsubsection.3.77.5.4}%
+\contentsline {section}{\numberline {3.78}Reg\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ex}{243}{section.3.78}%
+\contentsline {subsection}{\numberline {3.78.1}Detailed Description}{243}{subsection.3.78.1}%
+\contentsline {subsection}{\numberline {3.78.2}Constructor \& Destructor Documentation}{243}{subsection.3.78.2}%
+\contentsline {subsubsection}{\numberline {3.78.2.1}RegEx()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{243}{subsubsection.3.78.2.1}%
+\contentsline {subsubsection}{\numberline {3.78.2.2}RegEx()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{244}{subsubsection.3.78.2.2}%
+\contentsline {subsection}{\numberline {3.78.3}Member Function Documentation}{244}{subsection.3.78.3}%
+\contentsline {subsubsection}{\numberline {3.78.3.1}isSavedDate()}{244}{subsubsection.3.78.3.1}%
+\contentsline {subsubsection}{\numberline {3.78.3.2}canBeEmpty()}{245}{subsubsection.3.78.3.2}%
+\contentsline {subsubsection}{\numberline {3.78.3.3}get()}{245}{subsubsection.3.78.3.3}%
+\contentsline {subsubsection}{\numberline {3.78.3.4}setUseDontMatch()}{245}{subsubsection.3.78.3.4}%
+\contentsline {subsubsection}{\numberline {3.78.3.5}getDetails()}{246}{subsubsection.3.78.3.5}%
+\contentsline {subsubsection}{\numberline {3.78.3.6}check()}{246}{subsubsection.3.78.3.6}%
+\contentsline {subsubsection}{\numberline {3.78.3.7}getRegex()}{246}{subsubsection.3.78.3.7}%
+\contentsline {subsection}{\numberline {3.78.4}Member Data Documentation}{246}{subsection.3.78.4}%
+\contentsline {subsubsection}{\numberline {3.78.4.1}Fen}{246}{subsubsection.3.78.4.1}%
+\contentsline {subsubsection}{\numberline {3.78.4.2}Username}{247}{subsubsection.3.78.4.2}%
+\contentsline {subsubsection}{\numberline {3.78.4.3}Password}{247}{subsubsection.3.78.4.3}%
+\contentsline {subsubsection}{\numberline {3.78.4.4}Icon}{247}{subsubsection.3.78.4.4}%
+\contentsline {subsubsection}{\numberline {3.78.4.5}StrUtilSkip}{247}{subsubsection.3.78.4.5}%
+\contentsline {subsubsection}{\numberline {3.78.4.6}Numbers}{247}{subsubsection.3.78.4.6}%
+\contentsline {subsubsection}{\numberline {3.78.4.7}URL}{247}{subsubsection.3.78.4.7}%
+\contentsline {subsubsection}{\numberline {3.78.4.8}DontSaveGame}{247}{subsubsection.3.78.4.8}%
+\contentsline {subsubsection}{\numberline {3.78.4.9}IPPortAddress}{248}{subsubsection.3.78.4.9}%
+\contentsline {subsubsection}{\numberline {3.78.4.10}Any}{248}{subsubsection.3.78.4.10}%
+\contentsline {subsubsection}{\numberline {3.78.4.11}dontMatch}{248}{subsubsection.3.78.4.11}%
+\contentsline {section}{\numberline {3.79}Synced\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Items$<$ E extends Syncable\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item $>$.Remover$<$ L $>$}{248}{section.3.79}%
+\contentsline {section}{\numberline {3.80}Request\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Builder}{248}{section.3.80}%
+\contentsline {subsection}{\numberline {3.80.1}Detailed Description}{249}{subsection.3.80.1}%
+\contentsline {subsection}{\numberline {3.80.2}Constructor \& Destructor Documentation}{249}{subsection.3.80.2}%
+\contentsline {subsubsection}{\numberline {3.80.2.1}RequestBuilder()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{249}{subsubsection.3.80.2.1}%
+\contentsline {subsubsection}{\numberline {3.80.2.2}RequestBuilder()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{249}{subsubsection.3.80.2.2}%
+\contentsline {subsubsection}{\numberline {3.80.2.3}RequestBuilder()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{250}{subsubsection.3.80.2.3}%
+\contentsline {subsubsection}{\numberline {3.80.2.4}RequestBuilder()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{250}{subsubsection.3.80.2.4}%
+\contentsline {subsection}{\numberline {3.80.3}Member Function Documentation}{251}{subsection.3.80.3}%
+\contentsline {subsubsection}{\numberline {3.80.3.1}createVariation()}{251}{subsubsection.3.80.3.1}%
+\contentsline {subsubsection}{\numberline {3.80.3.2}changePassword()}{251}{subsubsection.3.80.3.2}%
+\contentsline {subsubsection}{\numberline {3.80.3.3}changeProfilePic()}{251}{subsubsection.3.80.3.3}%
+\contentsline {subsubsection}{\numberline {3.80.3.4}addShouldSync()}{251}{subsubsection.3.80.3.4}%
+\contentsline {subsubsection}{\numberline {3.80.3.5}deleteAllUnFinishedGames()}{252}{subsubsection.3.80.3.5}%
+\contentsline {subsubsection}{\numberline {3.80.3.6}games()}{252}{subsubsection.3.80.3.6}%
+\contentsline {subsubsection}{\numberline {3.80.3.7}setSubBuilder()}{252}{subsubsection.3.80.3.7}%
+\contentsline {subsubsection}{\numberline {3.80.3.8}statsByTimeOfDay()}{252}{subsubsection.3.80.3.8}%
+\contentsline {subsubsection}{\numberline {3.80.3.9}top()}{253}{subsubsection.3.80.3.9}%
+\contentsline {subsubsection}{\numberline {3.80.3.10}getShouldSync()}{253}{subsubsection.3.80.3.10}%
+\contentsline {subsubsection}{\numberline {3.80.3.11}getArgVal()}{253}{subsubsection.3.80.3.11}%
+\contentsline {subsubsection}{\numberline {3.80.3.12}createResponse()}{254}{subsubsection.3.80.3.12}%
+\contentsline {subsubsection}{\numberline {3.80.3.13}getPreDescription()}{254}{subsubsection.3.80.3.13}%
+\contentsline {subsubsection}{\numberline {3.80.3.14}getPostDescription()}{254}{subsubsection.3.80.3.14}%
+\contentsline {subsubsection}{\numberline {3.80.3.15}getName()}{254}{subsubsection.3.80.3.15}%
+\contentsline {subsubsection}{\numberline {3.80.3.16}getArgs()}{255}{subsubsection.3.80.3.16}%
+\contentsline {subsubsection}{\numberline {3.80.3.17}build()}{255}{subsubsection.3.80.3.17}%
+\contentsline {subsection}{\numberline {3.80.4}Member Data Documentation}{255}{subsection.3.80.4}%
+\contentsline {subsubsection}{\numberline {3.80.4.1}TIE\_STR}{255}{subsubsection.3.80.4.1}%
+\contentsline {subsubsection}{\numberline {3.80.4.2}args}{255}{subsubsection.3.80.4.2}%
+\contentsline {subsubsection}{\numberline {3.80.4.3}statement}{255}{subsubsection.3.80.4.3}%
+\contentsline {subsubsection}{\numberline {3.80.4.4}name}{256}{subsubsection.3.80.4.4}%
+\contentsline {subsubsection}{\numberline {3.80.4.5}postDescription}{256}{subsubsection.3.80.4.5}%
+\contentsline {subsubsection}{\numberline {3.80.4.6}preDescription}{256}{subsubsection.3.80.4.6}%
+\contentsline {subsubsection}{\numberline {3.80.4.7}subBuilder}{256}{subsubsection.3.80.4.7}%
+\contentsline {section}{\numberline {3.81}Selection}{256}{section.3.81}%
+\contentsline {subsection}{\numberline {3.81.1}Detailed Description}{257}{subsection.3.81.1}%
+\contentsline {subsection}{\numberline {3.81.2}Class Documentation}{257}{subsection.3.81.2}%
+\contentsline {subsubsection}{\numberline {3.81.2.1}interface ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBActions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Statements\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Selection\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Join}{257}{subsubsection.3.81.2.1}%
+\contentsline {subsubsection}{\numberline {3.81.2.2}interface ver14\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::DBActions\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Statements\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Selection\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Order}{257}{subsubsection.3.81.2.2}%
+\contentsline {subsection}{\numberline {3.81.3}Constructor \& Destructor Documentation}{257}{subsection.3.81.3}%
+\contentsline {subsubsection}{\numberline {3.81.3.1}Selection()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{257}{subsubsection.3.81.3.1}%
+\contentsline {subsubsection}{\numberline {3.81.3.2}Selection()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{258}{subsubsection.3.81.3.2}%
+\contentsline {subsection}{\numberline {3.81.4}Member Function Documentation}{258}{subsection.3.81.4}%
+\contentsline {subsubsection}{\numberline {3.81.4.1}nestMe()}{258}{subsubsection.3.81.4.1}%
+\contentsline {subsubsection}{\numberline {3.81.4.2}createStatement()}{258}{subsubsection.3.81.4.2}%
+\contentsline {subsubsection}{\numberline {3.81.4.3}top()}{259}{subsubsection.3.81.4.3}%
+\contentsline {subsubsection}{\numberline {3.81.4.4}join()}{259}{subsubsection.3.81.4.4}%
+\contentsline {subsubsection}{\numberline {3.81.4.5}orderBy()}{259}{subsubsection.3.81.4.5}%
+\contentsline {section}{\numberline {3.82}Castling\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rights.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Side Enum Reference}{260}{section.3.82}%
+\contentsline {subsection}{\numberline {3.82.1}Detailed Description}{260}{subsection.3.82.1}%
+\contentsline {subsection}{\numberline {3.82.2}Constructor \& Destructor Documentation}{260}{subsection.3.82.2}%
+\contentsline {subsubsection}{\numberline {3.82.2.1}Side()}{260}{subsubsection.3.82.2.1}%
+\contentsline {subsection}{\numberline {3.82.3}Member Function Documentation}{261}{subsection.3.82.3}%
+\contentsline {subsubsection}{\numberline {3.82.3.1}toString()}{261}{subsubsection.3.82.3.1}%
+\contentsline {subsubsection}{\numberline {3.82.3.2}kingFinalLoc()}{261}{subsubsection.3.82.3.2}%
+\contentsline {subsection}{\numberline {3.82.4}Member Data Documentation}{261}{subsection.3.82.4}%
+\contentsline {subsubsection}{\numberline {3.82.4.1}KING}{261}{subsubsection.3.82.4.1}%
+\contentsline {subsubsection}{\numberline {3.82.4.2}QUEEN}{262}{subsubsection.3.82.4.2}%
+\contentsline {subsubsection}{\numberline {3.82.4.3}SIDES}{262}{subsubsection.3.82.4.3}%
+\contentsline {subsubsection}{\numberline {3.82.4.4}rookStartingCol}{262}{subsubsection.3.82.4.4}%
+\contentsline {subsubsection}{\numberline {3.82.4.5}castledRookCol}{262}{subsubsection.3.82.4.5}%
+\contentsline {subsubsection}{\numberline {3.82.4.6}castledKingCol}{262}{subsubsection.3.82.4.6}%
+\contentsline {subsubsection}{\numberline {3.82.4.7}kingTravelDistance}{262}{subsubsection.3.82.4.7}%
+\contentsline {subsubsection}{\numberline {3.82.4.8}castlingNotation}{262}{subsubsection.3.82.4.8}%
+\contentsline {subsubsection}{\numberline {3.82.4.9}asInt}{262}{subsubsection.3.82.4.9}%
+\contentsline {subsubsection}{\numberline {3.82.4.10}mult}{263}{subsubsection.3.82.4.10}%
+\contentsline {section}{\numberline {3.83}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Specific\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status Enum Reference}{263}{section.3.83}%
+\contentsline {subsection}{\numberline {3.83.1}Detailed Description}{263}{subsection.3.83.1}%
+\contentsline {subsection}{\numberline {3.83.2}Constructor \& Destructor Documentation}{263}{subsection.3.83.2}%
+\contentsline {subsubsection}{\numberline {3.83.2.1}SpecificStatus()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{263}{subsubsection.3.83.2.1}%
+\contentsline {subsubsection}{\numberline {3.83.2.2}SpecificStatus()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{263}{subsubsection.3.83.2.2}%
+\contentsline {subsection}{\numberline {3.83.3}Member Function Documentation}{264}{subsection.3.83.3}%
+\contentsline {subsubsection}{\numberline {3.83.3.1}toString()}{264}{subsubsection.3.83.3.1}%
+\contentsline {subsection}{\numberline {3.83.4}Member Data Documentation}{264}{subsection.3.83.4}%
+\contentsline {subsubsection}{\numberline {3.83.4.1}Checkmate}{264}{subsubsection.3.83.4.1}%
+\contentsline {subsubsection}{\numberline {3.83.4.2}TimedOut}{264}{subsubsection.3.83.4.2}%
+\contentsline {subsubsection}{\numberline {3.83.4.3}TimedOutVsInsufficientMaterial}{264}{subsubsection.3.83.4.3}%
+\contentsline {subsubsection}{\numberline {3.83.4.4}Resignation}{265}{subsubsection.3.83.4.4}%
+\contentsline {subsubsection}{\numberline {3.83.4.5}GameGoesOn}{265}{subsubsection.3.83.4.5}%
+\contentsline {subsubsection}{\numberline {3.83.4.6}ThreeFoldRepetition}{265}{subsubsection.3.83.4.6}%
+\contentsline {subsubsection}{\numberline {3.83.4.7}Stalemate}{265}{subsubsection.3.83.4.7}%
+\contentsline {subsubsection}{\numberline {3.83.4.8}InsufficientMaterial}{265}{subsubsection.3.83.4.8}%
+\contentsline {subsubsection}{\numberline {3.83.4.9}FiftyMoveRule}{265}{subsubsection.3.83.4.9}%
+\contentsline {subsubsection}{\numberline {3.83.4.10}TieByAgreement}{265}{subsubsection.3.83.4.10}%
+\contentsline {subsubsection}{\numberline {3.83.4.11}PlayerDisconnectedVsAi}{266}{subsubsection.3.83.4.11}%
+\contentsline {subsubsection}{\numberline {3.83.4.12}PlayerDisconnectedVsReal}{266}{subsubsection.3.83.4.12}%
+\contentsline {subsubsection}{\numberline {3.83.4.13}ServerStoppedGame}{266}{subsubsection.3.83.4.13}%
+\contentsline {subsubsection}{\numberline {3.83.4.14}gameStatusType}{266}{subsubsection.3.83.4.14}%
+\contentsline {section}{\numberline {3.84}SQLStatement}{266}{section.3.84}%
+\contentsline {subsection}{\numberline {3.84.1}Detailed Description}{267}{subsection.3.84.1}%
+\contentsline {subsection}{\numberline {3.84.2}Constructor \& Destructor Documentation}{267}{subsection.3.84.2}%
+\contentsline {subsubsection}{\numberline {3.84.2.1}SQLStatement()}{267}{subsubsection.3.84.2.1}%
+\contentsline {subsection}{\numberline {3.84.3}Member Function Documentation}{267}{subsection.3.84.3}%
+\contentsline {subsubsection}{\numberline {3.84.3.1}replace()}{267}{subsubsection.3.84.3.1}%
+\contentsline {subsubsection}{\numberline {3.84.3.2}createStatement()}{268}{subsubsection.3.84.3.2}%
+\contentsline {subsubsection}{\numberline {3.84.3.3}getStatement()}{268}{subsubsection.3.84.3.3}%
+\contentsline {subsubsection}{\numberline {3.84.3.4}toString()}{268}{subsubsection.3.84.3.4}%
+\contentsline {subsection}{\numberline {3.84.4}Member Data Documentation}{268}{subsection.3.84.4}%
+\contentsline {subsubsection}{\numberline {3.84.4.1}type}{268}{subsubsection.3.84.4.1}%
+\contentsline {section}{\numberline {3.85}Square}{269}{section.3.85}%
+\contentsline {subsection}{\numberline {3.85.1}Detailed Description}{269}{subsection.3.85.1}%
+\contentsline {subsection}{\numberline {3.85.2}Constructor \& Destructor Documentation}{269}{subsection.3.85.2}%
+\contentsline {subsubsection}{\numberline {3.85.2.1}Square()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{269}{subsubsection.3.85.2.1}%
+\contentsline {subsubsection}{\numberline {3.85.2.2}Square()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{269}{subsubsection.3.85.2.2}%
+\contentsline {subsection}{\numberline {3.85.3}Member Function Documentation}{270}{subsection.3.85.3}%
+\contentsline {subsubsection}{\numberline {3.85.3.1}setEmpty()}{270}{subsubsection.3.85.3.1}%
+\contentsline {subsubsection}{\numberline {3.85.3.2}getPiece()}{270}{subsubsection.3.85.3.2}%
+\contentsline {subsubsection}{\numberline {3.85.3.3}setPiece()}{270}{subsubsection.3.85.3.3}%
+\contentsline {subsubsection}{\numberline {3.85.3.4}getLoc()}{270}{subsubsection.3.85.3.4}%
+\contentsline {subsubsection}{\numberline {3.85.3.5}toString()}{271}{subsubsection.3.85.3.5}%
+\contentsline {subsubsection}{\numberline {3.85.3.6}getFen()}{271}{subsubsection.3.85.3.6}%
+\contentsline {subsubsection}{\numberline {3.85.3.7}isEmpty()}{271}{subsubsection.3.85.3.7}%
+\contentsline {subsubsection}{\numberline {3.85.3.8}getPieceIcon()}{271}{subsubsection.3.85.3.8}%
+\contentsline {subsection}{\numberline {3.85.4}Member Data Documentation}{272}{subsection.3.85.4}%
+\contentsline {subsubsection}{\numberline {3.85.4.1}EMPTY\_PIECE}{272}{subsubsection.3.85.4.1}%
+\contentsline {section}{\numberline {3.86}Status\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Response}{272}{section.3.86}%
+\contentsline {subsection}{\numberline {3.86.1}Detailed Description}{272}{subsection.3.86.1}%
+\contentsline {subsection}{\numberline {3.86.2}Constructor \& Destructor Documentation}{272}{subsection.3.86.2}%
+\contentsline {subsubsection}{\numberline {3.86.2.1}StatusResponse()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{272}{subsubsection.3.86.2.1}%
+\contentsline {subsubsection}{\numberline {3.86.2.2}StatusResponse()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{273}{subsubsection.3.86.2.2}%
+\contentsline {subsection}{\numberline {3.86.3}Member Function Documentation}{273}{subsection.3.86.3}%
+\contentsline {subsubsection}{\numberline {3.86.3.1}getDetails()}{273}{subsubsection.3.86.3.1}%
+\contentsline {subsubsection}{\numberline {3.86.3.2}isAnyData()}{273}{subsubsection.3.86.3.2}%
+\contentsline {subsubsection}{\numberline {3.86.3.3}clean()}{274}{subsubsection.3.86.3.3}%
+\contentsline {section}{\numberline {3.87}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}JFrame.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}String\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Closing}{274}{section.3.87}%
+\contentsline {subsection}{\numberline {3.87.1}Detailed Description}{274}{subsection.3.87.1}%
+\contentsline {subsection}{\numberline {3.87.2}Member Function Documentation}{274}{subsection.3.87.2}%
+\contentsline {subsubsection}{\numberline {3.87.2.1}show()}{274}{subsubsection.3.87.2.1}%
+\contentsline {subsubsection}{\numberline {3.87.2.2}checkClosingVal()}{274}{subsubsection.3.87.2.2}%
+\contentsline {section}{\numberline {3.88}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lbl.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}String\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Modifier}{275}{section.3.88}%
+\contentsline {section}{\numberline {3.89}Str\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utils}{275}{section.3.89}%
+\contentsline {subsection}{\numberline {3.89.1}Detailed Description}{275}{subsection.3.89.1}%
+\contentsline {subsection}{\numberline {3.89.2}Member Function Documentation}{275}{subsection.3.89.2}%
+\contentsline {subsubsection}{\numberline {3.89.2.1}isAbsoluteUrl()}{275}{subsubsection.3.89.2.1}%
+\contentsline {subsubsection}{\numberline {3.89.2.2}dontCapFull()}{276}{subsubsection.3.89.2.2}%
+\contentsline {subsubsection}{\numberline {3.89.2.3}htmlNewLines()}{276}{subsubsection.3.89.2.3}%
+\contentsline {subsubsection}{\numberline {3.89.2.4}countMatches()}{276}{subsubsection.3.89.2.4}%
+\contentsline {subsubsection}{\numberline {3.89.2.5}format()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{277}{subsubsection.3.89.2.5}%
+\contentsline {subsubsection}{\numberline {3.89.2.6}format()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{277}{subsubsection.3.89.2.6}%
+\contentsline {subsubsection}{\numberline {3.89.2.7}format()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{278}{subsubsection.3.89.2.7}%
+\contentsline {subsubsection}{\numberline {3.89.2.8}isEmpty()}{278}{subsubsection.3.89.2.8}%
+\contentsline {subsubsection}{\numberline {3.89.2.9}clean()}{278}{subsubsection.3.89.2.9}%
+\contentsline {subsubsection}{\numberline {3.89.2.10}formatDate()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{279}{subsubsection.3.89.2.10}%
+\contentsline {subsubsection}{\numberline {3.89.2.11}formatDate()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{279}{subsubsection.3.89.2.11}%
+\contentsline {subsubsection}{\numberline {3.89.2.12}formatDate()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{279}{subsubsection.3.89.2.12}%
+\contentsline {subsubsection}{\numberline {3.89.2.13}parseURLS()}{280}{subsubsection.3.89.2.13}%
+\contentsline {subsubsection}{\numberline {3.89.2.14}uppercase()}{280}{subsubsection.3.89.2.14}%
+\contentsline {subsubsection}{\numberline {3.89.2.15}dontCapWord()}{280}{subsubsection.3.89.2.15}%
+\contentsline {subsubsection}{\numberline {3.89.2.16}formatDateSQL()}{281}{subsubsection.3.89.2.16}%
+\contentsline {subsubsection}{\numberline {3.89.2.17}getPort()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{281}{subsubsection.3.89.2.17}%
+\contentsline {subsubsection}{\numberline {3.89.2.18}getPort()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{281}{subsubsection.3.89.2.18}%
+\contentsline {subsubsection}{\numberline {3.89.2.19}getUrl()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{283}{subsubsection.3.89.2.19}%
+\contentsline {subsubsection}{\numberline {3.89.2.20}getUrl()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{283}{subsubsection.3.89.2.20}%
+\contentsline {subsubsection}{\numberline {3.89.2.21}fitInside()}{283}{subsubsection.3.89.2.21}%
+\contentsline {subsubsection}{\numberline {3.89.2.22}fixHtml()}{284}{subsubsection.3.89.2.22}%
+\contentsline {subsubsection}{\numberline {3.89.2.23}strINN()}{284}{subsubsection.3.89.2.23}%
+\contentsline {subsubsection}{\numberline {3.89.2.24}splitArr()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{285}{subsubsection.3.89.2.24}%
+\contentsline {subsubsection}{\numberline {3.89.2.25}splitArr()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{285}{subsubsection.3.89.2.25}%
+\contentsline {subsubsection}{\numberline {3.89.2.26}splitArr()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{285}{subsubsection.3.89.2.26}%
+\contentsline {subsubsection}{\numberline {3.89.2.27}createTimeGreeting()}{286}{subsubsection.3.89.2.27}%
+\contentsline {subsubsection}{\numberline {3.89.2.28}main()}{286}{subsubsection.3.89.2.28}%
+\contentsline {subsubsection}{\numberline {3.89.2.29}createTimeStr()}{286}{subsubsection.3.89.2.29}%
+\contentsline {subsubsection}{\numberline {3.89.2.30}awful()}{287}{subsubsection.3.89.2.30}%
+\contentsline {subsubsection}{\numberline {3.89.2.31}dateTimePrefix()}{287}{subsubsection.3.89.2.31}%
+\contentsline {subsubsection}{\numberline {3.89.2.32}repeat()}{287}{subsubsection.3.89.2.32}%
+\contentsline {section}{\numberline {3.90}Switch\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Case}{288}{section.3.90}%
+\contentsline {subsection}{\numberline {3.90.1}Detailed Description}{288}{subsection.3.90.1}%
+\contentsline {subsection}{\numberline {3.90.2}Constructor \& Destructor Documentation}{288}{subsection.3.90.2}%
+\contentsline {subsubsection}{\numberline {3.90.2.1}SwitchCase()}{288}{subsubsection.3.90.2.1}%
+\contentsline {subsection}{\numberline {3.90.3}Member Function Documentation}{288}{subsection.3.90.3}%
+\contentsline {subsubsection}{\numberline {3.90.3.1}equals()}{288}{subsubsection.3.90.3.1}%
+\contentsline {subsubsection}{\numberline {3.90.3.2}defaultCase()}{290}{subsubsection.3.90.3.2}%
+\contentsline {subsubsection}{\numberline {3.90.3.3}condition()}{290}{subsubsection.3.90.3.3}%
+\contentsline {subsubsection}{\numberline {3.90.3.4}ifTrue()}{290}{subsubsection.3.90.3.4}%
+\contentsline {subsubsection}{\numberline {3.90.3.5}toString()}{291}{subsubsection.3.90.3.5}%
+\contentsline {section}{\numberline {3.91}Syncable\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item}{291}{section.3.91}%
+\contentsline {subsection}{\numberline {3.91.1}Member Function Documentation}{291}{subsection.3.91.1}%
+\contentsline {subsubsection}{\numberline {3.91.1.1}ID()}{291}{subsubsection.3.91.1.1}%
+\contentsline {section}{\numberline {3.92}Synced\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Items$<$ E extends Syncable\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item $>$}{292}{section.3.92}%
+\contentsline {section}{\numberline {3.93}Synced\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Enum Reference}{292}{section.3.93}%
+\contentsline {subsection}{\numberline {3.93.1}Member Data Documentation}{292}{subsection.3.93.1}%
+\contentsline {subsubsection}{\numberline {3.93.1.1}RESUMABLE\_GAMES}{292}{subsubsection.3.93.1.1}%
+\contentsline {subsubsection}{\numberline {3.93.1.2}JOINABLE\_GAMES}{292}{subsubsection.3.93.1.2}%
+\contentsline {subsubsection}{\numberline {3.93.1.3}CONNECTED\_USERS}{293}{subsubsection.3.93.1.3}%
+\contentsline {subsubsection}{\numberline {3.93.1.4}ONGOING\_GAMES}{293}{subsubsection.3.93.1.4}%
+\contentsline {section}{\numberline {3.94}Table Enum Reference}{293}{section.3.94}%
+\contentsline {subsection}{\numberline {3.94.1}Detailed Description}{293}{subsection.3.94.1}%
+\contentsline {subsection}{\numberline {3.94.2}Constructor \& Destructor Documentation}{293}{subsection.3.94.2}%
+\contentsline {subsubsection}{\numberline {3.94.2.1}Table()}{293}{subsubsection.3.94.2.1}%
+\contentsline {subsection}{\numberline {3.94.3}Member Function Documentation}{294}{subsection.3.94.3}%
+\contentsline {subsubsection}{\numberline {3.94.3.1}tableAndValues()}{294}{subsubsection.3.94.3.1}%
+\contentsline {subsubsection}{\numberline {3.94.3.2}escapeValues()}{294}{subsubsection.3.94.3.2}%
+\contentsline {subsection}{\numberline {3.94.4}Member Data Documentation}{294}{subsection.3.94.4}%
+\contentsline {subsubsection}{\numberline {3.94.4.1}Games}{294}{subsubsection.3.94.4.1}%
+\contentsline {subsubsection}{\numberline {3.94.4.2}UnfinishedGames}{295}{subsubsection.3.94.4.2}%
+\contentsline {subsubsection}{\numberline {3.94.4.3}Users}{295}{subsubsection.3.94.4.3}%
+\contentsline {subsubsection}{\numberline {3.94.4.4}cols}{295}{subsubsection.3.94.4.4}%
+\contentsline {section}{\numberline {3.95}Table\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}DBResponse}{295}{section.3.95}%
+\contentsline {subsection}{\numberline {3.95.1}Detailed Description}{295}{subsection.3.95.1}%
+\contentsline {subsection}{\numberline {3.95.2}Constructor \& Destructor Documentation}{296}{subsection.3.95.2}%
+\contentsline {subsubsection}{\numberline {3.95.2.1}TableDBResponse()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{296}{subsubsection.3.95.2.1}%
+\contentsline {subsubsection}{\numberline {3.95.2.2}TableDBResponse()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{296}{subsubsection.3.95.2.2}%
+\contentsline {subsubsection}{\numberline {3.95.2.3}TableDBResponse()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{296}{subsubsection.3.95.2.3}%
+\contentsline {subsection}{\numberline {3.95.3}Member Function Documentation}{296}{subsection.3.95.3}%
+\contentsline {subsubsection}{\numberline {3.95.3.1}numOfRows()}{297}{subsubsection.3.95.3.1}%
+\contentsline {subsubsection}{\numberline {3.95.3.2}getFirstRow()}{297}{subsubsection.3.95.3.2}%
+\contentsline {subsubsection}{\numberline {3.95.3.3}getCell()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{297}{subsubsection.3.95.3.3}%
+\contentsline {subsubsection}{\numberline {3.95.3.4}getColumnIndex()}{297}{subsubsection.3.95.3.4}%
+\contentsline {subsubsection}{\numberline {3.95.3.5}getCell()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{298}{subsubsection.3.95.3.5}%
+\contentsline {subsubsection}{\numberline {3.95.3.6}isAnyData()}{298}{subsubsection.3.95.3.6}%
+\contentsline {subsubsection}{\numberline {3.95.3.7}clean()}{298}{subsubsection.3.95.3.7}%
+\contentsline {subsubsection}{\numberline {3.95.3.8}toString()}{299}{subsubsection.3.95.3.8}%
+\contentsline {subsubsection}{\numberline {3.95.3.9}rowToString()}{299}{subsubsection.3.95.3.9}%
+\contentsline {subsubsection}{\numberline {3.95.3.10}getColumns()}{299}{subsubsection.3.95.3.10}%
+\contentsline {subsubsection}{\numberline {3.95.3.11}getRows()}{299}{subsubsection.3.95.3.11}%
+\contentsline {subsection}{\numberline {3.95.4}Member Data Documentation}{300}{subsection.3.95.4}%
+\contentsline {subsubsection}{\numberline {3.95.4.1}columns}{300}{subsubsection.3.95.4.1}%
+\contentsline {subsubsection}{\numberline {3.95.4.2}rows}{300}{subsubsection.3.95.4.2}%
+\contentsline {section}{\numberline {3.96}Threads\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager}{300}{section.3.96}%
+\contentsline {subsection}{\numberline {3.96.1}Detailed Description}{300}{subsection.3.96.1}%
+\contentsline {subsection}{\numberline {3.96.2}Member Function Documentation}{300}{subsection.3.96.2}%
+\contentsline {subsubsection}{\numberline {3.96.2.1}handleErrors()}{300}{subsubsection.3.96.2.1}%
+\contentsline {subsubsection}{\numberline {3.96.2.2}createThread()}{301}{subsubsection.3.96.2.2}%
+\contentsline {section}{\numberline {3.97}My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Thread\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Status Enum Reference}{301}{section.3.97}%
+\contentsline {subsection}{\numberline {3.97.1}Member Data Documentation}{301}{subsection.3.97.1}%
+\contentsline {subsubsection}{\numberline {3.97.1.1}NOT\_STARTED}{301}{subsubsection.3.97.1.1}%
+\contentsline {subsubsection}{\numberline {3.97.1.2}RUNNING}{302}{subsubsection.3.97.1.2}%
+\contentsline {subsubsection}{\numberline {3.97.1.3}DONE}{302}{subsubsection.3.97.1.3}%
+\contentsline {section}{\numberline {3.98}Throwing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callback$<$ T $>$}{302}{section.3.98}%
+\contentsline {subsection}{\numberline {3.98.1}Detailed Description}{302}{subsection.3.98.1}%
+\contentsline {subsection}{\numberline {3.98.2}Member Function Documentation}{302}{subsection.3.98.2}%
+\contentsline {subsubsection}{\numberline {3.98.2.1}callback()}{302}{subsubsection.3.98.2.1}%
+\contentsline {section}{\numberline {3.99}Throwing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Runnable}{303}{section.3.99}%
+\contentsline {section}{\numberline {3.100}Time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Format}{303}{section.3.100}%
+\contentsline {section}{\numberline {3.101}Time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Format\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Component}{304}{section.3.101}%
+\contentsline {section}{\numberline {3.102}Unfinished\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Game}{304}{section.3.102}%
+\contentsline {subsection}{\numberline {3.102.1}Detailed Description}{304}{subsection.3.102.1}%
+\contentsline {subsection}{\numberline {3.102.2}Constructor \& Destructor Documentation}{304}{subsection.3.102.2}%
+\contentsline {subsubsection}{\numberline {3.102.2.1}UnfinishedGame()}{305}{subsubsection.3.102.2.1}%
+\contentsline {subsection}{\numberline {3.102.3}Member Function Documentation}{305}{subsection.3.102.3}%
+\contentsline {subsubsection}{\numberline {3.102.3.1}isCreatorToMove()}{305}{subsubsection.3.102.3.1}%
+\contentsline {subsection}{\numberline {3.102.4}Member Data Documentation}{305}{subsection.3.102.4}%
+\contentsline {subsubsection}{\numberline {3.102.4.1}playerColorToMove}{305}{subsubsection.3.102.4.1}%
+\contentsline {subsubsection}{\numberline {3.102.4.2}playerToMove}{306}{subsubsection.3.102.4.2}%
+\contentsline {section}{\numberline {3.103}Update}{306}{section.3.103}%
+\contentsline {subsection}{\numberline {3.103.1}Detailed Description}{306}{subsection.3.103.1}%
+\contentsline {subsection}{\numberline {3.103.2}Constructor \& Destructor Documentation}{306}{subsection.3.103.2}%
+\contentsline {subsubsection}{\numberline {3.103.2.1}Update()}{306}{subsubsection.3.103.2.1}%
+\contentsline {subsection}{\numberline {3.103.3}Member Function Documentation}{307}{subsection.3.103.3}%
+\contentsline {subsubsection}{\numberline {3.103.3.1}createStatement()}{307}{subsubsection.3.103.3.1}%
+\contentsline {section}{\numberline {3.104}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info}{307}{section.3.104}%
+\contentsline {subsection}{\numberline {3.104.1}Member Function Documentation}{307}{subsection.3.104.1}%
+\contentsline {subsubsection}{\numberline {3.104.1.1}ID()}{308}{subsubsection.3.104.1.1}%
+\contentsline {section}{\numberline {3.105}Value\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Btn$<$ T $>$}{308}{section.3.105}%
+\contentsline {subsection}{\numberline {3.105.1}Detailed Description}{308}{subsection.3.105.1}%
+\contentsline {subsection}{\numberline {3.105.2}Constructor \& Destructor Documentation}{308}{subsection.3.105.2}%
+\contentsline {subsubsection}{\numberline {3.105.2.1}ValueBtn()}{308}{subsubsection.3.105.2.1}%
+\contentsline {section}{\numberline {3.106}Pre\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Made\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Request.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Variation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creator}{309}{section.3.106}%
+\contentsline {subsection}{\numberline {3.106.1}Detailed Description}{309}{subsection.3.106.1}%
+\contentsline {subsection}{\numberline {3.106.2}Member Function Documentation}{309}{subsection.3.106.2}%
+\contentsline {subsubsection}{\numberline {3.106.2.1}create()}{309}{subsubsection.3.106.2.1}%
+\contentsline {section}{\numberline {3.107}Void\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callback}{310}{section.3.107}%
+\contentsline {subsection}{\numberline {3.107.1}Detailed Description}{310}{subsection.3.107.1}%
+\contentsline {subsection}{\numberline {3.107.2}Member Function Documentation}{310}{subsection.3.107.2}%
+\contentsline {subsubsection}{\numberline {3.107.2.1}callback()}{310}{subsubsection.3.107.2.1}%
+\contentsline {chapter}{Index}{311}{section*.162}%

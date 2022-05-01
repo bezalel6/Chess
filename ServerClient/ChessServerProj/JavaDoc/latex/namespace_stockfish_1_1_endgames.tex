@@ -1,0 +1,36 @@
+\hypertarget{namespace_stockfish_1_1_endgames}{}\doxysection{Stockfish\+::Endgames Namespace Reference}
+\label{namespace_stockfish_1_1_endgames}\index{Stockfish::Endgames@{Stockfish::Endgames}}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_aaa0e3f5a1560d47a99bdb7beb74098ad}\label{namespace_stockfish_1_1_endgames_aaa0e3f5a1560d47a99bdb7beb74098ad}} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries Ptr} = std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base}}$<$ T $>$ $>$
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_a65c811e03c62b53b3da09fa772b25aa3}\label{namespace_stockfish_1_1_endgames_a65c811e03c62b53b3da09fa772b25aa3}} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries Map} = std\+::unordered\+\_\+map$<$ Key, Ptr$<$ T $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_a02fd73d861ef2e4aabb38c0c9ff82947}\label{namespace_stockfish_1_1_endgames_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+void {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_a7b7ab770991a3ec692d7da357ffe0e7d}\label{namespace_stockfish_1_1_endgames_a7b7ab770991a3ec692d7da357ffe0e7d}} 
+{\footnotesize template$<$typename T $>$ }\\Map$<$ T $>$ \& {\bfseries map} ()
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_ab2f9873925f396a000814ebcd64ea340}\label{namespace_stockfish_1_1_endgames_ab2f9873925f396a000814ebcd64ea340}} 
+{\footnotesize template$<$\mbox{\hyperlink{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}{Endgame\+Code}} E, typename T  = eg\+\_\+type$<$\+E$>$$>$ }\\void {\bfseries add} (const std\+::string \&code)
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_a40ddaf998fa7893ecc88a2af15ecb7cc}\label{namespace_stockfish_1_1_endgames_a40ddaf998fa7893ecc88a2af15ecb7cc}} 
+{\footnotesize template$<$typename T $>$ }\\const \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{Endgame\+Base}}$<$ T $>$ $\ast$ {\bfseries probe} (Key key)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_endgames_aa00365fc0cbcd800591fc93d83b24d09}\label{namespace_stockfish_1_1_endgames_aa00365fc0cbcd800591fc93d83b24d09}} 
+std\+::pair$<$ Map$<$ Value $>$, Map$<$ Scale\+Factor $>$ $>$ {\bfseries maps}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{namespace_stockfish_1_1_endgames}{Endgames}} namespace handles the pointers to endgame evaluation and scaling base objects in two std\+::map. We use polymorphism to invoke the actual endgame function by calling its virtual operator(). 

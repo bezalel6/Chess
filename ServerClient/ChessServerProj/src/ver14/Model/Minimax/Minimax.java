@@ -7,7 +7,6 @@ import ver14.Model.ModelMovesList;
 import ver14.Model.MoveGenerator.GenerationSettings;
 import ver14.Model.MoveGenerator.MoveGenerator;
 import ver14.SharedClasses.Game.Evaluation.Evaluation;
-import ver14.SharedClasses.Game.Evaluation.GameStatus;
 import ver14.SharedClasses.Game.Moves.MinimaxMove;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -439,9 +438,6 @@ public class Minimax {
         }
         if (isOvertime() || parms.currentDepth >= parms.maxDepth || Eval.isGameOver(parms.model)) {
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
-            if (evaluation.getGameStatus().getSpecificStatus() == GameStatus.SpecificStatus.ThreeFoldRepetition) {
-                System.out.println("found threefold");
-            }
             evaluation.setEvaluationDepth(parms.currentDepth);
             return evaluation;
         }

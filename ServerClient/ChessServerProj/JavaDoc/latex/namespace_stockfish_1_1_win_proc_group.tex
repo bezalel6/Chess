@@ -1,0 +1,12 @@
+\hypertarget{namespace_stockfish_1_1_win_proc_group}{}\doxysection{Stockfish\+::Win\+Proc\+Group Namespace Reference}
+\label{namespace_stockfish_1_1_win_proc_group}\index{Stockfish::WinProcGroup@{Stockfish::WinProcGroup}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_stockfish_1_1_win_proc_group_a323950a01ded9b029273d590f51008f8}\label{namespace_stockfish_1_1_win_proc_group_a323950a01ded9b029273d590f51008f8}} 
+void {\bfseries bind\+This\+Thread} (size\+\_\+t)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Under Windows it is not possible for a process to run on more than one logical processor group. This usually means to be limited to use max 64 cores. To overcome this, some special platform specific API should be called to set group affinity for each thread. Original code from Texel by Peter Österlund. 

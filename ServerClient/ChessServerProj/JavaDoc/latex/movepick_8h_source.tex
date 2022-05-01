@@ -1,0 +1,139 @@
+\hypertarget{movepick_8h_source}{}\doxysection{movepick.\+h}
+\label{movepick_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/movepick.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/movepick.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef MOVEPICK\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MOVEPICK\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}movegen.h"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}position.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{36 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} D>}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_stats_entry}{StatsEntry}} \{}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   T entry;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42   \textcolor{keywordtype}{void} operator=(\textcolor{keyword}{const} T\& v) \{ entry = v; \}}
+\DoxyCodeLine{43   T* operator\&() \{ \textcolor{keywordflow}{return} \&entry; \}}
+\DoxyCodeLine{44   T* operator-\/>() \{ \textcolor{keywordflow}{return} \&entry; \}}
+\DoxyCodeLine{45   \textcolor{keyword}{operator} \textcolor{keyword}{const} T\&() \textcolor{keyword}{const} \{ \textcolor{keywordflow}{return} entry; \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{keywordtype}{void} operator<<(\textcolor{keywordtype}{int} bonus) \{}
+\DoxyCodeLine{48     assert(abs(bonus) <= D); \textcolor{comment}{// Ensure range is [-\/D, D]}}
+\DoxyCodeLine{49     \textcolor{keyword}{static\_assert}(D <= std::numeric\_limits<T>::max(), \textcolor{stringliteral}{"{}D overflows T"{}});}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     entry += bonus -\/ entry * abs(bonus) / D;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     assert(abs(entry) <= D);}
+\DoxyCodeLine{54   \}}
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{62 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} D, \textcolor{keywordtype}{int} Size, \textcolor{keywordtype}{int}... Sizes>}
+\DoxyCodeLine{63 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}} : \textcolor{keyword}{public} std::array<Stats<T, D, Sizes...>, Size>}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65   \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}<T, D, Size, Sizes...> \mbox{\hyperlink{struct_stockfish_1_1_stats}{stats}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keywordtype}{void} fill(\textcolor{keyword}{const} T\& v) \{}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{comment}{// For standard-\/layout 'this' points to first struct member}}
+\DoxyCodeLine{70     assert(std::is\_standard\_layout<stats>::value);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{typedef} \mbox{\hyperlink{class_stockfish_1_1_stats_entry}{StatsEntry<T, D>}} entry;}
+\DoxyCodeLine{73     entry* p = \textcolor{keyword}{reinterpret\_cast<}entry*\textcolor{keyword}{>}(\textcolor{keyword}{this});}
+\DoxyCodeLine{74     std::fill(p, p + \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}) / \textcolor{keyword}{sizeof}(entry), v);}
+\DoxyCodeLine{75   \}}
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} D, \textcolor{keywordtype}{int} Size>}
+\DoxyCodeLine{79 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}<T, D, Size> : \textcolor{keyword}{public} std::array<StatsEntry<T, D>, Size> \{\};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82 \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_stockfish_a4a2886f97823c0ad80c961a9179cdec4}{StatsParams}} \{ NOT\_USED = 0 \};}
+\DoxyCodeLine{83 \textcolor{keyword}{enum} StatsType \{ NoCaptures, Captures \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{89 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}<int16\_t, 14365, COLOR\_NB, int(SQUARE\_NB) * int(SQUARE\_NB)> \mbox{\hyperlink{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}{ButterflyHistory}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{94 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}{MAX\_LPH}} = 4;}
+\DoxyCodeLine{95 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats}}<int16\_t, 10692, \mbox{\hyperlink{namespace_stockfish_a0df2cb76229dc1e412721a02aa9c2632}{MAX\_LPH}}, int(SQUARE\_NB) * int(SQUARE\_NB)> \mbox{\hyperlink{struct_stockfish_1_1_stats}{LowPlyHistory}};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{99 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats<Move, NOT\_USED, PIECE\_NB, SQUARE\_NB>}} \mbox{\hyperlink{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}{CounterMoveHistory}};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats<int16\_t, 10692, PIECE\_NB, SQUARE\_NB, PIECE\_TYPE\_NB>}} \mbox{\hyperlink{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}{CapturePieceToHistory}};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{105 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats<int16\_t, 29952, PIECE\_NB, SQUARE\_NB>}} \mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{PieceToHistory}};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{110 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_stats}{Stats<PieceToHistory, NOT\_USED, PIECE\_NB, SQUARE\_NB>}} \mbox{\hyperlink{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}{ContinuationHistory}};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{119 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}} \{}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121   \textcolor{keyword}{enum} PickType \{ Next, Best \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keyword}{public}:}
+\DoxyCodeLine{124   \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{125   \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{126   \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&, \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}, Value, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{CapturePieceToHistory}}*);}
+\DoxyCodeLine{127   \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&, \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}, Depth, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{ButterflyHistory}}*,}
+\DoxyCodeLine{128                                            \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{CapturePieceToHistory}}*,}
+\DoxyCodeLine{129                                            \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{PieceToHistory}}**,}
+\DoxyCodeLine{130                                            Square);}
+\DoxyCodeLine{131   \mbox{\hyperlink{class_stockfish_1_1_move_picker}{MovePicker}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&, \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}, Depth, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{ButterflyHistory}}*,}
+\DoxyCodeLine{132                                            \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{LowPlyHistory}}*,}
+\DoxyCodeLine{133                                            \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{CapturePieceToHistory}}*,}
+\DoxyCodeLine{134                                            \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{PieceToHistory}}**,}
+\DoxyCodeLine{135                                            \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}},}
+\DoxyCodeLine{136                                            \textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}*,}
+\DoxyCodeLine{137                                            \textcolor{keywordtype}{int});}
+\DoxyCodeLine{138   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} \mbox{\hyperlink{class_stockfish_1_1_move_picker_a11368e6ef0025e37d64e62f77b88d17a}{next\_move}}(\textcolor{keywordtype}{bool} skipQuiets = \textcolor{keyword}{false});}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{private}:}
+\DoxyCodeLine{141   \textcolor{keyword}{template}<PickType T, \textcolor{keyword}{typename} Pred> \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} select(Pred);}
+\DoxyCodeLine{142   \textcolor{keyword}{template}<GenType> \textcolor{keywordtype}{void} score();}
+\DoxyCodeLine{143   \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}* begin() \{ \textcolor{keywordflow}{return} cur; \}}
+\DoxyCodeLine{144   \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}}* end() \{ \textcolor{keywordflow}{return} endMoves; \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146   \textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos;}
+\DoxyCodeLine{147   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{ButterflyHistory}}* mainHistory;}
+\DoxyCodeLine{148   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{LowPlyHistory}}* lowPlyHistory;}
+\DoxyCodeLine{149   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{CapturePieceToHistory}}* captureHistory;}
+\DoxyCodeLine{150   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_stats}{PieceToHistory}}** continuationHistory;}
+\DoxyCodeLine{151   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} ttMove;}
+\DoxyCodeLine{152   \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}} refutations[3], *cur, *endMoves, *endBadCaptures;}
+\DoxyCodeLine{153   \textcolor{keywordtype}{int} stage;}
+\DoxyCodeLine{154   Square recaptureSquare;}
+\DoxyCodeLine{155   Value threshold;}
+\DoxyCodeLine{156   Depth depth;}
+\DoxyCodeLine{157   \textcolor{keywordtype}{int} ply;}
+\DoxyCodeLine{158   \mbox{\hyperlink{struct_stockfish_1_1_ext_move}{ExtMove}} moves[MAX\_MOVES];}
+\DoxyCodeLine{159 \};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef MOVEPICK\_H\_INCLUDED}}
+
+\end{DoxyCode}

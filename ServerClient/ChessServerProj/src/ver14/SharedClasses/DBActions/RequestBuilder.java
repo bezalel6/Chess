@@ -1,6 +1,5 @@
 package ver14.SharedClasses.DBActions;
 
-import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
@@ -27,6 +26,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.function.Supplier;
 
 
 /**
@@ -133,7 +133,7 @@ public class RequestBuilder implements Serializable {
      * @param variationCreator the variation creator
      * @return the request builder
      */
-    public static RequestBuilder createVariation(ObjCallback<RequestBuilder> og, PreMadeRequest.VariationCreator variationCreator) {
+    public static RequestBuilder createVariation(Supplier<RequestBuilder> og, PreMadeRequest.VariationCreator variationCreator) {
         RequestBuilder builder = og.get();
         PreMadeRequest.Variation variation = variationCreator.create(builder);
         DBRequest req = builder.build(variation.buildingArgs);

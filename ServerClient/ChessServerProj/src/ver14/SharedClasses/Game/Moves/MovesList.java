@@ -1,21 +1,25 @@
 package ver14.SharedClasses.Game.Moves;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class MovesList extends ArrayList<Move> {
+public class MovesList extends ArrayList<Move> implements Serializable {
 
     private long hash = 0;
+
+    private long finalHash = 0;
 
     public MovesList() {
 
     }
 
     public MovesList(MovesList other) {
-//        this(other.pins, other.attacked, other.myKingLoc);
-        other.stream().map(Move::new).forEach(this::add);
-//        addAll(other);
-        //todo cp list
+        this.finalHash = other.finalHash;
+        other.stream().map(Move::new).forEach(m -> {
+            m.setCreatedListHashSupplier(() -> finalHash);
+            this.add(m);
+        });
     }
 
     @Override
@@ -24,16 +28,20 @@ public class MovesList extends ArrayList<Move> {
         return super.add(move);
     }
 
+    public long getFinalHash() {
+        return finalHash;
+    }
+
+    public void finalizeHash() {
+        this.finalHash = hash;
+    }
+
     public Move findMove(BasicMove basicMove) {
         return findMove(basicMove, m -> true);
     }
 
     public Move findMove(BasicMove basicMove, CompareMoves compareMoves) {
         return basicMove == null ? null : stream().filter(m -> m.equals(basicMove) && compareMoves.equals(m)).findAny().orElse(null);
-    }
-
-    public long getHash() {
-        return hash;
     }
 
     public String createSimpleStr() {

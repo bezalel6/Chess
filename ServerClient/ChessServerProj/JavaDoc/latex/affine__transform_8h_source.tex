@@ -1,0 +1,560 @@
+\hypertarget{affine__transform_8h_source}{}\doxysection{affine\+\_\+transform.\+h}
+\label{affine__transform_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/affine\_transform.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/layers/affine\_transform.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Definition of layer AffineTransform of NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_LAYERS\_AFFINE\_TRANSFORM\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_LAYERS\_AFFINE\_TRANSFORM\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}../nnue\_common.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}../../simd.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{/*}}
+\DoxyCodeLine{31 \textcolor{comment}{  This file contains the definition for a fully connected layer (aka affine transform).}}
+\DoxyCodeLine{32 \textcolor{comment}{  Two approaches are employed, depending on the sizes of the transform.}}
+\DoxyCodeLine{33 \textcolor{comment}{}}
+\DoxyCodeLine{34 \textcolor{comment}{  Approach 1:}}
+\DoxyCodeLine{35 \textcolor{comment}{    -\/ used when the PaddedInputDimensions >= 128}}
+\DoxyCodeLine{36 \textcolor{comment}{    -\/ uses AVX512 if possible}}
+\DoxyCodeLine{37 \textcolor{comment}{    -\/ processes inputs in batches of 2*InputSimdWidth}}
+\DoxyCodeLine{38 \textcolor{comment}{      -\/ so in batches of 128 for AVX512}}
+\DoxyCodeLine{39 \textcolor{comment}{    -\/ the weight blocks of size InputSimdWidth are transposed such that}}
+\DoxyCodeLine{40 \textcolor{comment}{      access is sequential}}
+\DoxyCodeLine{41 \textcolor{comment}{    -\/ N columns of the weight matrix are processed a time, where N}}
+\DoxyCodeLine{42 \textcolor{comment}{      depends on the architecture (the amount of registers)}}
+\DoxyCodeLine{43 \textcolor{comment}{    -\/ accumulate + hadd is used}}
+\DoxyCodeLine{44 \textcolor{comment}{}}
+\DoxyCodeLine{45 \textcolor{comment}{  Approach 2:}}
+\DoxyCodeLine{46 \textcolor{comment}{    -\/ used when the PaddedInputDimensions < 128}}
+\DoxyCodeLine{47 \textcolor{comment}{    -\/ does not use AVX512}}
+\DoxyCodeLine{48 \textcolor{comment}{    -\/ expected use-\/case is for when PaddedInputDimensions == 32 and InputDimensions <= 32.}}
+\DoxyCodeLine{49 \textcolor{comment}{      -\/ that's why AVX512 is hard to implement}}
+\DoxyCodeLine{50 \textcolor{comment}{    -\/ expected use-\/case is small layers}}
+\DoxyCodeLine{51 \textcolor{comment}{      -\/ not optimized as well as the approach 1}}
+\DoxyCodeLine{52 \textcolor{comment}{    -\/ inputs are processed in chunks of 4, weights are respectively transposed}}
+\DoxyCodeLine{53 \textcolor{comment}{    -\/ accumulation happens directly to int32s}}
+\DoxyCodeLine{54 \textcolor{comment}{*/}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE::Layers \{}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{comment}{// Fallback implementation for older/other architectures.}}
+\DoxyCodeLine{59 \textcolor{comment}{// Identical for both approaches. Requires the input to be padded to at least 16 values.}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if !defined(USE\_SSSE3)}}
+\DoxyCodeLine{61   \textcolor{keyword}{template} <IndexType InputDimensions, IndexType PaddedInputDimensions, IndexType OutputDimensions>}
+\DoxyCodeLine{62   \textcolor{keyword}{static} \textcolor{keywordtype}{void} affine\_transform\_non\_ssse3(std::int32\_t* output, \textcolor{keyword}{const} std::int8\_t* weights, \textcolor{keyword}{const} std::int32\_t* biases, \textcolor{keyword}{const} std::uint8\_t* input)}
+\DoxyCodeLine{63   \{}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\# if defined(USE\_SSE2)}}
+\DoxyCodeLine{65     \textcolor{comment}{// At least a multiple of 16, with SSE2.}}
+\DoxyCodeLine{66     \textcolor{keyword}{static\_assert}(PaddedInputDimensions \% 16 == 0);}
+\DoxyCodeLine{67     \textcolor{keyword}{constexpr} IndexType NumChunks = PaddedInputDimensions / 16;}
+\DoxyCodeLine{68     \textcolor{keyword}{const} \_\_m128i Zeros = \_mm\_setzero\_si128();}
+\DoxyCodeLine{69     \textcolor{keyword}{const} \textcolor{keyword}{auto} inputVector = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\# elif defined(USE\_MMX)}}
+\DoxyCodeLine{72     \textcolor{keyword}{static\_assert}(InputDimensions \% 8 == 0);}
+\DoxyCodeLine{73     \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / 8;}
+\DoxyCodeLine{74     \textcolor{keyword}{const} \_\_m64 Zeros = \_mm\_setzero\_si64();}
+\DoxyCodeLine{75     \textcolor{keyword}{const} \textcolor{keyword}{auto} inputVector = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m64*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\# elif defined(USE\_NEON)}}
+\DoxyCodeLine{78     \textcolor{keyword}{static\_assert}(PaddedInputDimensions \% 16 == 0);}
+\DoxyCodeLine{79     \textcolor{keyword}{constexpr} IndexType NumChunks = PaddedInputDimensions / 16;}
+\DoxyCodeLine{80     \textcolor{keyword}{const} \textcolor{keyword}{auto} inputVector = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }int8x8\_t*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{for} (IndexType i = 0; i < OutputDimensions; ++i) \{}
+\DoxyCodeLine{84       \textcolor{keyword}{const} IndexType offset = i * PaddedInputDimensions;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\# if defined(USE\_SSE2)}}
+\DoxyCodeLine{87       \_\_m128i sumLo = \_mm\_cvtsi32\_si128(biases[i]);}
+\DoxyCodeLine{88       \_\_m128i sumHi = Zeros;}
+\DoxyCodeLine{89       \textcolor{keyword}{const} \textcolor{keyword}{auto} row = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{90       \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j) \{}
+\DoxyCodeLine{91         \_\_m128i row\_j = \_mm\_load\_si128(\&row[j]);}
+\DoxyCodeLine{92         \_\_m128i input\_j = \_mm\_load\_si128(\&inputVector[j]);}
+\DoxyCodeLine{93         \_\_m128i extendedRowLo = \_mm\_srai\_epi16(\_mm\_unpacklo\_epi8(row\_j, row\_j), 8);}
+\DoxyCodeLine{94         \_\_m128i extendedRowHi = \_mm\_srai\_epi16(\_mm\_unpackhi\_epi8(row\_j, row\_j), 8);}
+\DoxyCodeLine{95         \_\_m128i extendedInputLo = \_mm\_unpacklo\_epi8(input\_j, Zeros);}
+\DoxyCodeLine{96         \_\_m128i extendedInputHi = \_mm\_unpackhi\_epi8(input\_j, Zeros);}
+\DoxyCodeLine{97         \_\_m128i productLo = \_mm\_madd\_epi16(extendedRowLo, extendedInputLo);}
+\DoxyCodeLine{98         \_\_m128i productHi = \_mm\_madd\_epi16(extendedRowHi, extendedInputHi);}
+\DoxyCodeLine{99         sumLo = \_mm\_add\_epi32(sumLo, productLo);}
+\DoxyCodeLine{100         sumHi = \_mm\_add\_epi32(sumHi, productHi);}
+\DoxyCodeLine{101       \}}
+\DoxyCodeLine{102       \_\_m128i sum = \_mm\_add\_epi32(sumLo, sumHi);}
+\DoxyCodeLine{103       \_\_m128i sumHigh\_64 = \_mm\_shuffle\_epi32(sum, \_MM\_SHUFFLE(1, 0, 3, 2));}
+\DoxyCodeLine{104       sum = \_mm\_add\_epi32(sum, sumHigh\_64);}
+\DoxyCodeLine{105       \_\_m128i sum\_second\_32 = \_mm\_shufflelo\_epi16(sum, \_MM\_SHUFFLE(1, 0, 3, 2));}
+\DoxyCodeLine{106       sum = \_mm\_add\_epi32(sum, sum\_second\_32);}
+\DoxyCodeLine{107       output[i] = \_mm\_cvtsi128\_si32(sum);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\# elif defined(USE\_MMX)}}
+\DoxyCodeLine{110       \_\_m64 sumLo = \_mm\_cvtsi32\_si64(biases[i]);}
+\DoxyCodeLine{111       \_\_m64 sumHi = Zeros;}
+\DoxyCodeLine{112       \textcolor{keyword}{const} \textcolor{keyword}{auto} row = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m64*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{113       \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j) \{}
+\DoxyCodeLine{114         \_\_m64 row\_j = row[j];}
+\DoxyCodeLine{115         \_\_m64 input\_j = inputVector[j];}
+\DoxyCodeLine{116         \_\_m64 extendedRowLo = \_mm\_srai\_pi16(\_mm\_unpacklo\_pi8(row\_j, row\_j), 8);}
+\DoxyCodeLine{117         \_\_m64 extendedRowHi = \_mm\_srai\_pi16(\_mm\_unpackhi\_pi8(row\_j, row\_j), 8);}
+\DoxyCodeLine{118         \_\_m64 extendedInputLo = \_mm\_unpacklo\_pi8(input\_j, Zeros);}
+\DoxyCodeLine{119         \_\_m64 extendedInputHi = \_mm\_unpackhi\_pi8(input\_j, Zeros);}
+\DoxyCodeLine{120         \_\_m64 productLo = \_mm\_madd\_pi16(extendedRowLo, extendedInputLo);}
+\DoxyCodeLine{121         \_\_m64 productHi = \_mm\_madd\_pi16(extendedRowHi, extendedInputHi);}
+\DoxyCodeLine{122         sumLo = \_mm\_add\_pi32(sumLo, productLo);}
+\DoxyCodeLine{123         sumHi = \_mm\_add\_pi32(sumHi, productHi);}
+\DoxyCodeLine{124       \}}
+\DoxyCodeLine{125       \_\_m64 sum = \_mm\_add\_pi32(sumLo, sumHi);}
+\DoxyCodeLine{126       sum = \_mm\_add\_pi32(sum, \_mm\_unpackhi\_pi32(sum, sum));}
+\DoxyCodeLine{127       output[i] = \_mm\_cvtsi64\_si32(sum);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\# elif defined(USE\_NEON)}}
+\DoxyCodeLine{130       int32x4\_t sum = \{biases[i]\};}
+\DoxyCodeLine{131       \textcolor{keyword}{const} \textcolor{keyword}{auto} row = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }int8x8\_t*\textcolor{keyword}{>}(\&weights[offset]);}
+\DoxyCodeLine{132       \textcolor{keywordflow}{for} (IndexType j = 0; j < NumChunks; ++j) \{}
+\DoxyCodeLine{133         int16x8\_t product = vmull\_s8(inputVector[j * 2], row[j * 2]);}
+\DoxyCodeLine{134         product = vmlal\_s8(product, inputVector[j * 2 + 1], row[j * 2 + 1]);}
+\DoxyCodeLine{135         sum = vpadalq\_s16(sum, product);}
+\DoxyCodeLine{136       \}}
+\DoxyCodeLine{137       output[i] = sum[0] + sum[1] + sum[2] + sum[3];}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{140       std::int32\_t sum = biases[i];}
+\DoxyCodeLine{141       \textcolor{keywordflow}{for} (IndexType j = 0; j < InputDimensions; ++j) \{}
+\DoxyCodeLine{142         sum += weights[offset + j] * input[j];}
+\DoxyCodeLine{143       \}}
+\DoxyCodeLine{144       output[i] = sum;}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\# if defined(USE\_MMX)}}
+\DoxyCodeLine{149     \_mm\_empty();}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   \textcolor{keyword}{template} <\textcolor{keyword}{typename} PreviousLayer, IndexType OutDims, \textcolor{keyword}{typename} Enabled = \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{155   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform}{AffineTransform}};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157   \textcolor{comment}{// A specialization for large inputs.}}
+\DoxyCodeLine{158   \textcolor{keyword}{template} <\textcolor{keyword}{typename} PreviousLayer, IndexType OutDims>}
+\DoxyCodeLine{159   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform}{AffineTransform}}<PreviousLayer, OutDims, std::enable\_if\_t<(PreviousLayer::OutputDimensions >= 2*64-\/1)>> \{}
+\DoxyCodeLine{160    \textcolor{keyword}{public}:}
+\DoxyCodeLine{161     \textcolor{comment}{// Input/output type}}
+\DoxyCodeLine{162     \textcolor{keyword}{using} InputType = \textcolor{keyword}{typename} PreviousLayer::OutputType;}
+\DoxyCodeLine{163     \textcolor{keyword}{using} OutputType = std::int32\_t;}
+\DoxyCodeLine{164     \textcolor{keyword}{static\_assert}(std::is\_same<InputType, std::uint8\_t>::value, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{comment}{// Number of input/output dimensions}}
+\DoxyCodeLine{167     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType InputDimensions = PreviousLayer::OutputDimensions;}
+\DoxyCodeLine{168     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType OutputDimensions = OutDims;}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType PaddedInputDimensions =}
+\DoxyCodeLine{171       ceil\_to\_multiple<IndexType>(InputDimensions, MaxSimdWidth);}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \textcolor{keyword}{static\_assert}(PaddedInputDimensions >= 128, \textcolor{stringliteral}{"{}Something went wrong. This specialization should not have been chosen."{}});}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#if defined (USE\_AVX512)}}
+\DoxyCodeLine{176     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType InputSimdWidth = 64;}
+\DoxyCodeLine{177     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType MaxNumOutputRegs = 16;}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#elif defined (USE\_AVX2)}}
+\DoxyCodeLine{179     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType InputSimdWidth = 32;}
+\DoxyCodeLine{180     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType MaxNumOutputRegs = 8;}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#elif defined (USE\_SSSE3)}}
+\DoxyCodeLine{182     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType InputSimdWidth = 16;}
+\DoxyCodeLine{183     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType MaxNumOutputRegs = 8;}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{185     \textcolor{comment}{// The fallback implementation will not have permuted weights.}}
+\DoxyCodeLine{186     \textcolor{comment}{// We define these to avoid a lot of ifdefs later.}}
+\DoxyCodeLine{187     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType InputSimdWidth = 1;}
+\DoxyCodeLine{188     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType MaxNumOutputRegs = 1;}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{comment}{// A big block is a region in the weight matrix of the size [PaddedInputDimensions, NumOutputRegs].}}
+\DoxyCodeLine{192     \textcolor{comment}{// A small block is a region of size [InputSimdWidth, 1]}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType NumOutputRegs = std::min(MaxNumOutputRegs, OutputDimensions);}
+\DoxyCodeLine{195     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType SmallBlockSize = InputSimdWidth;}
+\DoxyCodeLine{196     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType BigBlockSize = NumOutputRegs * PaddedInputDimensions;}
+\DoxyCodeLine{197     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType NumSmallBlocksInBigBlock = BigBlockSize / SmallBlockSize;}
+\DoxyCodeLine{198     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType NumSmallBlocksPerOutput = PaddedInputDimensions / SmallBlockSize;}
+\DoxyCodeLine{199     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType NumBigBlocks = OutputDimensions / NumOutputRegs;}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{keyword}{static\_assert}(OutputDimensions \% NumOutputRegs == 0);}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{comment}{// Size of forward propagation buffer used in this layer}}
+\DoxyCodeLine{204     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t SelfBufferSize =}
+\DoxyCodeLine{205       ceil\_to\_multiple(OutputDimensions * \textcolor{keyword}{sizeof}(OutputType), CacheLineSize);}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \textcolor{comment}{// Size of the forward propagation buffer used from the input layer to this layer}}
+\DoxyCodeLine{208     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t BufferSize =}
+\DoxyCodeLine{209       PreviousLayer::BufferSize + SelfBufferSize;}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{212     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t get\_hash\_value() \{}
+\DoxyCodeLine{213       std::uint32\_t hashValue = 0xCC03DAE4u;}
+\DoxyCodeLine{214       hashValue += OutputDimensions;}
+\DoxyCodeLine{215       hashValue \string^= PreviousLayer::get\_hash\_value() >> 1;}
+\DoxyCodeLine{216       hashValue \string^= PreviousLayer::get\_hash\_value() << 31;}
+\DoxyCodeLine{217       \textcolor{keywordflow}{return} hashValue;}
+\DoxyCodeLine{218     \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{comment}{/*}}
+\DoxyCodeLine{221 \textcolor{comment}{      Transposes the small blocks within a block.}}
+\DoxyCodeLine{222 \textcolor{comment}{      Effectively means that weights can be traversed sequentially during inference.}}
+\DoxyCodeLine{223 \textcolor{comment}{    */}}
+\DoxyCodeLine{224     \textcolor{keyword}{static} IndexType get\_weight\_index(IndexType i)}
+\DoxyCodeLine{225     \{}
+\DoxyCodeLine{226       \textcolor{keyword}{const} IndexType smallBlock = (i / SmallBlockSize) \% NumSmallBlocksInBigBlock;}
+\DoxyCodeLine{227       \textcolor{keyword}{const} IndexType smallBlockCol = smallBlock / NumSmallBlocksPerOutput;}
+\DoxyCodeLine{228       \textcolor{keyword}{const} IndexType smallBlockRow = smallBlock \% NumSmallBlocksPerOutput;}
+\DoxyCodeLine{229       \textcolor{keyword}{const} IndexType bigBlock   = i / BigBlockSize;}
+\DoxyCodeLine{230       \textcolor{keyword}{const} IndexType rest       = i \% SmallBlockSize;}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232       \textcolor{keyword}{const} IndexType idx =}
+\DoxyCodeLine{233           bigBlock * BigBlockSize}
+\DoxyCodeLine{234         + smallBlockRow * SmallBlockSize * NumOutputRegs}
+\DoxyCodeLine{235         + smallBlockCol * SmallBlockSize}
+\DoxyCodeLine{236         + rest;}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238       \textcolor{keywordflow}{return} idx;}
+\DoxyCodeLine{239     \}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \textcolor{comment}{// Read network parameters}}
+\DoxyCodeLine{242     \textcolor{keywordtype}{bool} read\_parameters(std::istream\& stream) \{}
+\DoxyCodeLine{243       \textcolor{keywordflow}{if} (!previousLayer.read\_parameters(stream)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{244       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions; ++i)}
+\DoxyCodeLine{245         biases[i] = read\_little\_endian<BiasType>(stream);}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)}
+\DoxyCodeLine{248         weights[get\_weight\_index(i)] = read\_little\_endian<WeightType>(stream);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{251     \}}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253     \textcolor{comment}{// Write network parameters}}
+\DoxyCodeLine{254     \textcolor{keywordtype}{bool} write\_parameters(std::ostream\& stream)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{255       \textcolor{keywordflow}{if} (!previousLayer.write\_parameters(stream)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{256       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions; ++i)}
+\DoxyCodeLine{257           write\_little\_endian<BiasType>(stream, biases[i]);}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)}
+\DoxyCodeLine{260         write\_little\_endian<WeightType>(stream, weights[get\_weight\_index(i)]);}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{263     \}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265     \textcolor{comment}{// Forward propagation}}
+\DoxyCodeLine{266     \textcolor{keyword}{const} OutputType* propagate(}
+\DoxyCodeLine{267         \textcolor{keyword}{const} TransformedFeatureType* transformedFeatures, \textcolor{keywordtype}{char}* buffer)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{268       \textcolor{keyword}{const} \textcolor{keyword}{auto} input = previousLayer.propagate(}
+\DoxyCodeLine{269         transformedFeatures, buffer + SelfBufferSize);}
+\DoxyCodeLine{270       OutputType* output = \textcolor{keyword}{reinterpret\_cast<}OutputType*\textcolor{keyword}{>}(buffer);}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#if defined (USE\_AVX512)}}
+\DoxyCodeLine{273       \textcolor{keyword}{using} vec\_t = \_\_m512i;}
+\DoxyCodeLine{274 \textcolor{preprocessor}{      \#define vec\_setzero \_mm512\_setzero\_si512}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{      \#define vec\_set\_32 \_mm512\_set1\_epi32}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32 Simd::m512\_add\_dpbusd\_epi32}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x2 Simd::m512\_add\_dpbusd\_epi32x2}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{      \#define vec\_hadd Simd::m512\_hadd}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{      \#define vec\_haddx4 Simd::m512\_haddx4}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#elif defined (USE\_AVX2)}}
+\DoxyCodeLine{281       \textcolor{keyword}{using} vec\_t = \_\_m256i;}
+\DoxyCodeLine{282 \textcolor{preprocessor}{      \#define vec\_setzero \_mm256\_setzero\_si256}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{      \#define vec\_set\_32 \_mm256\_set1\_epi32}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32 Simd::m256\_add\_dpbusd\_epi32}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x2 Simd::m256\_add\_dpbusd\_epi32x2}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{      \#define vec\_hadd Simd::m256\_hadd}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{      \#define vec\_haddx4 Simd::m256\_haddx4}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#elif defined (USE\_SSSE3)}}
+\DoxyCodeLine{289       \textcolor{keyword}{using} vec\_t = \_\_m128i;}
+\DoxyCodeLine{290 \textcolor{preprocessor}{      \#define vec\_setzero \_mm\_setzero\_si128}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{      \#define vec\_set\_32 \_mm\_set1\_epi32}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32 Simd::m128\_add\_dpbusd\_epi32}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x2 Simd::m128\_add\_dpbusd\_epi32x2}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{      \#define vec\_hadd Simd::m128\_hadd}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{      \#define vec\_haddx4 Simd::m128\_haddx4}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#if defined (USE\_SSSE3)}}
+\DoxyCodeLine{299       \textcolor{keyword}{const} vec\_t* invec = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302       \textcolor{comment}{// Perform accumulation to registers for each big block}}
+\DoxyCodeLine{303       \textcolor{keywordflow}{for} (IndexType bigBlock = 0; bigBlock < NumBigBlocks; ++bigBlock)}
+\DoxyCodeLine{304       \{}
+\DoxyCodeLine{305         vec\_t acc[NumOutputRegs] = \{ vec\_setzero() \};}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307         \textcolor{comment}{// Each big block has NumOutputRegs small blocks in each "{}row"{}, one per register.}}
+\DoxyCodeLine{308         \textcolor{comment}{// We process two small blocks at a time to save on one addition without VNNI.}}
+\DoxyCodeLine{309         \textcolor{keywordflow}{for} (IndexType smallBlock = 0; smallBlock < NumSmallBlocksPerOutput; smallBlock += 2)}
+\DoxyCodeLine{310         \{}
+\DoxyCodeLine{311           \textcolor{keyword}{const} vec\_t* weightvec =}
+\DoxyCodeLine{312             \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{313                 weights}
+\DoxyCodeLine{314               + bigBlock * BigBlockSize}
+\DoxyCodeLine{315               + smallBlock * SmallBlockSize * NumOutputRegs);}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317           \textcolor{keyword}{const} vec\_t in0 = invec[smallBlock + 0];}
+\DoxyCodeLine{318           \textcolor{keyword}{const} vec\_t in1 = invec[smallBlock + 1];}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumOutputRegs; ++k)}
+\DoxyCodeLine{321             vec\_add\_dpbusd\_32x2(acc[k], in0, weightvec[k], in1, weightvec[k + NumOutputRegs]);}
+\DoxyCodeLine{322         \}}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324         \textcolor{comment}{// Horizontally add all accumulators.}}
+\DoxyCodeLine{325         \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr} (NumOutputRegs \% 4 == 0)}
+\DoxyCodeLine{326         \{}
+\DoxyCodeLine{327           \_\_m128i* outputvec = \textcolor{keyword}{reinterpret\_cast<}\_\_m128i*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{328           \textcolor{keyword}{const} \_\_m128i* biasvec = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\_\_m128i*\textcolor{keyword}{>}(biases);}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumOutputRegs; k += 4)}
+\DoxyCodeLine{331           \{}
+\DoxyCodeLine{332             \textcolor{keyword}{const} IndexType idx = (bigBlock * NumOutputRegs + k) / 4;}
+\DoxyCodeLine{333             outputvec[idx] = vec\_haddx4(acc[k+0], acc[k+1], acc[k+2], acc[k+3], biasvec[idx]);}
+\DoxyCodeLine{334           \}}
+\DoxyCodeLine{335         \}}
+\DoxyCodeLine{336         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{337         \{}
+\DoxyCodeLine{338           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumOutputRegs; ++k)}
+\DoxyCodeLine{339           \{}
+\DoxyCodeLine{340             \textcolor{keyword}{const} IndexType idx = (bigBlock * NumOutputRegs + k);}
+\DoxyCodeLine{341             output[idx] = vec\_hadd(acc[k], biases[idx]);}
+\DoxyCodeLine{342           \}}
+\DoxyCodeLine{343         \}}
+\DoxyCodeLine{344       \}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{preprocessor}{\# undef vec\_setzero}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\# undef vec\_set\_32}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\# undef vec\_add\_dpbusd\_32}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\# undef vec\_add\_dpbusd\_32x2}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\# undef vec\_hadd}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\# undef vec\_haddx4}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{353       \textcolor{comment}{// Use old implementation for the other architectures.}}
+\DoxyCodeLine{354       affine\_transform\_non\_ssse3<}
+\DoxyCodeLine{355         InputDimensions,}
+\DoxyCodeLine{356         PaddedInputDimensions,}
+\DoxyCodeLine{357         OutputDimensions>(output, weights, biases, input);}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361       \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{362     \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364    \textcolor{keyword}{private}:}
+\DoxyCodeLine{365     \textcolor{keyword}{using} BiasType = OutputType;}
+\DoxyCodeLine{366     \textcolor{keyword}{using} WeightType = std::int8\_t;}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368     PreviousLayer previousLayer;}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \textcolor{keyword}{alignas}(CacheLineSize) BiasType biases[OutputDimensions];}
+\DoxyCodeLine{371     \textcolor{keyword}{alignas}(CacheLineSize) WeightType weights[OutputDimensions * PaddedInputDimensions];}
+\DoxyCodeLine{372   \};}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374   \textcolor{keyword}{template} <\textcolor{keyword}{typename} PreviousLayer, IndexType OutDims>}
+\DoxyCodeLine{375   \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform}{AffineTransform}}<PreviousLayer, OutDims, std::enable\_if\_t<(PreviousLayer::OutputDimensions < 2*64-\/1)>> \{}
+\DoxyCodeLine{376    \textcolor{keyword}{public}:}
+\DoxyCodeLine{377     \textcolor{comment}{// Input/output type}}
+\DoxyCodeLine{378     \textcolor{keyword}{using} InputType = \textcolor{keyword}{typename} PreviousLayer::OutputType;}
+\DoxyCodeLine{379     \textcolor{keyword}{using} OutputType = std::int32\_t;}
+\DoxyCodeLine{380     \textcolor{keyword}{static\_assert}(std::is\_same<InputType, std::uint8\_t>::value, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382     \textcolor{comment}{// Number of input/output dimensions}}
+\DoxyCodeLine{383     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType InputDimensions =}
+\DoxyCodeLine{384         PreviousLayer::OutputDimensions;}
+\DoxyCodeLine{385     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType OutputDimensions = OutDims;}
+\DoxyCodeLine{386     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} IndexType PaddedInputDimensions =}
+\DoxyCodeLine{387         ceil\_to\_multiple<IndexType>(InputDimensions, MaxSimdWidth);}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389     \textcolor{keyword}{static\_assert}(PaddedInputDimensions < 128, \textcolor{stringliteral}{"{}Something went wrong. This specialization should not have been chosen."{}});}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#if defined (USE\_SSSE3)}}
+\DoxyCodeLine{392     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType OutputSimdWidth = SimdWidth / 4;}
+\DoxyCodeLine{393     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keyword}{const} IndexType InputSimdWidth = SimdWidth;}
+\DoxyCodeLine{394 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396     \textcolor{comment}{// Size of forward propagation buffer used in this layer}}
+\DoxyCodeLine{397     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t SelfBufferSize =}
+\DoxyCodeLine{398       ceil\_to\_multiple(OutputDimensions * \textcolor{keyword}{sizeof}(OutputType), CacheLineSize);}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400     \textcolor{comment}{// Size of the forward propagation buffer used from the input layer to this layer}}
+\DoxyCodeLine{401     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::size\_t BufferSize =}
+\DoxyCodeLine{402       PreviousLayer::BufferSize + SelfBufferSize;}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404     \textcolor{comment}{// Hash value embedded in the evaluation file}}
+\DoxyCodeLine{405     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} std::uint32\_t get\_hash\_value() \{}
+\DoxyCodeLine{406       std::uint32\_t hashValue = 0xCC03DAE4u;}
+\DoxyCodeLine{407       hashValue += OutputDimensions;}
+\DoxyCodeLine{408       hashValue \string^= PreviousLayer::get\_hash\_value() >> 1;}
+\DoxyCodeLine{409       hashValue \string^= PreviousLayer::get\_hash\_value() << 31;}
+\DoxyCodeLine{410       \textcolor{keywordflow}{return} hashValue;}
+\DoxyCodeLine{411     \}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \textcolor{keyword}{static} IndexType get\_weight\_index\_scrambled(IndexType i)}
+\DoxyCodeLine{414     \{}
+\DoxyCodeLine{415       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{416         (i / 4) \% (PaddedInputDimensions / 4) * OutputDimensions * 4 +}
+\DoxyCodeLine{417         i / PaddedInputDimensions * 4 +}
+\DoxyCodeLine{418         i \% 4;}
+\DoxyCodeLine{419     \}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421     \textcolor{keyword}{static} IndexType get\_weight\_index(IndexType i)}
+\DoxyCodeLine{422     \{}
+\DoxyCodeLine{423 \textcolor{preprocessor}{\#if defined (USE\_SSSE3)}}
+\DoxyCodeLine{424       \textcolor{keywordflow}{return} get\_weight\_index\_scrambled(i);}
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{426       \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{428     \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430     \textcolor{comment}{// Read network parameters}}
+\DoxyCodeLine{431     \textcolor{keywordtype}{bool} read\_parameters(std::istream\& stream) \{}
+\DoxyCodeLine{432       \textcolor{keywordflow}{if} (!previousLayer.read\_parameters(stream)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{433       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions; ++i)}
+\DoxyCodeLine{434         biases[i] = read\_little\_endian<BiasType>(stream);}
+\DoxyCodeLine{435       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)}
+\DoxyCodeLine{436         weights[get\_weight\_index(i)] = read\_little\_endian<WeightType>(stream);}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{439     \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441     \textcolor{comment}{// Write network parameters}}
+\DoxyCodeLine{442     \textcolor{keywordtype}{bool} write\_parameters(std::ostream\& stream)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{443       \textcolor{keywordflow}{if} (!previousLayer.write\_parameters(stream)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{444       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions; ++i)}
+\DoxyCodeLine{445         write\_little\_endian<BiasType>(stream, biases[i]);}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)}
+\DoxyCodeLine{448         write\_little\_endian<WeightType>(stream, weights[get\_weight\_index(i)]);}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{450       \textcolor{keywordflow}{return} !stream.fail();}
+\DoxyCodeLine{451     \}}
+\DoxyCodeLine{452     \textcolor{comment}{// Forward propagation}}
+\DoxyCodeLine{453     \textcolor{keyword}{const} OutputType* propagate(}
+\DoxyCodeLine{454         \textcolor{keyword}{const} TransformedFeatureType* transformedFeatures, \textcolor{keywordtype}{char}* buffer)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{455       \textcolor{keyword}{const} \textcolor{keyword}{auto} input = previousLayer.propagate(}
+\DoxyCodeLine{456         transformedFeatures, buffer + SelfBufferSize);}
+\DoxyCodeLine{457       \textcolor{keyword}{const} \textcolor{keyword}{auto} output = \textcolor{keyword}{reinterpret\_cast<}OutputType*\textcolor{keyword}{>}(buffer);}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#if defined (USE\_AVX2)}}
+\DoxyCodeLine{460       \textcolor{keyword}{using} vec\_t = \_\_m256i;}
+\DoxyCodeLine{461 \textcolor{preprocessor}{      \#define vec\_setzero \_mm256\_setzero\_si256}}
+\DoxyCodeLine{462 \textcolor{preprocessor}{      \#define vec\_set\_32 \_mm256\_set1\_epi32}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32 Simd::m256\_add\_dpbusd\_epi32}}
+\DoxyCodeLine{464 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x2 Simd::m256\_add\_dpbusd\_epi32x2}}
+\DoxyCodeLine{465 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x4 Simd::m256\_add\_dpbusd\_epi32x4}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{      \#define vec\_hadd Simd::m256\_hadd}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{      \#define vec\_haddx4 Simd::m256\_haddx4}}
+\DoxyCodeLine{468 \textcolor{preprocessor}{\#elif defined (USE\_SSSE3)}}
+\DoxyCodeLine{469       \textcolor{keyword}{using} vec\_t = \_\_m128i;}
+\DoxyCodeLine{470 \textcolor{preprocessor}{      \#define vec\_setzero \_mm\_setzero\_si128}}
+\DoxyCodeLine{471 \textcolor{preprocessor}{      \#define vec\_set\_32 \_mm\_set1\_epi32}}
+\DoxyCodeLine{472 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32 Simd::m128\_add\_dpbusd\_epi32}}
+\DoxyCodeLine{473 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x2 Simd::m128\_add\_dpbusd\_epi32x2}}
+\DoxyCodeLine{474 \textcolor{preprocessor}{      \#define vec\_add\_dpbusd\_32x4 Simd::m128\_add\_dpbusd\_epi32x4}}
+\DoxyCodeLine{475 \textcolor{preprocessor}{      \#define vec\_hadd Simd::m128\_hadd}}
+\DoxyCodeLine{476 \textcolor{preprocessor}{      \#define vec\_haddx4 Simd::m128\_haddx4}}
+\DoxyCodeLine{477 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479 \textcolor{preprocessor}{\#if defined (USE\_SSSE3)}}
+\DoxyCodeLine{480       \textcolor{keyword}{const} \textcolor{keyword}{auto} inputVector = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482       \textcolor{keyword}{static\_assert}(InputDimensions \% 8 == 0);}
+\DoxyCodeLine{483       \textcolor{keyword}{static\_assert}(OutputDimensions \% OutputSimdWidth == 0 || OutputDimensions == 1);}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485       \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr} (OutputDimensions \% OutputSimdWidth == 0)}
+\DoxyCodeLine{486       \{}
+\DoxyCodeLine{487         \textcolor{keyword}{constexpr} IndexType NumChunks = InputDimensions / 4;}
+\DoxyCodeLine{488         \textcolor{keyword}{constexpr} IndexType NumRegs = OutputDimensions / OutputSimdWidth;}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490         \textcolor{keyword}{const} \textcolor{keyword}{auto} input32 = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }std::int32\_t*\textcolor{keyword}{>}(input);}
+\DoxyCodeLine{491         \textcolor{keyword}{const} vec\_t* biasvec = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(biases);}
+\DoxyCodeLine{492         vec\_t acc[NumRegs];}
+\DoxyCodeLine{493         \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{494           acc[k] = biasvec[k];}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{496         \textcolor{keywordflow}{for} (IndexType i = 0; i < NumChunks; i += 2)}
+\DoxyCodeLine{497         \{}
+\DoxyCodeLine{498           \textcolor{keyword}{const} vec\_t in0 = vec\_set\_32(input32[i + 0]);}
+\DoxyCodeLine{499           \textcolor{keyword}{const} vec\_t in1 = vec\_set\_32(input32[i + 1]);}
+\DoxyCodeLine{500           \textcolor{keyword}{const} \textcolor{keyword}{auto} col0 = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[(i + 0) * OutputDimensions * 4]);}
+\DoxyCodeLine{501           \textcolor{keyword}{const} \textcolor{keyword}{auto} col1 = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[(i + 1) * OutputDimensions * 4]);}
+\DoxyCodeLine{502           \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{503             vec\_add\_dpbusd\_32x2(acc[k], in0, col0[k], in1, col1[k]);}
+\DoxyCodeLine{504         \}}
+\DoxyCodeLine{505 }
+\DoxyCodeLine{506         vec\_t* outptr = \textcolor{keyword}{reinterpret\_cast<}vec\_t*\textcolor{keyword}{>}(output);}
+\DoxyCodeLine{507         \textcolor{keywordflow}{for} (IndexType k = 0; k < NumRegs; ++k)}
+\DoxyCodeLine{508           outptr[k] = acc[k];}
+\DoxyCodeLine{509       \}}
+\DoxyCodeLine{510       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr} (OutputDimensions == 1)}
+\DoxyCodeLine{511       \{}
+\DoxyCodeLine{512         \textcolor{keyword}{constexpr} IndexType NumChunks = PaddedInputDimensions / SimdWidth;}
+\DoxyCodeLine{513         vec\_t sum0 = vec\_setzero();}
+\DoxyCodeLine{514         \textcolor{keyword}{const} \textcolor{keyword}{auto} row0 = \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }vec\_t*\textcolor{keyword}{>}(\&weights[0]);}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < (int)NumChunks; ++j)}
+\DoxyCodeLine{517         \{}
+\DoxyCodeLine{518           \textcolor{keyword}{const} vec\_t in = inputVector[j];}
+\DoxyCodeLine{519           vec\_add\_dpbusd\_32(sum0, in, row0[j]);}
+\DoxyCodeLine{520         \}}
+\DoxyCodeLine{521         output[0] = vec\_hadd(sum0, biases[0]);}
+\DoxyCodeLine{522       \}}
+\DoxyCodeLine{523 }
+\DoxyCodeLine{524 \textcolor{preprocessor}{\# undef vec\_setzero}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{\# undef vec\_set\_32}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{\# undef vec\_add\_dpbusd\_32}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\# undef vec\_add\_dpbusd\_32x2}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{\# undef vec\_add\_dpbusd\_32x4}}
+\DoxyCodeLine{529 \textcolor{preprocessor}{\# undef vec\_hadd}}
+\DoxyCodeLine{530 \textcolor{preprocessor}{\# undef vec\_haddx4}}
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{532       \textcolor{comment}{// Use old implementation for the other architectures.}}
+\DoxyCodeLine{533       affine\_transform\_non\_ssse3<}
+\DoxyCodeLine{534         InputDimensions,}
+\DoxyCodeLine{535         PaddedInputDimensions,}
+\DoxyCodeLine{536         OutputDimensions>(output, weights, biases, input);}
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539       \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{540     \}}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542    \textcolor{keyword}{private}:}
+\DoxyCodeLine{543     \textcolor{keyword}{using} BiasType = OutputType;}
+\DoxyCodeLine{544     \textcolor{keyword}{using} WeightType = std::int8\_t;}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546     PreviousLayer previousLayer;}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{548     \textcolor{keyword}{alignas}(CacheLineSize) BiasType biases[OutputDimensions];}
+\DoxyCodeLine{549     \textcolor{keyword}{alignas}(CacheLineSize) WeightType weights[OutputDimensions * PaddedInputDimensions];}
+\DoxyCodeLine{550   \};}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{552 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE::Layers}}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{554 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_LAYERS\_AFFINE\_TRANSFORM\_H\_INCLUDED}}
+
+\end{DoxyCode}

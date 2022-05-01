@@ -1,0 +1,136 @@
+\hypertarget{class_stockfish_1_1_thread}{}\doxysection{Thread}
+\label{class_stockfish_1_1_thread}\index{Thread@{Thread}}
+Inheritance diagram for Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_stockfish_1_1_thread}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a01d818d0433aab97837b6a8c5ba39140}\label{class_stockfish_1_1_thread_a01d818d0433aab97837b6a8c5ba39140}} 
+\mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Pawns\+::\+Table}} {\bfseries pawns\+Table}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_ad229e67f42b2f1f16ac0fd560de3d15d}\label{class_stockfish_1_1_thread_ad229e67f42b2f1f16ac0fd560de3d15d}} 
+\mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Material\+::\+Table}} {\bfseries material\+Table}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a18c7e9c33a572d912a134d29abc95cde}\label{class_stockfish_1_1_thread_a18c7e9c33a572d912a134d29abc95cde}} 
+size\+\_\+t {\bfseries pv\+Idx}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_add41fcccb2612603c2cde289258673bf}\label{class_stockfish_1_1_thread_add41fcccb2612603c2cde289258673bf}} 
+size\+\_\+t {\bfseries pv\+Last}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a9c706a09d7f7edbeacc68bb7f39b2723}\label{class_stockfish_1_1_thread_a9c706a09d7f7edbeacc68bb7f39b2723}} 
+\mbox{\hyperlink{class_stockfish_1_1_running_average}{Running\+Average}} {\bfseries double\+Extension\+Average} \mbox{[}COLOR\+\_\+\+NB\mbox{]}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_aa3cd7e8685ec10bbdcc3035993fb0436}\label{class_stockfish_1_1_thread_aa3cd7e8685ec10bbdcc3035993fb0436}} 
+uint64\+\_\+t {\bfseries nodes\+Last\+Explosive}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a9b8ac975b2c153b54ec916afda6f1f86}\label{class_stockfish_1_1_thread_a9b8ac975b2c153b54ec916afda6f1f86}} 
+uint64\+\_\+t {\bfseries nodes\+Last\+Normal}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_ad3399b6e3728fe1a57ad80a13b5f9d77}\label{class_stockfish_1_1_thread_ad3399b6e3728fe1a57ad80a13b5f9d77}} 
+std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries nodes}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_adcbd344a6740c4b6bcceb785c211c287}\label{class_stockfish_1_1_thread_adcbd344a6740c4b6bcceb785c211c287}} 
+std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries tb\+Hits}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_ab9574a283f7ba1888565567919eeb2a2}\label{class_stockfish_1_1_thread_ab9574a283f7ba1888565567919eeb2a2}} 
+std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries best\+Move\+Changes}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_aab12fc76a36dbe9dec3622fe78646a0c}\label{class_stockfish_1_1_thread_aab12fc76a36dbe9dec3622fe78646a0c}} 
+int {\bfseries sel\+Depth}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a432b039b1a7770e12e153d900c9e7fa1}\label{class_stockfish_1_1_thread_a432b039b1a7770e12e153d900c9e7fa1}} 
+int {\bfseries nmp\+Min\+Ply}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_ac7dc447cdfafe65997e1d4e731016b85}\label{class_stockfish_1_1_thread_ac7dc447cdfafe65997e1d4e731016b85}} 
+Color {\bfseries nmp\+Color}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_aa8bfa6450d62abd45051ff427d399b8c}\label{class_stockfish_1_1_thread_aa8bfa6450d62abd45051ff427d399b8c}} 
+Explosion\+State {\bfseries state}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a5f6a36698ddb61489cb4ad64339759a0}\label{class_stockfish_1_1_thread_a5f6a36698ddb61489cb4ad64339759a0}} 
+\mbox{\hyperlink{class_stockfish_1_1_position}{Position}} {\bfseries root\+Pos}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a3afe8930ffae51fe5c1d23a9695354ab}\label{class_stockfish_1_1_thread_a3afe8930ffae51fe5c1d23a9695354ab}} 
+\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{State\+Info}} {\bfseries root\+State}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a9f1cbca2fbaf3fca2c27cdc046a04828}\label{class_stockfish_1_1_thread_a9f1cbca2fbaf3fca2c27cdc046a04828}} 
+Search\+::\+Root\+Moves {\bfseries root\+Moves}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a6a5c086640d0d9f44796173b4037b6e5}\label{class_stockfish_1_1_thread_a6a5c086640d0d9f44796173b4037b6e5}} 
+Depth {\bfseries root\+Depth}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a2e7a41523f75c7b7957fd7b5ce3bded6}\label{class_stockfish_1_1_thread_a2e7a41523f75c7b7957fd7b5ce3bded6}} 
+Depth {\bfseries completed\+Depth}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a641fd30a33586110ba279dbc3e15bddd}\label{class_stockfish_1_1_thread_a641fd30a33586110ba279dbc3e15bddd}} 
+\mbox{\hyperlink{namespace_stockfish_a437e5d0f14b52509eb242ee5c9c8771d}{Counter\+Move\+History}} {\bfseries counter\+Moves}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a11919d5c8f9715f320924be87ab2a514}\label{class_stockfish_1_1_thread_a11919d5c8f9715f320924be87ab2a514}} 
+\mbox{\hyperlink{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}{Butterfly\+History}} {\bfseries main\+History}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_aa2a629716a9441e6dfcf58746140a084}\label{class_stockfish_1_1_thread_aa2a629716a9441e6dfcf58746140a084}} 
+\mbox{\hyperlink{struct_stockfish_1_1_stats}{Low\+Ply\+History}} {\bfseries low\+Ply\+History}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a39ba2664f9af1cfc76e0dcbab14ec62b}\label{class_stockfish_1_1_thread_a39ba2664f9af1cfc76e0dcbab14ec62b}} 
+\mbox{\hyperlink{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}{Capture\+Piece\+To\+History}} {\bfseries capture\+History}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_aaa63ee0899888b3af01ba0a133a78547}\label{class_stockfish_1_1_thread_aaa63ee0899888b3af01ba0a133a78547}} 
+\mbox{\hyperlink{namespace_stockfish_acf63467b96a95e163f35c6a70a234431}{Continuation\+History}} {\bfseries continuation\+History} \mbox{[}2\mbox{]}\mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a80decb83c34df49b85210fd4a613974f}\label{class_stockfish_1_1_thread_a80decb83c34df49b85210fd4a613974f}} 
+\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} {\bfseries trend}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} class keeps together all the thread-\/related stuff. We use per-\/thread pawn and material hash tables so that once we get a pointer to an entry its life time is unlimited and we don\textquotesingle{}t have to care about someone changing the entry under our feet. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}\label{class_stockfish_1_1_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}} 
+\index{Thread@{Thread}!Thread@{Thread}}
+\index{Thread@{Thread}!Thread@{Thread}}
+\doxysubsubsection{\texorpdfstring{Thread()}{Thread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} constructor launches the thread and waits until it goes to sleep in \mbox{\hyperlink{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}{idle\+\_\+loop()}}. Note that \textquotesingle{}searching\textquotesingle{} and \textquotesingle{}exit\textquotesingle{} should be already set. \mbox{\Hypertarget{class_stockfish_1_1_thread_a87a9c69a69ee4b13cb1ec5772f6d32ad}\label{class_stockfish_1_1_thread_a87a9c69a69ee4b13cb1ec5772f6d32ad}} 
+\index{Thread@{Thread}!````~Thread@{$\sim$Thread}}
+\index{````~Thread@{$\sim$Thread}!Thread@{Thread}}
+\doxysubsubsection{\texorpdfstring{$\sim$Thread()}{~Thread()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} destructor wakes up the thread in \mbox{\hyperlink{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}{idle\+\_\+loop()}} and waits for its termination. \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} should be already waiting. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}\label{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}} 
+\index{Thread@{Thread}!search@{search}}
+\index{search@{search}!Thread@{Thread}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily void search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}{Thread\+::search()}} is the main iterative deepening loop. It calls \mbox{\hyperlink{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}{search()}} repeatedly with increasing depth until the allocated thinking time has been consumed, the user stops the search, or the maximum search depth is reached. 
+
+Reimplemented in \mbox{\hyperlink{struct_stockfish_1_1_main_thread_a52bcc885e3064bfc0bbca8cf7859c27d}{Main\+Thread}}.
+
+\mbox{\Hypertarget{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}\label{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}} 
+\index{Thread@{Thread}!idle\_loop@{idle\_loop}}
+\index{idle\_loop@{idle\_loop}!Thread@{Thread}}
+\doxysubsubsection{\texorpdfstring{idle\_loop()}{idle\_loop()}}
+{\footnotesize\ttfamily void idle\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}{Thread\+::idle\+\_\+loop()}} is where the thread is parked, blocked on the condition variable, when it has no work to do. \mbox{\Hypertarget{class_stockfish_1_1_thread_ab29e6a567cb0d45110f65216ef5c7996}\label{class_stockfish_1_1_thread_ab29e6a567cb0d45110f65216ef5c7996}} 
+\index{Thread@{Thread}!wait\_for\_search\_finished@{wait\_for\_search\_finished}}
+\index{wait\_for\_search\_finished@{wait\_for\_search\_finished}!Thread@{Thread}}
+\doxysubsubsection{\texorpdfstring{wait\_for\_search\_finished()}{wait\_for\_search\_finished()}}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+search\+\_\+finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_thread_ab29e6a567cb0d45110f65216ef5c7996}{Thread\+::wait\+\_\+for\+\_\+search\+\_\+finished()}} blocks on the condition variable until the thread has finished searching. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/thread.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/search.\+cpp\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/thread.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,125 @@
+\hypertarget{endgame_8h_source}{}\doxysection{endgame.\+h}
+\label{endgame_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/endgame.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/endgame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef ENDGAME\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define ENDGAME\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}position.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_stockfish_a2c94cec1163870b2cafe0f246961f623}{EndgameCode}} \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   EVALUATION\_FUNCTIONS,}
+\DoxyCodeLine{38   KNNK,  \textcolor{comment}{// KNN vs K}}
+\DoxyCodeLine{39   KNNKP, \textcolor{comment}{// KNN vs KP}}
+\DoxyCodeLine{40   KXK,   \textcolor{comment}{// Generic "{}mate lone king"{} eval}}
+\DoxyCodeLine{41   KBNK,  \textcolor{comment}{// KBN vs K}}
+\DoxyCodeLine{42   KPK,   \textcolor{comment}{// KP vs K}}
+\DoxyCodeLine{43   KRKP,  \textcolor{comment}{// KR vs KP}}
+\DoxyCodeLine{44   KRKB,  \textcolor{comment}{// KR vs KB}}
+\DoxyCodeLine{45   KRKN,  \textcolor{comment}{// KR vs KN}}
+\DoxyCodeLine{46   KQKP,  \textcolor{comment}{// KQ vs KP}}
+\DoxyCodeLine{47   KQKR,  \textcolor{comment}{// KQ vs KR}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   SCALING\_FUNCTIONS,}
+\DoxyCodeLine{50   KBPsK,   \textcolor{comment}{// KB and pawns vs K}}
+\DoxyCodeLine{51   KQKRPs,  \textcolor{comment}{// KQ vs KR and pawns}}
+\DoxyCodeLine{52   KRPKR,   \textcolor{comment}{// KRP vs KR}}
+\DoxyCodeLine{53   KRPKB,   \textcolor{comment}{// KRP vs KB}}
+\DoxyCodeLine{54   KRPPKRP, \textcolor{comment}{// KRPP vs KRP}}
+\DoxyCodeLine{55   KPsK,    \textcolor{comment}{// K and pawns vs K}}
+\DoxyCodeLine{56   KBPKB,   \textcolor{comment}{// KBP vs KB}}
+\DoxyCodeLine{57   KBPPKB,  \textcolor{comment}{// KBPP vs KB}}
+\DoxyCodeLine{58   KBPKN,   \textcolor{comment}{// KBP vs KN}}
+\DoxyCodeLine{59   KPKP     \textcolor{comment}{// KP vs KP}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{template}<EndgameCode E> \textcolor{keyword}{using}}
+\DoxyCodeLine{67 \mbox{\hyperlink{namespace_stockfish_a9f394e5e23b46c5e942bc9adc2704708}{eg\_type}} = \textcolor{keyword}{typename} std::conditional<(E < SCALING\_FUNCTIONS), Value, ScaleFactor>::type;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{73 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase}} \{}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75   \textcolor{keyword}{explicit} \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase}}(Color c) : strongSide(c), weakSide(\string~c) \{\}}
+\DoxyCodeLine{76   \textcolor{keyword}{virtual} \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{\string~EndgameBase}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{77   \textcolor{keyword}{virtual} T operator()(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79   \textcolor{keyword}{const} Color strongSide, weakSide;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{template}<EndgameCode E, \textcolor{keyword}{typename} T = eg\_type<E>>}
+\DoxyCodeLine{84 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_endgame}{Endgame}} : \textcolor{keyword}{public} \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase}}<T> \{}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   \textcolor{keyword}{explicit} \mbox{\hyperlink{struct_stockfish_1_1_endgame}{Endgame}}(Color c) : \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase<T>}}(c) \{\}}
+\DoxyCodeLine{87   T operator()(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&) \textcolor{keyword}{const override};}
+\DoxyCodeLine{88 \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{namespace }Endgames \{}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{using} Ptr = std::unique\_ptr<EndgameBase<T>>;}
+\DoxyCodeLine{98   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{using} Map = std::unordered\_map<Key, Ptr<T>>;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{keyword}{extern} std::pair<Map<Value>, Map<ScaleFactor>> maps;}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{105   Map<T>\& map() \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} std::get<std::is\_same<T, ScaleFactor>::value>(maps);}
+\DoxyCodeLine{107   \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109   \textcolor{keyword}{template}<EndgameCode E, \textcolor{keyword}{typename} T = eg\_type<E>>}
+\DoxyCodeLine{110   \textcolor{keywordtype}{void} add(\textcolor{keyword}{const} std::string\& code) \{}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     StateInfo st;}
+\DoxyCodeLine{113     map<T>()[Position().set(code, WHITE, \&st).material\_key()] = Ptr<T>(\textcolor{keyword}{new} Endgame<E>(WHITE));}
+\DoxyCodeLine{114     map<T>()[Position().set(code, BLACK, \&st).material\_key()] = Ptr<T>(\textcolor{keyword}{new} Endgame<E>(BLACK));}
+\DoxyCodeLine{115   \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{118   \textcolor{keyword}{const} EndgameBase<T>* probe(Key key) \{}
+\DoxyCodeLine{119     \textcolor{keyword}{auto} it = map<T>().find(key);}
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} it != map<T>().end() ? it-\/>second.get() : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{121   \}}
+\DoxyCodeLine{122 \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef ENDGAME\_H\_INCLUDED}}
+
+\end{DoxyCode}

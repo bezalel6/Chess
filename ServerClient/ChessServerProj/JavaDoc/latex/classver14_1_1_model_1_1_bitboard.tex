@@ -1,0 +1,461 @@
+\hypertarget{classver14_1_1_model_1_1_bitboard}{}\doxysection{Bitboard}
+\label{classver14_1_1_model_1_1_bitboard}\index{Bitboard@{Bitboard}}
+Inheritance diagram for Bitboard\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classver14_1_1_model_1_1_bitboard}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} -\/ a bitboard representation of the chess board. every bit set is a chess piece on that square.
+
+\begin{DoxyAuthor}{Author}
+Bezalel Avrahami (\href{mailto:bezalel3250@gmail.com}{\texttt{ bezalel3250@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+\href{www.chessprogramming.org/Bitboards}{\texttt{ Bitboards}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_afd7c842045ad422c114eee51f2033156}\label{classver14_1_1_model_1_1_bitboard_afd7c842045ad422c114eee51f2033156}} 
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{Bitboard()}{Bitboard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc }\end{DoxyParamCaption})}
+
+creates an empty bitboard and sets loc to true
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & the location to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_acb341abe98e88930634b5266dffe1c47}\label{classver14_1_1_model_1_1_bitboard_acb341abe98e88930634b5266dffe1c47}} 
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{Bitboard()}{Bitboard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Instantiates a new empty \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}. \mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a4da040ac9768fd50ffcf48fc5d4f1535}\label{classver14_1_1_model_1_1_bitboard_a4da040ac9768fd50ffcf48fc5d4f1535}} 
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{Bitboard()}{Bitboard()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} (\begin{DoxyParamCaption}\item[{long}]{bit\+Board }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+Board} & the bit board \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a3f037c8685c7cac33dbd9a1802fa05a5}\label{classver14_1_1_model_1_1_bitboard_a3f037c8685c7cac33dbd9a1802fa05a5}} 
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\index{Bitboard@{Bitboard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{Bitboard()}{Bitboard()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{start,  }\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{end,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}}}]{direction,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{player\+Color }\end{DoxyParamCaption})}
+
+Instantiates a new \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}. and filling it in the direction
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & the start \\
+\hline
+{\em end} & the end \\
+\hline
+{\em direction} & the direction \\
+\hline
+{\em player\+Color} & the player color \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a9374bc5952a94c7984801200446d86c2}\label{classver14_1_1_model_1_1_bitboard_a9374bc5952a94c7984801200446d86c2}} 
+\index{Bitboard@{Bitboard}!set@{set}}
+\index{set@{set}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc,  }\item[{boolean}]{state }\end{DoxyParamCaption})}
+
+Sets the bit on the loc according to state. if state is true, the bit is set to 1 if state is false the bit is set to 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & the loc \\
+\hline
+{\em state} & the state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_aaa0c091250b82c794bcaea7824a2cce1}\label{classver14_1_1_model_1_1_bitboard_aaa0c091250b82c794bcaea7824a2cce1}} 
+\index{Bitboard@{Bitboard}!cp@{cp}}
+\index{cp@{cp}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{cp()}{cp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} cp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+creates a copy of this bitboard.
+
+\begin{DoxyReturn}{Returns}
+the copied bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a298d24e8ef8fe6bf4d069d753e0d6485}\label{classver14_1_1_model_1_1_bitboard_a298d24e8ef8fe6bf4d069d753e0d6485}} 
+\index{Bitboard@{Bitboard}!notEmpty@{notEmpty}}
+\index{notEmpty@{notEmpty}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{notEmpty()}{notEmpty()}}
+{\footnotesize\ttfamily boolean not\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+if the board is not empty
+
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a6467ac5e8f67be9dfebcd35ef36b53c2}\label{classver14_1_1_model_1_1_bitboard_a6467ac5e8f67be9dfebcd35ef36b53c2}} 
+\index{Bitboard@{Bitboard}!orEqual@{orEqual}}
+\index{orEqual@{orEqual}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{orEqual()}{orEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} or\+Equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{other }\end{DoxyParamCaption})}
+
+Or equal bitboard. performs a bitwise or on this board
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a9c37a70eaa3b976757cda0614c633325}\label{classver14_1_1_model_1_1_bitboard_a9c37a70eaa3b976757cda0614c633325}} 
+\index{Bitboard@{Bitboard}!shiftMe@{shiftMe}}
+\index{shiftMe@{shiftMe}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{shiftMe()}{shiftMe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} shift\+Me (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{player\+Color,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}}}]{direction }\end{DoxyParamCaption})}
+
+performs a bitwise shift on this bitboard instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Color} & the player color. used for perspective \\
+\hline
+{\em direction} & the direction to shift in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the changed bitboard. used to chain actions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_abda7e4a3bbf0a9ac02c474bc893ab690}\label{classver14_1_1_model_1_1_bitboard_abda7e4a3bbf0a9ac02c474bc893ab690}} 
+\index{Bitboard@{Bitboard}!orEqual@{orEqual}}
+\index{orEqual@{orEqual}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{orEqual()}{orEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} or\+Equal (\begin{DoxyParamCaption}\item[{long}]{l }\end{DoxyParamCaption})}
+
+Or equal bitboard. performs a bitwise or on this board
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the other board to or with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the changed bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a7d7d8d76834c2d32ab4242394e8ae010}\label{classver14_1_1_model_1_1_bitboard_a7d7d8d76834c2d32ab4242394e8ae010}} 
+\index{Bitboard@{Bitboard}!setOnSet@{setOnSet}}
+\index{setOnSet@{setOnSet}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{setOnSet()}{setOnSet()}}
+{\footnotesize\ttfamily void set\+On\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback}{Void\+Callback}}}]{on\+Set }\end{DoxyParamCaption})}
+
+Sets the callback on change of any bit in this bitboard
+
+
+\begin{DoxyParams}{Parameters}
+{\em on\+Set} & the on set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_aa71d41fd3d95c354d4d5e922c6c21210}\label{classver14_1_1_model_1_1_bitboard_aa71d41fd3d95c354d4d5e922c6c21210}} 
+\index{Bitboard@{Bitboard}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily boolean is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is this board empty
+
+\begin{DoxyReturn}{Returns}
+is this board empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a077e18fe97323c7194e2665ffc766399}\label{classver14_1_1_model_1_1_bitboard_a077e18fe97323c7194e2665ffc766399}} 
+\index{Bitboard@{Bitboard}!hashCode@{hashCode}}
+\index{hashCode@{hashCode}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{hashCode()}{hashCode()}}
+{\footnotesize\ttfamily int hash\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Hash code
+
+\begin{DoxyReturn}{Returns}
+the hash code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a39e5bc339e3b5924ec96de42fbb8f33f}\label{classver14_1_1_model_1_1_bitboard_a39e5bc339e3b5924ec96de42fbb8f33f}} 
+\index{Bitboard@{Bitboard}!equals@{equals}}
+\index{equals@{equals}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean equals (\begin{DoxyParamCaption}\item[{Object}]{o }\end{DoxyParamCaption})}
+
+Equals boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the o \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ad146fa8579a5f8a876c4688cc5a68520}\label{classver14_1_1_model_1_1_bitboard_ad146fa8579a5f8a876c4688cc5a68520}} 
+\index{Bitboard@{Bitboard}!toString@{toString}}
+\index{toString@{toString}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_aa95e1f410b8ea2b8799cec0f40191fb7}\label{classver14_1_1_model_1_1_bitboard_aa95e1f410b8ea2b8799cec0f40191fb7}} 
+\index{Bitboard@{Bitboard}!shift@{shift}}
+\index{shift@{shift}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_player_color}{Player\+Color}}}]{player\+Color,  }\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction}{Direction}}}]{direction }\end{DoxyParamCaption})}
+
+Shift bitboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Color} & the player color \\
+\hline
+{\em direction} & the direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ab90bb34265388aac455ca92afdaa290d}\label{classver14_1_1_model_1_1_bitboard_ab90bb34265388aac455ca92afdaa290d}} 
+\index{Bitboard@{Bitboard}!getLastSetLoc@{getLastSetLoc}}
+\index{getLastSetLoc@{getLastSetLoc}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{getLastSetLoc()}{getLastSetLoc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}} get\+Last\+Set\+Loc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the location last set to true
+
+\begin{DoxyReturn}{Returns}
+the last set loc 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a1494629405664a14a1ce16b9d61a7524}\label{classver14_1_1_model_1_1_bitboard_a1494629405664a14a1ce16b9d61a7524}} 
+\index{Bitboard@{Bitboard}!getSetLocs@{getSetLocs}}
+\index{getSetLocs@{getSetLocs}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{getSetLocs()}{getSetLocs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_locs}{Locs}} get\+Set\+Locs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all the locations set to true
+
+\begin{DoxyReturn}{Returns}
+the set locs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_acb6964dc2441580f455223eb6a1e70a8}\label{classver14_1_1_model_1_1_bitboard_acb6964dc2441580f455223eb6a1e70a8}} 
+\index{Bitboard@{Bitboard}!orEqual@{orEqual}}
+\index{orEqual@{orEqual}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{orEqual()}{orEqual()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} or\+Equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc }\end{DoxyParamCaption})}
+
+Or equal bitboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & the loc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a1f584c8b18e4b11aa56a84d1071fd056}\label{classver14_1_1_model_1_1_bitboard_a1f584c8b18e4b11aa56a84d1071fd056}} 
+\index{Bitboard@{Bitboard}!getBitBoard@{getBitBoard}}
+\index{getBitBoard@{getBitBoard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{getBitBoard()}{getBitBoard()}}
+{\footnotesize\ttfamily long get\+Bit\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets bit board.
+
+\begin{DoxyReturn}{Returns}
+the bit board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ad20897c5c8bd47f5d4005989bead0e55}\label{classver14_1_1_model_1_1_bitboard_ad20897c5c8bd47f5d4005989bead0e55}} 
+\index{Bitboard@{Bitboard}!reset@{reset}}
+\index{reset@{reset}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the bitboard to zero \mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ab74eb4621bf5e2cfa4d82a0ca80f4d7b}\label{classver14_1_1_model_1_1_bitboard_ab74eb4621bf5e2cfa4d82a0ca80f4d7b}} 
+\index{Bitboard@{Bitboard}!exclude@{exclude}}
+\index{exclude@{exclude}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{exclude()}{exclude()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} exclude (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{other }\end{DoxyParamCaption})}
+
+performs a bitwise and with 2\textquotesingle{}s compliment of other. practically setting all other bits to zero
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MY CHANGED SELF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a31a65fa9f12049b97f6a6f925e2dd4e5}\label{classver14_1_1_model_1_1_bitboard_a31a65fa9f12049b97f6a6f925e2dd4e5}} 
+\index{Bitboard@{Bitboard}!prettyPrint@{prettyPrint}}
+\index{prettyPrint@{prettyPrint}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{prettyPrint()}{prettyPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void pretty\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Pretty print. \mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ab04819110dc1c93d4caed9cd23408106}\label{classver14_1_1_model_1_1_bitboard_ab04819110dc1c93d4caed9cd23408106}} 
+\index{Bitboard@{Bitboard}!prettyPrint@{prettyPrint}}
+\index{prettyPrint@{prettyPrint}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{prettyPrint()}{prettyPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void pretty\+Print (\begin{DoxyParamCaption}\item[{String}]{desc }\end{DoxyParamCaption})}
+
+Pretty print.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & the desc \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a910aa01949b6e081f05c69f4de02200c}\label{classver14_1_1_model_1_1_bitboard_a910aa01949b6e081f05c69f4de02200c}} 
+\index{Bitboard@{Bitboard}!prettyBoard@{prettyBoard}}
+\index{prettyBoard@{prettyBoard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{prettyBoard()}{prettyBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String pretty\+Board (\begin{DoxyParamCaption}\item[{String}]{desc }\end{DoxyParamCaption})}
+
+Pretty board string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & the desc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_aeb33e217c0de40177504692454629467}\label{classver14_1_1_model_1_1_bitboard_aeb33e217c0de40177504692454629467}} 
+\index{Bitboard@{Bitboard}!isSet@{isSet}}
+\index{isSet@{isSet}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{isSet()}{isSet()}}
+{\footnotesize\ttfamily boolean is\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumver14_1_1_shared_classes_1_1_game_1_1_location}{Location}}}]{loc }\end{DoxyParamCaption})}
+
+Is a location set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc} & the loc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_af4a17a91f6cea884cf6c9e202f08a5a6}\label{classver14_1_1_model_1_1_bitboard_af4a17a91f6cea884cf6c9e202f08a5a6}} 
+\index{Bitboard@{Bitboard}!prettyBoard@{prettyBoard}}
+\index{prettyBoard@{prettyBoard}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{prettyBoard()}{prettyBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String pretty\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Pretty board string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_a3f91ee372cd55fc61986a89825a4427f}\label{classver14_1_1_model_1_1_bitboard_a3f91ee372cd55fc61986a89825a4427f}} 
+\index{Bitboard@{Bitboard}!anyMatch@{anyMatch}}
+\index{anyMatch@{anyMatch}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{anyMatch()}{anyMatch()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boolean any\+Match (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{other }\end{DoxyParamCaption})}
+
+Any match with the other board.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ad3a58b34f21d9b31f0758cd942ceed0d}\label{classver14_1_1_model_1_1_bitboard_ad3a58b34f21d9b31f0758cd942ceed0d}} 
+\index{Bitboard@{Bitboard}!anyMatch@{anyMatch}}
+\index{anyMatch@{anyMatch}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{anyMatch()}{anyMatch()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily boolean any\+Match (\begin{DoxyParamCaption}\item[{long}]{other\+BB }\end{DoxyParamCaption})}
+
+Any match with the other board.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+BB} & the other bb \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_ad4b32067b4fd8a129c7cff3796cd7c36}\label{classver14_1_1_model_1_1_bitboard_ad4b32067b4fd8a129c7cff3796cd7c36}} 
+\index{Bitboard@{Bitboard}!and@{and}}
+\index{and@{and}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{and()}{and()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} and (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}}}]{other }\end{DoxyParamCaption})}
+
+performs a bitwise and on a new copy of this bitboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new changed bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_afe558324c50b7faa164ed2e68184edda}\label{classver14_1_1_model_1_1_bitboard_afe558324c50b7faa164ed2e68184edda}} 
+\index{Bitboard@{Bitboard}!and@{and}}
+\index{and@{and}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{and()}{and()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} and (\begin{DoxyParamCaption}\item[{long}]{other }\end{DoxyParamCaption})}
+
+performes a bitwise and on a new copy of this bitboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & the other \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new changed bitboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classver14_1_1_model_1_1_bitboard_acdc03a6b145855de4cc49c3110ba0a85}\label{classver14_1_1_model_1_1_bitboard_acdc03a6b145855de4cc49c3110ba0a85}} 
+\index{Bitboard@{Bitboard}!andEqual@{andEqual}}
+\index{andEqual@{andEqual}!Bitboard@{Bitboard}}
+\doxysubsubsection{\texorpdfstring{andEqual()}{andEqual()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classver14_1_1_model_1_1_bitboard}{Bitboard}} and\+Equal (\begin{DoxyParamCaption}\item[{long}]{l }\end{DoxyParamCaption})}
+
+performs a bitwise and on this board and l. also invalidates set locs which might be expensive
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the l \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+myself bitboard 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ver14/\+Model/Bitboard.\+java\end{DoxyCompactItemize}

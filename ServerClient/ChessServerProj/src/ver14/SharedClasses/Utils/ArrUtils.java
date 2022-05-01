@@ -1,9 +1,9 @@
 package ver14.SharedClasses.Utils;
 
-import ver14.SharedClasses.Callbacks.ObjCallback;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.Supplier;
 
 
 /**
@@ -35,7 +35,7 @@ public class ArrUtils {
      * @param size       the size
      * @return the array list
      */
-    public static <T> ArrayList<T> createList(ObjCallback<T> objCreator, int size) {
+    public static <T> ArrayList<T> createList(Supplier<T> objCreator, int size) {
         ArrayList<T> lst = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             lst.add(objCreator.get());

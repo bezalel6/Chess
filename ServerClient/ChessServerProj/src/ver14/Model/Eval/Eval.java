@@ -125,7 +125,7 @@ public class Eval implements Serializable {
             var move = stack.get(i);
             if (!move.isReversible())
                 break;
-            long l = move.getCreatorList().getHash();
+            long l = move.getCreatedListHashSupplier().get();
             list.add(l);
 //            if (i == 0) {
 //                list.add(model.getFirstPositionMovesHash());
@@ -143,12 +143,12 @@ public class Eval implements Serializable {
             for (int j = i + 1; j < list.size(); j++) {
                 if (list.get(j) == current) {
                     matches++;
-//                    if (matches == 1 && j >= 2) {
-//                        return true;
-//                    }
-                    if (matches == 2) {
+                    if (matches == 1 && j >= 2) {
                         return true;
                     }
+//                    if (matches == 2) {
+//                        return true;
+//                    }
                 }
             }
         }

@@ -1,0 +1,112 @@
+\hypertarget{search_8h_source}{}\doxysection{search.\+h}
+\label{search_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/search.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/search.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef SEARCH\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define SEARCH\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}movepick.h"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }Position;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{namespace }Search \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} CounterMovePruneThreshold = 0;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_stack}{Stack}} \{}
+\DoxyCodeLine{43   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}* pv;}
+\DoxyCodeLine{44   \mbox{\hyperlink{struct_stockfish_1_1_stats}{PieceToHistory}}* continuationHistory;}
+\DoxyCodeLine{45   \textcolor{keywordtype}{int} ply;}
+\DoxyCodeLine{46   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} currentMove;}
+\DoxyCodeLine{47   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} excludedMove;}
+\DoxyCodeLine{48   \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} killers[2];}
+\DoxyCodeLine{49   Value staticEval;}
+\DoxyCodeLine{50   Depth depth;}
+\DoxyCodeLine{51   \textcolor{keywordtype}{int} statScore;}
+\DoxyCodeLine{52   \textcolor{keywordtype}{int} moveCount;}
+\DoxyCodeLine{53   \textcolor{keywordtype}{bool} inCheck;}
+\DoxyCodeLine{54   \textcolor{keywordtype}{bool} ttPv;}
+\DoxyCodeLine{55   \textcolor{keywordtype}{bool} ttHit;}
+\DoxyCodeLine{56   \textcolor{keywordtype}{int} doubleExtensions;}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move}{RootMove}} \{}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66   \textcolor{keyword}{explicit} \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move}{RootMove}}(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) : pv(1, m) \{\}}
+\DoxyCodeLine{67   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move_a8b6921d137e7632ccd9c131614cdaeb4}{extract\_ponder\_from\_tt}}(\mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{68   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}\& m)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} pv[0] == m; \}}
+\DoxyCodeLine{69   \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move}{RootMove}}\& m)\textcolor{keyword}{ const }\{ \textcolor{comment}{// Sort in descending order}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} m.score != score ? m.score < score}
+\DoxyCodeLine{71                             : m.previousScore < previousScore;}
+\DoxyCodeLine{72   \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74   Value score = -\/VALUE\_INFINITE;}
+\DoxyCodeLine{75   Value previousScore = -\/VALUE\_INFINITE;}
+\DoxyCodeLine{76   \textcolor{keywordtype}{int} selDepth = 0;}
+\DoxyCodeLine{77   \textcolor{keywordtype}{int} tbRank = 0;}
+\DoxyCodeLine{78   Value tbScore;}
+\DoxyCodeLine{79   std::vector<Move> pv;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} std::vector<RootMove> RootMoves;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{LimitsType}} \{}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{LimitsType}}() \{ \textcolor{comment}{// Init explicitly due to broken value-\/initialization of non POD in MSVC}}
+\DoxyCodeLine{91     time[WHITE] = time[BLACK] = inc[WHITE] = inc[BLACK] = npmsec = movetime = TimePoint(0);}
+\DoxyCodeLine{92     movestogo = depth = mate = perft = infinite = 0;}
+\DoxyCodeLine{93     nodes = 0;}
+\DoxyCodeLine{94   \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   \textcolor{keywordtype}{bool} use\_time\_management()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} time[WHITE] || time[BLACK];}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   std::vector<Move> searchmoves;}
+\DoxyCodeLine{101   TimePoint time[COLOR\_NB], inc[COLOR\_NB], npmsec, movetime, startTime;}
+\DoxyCodeLine{102   \textcolor{keywordtype}{int} movestogo, depth, mate, perft, infinite;}
+\DoxyCodeLine{103   int64\_t nodes;}
+\DoxyCodeLine{104 \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{LimitsType}} Limits;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} clear();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \} \textcolor{comment}{// namespace Search}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef SEARCH\_H\_INCLUDED}}
+
+\end{DoxyCode}

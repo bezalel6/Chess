@@ -1,0 +1,41 @@
+\hypertarget{struct_stockfish_1_1_search_1_1_root_move}{}\doxysection{Root\+Move}
+\label{struct_stockfish_1_1_search_1_1_root_move}\index{RootMove@{RootMove}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_a97d6d25faea519056f6469cfaa916545}\label{struct_stockfish_1_1_search_1_1_root_move_a97d6d25faea519056f6469cfaa916545}} 
+Value {\bfseries score} = -\/VALUE\+\_\+\+INFINITE
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_a5f8b7b4aee3d45d1b5d2d9a439d966f1}\label{struct_stockfish_1_1_search_1_1_root_move_a5f8b7b4aee3d45d1b5d2d9a439d966f1}} 
+Value {\bfseries previous\+Score} = -\/VALUE\+\_\+\+INFINITE
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_aab12fc76a36dbe9dec3622fe78646a0c}\label{struct_stockfish_1_1_search_1_1_root_move_aab12fc76a36dbe9dec3622fe78646a0c}} 
+int {\bfseries sel\+Depth} = 0
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_aaa20eb1cdf4be1cb4fc53a127cc2b2fc}\label{struct_stockfish_1_1_search_1_1_root_move_aaa20eb1cdf4be1cb4fc53a127cc2b2fc}} 
+int {\bfseries tb\+Rank} = 0
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_a0092c3e8a60b0ea0a493a00c23e9efc8}\label{struct_stockfish_1_1_search_1_1_root_move_a0092c3e8a60b0ea0a493a00c23e9efc8}} 
+Value {\bfseries tb\+Score}
+\item 
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_aea5407ba4bd960f796cc7e68ee8e6151}\label{struct_stockfish_1_1_search_1_1_root_move_aea5407ba4bd960f796cc7e68ee8e6151}} 
+std\+::vector$<$ \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} $>$ {\bfseries pv}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move}{Root\+Move}} struct is used for moves at the root of the tree. For each root move we store a score and a PV (really a refutation in the case of moves which fail low). Score is normally set at -\/VALUE\+\_\+\+INFINITE for all non-\/pv moves. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_stockfish_1_1_search_1_1_root_move_a8b6921d137e7632ccd9c131614cdaeb4}\label{struct_stockfish_1_1_search_1_1_root_move_a8b6921d137e7632ccd9c131614cdaeb4}} 
+\index{RootMove@{RootMove}!extract\_ponder\_from\_tt@{extract\_ponder\_from\_tt}}
+\index{extract\_ponder\_from\_tt@{extract\_ponder\_from\_tt}!RootMove@{RootMove}}
+\doxysubsubsection{\texorpdfstring{extract\_ponder\_from\_tt()}{extract\_ponder\_from\_tt()}}
+{\footnotesize\ttfamily bool extract\+\_\+ponder\+\_\+from\+\_\+tt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_stockfish_1_1_search_1_1_root_move_a8b6921d137e7632ccd9c131614cdaeb4}{Root\+Move\+::extract\+\_\+ponder\+\_\+from\+\_\+tt()}} is called in case we have no ponder move before exiting the search, for instance, in case we stop the search during a fail high at root. We try hard to have a ponder move to return to the GUI, otherwise in case of \textquotesingle{}ponder on\textquotesingle{} we have nothing to think on. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/search.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/search.\+cpp\end{DoxyCompactItemize}

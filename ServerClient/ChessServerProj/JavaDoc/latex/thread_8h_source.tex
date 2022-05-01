@@ -1,0 +1,135 @@
+\hypertarget{thread_8h_source}{}\doxysection{thread.\+h}
+\label{thread_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/thread.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/thread.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef THREAD\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define THREAD\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <atomic>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <condition\_variable>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}material.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}movepick.h"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}pawns.h"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}position.h"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}search.h"{}}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}thread\_win32\_osx.h"{}}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} \{}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   std::mutex mutex;}
+\DoxyCodeLine{45   std::condition\_variable cv;}
+\DoxyCodeLine{46   \textcolor{keywordtype}{size\_t} idx;}
+\DoxyCodeLine{47   \textcolor{keywordtype}{bool} exit = \textcolor{keyword}{false}, searching = \textcolor{keyword}{true}; \textcolor{comment}{// Set before starting std::thread}}
+\DoxyCodeLine{48   NativeThread stdThread;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{public}:}
+\DoxyCodeLine{51   \textcolor{keyword}{explicit} \mbox{\hyperlink{class_stockfish_1_1_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}{Thread}}(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{52   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_stockfish_1_1_thread_a87a9c69a69ee4b13cb1ec5772f6d32ad}{\string~Thread}}();}
+\DoxyCodeLine{53   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_thread_acfa13f24e1780367b83bd2531f17d850}{search}}();}
+\DoxyCodeLine{54   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_thread_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{55   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_thread_afef7a103c72b622f5d2f2c7247a49df0}{idle\_loop}}();}
+\DoxyCodeLine{56   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_thread_ac0a493b9b9aa0a6829679a1ceee99e5f}{start\_searching}}();}
+\DoxyCodeLine{57   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stockfish_1_1_thread_ab29e6a567cb0d45110f65216ef5c7996}{wait\_for\_search\_finished}}();}
+\DoxyCodeLine{58   \textcolor{keywordtype}{size\_t} id()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} idx; \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Pawns::Table}} pawnsTable;}
+\DoxyCodeLine{61   \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Material::Table}} materialTable;}
+\DoxyCodeLine{62   \textcolor{keywordtype}{size\_t} pvIdx, pvLast;}
+\DoxyCodeLine{63   \mbox{\hyperlink{class_stockfish_1_1_running_average}{RunningAverage}} doubleExtensionAverage[COLOR\_NB];}
+\DoxyCodeLine{64   uint64\_t nodesLastExplosive;}
+\DoxyCodeLine{65   uint64\_t nodesLastNormal;}
+\DoxyCodeLine{66   std::atomic<uint64\_t> nodes, tbHits, bestMoveChanges;}
+\DoxyCodeLine{67   \textcolor{keywordtype}{int} selDepth, nmpMinPly;}
+\DoxyCodeLine{68   Color nmpColor;}
+\DoxyCodeLine{69   ExplosionState state;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71   \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} rootPos;}
+\DoxyCodeLine{72   \mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_state_info}{StateInfo}} rootState;}
+\DoxyCodeLine{73   Search::RootMoves rootMoves;}
+\DoxyCodeLine{74   Depth rootDepth, completedDepth;}
+\DoxyCodeLine{75   \mbox{\hyperlink{struct_stockfish_1_1_stats}{CounterMoveHistory}} counterMoves;}
+\DoxyCodeLine{76   \mbox{\hyperlink{struct_stockfish_1_1_stats}{ButterflyHistory}} mainHistory;}
+\DoxyCodeLine{77   \mbox{\hyperlink{struct_stockfish_1_1_stats}{LowPlyHistory}} lowPlyHistory;}
+\DoxyCodeLine{78   \mbox{\hyperlink{struct_stockfish_1_1_stats}{CapturePieceToHistory}} captureHistory;}
+\DoxyCodeLine{79   \mbox{\hyperlink{struct_stockfish_1_1_stats}{ContinuationHistory}} continuationHistory[2][2];}
+\DoxyCodeLine{80   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} trend;}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_main_thread}{MainThread}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}} \{}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{keyword}{using} \mbox{\hyperlink{class_stockfish_1_1_thread_a8e523637e2cb96aeabb08a2bd8ba79d4}{Thread::Thread}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_main_thread_a52bcc885e3064bfc0bbca8cf7859c27d}{search}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_main_thread_a6bb46547a6e0d03100d240a87482645a}{check\_time}}();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keywordtype}{double} previousTimeReduction;}
+\DoxyCodeLine{94   Value bestPreviousScore;}
+\DoxyCodeLine{95   Value iterValue[4];}
+\DoxyCodeLine{96   \textcolor{keywordtype}{int} callsCnt;}
+\DoxyCodeLine{97   \textcolor{keywordtype}{bool} stopOnPonderhit;}
+\DoxyCodeLine{98   std::atomic\_bool ponder;}
+\DoxyCodeLine{99 \};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_thread_pool}{ThreadPool}} : \textcolor{keyword}{public} std::vector<Thread*> \{}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool_a4ea5f268c0c9e10e113dcf7794a4d4ab}{start\_thinking}}(\mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\&, \mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{StateListPtr}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_search_1_1_limits_type}{Search::LimitsType}}\&, \textcolor{keywordtype}{bool} = \textcolor{keyword}{false});}
+\DoxyCodeLine{109   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{110   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool_a3c8b9806e7522469cb75548d9941aff4}{set}}(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112   \mbox{\hyperlink{struct_stockfish_1_1_main_thread}{MainThread}}* main()\textcolor{keyword}{        const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{struct_stockfish_1_1_main_thread}{MainThread}}*\textcolor{keyword}{>}(front()); \}}
+\DoxyCodeLine{113   uint64\_t nodes\_searched()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} accumulate(\&Thread::nodes); \}}
+\DoxyCodeLine{114   uint64\_t tb\_hits()\textcolor{keyword}{        const }\{ \textcolor{keywordflow}{return} accumulate(\&Thread::tbHits); \}}
+\DoxyCodeLine{115   \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}* get\_best\_thread() \textcolor{keyword}{const};}
+\DoxyCodeLine{116   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool_ac0a493b9b9aa0a6829679a1ceee99e5f}{start\_searching}}();}
+\DoxyCodeLine{117   \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool_abd4417a91093a1da8186eadd4cc48a29}{wait\_for\_search\_finished}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   std::atomic\_bool stop, increaseDepth;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{keyword}{private}:}
+\DoxyCodeLine{122   \mbox{\hyperlink{namespace_stockfish_a381ccd871c5828a8dc816d7fc82c2104}{StateListPtr}} setupStates;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124   uint64\_t accumulate(std::atomic<uint64\_t> \mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}::* member)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     uint64\_t sum = 0;}
+\DoxyCodeLine{127     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_stockfish_1_1_thread}{Thread}}* th : *\textcolor{keyword}{this})}
+\DoxyCodeLine{128         sum += (th-\/>*member).load(std::memory\_order\_relaxed);}
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{130   \}}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_stockfish_1_1_thread_pool}{ThreadPool}} Threads;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef THREAD\_H\_INCLUDED}}
+
+\end{DoxyCode}

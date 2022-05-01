@@ -1,0 +1,453 @@
+\hypertarget{types_8h_source}{}\doxysection{types.\+h}
+\label{types_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/types.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef TYPES\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define TYPES\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if defined(\_MSC\_VER)}}
+\DoxyCodeLine{46 \textcolor{comment}{// Disable some silly and noisy warning from MSVC compiler}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#pragma warning(disable: 4127) }\textcolor{comment}{// Conditional expression is constant}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#pragma warning(disable: 4146) }\textcolor{comment}{// Unary minus operator applied to unsigned type}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#pragma warning(disable: 4800) }\textcolor{comment}{// Forcing value to bool 'true' or 'false'}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_ ) \&\& (\_\_GNUC\_\_ < 9 || (\_\_GNUC\_\_ == 9 \&\& \_\_GNUC\_MINOR\_\_ <= 2)) \&\& defined(\_WIN32) \&\& !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define ALIGNAS\_ON\_STACK\_VARIABLES\_BROKEN}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define ASSERT\_ALIGNED(ptr, alignment) assert(reinterpret\_cast<uintptr\_t>(ptr) \% alignment == 0)}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if defined(\_WIN64) \&\& defined(\_MSC\_VER) }\textcolor{comment}{// No Makefile used}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#  include <intrin.h>} \textcolor{comment}{// Microsoft header for \_BitScanForward64()}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#  define IS\_64BIT}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if defined(USE\_POPCNT) \&\& (defined(\_\_INTEL\_COMPILER) || defined(\_MSC\_VER))}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#  include <nmmintrin.h>} \textcolor{comment}{// Intel and Microsoft header for \_mm\_popcnt\_u64()}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#if !defined(NO\_PREFETCH) \&\& (defined(\_\_INTEL\_COMPILER) || defined(\_MSC\_VER))}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#  include <xmmintrin.h>} \textcolor{comment}{// Intel and Microsoft header for \_mm\_prefetch()}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#if defined(USE\_PEXT)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#  include <immintrin.h>} \textcolor{comment}{// Header for \_pext\_u64() intrinsic}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#  define pext(b, m) \_pext\_u64(b, m)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#  define pext(b, m) 0}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#ifdef USE\_POPCNT}}
+\DoxyCodeLine{89 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} HasPopCnt = \textcolor{keyword}{true};}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{91 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} HasPopCnt = \textcolor{keyword}{false};}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#ifdef USE\_PEXT}}
+\DoxyCodeLine{95 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} HasPext = \textcolor{keyword}{true};}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{97 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} HasPext = \textcolor{keyword}{false};}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#ifdef IS\_64BIT}}
+\DoxyCodeLine{101 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} Is64Bit = \textcolor{keyword}{true};}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{103 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} Is64Bit = \textcolor{keyword}{false};}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{typedef} uint64\_t Key;}
+\DoxyCodeLine{107 \textcolor{keyword}{typedef} uint64\_t Bitboard;}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} MAX\_MOVES = 256;}
+\DoxyCodeLine{110 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} MAX\_PLY   = 246;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{125   MOVE\_NONE,}
+\DoxyCodeLine{126   MOVE\_NULL = 65}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{enum} MoveFlag \{}
+\DoxyCodeLine{130   NORMAL,}
+\DoxyCodeLine{131   PROMOTION = 1 << 14,}
+\DoxyCodeLine{132   EN\_PASSANT = 2 << 14,}
+\DoxyCodeLine{133   CASTLING  = 3 << 14}
+\DoxyCodeLine{134 \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{keyword}{enum} Color \{}
+\DoxyCodeLine{137   WHITE, BLACK, COLOR\_NB = 2}
+\DoxyCodeLine{138 \};}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{enum} CastlingRights \{}
+\DoxyCodeLine{141   NO\_CASTLING,}
+\DoxyCodeLine{142   WHITE\_OO,}
+\DoxyCodeLine{143   WHITE\_OOO = WHITE\_OO << 1,}
+\DoxyCodeLine{144   BLACK\_OO  = WHITE\_OO << 2,}
+\DoxyCodeLine{145   BLACK\_OOO = WHITE\_OO << 3,}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147   KING\_SIDE      = WHITE\_OO  | BLACK\_OO,}
+\DoxyCodeLine{148   QUEEN\_SIDE     = WHITE\_OOO | BLACK\_OOO,}
+\DoxyCodeLine{149   WHITE\_CASTLING = WHITE\_OO  | WHITE\_OOO,}
+\DoxyCodeLine{150   BLACK\_CASTLING = BLACK\_OO  | BLACK\_OOO,}
+\DoxyCodeLine{151   ANY\_CASTLING   = WHITE\_CASTLING | BLACK\_CASTLING,}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   CASTLING\_RIGHT\_NB = 16}
+\DoxyCodeLine{154 \};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{enum} Phase \{}
+\DoxyCodeLine{157   PHASE\_ENDGAME,}
+\DoxyCodeLine{158   PHASE\_MIDGAME = 128,}
+\DoxyCodeLine{159   MG = 0, EG = 1, PHASE\_NB = 2}
+\DoxyCodeLine{160 \};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{keyword}{enum} ScaleFactor \{}
+\DoxyCodeLine{163   SCALE\_FACTOR\_DRAW    = 0,}
+\DoxyCodeLine{164   SCALE\_FACTOR\_NORMAL  = 64,}
+\DoxyCodeLine{165   SCALE\_FACTOR\_MAX     = 128,}
+\DoxyCodeLine{166   SCALE\_FACTOR\_NONE    = 255}
+\DoxyCodeLine{167 \};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{keyword}{enum} Bound \{}
+\DoxyCodeLine{170   BOUND\_NONE,}
+\DoxyCodeLine{171   BOUND\_UPPER,}
+\DoxyCodeLine{172   BOUND\_LOWER,}
+\DoxyCodeLine{173   BOUND\_EXACT = BOUND\_UPPER | BOUND\_LOWER}
+\DoxyCodeLine{174 \};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{keyword}{enum} ExplosionState \{}
+\DoxyCodeLine{177   EXPLOSION\_NONE,}
+\DoxyCodeLine{178   MUST\_CALM\_DOWN}
+\DoxyCodeLine{179 \};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{keyword}{enum} Value : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{182   VALUE\_ZERO      = 0,}
+\DoxyCodeLine{183   VALUE\_DRAW      = 0,}
+\DoxyCodeLine{184   VALUE\_KNOWN\_WIN = 10000,}
+\DoxyCodeLine{185   VALUE\_MATE      = 32000,}
+\DoxyCodeLine{186   VALUE\_INFINITE  = 32001,}
+\DoxyCodeLine{187   VALUE\_NONE      = 32002,}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189   VALUE\_TB\_WIN\_IN\_MAX\_PLY  =  VALUE\_MATE -\/ 2 * MAX\_PLY,}
+\DoxyCodeLine{190   VALUE\_TB\_LOSS\_IN\_MAX\_PLY = -\/VALUE\_TB\_WIN\_IN\_MAX\_PLY,}
+\DoxyCodeLine{191   VALUE\_MATE\_IN\_MAX\_PLY  =  VALUE\_MATE -\/ MAX\_PLY,}
+\DoxyCodeLine{192   VALUE\_MATED\_IN\_MAX\_PLY = -\/VALUE\_MATE\_IN\_MAX\_PLY,}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194   PawnValueMg   = 126,   PawnValueEg   = 208,}
+\DoxyCodeLine{195   KnightValueMg = 781,   KnightValueEg = 854,}
+\DoxyCodeLine{196   BishopValueMg = 825,   BishopValueEg = 915,}
+\DoxyCodeLine{197   RookValueMg   = 1276,  RookValueEg   = 1380,}
+\DoxyCodeLine{198   QueenValueMg  = 2538,  QueenValueEg  = 2682,}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200   MidgameLimit  = 15258, EndgameLimit  = 3915}
+\DoxyCodeLine{201 \};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203 \textcolor{keyword}{enum} PieceType \{}
+\DoxyCodeLine{204   NO\_PIECE\_TYPE, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING,}
+\DoxyCodeLine{205   ALL\_PIECES = 0,}
+\DoxyCodeLine{206   PIECE\_TYPE\_NB = 8}
+\DoxyCodeLine{207 \};}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{keyword}{enum} Piece \{}
+\DoxyCodeLine{210   NO\_PIECE,}
+\DoxyCodeLine{211   W\_PAWN = PAWN,     W\_KNIGHT, W\_BISHOP, W\_ROOK, W\_QUEEN, W\_KING,}
+\DoxyCodeLine{212   B\_PAWN = PAWN + 8, B\_KNIGHT, B\_BISHOP, B\_ROOK, B\_QUEEN, B\_KING,}
+\DoxyCodeLine{213   PIECE\_NB = 16}
+\DoxyCodeLine{214 \};}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{keyword}{constexpr} Value PieceValue[PHASE\_NB][PIECE\_NB] = \{}
+\DoxyCodeLine{217   \{ VALUE\_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE\_ZERO, VALUE\_ZERO,}
+\DoxyCodeLine{218     VALUE\_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg, VALUE\_ZERO, VALUE\_ZERO \},}
+\DoxyCodeLine{219   \{ VALUE\_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE\_ZERO, VALUE\_ZERO,}
+\DoxyCodeLine{220     VALUE\_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg, VALUE\_ZERO, VALUE\_ZERO \}}
+\DoxyCodeLine{221 \};}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} Depth;}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 enum : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{226   DEPTH\_QS\_CHECKS     =  0,}
+\DoxyCodeLine{227   DEPTH\_QS\_NO\_CHECKS  = -\/1,}
+\DoxyCodeLine{228   DEPTH\_QS\_RECAPTURES = -\/5,}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230   DEPTH\_NONE   = -\/6,}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232   DEPTH\_OFFSET = -\/7 \textcolor{comment}{// value used only for TT entry occupancy check}}
+\DoxyCodeLine{233 \};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keyword}{enum} Square : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{236   SQ\_A1, SQ\_B1, SQ\_C1, SQ\_D1, SQ\_E1, SQ\_F1, SQ\_G1, SQ\_H1,}
+\DoxyCodeLine{237   SQ\_A2, SQ\_B2, SQ\_C2, SQ\_D2, SQ\_E2, SQ\_F2, SQ\_G2, SQ\_H2,}
+\DoxyCodeLine{238   SQ\_A3, SQ\_B3, SQ\_C3, SQ\_D3, SQ\_E3, SQ\_F3, SQ\_G3, SQ\_H3,}
+\DoxyCodeLine{239   SQ\_A4, SQ\_B4, SQ\_C4, SQ\_D4, SQ\_E4, SQ\_F4, SQ\_G4, SQ\_H4,}
+\DoxyCodeLine{240   SQ\_A5, SQ\_B5, SQ\_C5, SQ\_D5, SQ\_E5, SQ\_F5, SQ\_G5, SQ\_H5,}
+\DoxyCodeLine{241   SQ\_A6, SQ\_B6, SQ\_C6, SQ\_D6, SQ\_E6, SQ\_F6, SQ\_G6, SQ\_H6,}
+\DoxyCodeLine{242   SQ\_A7, SQ\_B7, SQ\_C7, SQ\_D7, SQ\_E7, SQ\_F7, SQ\_G7, SQ\_H7,}
+\DoxyCodeLine{243   SQ\_A8, SQ\_B8, SQ\_C8, SQ\_D8, SQ\_E8, SQ\_F8, SQ\_G8, SQ\_H8,}
+\DoxyCodeLine{244   SQ\_NONE,}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246   SQUARE\_ZERO = 0,}
+\DoxyCodeLine{247   SQUARE\_NB   = 64}
+\DoxyCodeLine{248 \};}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \textcolor{keyword}{enum} Direction : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{251   NORTH =  8,}
+\DoxyCodeLine{252   EAST  =  1,}
+\DoxyCodeLine{253   SOUTH = -\/NORTH,}
+\DoxyCodeLine{254   WEST  = -\/EAST,}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256   NORTH\_EAST = NORTH + EAST,}
+\DoxyCodeLine{257   SOUTH\_EAST = SOUTH + EAST,}
+\DoxyCodeLine{258   SOUTH\_WEST = SOUTH + WEST,}
+\DoxyCodeLine{259   NORTH\_WEST = NORTH + WEST}
+\DoxyCodeLine{260 \};}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 \textcolor{keyword}{enum} File : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{263   FILE\_A, FILE\_B, FILE\_C, FILE\_D, FILE\_E, FILE\_F, FILE\_G, FILE\_H, FILE\_NB}
+\DoxyCodeLine{264 \};}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{keyword}{enum} Rank : \textcolor{keywordtype}{int} \{}
+\DoxyCodeLine{267   RANK\_1, RANK\_2, RANK\_3, RANK\_4, RANK\_5, RANK\_6, RANK\_7, RANK\_8, RANK\_NB}
+\DoxyCodeLine{268 \};}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 \textcolor{comment}{// Keep track of what a move changes on the board (used by NNUE)}}
+\DoxyCodeLine{271 \textcolor{keyword}{struct }\mbox{\hyperlink{namespace_stockfish_struct_stockfish_1_1_dirty_piece}{DirtyPiece}} \{}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273   \textcolor{comment}{// Number of changed pieces}}
+\DoxyCodeLine{274   \textcolor{keywordtype}{int} dirty\_num;}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276   \textcolor{comment}{// Max 3 pieces can change in one move. A promotion with capture moves}}
+\DoxyCodeLine{277   \textcolor{comment}{// both the pawn and the captured piece to SQ\_NONE and the piece promoted}}
+\DoxyCodeLine{278   \textcolor{comment}{// to from SQ\_NONE to the capture square.}}
+\DoxyCodeLine{279   Piece piece[3];}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281   \textcolor{comment}{// From and to squares, which may be SQ\_NONE}}
+\DoxyCodeLine{282   Square from[3];}
+\DoxyCodeLine{283   Square to[3];}
+\DoxyCodeLine{284 \};}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{290 \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} : \textcolor{keywordtype}{int} \{ SCORE\_ZERO \};}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 \textcolor{keyword}{constexpr} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} make\_score(\textcolor{keywordtype}{int} mg, \textcolor{keywordtype}{int} eg) \{}
+\DoxyCodeLine{293   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}((\textcolor{keywordtype}{int})((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})eg << 16) + mg);}
+\DoxyCodeLine{294 \}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{299 \textcolor{keyword}{inline} Value \mbox{\hyperlink{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}{eg\_value}}(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s) \{}
+\DoxyCodeLine{300   \textcolor{keyword}{union }\{ uint16\_t u; int16\_t s; \} eg = \{ uint16\_t(\textcolor{keywordtype}{unsigned}(s + 0x8000) >> 16) \};}
+\DoxyCodeLine{301   \textcolor{keywordflow}{return} Value(eg.s);}
+\DoxyCodeLine{302 \}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{keyword}{inline} Value mg\_value(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s) \{}
+\DoxyCodeLine{305   \textcolor{keyword}{union }\{ uint16\_t u; int16\_t s; \} mg = \{ uint16\_t(\textcolor{keywordtype}{unsigned}(s)) \};}
+\DoxyCodeLine{306   \textcolor{keywordflow}{return} Value(mg.s);}
+\DoxyCodeLine{307 \}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define ENABLE\_BASE\_OPERATORS\_ON(T)                                \(\backslash\)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{constexpr T operator+(T d1, int d2) \{ return T(int(d1) + d2); \}    \(\backslash\)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{constexpr T operator-\/(T d1, int d2) \{ return T(int(d1) -\/ d2); \}    \(\backslash\)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{constexpr T operator-\/(T d) \{ return T(-\/int(d)); \}                  \(\backslash\)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{inline T\& operator+=(T\& d1, int d2) \{ return d1 = d1 + d2; \}       \(\backslash\)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{inline T\& operator-\/=(T\& d1, int d2) \{ return d1 = d1 -\/ d2; \}}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define ENABLE\_INCR\_OPERATORS\_ON(T)                                \(\backslash\)}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{inline T\& operator++(T\& d) \{ return d = T(int(d) + 1); \}           \(\backslash\)}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{inline T\& operator-\/-\/(T\& d) \{ return d = T(int(d) -\/ 1); \}}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define ENABLE\_FULL\_OPERATORS\_ON(T)                                \(\backslash\)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{ENABLE\_BASE\_OPERATORS\_ON(T)                                        \(\backslash\)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{constexpr T operator*(int i, T d) \{ return T(i * int(d)); \}        \(\backslash\)}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{constexpr T operator*(T d, int i) \{ return T(int(d) * i); \}        \(\backslash\)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{constexpr T operator/(T d, int i) \{ return T(int(d) / i); \}        \(\backslash\)}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{constexpr int operator/(T d1, T d2) \{ return int(d1) / int(d2); \}  \(\backslash\)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{inline T\& operator*=(T\& d, int i) \{ return d = T(int(d) * i); \}    \(\backslash\)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{inline T\& operator/=(T\& d, int i) \{ return d = T(int(d) / i); \}}}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 ENABLE\_FULL\_OPERATORS\_ON(Value)}
+\DoxyCodeLine{330 ENABLE\_FULL\_OPERATORS\_ON(Direction)}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 ENABLE\_INCR\_OPERATORS\_ON(Piece)}
+\DoxyCodeLine{333 ENABLE\_INCR\_OPERATORS\_ON(PieceType)}
+\DoxyCodeLine{334 ENABLE\_INCR\_OPERATORS\_ON(Square)}
+\DoxyCodeLine{335 ENABLE\_INCR\_OPERATORS\_ON(File)}
+\DoxyCodeLine{336 ENABLE\_INCR\_OPERATORS\_ON(Rank)}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338 ENABLE\_BASE\_OPERATORS\_ON(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}})}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#undef ENABLE\_FULL\_OPERATORS\_ON}}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#undef ENABLE\_INCR\_OPERATORS\_ON}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#undef ENABLE\_BASE\_OPERATORS\_ON}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{345 \textcolor{keyword}{constexpr} Square \mbox{\hyperlink{namespace_stockfish_a1c0752272c64e199e2810b547781581e}{operator+}}(Square s, Direction d) \{ \textcolor{keywordflow}{return} Square(\textcolor{keywordtype}{int}(s) + \textcolor{keywordtype}{int}(d)); \}}
+\DoxyCodeLine{346 \textcolor{keyword}{constexpr} Square operator-\/(Square s, Direction d) \{ \textcolor{keywordflow}{return} Square(\textcolor{keywordtype}{int}(s) -\/ \textcolor{keywordtype}{int}(d)); \}}
+\DoxyCodeLine{347 \textcolor{keyword}{inline} Square\& operator+=(Square\& s, Direction d) \{ \textcolor{keywordflow}{return} s = s + d; \}}
+\DoxyCodeLine{348 \textcolor{keyword}{inline} Square\& operator-\/=(Square\& s, Direction d) \{ \textcolor{keywordflow}{return} s = s -\/ d; \}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{352 \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}{operator*}}(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}, \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{355 \textcolor{keyword}{inline} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{namespace_stockfish_a0de88c047e42cf11e1cb45bd6930d569}{operator/}}(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, \textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{356   \textcolor{keywordflow}{return} make\_score(mg\_value(s) / i, \mbox{\hyperlink{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}{eg\_value}}(s) / i);}
+\DoxyCodeLine{357 \}}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{360 \textcolor{keyword}{inline} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}{operator*}}(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, \textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} result = \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}}(\textcolor{keywordtype}{int}(s) * i);}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364   assert(\mbox{\hyperlink{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}{eg\_value}}(result) == (i * \mbox{\hyperlink{namespace_stockfish_ac42aabad72769b5541bb79acff9339af}{eg\_value}}(s)));}
+\DoxyCodeLine{365   assert(mg\_value(result) == (i * mg\_value(s)));}
+\DoxyCodeLine{366   assert((i == 0) || (result / i) == s);}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{369 \}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{372 \textcolor{keyword}{inline} \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} \mbox{\hyperlink{namespace_stockfish_a2d4f3fdb5d0e827add7818e4703236ea}{operator*}}(\mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} s, \textcolor{keywordtype}{bool} b) \{}
+\DoxyCodeLine{373   \textcolor{keywordflow}{return} b ? s : SCORE\_ZERO;}
+\DoxyCodeLine{374 \}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 \textcolor{keyword}{constexpr} Color operator\string~(Color c) \{}
+\DoxyCodeLine{377   \textcolor{keywordflow}{return} Color(c \string^ BLACK); \textcolor{comment}{// Toggle color}}
+\DoxyCodeLine{378 \}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{keyword}{constexpr} Square flip\_rank(Square s) \{ \textcolor{comment}{// Swap A1 <-\/> A8}}
+\DoxyCodeLine{381   \textcolor{keywordflow}{return} Square(s \string^ SQ\_A8);}
+\DoxyCodeLine{382 \}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384 \textcolor{keyword}{constexpr} Square flip\_file(Square s) \{ \textcolor{comment}{// Swap A1 <-\/> H1}}
+\DoxyCodeLine{385   \textcolor{keywordflow}{return} Square(s \string^ SQ\_H1);}
+\DoxyCodeLine{386 \}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 \textcolor{keyword}{constexpr} Piece operator\string~(Piece pc) \{}
+\DoxyCodeLine{389   \textcolor{keywordflow}{return} Piece(pc \string^ 8); \textcolor{comment}{// Swap color of piece B\_KNIGHT <-\/> W\_KNIGHT}}
+\DoxyCodeLine{390 \}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{keyword}{constexpr} CastlingRights \mbox{\hyperlink{namespace_stockfish_a294192510ca434dd3e7dad071aa31415}{operator\&}}(Color c, CastlingRights cr) \{}
+\DoxyCodeLine{393   \textcolor{keywordflow}{return} CastlingRights((c == WHITE ? WHITE\_CASTLING : BLACK\_CASTLING) \& cr);}
+\DoxyCodeLine{394 \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 \textcolor{keyword}{constexpr} Value mate\_in(\textcolor{keywordtype}{int} ply) \{}
+\DoxyCodeLine{397   \textcolor{keywordflow}{return} VALUE\_MATE -\/ ply;}
+\DoxyCodeLine{398 \}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400 \textcolor{keyword}{constexpr} Value mated\_in(\textcolor{keywordtype}{int} ply) \{}
+\DoxyCodeLine{401   \textcolor{keywordflow}{return} -\/VALUE\_MATE + ply;}
+\DoxyCodeLine{402 \}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404 \textcolor{keyword}{constexpr} Square make\_square(File f, Rank r) \{}
+\DoxyCodeLine{405   \textcolor{keywordflow}{return} Square((r << 3) + f);}
+\DoxyCodeLine{406 \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408 \textcolor{keyword}{constexpr} Piece make\_piece(Color c, PieceType pt) \{}
+\DoxyCodeLine{409   \textcolor{keywordflow}{return} Piece((c << 3) + pt);}
+\DoxyCodeLine{410 \}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 \textcolor{keyword}{constexpr} PieceType type\_of(Piece pc) \{}
+\DoxyCodeLine{413   \textcolor{keywordflow}{return} PieceType(pc \& 7);}
+\DoxyCodeLine{414 \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416 \textcolor{keyword}{inline} Color color\_of(Piece pc) \{}
+\DoxyCodeLine{417   assert(pc != NO\_PIECE);}
+\DoxyCodeLine{418   \textcolor{keywordflow}{return} Color(pc >> 3);}
+\DoxyCodeLine{419 \}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} is\_ok(Square s) \{}
+\DoxyCodeLine{422   \textcolor{keywordflow}{return} s >= SQ\_A1 \&\& s <= SQ\_H8;}
+\DoxyCodeLine{423 \}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425 \textcolor{keyword}{constexpr} File file\_of(Square s) \{}
+\DoxyCodeLine{426   \textcolor{keywordflow}{return} File(s \& 7);}
+\DoxyCodeLine{427 \}}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429 \textcolor{keyword}{constexpr} Rank rank\_of(Square s) \{}
+\DoxyCodeLine{430   \textcolor{keywordflow}{return} Rank(s >> 3);}
+\DoxyCodeLine{431 \}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433 \textcolor{keyword}{constexpr} Square relative\_square(Color c, Square s) \{}
+\DoxyCodeLine{434   \textcolor{keywordflow}{return} Square(s \string^ (c * 56));}
+\DoxyCodeLine{435 \}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 \textcolor{keyword}{constexpr} Rank relative\_rank(Color c, Rank r) \{}
+\DoxyCodeLine{438   \textcolor{keywordflow}{return} Rank(r \string^ (c * 7));}
+\DoxyCodeLine{439 \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 \textcolor{keyword}{constexpr} Rank relative\_rank(Color c, Square s) \{}
+\DoxyCodeLine{442   \textcolor{keywordflow}{return} relative\_rank(c, rank\_of(s));}
+\DoxyCodeLine{443 \}}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{445 \textcolor{keyword}{constexpr} Direction pawn\_push(Color c) \{}
+\DoxyCodeLine{446   \textcolor{keywordflow}{return} c == WHITE ? NORTH : SOUTH;}
+\DoxyCodeLine{447 \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{449 \textcolor{keyword}{constexpr} Square from\_sq(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{450   \textcolor{keywordflow}{return} Square((m >> 6) \& 0x3F);}
+\DoxyCodeLine{451 \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453 \textcolor{keyword}{constexpr} Square to\_sq(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{454   \textcolor{keywordflow}{return} Square(m \& 0x3F);}
+\DoxyCodeLine{455 \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} from\_to(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{458  \textcolor{keywordflow}{return} m \& 0xFFF;}
+\DoxyCodeLine{459 \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \textcolor{keyword}{constexpr} MoveFlag type\_of(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{462   \textcolor{keywordflow}{return} MoveFlag(m \& (3 << 14));}
+\DoxyCodeLine{463 \}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465 \textcolor{keyword}{constexpr} PieceType promotion\_type(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{466   \textcolor{keywordflow}{return} PieceType(((m >> 12) \& 3) + KNIGHT);}
+\DoxyCodeLine{467 \}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{469 \textcolor{keyword}{constexpr} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} make\_move(Square from, Square to) \{}
+\DoxyCodeLine{470   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}((from << 6) + to);}
+\DoxyCodeLine{471 \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473 \textcolor{keyword}{constexpr} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} reverse\_move(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{474   \textcolor{keywordflow}{return} make\_move(to\_sq(m), from\_sq(m));}
+\DoxyCodeLine{475 \}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477 \textcolor{keyword}{template}<MoveFlag T>}
+\DoxyCodeLine{478 \textcolor{keyword}{constexpr} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} make(Square from, Square to, PieceType pt = KNIGHT) \{}
+\DoxyCodeLine{479   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}(T + ((pt -\/ KNIGHT) << 12) + (from << 6) + to);}
+\DoxyCodeLine{480 \}}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} is\_ok(\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} m) \{}
+\DoxyCodeLine{483   \textcolor{keywordflow}{return} from\_sq(m) != to\_sq(m); \textcolor{comment}{// Catch MOVE\_NULL and MOVE\_NONE}}
+\DoxyCodeLine{484 \}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{487 \textcolor{keyword}{constexpr} Key \mbox{\hyperlink{namespace_stockfish_ab9085d1b17708c93616c9a012014ffd8}{make\_key}}(uint64\_t seed) \{}
+\DoxyCodeLine{488   \textcolor{keywordflow}{return} seed * 6364136223846793005ULL + 1442695040888963407ULL;}
+\DoxyCodeLine{489 \}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef TYPES\_H\_INCLUDED}}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#include "{}tune.h"{}} \textcolor{comment}{// Global visibility to tuning setup}}
+
+\end{DoxyCode}

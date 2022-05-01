@@ -40,11 +40,17 @@ public class EfficientGen<K, V> {
      * @return the v
      */
     public V get(K currentKey) {
-        if (Objects.equals(oldKey, currentKey)) {
+        boolean eq = checkEquals(oldKey, currentKey);
+
+        if (eq) {
             return oldValue;
         }
         oldValue = generator.get();
         oldKey = currentKey;
         return oldValue;
+    }
+
+    protected boolean checkEquals(K key1, K key2) {
+        return Objects.equals(key1, key2);
     }
 }

@@ -1,0 +1,731 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red0\green128\blue0;\red96\green64\blue32;\rede0\green128\blue0;\red128\green0\blue0;\red128\green96\blue32;\red0\green32\blue128;\red0\green128\blue128;\red255\green0\blue255;\red0\green0\blue0;\red112\green0\blue112;\red255\green0\blue0;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\paperw11900\paperh16840\margl1800\margr1800\margt1440\margb1440\gutter0\ltrsect}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext50 Code Example 9;}
+{\s50\li3600\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext51 Code Example 10;}
+{\s51\li3960\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext52 Code Example 11;}
+{\s52\li4320\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 12;}
+{\s53\li4680\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 13;}
+{\s60\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext61 List Continue 0;}
+{\s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext62 List Continue 1;}
+{\s62\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext63 List Continue 2;}
+{\s63\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext64 List Continue 3;}
+{\s64\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext65 List Continue 4;}
+{\s65\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext66 List Continue 5;}
+{\s66\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext67 List Continue 6;}
+{\s67\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext68 List Continue 7;}
+{\s68\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext69 List Continue 8;}
+{\s69\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext70 List Continue 9;}
+{\s70\li3600\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext71 List Continue 10;}
+{\s71\li3960\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext72 List Continue 11;}
+{\s72\li4320\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 12;}
+{\s73\li4680\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 13;}
+{\s80\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext81 DescContinue 0;}
+{\s81\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext82 DescContinue 1;}
+{\s82\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext83 DescContinue 2;}
+{\s83\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext84 DescContinue 3;}
+{\s84\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext85 DescContinue 4;}
+{\s85\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext86 DescContinue 5;}
+{\s86\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext87 DescContinue 6;}
+{\s87\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext88 DescContinue 7;}
+{\s88\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext89 DescContinue 8;}
+{\s89\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext90 DescContinue 9;}
+{\s90\li3600\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext91 DescContinue 10;}
+{\s91\li3960\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext92 DescContinue 11;}
+{\s92\li4320\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 12;}
+{\s93\li4680\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 13;}
+{\s100\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext101 LatexTOC 0;}
+{\s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext102 LatexTOC 1;}
+{\s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext103 LatexTOC 2;}
+{\s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext104 LatexTOC 3;}
+{\s104\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext105 LatexTOC 4;}
+{\s105\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext106 LatexTOC 5;}
+{\s106\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext107 LatexTOC 6;}
+{\s107\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext108 LatexTOC 7;}
+{\s108\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext109 LatexTOC 8;}
+{\s109\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext110 LatexTOC 9;}
+{\s110\li3600\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext111 LatexTOC 10;}
+{\s111\li3960\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext112 LatexTOC 11;}
+{\s112\li4320\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 12;}
+{\s113\li4680\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 13;}
+{\s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext121 \sautoupd List Bullet 0;}
+{\s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext122 \sautoupd List Bullet 1;}
+{\s122\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext123 \sautoupd List Bullet 2;}
+{\s123\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext124 \sautoupd List Bullet 3;}
+{\s124\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext125 \sautoupd List Bullet 4;}
+{\s125\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext126 \sautoupd List Bullet 5;}
+{\s126\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext127 \sautoupd List Bullet 6;}
+{\s127\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext128 \sautoupd List Bullet 7;}
+{\s128\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext129 \sautoupd List Bullet 8;}
+{\s129\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext130 \sautoupd List Bullet 9;}
+{\s130\fi-360\li3960\widctlpar\jclisttab\tx3960{\*\pn \pnlvlbody\ilvl0\ls11\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext131 \sautoupd List Bullet 10;}
+{\s131\fi-360\li4320\widctlpar\jclisttab\tx4320{\*\pn \pnlvlbody\ilvl0\ls12\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext132 \sautoupd List Bullet 11;}
+{\s132\fi-360\li4680\widctlpar\jclisttab\tx4680{\*\pn \pnlvlbody\ilvl0\ls13\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 12;}
+{\s133\fi-360\li5040\widctlpar\jclisttab\tx5040{\*\pn \pnlvlbody\ilvl0\ls14\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 13;}
+{\s140\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext141 \sautoupd List Enum 0;}
+{\s141\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext142 \sautoupd List Enum 1;}
+{\s142\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext143 \sautoupd List Enum 2;}
+{\s143\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext144 \sautoupd List Enum 3;}
+{\s144\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext145 \sautoupd List Enum 4;}
+{\s145\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext146 \sautoupd List Enum 5;}
+{\s146\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext147 \sautoupd List Enum 6;}
+{\s147\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext148 \sautoupd List Enum 7;}
+{\s148\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext149 \sautoupd List Enum 8;}
+{\s149\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext150 \sautoupd List Enum 9;}
+{\s150\fi-360\li3960\widctlpar\fs20\cgrid \sbasedon0 \snext151 \sautoupd List Enum 10;}
+{\s151\fi-360\li4320\widctlpar\fs20\cgrid \sbasedon0 \snext152 \sautoupd List Enum 11;}
+{\s152\fi-360\li4680\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 12;}
+{\s153\fi-360\li5040\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 13;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+nnue_feature_transformer.h\par \pard\plain 
+{\tc\tcl2 \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/nnue/nnue_feature_transformer.h}
+{\xe \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/nnue/nnue_feature_transformer.h}
+{\bkmkstart AAAAAAAAAQ}
+{\bkmkend AAAAAAAAAQ}
+{
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf20 /*}\par
+2 {\cf20   Stockfish, a UCI chess playing engine derived from Glaurung 2.1}\par
+3 {\cf20   Copyright (C) 2004-2021 The Stockfish developers (see AUTHORS file)}\par
+4 {\cf20 }\par
+5 {\cf20   Stockfish is free software: you can redistribute it and/or modify}\par
+6 {\cf20   it under the terms of the GNU General Public License as published by}\par
+7 {\cf20   the Free Software Foundation, either version 3 of the License, or}\par
+8 {\cf20   (at your option) any later version.}\par
+9 {\cf20 }\par
+10 {\cf20   Stockfish is distributed in the hope that it will be useful,}\par
+11 {\cf20   but WITHOUT ANY WARRANTY; without even the implied warranty of}\par
+12 {\cf20   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}\par
+13 {\cf20   GNU General Public License for more details.}\par
+14 {\cf20 }\par
+15 {\cf20   You should have received a copy of the GNU General Public License}\par
+16 {\cf20   along with this program.  If not, see <http://www.gnu.org/licenses/>.}\par
+17 {\cf20 */}\par
+18 \par
+19 {\cf20 // A class that converts the input features of the NNUE evaluation function}\par
+20 \par
+21 {\cf21 #ifndef NNUE_FEATURE_TRANSFORMER_H_INCLUDED}\par
+22 {\cf21 #define NNUE_FEATURE_TRANSFORMER_H_INCLUDED}\par
+23 \par
+24 {\cf21 #include "nnue_common.h"}\par
+25 {\cf21 #include "nnue_architecture.h"}\par
+26 \par
+27 {\cf21 #include <cstring>} {\cf20 // std::memset()}\par
+28 \par
+29 {\cf17 namespace }Stockfish::Eval::NNUE \{\par
+30 \par
+31   {\cf17 using} BiasType       = std::int16_t;\par
+32   {\cf17 using} WeightType     = std::int16_t;\par
+33   {\cf17 using} PSQTWeightType = std::int32_t;\par
+34 \par
+35   {\cf20 // If vector instructions are enabled, we update and refresh the}\par
+36   {\cf20 // accumulator tile by tile such that each tile fits in the CPU's}\par
+37   {\cf20 // vector registers.}\par
+38 {\cf21   #define VECTOR}\par
+39 \par
+40   {\cf17 static_assert}(PSQTBuckets % 8 == 0,\par
+41     {\cf22 "Per feature PSQT values cannot be processed at granularity lower than 8 at a time."});\par
+42 \par
+43 {\cf21   #ifdef USE_AVX512}\par
+44   {\cf17 typedef} __m512i vec_t;\par
+45   {\cf17 typedef} __m256i psqt_vec_t;\par
+46 {\cf21   #define vec_load(a) _mm512_load_si512(a)}\par
+47 {\cf21   #define vec_store(a,b) _mm512_store_si512(a,b)}\par
+48 {\cf21   #define vec_add_16(a,b) _mm512_add_epi16(a,b)}\par
+49 {\cf21   #define vec_sub_16(a,b) _mm512_sub_epi16(a,b)}\par
+50 {\cf21   #define vec_load_psqt(a) _mm256_load_si256(a)}\par
+51 {\cf21   #define vec_store_psqt(a,b) _mm256_store_si256(a,b)}\par
+52 {\cf21   #define vec_add_psqt_32(a,b) _mm256_add_epi32(a,b)}\par
+53 {\cf21   #define vec_sub_psqt_32(a,b) _mm256_sub_epi32(a,b)}\par
+54 {\cf21   #define vec_zero_psqt() _mm256_setzero_si256()}\par
+55 {\cf21   #define NumRegistersSIMD 32}\par
+56 \par
+57 {\cf21   #elif USE_AVX2}\par
+58   {\cf17 typedef} __m256i vec_t;\par
+59   {\cf17 typedef} __m256i psqt_vec_t;\par
+60 {\cf21   #define vec_load(a) _mm256_load_si256(a)}\par
+61 {\cf21   #define vec_store(a,b) _mm256_store_si256(a,b)}\par
+62 {\cf21   #define vec_add_16(a,b) _mm256_add_epi16(a,b)}\par
+63 {\cf21   #define vec_sub_16(a,b) _mm256_sub_epi16(a,b)}\par
+64 {\cf21   #define vec_load_psqt(a) _mm256_load_si256(a)}\par
+65 {\cf21   #define vec_store_psqt(a,b) _mm256_store_si256(a,b)}\par
+66 {\cf21   #define vec_add_psqt_32(a,b) _mm256_add_epi32(a,b)}\par
+67 {\cf21   #define vec_sub_psqt_32(a,b) _mm256_sub_epi32(a,b)}\par
+68 {\cf21   #define vec_zero_psqt() _mm256_setzero_si256()}\par
+69 {\cf21   #define NumRegistersSIMD 16}\par
+70 \par
+71 {\cf21   #elif USE_SSE2}\par
+72   {\cf17 typedef} __m128i vec_t;\par
+73   {\cf17 typedef} __m128i psqt_vec_t;\par
+74 {\cf21   #define vec_load(a) (*(a))}\par
+75 {\cf21   #define vec_store(a,b) *(a)=(b)}\par
+76 {\cf21   #define vec_add_16(a,b) _mm_add_epi16(a,b)}\par
+77 {\cf21   #define vec_sub_16(a,b) _mm_sub_epi16(a,b)}\par
+78 {\cf21   #define vec_load_psqt(a) (*(a))}\par
+79 {\cf21   #define vec_store_psqt(a,b) *(a)=(b)}\par
+80 {\cf21   #define vec_add_psqt_32(a,b) _mm_add_epi32(a,b)}\par
+81 {\cf21   #define vec_sub_psqt_32(a,b) _mm_sub_epi32(a,b)}\par
+82 {\cf21   #define vec_zero_psqt() _mm_setzero_si128()}\par
+83 {\cf21   #define NumRegistersSIMD (Is64Bit ? 16 : 8)}\par
+84 \par
+85 {\cf21   #elif USE_MMX}\par
+86   {\cf17 typedef} __m64 vec_t;\par
+87   {\cf17 typedef} __m64 psqt_vec_t;\par
+88 {\cf21   #define vec_load(a) (*(a))}\par
+89 {\cf21   #define vec_store(a,b) *(a)=(b)}\par
+90 {\cf21   #define vec_add_16(a,b) _mm_add_pi16(a,b)}\par
+91 {\cf21   #define vec_sub_16(a,b) _mm_sub_pi16(a,b)}\par
+92 {\cf21   #define vec_load_psqt(a) (*(a))}\par
+93 {\cf21   #define vec_store_psqt(a,b) *(a)=(b)}\par
+94 {\cf21   #define vec_add_psqt_32(a,b) _mm_add_pi32(a,b)}\par
+95 {\cf21   #define vec_sub_psqt_32(a,b) _mm_sub_pi32(a,b)}\par
+96 {\cf21   #define vec_zero_psqt() _mm_setzero_si64()}\par
+97 {\cf21   #define NumRegistersSIMD 8}\par
+98 \par
+99 {\cf21   #elif USE_NEON}\par
+100   {\cf17 typedef} int16x8_t vec_t;\par
+101   {\cf17 typedef} int32x4_t psqt_vec_t;\par
+102 {\cf21   #define vec_load(a) (*(a))}\par
+103 {\cf21   #define vec_store(a,b) *(a)=(b)}\par
+104 {\cf21   #define vec_add_16(a,b) vaddq_s16(a,b)}\par
+105 {\cf21   #define vec_sub_16(a,b) vsubq_s16(a,b)}\par
+106 {\cf21   #define vec_load_psqt(a) (*(a))}\par
+107 {\cf21   #define vec_store_psqt(a,b) *(a)=(b)}\par
+108 {\cf21   #define vec_add_psqt_32(a,b) vaddq_s32(a,b)}\par
+109 {\cf21   #define vec_sub_psqt_32(a,b) vsubq_s32(a,b)}\par
+110 {\cf21   #define vec_zero_psqt() psqt_vec_t\{0\}}\par
+111 {\cf21   #define NumRegistersSIMD 16}\par
+112 \par
+113 {\cf21   #else}\par
+114 {\cf21   #undef VECTOR}\par
+115 \par
+116 {\cf21   #endif}\par
+117 \par
+118 \par
+119 {\cf21   #ifdef VECTOR}\par
+120 \par
+121       {\cf20 // Compute optimal SIMD register count for feature transformer accumulation.}\par
+122 \par
+123       {\cf20 // We use __m* types as template arguments, which causes GCC to emit warnings}\par
+124       {\cf20 // about losing some attribute information. This is irrelevant to us as we}\par
+125       {\cf20 // only take their size, so the following pragma are harmless.}\par
+126 {\cf21       #pragma GCC diagnostic push}\par
+127 {\cf21       #pragma GCC diagnostic ignored "-Wignored-attributes"}\par
+128 \par
+129       {\cf17 template} <{\cf17 typename} SIMDRegisterType,\par
+130                 {\cf17 typename} LaneType,\par
+131                 {\cf18 int}      NumLanes,\par
+132                 {\cf18 int}      MaxRegisters>\par
+133       {\cf17 static} {\cf17 constexpr} {\cf18 int} BestRegisterCount()\par
+134       \{\par
+135 {\cf21           #define RegisterSize  sizeof(SIMDRegisterType)}\par
+136 {\cf21           #define LaneSize      sizeof(LaneType)}\par
+137 \par
+138           {\cf17 static_assert}(RegisterSize >= LaneSize);\par
+139           {\cf17 static_assert}(MaxRegisters <= NumRegistersSIMD);\par
+140           {\cf17 static_assert}(MaxRegisters > 0);\par
+141           {\cf17 static_assert}(NumRegistersSIMD > 0);\par
+142           {\cf17 static_assert}(RegisterSize % LaneSize == 0);\par
+143           {\cf17 static_assert}((NumLanes * LaneSize) % RegisterSize == 0);\par
+144 \par
+145           {\cf17 const} {\cf18 int} ideal = (NumLanes * LaneSize) / RegisterSize;\par
+146           {\cf19 if} (ideal <= MaxRegisters)\par
+147             {\cf19 return} ideal;\par
+148 \par
+149           {\cf20 // Look for the largest divisor of the ideal register count that is smaller than MaxRegisters}\par
+150           {\cf19 for} ({\cf18 int} divisor = MaxRegisters; divisor > 1; --divisor)\par
+151             {\cf19 if} (ideal % divisor == 0)\par
+152               {\cf19 return} divisor;\par
+153 \par
+154           {\cf19 return} 1;\par
+155       \}\par
+156 \par
+157       {\cf17 static} {\cf17 constexpr} {\cf18 int} NumRegs     = BestRegisterCount<vec_t, WeightType, TransformedFeatureDimensions, NumRegistersSIMD>();\par
+158       {\cf17 static} {\cf17 constexpr} {\cf18 int} NumPsqtRegs = BestRegisterCount<psqt_vec_t, PSQTWeightType, PSQTBuckets, NumRegistersSIMD>();\par
+159 \par
+160 {\cf21       #pragma GCC diagnostic pop}\par
+161 \par
+162 {\cf21   #endif}\par
+163 \par
+164 \par
+165 \par
+166   {\cf20 // Input feature converter}\par
+167   {\cf17 class }FeatureTransformer \{\par
+168 \par
+169    {\cf17 private}:\par
+170     {\cf20 // Number of output dimensions for one side}\par
+171     {\cf17 static} {\cf17 constexpr} IndexType HalfDimensions = TransformedFeatureDimensions;\par
+172 \par
+173 {\cf21     #ifdef VECTOR}\par
+174     {\cf17 static} {\cf17 constexpr} IndexType TileHeight = NumRegs * {\cf17 sizeof}(vec_t) / 2;\par
+175     {\cf17 static} {\cf17 constexpr} IndexType PsqtTileHeight = NumPsqtRegs * {\cf17 sizeof}(psqt_vec_t) / 4;\par
+176     {\cf17 static_assert}(HalfDimensions % TileHeight == 0, {\cf22 "TileHeight must divide HalfDimensions"});\par
+177     {\cf17 static_assert}(PSQTBuckets % PsqtTileHeight == 0, {\cf22 "PsqtTileHeight must divide PSQTBuckets"});\par
+178 {\cf21     #endif}\par
+179 \par
+180    {\cf17 public}:\par
+181     {\cf20 // Output type}\par
+182     {\cf17 using} OutputType = TransformedFeatureType;\par
+183 \par
+184     {\cf20 // Number of input/output dimensions}\par
+185     {\cf17 static} {\cf17 constexpr} IndexType InputDimensions = FeatureSet::Dimensions;\par
+186     {\cf17 static} {\cf17 constexpr} IndexType OutputDimensions = HalfDimensions * 2;\par
+187 \par
+188     {\cf20 // Size of forward propagation buffer}\par
+189     {\cf17 static} {\cf17 constexpr} std::size_t BufferSize =\par
+190         OutputDimensions * {\cf17 sizeof}(OutputType);\par
+191 \par
+192     {\cf20 // Hash value embedded in the evaluation file}\par
+193     {\cf17 static} {\cf17 constexpr} std::uint32_t get_hash_value() \{\par
+194       {\cf19 return} FeatureSet::HashValue ^ OutputDimensions;\par
+195     \}\par
+196 \par
+197     {\cf20 // Read network parameters}\par
+198     {\cf18 bool} read_parameters(std::istream& stream) \{\par
+199 \par
+200       read_little_endian<BiasType      >(stream, biases     , HalfDimensions                  );\par
+201       read_little_endian<WeightType    >(stream, weights    , HalfDimensions * InputDimensions);\par
+202       read_little_endian<PSQTWeightType>(stream, psqtWeights, PSQTBuckets    * InputDimensions);\par
+203 \par
+204       {\cf19 return} !stream.fail();\par
+205     \}\par
+206 \par
+207     {\cf20 // Write network parameters}\par
+208     {\cf18 bool} write_parameters(std::ostream& stream){\cf17  const }\{\par
+209 \par
+210       write_little_endian<BiasType      >(stream, biases     , HalfDimensions                  );\par
+211       write_little_endian<WeightType    >(stream, weights    , HalfDimensions * InputDimensions);\par
+212       write_little_endian<PSQTWeightType>(stream, psqtWeights, PSQTBuckets    * InputDimensions);\par
+213 \par
+214       {\cf19 return} !stream.fail();\par
+215     \}\par
+216 \par
+217     {\cf20 // Convert input features}\par
+218     std::int32_t transform({\cf17 const} Position& pos, OutputType* output, {\cf18 int} bucket){\cf17  const }\{\par
+219       update_accumulator(pos, WHITE);\par
+220       update_accumulator(pos, BLACK);\par
+221 \par
+222       {\cf17 const} Color perspectives[2] = \{pos.side_to_move(), ~pos.side_to_move()\};\par
+223       {\cf17 const} {\cf17 auto}& accumulation = pos.state()->accumulator.accumulation;\par
+224       {\cf17 const} {\cf17 auto}& psqtAccumulation = pos.state()->accumulator.psqtAccumulation;\par
+225 \par
+226       {\cf17 const} {\cf17 auto} psqt = (\par
+227             psqtAccumulation[perspectives[0]][bucket]\par
+228           - psqtAccumulation[perspectives[1]][bucket]\par
+229         ) / 2;\par
+230 \par
+231 \par
+232 {\cf21   #if defined(USE_AVX512)}\par
+233 \par
+234       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / (SimdWidth * 2);\par
+235       {\cf17 static_assert}(HalfDimensions % (SimdWidth * 2) == 0);\par
+236       {\cf17 const} __m512i Control = _mm512_setr_epi64(0, 2, 4, 6, 1, 3, 5, 7);\par
+237       {\cf17 const} __m512i Zero = _mm512_setzero_si512();\par
+238 \par
+239       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+240       \{\par
+241           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+242           {\cf17 auto} out = {\cf17 reinterpret_cast<}__m512i*{\cf17 >}(&output[offset]);\par
+243           {\cf19 for} (IndexType j = 0; j < NumChunks; ++j)\par
+244           \{\par
+245               __m512i sum0 = _mm512_load_si512(&{\cf17 reinterpret_cast<}{\cf17 const }__m512i*{\cf17 >}\par
+246                                               (accumulation[perspectives[p]])[j * 2 + 0]);\par
+247               __m512i sum1 = _mm512_load_si512(&{\cf17 reinterpret_cast<}{\cf17 const }__m512i*{\cf17 >}\par
+248                                               (accumulation[perspectives[p]])[j * 2 + 1]);\par
+249 \par
+250               _mm512_store_si512(&out[j], _mm512_permutexvar_epi64(Control,\par
+251                                  _mm512_max_epi8(_mm512_packs_epi16(sum0, sum1), Zero)));\par
+252           \}\par
+253       \}\par
+254       {\cf19 return} psqt;\par
+255 \par
+256 {\cf21   #elif defined(USE_AVX2)}\par
+257 \par
+258       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;\par
+259       {\cf17 constexpr} {\cf18 int} Control = 0b11011000;\par
+260       {\cf17 const} __m256i Zero = _mm256_setzero_si256();\par
+261 \par
+262       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+263       \{\par
+264           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+265           {\cf17 auto} out = {\cf17 reinterpret_cast<}__m256i*{\cf17 >}(&output[offset]);\par
+266           {\cf19 for} (IndexType j = 0; j < NumChunks; ++j)\par
+267           \{\par
+268               __m256i sum0 = _mm256_load_si256(&{\cf17 reinterpret_cast<}{\cf17 const }__m256i*{\cf17 >}\par
+269                                               (accumulation[perspectives[p]])[j * 2 + 0]);\par
+270               __m256i sum1 = _mm256_load_si256(&{\cf17 reinterpret_cast<}{\cf17 const }__m256i*{\cf17 >}\par
+271                                               (accumulation[perspectives[p]])[j * 2 + 1]);\par
+272 \par
+273               _mm256_store_si256(&out[j], _mm256_permute4x64_epi64(\par
+274                                  _mm256_max_epi8(_mm256_packs_epi16(sum0, sum1), Zero), Control));\par
+275           \}\par
+276       \}\par
+277       {\cf19 return} psqt;\par
+278 \par
+279 {\cf21   #elif defined(USE_SSE2)}\par
+280 \par
+281 {\cf21       #ifdef USE_SSE41}\par
+282       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;\par
+283       {\cf17 const} __m128i Zero = _mm_setzero_si128();\par
+284 {\cf21       #else}\par
+285       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;\par
+286       {\cf17 const} __m128i k0x80s = _mm_set1_epi8(-128);\par
+287 {\cf21       #endif}\par
+288 \par
+289       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+290       \{\par
+291           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+292           {\cf17 auto} out = {\cf17 reinterpret_cast<}__m128i*{\cf17 >}(&output[offset]);\par
+293           {\cf19 for} (IndexType j = 0; j < NumChunks; ++j)\par
+294           \{\par
+295               __m128i sum0 = _mm_load_si128(&{\cf17 reinterpret_cast<}{\cf17 const }__m128i*{\cf17 >}\par
+296                                            (accumulation[perspectives[p]])[j * 2 + 0]);\par
+297               __m128i sum1 = _mm_load_si128(&{\cf17 reinterpret_cast<}{\cf17 const }__m128i*{\cf17 >}\par
+298                                            (accumulation[perspectives[p]])[j * 2 + 1]);\par
+299               {\cf17 const} __m128i packedbytes = _mm_packs_epi16(sum0, sum1);\par
+300 \par
+301 {\cf21               #ifdef USE_SSE41}\par
+302               _mm_store_si128(&out[j], _mm_max_epi8(packedbytes, Zero));\par
+303 {\cf21               #else}\par
+304               _mm_store_si128(&out[j], _mm_subs_epi8(_mm_adds_epi8(packedbytes, k0x80s), k0x80s));\par
+305 {\cf21               #endif}\par
+306           \}\par
+307       \}\par
+308       {\cf19 return} psqt;\par
+309 \par
+310 {\cf21   #elif defined(USE_MMX)}\par
+311 \par
+312       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / SimdWidth;\par
+313       {\cf17 const} __m64 k0x80s = _mm_set1_pi8(-128);\par
+314 \par
+315       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+316       \{\par
+317           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+318           {\cf17 auto} out = {\cf17 reinterpret_cast<}__m64*{\cf17 >}(&output[offset]);\par
+319           {\cf19 for} (IndexType j = 0; j < NumChunks; ++j)\par
+320           \{\par
+321               __m64 sum0 = *(&{\cf17 reinterpret_cast<}{\cf17 const }__m64*{\cf17 >}(accumulation[perspectives[p]])[j * 2 + 0]);\par
+322               __m64 sum1 = *(&{\cf17 reinterpret_cast<}{\cf17 const }__m64*{\cf17 >}(accumulation[perspectives[p]])[j * 2 + 1]);\par
+323               {\cf17 const} __m64 packedbytes = _mm_packs_pi16(sum0, sum1);\par
+324               out[j] = _mm_subs_pi8(_mm_adds_pi8(packedbytes, k0x80s), k0x80s);\par
+325           \}\par
+326       \}\par
+327       _mm_empty();\par
+328       {\cf19 return} psqt;\par
+329 \par
+330 {\cf21   #elif defined(USE_NEON)}\par
+331 \par
+332       {\cf17 constexpr} IndexType NumChunks = HalfDimensions / (SimdWidth / 2);\par
+333       {\cf17 const} int8x8_t Zero = \{0\};\par
+334 \par
+335       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+336       \{\par
+337           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+338           {\cf17 const} {\cf17 auto} out = {\cf17 reinterpret_cast<}int8x8_t*{\cf17 >}(&output[offset]);\par
+339           {\cf19 for} (IndexType j = 0; j < NumChunks; ++j)\par
+340           \{\par
+341               int16x8_t sum = {\cf17 reinterpret_cast<}{\cf17 const }int16x8_t*{\cf17 >}(accumulation[perspectives[p]])[j];\par
+342               out[j] = vmax_s8(vqmovn_s16(sum), Zero);\par
+343           \}\par
+344       \}\par
+345       {\cf19 return} psqt;\par
+346 \par
+347 {\cf21   #else}\par
+348 \par
+349       {\cf19 for} (IndexType p = 0; p < 2; ++p)\par
+350       \{\par
+351           {\cf17 const} IndexType offset = HalfDimensions * p;\par
+352           {\cf19 for} (IndexType j = 0; j < HalfDimensions; ++j)\par
+353           \{\par
+354               BiasType sum = accumulation[perspectives[p]][j];\par
+355               output[offset + j] = {\cf17 static_cast<}OutputType{\cf17 >}(std::max<int>(0, std::min<int>(127, sum)));\par
+356           \}\par
+357       \}\par
+358       {\cf19 return} psqt;\par
+359 \par
+360 {\cf21   #endif}\par
+361 \par
+362    \} {\cf20 // end of function transform()}\par
+363 \par
+364 \par
+365 \par
+366    {\cf17 private}:\par
+367     {\cf18 void} update_accumulator({\cf17 const} Position& pos, {\cf17 const} Color perspective){\cf17  const }\{\par
+368 \par
+369       {\cf20 // The size must be enough to contain the largest possible update.}\par
+370       {\cf20 // That might depend on the feature set and generally relies on the}\par
+371       {\cf20 // feature set's update cost calculation to be correct and never}\par
+372       {\cf20 // allow updates with more added/removed features than MaxActiveDimensions.}\par
+373 \par
+374 {\cf21   #ifdef VECTOR}\par
+375       {\cf20 // Gcc-10.2 unnecessarily spills AVX2 registers if this array}\par
+376       {\cf20 // is defined in the VECTOR code below, once in each branch}\par
+377       vec_t acc[NumRegs];\par
+378       psqt_vec_t psqt[NumPsqtRegs];\par
+379 {\cf21   #endif}\par
+380 \par
+381       {\cf20 // Look for a usable accumulator of an earlier position. We keep track}\par
+382       {\cf20 // of the estimated gain in terms of features to be added/subtracted.}\par
+383       StateInfo *st = pos.state(), *next = {\cf17 nullptr};\par
+384       {\cf18 int} gain = FeatureSet::refresh_cost(pos);\par
+385       {\cf19 while} (st->previous && !st->accumulator.computed[perspective])\par
+386       \{\par
+387         {\cf20 // This governs when a full feature refresh is needed and how many}\par
+388         {\cf20 // updates are better than just one full refresh.}\par
+389         {\cf19 if} (   FeatureSet::requires_refresh(st, perspective)\par
+390             || (gain -= FeatureSet::update_cost(st) + 1) < 0)\par
+391           {\cf19 break};\par
+392         next = st;\par
+393         st = st->previous;\par
+394       \}\par
+395 \par
+396       {\cf19 if} (st->accumulator.computed[perspective])\par
+397       \{\par
+398         {\cf19 if} (next == {\cf17 nullptr})\par
+399           {\cf19 return};\par
+400 \par
+401         {\cf20 // Update incrementally in two steps. First, we update the "next"}\par
+402         {\cf20 // accumulator. Then, we update the current accumulator (pos.state()).}\par
+403 \par
+404         {\cf20 // Gather all features to be updated.}\par
+405         {\cf17 const} Square ksq = pos.square<KING>(perspective);\par
+406         FeatureSet::IndexList removed[2], added[2];\par
+407         FeatureSet::append_changed_indices(\par
+408           ksq, next->dirtyPiece, perspective, removed[0], added[0]);\par
+409         {\cf19 for} (StateInfo *st2 = pos.state(); st2 != next; st2 = st2->previous)\par
+410           FeatureSet::append_changed_indices(\par
+411             ksq, st2->dirtyPiece, perspective, removed[1], added[1]);\par
+412 \par
+413         {\cf20 // Mark the accumulators as computed.}\par
+414         next->accumulator.computed[perspective] = {\cf17 true};\par
+415         pos.state()->accumulator.computed[perspective] = {\cf17 true};\par
+416 \par
+417         {\cf20 // Now update the accumulators listed in states_to_update[], where the last element is a sentinel.}\par
+418         StateInfo *states_to_update[3] =\par
+419           \{ next, next == pos.state() ? nullptr : pos.state(), {\cf17 nullptr} \};\par
+420 {\cf21   #ifdef VECTOR}\par
+421         {\cf19 for} (IndexType j = 0; j < HalfDimensions / TileHeight; ++j)\par
+422         \{\par
+423           {\cf20 // Load accumulator}\par
+424           {\cf17 auto} accTile = {\cf17 reinterpret_cast<}vec_t*{\cf17 >}(\par
+425             &st->accumulator.accumulation[perspective][j * TileHeight]);\par
+426           {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+427             acc[k] = vec_load(&accTile[k]);\par
+428 \par
+429           {\cf19 for} (IndexType i = 0; states_to_update[i]; ++i)\par
+430           \{\par
+431             {\cf20 // Difference calculation for the deactivated features}\par
+432             {\cf19 for} ({\cf17 const} {\cf17 auto} index : removed[i])\par
+433             \{\par
+434               {\cf17 const} IndexType offset = HalfDimensions * index + j * TileHeight;\par
+435               {\cf17 auto} column = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[offset]);\par
+436               {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+437                 acc[k] = vec_sub_16(acc[k], column[k]);\par
+438             \}\par
+439 \par
+440             {\cf20 // Difference calculation for the activated features}\par
+441             {\cf19 for} ({\cf17 const} {\cf17 auto} index : added[i])\par
+442             \{\par
+443               {\cf17 const} IndexType offset = HalfDimensions * index + j * TileHeight;\par
+444               {\cf17 auto} column = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[offset]);\par
+445               {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+446                 acc[k] = vec_add_16(acc[k], column[k]);\par
+447             \}\par
+448 \par
+449             {\cf20 // Store accumulator}\par
+450             accTile = {\cf17 reinterpret_cast<}vec_t*{\cf17 >}(\par
+451               &states_to_update[i]->accumulator.accumulation[perspective][j * TileHeight]);\par
+452             {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+453               vec_store(&accTile[k], acc[k]);\par
+454           \}\par
+455         \}\par
+456 \par
+457         {\cf19 for} (IndexType j = 0; j < PSQTBuckets / PsqtTileHeight; ++j)\par
+458         \{\par
+459           {\cf20 // Load accumulator}\par
+460           {\cf17 auto} accTilePsqt = {\cf17 reinterpret_cast<}psqt_vec_t*{\cf17 >}(\par
+461             &st->accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);\par
+462           {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+463             psqt[k] = vec_load_psqt(&accTilePsqt[k]);\par
+464 \par
+465           {\cf19 for} (IndexType i = 0; states_to_update[i]; ++i)\par
+466           \{\par
+467             {\cf20 // Difference calculation for the deactivated features}\par
+468             {\cf19 for} ({\cf17 const} {\cf17 auto} index : removed[i])\par
+469             \{\par
+470               {\cf17 const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;\par
+471               {\cf17 auto} columnPsqt = {\cf17 reinterpret_cast<}{\cf17 const }psqt_vec_t*{\cf17 >}(&psqtWeights[offset]);\par
+472               {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+473                 psqt[k] = vec_sub_psqt_32(psqt[k], columnPsqt[k]);\par
+474             \}\par
+475 \par
+476             {\cf20 // Difference calculation for the activated features}\par
+477             {\cf19 for} ({\cf17 const} {\cf17 auto} index : added[i])\par
+478             \{\par
+479               {\cf17 const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;\par
+480               {\cf17 auto} columnPsqt = {\cf17 reinterpret_cast<}{\cf17 const }psqt_vec_t*{\cf17 >}(&psqtWeights[offset]);\par
+481               {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+482                 psqt[k] = vec_add_psqt_32(psqt[k], columnPsqt[k]);\par
+483             \}\par
+484 \par
+485             {\cf20 // Store accumulator}\par
+486             accTilePsqt = {\cf17 reinterpret_cast<}psqt_vec_t*{\cf17 >}(\par
+487               &states_to_update[i]->accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);\par
+488             {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+489               vec_store_psqt(&accTilePsqt[k], psqt[k]);\par
+490           \}\par
+491         \}\par
+492 \par
+493 {\cf21   #else}\par
+494         {\cf19 for} (IndexType i = 0; states_to_update[i]; ++i)\par
+495         \{\par
+496           std::memcpy(states_to_update[i]->accumulator.accumulation[perspective],\par
+497               st->accumulator.accumulation[perspective],\par
+498               HalfDimensions * {\cf17 sizeof}(BiasType));\par
+499 \par
+500           {\cf19 for} (std::size_t k = 0; k < PSQTBuckets; ++k)\par
+501             states_to_update[i]->accumulator.psqtAccumulation[perspective][k] = st->accumulator.psqtAccumulation[perspective][k];\par
+502 \par
+503           st = states_to_update[i];\par
+504 \par
+505           {\cf20 // Difference calculation for the deactivated features}\par
+506           for ({\cf17 const} {\cf17 auto} index : removed[i])\par
+507           \{\par
+508             {\cf17 const} IndexType offset = HalfDimensions * index;\par
+509 \par
+510             {\cf19 for} (IndexType j = 0; j < HalfDimensions; ++j)\par
+511               st->accumulator.accumulation[perspective][j] -= weights[offset + j];\par
+512 \par
+513             for (std::size_t k = 0; k < PSQTBuckets; ++k)\par
+514               st->accumulator.psqtAccumulation[perspective][k] -= psqtWeights[index * PSQTBuckets + k];\par
+515           \}\par
+516 \par
+517           {\cf20 // Difference calculation for the activated features}\par
+518           {\cf19 for} ({\cf17 const} {\cf17 auto} index : added[i])\par
+519           \{\par
+520             {\cf17 const} IndexType offset = HalfDimensions * index;\par
+521 \par
+522             {\cf19 for} (IndexType j = 0; j < HalfDimensions; ++j)\par
+523               st->accumulator.accumulation[perspective][j] += weights[offset + j];\par
+524 \par
+525             for (std::size_t k = 0; k < PSQTBuckets; ++k)\par
+526               st->accumulator.psqtAccumulation[perspective][k] += psqtWeights[index * PSQTBuckets + k];\par
+527           \}\par
+528         \}\par
+529 {\cf21   #endif}\par
+530       \}\par
+531       {\cf19 else}\par
+532       \{\par
+533         {\cf20 // Refresh the accumulator}\par
+534         {\cf17 auto}& accumulator = pos.state()->accumulator;\par
+535         accumulator.computed[perspective] = {\cf17 true};\par
+536         FeatureSet::IndexList active;\par
+537         FeatureSet::append_active_indices(pos, perspective, active);\par
+538 \par
+539 {\cf21   #ifdef VECTOR}\par
+540         {\cf19 for} (IndexType j = 0; j < HalfDimensions / TileHeight; ++j)\par
+541         \{\par
+542           {\cf17 auto} biasesTile = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(\par
+543               &biases[j * TileHeight]);\par
+544           {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+545             acc[k] = biasesTile[k];\par
+546 \par
+547           {\cf19 for} ({\cf17 const} {\cf17 auto} index : active)\par
+548           \{\par
+549             {\cf17 const} IndexType offset = HalfDimensions * index + j * TileHeight;\par
+550             {\cf17 auto} column = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[offset]);\par
+551 \par
+552             {\cf19 for} ({\cf18 unsigned} k = 0; k < NumRegs; ++k)\par
+553               acc[k] = vec_add_16(acc[k], column[k]);\par
+554           \}\par
+555 \par
+556           {\cf17 auto} accTile = {\cf17 reinterpret_cast<}vec_t*{\cf17 >}(\par
+557               &accumulator.accumulation[perspective][j * TileHeight]);\par
+558           {\cf19 for} ({\cf18 unsigned} k = 0; k < NumRegs; k++)\par
+559             vec_store(&accTile[k], acc[k]);\par
+560         \}\par
+561 \par
+562         {\cf19 for} (IndexType j = 0; j < PSQTBuckets / PsqtTileHeight; ++j)\par
+563         \{\par
+564           {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+565             psqt[k] = vec_zero_psqt();\par
+566 \par
+567           {\cf19 for} ({\cf17 const} {\cf17 auto} index : active)\par
+568           \{\par
+569             {\cf17 const} IndexType offset = PSQTBuckets * index + j * PsqtTileHeight;\par
+570             {\cf17 auto} columnPsqt = {\cf17 reinterpret_cast<}{\cf17 const }psqt_vec_t*{\cf17 >}(&psqtWeights[offset]);\par
+571 \par
+572             {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+573               psqt[k] = vec_add_psqt_32(psqt[k], columnPsqt[k]);\par
+574           \}\par
+575 \par
+576           {\cf17 auto} accTilePsqt = {\cf17 reinterpret_cast<}psqt_vec_t*{\cf17 >}(\par
+577             &accumulator.psqtAccumulation[perspective][j * PsqtTileHeight]);\par
+578           {\cf19 for} (std::size_t k = 0; k < NumPsqtRegs; ++k)\par
+579             vec_store_psqt(&accTilePsqt[k], psqt[k]);\par
+580         \}\par
+581 \par
+582 {\cf21   #else}\par
+583         std::memcpy(accumulator.accumulation[perspective], biases,\par
+584             HalfDimensions * {\cf17 sizeof}(BiasType));\par
+585 \par
+586         {\cf19 for} (std::size_t k = 0; k < PSQTBuckets; ++k)\par
+587           accumulator.psqtAccumulation[perspective][k] = 0;\par
+588 \par
+589         for ({\cf17 const} {\cf17 auto} index : active)\par
+590         \{\par
+591           {\cf17 const} IndexType offset = HalfDimensions * index;\par
+592 \par
+593           {\cf19 for} (IndexType j = 0; j < HalfDimensions; ++j)\par
+594             accumulator.accumulation[perspective][j] += weights[offset + j];\par
+595 \par
+596           for (std::size_t k = 0; k < PSQTBuckets; ++k)\par
+597             accumulator.psqtAccumulation[perspective][k] += psqtWeights[index * PSQTBuckets + k];\par
+598         \}\par
+599 {\cf21   #endif}\par
+600       \}\par
+601 \par
+602 {\cf21   #if defined(USE_MMX)}\par
+603       _mm_empty();\par
+604 {\cf21   #endif}\par
+605     \}\par
+606 \par
+607     {\cf17 alignas}(CacheLineSize) BiasType biases[HalfDimensions];\par
+608     {\cf17 alignas}(CacheLineSize) WeightType weights[HalfDimensions * InputDimensions];\par
+609     {\cf17 alignas}(CacheLineSize) PSQTWeightType psqtWeights[InputDimensions * PSQTBuckets];\par
+610   \};\par
+611 \par
+612 \}  {\cf20 // namespace Stockfish::Eval::NNUE}\par
+613 \par
+614 {\cf21 #endif }{\cf20 // #ifndef NNUE_FEATURE_TRANSFORMER_H_INCLUDED}\par
+}
+}

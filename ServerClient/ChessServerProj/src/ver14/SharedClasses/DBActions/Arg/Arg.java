@@ -1,20 +1,23 @@
 package ver14.SharedClasses.DBActions.Arg;
 
-import ver14.SharedClasses.Callbacks.ObjCallback;
 import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Utils.StrUtils;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 
 /**
- * Arg - .
+ * represents an argument that will later be replaced with a value. used for creating db requests.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Arg implements Serializable {
+    /**
+     * The constant ids.
+     */
     private static final IDsGenerator ids;
 
     static {
@@ -22,7 +25,7 @@ public class Arg implements Serializable {
     }
 
     /**
-     * The Rep in str.
+     * The Representation in the string. when the argument is provided, it will replace the temporary repInStr
      */
     public final String repInStr;
     /**
@@ -34,9 +37,12 @@ public class Arg implements Serializable {
      */
     public final ArgType argType;
     /**
-     * The Config.
+     * The Configuration of this argument .
      */
     public final Config<?> config;
+    /**
+     * Is this arg a user input.
+     */
     private boolean isUserInput;
 
     /**
@@ -49,7 +55,7 @@ public class Arg implements Serializable {
     }
 
     /**
-     * Instantiates a new Arg.
+     * Instantiates a new Arg with its configuration.
      *
      * @param argType the arg type
      * @param config  the config
@@ -62,7 +68,7 @@ public class Arg implements Serializable {
      * Instantiates a new Arg.
      *
      * @param argType the arg type
-     * @param escape  the escape
+     * @param escape  should this argument's value be escaped
      * @param config  the config
      */
     public Arg(ArgType argType, boolean escape, Config<?> config) {
@@ -73,6 +79,12 @@ public class Arg implements Serializable {
         this.config = config;
     }
 
+    /**
+     * Wrap string.
+     *
+     * @param wrapping the wrapping
+     * @return the string
+     */
     private static String wrap(String wrapping) {
         return "---" + wrapping + "---";
     }
@@ -120,7 +132,7 @@ public class Arg implements Serializable {
     }
 
     /**
-     * Create val string.
+     * Creates a string value to replace this argument with the provided value.
      *
      * @param val the val
      * @return the string
@@ -132,7 +144,7 @@ public class Arg implements Serializable {
 
         assert val != null;
 
-        if (val instanceof ObjCallback<?> callback)
+        if (val instanceof Supplier<?> callback)
             val = callback.get();
         String str = switch (this.argType) {
 

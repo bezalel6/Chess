@@ -1,0 +1,671 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red0\green128\blue0;\red96\green64\blue32;\rede0\green128\blue0;\red128\green0\blue0;\red128\green96\blue32;\red0\green32\blue128;\red0\green128\blue128;\red255\green0\blue255;\red0\green0\blue0;\red112\green0\blue112;\red255\green0\blue0;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\paperw11900\paperh16840\margl1800\margr1800\margt1440\margb1440\gutter0\ltrsect}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext50 Code Example 9;}
+{\s50\li3600\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext51 Code Example 10;}
+{\s51\li3960\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext52 Code Example 11;}
+{\s52\li4320\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 12;}
+{\s53\li4680\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext53 Code Example 13;}
+{\s60\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext61 List Continue 0;}
+{\s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext62 List Continue 1;}
+{\s62\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext63 List Continue 2;}
+{\s63\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext64 List Continue 3;}
+{\s64\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext65 List Continue 4;}
+{\s65\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext66 List Continue 5;}
+{\s66\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext67 List Continue 6;}
+{\s67\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext68 List Continue 7;}
+{\s68\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext69 List Continue 8;}
+{\s69\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext70 List Continue 9;}
+{\s70\li3600\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext71 List Continue 10;}
+{\s71\li3960\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext72 List Continue 11;}
+{\s72\li4320\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 12;}
+{\s73\li4680\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext73 List Continue 13;}
+{\s80\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext81 DescContinue 0;}
+{\s81\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext82 DescContinue 1;}
+{\s82\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext83 DescContinue 2;}
+{\s83\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext84 DescContinue 3;}
+{\s84\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext85 DescContinue 4;}
+{\s85\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext86 DescContinue 5;}
+{\s86\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext87 DescContinue 6;}
+{\s87\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext88 DescContinue 7;}
+{\s88\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext89 DescContinue 8;}
+{\s89\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext90 DescContinue 9;}
+{\s90\li3600\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext91 DescContinue 10;}
+{\s91\li3960\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext92 DescContinue 11;}
+{\s92\li4320\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 12;}
+{\s93\li4680\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext93 DescContinue 13;}
+{\s100\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext101 LatexTOC 0;}
+{\s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext102 LatexTOC 1;}
+{\s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext103 LatexTOC 2;}
+{\s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext104 LatexTOC 3;}
+{\s104\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext105 LatexTOC 4;}
+{\s105\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext106 LatexTOC 5;}
+{\s106\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext107 LatexTOC 6;}
+{\s107\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext108 LatexTOC 7;}
+{\s108\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext109 LatexTOC 8;}
+{\s109\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext110 LatexTOC 9;}
+{\s110\li3600\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext111 LatexTOC 10;}
+{\s111\li3960\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext112 LatexTOC 11;}
+{\s112\li4320\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 12;}
+{\s113\li4680\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext113 LatexTOC 13;}
+{\s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext121 \sautoupd List Bullet 0;}
+{\s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext122 \sautoupd List Bullet 1;}
+{\s122\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext123 \sautoupd List Bullet 2;}
+{\s123\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext124 \sautoupd List Bullet 3;}
+{\s124\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext125 \sautoupd List Bullet 4;}
+{\s125\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext126 \sautoupd List Bullet 5;}
+{\s126\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext127 \sautoupd List Bullet 6;}
+{\s127\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext128 \sautoupd List Bullet 7;}
+{\s128\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext129 \sautoupd List Bullet 8;}
+{\s129\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext130 \sautoupd List Bullet 9;}
+{\s130\fi-360\li3960\widctlpar\jclisttab\tx3960{\*\pn \pnlvlbody\ilvl0\ls11\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext131 \sautoupd List Bullet 10;}
+{\s131\fi-360\li4320\widctlpar\jclisttab\tx4320{\*\pn \pnlvlbody\ilvl0\ls12\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext132 \sautoupd List Bullet 11;}
+{\s132\fi-360\li4680\widctlpar\jclisttab\tx4680{\*\pn \pnlvlbody\ilvl0\ls13\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 12;}
+{\s133\fi-360\li5040\widctlpar\jclisttab\tx5040{\*\pn \pnlvlbody\ilvl0\ls14\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext133 \sautoupd List Bullet 13;}
+{\s140\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext141 \sautoupd List Enum 0;}
+{\s141\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext142 \sautoupd List Enum 1;}
+{\s142\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext143 \sautoupd List Enum 2;}
+{\s143\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext144 \sautoupd List Enum 3;}
+{\s144\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext145 \sautoupd List Enum 4;}
+{\s145\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext146 \sautoupd List Enum 5;}
+{\s146\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext147 \sautoupd List Enum 6;}
+{\s147\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext148 \sautoupd List Enum 7;}
+{\s148\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext149 \sautoupd List Enum 8;}
+{\s149\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext150 \sautoupd List Enum 9;}
+{\s150\fi-360\li3960\widctlpar\fs20\cgrid \sbasedon0 \snext151 \sautoupd List Enum 10;}
+{\s151\fi-360\li4320\widctlpar\fs20\cgrid \sbasedon0 \snext152 \sautoupd List Enum 11;}
+{\s152\fi-360\li4680\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 12;}
+{\s153\fi-360\li5040\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 13;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+affine_transform.h\par \pard\plain 
+{\tc\tcl2 \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/nnue/layers/affine_transform.h}
+{\xe \v assets/Stockfish/stockfish_14.1_win_x64_avx2/stockfish_14.1_src/src/nnue/layers/affine_transform.h}
+{\bkmkstart AAAAAAAAAK}
+{\bkmkend AAAAAAAAAK}
+{
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 1 {\cf20 /*}\par
+2 {\cf20   Stockfish, a UCI chess playing engine derived from Glaurung 2.1}\par
+3 {\cf20   Copyright (C) 2004-2021 The Stockfish developers (see AUTHORS file)}\par
+4 {\cf20 }\par
+5 {\cf20   Stockfish is free software: you can redistribute it and/or modify}\par
+6 {\cf20   it under the terms of the GNU General Public License as published by}\par
+7 {\cf20   the Free Software Foundation, either version 3 of the License, or}\par
+8 {\cf20   (at your option) any later version.}\par
+9 {\cf20 }\par
+10 {\cf20   Stockfish is distributed in the hope that it will be useful,}\par
+11 {\cf20   but WITHOUT ANY WARRANTY; without even the implied warranty of}\par
+12 {\cf20   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}\par
+13 {\cf20   GNU General Public License for more details.}\par
+14 {\cf20 }\par
+15 {\cf20   You should have received a copy of the GNU General Public License}\par
+16 {\cf20   along with this program.  If not, see <http://www.gnu.org/licenses/>.}\par
+17 {\cf20 */}\par
+18 \par
+19 {\cf20 // Definition of layer AffineTransform of NNUE evaluation function}\par
+20 \par
+21 {\cf21 #ifndef NNUE_LAYERS_AFFINE_TRANSFORM_H_INCLUDED}\par
+22 {\cf21 #define NNUE_LAYERS_AFFINE_TRANSFORM_H_INCLUDED}\par
+23 \par
+24 {\cf21 #include <iostream>}\par
+25 {\cf21 #include <algorithm>}\par
+26 {\cf21 #include <type_traits>}\par
+27 {\cf21 #include "../nnue_common.h"}\par
+28 {\cf21 #include "../../simd.h"}\par
+29 \par
+30 {\cf20 /*}\par
+31 {\cf20   This file contains the definition for a fully connected layer (aka affine transform).}\par
+32 {\cf20   Two approaches are employed, depending on the sizes of the transform.}\par
+33 {\cf20 }\par
+34 {\cf20   Approach 1:}\par
+35 {\cf20     - used when the PaddedInputDimensions >= 128}\par
+36 {\cf20     - uses AVX512 if possible}\par
+37 {\cf20     - processes inputs in batches of 2*InputSimdWidth}\par
+38 {\cf20       - so in batches of 128 for AVX512}\par
+39 {\cf20     - the weight blocks of size InputSimdWidth are transposed such that}\par
+40 {\cf20       access is sequential}\par
+41 {\cf20     - N columns of the weight matrix are processed a time, where N}\par
+42 {\cf20       depends on the architecture (the amount of registers)}\par
+43 {\cf20     - accumulate + hadd is used}\par
+44 {\cf20 }\par
+45 {\cf20   Approach 2:}\par
+46 {\cf20     - used when the PaddedInputDimensions < 128}\par
+47 {\cf20     - does not use AVX512}\par
+48 {\cf20     - expected use-case is for when PaddedInputDimensions == 32 and InputDimensions <= 32.}\par
+49 {\cf20       - that's why AVX512 is hard to implement}\par
+50 {\cf20     - expected use-case is small layers}\par
+51 {\cf20       - not optimized as well as the approach 1}\par
+52 {\cf20     - inputs are processed in chunks of 4, weights are respectively transposed}\par
+53 {\cf20     - accumulation happens directly to int32s}\par
+54 {\cf20 */}\par
+55 \par
+56 {\cf17 namespace }Stockfish::Eval::NNUE::Layers \{\par
+57 \par
+58 {\cf20 // Fallback implementation for older/other architectures.}\par
+59 {\cf20 // Identical for both approaches. Requires the input to be padded to at least 16 values.}\par
+60 {\cf21 #if !defined(USE_SSSE3)}\par
+61   {\cf17 template} <IndexType InputDimensions, IndexType PaddedInputDimensions, IndexType OutputDimensions>\par
+62   {\cf17 static} {\cf18 void} affine_transform_non_ssse3(std::int32_t* output, {\cf17 const} std::int8_t* weights, {\cf17 const} std::int32_t* biases, {\cf17 const} std::uint8_t* input)\par
+63   \{\par
+64 {\cf21 # if defined(USE_SSE2)}\par
+65     {\cf20 // At least a multiple of 16, with SSE2.}\par
+66     {\cf17 static_assert}(PaddedInputDimensions % 16 == 0);\par
+67     {\cf17 constexpr} IndexType NumChunks = PaddedInputDimensions / 16;\par
+68     {\cf17 const} __m128i Zeros = _mm_setzero_si128();\par
+69     {\cf17 const} {\cf17 auto} inputVector = {\cf17 reinterpret_cast<}{\cf17 const }__m128i*{\cf17 >}(input);\par
+70 \par
+71 {\cf21 # elif defined(USE_MMX)}\par
+72     {\cf17 static_assert}(InputDimensions % 8 == 0);\par
+73     {\cf17 constexpr} IndexType NumChunks = InputDimensions / 8;\par
+74     {\cf17 const} __m64 Zeros = _mm_setzero_si64();\par
+75     {\cf17 const} {\cf17 auto} inputVector = {\cf17 reinterpret_cast<}{\cf17 const }__m64*{\cf17 >}(input);\par
+76 \par
+77 {\cf21 # elif defined(USE_NEON)}\par
+78     {\cf17 static_assert}(PaddedInputDimensions % 16 == 0);\par
+79     {\cf17 constexpr} IndexType NumChunks = PaddedInputDimensions / 16;\par
+80     {\cf17 const} {\cf17 auto} inputVector = {\cf17 reinterpret_cast<}{\cf17 const }int8x8_t*{\cf17 >}(input);\par
+81 {\cf21 # endif}\par
+82 \par
+83     {\cf19 for} (IndexType i = 0; i < OutputDimensions; ++i) \{\par
+84       {\cf17 const} IndexType offset = i * PaddedInputDimensions;\par
+85 \par
+86 {\cf21 # if defined(USE_SSE2)}\par
+87       __m128i sumLo = _mm_cvtsi32_si128(biases[i]);\par
+88       __m128i sumHi = Zeros;\par
+89       {\cf17 const} {\cf17 auto} row = {\cf17 reinterpret_cast<}{\cf17 const }__m128i*{\cf17 >}(&weights[offset]);\par
+90       {\cf19 for} (IndexType j = 0; j < NumChunks; ++j) \{\par
+91         __m128i row_j = _mm_load_si128(&row[j]);\par
+92         __m128i input_j = _mm_load_si128(&inputVector[j]);\par
+93         __m128i extendedRowLo = _mm_srai_epi16(_mm_unpacklo_epi8(row_j, row_j), 8);\par
+94         __m128i extendedRowHi = _mm_srai_epi16(_mm_unpackhi_epi8(row_j, row_j), 8);\par
+95         __m128i extendedInputLo = _mm_unpacklo_epi8(input_j, Zeros);\par
+96         __m128i extendedInputHi = _mm_unpackhi_epi8(input_j, Zeros);\par
+97         __m128i productLo = _mm_madd_epi16(extendedRowLo, extendedInputLo);\par
+98         __m128i productHi = _mm_madd_epi16(extendedRowHi, extendedInputHi);\par
+99         sumLo = _mm_add_epi32(sumLo, productLo);\par
+100         sumHi = _mm_add_epi32(sumHi, productHi);\par
+101       \}\par
+102       __m128i sum = _mm_add_epi32(sumLo, sumHi);\par
+103       __m128i sumHigh_64 = _mm_shuffle_epi32(sum, _MM_SHUFFLE(1, 0, 3, 2));\par
+104       sum = _mm_add_epi32(sum, sumHigh_64);\par
+105       __m128i sum_second_32 = _mm_shufflelo_epi16(sum, _MM_SHUFFLE(1, 0, 3, 2));\par
+106       sum = _mm_add_epi32(sum, sum_second_32);\par
+107       output[i] = _mm_cvtsi128_si32(sum);\par
+108 \par
+109 {\cf21 # elif defined(USE_MMX)}\par
+110       __m64 sumLo = _mm_cvtsi32_si64(biases[i]);\par
+111       __m64 sumHi = Zeros;\par
+112       {\cf17 const} {\cf17 auto} row = {\cf17 reinterpret_cast<}{\cf17 const }__m64*{\cf17 >}(&weights[offset]);\par
+113       {\cf19 for} (IndexType j = 0; j < NumChunks; ++j) \{\par
+114         __m64 row_j = row[j];\par
+115         __m64 input_j = inputVector[j];\par
+116         __m64 extendedRowLo = _mm_srai_pi16(_mm_unpacklo_pi8(row_j, row_j), 8);\par
+117         __m64 extendedRowHi = _mm_srai_pi16(_mm_unpackhi_pi8(row_j, row_j), 8);\par
+118         __m64 extendedInputLo = _mm_unpacklo_pi8(input_j, Zeros);\par
+119         __m64 extendedInputHi = _mm_unpackhi_pi8(input_j, Zeros);\par
+120         __m64 productLo = _mm_madd_pi16(extendedRowLo, extendedInputLo);\par
+121         __m64 productHi = _mm_madd_pi16(extendedRowHi, extendedInputHi);\par
+122         sumLo = _mm_add_pi32(sumLo, productLo);\par
+123         sumHi = _mm_add_pi32(sumHi, productHi);\par
+124       \}\par
+125       __m64 sum = _mm_add_pi32(sumLo, sumHi);\par
+126       sum = _mm_add_pi32(sum, _mm_unpackhi_pi32(sum, sum));\par
+127       output[i] = _mm_cvtsi64_si32(sum);\par
+128 \par
+129 {\cf21 # elif defined(USE_NEON)}\par
+130       int32x4_t sum = \{biases[i]\};\par
+131       {\cf17 const} {\cf17 auto} row = {\cf17 reinterpret_cast<}{\cf17 const }int8x8_t*{\cf17 >}(&weights[offset]);\par
+132       {\cf19 for} (IndexType j = 0; j < NumChunks; ++j) \{\par
+133         int16x8_t product = vmull_s8(inputVector[j * 2], row[j * 2]);\par
+134         product = vmlal_s8(product, inputVector[j * 2 + 1], row[j * 2 + 1]);\par
+135         sum = vpadalq_s16(sum, product);\par
+136       \}\par
+137       output[i] = sum[0] + sum[1] + sum[2] + sum[3];\par
+138 \par
+139 {\cf21 # else}\par
+140       std::int32_t sum = biases[i];\par
+141       {\cf19 for} (IndexType j = 0; j < InputDimensions; ++j) \{\par
+142         sum += weights[offset + j] * input[j];\par
+143       \}\par
+144       output[i] = sum;\par
+145 {\cf21 # endif}\par
+146     \}\par
+147 \par
+148 {\cf21 # if defined(USE_MMX)}\par
+149     _mm_empty();\par
+150 {\cf21 # endif}\par
+151   \}\par
+152 {\cf21 #endif}\par
+153 \par
+154   {\cf17 template} <{\cf17 typename} PreviousLayer, IndexType OutDims, {\cf17 typename} Enabled = {\cf18 void}>\par
+155   {\cf17 class }AffineTransform;\par
+156 \par
+157   {\cf20 // A specialization for large inputs.}\par
+158   {\cf17 template} <{\cf17 typename} PreviousLayer, IndexType OutDims>\par
+159   {\cf17 class }AffineTransform<PreviousLayer, OutDims, std::enable_if_t<(PreviousLayer::OutputDimensions >= 2*64-1)>> \{\par
+160    {\cf17 public}:\par
+161     {\cf20 // Input/output type}\par
+162     {\cf17 using} InputType = {\cf17 typename} PreviousLayer::OutputType;\par
+163     {\cf17 using} OutputType = std::int32_t;\par
+164     {\cf17 static_assert}(std::is_same<InputType, std::uint8_t>::value, {\cf22 ""});\par
+165 \par
+166     {\cf20 // Number of input/output dimensions}\par
+167     {\cf17 static} {\cf17 constexpr} IndexType InputDimensions = PreviousLayer::OutputDimensions;\par
+168     {\cf17 static} {\cf17 constexpr} IndexType OutputDimensions = OutDims;\par
+169 \par
+170     {\cf17 static} {\cf17 constexpr} IndexType PaddedInputDimensions =\par
+171       ceil_to_multiple<IndexType>(InputDimensions, MaxSimdWidth);\par
+172 \par
+173     {\cf17 static_assert}(PaddedInputDimensions >= 128, {\cf22 "Something went wrong. This specialization should not have been chosen."});\par
+174 \par
+175 {\cf21 #if defined (USE_AVX512)}\par
+176     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType InputSimdWidth = 64;\par
+177     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType MaxNumOutputRegs = 16;\par
+178 {\cf21 #elif defined (USE_AVX2)}\par
+179     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType InputSimdWidth = 32;\par
+180     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType MaxNumOutputRegs = 8;\par
+181 {\cf21 #elif defined (USE_SSSE3)}\par
+182     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType InputSimdWidth = 16;\par
+183     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType MaxNumOutputRegs = 8;\par
+184 {\cf21 #else}\par
+185     {\cf20 // The fallback implementation will not have permuted weights.}\par
+186     {\cf20 // We define these to avoid a lot of ifdefs later.}\par
+187     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType InputSimdWidth = 1;\par
+188     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType MaxNumOutputRegs = 1;\par
+189 {\cf21 #endif}\par
+190 \par
+191     {\cf20 // A big block is a region in the weight matrix of the size [PaddedInputDimensions, NumOutputRegs].}\par
+192     {\cf20 // A small block is a region of size [InputSimdWidth, 1]}\par
+193 \par
+194     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType NumOutputRegs = std::min(MaxNumOutputRegs, OutputDimensions);\par
+195     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType SmallBlockSize = InputSimdWidth;\par
+196     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType BigBlockSize = NumOutputRegs * PaddedInputDimensions;\par
+197     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType NumSmallBlocksInBigBlock = BigBlockSize / SmallBlockSize;\par
+198     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType NumSmallBlocksPerOutput = PaddedInputDimensions / SmallBlockSize;\par
+199     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType NumBigBlocks = OutputDimensions / NumOutputRegs;\par
+200 \par
+201     {\cf17 static_assert}(OutputDimensions % NumOutputRegs == 0);\par
+202 \par
+203     {\cf20 // Size of forward propagation buffer used in this layer}\par
+204     {\cf17 static} {\cf17 constexpr} std::size_t SelfBufferSize =\par
+205       ceil_to_multiple(OutputDimensions * {\cf17 sizeof}(OutputType), CacheLineSize);\par
+206 \par
+207     {\cf20 // Size of the forward propagation buffer used from the input layer to this layer}\par
+208     {\cf17 static} {\cf17 constexpr} std::size_t BufferSize =\par
+209       PreviousLayer::BufferSize + SelfBufferSize;\par
+210 \par
+211     {\cf20 // Hash value embedded in the evaluation file}\par
+212     {\cf17 static} {\cf17 constexpr} std::uint32_t get_hash_value() \{\par
+213       std::uint32_t hashValue = 0xCC03DAE4u;\par
+214       hashValue += OutputDimensions;\par
+215       hashValue ^= PreviousLayer::get_hash_value() >> 1;\par
+216       hashValue ^= PreviousLayer::get_hash_value() << 31;\par
+217       {\cf19 return} hashValue;\par
+218     \}\par
+219 \par
+220     {\cf20 /*}\par
+221 {\cf20       Transposes the small blocks within a block.}\par
+222 {\cf20       Effectively means that weights can be traversed sequentially during inference.}\par
+223 {\cf20     */}\par
+224     {\cf17 static} IndexType get_weight_index(IndexType i)\par
+225     \{\par
+226       {\cf17 const} IndexType smallBlock = (i / SmallBlockSize) % NumSmallBlocksInBigBlock;\par
+227       {\cf17 const} IndexType smallBlockCol = smallBlock / NumSmallBlocksPerOutput;\par
+228       {\cf17 const} IndexType smallBlockRow = smallBlock % NumSmallBlocksPerOutput;\par
+229       {\cf17 const} IndexType bigBlock   = i / BigBlockSize;\par
+230       {\cf17 const} IndexType rest       = i % SmallBlockSize;\par
+231 \par
+232       {\cf17 const} IndexType idx =\par
+233           bigBlock * BigBlockSize\par
+234         + smallBlockRow * SmallBlockSize * NumOutputRegs\par
+235         + smallBlockCol * SmallBlockSize\par
+236         + rest;\par
+237 \par
+238       {\cf19 return} idx;\par
+239     \}\par
+240 \par
+241     {\cf20 // Read network parameters}\par
+242     {\cf18 bool} read_parameters(std::istream& stream) \{\par
+243       {\cf19 if} (!previousLayer.read_parameters(stream)) {\cf19 return} {\cf17 false};\par
+244       {\cf19 for} (std::size_t i = 0; i < OutputDimensions; ++i)\par
+245         biases[i] = read_little_endian<BiasType>(stream);\par
+246 \par
+247       {\cf19 for} (std::size_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)\par
+248         weights[get_weight_index(i)] = read_little_endian<WeightType>(stream);\par
+249 \par
+250       {\cf19 return} !stream.fail();\par
+251     \}\par
+252 \par
+253     {\cf20 // Write network parameters}\par
+254     {\cf18 bool} write_parameters(std::ostream& stream){\cf17  const }\{\par
+255       {\cf19 if} (!previousLayer.write_parameters(stream)) {\cf19 return} {\cf17 false};\par
+256       {\cf19 for} (std::size_t i = 0; i < OutputDimensions; ++i)\par
+257           write_little_endian<BiasType>(stream, biases[i]);\par
+258 \par
+259       {\cf19 for} (std::size_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)\par
+260         write_little_endian<WeightType>(stream, weights[get_weight_index(i)]);\par
+261 \par
+262       {\cf19 return} !stream.fail();\par
+263     \}\par
+264 \par
+265     {\cf20 // Forward propagation}\par
+266     {\cf17 const} OutputType* propagate(\par
+267         {\cf17 const} TransformedFeatureType* transformedFeatures, {\cf18 char}* buffer){\cf17  const }\{\par
+268       {\cf17 const} {\cf17 auto} input = previousLayer.propagate(\par
+269         transformedFeatures, buffer + SelfBufferSize);\par
+270       OutputType* output = {\cf17 reinterpret_cast<}OutputType*{\cf17 >}(buffer);\par
+271 \par
+272 {\cf21 #if defined (USE_AVX512)}\par
+273       {\cf17 using} vec_t = __m512i;\par
+274 {\cf21       #define vec_setzero _mm512_setzero_si512}\par
+275 {\cf21       #define vec_set_32 _mm512_set1_epi32}\par
+276 {\cf21       #define vec_add_dpbusd_32 Simd::m512_add_dpbusd_epi32}\par
+277 {\cf21       #define vec_add_dpbusd_32x2 Simd::m512_add_dpbusd_epi32x2}\par
+278 {\cf21       #define vec_hadd Simd::m512_hadd}\par
+279 {\cf21       #define vec_haddx4 Simd::m512_haddx4}\par
+280 {\cf21 #elif defined (USE_AVX2)}\par
+281       {\cf17 using} vec_t = __m256i;\par
+282 {\cf21       #define vec_setzero _mm256_setzero_si256}\par
+283 {\cf21       #define vec_set_32 _mm256_set1_epi32}\par
+284 {\cf21       #define vec_add_dpbusd_32 Simd::m256_add_dpbusd_epi32}\par
+285 {\cf21       #define vec_add_dpbusd_32x2 Simd::m256_add_dpbusd_epi32x2}\par
+286 {\cf21       #define vec_hadd Simd::m256_hadd}\par
+287 {\cf21       #define vec_haddx4 Simd::m256_haddx4}\par
+288 {\cf21 #elif defined (USE_SSSE3)}\par
+289       {\cf17 using} vec_t = __m128i;\par
+290 {\cf21       #define vec_setzero _mm_setzero_si128}\par
+291 {\cf21       #define vec_set_32 _mm_set1_epi32}\par
+292 {\cf21       #define vec_add_dpbusd_32 Simd::m128_add_dpbusd_epi32}\par
+293 {\cf21       #define vec_add_dpbusd_32x2 Simd::m128_add_dpbusd_epi32x2}\par
+294 {\cf21       #define vec_hadd Simd::m128_hadd}\par
+295 {\cf21       #define vec_haddx4 Simd::m128_haddx4}\par
+296 {\cf21 #endif}\par
+297 \par
+298 {\cf21 #if defined (USE_SSSE3)}\par
+299       {\cf17 const} vec_t* invec = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(input);\par
+300 \par
+301 \par
+302       {\cf20 // Perform accumulation to registers for each big block}\par
+303       {\cf19 for} (IndexType bigBlock = 0; bigBlock < NumBigBlocks; ++bigBlock)\par
+304       \{\par
+305         vec_t acc[NumOutputRegs] = \{ vec_setzero() \};\par
+306 \par
+307         {\cf20 // Each big block has NumOutputRegs small blocks in each "row", one per register.}\par
+308         {\cf20 // We process two small blocks at a time to save on one addition without VNNI.}\par
+309         {\cf19 for} (IndexType smallBlock = 0; smallBlock < NumSmallBlocksPerOutput; smallBlock += 2)\par
+310         \{\par
+311           {\cf17 const} vec_t* weightvec =\par
+312             {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(\par
+313                 weights\par
+314               + bigBlock * BigBlockSize\par
+315               + smallBlock * SmallBlockSize * NumOutputRegs);\par
+316 \par
+317           {\cf17 const} vec_t in0 = invec[smallBlock + 0];\par
+318           {\cf17 const} vec_t in1 = invec[smallBlock + 1];\par
+319 \par
+320           {\cf19 for} (IndexType k = 0; k < NumOutputRegs; ++k)\par
+321             vec_add_dpbusd_32x2(acc[k], in0, weightvec[k], in1, weightvec[k + NumOutputRegs]);\par
+322         \}\par
+323 \par
+324         {\cf20 // Horizontally add all accumulators.}\par
+325         {\cf19 if} {\cf17 constexpr} (NumOutputRegs % 4 == 0)\par
+326         \{\par
+327           __m128i* outputvec = {\cf17 reinterpret_cast<}__m128i*{\cf17 >}(output);\par
+328           {\cf17 const} __m128i* biasvec = {\cf17 reinterpret_cast<}{\cf17 const }__m128i*{\cf17 >}(biases);\par
+329 \par
+330           {\cf19 for} (IndexType k = 0; k < NumOutputRegs; k += 4)\par
+331           \{\par
+332             {\cf17 const} IndexType idx = (bigBlock * NumOutputRegs + k) / 4;\par
+333             outputvec[idx] = vec_haddx4(acc[k+0], acc[k+1], acc[k+2], acc[k+3], biasvec[idx]);\par
+334           \}\par
+335         \}\par
+336         {\cf19 else}\par
+337         \{\par
+338           {\cf19 for} (IndexType k = 0; k < NumOutputRegs; ++k)\par
+339           \{\par
+340             {\cf17 const} IndexType idx = (bigBlock * NumOutputRegs + k);\par
+341             output[idx] = vec_hadd(acc[k], biases[idx]);\par
+342           \}\par
+343         \}\par
+344       \}\par
+345 \par
+346 {\cf21 # undef vec_setzero}\par
+347 {\cf21 # undef vec_set_32}\par
+348 {\cf21 # undef vec_add_dpbusd_32}\par
+349 {\cf21 # undef vec_add_dpbusd_32x2}\par
+350 {\cf21 # undef vec_hadd}\par
+351 {\cf21 # undef vec_haddx4}\par
+352 {\cf21 #else}\par
+353       {\cf20 // Use old implementation for the other architectures.}\par
+354       affine_transform_non_ssse3<\par
+355         InputDimensions,\par
+356         PaddedInputDimensions,\par
+357         OutputDimensions>(output, weights, biases, input);\par
+358 \par
+359 {\cf21 #endif}\par
+360 \par
+361       {\cf19 return} output;\par
+362     \}\par
+363 \par
+364    {\cf17 private}:\par
+365     {\cf17 using} BiasType = OutputType;\par
+366     {\cf17 using} WeightType = std::int8_t;\par
+367 \par
+368     PreviousLayer previousLayer;\par
+369 \par
+370     {\cf17 alignas}(CacheLineSize) BiasType biases[OutputDimensions];\par
+371     {\cf17 alignas}(CacheLineSize) WeightType weights[OutputDimensions * PaddedInputDimensions];\par
+372   \};\par
+373 \par
+374   {\cf17 template} <{\cf17 typename} PreviousLayer, IndexType OutDims>\par
+375   {\cf17 class }AffineTransform<PreviousLayer, OutDims, std::enable_if_t<(PreviousLayer::OutputDimensions < 2*64-1)>> \{\par
+376    {\cf17 public}:\par
+377     {\cf20 // Input/output type}\par
+378     {\cf17 using} InputType = {\cf17 typename} PreviousLayer::OutputType;\par
+379     {\cf17 using} OutputType = std::int32_t;\par
+380     {\cf17 static_assert}(std::is_same<InputType, std::uint8_t>::value, {\cf22 ""});\par
+381 \par
+382     {\cf20 // Number of input/output dimensions}\par
+383     {\cf17 static} {\cf17 constexpr} IndexType InputDimensions =\par
+384         PreviousLayer::OutputDimensions;\par
+385     {\cf17 static} {\cf17 constexpr} IndexType OutputDimensions = OutDims;\par
+386     {\cf17 static} {\cf17 constexpr} IndexType PaddedInputDimensions =\par
+387         ceil_to_multiple<IndexType>(InputDimensions, MaxSimdWidth);\par
+388 \par
+389     {\cf17 static_assert}(PaddedInputDimensions < 128, {\cf22 "Something went wrong. This specialization should not have been chosen."});\par
+390 \par
+391 {\cf21 #if defined (USE_SSSE3)}\par
+392     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType OutputSimdWidth = SimdWidth / 4;\par
+393     {\cf17 static} {\cf17 constexpr} {\cf17 const} IndexType InputSimdWidth = SimdWidth;\par
+394 {\cf21 #endif}\par
+395 \par
+396     {\cf20 // Size of forward propagation buffer used in this layer}\par
+397     {\cf17 static} {\cf17 constexpr} std::size_t SelfBufferSize =\par
+398       ceil_to_multiple(OutputDimensions * {\cf17 sizeof}(OutputType), CacheLineSize);\par
+399 \par
+400     {\cf20 // Size of the forward propagation buffer used from the input layer to this layer}\par
+401     {\cf17 static} {\cf17 constexpr} std::size_t BufferSize =\par
+402       PreviousLayer::BufferSize + SelfBufferSize;\par
+403 \par
+404     {\cf20 // Hash value embedded in the evaluation file}\par
+405     {\cf17 static} {\cf17 constexpr} std::uint32_t get_hash_value() \{\par
+406       std::uint32_t hashValue = 0xCC03DAE4u;\par
+407       hashValue += OutputDimensions;\par
+408       hashValue ^= PreviousLayer::get_hash_value() >> 1;\par
+409       hashValue ^= PreviousLayer::get_hash_value() << 31;\par
+410       {\cf19 return} hashValue;\par
+411     \}\par
+412 \par
+413     {\cf17 static} IndexType get_weight_index_scrambled(IndexType i)\par
+414     \{\par
+415       {\cf19 return}\par
+416         (i / 4) % (PaddedInputDimensions / 4) * OutputDimensions * 4 +\par
+417         i / PaddedInputDimensions * 4 +\par
+418         i % 4;\par
+419     \}\par
+420 \par
+421     {\cf17 static} IndexType get_weight_index(IndexType i)\par
+422     \{\par
+423 {\cf21 #if defined (USE_SSSE3)}\par
+424       {\cf19 return} get_weight_index_scrambled(i);\par
+425 {\cf21 #else}\par
+426       {\cf19 return} i;\par
+427 {\cf21 #endif}\par
+428     \}\par
+429 \par
+430     {\cf20 // Read network parameters}\par
+431     {\cf18 bool} read_parameters(std::istream& stream) \{\par
+432       {\cf19 if} (!previousLayer.read_parameters(stream)) {\cf19 return} {\cf17 false};\par
+433       {\cf19 for} (std::size_t i = 0; i < OutputDimensions; ++i)\par
+434         biases[i] = read_little_endian<BiasType>(stream);\par
+435       {\cf19 for} (std::size_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)\par
+436         weights[get_weight_index(i)] = read_little_endian<WeightType>(stream);\par
+437 \par
+438       {\cf19 return} !stream.fail();\par
+439     \}\par
+440 \par
+441     {\cf20 // Write network parameters}\par
+442     {\cf18 bool} write_parameters(std::ostream& stream){\cf17  const }\{\par
+443       {\cf19 if} (!previousLayer.write_parameters(stream)) {\cf19 return} {\cf17 false};\par
+444       {\cf19 for} (std::size_t i = 0; i < OutputDimensions; ++i)\par
+445         write_little_endian<BiasType>(stream, biases[i]);\par
+446 \par
+447       {\cf19 for} (std::size_t i = 0; i < OutputDimensions * PaddedInputDimensions; ++i)\par
+448         write_little_endian<WeightType>(stream, weights[get_weight_index(i)]);\par
+449 \par
+450       {\cf19 return} !stream.fail();\par
+451     \}\par
+452     {\cf20 // Forward propagation}\par
+453     {\cf17 const} OutputType* propagate(\par
+454         {\cf17 const} TransformedFeatureType* transformedFeatures, {\cf18 char}* buffer){\cf17  const }\{\par
+455       {\cf17 const} {\cf17 auto} input = previousLayer.propagate(\par
+456         transformedFeatures, buffer + SelfBufferSize);\par
+457       {\cf17 const} {\cf17 auto} output = {\cf17 reinterpret_cast<}OutputType*{\cf17 >}(buffer);\par
+458 \par
+459 {\cf21 #if defined (USE_AVX2)}\par
+460       {\cf17 using} vec_t = __m256i;\par
+461 {\cf21       #define vec_setzero _mm256_setzero_si256}\par
+462 {\cf21       #define vec_set_32 _mm256_set1_epi32}\par
+463 {\cf21       #define vec_add_dpbusd_32 Simd::m256_add_dpbusd_epi32}\par
+464 {\cf21       #define vec_add_dpbusd_32x2 Simd::m256_add_dpbusd_epi32x2}\par
+465 {\cf21       #define vec_add_dpbusd_32x4 Simd::m256_add_dpbusd_epi32x4}\par
+466 {\cf21       #define vec_hadd Simd::m256_hadd}\par
+467 {\cf21       #define vec_haddx4 Simd::m256_haddx4}\par
+468 {\cf21 #elif defined (USE_SSSE3)}\par
+469       {\cf17 using} vec_t = __m128i;\par
+470 {\cf21       #define vec_setzero _mm_setzero_si128}\par
+471 {\cf21       #define vec_set_32 _mm_set1_epi32}\par
+472 {\cf21       #define vec_add_dpbusd_32 Simd::m128_add_dpbusd_epi32}\par
+473 {\cf21       #define vec_add_dpbusd_32x2 Simd::m128_add_dpbusd_epi32x2}\par
+474 {\cf21       #define vec_add_dpbusd_32x4 Simd::m128_add_dpbusd_epi32x4}\par
+475 {\cf21       #define vec_hadd Simd::m128_hadd}\par
+476 {\cf21       #define vec_haddx4 Simd::m128_haddx4}\par
+477 {\cf21 #endif}\par
+478 \par
+479 {\cf21 #if defined (USE_SSSE3)}\par
+480       {\cf17 const} {\cf17 auto} inputVector = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(input);\par
+481 \par
+482       {\cf17 static_assert}(InputDimensions % 8 == 0);\par
+483       {\cf17 static_assert}(OutputDimensions % OutputSimdWidth == 0 || OutputDimensions == 1);\par
+484 \par
+485       {\cf19 if} {\cf17 constexpr} (OutputDimensions % OutputSimdWidth == 0)\par
+486       \{\par
+487         {\cf17 constexpr} IndexType NumChunks = InputDimensions / 4;\par
+488         {\cf17 constexpr} IndexType NumRegs = OutputDimensions / OutputSimdWidth;\par
+489 \par
+490         {\cf17 const} {\cf17 auto} input32 = {\cf17 reinterpret_cast<}{\cf17 const }std::int32_t*{\cf17 >}(input);\par
+491         {\cf17 const} vec_t* biasvec = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(biases);\par
+492         vec_t acc[NumRegs];\par
+493         {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+494           acc[k] = biasvec[k];\par
+495 \par
+496         {\cf19 for} (IndexType i = 0; i < NumChunks; i += 2)\par
+497         \{\par
+498           {\cf17 const} vec_t in0 = vec_set_32(input32[i + 0]);\par
+499           {\cf17 const} vec_t in1 = vec_set_32(input32[i + 1]);\par
+500           {\cf17 const} {\cf17 auto} col0 = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[(i + 0) * OutputDimensions * 4]);\par
+501           {\cf17 const} {\cf17 auto} col1 = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[(i + 1) * OutputDimensions * 4]);\par
+502           {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+503             vec_add_dpbusd_32x2(acc[k], in0, col0[k], in1, col1[k]);\par
+504         \}\par
+505 \par
+506         vec_t* outptr = {\cf17 reinterpret_cast<}vec_t*{\cf17 >}(output);\par
+507         {\cf19 for} (IndexType k = 0; k < NumRegs; ++k)\par
+508           outptr[k] = acc[k];\par
+509       \}\par
+510       {\cf19 else} {\cf19 if} {\cf17 constexpr} (OutputDimensions == 1)\par
+511       \{\par
+512         {\cf17 constexpr} IndexType NumChunks = PaddedInputDimensions / SimdWidth;\par
+513         vec_t sum0 = vec_setzero();\par
+514         {\cf17 const} {\cf17 auto} row0 = {\cf17 reinterpret_cast<}{\cf17 const }vec_t*{\cf17 >}(&weights[0]);\par
+515 \par
+516         {\cf19 for} ({\cf18 int} j = 0; j < (int)NumChunks; ++j)\par
+517         \{\par
+518           {\cf17 const} vec_t in = inputVector[j];\par
+519           vec_add_dpbusd_32(sum0, in, row0[j]);\par
+520         \}\par
+521         output[0] = vec_hadd(sum0, biases[0]);\par
+522       \}\par
+523 \par
+524 {\cf21 # undef vec_setzero}\par
+525 {\cf21 # undef vec_set_32}\par
+526 {\cf21 # undef vec_add_dpbusd_32}\par
+527 {\cf21 # undef vec_add_dpbusd_32x2}\par
+528 {\cf21 # undef vec_add_dpbusd_32x4}\par
+529 {\cf21 # undef vec_hadd}\par
+530 {\cf21 # undef vec_haddx4}\par
+531 {\cf21 #else}\par
+532       {\cf20 // Use old implementation for the other architectures.}\par
+533       affine_transform_non_ssse3<\par
+534         InputDimensions,\par
+535         PaddedInputDimensions,\par
+536         OutputDimensions>(output, weights, biases, input);\par
+537 {\cf21 #endif}\par
+538 \par
+539       {\cf19 return} output;\par
+540     \}\par
+541 \par
+542    {\cf17 private}:\par
+543     {\cf17 using} BiasType = OutputType;\par
+544     {\cf17 using} WeightType = std::int8_t;\par
+545 \par
+546     PreviousLayer previousLayer;\par
+547 \par
+548     {\cf17 alignas}(CacheLineSize) BiasType biases[OutputDimensions];\par
+549     {\cf17 alignas}(CacheLineSize) WeightType weights[OutputDimensions * PaddedInputDimensions];\par
+550   \};\par
+551 \par
+552 \}  {\cf20 // namespace Stockfish::Eval::NNUE::Layers}\par
+553 \par
+554 {\cf21 #endif }{\cf20 // #ifndef NNUE_LAYERS_AFFINE_TRANSFORM_H_INCLUDED}\par
+}
+}

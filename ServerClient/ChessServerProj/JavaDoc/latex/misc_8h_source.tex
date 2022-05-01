@@ -1,0 +1,195 @@
+\hypertarget{misc_8h_source}{}\doxysection{misc.\+h}
+\label{misc_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/misc.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/misc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef MISC\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MISC\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_stockfish}{Stockfish}} \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 std::string \mbox{\hyperlink{namespace_stockfish_ad94379209745fe3fb326da854786b0f8}{engine\_info}}(\textcolor{keywordtype}{bool} to\_uci = \textcolor{keyword}{false});}
+\DoxyCodeLine{34 std::string \mbox{\hyperlink{namespace_stockfish_aff1bead546363da736aa6e7d5a356c8f}{compiler\_info}}();}
+\DoxyCodeLine{35 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_stockfish_aaf77a757436a1344d525555c72847c99}{prefetch}}(\textcolor{keywordtype}{void}* addr);}
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_stockfish_a6bd6736594315e6198795b747190b695}{start\_logger}}(\textcolor{keyword}{const} std::string\& fname);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{void}* \mbox{\hyperlink{namespace_stockfish_abdda1b7881d0a1e7ade3e39cd614a0b7}{std\_aligned\_alloc}}(\textcolor{keywordtype}{size\_t} alignment, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} std\_aligned\_free(\textcolor{keywordtype}{void}* ptr);}
+\DoxyCodeLine{39 \textcolor{keywordtype}{void}* \mbox{\hyperlink{namespace_stockfish_af714b0c7aff4cf648b004003989cdfea}{aligned\_large\_pages\_alloc}}(\textcolor{keywordtype}{size\_t} size); \textcolor{comment}{// memory aligned by page size, min alignment: 4096 bytes}}
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_stockfish_ac3e077b88eb1f78b0c1496e964abe1fe}{aligned\_large\_pages\_free}}(\textcolor{keywordtype}{void}* mem); \textcolor{comment}{// nop if mem == nullptr}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keywordtype}{void} dbg\_hit\_on(\textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{43 \textcolor{keywordtype}{void} dbg\_hit\_on(\textcolor{keywordtype}{bool} c, \textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{44 \textcolor{keywordtype}{void} dbg\_mean\_of(\textcolor{keywordtype}{int} v);}
+\DoxyCodeLine{45 \textcolor{keywordtype}{void} dbg\_print();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{typedef} std::chrono::milliseconds::rep TimePoint; \textcolor{comment}{// A value in milliseconds}}
+\DoxyCodeLine{48 \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(TimePoint) == \textcolor{keyword}{sizeof}(int64\_t), \textcolor{stringliteral}{"{}TimePoint should be 64 bits"{}});}
+\DoxyCodeLine{49 \textcolor{keyword}{inline} TimePoint now() \{}
+\DoxyCodeLine{50   \textcolor{keywordflow}{return} std::chrono::duration\_cast<std::chrono::milliseconds>}
+\DoxyCodeLine{51         (std::chrono::steady\_clock::now().time\_since\_epoch()).count();}
+\DoxyCodeLine{52 \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{template}<\textcolor{keyword}{class} Entry, \textcolor{keywordtype}{int} Size>}
+\DoxyCodeLine{55 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_hash_table}{HashTable}} \{}
+\DoxyCodeLine{56   Entry* operator[](Key key) \{ \textcolor{keywordflow}{return} \&table[(uint32\_t)key \& (Size -\/ 1)]; \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{private}:}
+\DoxyCodeLine{59   std::vector<Entry> table = std::vector<Entry>(Size); \textcolor{comment}{// Allocate on the heap}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{enum} SyncCout \{ IO\_LOCK, IO\_UNLOCK \};}
+\DoxyCodeLine{64 std::ostream\& \mbox{\hyperlink{namespace_stockfish_a4bf3fa78a0a4192b386cbd997cb15338}{operator<<}}(std::ostream\&, SyncCout);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define sync\_cout std::cout << IO\_LOCK}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define sync\_endl std::endl << IO\_UNLOCK}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{// align\_ptr\_up() : get the first aligned element of an array.}}
+\DoxyCodeLine{71 \textcolor{comment}{// ptr must point to an array of size at least `sizeof(T) * N + alignment` bytes,}}
+\DoxyCodeLine{72 \textcolor{comment}{// where N is the number of elements in the array.}}
+\DoxyCodeLine{73 \textcolor{keyword}{template} <u\textcolor{keywordtype}{int}ptr\_t Alignment, \textcolor{keyword}{typename} T>}
+\DoxyCodeLine{74 T* align\_ptr\_up(T* ptr)}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76   \textcolor{keyword}{static\_assert}(\textcolor{keyword}{alignof}(T) < Alignment);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{keyword}{const} uintptr\_t ptrint = \textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(ptr));}
+\DoxyCodeLine{79   \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}((ptrint + (Alignment -\/ 1)) / Alignment * Alignment));}
+\DoxyCodeLine{80 \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{// IsLittleEndian : true if and only if the binary is compiled on a little endian machine}}
+\DoxyCodeLine{84 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keyword}{union }\{ uint32\_t i; \textcolor{keywordtype}{char} c[4]; \} Le = \{ 0x01020304 \};}
+\DoxyCodeLine{85 \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{bool} IsLittleEndian = (Le.c[0] == 4);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{// RunningAverage : a class to calculate a running average of a series of values.}}
+\DoxyCodeLine{89 \textcolor{comment}{// For efficiency, all computations are done with integers.}}
+\DoxyCodeLine{90 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_running_average}{RunningAverage}} \{}
+\DoxyCodeLine{91   \textcolor{keyword}{public}:}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93       \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{94       \mbox{\hyperlink{class_stockfish_1_1_running_average}{RunningAverage}}() \{\}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96       \textcolor{comment}{// Reset the running average to rational value p / q}}
+\DoxyCodeLine{97       \textcolor{keywordtype}{void} set(int64\_t p, int64\_t q)}
+\DoxyCodeLine{98         \{ average = p * PERIOD * RESOLUTION / q; \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100       \textcolor{comment}{// Update average with value v}}
+\DoxyCodeLine{101       \textcolor{keywordtype}{void} update(int64\_t v)}
+\DoxyCodeLine{102         \{ average = RESOLUTION * v + (PERIOD -\/ 1) * average / PERIOD; \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104       \textcolor{comment}{// Test if average is strictly greater than rational a / b}}
+\DoxyCodeLine{105       \textcolor{keywordtype}{bool} is\_greater(int64\_t a, int64\_t b)}
+\DoxyCodeLine{106         \{ \textcolor{keywordflow}{return} b * average > a * PERIOD * RESOLUTION ; \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108   private :}
+\DoxyCodeLine{109       \textcolor{keyword}{static} \textcolor{keyword}{constexpr} int64\_t PERIOD     = 4096;}
+\DoxyCodeLine{110       \textcolor{keyword}{static} \textcolor{keyword}{constexpr} int64\_t RESOLUTION = 1024;}
+\DoxyCodeLine{111       int64\_t average;}
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} MaxSize>}
+\DoxyCodeLine{115 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_value_list}{ValueList}} \{}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{keyword}{public}:}
+\DoxyCodeLine{118   std::size\_t size()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} size\_; \}}
+\DoxyCodeLine{119   \textcolor{keywordtype}{void} resize(std::size\_t newSize) \{ size\_ = newSize; \}}
+\DoxyCodeLine{120   \textcolor{keywordtype}{void} push\_back(\textcolor{keyword}{const} T\& value) \{ values\_[size\_++] = value; \}}
+\DoxyCodeLine{121   T\& operator[](std::size\_t index) \{ \textcolor{keywordflow}{return} values\_[index]; \}}
+\DoxyCodeLine{122   T* begin() \{ \textcolor{keywordflow}{return} values\_; \}}
+\DoxyCodeLine{123   T* end() \{ \textcolor{keywordflow}{return} values\_ + size\_; \}}
+\DoxyCodeLine{124   \textcolor{keyword}{const} T\& operator[](std::size\_t index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} values\_[index]; \}}
+\DoxyCodeLine{125   \textcolor{keyword}{const} T* begin()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} values\_; \}}
+\DoxyCodeLine{126   \textcolor{keyword}{const} T* end()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} values\_ + size\_; \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128   \textcolor{keywordtype}{void} swap(\mbox{\hyperlink{class_stockfish_1_1_value_list}{ValueList}}\& other) \{}
+\DoxyCodeLine{129     \textcolor{keyword}{const} std::size\_t maxSize = std::max(size\_, other.size\_);}
+\DoxyCodeLine{130     \textcolor{keywordflow}{for} (std::size\_t i = 0; i < maxSize; ++i) \{}
+\DoxyCodeLine{131       std::swap(values\_[i], other.values\_[i]);}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133     std::swap(size\_, other.size\_);}
+\DoxyCodeLine{134   \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{keyword}{private}:}
+\DoxyCodeLine{137   T values\_[MaxSize];}
+\DoxyCodeLine{138   std::size\_t size\_ = 0;}
+\DoxyCodeLine{139 \};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{class }\mbox{\hyperlink{class_stockfish_1_1_p_r_n_g}{PRNG}} \{}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158   uint64\_t s;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160   uint64\_t rand64() \{}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     s \string^= s >> 12, s \string^= s << 25, s \string^= s >> 27;}
+\DoxyCodeLine{163     \textcolor{keywordflow}{return} s * 2685821657736338717LL;}
+\DoxyCodeLine{164   \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{public}:}
+\DoxyCodeLine{167   \mbox{\hyperlink{class_stockfish_1_1_p_r_n_g}{PRNG}}(uint64\_t seed) : s(seed) \{ assert(seed); \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> T rand() \{ \textcolor{keywordflow}{return} T(rand64()); \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{173   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> T \mbox{\hyperlink{class_stockfish_1_1_p_r_n_g_a7d8431934a4babcc9f211778567c506b}{sparse\_rand}}()}
+\DoxyCodeLine{174   \{ \textcolor{keywordflow}{return} T(rand64() \& rand64() \& rand64()); \}}
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{keyword}{inline} uint64\_t mul\_hi64(uint64\_t a, uint64\_t b) \{}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) \&\& defined(IS\_64BIT)}}
+\DoxyCodeLine{179     \_\_extension\_\_ \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \_\_int128 uint128;}
+\DoxyCodeLine{180     \textcolor{keywordflow}{return} ((uint128)a * (uint128)b) >> 64;}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{182     uint64\_t aL = (uint32\_t)a, aH = a >> 32;}
+\DoxyCodeLine{183     uint64\_t bL = (uint32\_t)b, bH = b >> 32;}
+\DoxyCodeLine{184     uint64\_t c1 = (aL * bL) >> 32;}
+\DoxyCodeLine{185     uint64\_t c2 = aH * bL + c1;}
+\DoxyCodeLine{186     uint64\_t c3 = aL * bH + (uint32\_t)c2;}
+\DoxyCodeLine{187     \textcolor{keywordflow}{return} aH * bH + (c2 >> 32) + (c3 >> 32);}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{189 \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{keyword}{namespace }WinProcGroup \{}
+\DoxyCodeLine{198   \textcolor{keywordtype}{void} bindThisThread(\textcolor{keywordtype}{size\_t} idx);}
+\DoxyCodeLine{199 \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{keyword}{namespace }CommandLine \{}
+\DoxyCodeLine{202   \textcolor{keywordtype}{void} init(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]);}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204   \textcolor{keyword}{extern} std::string binaryDirectory;  \textcolor{comment}{// path of the executable directory}}
+\DoxyCodeLine{205   \textcolor{keyword}{extern} std::string workingDirectory; \textcolor{comment}{// path of the working directory}}
+\DoxyCodeLine{206 \}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \} \textcolor{comment}{// namespace Stockfish}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef MISC\_H\_INCLUDED}}
+
+\end{DoxyCode}

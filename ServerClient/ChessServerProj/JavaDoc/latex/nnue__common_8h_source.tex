@@ -1,0 +1,170 @@
+\hypertarget{nnue__common_8h_source}{}\doxysection{nnue\+\_\+common.\+h}
+\label{nnue__common_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_common.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_common.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Constants used in NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_COMMON\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_COMMON\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}../misc.h"{}}  \textcolor{comment}{// for IsLittleEndian}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#if defined(USE\_AVX2)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <immintrin.h>}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#elif defined(USE\_SSE41)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <smmintrin.h>}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#elif defined(USE\_SSSE3)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <tmmintrin.h>}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#elif defined(USE\_SSE2)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include <emmintrin.h>}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#elif defined(USE\_MMX)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include <mmintrin.h>}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#elif defined(USE\_NEON)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include <arm\_neon.h>}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE \{}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{comment}{// Version of the evaluation file}}
+\DoxyCodeLine{51   \textcolor{keyword}{constexpr} std::uint32\_t Version = 0x7AF32F20u;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   \textcolor{comment}{// Constant used in evaluation value calculation}}
+\DoxyCodeLine{54   \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} OutputScale = 16;}
+\DoxyCodeLine{55   \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} WeightScaleBits = 6;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57   \textcolor{comment}{// Size of cache line (in bytes)}}
+\DoxyCodeLine{58   \textcolor{keyword}{constexpr} std::size\_t CacheLineSize = 64;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{comment}{// SIMD width (in bytes)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{  \#if defined(USE\_AVX2)}}
+\DoxyCodeLine{62   \textcolor{keyword}{constexpr} std::size\_t SimdWidth = 32;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{  \#elif defined(USE\_SSE2)}}
+\DoxyCodeLine{65   \textcolor{keyword}{constexpr} std::size\_t SimdWidth = 16;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{  \#elif defined(USE\_MMX)}}
+\DoxyCodeLine{68   \textcolor{keyword}{constexpr} std::size\_t SimdWidth = 8;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{  \#elif defined(USE\_NEON)}}
+\DoxyCodeLine{71   \textcolor{keyword}{constexpr} std::size\_t SimdWidth = 16;}
+\DoxyCodeLine{72 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74   \textcolor{keyword}{constexpr} std::size\_t MaxSimdWidth = 32;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76   \textcolor{comment}{// Type of input feature after conversion}}
+\DoxyCodeLine{77   \textcolor{keyword}{using} TransformedFeatureType = std::uint8\_t;}
+\DoxyCodeLine{78   \textcolor{keyword}{using} IndexType = std::uint32\_t;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{comment}{// Round n up to be a multiple of base}}
+\DoxyCodeLine{81   \textcolor{keyword}{template} <\textcolor{keyword}{typename} IntType>}
+\DoxyCodeLine{82   \textcolor{keyword}{constexpr} IntType ceil\_to\_multiple(IntType n, IntType base) \{}
+\DoxyCodeLine{83       \textcolor{keywordflow}{return} (n + base -\/ 1) / base * base;}
+\DoxyCodeLine{84   \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   \textcolor{comment}{// read\_little\_endian() is our utility to read an integer (signed or unsigned, any size)}}
+\DoxyCodeLine{87   \textcolor{comment}{// from a stream in little-\/endian order. We swap the byte order after the read if}}
+\DoxyCodeLine{88   \textcolor{comment}{// necessary to return a result with the byte ordering of the compiling machine.}}
+\DoxyCodeLine{89   \textcolor{keyword}{template} <\textcolor{keyword}{typename} IntType>}
+\DoxyCodeLine{90   \textcolor{keyword}{inline} IntType read\_little\_endian(std::istream\& stream) \{}
+\DoxyCodeLine{91       IntType result;}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93       \textcolor{keywordflow}{if} (IsLittleEndian)}
+\DoxyCodeLine{94           stream.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&result), \textcolor{keyword}{sizeof}(IntType));}
+\DoxyCodeLine{95       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{96       \{}
+\DoxyCodeLine{97           std::uint8\_t u[\textcolor{keyword}{sizeof}(IntType)];}
+\DoxyCodeLine{98           \textcolor{keyword}{typename} std::make\_unsigned<IntType>::type v = 0;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100           stream.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(u), \textcolor{keyword}{sizeof}(IntType));}
+\DoxyCodeLine{101           \textcolor{keywordflow}{for} (std::size\_t i = 0; i < \textcolor{keyword}{sizeof}(IntType); ++i)}
+\DoxyCodeLine{102               v = (v << 8) | u[\textcolor{keyword}{sizeof}(IntType) -\/ i -\/ 1];}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104           std::memcpy(\&result, \&v, \textcolor{keyword}{sizeof}(IntType));}
+\DoxyCodeLine{105       \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{108   \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110   \textcolor{comment}{// write\_little\_endian() is our utility to write an integer (signed or unsigned, any size)}}
+\DoxyCodeLine{111   \textcolor{comment}{// to a stream in little-\/endian order. We swap the byte order before the write if}}
+\DoxyCodeLine{112   \textcolor{comment}{// necessary to always write in little endian order, independantly of the byte}}
+\DoxyCodeLine{113   \textcolor{comment}{// ordering of the compiling machine.}}
+\DoxyCodeLine{114   \textcolor{keyword}{template} <\textcolor{keyword}{typename} IntType>}
+\DoxyCodeLine{115   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} write\_little\_endian(std::ostream\& stream, IntType value) \{}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117       \textcolor{keywordflow}{if} (IsLittleEndian)}
+\DoxyCodeLine{118           stream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&value), \textcolor{keyword}{sizeof}(IntType));}
+\DoxyCodeLine{119       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{120       \{}
+\DoxyCodeLine{121           std::uint8\_t u[\textcolor{keyword}{sizeof}(IntType)];}
+\DoxyCodeLine{122           \textcolor{keyword}{typename} std::make\_unsigned<IntType>::type v = value;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124           std::size\_t i = 0;}
+\DoxyCodeLine{125           \textcolor{comment}{// if constexpr to silence the warning about shift by 8}}
+\DoxyCodeLine{126           \textcolor{keywordflow}{if} \textcolor{keyword}{constexpr} (\textcolor{keyword}{sizeof}(IntType) > 1)}
+\DoxyCodeLine{127           \{}
+\DoxyCodeLine{128             \textcolor{keywordflow}{for} (; i + 1 < \textcolor{keyword}{sizeof}(IntType); ++i)}
+\DoxyCodeLine{129             \{}
+\DoxyCodeLine{130                 u[i] = v;}
+\DoxyCodeLine{131                 v >>= 8;}
+\DoxyCodeLine{132             \}}
+\DoxyCodeLine{133           \}}
+\DoxyCodeLine{134           u[i] = v;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136           stream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(u), \textcolor{keyword}{sizeof}(IntType));}
+\DoxyCodeLine{137       \}}
+\DoxyCodeLine{138   \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140   \textcolor{comment}{// read\_little\_endian(s, out, N) : read integers in bulk from a little indian stream.}}
+\DoxyCodeLine{141   \textcolor{comment}{// This reads N integers from stream s and put them in array out.}}
+\DoxyCodeLine{142   \textcolor{keyword}{template} <\textcolor{keyword}{typename} IntType>}
+\DoxyCodeLine{143   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} read\_little\_endian(std::istream\& stream, IntType* out, std::size\_t count) \{}
+\DoxyCodeLine{144       \textcolor{keywordflow}{if} (IsLittleEndian)}
+\DoxyCodeLine{145           stream.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(out), \textcolor{keyword}{sizeof}(IntType) * count);}
+\DoxyCodeLine{146       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{147           \textcolor{keywordflow}{for} (std::size\_t i = 0; i < count; ++i)}
+\DoxyCodeLine{148               out[i] = read\_little\_endian<IntType>(stream);}
+\DoxyCodeLine{149   \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151   \textcolor{comment}{// write\_little\_endian(s, values, N) : write integers in bulk to a little indian stream.}}
+\DoxyCodeLine{152   \textcolor{comment}{// This takes N integers from array values and writes them on stream s.}}
+\DoxyCodeLine{153   \textcolor{keyword}{template} <\textcolor{keyword}{typename} IntType>}
+\DoxyCodeLine{154   \textcolor{keyword}{inline} \textcolor{keywordtype}{void} write\_little\_endian(std::ostream\& stream, \textcolor{keyword}{const} IntType* values, std::size\_t count) \{}
+\DoxyCodeLine{155       \textcolor{keywordflow}{if} (IsLittleEndian)}
+\DoxyCodeLine{156           stream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(values), \textcolor{keyword}{sizeof}(IntType) * count);}
+\DoxyCodeLine{157       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{158           \textcolor{keywordflow}{for} (std::size\_t i = 0; i < count; ++i)}
+\DoxyCodeLine{159               write\_little\_endian<IntType>(stream, values[i]);}
+\DoxyCodeLine{160   \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_COMMON\_H\_INCLUDED}}
+
+\end{DoxyCode}

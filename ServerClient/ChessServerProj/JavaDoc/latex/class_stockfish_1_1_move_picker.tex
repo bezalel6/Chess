@@ -1,0 +1,39 @@
+\hypertarget{class_stockfish_1_1_move_picker}{}\doxysection{Move\+Picker}
+\label{class_stockfish_1_1_move_picker}\index{MovePicker@{MovePicker}}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} class is used to pick one pseudo-\/legal move at a time from the current position. The most important method is \mbox{\hyperlink{class_stockfish_1_1_move_picker_a11368e6ef0025e37d64e62f77b88d17a}{next\+\_\+move()}}, which returns a new pseudo-\/legal move each time it is called, until there are no moves left, when MOVE\+\_\+\+NONE is returned. In order to improve the efficiency of the alpha-\/beta algorithm, \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} attempts to return the moves which are most likely to get a cut-\/off first. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_move_picker_a9af5defe5656cf77197f97b2a8343fba}\label{class_stockfish_1_1_move_picker_a9af5defe5656cf77197f97b2a8343fba}} 
+\index{MovePicker@{MovePicker}!MovePicker@{MovePicker}}
+\index{MovePicker@{MovePicker}!MovePicker@{MovePicker}}
+\doxysubsubsection{\texorpdfstring{MovePicker()}{MovePicker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{p,  }\item[{\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}}]{ttm,  }\item[{Value}]{th,  }\item[{const \mbox{\hyperlink{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}{Capture\+Piece\+To\+History}} $\ast$}]{cph }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} constructor for Prob\+Cut\+: we generate captures with SEE greater than or equal to the given threshold. \mbox{\Hypertarget{class_stockfish_1_1_move_picker_a990da919b5dfe80a7d6ec7112c0efbf7}\label{class_stockfish_1_1_move_picker_a990da919b5dfe80a7d6ec7112c0efbf7}} 
+\index{MovePicker@{MovePicker}!MovePicker@{MovePicker}}
+\index{MovePicker@{MovePicker}!MovePicker@{MovePicker}}
+\doxysubsubsection{\texorpdfstring{MovePicker()}{MovePicker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_stockfish_1_1_position}{Position}} \&}]{p,  }\item[{\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}}]{ttm,  }\item[{Depth}]{d,  }\item[{const \mbox{\hyperlink{namespace_stockfish_a2741c0beba5bf343aad5bff1664c871b}{Butterfly\+History}} $\ast$}]{mh,  }\item[{const \mbox{\hyperlink{struct_stockfish_1_1_stats}{Low\+Ply\+History}} $\ast$}]{lp,  }\item[{const \mbox{\hyperlink{namespace_stockfish_a9e4f0836d4e6df5f356c457c6d209370}{Capture\+Piece\+To\+History}} $\ast$}]{cph,  }\item[{const \mbox{\hyperlink{namespace_stockfish_ac58c96a08c24dae870c3094df67e04f1}{Piece\+To\+History}} $\ast$$\ast$}]{ch,  }\item[{\mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}}}]{cm,  }\item[{const \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} $\ast$}]{killers,  }\item[{int}]{pl }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} constructor for the main search. 
+
+Constructors of the \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} class. As arguments we pass information to help it to return the (presumably) good moves first, to decide which moves to return (in the quiescence search, for instance, we only want to search captures, promotions, and some checks) and how important good move ordering is at the current node. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_move_picker_a11368e6ef0025e37d64e62f77b88d17a}\label{class_stockfish_1_1_move_picker_a11368e6ef0025e37d64e62f77b88d17a}} 
+\index{MovePicker@{MovePicker}!next\_move@{next\_move}}
+\index{next\_move@{next\_move}!MovePicker@{MovePicker}}
+\doxysubsubsection{\texorpdfstring{next\_move()}{next\_move()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_stockfish_a576fe67231d88b6faf585e231bf99611}{Move}} next\+\_\+move (\begin{DoxyParamCaption}\item[{bool}]{skip\+Quiets = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_stockfish_1_1_move_picker_a11368e6ef0025e37d64e62f77b88d17a}{Move\+Picker\+::next\+\_\+move()}} is the most important method of the \mbox{\hyperlink{class_stockfish_1_1_move_picker}{Move\+Picker}} class. It returns a new pseudo-\/legal move every time it is called until there are no more moves left, picking the move with the highest score from a list of generated moves. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/movepick.\+h\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/movepick.\+cpp\end{DoxyCompactItemize}

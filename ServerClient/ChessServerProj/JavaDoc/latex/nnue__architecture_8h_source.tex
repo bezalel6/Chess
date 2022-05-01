@@ -1,0 +1,66 @@
+\hypertarget{nnue__architecture_8h_source}{}\doxysection{nnue\+\_\+architecture.\+h}
+\label{nnue__architecture_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_architecture.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/nnue/nnue\_architecture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Input features and network structure used in NNUE evaluation function}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef NNUE\_ARCHITECTURE\_H\_INCLUDED}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NNUE\_ARCHITECTURE\_H\_INCLUDED}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}nnue\_common.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}features/half\_ka\_v2\_hm.h"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}layers/input\_slice.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}layers/affine\_transform.h"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}layers/clipped\_relu.h"{}}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{namespace }Stockfish::Eval::NNUE \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{comment}{// Input features used in evaluation function}}
+\DoxyCodeLine{35   \textcolor{keyword}{using} FeatureSet = Features::HalfKAv2\_hm;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{comment}{// Number of input feature dimensions after conversion}}
+\DoxyCodeLine{38   \textcolor{keyword}{constexpr} IndexType TransformedFeatureDimensions = 1024;}
+\DoxyCodeLine{39   \textcolor{keyword}{constexpr} IndexType PSQTBuckets = 8;}
+\DoxyCodeLine{40   \textcolor{keyword}{constexpr} IndexType LayerStacks = 8;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keyword}{namespace }Layers \{}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// Define network structure}}
+\DoxyCodeLine{45     \textcolor{keyword}{using} InputLayer = InputSlice<TransformedFeatureDimensions * 2>;}
+\DoxyCodeLine{46     \textcolor{keyword}{using} HiddenLayer1 = ClippedReLU<AffineTransform<InputLayer, 8>>;}
+\DoxyCodeLine{47     \textcolor{keyword}{using} HiddenLayer2 = ClippedReLU<AffineTransform<HiddenLayer1, 32>>;}
+\DoxyCodeLine{48     \textcolor{keyword}{using} OutputLayer = AffineTransform<HiddenLayer2, 1>;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \}  \textcolor{comment}{// namespace Layers}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{keyword}{using} Network = Layers::OutputLayer;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keyword}{static\_assert}(TransformedFeatureDimensions \% MaxSimdWidth == 0, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{55   \textcolor{keyword}{static\_assert}(Network::OutputDimensions == 1, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{56   \textcolor{keyword}{static\_assert}(std::is\_same<Network::OutputType, std::int32\_t>::value, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \}  \textcolor{comment}{// namespace Stockfish::Eval::NNUE}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef NNUE\_ARCHITECTURE\_H\_INCLUDED}}
+
+\end{DoxyCode}

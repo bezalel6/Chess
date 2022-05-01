@@ -1,0 +1,69 @@
+\hypertarget{material_8h_source}{}\doxysection{material.\+h}
+\label{material_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/material.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/material.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{  Stockfish, a UCI chess playing engine derived from Glaurung 2.1}}
+\DoxyCodeLine{3 \textcolor{comment}{  Copyright (C) 2004-\/2021 The Stockfish developers (see AUTHORS file)}}
+\DoxyCodeLine{4 \textcolor{comment}{}}
+\DoxyCodeLine{5 \textcolor{comment}{  Stockfish is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{6 \textcolor{comment}{  it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{7 \textcolor{comment}{  the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{8 \textcolor{comment}{  (at your option) any later version.}}
+\DoxyCodeLine{9 \textcolor{comment}{}}
+\DoxyCodeLine{10 \textcolor{comment}{  Stockfish is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{11 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{12 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{13 \textcolor{comment}{  GNU General Public License for more details.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{16 \textcolor{comment}{  along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef MATERIAL\_H\_INCLUDED}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MATERIAL\_H\_INCLUDED}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}endgame.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}position.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}types.h"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }Stockfish::Material \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stockfish_1_1_material_1_1_entry}{Entry}} \{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} imbalance()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} score; \}}
+\DoxyCodeLine{41   Phase game\_phase()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (Phase)gamePhase; \}}
+\DoxyCodeLine{42   \textcolor{keywordtype}{bool} specialized\_eval\_exists()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} evaluationFunction != \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{43   Value evaluate(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*evaluationFunction)(pos); \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{comment}{// scale\_factor() takes a position and a color as input and returns a scale factor}}
+\DoxyCodeLine{46   \textcolor{comment}{// for the given color. We have to provide the position in addition to the color}}
+\DoxyCodeLine{47   \textcolor{comment}{// because the scale factor may also be a function which should be applied to}}
+\DoxyCodeLine{48   \textcolor{comment}{// the position. For instance, in KBP vs K endgames, the scaling function looks}}
+\DoxyCodeLine{49   \textcolor{comment}{// for rook pawns and wrong-\/colored bishops.}}
+\DoxyCodeLine{50   ScaleFactor scale\_factor(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos, Color c)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{51     ScaleFactor sf = scalingFunction[c] ? (*scalingFunction[c])(pos)}
+\DoxyCodeLine{52                                         :  SCALE\_FACTOR\_NONE;}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} sf != SCALE\_FACTOR\_NONE ? sf : ScaleFactor(factor[c]);}
+\DoxyCodeLine{54   \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   Key key;}
+\DoxyCodeLine{57   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase<Value>}}* evaluationFunction;}
+\DoxyCodeLine{58   \textcolor{keyword}{const} \mbox{\hyperlink{struct_stockfish_1_1_endgame_base}{EndgameBase<ScaleFactor>}}* scalingFunction[COLOR\_NB]; \textcolor{comment}{// Could be one for each}}
+\DoxyCodeLine{59                                                              \textcolor{comment}{// side (e.g. KPKP, KBPsK)}}
+\DoxyCodeLine{60   \mbox{\hyperlink{namespace_stockfish_a825b429bc499b4abe812cc42e5c117ba}{Score}} score;}
+\DoxyCodeLine{61   int16\_t gamePhase;}
+\DoxyCodeLine{62   uint8\_t factor[COLOR\_NB];}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{typedef} \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{HashTable<Entry, 8192>}} \mbox{\hyperlink{struct_stockfish_1_1_hash_table}{Table}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \mbox{\hyperlink{struct_stockfish_1_1_material_1_1_entry}{Entry}}* probe(\textcolor{keyword}{const} \mbox{\hyperlink{class_stockfish_1_1_position}{Position}}\& pos);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \} \textcolor{comment}{// namespace Stockfish::Material}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \#ifndef MATERIAL\_H\_INCLUDED}}
+
+\end{DoxyCode}

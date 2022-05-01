@@ -1,0 +1,250 @@
+\hypertarget{incbin_8h_source}{}\doxysection{incbin.\+h}
+\label{incbin_8h_source}\index{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/incbin/incbin.h@{assets/Stockfish/stockfish\_14.1\_win\_x64\_avx2/stockfish\_14.1\_src/src/incbin/incbin.h}}
+\mbox{\hyperlink{incbin_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef INCBIN\_HDR}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define INCBIN\_HDR}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#if   defined(\_\_AVX512BW\_\_) || \(\backslash\)}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{      defined(\_\_AVX512CD\_\_) || \(\backslash\)}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{      defined(\_\_AVX512DQ\_\_) || \(\backslash\)}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{      defined(\_\_AVX512ER\_\_) || \(\backslash\)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{      defined(\_\_AVX512PF\_\_) || \(\backslash\)}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{      defined(\_\_AVX512VL\_\_) || \(\backslash\)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{      defined(\_\_AVX512F\_\_)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\# define INCBIN\_ALIGNMENT\_INDEX 6}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#elif defined(\_\_AVX\_\_)      || \(\backslash\)}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{      defined(\_\_AVX2\_\_)}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\# define INCBIN\_ALIGNMENT\_INDEX 5}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#elif defined(\_\_SSE\_\_)      || \(\backslash\)}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{      defined(\_\_SSE2\_\_)     || \(\backslash\)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{      defined(\_\_SSE3\_\_)     || \(\backslash\)}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{      defined(\_\_SSSE3\_\_)    || \(\backslash\)}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{      defined(\_\_SSE4\_1\_\_)   || \(\backslash\)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{      defined(\_\_SSE4\_2\_\_)   || \(\backslash\)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{      defined(\_\_neon\_\_)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\# define INCBIN\_ALIGNMENT\_INDEX 4}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#elif ULONG\_MAX != 0xffffffffu}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\# define INCBIN\_ALIGNMENT\_INDEX 3}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\# define INCBIN\_ALIGNMENT\_INDEX 2}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{/* Lookup table of (1 << n) where `n' is `INCBIN\_ALIGNMENT\_INDEX' */}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_0 1}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_1 2}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_2 4}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_3 8}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_4 16}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_5 32}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define INCBIN\_ALIGN\_SHIFT\_6 64}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{/* Actual alignment value */}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define INCBIN\_ALIGNMENT \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{        INCBIN\_CONCATENATE(INCBIN\_ALIGN\_SHIFT, \_), \(\backslash\)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{        INCBIN\_ALIGNMENT\_INDEX)}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{/* Stringize */}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define INCBIN\_STR(X) \(\backslash\)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{    \#X}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define INCBIN\_STRINGIZE(X) \(\backslash\)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{    INCBIN\_STR(X)}}
+\DoxyCodeLine{57 \textcolor{comment}{/* Concatenate */}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define INCBIN\_CAT(X, Y) \(\backslash\)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{    X \#\# Y}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define INCBIN\_CONCATENATE(X, Y) \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    INCBIN\_CAT(X, Y)}}
+\DoxyCodeLine{62 \textcolor{comment}{/* Deferred macro expansion */}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define INCBIN\_EVAL(X) \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    X}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define INCBIN\_INVOKE(N, ...) \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{    INCBIN\_EVAL(N(\_\_VA\_ARGS\_\_))}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{/* Green Hills uses a different directive for including binary data */}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if defined(\_\_ghs\_\_)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#  if (\_\_ghs\_asm == 2)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#    define INCBIN\_MACRO "{}.file"{}}}
+\DoxyCodeLine{72 \textcolor{comment}{/* Or consider the "{}.myrawdata"{} entry in the ld file */}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#  else}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#    define INCBIN\_MACRO "{}\(\backslash\)tINCBIN"{}}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#  define INCBIN\_MACRO "{}.incbin"{}}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#ifndef \_MSC\_VER}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    \_\_attribute\_\_((aligned(INCBIN\_ALIGNMENT)))}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN \_\_declspec(align(INCBIN\_ALIGNMENT))}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#if defined(\_\_arm\_\_) || }\textcolor{comment}{/* GNU C and RealView */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{    defined(\_\_arm) || }\textcolor{comment}{/* Diab */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{    defined(\_ARM) }\textcolor{comment}{/* ImageCraft */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#  define INCBIN\_ARM}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{94 \textcolor{comment}{/* Utilize .balign where supported */}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_HOST "{}.balign "{}} INCBIN\_STRINGIZE(INCBIN\_ALIGNMENT) "{}\(\backslash\)n"{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_BYTE "{}.balign 1\(\backslash\)n"{}}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#elif defined(INCBIN\_ARM)}}
+\DoxyCodeLine{98 \textcolor{comment}{/*}}
+\DoxyCodeLine{99 \textcolor{comment}{ * On arm assemblers, the alignment value is calculated as (1 << n) where `n' is}}
+\DoxyCodeLine{100 \textcolor{comment}{ * the shift count. This is the value passed to `.align'}}
+\DoxyCodeLine{101 \textcolor{comment}{ */}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_HOST "{}.align "{}} INCBIN\_STRINGIZE(INCBIN\_ALIGNMENT\_INDEX) "{}\(\backslash\)n"{}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_BYTE "{}.align 0\(\backslash\)n"{}}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{105 \textcolor{comment}{/* We assume other inline assembler's treat `.align' as `.balign' */}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_HOST "{}.align "{}} INCBIN\_STRINGIZE(INCBIN\_ALIGNMENT) "{}\(\backslash\)n"{}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#  define INCBIN\_ALIGN\_BYTE "{}.align 1\(\backslash\)n"{}}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{comment}{/* INCBIN\_CONST is used by incbin.c generated files */}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#if defined(\_\_cplusplus)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#  define INCBIN\_EXTERNAL extern "{}C"{}}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#  define INCBIN\_CONST    extern const}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#  define INCBIN\_EXTERNAL extern}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#  define INCBIN\_CONST    const}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#if !defined(INCBIN\_OUTPUT\_SECTION)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#  if defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#    define INCBIN\_OUTPUT\_SECTION         "{}.const\_data"{}}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#  else}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#    define INCBIN\_OUTPUT\_SECTION         "{}.rodata"{}}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#if defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{142 \textcolor{comment}{/* The directives are different for Apple branded compilers */}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#  define INCBIN\_SECTION         INCBIN\_OUTPUT\_SECTION "{}\(\backslash\)n"{}}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#  define INCBIN\_GLOBAL(NAME)    "{}.globl "{}} INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME "{}\(\backslash\)n"{}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#  define INCBIN\_INT             "{}.long "{}}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#  define INCBIN\_MANGLE          "{}\_"{}}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#  define INCBIN\_BYTE            "{}.byte "{}}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#  define INCBIN\_TYPE(...)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#  define INCBIN\_SECTION         "{}.section "{}} INCBIN\_OUTPUT\_SECTION "{}\(\backslash\)n"{}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#  define INCBIN\_GLOBAL(NAME)    "{}.global "{}} INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME "{}\(\backslash\)n"{}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#  if defined(\_\_ghs\_\_)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#    define INCBIN\_INT           "{}.word "{}}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#  else}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#    define INCBIN\_INT           "{}.int "{}}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#  if defined(\_\_USER\_LABEL\_PREFIX\_\_)}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#    define INCBIN\_MANGLE        INCBIN\_STRINGIZE(\_\_USER\_LABEL\_PREFIX\_\_)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#  else}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#    define INCBIN\_MANGLE        "{}"{}}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#  if defined(INCBIN\_ARM)}}
+\DoxyCodeLine{163 \textcolor{comment}{/* On arm assemblers, `@' is used as a line comment token */}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#    define INCBIN\_TYPE(NAME)    "{}.type "{}} INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME "{}, \%object\(\backslash\)n"{}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#  elif defined(\_\_MINGW32\_\_) || defined(\_\_MINGW64\_\_)}}
+\DoxyCodeLine{166 \textcolor{comment}{/* Mingw doesn't support this directive either */}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#    define INCBIN\_TYPE(NAME)}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#  else}}
+\DoxyCodeLine{169 \textcolor{comment}{/* It's safe to use `@' on other architectures */}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#    define INCBIN\_TYPE(NAME)    "{}.type "{}} INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME "{}, @object\(\backslash\)n"{}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#  define INCBIN\_BYTE            "{}.byte "{}}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{comment}{/* List of style types used for symbol names */}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_CAMEL 0}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_SNAKE 1}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#if !defined(INCBIN\_PREFIX)}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#  define INCBIN\_PREFIX g}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#if !defined(INCBIN\_STYLE)}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#  define INCBIN\_STYLE INCBIN\_STYLE\_CAMEL}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{comment}{/* Style lookup tables */}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_0\_DATA Data}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_0\_END End}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_0\_SIZE Size}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_1\_DATA \_data}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_1\_END \_end}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_1\_SIZE \_size}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \textcolor{comment}{/* Style lookup: returning identifier */}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_IDENT(TYPE) \(\backslash\)}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{    INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{        INCBIN\_STYLE\_, \(\backslash\)}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{        INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{            INCBIN\_EVAL(INCBIN\_STYLE), \(\backslash\)}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{            INCBIN\_CONCATENATE(\_, TYPE)))}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{/* Style lookup: returning string literal */}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define INCBIN\_STYLE\_STRING(TYPE) \(\backslash\)}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{    INCBIN\_STRINGIZE( \(\backslash\)}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{        INCBIN\_STYLE\_IDENT(TYPE)) \(\backslash\)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{}}
+\DoxyCodeLine{264 \textcolor{comment}{/* Generate the global labels by indirectly invoking the macro with our style}}
+\DoxyCodeLine{265 \textcolor{comment}{ * type and concatenating the name against them. */}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define INCBIN\_GLOBAL\_LABELS(NAME, TYPE) \(\backslash\)}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{    INCBIN\_INVOKE( \(\backslash\)}}
+\DoxyCodeLine{268 \textcolor{preprocessor}{        INCBIN\_GLOBAL, \(\backslash\)}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{        INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{            NAME, \(\backslash\)}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{            INCBIN\_INVOKE( \(\backslash\)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{                INCBIN\_STYLE\_IDENT, \(\backslash\)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{                TYPE))) \(\backslash\)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{    INCBIN\_INVOKE( \(\backslash\)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{        INCBIN\_TYPE, \(\backslash\)}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{        INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{            NAME, \(\backslash\)}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{            INCBIN\_INVOKE( \(\backslash\)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{                INCBIN\_STYLE\_IDENT, \(\backslash\)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{                TYPE)))}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#define INCBIN\_EXTERN(NAME) \(\backslash\)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{    INCBIN\_EXTERNAL const INCBIN\_ALIGN unsigned char \(\backslash\)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{        INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{            INCBIN\_CONCATENATE(INCBIN\_PREFIX, NAME), \(\backslash\)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{            INCBIN\_STYLE\_IDENT(DATA))[]; \(\backslash\)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{    INCBIN\_EXTERNAL const INCBIN\_ALIGN unsigned char *const \(\backslash\)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{    INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{        INCBIN\_CONCATENATE(INCBIN\_PREFIX, NAME), \(\backslash\)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{        INCBIN\_STYLE\_IDENT(END)); \(\backslash\)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{    INCBIN\_EXTERNAL const unsigned int \(\backslash\)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{        INCBIN\_CONCATENATE( \(\backslash\)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{            INCBIN\_CONCATENATE(INCBIN\_PREFIX, NAME), \(\backslash\)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{            INCBIN\_STYLE\_IDENT(SIZE))}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#ifdef \_MSC\_VER}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define INCBIN(NAME, FILENAME) \(\backslash\)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{    INCBIN\_EXTERN(NAME)}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define INCBIN(NAME, FILENAME) \(\backslash\)}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{    \_\_asm\_\_(INCBIN\_SECTION \(\backslash\)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{            INCBIN\_GLOBAL\_LABELS(NAME, DATA) \(\backslash\)}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{            INCBIN\_ALIGN\_HOST \(\backslash\)}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{            INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME INCBIN\_STYLE\_STRING(DATA) "{}:\(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{352             INCBIN\_MACRO "{} \(\backslash\)"{}"{} FILENAME "{}\(\backslash\)"{}\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{353             INCBIN\_GLOBAL\_LABELS(NAME, END) \(\backslash\)}
+\DoxyCodeLine{354             INCBIN\_ALIGN\_BYTE \(\backslash\)}
+\DoxyCodeLine{355             INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME INCBIN\_STYLE\_STRING(END) "{}:\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{356                 INCBIN\_BYTE "{}1\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{357             INCBIN\_GLOBAL\_LABELS(NAME, SIZE) \(\backslash\)}
+\DoxyCodeLine{358             INCBIN\_ALIGN\_HOST \(\backslash\)}
+\DoxyCodeLine{359             INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME INCBIN\_STYLE\_STRING(SIZE) "{}:\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{360                 INCBIN\_INT INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME INCBIN\_STYLE\_STRING(END) "{} -\/ "{} \(\backslash\)}
+\DoxyCodeLine{361                            INCBIN\_MANGLE INCBIN\_STRINGIZE(INCBIN\_PREFIX) \#NAME INCBIN\_STYLE\_STRING(DATA) "{}\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{362             INCBIN\_ALIGN\_HOST \(\backslash\)}
+\DoxyCodeLine{363             "{}.text\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{364     ); \(\backslash\)}
+\DoxyCodeLine{365     INCBIN\_EXTERN(NAME)}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

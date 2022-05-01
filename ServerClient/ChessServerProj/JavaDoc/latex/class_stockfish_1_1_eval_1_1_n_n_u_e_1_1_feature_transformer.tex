@@ -1,0 +1,39 @@
+\hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer}{}\doxysection{Feature\+Transformer}
+\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer}\index{FeatureTransformer@{FeatureTransformer}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a0086c2d45135d96fe3c5f1e32c40f9f1}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a0086c2d45135d96fe3c5f1e32c40f9f1}} 
+using {\bfseries Output\+Type} = Transformed\+Feature\+Type
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a675752eff98c800183ceb53011110a54}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a675752eff98c800183ceb53011110a54}} 
+static constexpr Index\+Type {\bfseries Input\+Dimensions} = Feature\+Set\+::\+Dimensions
+\item 
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a477162597759d6cbca5b0f2b3c058959}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a477162597759d6cbca5b0f2b3c058959}} 
+static constexpr Index\+Type {\bfseries Output\+Dimensions} = Half\+Dimensions $\ast$ 2
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a1fc8c21d75be32484c9f19c043a309ef}{Buffer\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a1fc8c21d75be32484c9f19c043a309ef}\label{class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer_a1fc8c21d75be32484c9f19c043a309ef}} 
+\index{FeatureTransformer@{FeatureTransformer}!BufferSize@{BufferSize}}
+\index{BufferSize@{BufferSize}!FeatureTransformer@{FeatureTransformer}}
+\doxysubsubsection{\texorpdfstring{BufferSize}{BufferSize}}
+{\footnotesize\ttfamily constexpr std\+::size\+\_\+t Buffer\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        OutputDimensions * \textcolor{keyword}{sizeof}(OutputType)}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+assets/\+Stockfish/stockfish\+\_\+14.\+1\+\_\+win\+\_\+x64\+\_\+avx2/stockfish\+\_\+14.\+1\+\_\+src/src/nnue/nnue\+\_\+feature\+\_\+transformer.\+h\end{DoxyCompactItemize}
