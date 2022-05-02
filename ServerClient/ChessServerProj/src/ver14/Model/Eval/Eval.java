@@ -19,7 +19,8 @@ import java.util.ArrayList;
 
 
 /**
- * Eval.
+ * Eval - evaluate a given position for a player color. the evaluation is consistent to both players. meaning that an evaluation for any position
+ * is going to be the same for both players, only multiplied by -1 for the other player.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -90,50 +91,55 @@ public class Eval implements Serializable {
 
         calcEvaluation();
 
-        evaluation.assertNotGameOver();
 
     }
 
     /**
-     * Check game over evaluation.
+     * is game over.
      *
-     * @return the evaluation
+     * @return evaluation evaluation
      */
     private Evaluation checkGameOver() {
+//        if the current player can't make any move
         if (!model.anyLegalMove(playerToMove)) {
+//            checkmate
             if (model.isInCheck(playerToMove)) {
                 return new Evaluation(GameStatus.checkmate(playerToMove.getOpponent(), model.getKing(playerToMove)), playerToMove);
             }
+//            stalemate
             return new Evaluation(GameStatus.stalemate(), playerToMove);
 
         }
+//        fifty move rule
         if (model.getHalfMoveClock() >= 100) {
             return new Evaluation(GameStatus.fiftyMoveRule(), playerToMove);
         }
+//        threefold repetition
         if (checkRepetition()) {
             return new Evaluation(GameStatus.threeFoldRepetition(), playerToMove);
         }
+//        insufficient material
         if (checkForInsufficientMaterial()) {
             return new Evaluation(GameStatus.insufficientMaterial(), playerToMove);
         }
+//        not a game over
         return new Evaluation(playerToMove);
     }
 
     /**
-     * Endgame weight double.
+     * Endgame weight.
      *
-     * @return the double
+     * @return the endgame weight for the current position
      */
     private double endgameWeight() {
+//        the endgame weight is a function of the material still on the board
         double materialWithoutPawns = materialSumWithoutPandK();
         double multiplier = 1 / endgameMaterialStart;
-//        double multiplier =1/ endgameMaterialStart;
-//        return 1 - materialWithoutPawns * multiplier;
         return 1 - Math.min(1, materialWithoutPawns * multiplier);
     }
 
     /**
-     * Calc evaluation.
+     * if isn't game over, an evaluation is calculated.
      */
     private void calcEvaluation() {
 
@@ -147,7 +153,7 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(PlayerColor.WHITE) - materialSum(PlayerColor.BLACK));
 
         //Piece Tables
-        comparePieceTables();
+        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, materialSum(PlayerColor.WHITE) - materialSum(PlayerColor.BLACK));
 
 //        force king to corner
         evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, PlayerColor.WHITE) - forceKingToCorner(egWeight, PlayerColor.BLACK));
@@ -157,26 +163,22 @@ public class Eval implements Serializable {
     }
 
     /**
-     * Check repetition boolean.
+     * Check for threefold repetition .
      *
-     * @return the boolean
+     * @return true if this board had a threefold repetition. false otherwise.
      */
     private boolean checkRepetition() {
-//        if (true)
-//            return false;
         var stack = model.getMoveStack();
         if (stack.size() < 8)
             return false;
         ArrayList<Long> list = new ArrayList<>();
+//        creating a list of all consecutive reversible moves done in the game history up until now
         for (int i = stack.size() - 1; i >= 0; i -= 2) {
             var move = stack.get(i);
             if (!move.isReversible())
                 break;
             long l = move.getCreatedListHashSupplier().get();
             list.add(l);
-//            if (i == 0) {
-//                list.add(model.getFirstPositionMovesHash());
-//            }
         }
 
         if (PRINT_REP_LIST)
@@ -190,12 +192,9 @@ public class Eval implements Serializable {
             for (int j = i + 1; j < list.size(); j++) {
                 if (list.get(j) == current) {
                     matches++;
-                    if (matches == 1 && j >= 2) {
+                    if (matches == 2) {//a repetition is found
                         return true;
                     }
-//                    if (matches == 2) {
-//                        return true;
-//                    }
                 }
             }
         }
@@ -204,7 +203,7 @@ public class Eval implements Serializable {
     }
 
     /**
-     * Check for insufficient material boolean.
+     * Check for insufficient material.
      *
      * @return the boolean
      */
@@ -214,9 +213,9 @@ public class Eval implements Serializable {
     }
 
     /**
-     * Material sum without pand k double.
+     * Material sum without pawns and kings. used to calculate the endgame weight
      *
-     * @return the double
+     * @return the sum
      */
     private double materialSumWithoutPandK() {
         double ret = 0;
@@ -230,10 +229,10 @@ public class Eval implements Serializable {
     }
 
     /**
-     * Material sum int.
+     * the sum of all the pieces' values of a player
      *
      * @param playerColor the player color
-     * @return the int
+     * @return the sum in centipawns
      */
     private int materialSum(PlayerColor playerColor) {
         int ret = 0;
@@ -245,32 +244,6 @@ public class Eval implements Serializable {
         }
         return ret;
     }
-
-    /**
-     * Compare piece tables.
-     */
-    private void comparePieceTables() {
-        int res = 0;
-        for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
-            int mult = currentlyChecking == PlayerColor.WHITE ? 1 : -1;
-            PiecesBBs playersPieces = model.getPlayersPieces(currentlyChecking);
-            Bitboard[] bitboards = playersPieces.getBitboards();
-            for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
-                Bitboard bb = bitboards[i];
-                for (Location loc : bb.getSetLocs()) {
-                    Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
-
-                    res += table.getValue(egWeight, currentlyChecking, loc) * mult;
-                }
-            }
-        }
-        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, res);
-    }
-
-//
-//    private double compareSquareControl(int player) {
-//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
-//    }
 
     /**
      * Force king to corner.
@@ -297,6 +270,7 @@ public class Eval implements Serializable {
 
         int myRow = myK.row, myCol = myK.col;
 
+//        how far is my king from the opponent's
         int kingsColDst = Math.abs(myCol - opCol);
         int kingsRowDst = Math.abs(myRow - opRow);
         int kingsDst = kingsColDst + kingsRowDst;
@@ -304,9 +278,13 @@ public class Eval implements Serializable {
 
         return (int) (ret * egWeight);
     }
+//
+//    private double compareSquareControl(int player) {
+//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
+//    }
 
     /**
-     * Insufficient material boolean.
+     * does a player has insufficient mating material.
      *
      * @param playerColor the player color
      * @param model       the model
@@ -346,7 +324,7 @@ public class Eval implements Serializable {
      * evaluation for current player
      *
      * @param model the model
-     * @return evaluation
+     * @return evaluation evaluation
      */
     public static Evaluation getEvaluation(Model model) {
         return new Eval(model, model.getCurrentPlayer()).evaluation;
@@ -375,6 +353,27 @@ public class Eval implements Serializable {
         }
         num = Math.floor(num);
         return num + "".length();
+    }
+
+    /**
+     * calculates piece tables evaluation for a player
+     *
+     * @param clr the clr
+     * @return the int
+     */
+    private int pieceTables(PlayerColor clr) {
+        int res = 0;
+        PiecesBBs playersPieces = model.getPlayersPieces(clr);
+        Bitboard[] bitboards = playersPieces.getBitboards();
+        for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
+            Bitboard bb = bitboards[i];
+            for (Location loc : bb.getSetLocs()) {
+                Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
+
+                res += table.getValue(egWeight, clr, loc);
+            }
+        }
+        return res;
     }
 
     /**
