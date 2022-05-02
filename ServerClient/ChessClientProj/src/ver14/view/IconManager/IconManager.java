@@ -181,7 +181,7 @@ public class IconManager {
         if (Environment.IS_JAR) {
             try {
                 if (isNotComplete && !relativePath.contains("./")) {
-                    relativePath = "./" + relativePath;
+                    relativePath = "./ClientAssets/" + relativePath;
                 }
                 if (!isNotComplete && relativePath.contains("./")) {
                     relativePath = relativePath.replaceAll("\\./", "");

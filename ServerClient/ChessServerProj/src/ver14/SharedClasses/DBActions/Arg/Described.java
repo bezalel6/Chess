@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * Described represents a described object.
+ * Described -  represents a described object.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

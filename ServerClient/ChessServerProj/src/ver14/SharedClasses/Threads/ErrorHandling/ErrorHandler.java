@@ -4,9 +4,9 @@ import ver14.SharedClasses.Threads.MyThread;
 
 
 /**
- * The interface Error handler.
+ * an Error handler.
  *
- * @param <E> the type parameter
+ * @param <E> the error type parameter
  */
 public interface ErrorHandler<E extends MyError> {
 

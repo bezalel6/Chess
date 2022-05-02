@@ -15,7 +15,7 @@ public class MyJButton extends JButton {
 
 
     /**
-     * The Og txt.
+     * The og txt.
      */
     private String ogTxt = null;
     /**

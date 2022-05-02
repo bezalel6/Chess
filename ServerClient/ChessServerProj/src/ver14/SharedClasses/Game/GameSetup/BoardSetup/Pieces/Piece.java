@@ -4,7 +4,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Piece - represents a combination of a piece type, and a color.
+ * Piece - represents a combination of a piece type and color.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  * @see PieceType

@@ -40,7 +40,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mylibs" level="project" />
+    <orderEntry type="library" exported="" name="mylibs" level="project" />
     <orderEntry type="module-library">
       <library name="testng">
         <CLASSES>

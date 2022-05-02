@@ -1,28 +1,26 @@
 package ver14.SharedClasses.Sync;
 
-/*
- * SyncedListType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
-/*
- * SyncedListType -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * SyncedListType
+/**
+ * Synced list type.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public enum SyncedListType {
+    /**
+     * Resumable games synced list type.
+     */
     RESUMABLE_GAMES,
+    /**
+     * Joinable games synced list type.
+     */
     JOINABLE_GAMES,
+    /**
+     * Connected users synced list type.
+     */
     CONNECTED_USERS,
+    /**
+     * Ongoing games synced list type.
+     */
     ONGOING_GAMES;
 
 }

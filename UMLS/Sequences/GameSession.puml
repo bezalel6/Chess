@@ -9,6 +9,7 @@ while (players want to play?) is (yes)
 while(game over?) is (no)
 :get move from the current player\n to move;
 :make the move;
+:update both players' boards;
 :switch turns;
 endwhile (yes)
 :send game over to both players;
@@ -17,4 +18,11 @@ endwhile(no)
 stop
 
 
+@enduml
+@startuml
+if (?) is (yes) then
+  :true;
+else (no)
+  :false;
+endif
 @enduml

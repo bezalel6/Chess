@@ -4,7 +4,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 
 /**
- * My error - .
+ * My error.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -101,7 +101,7 @@ public class MyError extends Error {
     }
 
     /**
-     * Db err - .
+     * Db err - represents a database error.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 
 /**
- * The type Args utils.
+ * Args utils.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -4,12 +4,6 @@ import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.Table.Table;
 
-/*
- * Delete -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 24/04/2022
- */
-
 /**
  * Delete - deletion statement.
  *

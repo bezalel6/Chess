@@ -110,7 +110,7 @@ public class DBRequest implements Serializable {
     }
 
     /**
-     * Type - .
+     * Type - db request type.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

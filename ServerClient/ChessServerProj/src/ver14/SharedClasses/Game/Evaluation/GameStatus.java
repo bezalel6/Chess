@@ -9,7 +9,7 @@ import java.util.Map;
 
 
 /**
- * Game status - represents a game status .
+ * Game status - represents a game status.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 
 /**
- * Table - represents the tables in the db.
+ * Table - represents a table in the db.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 
 /**
- * Question.
+ * represents a Question to ask a player.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

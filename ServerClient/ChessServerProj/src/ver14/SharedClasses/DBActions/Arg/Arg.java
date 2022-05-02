@@ -132,7 +132,7 @@ public class Arg implements Serializable {
     }
 
     /**
-     * Creates a string value to replace this argument with the provided value.
+     * Creates a string value to replace this temporary argument
      *
      * @param val the val
      * @return the string

@@ -6,7 +6,7 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ChessServerProj:jar5" />
+      <artifact name="ChessServerProj:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -14,562 +14,223 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x">
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/affine__transform_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/annotated.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/bitboard_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_od70fa3ed85dea915840007be624cff3c.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_input_slice.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_move_picker.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_p_r_n_g.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_position.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_running_average.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_stats_entry.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_thread.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_thread.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_thread.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_time_management.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_transposition_table.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_tune.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_u_c_i_1_1_option.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/class_stockfish_1_1_value_list.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_d_b_1_1_d_b.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_game_1_1_game.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_game_1_1_game_session.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_game_1_1_game_session.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_game_1_1_game_session.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_attacked_squares.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_bitboard.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_bitboard.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_bitboard.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_f_e_n.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_locs.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_locs.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_locs.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_model.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_model.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_model_1_1_model.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_my_server_socket.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_my_server_socket.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_my_server_socket.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server_messages_handler.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server_messages_handler.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_server_messages_handler.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_switch_case.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_bit_data.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_annotation.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_premoves_generator.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_login_1_1_login_info.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_login_1_1_login_info.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_login_1_1_login_info.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_efficient_gen.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_environment.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_i_ds_generator.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_question.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_question.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_misc_1_1_question.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_networking_1_1_messages_handler.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_synced_items.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_synced_items.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_synced_items.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_user_info.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_user_info.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_sync_1_1_user_info.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_threads_1_1_threads_manager.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_font_manager.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_game_view.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_game_view.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_game_view.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_u_i_1_1dialogs_1_1_confirm_dialogs.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_args_util.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_arr_utils.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_math_utils.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_shared_classes_1_1_utils_1_1_str_utils.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_threads_util.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/classver14_1_1_username_suggestions.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/clipped__relu_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/doxygen.sty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/endgame_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_math.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_table.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation_parameters.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_specific_status.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_location.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights_1_1_side.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_direction.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_1_1_move_flag.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move_flags.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_game_1_1_player_color.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_login_1_1_login_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_sync_1_1_synced_list_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/enumver14_1_1_shared_classes_1_1_threads_1_1_my_thread_1_1_thread_status.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/evaluate_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/evaluate__nnue_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/half__ka__v2__hm_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/hierarchy.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/incbin_8h.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/incbin_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/input__slice_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_callback.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_lazy_hash_supplier.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_lazy_hash_supplier.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_lazy_hash_supplier.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_throwing_callback.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_void_callback.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_pre_made_request_1_1_variation_creator.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_component.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_component.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_component.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list_1_1_compare_moves.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_login_1_1_auth_settings.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_sync_1_1_synced_items_1_1_remover.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_env_manager.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_error_handler.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_throwing_runnable.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_closing.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_my_adapter_1_1_held_down.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_lbl_1_1_string_modifier.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/interfacever14_1_1_shared_classes_1_1_utils_1_1_str_utils_1_1_iteration_thingy.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/longtable_doxygen.sty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/make.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/material_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/md_assets__stockfish_stockfish_14_1_win_x64_avx2_stockfish_14_1_src__r_e_a_d_m_e.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/misc_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/movegen_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/movepick_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/namespace_stockfish.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/namespace_stockfish_1_1_endgames.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/namespace_stockfish_1_1_win_proc_group.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/nnue__accumulator_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/nnue__architecture_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/nnue__common_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/nnue__feature__transformer_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/pawns_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/position_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/psqt_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.aux" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.ilg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.ind" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/refman.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/search_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/simd_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_endgame.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_endgame.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_endgame.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_endgame_base.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_accumulator.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_aligned_deleter.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_large_page_deleter.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_nnue_eval_trace.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_ext_move.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_hash_table.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_magic.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_main_thread.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_main_thread.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_main_thread.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_material_1_1_entry.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_move_list.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_pawns_1_1_entry.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_search_1_1_limits_type.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_search_1_1_root_move.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_search_1_1_stack.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_set_range.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_t_t_entry.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_thread_pool.eps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_thread_pool.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_thread_pool.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/struct_stockfish_1_1_u_c_i_1_1_case_insensitive_less.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/tabu_doxygen.sty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/tbprobe_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/thread_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/thread__win32__osx_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/timeman_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/tt_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/tune_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/types_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/latex/uci_8h_source.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/affine__transform_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/bitboard_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_feature_transformer.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_features_1_1_half_k_av2__hm.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_o57fe827fe017d65a9511a0500568792e.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_affine_transform_3_01_previous_layer_00_01_od70fa3ed85dea915840007be624cff3c.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_clipped_re_l_u.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_eval_1_1_n_n_u_e_1_1_layers_1_1_input_slice.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_move_picker.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_p_r_n_g.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_position.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_running_average.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_stats_entry.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_thread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_thread.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_time_management.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_transposition_table.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_tune.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_u_c_i_1_1_option.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/class_stockfish_1_1_value_list.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_d_b_1_1_d_b.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_game_1_1_game.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_game_1_1_game_session.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_game_1_1_game_session.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_attacked_squares.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_bitboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_bitboard.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_f_e_n.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_locs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_locs.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_model_1_1_model.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_my_server_socket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_my_server_socket.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_server.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_server.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_server_messages_handler.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_server_messages_handler.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_arg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_arg_1_1_config.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_condition.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_request_1_1_d_b_request.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_d_b_response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graph_element.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable_d_b_response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_status_response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_table_d_b_response.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_request_builder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_custom_statement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_s_q_l_statement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_selection.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_statements_1_1_update.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_d_b_actions_1_1_table_1_1_col.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_evaluation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_ai_parameters.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_game_time.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_basic_move.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_castling_rights.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_minimax_move.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_move.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_moves_1_1_moves_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_archived_game_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_created_game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_established_game_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_game_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_game_1_1_saved_games_1_1_unfinished_game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_login_1_1_login_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_misc_1_1_question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_networking_1_1_app_socket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_networking_1_1_messages_1_1_message.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_sync_1_1_synced_items.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_sync_1_1_user_info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_threads_1_1_error_handling_1_1_my_error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_threads_1_1_handled_thread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_threads_1_1_my_thread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_my_j_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_buttons_1_1_value_btn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_game_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_link_label.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_u_i_1_1_my_lbl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_shared_classes_1_1_utils_1_1_reg_ex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_threads_util.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/classver14_1_1_username_suggestions.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/clipped__relu_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/endgame_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/enumver14_1_1_shared_classes_1_1_game_1_1_evaluation_1_1_game_status_1_1_game_status_type.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/enumver14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_board_setup_1_1_pieces_1_1_piece_type.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/evaluate_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/evaluate__nnue_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/half__ka__v2__hm_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/incbin_8h.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/incbin_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/input__slice_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_answer_callback.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_lazy_hash_supplier.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_callbacks_1_1_message_callback.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_d_b_actions_1_1_d_b_response_1_1_graphable_1_1_graphable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_game_1_1_game_setup_1_1_time_format_component.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_sync_1_1_syncable_item.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_boolean_closing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/interfacever14_1_1_shared_classes_1_1_u_i_1_1_my_j_frame_1_1_string_closing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/material_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/md_assets__stockfish_stockfish_14_1_win_x64_avx2_stockfish_14_1_src__r_e_a_d_m_e.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/misc_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/movegen_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/movepick_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/namespace_stockfish.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/namespace_stockfish_1_1_endgames.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/namespace_stockfish_1_1_win_proc_group.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/nnue__accumulator_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/nnue__architecture_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/nnue__common_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/nnue__feature__transformer_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/pawns_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/position_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/psqt_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/refman.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/search_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/simd_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_endgame.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_endgame.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_endgame_base.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_accumulator.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_aligned_deleter.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_large_page_deleter.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_eval_1_1_n_n_u_e_1_1_nnue_eval_trace.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_ext_move.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_hash_table.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_magic.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_main_thread.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_main_thread.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_material_1_1_entry.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_move_list.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_pawns_1_1_entry.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_search_1_1_limits_type.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_search_1_1_root_move.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_search_1_1_stack.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_set_range.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_stats.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_stats.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_stats_3_01_t_00_01_d_00_01_size_01_4.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_t_t_entry.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_thread_pool.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_thread_pool.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/struct_stockfish_1_1_u_c_i_1_1_case_insensitive_less.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/tbprobe_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/thread_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/thread__win32__osx_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/timeman_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/tt_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/tune_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/types_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDoc/rtf/uci_8h_source.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/LazyHashSupplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/Bishop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/King.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/Knight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/Pawn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/Queen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Black/Rook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Lost/Black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Lost/White.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Tie/Black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Tie/White.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Won/Black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/GameOverIcons/Won/White.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/ServerIcon/hover.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/ServerIcon/normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SettingsIcon/hover.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SettingsIcon/normal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SettingsIcon/normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/capture.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/castle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/check.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/game-end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/game-start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/opponent-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/promote.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/self-move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/ten-seconds.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/SoundEffects/tenSeconds.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Statistics/StatisticsIcon/hover.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/Statistics/StatisticsIcon/normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/StatusIcons/Error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/StatusIcons/Info.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/StatusIcons/serverError.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/Bishop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/King.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/Knight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/Pawn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/Queen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/White/Rook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/greenCheck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/hidePassword.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/promotion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/random.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/redX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/register.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/rules.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/showPassword.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/assets/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/DJNativeSwing-SWT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/DJNativeSwing.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/annotations-20.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/flatlaf-2.0-rc1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/flatlaf-intellij-themes-2.0-rc1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/jcalendar-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/jgoodies-common-1.2.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/jgoodies-looks-2.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/junit-4.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ClientAssets/libs/swt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/annotations-23.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/commons-lang3-3.8.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/guava-19.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/guice-4.1.0-no_aop.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/hsqldb-2.5.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/jackcess-3.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/javasysmon-0.3.5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/javax.inject-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/jcommander-1.72.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/snakeyaml-1.21.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/testng-7.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/libs/ucanaccess-5.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/artifacts/ChessClientProj_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/artifacts/ChessClientProj_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/ConfirmPasswordPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/LoginProcess/Components/Register/ConfirmPasswordPnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/DJNativeSwing-SWT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/DJNativeSwing.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/annotations-20.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Bishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/King.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Pawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Queen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Black/Rook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Lost/Black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Lost/White.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Tie/Black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Tie/White.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Won/Black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/GameOverIcons/Won/White.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/ServerIcon/hover.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/ServerIcon/normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/hover.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/normal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SettingsIcon/normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/capture.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/castle.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/check.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/game-end.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/game-start.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/opponent-move.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/promote.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/self-move.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/ten-seconds.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/SoundEffects/tenSeconds.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Statistics/StatisticsIcon/hover.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/Statistics/StatisticsIcon/normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/Error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/Info.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/StatusIcons/serverError.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Bishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/King.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Pawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Queen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/White/Rook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/greenCheck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/hidePassword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/promotion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/random.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/redX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/rules.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/showPassword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/assets/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/flatlaf-2.0-rc1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/flatlaf-intellij-themes-2.0-rc1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jcalendar-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jgoodies-common-1.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/jgoodies-looks-2.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/junit-4.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/swt.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar2/ChessClientProj.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/ClientMessagesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Board/BoardOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/SimpleDialogs/MessageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/IconManager/IconManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MyTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/MyTextArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ChessServerProj_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ChessServerProj_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessServerProj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChessServerProj.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/element-list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/annotations-23.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/aopalliance-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/commons-lang3-3.8.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/guava-19.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/guice-4.1.0-no_aop.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/hsqldb-2.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/jackcess-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/javasysmon-0.3.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/javax.inject-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/jcommander-1.72.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/snakeyaml-1.21.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/testng-7.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ucanaccess-5.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/AnswerCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/AnswerCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/Callback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/MessageCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/MessageCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/ObjCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/ThrowingCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/ThrowingCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/VoidCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/VoidCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Arg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Arg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Described.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Statements/Delete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Table/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/DBActions/Table/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/GameStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Evaluation/GameStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/AiParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/AiParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/GameSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/GameSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/GameTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/GameTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/TimeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/TimeFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/TimeFormatComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/TimeFormatComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/CastlingRights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/CastlingRights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/MinimaxMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/MinimaxMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/MoveFlags.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/MovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/MovesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/EfficientGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/EfficientGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/MessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/MessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UMLS/Shared/Callbacks.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UMLS/Shared/Callbacks.graphml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/PremovesGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/IDsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/IDsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Misc/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/Messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/Messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/Messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Networking/Messages/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncableItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncableItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedListType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedListType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/EnvManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/EnvManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ThrowingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ErrorHandling/ThrowingRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/HandledThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/HandledThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/MyThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/MyThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/Buttons/MyJButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/Buttons/MyJButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/Buttons/ValueBtn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/Buttons/ValueBtn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/FontManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/FontManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/LinkLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/LinkLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/MyLbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/MyLbl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/dialogs/ConfirmDialogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/dialogs/ConfirmDialogs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArgsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArgsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/MathUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UMLS/Sequences/GameSession.puml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UMLS/Sequences/GameSession.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -657,31 +318,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last.edited.regexp&quot;: &quot;GameStatus(GameStatus nigg)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SharedCo/Chess/UMLS/Shared/SavedGames.graphml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last.edited.regexp": "GameStatus(GameStatus nigg)",
+    "last_opened_file_path": "E:/SharedCo/Chess/ServerClient/ChessServerProj/src/assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver.localdb&quot;,
-      &quot;java.sql.Driver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver.localdb",
+      "java.sql.Driver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bezal\Documents\GitHub\Chess\ServerClient\ChessServerProj\src\assets\dlls" />
@@ -857,6 +518,7 @@
       <workItem from="1651200350697" duration="18952000" />
       <workItem from="1651298609551" duration="19436000" />
       <workItem from="1651340456182" duration="2395000" />
+      <workItem from="1651479896265" duration="18084000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>
@@ -1070,12 +732,6 @@
           <url>file://$PROJECT_DIR$/src/ver13/Model/PiecesBBs.java</url>
           <line>45</line>
           <option name="timeStamp" value="164" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="bestMove==null||bestMove.getMoveEvaluation()==null" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java</url>
-          <line>377</line>
-          <option name="timeStamp" value="171" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

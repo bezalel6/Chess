@@ -12,7 +12,7 @@ import java.util.Random;
 public class IDsGenerator {
 //    todo switch to set
     /**
-     * The crated ids.
+     * the crated ids.
      */
     private final HashMap<String, Object> map = new HashMap<>();
 

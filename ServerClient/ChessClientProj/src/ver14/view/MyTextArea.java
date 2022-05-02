@@ -7,6 +7,7 @@ import java.awt.*;
 
 public class MyTextArea extends JPanel {
     private final JTextArea textArea;
+    private final JScrollPane scrollPane;
 
     public MyTextArea() {
         this("");
@@ -14,6 +15,7 @@ public class MyTextArea extends JPanel {
 
     public MyTextArea(String text) {
         this.textArea = new JTextArea();
+        this.scrollPane = new JScrollPane(textArea);
 //        this.textArea
         initializeUI();
         setText(text);
@@ -21,9 +23,9 @@ public class MyTextArea extends JPanel {
     }
 
     private void initializeUI() {
-        this.setLayout(new BorderLayout());
-        this.add(textArea, BorderLayout.CENTER);
-        textArea.setMinimumSize(new Size(400));
+//        this.setLayout(new BorderLayout());
+        this.add(scrollPane);
+        scrollPane.setPreferredSize(new Size(300));
         setMinimumSize(new Size(400));
     }
 
@@ -38,7 +40,7 @@ public class MyTextArea extends JPanel {
 
     public void setWrap() {
         textArea.setLineWrap(true);
-//        textArea.setWrapStyleWord(true);
+        textArea.setWrapStyleWord(true);
     }
 
     public void setHeight(int height) {
@@ -47,8 +49,8 @@ public class MyTextArea extends JPanel {
 
     @Override
     public void setPreferredSize(Dimension preferredSize) {
-        super.setPreferredSize(preferredSize);
-        textArea.setPreferredSize(preferredSize);
+//        super.setPreferredSize(preferredSize);
+        scrollPane.setPreferredSize(preferredSize);
     }
 
     @Override
@@ -58,18 +60,18 @@ public class MyTextArea extends JPanel {
             textArea.setForeground(fg);
     }
 
-//    @Override
-//    public Dimension getPreferredSize() {
-//        invalidate();
-//        return new Size(Math.max(600, textArea.getPreferredSize().width), textArea.getPreferredSize().height);
-//    }
-
     @Override
     public void setBackground(Color bg) {
         super.setBackground(bg);
         if (textArea != null)
             textArea.setBackground(bg);
     }
+
+//    @Override
+//    public Dimension getPreferredSize() {
+//        invalidate();
+//        return new Size(Math.max(600, textArea.getPreferredSize().width), textArea.getPreferredSize().height);
+//    }
 
     public void setFont(Font font) {
         if (textArea != null)

@@ -2,16 +2,32 @@ package ver14.SharedClasses.UI;
 
 import ver14.SharedClasses.Callbacks.VoidCallback;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
+/**
+ * Link label.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class LinkLabel extends MyLbl {
+    /**
+     * The constant normalClr.
+     */
     private final static Color normalClr = Color.BLUE.darker();
+    /**
+     * The constant hoverClr.
+     */
     private final static Color hoverClr = normalClr.brighter();
 
+    /**
+     * Instantiates a new Link label.
+     *
+     * @param text    the text
+     * @param onClick the on click
+     */
     public LinkLabel(String text, VoidCallback onClick) {
         super(text);
         setFont(FontManager.defaultLinkLbl);
@@ -36,16 +52,12 @@ public class LinkLabel extends MyLbl {
         });
     }
 
-    public static void main(String[] args) {
-        new JFrame() {{
-//            setLayout(new GridBagLayout());
-            setSize(500, 500);
-            add(new LinkLabel("hello", () -> {
-            }));
-            setVisible(true);
-        }};
-    }
 
+    /**
+     * Sets text.
+     *
+     * @param text the text
+     */
     @Override
     public void setText(String text) {
         super.setText(text);

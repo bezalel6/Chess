@@ -1,11 +1,17 @@
 package ver14.SharedClasses.Utils;
 
 /**
- * Math utils.
+ * Math utility class.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class MathUtils {
+    /**
+     * Log 2 double.
+     *
+     * @param num the num
+     * @return the double
+     */
     public static double log2(double num) {
         return log(num, 2);
     }

@@ -1,24 +1,15 @@
 package ver14.SharedClasses.Game.GameSetup;
 
-/*
- * TimeFormatComponent -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com) 23/04/2022
- */
-
-/*
- * TimeFormatComponent -
- * ---------------------------------------------------------------
- * by Bezalel Avrahami(bezalel3250@gmail.com)
- */
-
-/*
- * TimeFormatComponent
+/**
+ * Time format component.
  *
- * 23.4.2022, 2:02
- * author: Bezalel Avrahami
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-
 public interface TimeFormatComponent {
+    /**
+     * Sets time format.
+     *
+     * @param timeFormat the time format
+     */
     void setTimeFormat(TimeFormat timeFormat);
 }

@@ -25,37 +25,113 @@ import java.util.Stack;
 /**
  * Message.
  * ---------------------------------------------------------------------------
- * by Ilan Peretz (ilanperets@gmail.com) 10/11/2021
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Message implements Serializable {
+    /**
+     * The constant messagesIds.
+     */
     private final static IDsGenerator messagesIds = new IDsGenerator();
     /**
      * The Message id.
      */
     public final String messageID;
+    /**
+     * The Message type.
+     */
     private final MessageType messageType;
+    /**
+     * The Subject.
+     */
     private final String subject;
+    /**
+     * The Responding to msg id.
+     */
     private String respondingToMsgId;
+    /**
+     * The Username.
+     */
     private String username = null;
+    /**
+     * The Canceling question cause.
+     */
     private String cancelingQuestionCause = null;
+    /**
+     * The Other player.
+     */
     private String otherPlayer = null;
+    /**
+     * The Available.
+     */
     private Boolean available = null;
+    /**
+     * The Username suggestions.
+     */
     private ArrayList<String> usernameSuggestions = null;
+    /**
+     * The Player color.
+     */
     private PlayerColor playerColor = null;
+    /**
+     * The Game time.
+     */
     private GameTime gameTime = null;
+    /**
+     * The Login info.
+     */
     private LoginInfo loginInfo = null;
+    /**
+     * The Move.
+     */
     private Move move = null;
+    /**
+     * The Game settings.
+     */
     private GameSettings gameSettings = null;
+    /**
+     * The Possible moves.
+     */
     private MovesList possibleMoves = null;
+    /**
+     * The Board.
+     */
     private Board board = null;
+    /**
+     * The Game status.
+     */
     private GameStatus gameStatus = null;
+    /**
+     * The Question.
+     */
     private Question question = null;
+    /**
+     * The Answer.
+     */
     private Question.Answer answer = null;
+    /**
+     * The Pre moves.
+     */
     private ArrayList<Move> preMoves = null;
+    /**
+     * The Synced lists.
+     */
     private SyncedItems<?>[] syncedLists = null;
+    /**
+     * The Move stack.
+     */
     private Stack<Move> moveStack = null;
+    /**
+     * The Db response.
+     */
     private DBResponse dbResponse = null;
+    /**
+     * The Db request.
+     */
     private DBRequest dbRequest = null;
+    /**
+     * The Error.
+     */
     private MyError error;
 
     /**
@@ -123,6 +199,13 @@ public class Message implements Serializable {
         }};
     }
 
+    /**
+     * Cancel question message.
+     *
+     * @param question the question
+     * @param cause    the cause
+     * @return the message
+     */
     public static Message cancelQuestion(Question question, String cause) {
         return new Message(MessageType.CANCEL_QUESTION) {{
             setQuestion(question);
@@ -177,6 +260,13 @@ public class Message implements Serializable {
         }};
     }
 
+    /**
+     * Ask for move message.
+     *
+     * @param possibleMoves the possible moves
+     * @param gameTime      the game time
+     * @return the message
+     */
     public static Message askForMove(MovesList possibleMoves, GameTime gameTime) {
         return new Message(MessageType.GET_MOVE, "Its your turn!") {{
             setPossibleMoves(possibleMoves);
@@ -305,6 +395,7 @@ public class Message implements Serializable {
     /**
      * Answer question message.
      *
+     * @param answer       the answer
      * @param respondingTo the responding to
      * @return the message
      */
@@ -410,18 +501,38 @@ public class Message implements Serializable {
         }};
     }
 
+    /**
+     * Gets canceling question cause.
+     *
+     * @return the canceling question cause
+     */
     public String getCancelingQuestionCause() {
         return cancelingQuestionCause;
     }
 
+    /**
+     * Sets canceling question cause.
+     *
+     * @param cancelingQuestionCause the canceling question cause
+     */
     public void setCancelingQuestionCause(String cancelingQuestionCause) {
         this.cancelingQuestionCause = cancelingQuestionCause;
     }
 
+    /**
+     * Gets answer.
+     *
+     * @return the answer
+     */
     public Question.Answer getAnswer() {
         return answer;
     }
 
+    /**
+     * Sets answer.
+     *
+     * @param answer the answer
+     */
     public void setAnswer(Question.Answer answer) {
         this.answer = answer;
     }
@@ -814,6 +925,11 @@ public class Message implements Serializable {
         this.loginInfo = loginInfo;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return getMessageType() + " (" + messageID + ") " + StrUtils.strINN(subject, respondingToMsgId);

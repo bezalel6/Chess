@@ -13,7 +13,7 @@ import java.awt.*;
  */
 public class ValueBtn<T> extends MyJButton {
     /**
-     * Instantiates a new Value btn.
+     * instantiates a new value btn.
      *
      * @param text    the text
      * @param font    the font

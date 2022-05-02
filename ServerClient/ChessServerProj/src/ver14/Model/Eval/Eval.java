@@ -18,20 +18,62 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
+/**
+ * Eval.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Eval implements Serializable {
+    /**
+     * The constant endgameMaterialStart.
+     */
     private static final double endgameMaterialStart = PieceType.ROOK.value * 2 + PieceType.BISHOP.value + PieceType.KNIGHT.value;
+    /**
+     * The constant PRINT_REP_LIST.
+     */
     public static boolean PRINT_REP_LIST = false;
+    /**
+     * The Model.
+     */
     private final Model model;
+    /**
+     * The Player to move.
+     */
     private final PlayerColor playerToMove;
+    /**
+     * The Evaluation for.
+     */
     private PlayerColor evaluationFor;
+    /**
+     * The Opponent color.
+     */
     private PlayerColor opponentColor;
+    /**
+     * The Eg weight.
+     */
     private double egWeight;
+    /**
+     * The Evaluation.
+     */
     private Evaluation evaluation;
 
+    /**
+     * Instantiates a new Eval.
+     *
+     * @param model         the model
+     * @param evaluationFor the evaluation for
+     */
     private Eval(Model model, PlayerColor evaluationFor) {
         this(model, evaluationFor, false);
     }
 
+    /**
+     * Instantiates a new Eval.
+     *
+     * @param model                the model
+     * @param evaluationFor        the evaluation for
+     * @param onlyCheckForGameOver the only check for game over
+     */
     private Eval(Model model, PlayerColor evaluationFor, boolean onlyCheckForGameOver) {
         this.model = model;
         this.playerToMove = model.getCurrentPlayer();
@@ -52,6 +94,11 @@ public class Eval implements Serializable {
 
     }
 
+    /**
+     * Check game over evaluation.
+     *
+     * @return the evaluation
+     */
     private Evaluation checkGameOver() {
         if (!model.anyLegalMove(playerToMove)) {
             if (model.isInCheck(playerToMove)) {
@@ -72,6 +119,11 @@ public class Eval implements Serializable {
         return new Evaluation(playerToMove);
     }
 
+    /**
+     * Endgame weight double.
+     *
+     * @return the double
+     */
     private double endgameWeight() {
         double materialWithoutPawns = materialSumWithoutPandK();
         double multiplier = 1 / endgameMaterialStart;
@@ -80,6 +132,9 @@ public class Eval implements Serializable {
         return 1 - Math.min(1, materialWithoutPawns * multiplier);
     }
 
+    /**
+     * Calc evaluation.
+     */
     private void calcEvaluation() {
 
         evaluation = new Evaluation(PlayerColor.WHITE);
@@ -97,23 +152,15 @@ public class Eval implements Serializable {
 //        force king to corner
         evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, PlayerColor.WHITE) - forceKingToCorner(egWeight, PlayerColor.BLACK));
 
-        //Hanging Pieces
-//        retEval.addDetail(HANGING_PIECES, calcHangingPieces(player));
-
-        //Square Control
-//        retEval.addDetail(SQUARE_CONTROL, compareSquareControl(player));
-
-//        Movement Ability
-//        retEval.addDetail(MOVEMENT_ABILITY, compareMovementAbility(player));
-
-        //King Safety
-//        evaluation.addDetail(EvaluationParameters.KING_SAFETY, kingSafety(evaluationFor) - kingSafety(opponentColor));
-
-//        retEval.addDetail(STOCKFISH_SAYS, new Stockfish().getEvalScore(model.getFenStr(), 10));
         evaluation.setPerspective(evaluationFor);
 
     }
 
+    /**
+     * Check repetition boolean.
+     *
+     * @return the boolean
+     */
     private boolean checkRepetition() {
 //        if (true)
 //            return false;
@@ -156,11 +203,21 @@ public class Eval implements Serializable {
 //        return count - set.size() >= 1;
     }
 
+    /**
+     * Check for insufficient material boolean.
+     *
+     * @return the boolean
+     */
     private boolean checkForInsufficientMaterial() {
         return insufficientMaterial(PlayerColor.WHITE, model) &&
                 insufficientMaterial(PlayerColor.BLACK, model);
     }
 
+    /**
+     * Material sum without pand k double.
+     *
+     * @return the double
+     */
     private double materialSumWithoutPandK() {
         double ret = 0;
 
@@ -172,6 +229,12 @@ public class Eval implements Serializable {
         return ret;
     }
 
+    /**
+     * Material sum int.
+     *
+     * @param playerColor the player color
+     * @return the int
+     */
     private int materialSum(PlayerColor playerColor) {
         int ret = 0;
         int[] piecesCount = model.getPiecesCount(playerColor);
@@ -183,6 +246,9 @@ public class Eval implements Serializable {
         return ret;
     }
 
+    /**
+     * Compare piece tables.
+     */
     private void comparePieceTables() {
         int res = 0;
         for (PlayerColor currentlyChecking : PlayerColor.PLAYER_COLORS) {
@@ -206,14 +272,22 @@ public class Eval implements Serializable {
 //        return squaresControl(player) - squaresControl(Player.getOpponent(player));
 //    }
 
+    /**
+     * Force king to corner.
+     *
+     * @param egWeight    the endgame weight
+     * @param playerColor the player color
+     * @return the score
+     */
     private int forceKingToCorner(double egWeight, PlayerColor playerColor) {
+
         if (egWeight == 0)
             return 0;
         int ret = 0;
         Location opK = model.getKing(playerColor.getOpponent());
 
         int opRow = opK.row, opCol = opK.col;
-
+//how far is the opponent's king from the center
         int opDstToCenterCol = Math.max(3 - opCol, opCol - 4);
         int opDstToCenterRow = Math.max(3 - opRow, opRow - 4);
         int opKDstFromCenter = opDstToCenterCol + opDstToCenterRow;
@@ -228,10 +302,16 @@ public class Eval implements Serializable {
         int kingsDst = kingsColDst + kingsRowDst;
         ret += 14 - kingsDst;
 
-//        return ret * 0.01 * egWeight;
         return (int) (ret * egWeight);
     }
 
+    /**
+     * Insufficient material boolean.
+     *
+     * @param playerColor the player color
+     * @param model       the model
+     * @return the boolean
+     */
     private static boolean insufficientMaterial(PlayerColor playerColor, Model model) {
         return (
                 model.getNumOfPieces(playerColor, PieceType.PAWN) == 0 &&
@@ -240,10 +320,24 @@ public class Eval implements Serializable {
 
     }
 
+    /**
+     * Is sufficient material boolean.
+     *
+     * @param checkingFor the checking for
+     * @param model       the model
+     * @return the boolean
+     */
     public static boolean isSufficientMaterial(PlayerColor checkingFor, Model model) {
         return !insufficientMaterial(checkingFor, model);
     }
 
+    /**
+     * Gets evaluation.
+     *
+     * @param model       the model
+     * @param playerColor the player color
+     * @return the evaluation
+     */
     public static Evaluation getEvaluation(Model model, PlayerColor playerColor) {
         return new Eval(model, playerColor).evaluation;
     }
@@ -251,17 +345,29 @@ public class Eval implements Serializable {
     /**
      * evaluation for current player
      *
-     * @param model
-     * @return
+     * @param model the model
+     * @return evaluation
      */
     public static Evaluation getEvaluation(Model model) {
         return new Eval(model, model.getCurrentPlayer()).evaluation;
     }
 
+    /**
+     * Is game over boolean.
+     *
+     * @param model the model
+     * @return the boolean
+     */
     public static boolean isGameOver(Model model) {
         return new Eval(model, model.getCurrentPlayer(), true).evaluation.isGameOver();
     }
 
+    /**
+     * Calc close double.
+     *
+     * @param distance the distance
+     * @return the double
+     */
     private static double calcClose(int distance) {
         double num = Math.exp(distance);
         if (distance <= 4) {
@@ -271,6 +377,12 @@ public class Eval implements Serializable {
         return num + "".length();
     }
 
+    /**
+     * King safety int.
+     *
+     * @param playerColor the player color
+     * @return the int
+     */
     private int kingSafety(PlayerColor playerColor) {
         int ret;
         int movesNum = AttackedSquares.getPieceAttacksFrom(PieceType.QUEEN, model.getPieceBitBoard(playerColor, PieceType.KING), playerColor.getOpponent(), model).getSetLocs().size();
@@ -278,6 +390,12 @@ public class Eval implements Serializable {
         return ret;
     }
 
+    /**
+     * Squares control double.
+     *
+     * @param player the player
+     * @return the double
+     */
     private double squaresControl(int player) {
         double ret = 0;
 //        for (PieceInterface piece : model.getPlayersPieces(player)) {

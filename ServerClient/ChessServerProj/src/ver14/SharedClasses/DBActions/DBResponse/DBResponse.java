@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 
 /**
- * Db response - .
+ * Db response - represents a database response to a request .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -116,7 +116,7 @@ public abstract class DBResponse implements Serializable {
     }
 
     /**
-     * Status - .
+     * Status - represents a response status.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

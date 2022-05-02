@@ -7,9 +7,14 @@ import java.util.ArrayList;
 
 
 /**
- * The type Threads manager.
+ * represents a Threads manager.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class ThreadsManager {
+    /**
+     * The Threads.
+     */
     private final static ArrayList<MyThread> threads;
 
 
@@ -18,11 +23,19 @@ public class ThreadsManager {
     }
 
 
+    /**
+     * Add thread.
+     *
+     * @param thread the thread
+     */
     public static void addThread(MyThread thread) {
         threads.add(thread);
     }
 
 
+    /**
+     * Stop all.
+     */
     public static void stopAll() {
         new Thread(() -> {
             int ms = 1500;
@@ -39,7 +52,7 @@ public class ThreadsManager {
     }
 
     /**
-     * Handle errors.
+     * Handle errors for a runnable.
      *
      * @param runnable the runnable
      */

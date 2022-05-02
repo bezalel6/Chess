@@ -10,7 +10,7 @@ import java.util.Locale;
 
 
 /**
- * Castling rights - .
+ * Castling rights - represents castling rights for both players in a position .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

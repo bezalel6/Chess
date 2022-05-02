@@ -25,15 +25,6 @@ public class ConfirmDialogs {
     }
 
     /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-        System.out.println(confirm(null, "Header", "Enter closing reason", "title", null, "init"));
-    }
-
-    /**
      * Confirm string.
      *
      * @param parent       the parent
@@ -47,7 +38,7 @@ public class ConfirmDialogs {
     public static String confirm(Component parent, String title, String header, String message, ImageIcon icon, String initialValue) {
 
         return (String) JOptionPane.showInputDialog(parent, new JPanel(new GridLayout(0, 1)) {{
-            add(new MyLbl(header, FontManager.Dialogs.dialogHeader));
+            add(new MyLbl(header, FontManager.Dialogs.dialog));
             add(new MyLbl(message, FontManager.Dialogs.dialog));
         }}, title, JOptionPane.QUESTION_MESSAGE, icon, null, initialValue);
     }

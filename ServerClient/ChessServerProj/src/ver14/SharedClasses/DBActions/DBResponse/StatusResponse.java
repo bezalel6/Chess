@@ -4,7 +4,7 @@ import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 
 
 /**
- * Status response - .
+ * Status response - represents a db status response.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

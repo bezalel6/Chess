@@ -54,7 +54,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onCancelQuestion() {
         return message -> {
-            super.onCancelQuestion().onMsg(message);
+            super.onCancelQuestion().callback(message);
             client.getView().getSidePanel().askPlayerPnl.replaceWithMsg(message.getQuestion(), message.getCancelingQuestionCause());
         };
     }
@@ -66,7 +66,7 @@ public class ClientMessagesHandler extends MessagesHandler {
 
         //in case its added to a message
         if (messageType != MessageType.UPDATE_SYNCED_LIST && message.getSyncedLists() != null) {
-            onUpdateSyncedList().onMsg(message);
+            onUpdateSyncedList().callback(message);
         }
 
         if (message.isSubject())
@@ -85,7 +85,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onLogin() {
         return message -> {
-            super.onLogin().onMsg(message);
+            super.onLogin().callback(message);
             String username = client.login(message);
             view.setUsername(username);
         };
@@ -94,7 +94,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onGetGameSettings() {
         return message -> {
-            super.onGetGameSettings().onMsg(message);
+            super.onGetGameSettings().callback(message);
             GameSettings gameSettings = client.showGameSettingsDialog();
             socket.writeMessage(Message.returnGameSettings(gameSettings, message));
         };
@@ -103,7 +103,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onInitGame() {
         return message -> {
-            super.onInitGame().onMsg(message);
+            super.onInitGame().callback(message);
             client.soundManager.gameStart.play();
             synchronized (view.boardLock) {
                 view.drawFocus();
@@ -131,7 +131,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onWaitTurn() {
         return message -> {
-            super.onWaitTurn().onMsg(message);
+            super.onWaitTurn().callback(message);
             client.startOpponentTime();
             client.enablePreMove();
         };
@@ -140,7 +140,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onGetMove() {
         return message -> {
-            super.onGetMove().onMsg(message);
+            super.onGetMove().callback(message);
 
             client.stopPremoving();
 
@@ -157,7 +157,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onUpdateByMove() {
         return message -> {
-            super.onUpdateByMove().onMsg(message);
+            super.onUpdateByMove().callback(message);
             view.drawFocus();
             client.updateByMove(message.getMove());
             client.stopRunningTime();
@@ -167,7 +167,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onGameOver() {
         return message -> {
-            super.onGameOver().onMsg(message);
+            super.onGameOver().callback(message);
             client.stopRunningTime();
             client.soundManager.gameEnd.play();
             GameStatus gameStatus = message.getGameStatus();
@@ -179,7 +179,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onError() {
         return message -> {
-            super.onError().onMsg(message);
+            super.onError().callback(message);
             client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ServerError);
         };
     }
@@ -187,7 +187,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onQuestion() {
         return message -> {
-            super.onQuestion().onMsg(message);
+            super.onQuestion().callback(message);
             Question question = message.getQuestion();
             Boolean drawOfferBtn = null;
             if (question.questionType == Question.QuestionType.DRAW_OFFER) {
@@ -206,7 +206,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onBye() {
         return message -> {
-            super.onBye().onMsg(message);
+            super.onBye().callback(message);
             client.closeClient(message.getSubject(), "Bye", MessageCard.MessageType.INFO);
         };
     }
@@ -214,7 +214,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     @Override
     public MessageCallback onUpdateSyncedList() {
         return message -> {
-            super.onUpdateSyncedList().onMsg(message);
+            super.onUpdateSyncedList().callback(message);
             synchronized (syncedLists) {
                 for (SyncedItems<?> items : message.getSyncedLists()) {
                     syncedLists.put(items.syncedListType, items);

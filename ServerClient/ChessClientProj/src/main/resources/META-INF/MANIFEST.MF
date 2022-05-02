@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Main-Class: ver14.Client
-Class-Path: DJNativeSwing.jar flatlaf-2.0-rc1.jar jcalendar-1.4.jar jgoo
- dies-common-1.2.0.jar jgoodies-looks-2.4.1.jar junit-4.6.jar DJNativeSw
- ing-SWT.jar DJNativeSwing.jar swt.jar annotations-20.1.0.jar flatlaf-2.
- 0-rc1.jar DJNativeSwing-SWT.jar flatlaf-intellij-themes-2.0-rc1.jar
+Class-Path: ClientAssets/libs/DJNativeSwing.jar ClientAssets/libs/flatlaf-2.0-rc1.jar ClientAssets/libs/jcalendar-1.4.jar ClientAssets/libs/jgoo
+ dies-common-1.2.0.jar ClientAssets/libs/jgoodies-looks-2.4.1.jar ClientAssets/libs/junit-4.6.jar ClientAssets/libs/DJNativeSw
+ ing-SWT.jar ClientAssets/libs/DJNativeSwing.jar ClientAssets/libs/swt.jar ClientAssets/libs/annotations-20.1.0.jar ClientAssets/libs/flatlaf-2.
+ 0-rc1.jar ClientAssets/libs/DJNativeSwing-SWT.jar ClientAssets/libs/flatlaf-intellij-themes-2.0-rc1.jar
 

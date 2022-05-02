@@ -21,7 +21,7 @@ public class MessageDialog extends Dialog {
     }
 
     public static void main(String[] args) {
-        new MessageDialog(new Properties(new Properties.Details()), "fekplfe erfj ejifhiouf nifehjfoi fenfoes hffshjf soijf fsnoif oifjsi j ijifj oijjoifj sij" + StrUtils.repeat((i, isLast) -> i + "", 50), "title", MessageCard.MessageType.ERROR).start();
+        new MessageDialog(new Properties(new Properties.Details()), "fekplfe erfj ejifhiouf nifehjfoi fenfoes hffshjf soijf fsnoif oifjsi j ijifj oijjoifj sij" + StrUtils.repeat((i, isLast) -> i + " ", 500), "title", MessageCard.MessageType.ERROR).start();
     }
 
     @Override

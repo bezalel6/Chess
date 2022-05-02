@@ -103,10 +103,12 @@ public class DB {
             dbPath = dbFileRelativePath[0];
 
         //#####################################################################
-        dbPath = "src" + dbPath;
 
         if (Environment.IS_JAR) {
-            dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
+//            dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
+            dbPath = "./ServerAssets" + dbPath;
+        } else {
+            dbPath = "src" + dbPath;
         }
 
         //#####################################################################

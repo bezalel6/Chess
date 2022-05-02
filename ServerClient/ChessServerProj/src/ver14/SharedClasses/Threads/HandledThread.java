@@ -4,7 +4,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.ThrowingRunnable;
 
 
 /**
- * The type Handled thread.
+ * represents a thread that can handle errors.
  */
 public class HandledThread extends MyThread {
 

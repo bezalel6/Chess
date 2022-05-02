@@ -7,7 +7,7 @@ import java.util.Objects;
 
 
 /**
- * Minimax move.
+ * represents a Minimax move with a score and depth.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

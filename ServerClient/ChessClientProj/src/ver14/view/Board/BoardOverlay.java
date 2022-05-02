@@ -277,9 +277,9 @@ public class BoardOverlay extends LayerUI<JPanel> {
                         if (!currentBtn.is(BoardButton.State.CLICKED_ONCE)) {
                             currentBtn.clickMe();
                         }
-                        if (!currentBtn.is(BoardButton.State.MOVING_TO))
-                            currentBtn.addState(BoardButton.State.DRAGGING);
-                        else stopCurrent();
+                        if (!currentBtn.is(BoardButton.State.MOVING_TO)) {
+//                            currentBtn.addState(BoardButton.State.DRAGGING);
+                        } else stopCurrent();
                     } else {
                         stopCurrent();
                     }

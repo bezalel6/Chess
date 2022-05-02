@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
 Main-Class: ver14.Server
-Class-Path: testng-7.1.0.jar jcommander-1.72.jar guice-4.1.0-no_aop.jar 
- javax.inject-1.jar aopalliance-1.0.jar guava-19.0.jar snakeyaml-1.21.ja
- r annotations-23.0.0.jar commons-lang3-3.8.1.jar commons-logging-1.2.ja
- r hsqldb-2.5.0.jar jackcess-3.0.1.jar ucanaccess-5.0.1.jar javasysmon-0
- .3.5.1.jar testng-7.1.0.jar jcommander-1.72.jar guice-4.1.0-no_aop.jar 
- javax.inject-1.jar aopalliance-1.0.jar guava-19.0.jar snakeyaml-1.21.ja
- r annotations-20.1.0.jar
+Class-Path: ServerAssets/libs/testng-7.1.0.jar ServerAssets/libs/jcommander-1.72.jar ServerAssets/libs/guice-4.
+ 1.0-no_aop.jar ServerAssets/libs/javax.inject-1.jar ServerAssets/libs/aopalliance-1.0.jar ServerAssets/libs/gu
+ ava-19.0.jar ServerAssets/libs/snakeyaml-1.21.jar ServerAssets/libs/annotations-23.0.0.jar ServerAssets/libs/c
+ ommons-lang3-3.8.1.jar ServerAssets/libs/commons-logging-1.2.jar ServerAssets/libs/hsqldb-2.5.0.j
+ ar ServerAssets/libs/jackcess-3.0.1.jar ServerAssets/libs/ucanaccess-5.0.1.jar ServerAssets/libs/javasysmon-0.
+ 3.5.1.jar ServerAssets/libs/testng-7.1.0.jar ServerAssets/libs/jcommander-1.72.jar ServerAssets/libs/guice-4.1
+ .0-no_aop.jar ServerAssets/libs/javax.inject-1.jar ServerAssets/libs/aopalliance-1.0.jar ServerAssets/libs/gua
+ va-19.0.jar ServerAssets/libs/snakeyaml-1.21.jar ServerAssets/libs/annotations-20.1.0.jar
 

@@ -433,37 +433,46 @@ public class Minimax {
      */
     private Evaluation minimax(MinimaxParameters parms) {
 
+        //if the search has to stop for some reason
         if (interrupt != null) {
             throw interrupt;
         }
+        //stop condition. if the minimax ran out of time, reached its maximum depth, or has reached a game over
         if (isOvertime() || parms.currentDepth >= parms.maxDepth || Eval.isGameOver(parms.model)) {
             Evaluation evaluation = Eval.getEvaluation(parms.model, parms.minimaxPlayerColor);
             evaluation.setEvaluationDepth(parms.currentDepth);
             return evaluation;
         }
-
+        //the best evaluation found so far in this node
         Evaluation bestEval = null;
         ArrayList<Move> possibleMoves = MoveGenerator.generateMoves(parms.model, GenerationSettings.LEGALIZE);
+
+        //at lower depths, sorting the moves is beneficial for the alpha-beta pruning
         if (parms.currentDepth < MOVE_ORDERING_DEPTH_CUTOFF)
             sortMoves(possibleMoves, true);
 
         for (int i = 0, possibleMovesSize = possibleMoves.size(); i < possibleMovesSize; i++) {
             Move move = possibleMoves.get(i);
 
+            //again, stopping in case of an 'emergency'
             if (interrupt != null) {
                 throw interrupt;
             }
+            //making the current move
             parms.model.applyMove(move);
+
+            //saving the resulting evaluation
             Evaluation eval = minimax(parms.nextDepth());
 
+            //undoing the move
             parms.model.undoMove(move);
 
-//            move.setMoveEvaluation(eval);
-
+            //if the evaluation for this node isnt initialized or is the evaluation better for the current layer
             if (bestEval == null || eval.isGreaterThan(bestEval) == parms.isMax) {
                 bestEval = eval;
             }
-
+            
+            //            alpha beta pruning
             if (parms.prune(bestEval)) {
                 break;
             }

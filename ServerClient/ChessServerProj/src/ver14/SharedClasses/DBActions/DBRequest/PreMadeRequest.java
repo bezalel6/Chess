@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 
 /**
- * Pre made request - .
+ * Pre made request - represents  a premade db request .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -100,7 +100,7 @@ public class PreMadeRequest {
     }
 
     /**
-     * Variation creator - .
+     * Variation creator - represents a creator of a variation.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
@@ -115,7 +115,7 @@ public class PreMadeRequest {
     }
 
     /**
-     * Variation - .
+     * Variation - represents a variation of a premade request.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

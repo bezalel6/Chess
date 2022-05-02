@@ -11,11 +11,25 @@ import java.util.Map;
 
 /**
  * The type My thread.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class MyThread extends Thread {
+    /**
+     * The constant envManager.
+     */
     private static EnvManager envManager = null;
+    /**
+     * The Error handlers.
+     */
     private final Map<Class<? extends MyError>, ErrorHandler<? extends MyError>> errorHandlers = new HashMap<>();
+    /**
+     * The Ignore errs.
+     */
     private boolean ignoreErrs = false;
+    /**
+     * The Thread status.
+     */
     private ThreadStatus threadStatus = ThreadStatus.NOT_STARTED;
 
 
@@ -39,12 +53,22 @@ public abstract class MyThread extends Thread {
         }
     }
 
+    /**
+     * Sets env manager.
+     *
+     * @param manager the manager
+     */
     public static void setEnvManager(EnvManager manager) {
 
         envManager = manager;
 
     }
 
+    /**
+     * Is ignore errs boolean.
+     *
+     * @return the boolean
+     */
     public boolean isIgnoreErrs() {
         return ignoreErrs;
     }
@@ -79,6 +103,9 @@ public abstract class MyThread extends Thread {
 //        }
 
 
+    /**
+     * Run.
+     */
     @Override
     public final void run() {
         threadStatus = threadStatus.next();
@@ -127,6 +154,12 @@ public abstract class MyThread extends Thread {
      */
     protected abstract void handledRun() throws Throwable;
 
+    /**
+     * Find closest handler class.
+     *
+     * @param clazz the clazz
+     * @return the class
+     */
     private Class<?> findClosestHandler(Class<?> clazz) {
         if (errorHandlers.containsKey(clazz)) {
             return clazz;
@@ -137,24 +170,45 @@ public abstract class MyThread extends Thread {
         return null;
     }
 
+    /**
+     * Thread status.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public enum ThreadStatus {
+        /**
+         * The Not started.
+         */
         NOT_STARTED {
             @Override
             public ThreadStatus next() {
                 return RUNNING;
             }
-        }, RUNNING {
+        },
+        /**
+         * The Running.
+         */
+        RUNNING {
             @Override
             public ThreadStatus next() {
                 return DONE;
             }
-        }, DONE {
+        },
+        /**
+         * The Done.
+         */
+        DONE {
             @Override
             public ThreadStatus next() {
                 return null;
             }
         };
 
+        /**
+         * Next thread status.
+         *
+         * @return the thread status
+         */
         public abstract ThreadStatus next();
     }
 }

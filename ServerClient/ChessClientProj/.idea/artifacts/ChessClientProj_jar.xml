@@ -8,15 +8,19 @@
         </element>
         <element id="module-output" name="ChessClientProj" />
       </element>
-      <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar" />
-      <element id="library" level="project" name="jcalendar-1.4" />
-      <element id="library" level="project" name="formdev.flatlaf" />
-      <element id="library" level="project" name="flatlaf-intellij-themes-2.0-rc1" />
-      <element id="library" level="project" name="flatlaf-2.0-rc1" />
-      <element id="library" level="project" name="DJNativeSwing-SWT" />
-      <element id="library" level="project" name="DJNativeSwing" />
-      <element id="directory" name="assets">
-        <element id="dir-copy" path="$PROJECT_DIR$/src/assets" />
+      <element id="directory" name="ClientAssets">
+        <element id="directory" name="libs">
+          <element id="library" level="project" name="DJNativeSwing" />
+          <element id="library" level="project" name="DJNativeSwing-SWT" />
+          <element id="library" level="project" name="flatlaf-2.0-rc1" />
+          <element id="library" level="project" name="flatlaf-intellij-themes-2.0-rc1" />
+          <element id="library" level="project" name="formdev.flatlaf" />
+          <element id="library" level="project" name="jcalendar-1.4" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar" />
+        </element>
+        <element id="directory" name="assets">
+          <element id="dir-copy" path="$PROJECT_DIR$/src/assets" />
+        </element>
       </element>
     </root>
   </artifact>

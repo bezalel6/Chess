@@ -413,16 +413,7 @@ public class StrUtils {
         String str = "good " + TimeRange.getTimeRange(hour) + "!";
         return format(str);
     }
-
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-        System.out.println(createTimeStr(TimeUnit.HOURS.toMillis(1) + TimeUnit.MINUTES.toMillis(12) + TimeUnit.SECONDS.toMillis(5) + 100));
-    }
-
+    
     /**
      * Create time str string.
      *
