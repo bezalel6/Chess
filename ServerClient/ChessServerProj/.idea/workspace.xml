@@ -14,144 +14,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x">
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/AnswerCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/Callback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/LazyHashSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/MessageCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/ThrowingCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Callbacks/VoidCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Arg/Arg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Arg/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Condition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphElementType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/Graphable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphableDBResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Statements/CustomStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Statements/Delete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Statements/SQLStatement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Statements/Selection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Table/Col.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Table/Math.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Table/SwitchCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/DBActions/Table/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Evaluation/Evaluation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Evaluation/EvaluationParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Evaluation/GameStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/AiParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/Piece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/GameSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/GameTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/TimeFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/GameSetup/TimeFormatComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/BasicMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/BitData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/CastlingRights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/MinimaxMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/MoveAnnotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/MovesList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/PlayerColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/SavedGames/ArchivedGameInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/SavedGames/CreatedGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/SavedGames/EstablishedGameInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/SavedGames/GameInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/SavedGames/UnfinishedGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Login/AuthSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Login/LoginInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Login/LoginType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Misc/EfficientGen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Misc/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Misc/IDsGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Misc/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Networking/AppSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Networking/Messages/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Networking/Messages/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Networking/MessagesHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Sync/SyncableItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Sync/SyncedItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Sync/SyncedListType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Sync/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/ErrorHandling/EnvManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/ErrorHandling/ErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/ErrorHandling/MyError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/ErrorHandling/ThrowingRunnable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/HandledThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/MyThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Threads/ThreadsManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/Buttons/MyJButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/Buttons/ValueBtn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/FontManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/GameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/LinkLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/MyJFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/MyLbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/UI/dialogs/ConfirmDialogs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Utils/ArgsUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Utils/MathUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Utils/RegEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessClientProj/ChessClientProj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/ChessClientProj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/jcalendar-license.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/jcalendar-license.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/src/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/libs/jcalendar-1.4/src/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/bc_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/bdwn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/closed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/doc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/doxygen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/doxygen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/dynsections.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/folderclosed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/folderopen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/menudata.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/nav_f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/nav_g.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/nav_h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/splitbar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/sync_off.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/sync_on.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/tab_a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/tab_b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/tab_h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/tab_s.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/html/tabs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/doxygen.sty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/longtable_doxygen.sty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/make.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/refman.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/latex/tabu_doxygen.sty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/production/ChessClientProj/ver14/view/View/rtf/refman.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/CanError.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/CanError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Components/AiTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Components/SyncedGamesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/GameSelection/Components/SyncedGamesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Dialogs/Header.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/AiType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/SelectableAiType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/SelectableGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Selectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/view/Dialog/Selectables/Selectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/MovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/SharedClasses/Game/Moves/MovesList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/View/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/View/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/CastlingRights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/Moves/CastlingRights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ServerAssets/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ServerAssets/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,10 +71,13 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://C:/Program Files/Java/jdk-16.0.2/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver14/Model/Model.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/MyServerSocket.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver14/Players/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/Server.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/AnswerCallback.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ver14/SharedClasses/Callbacks/Callback.java" root0="FORCE_HIGHLIGHTING" />
@@ -442,6 +318,8 @@
       <workItem from="1651479896265" duration="28745000" />
       <workItem from="1651541360756" duration="619000" />
       <workItem from="1651563536153" duration="1240000" />
+      <workItem from="1651577221949" duration="2114000" />
+      <workItem from="1651586465636" duration="1795000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>

@@ -143,10 +143,10 @@ public class AttackedSquares {
     }
 
     /**
-     * Is attacked boolean.
+     * Is a location attacked.
      *
      * @param loc the loc
-     * @return the boolean
+     * @return true if the location is attacked, false otherwise.
      */
     private boolean isAttacked(Location loc) {
         PieceType[] piece_types = PieceType.ATTACKING_PIECE_TYPES;
@@ -157,7 +157,6 @@ public class AttackedSquares {
                 return true;
         }
         return false;
-//        return attackedSquares.isSet(loc);
     }
 
 

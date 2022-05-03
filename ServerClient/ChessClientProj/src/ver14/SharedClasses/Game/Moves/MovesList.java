@@ -1,5 +1,7 @@
 package ver14.SharedClasses.Game.Moves;
 
+import ver14.SharedClasses.Callbacks.LazyHashSupplier;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -36,7 +38,12 @@ public class MovesList extends ArrayList<Move> implements Serializable {
     public MovesList(MovesList other) {
         this.finalHash = other.finalHash;
         other.stream().map(Move::new).forEach(m -> {
-            m.setCreatedListHashSupplier(() -> finalHash);
+            m.setCreatedListHashSupplier(new LazyHashSupplier<Long>() {
+                @Override
+                public Long get() {
+                    return finalHash;
+                }
+            });
             this.add(m);
         });
     }

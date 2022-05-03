@@ -23,7 +23,12 @@ public class Move extends BasicMove implements Comparable<Move> {
      * an Intermediate move, like moving the rook in a castling.
      */
     BasicMove intermediateMove;
-    private LazyHashSupplier<Long> createdListHashSupplier = () -> 0L;
+    private LazyHashSupplier<Long> createdListHashSupplier = new LazyHashSupplier<Long>() {
+        @Override
+        public Long get() {
+            return 0L;
+        }
+    };
     /**
      * The Move annotation.
      */

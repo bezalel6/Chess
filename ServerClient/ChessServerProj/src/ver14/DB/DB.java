@@ -213,7 +213,7 @@ public class DB {
      */
     public static void main(String[] args) {
         try {
-//            clearGames();
+            clearGames();
 //            System.out.println(request(PreMadeRequest.Games.createBuilder().build("bezalel6", new Date(0), new Date())));
 //            createRndGames(30);
 //            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
