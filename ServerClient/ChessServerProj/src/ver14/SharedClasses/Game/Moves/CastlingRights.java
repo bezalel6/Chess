@@ -10,7 +10,8 @@ import java.util.Locale;
 
 
 /**
- * Castling rights - represents castling rights for both players in a position .
+ * Castling rights - represents castling rights for both players in a position using a byte. two bits for each side for each player. 4 bits total
+ * (a byte is the smallest you can get).
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

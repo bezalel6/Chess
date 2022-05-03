@@ -20,7 +20,6 @@ public class Header extends JPanel {
     /**
      * The constant insets.
      */
-//    public final static Insets insets = WinPnl.insets;
     public final static Insets insets = new Insets(10, 10, 10, 10);
     /**
      * The constant maximumSize.

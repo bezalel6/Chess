@@ -6,7 +6,7 @@ import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Components.SyncableListComponent;
 import ver14.view.Dialog.Dialogs.Header;
-import ver14.view.Dialog.Selectables.Game;
+import ver14.view.Dialog.Selectables.SelectableGame;
 
 /**
  * represents a Synchronized list of games.
@@ -42,7 +42,7 @@ public abstract class SyncedGamesList extends SyncableListComponent implements B
     protected void onSelected() {
         String id = null;
         if (selected != null) {
-            id = ((Game) selected).getGameInfo().gameId;
+            id = ((SelectableGame) selected).getGameInfo().gameId;
         }
         gameSettings.setGameID(id);
     }

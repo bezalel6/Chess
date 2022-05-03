@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * represents a Selectable value. usually a representation of an existing logical structure..
+ * represents a Selectable value. a visual representation of an existing logical structure, like {@link ver14.SharedClasses.Game.PlayerColor}
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -28,7 +28,7 @@ public interface Selectable {
         Size iconSize = canUseIcon ? SyncableListComponent.listItemSize : null;
         list.forEachItem(item -> {
             ret.add(switch (list.syncedListType) {
-                case RESUMABLE_GAMES, JOINABLE_GAMES, ONGOING_GAMES -> new Game((GameInfo) item, iconSize);
+                case RESUMABLE_GAMES, JOINABLE_GAMES, ONGOING_GAMES -> new SelectableGame((GameInfo) item, iconSize);
                 case CONNECTED_USERS -> new SelectableUserInfo((UserInfo) item);
 
                 default -> throw new IllegalStateException("Unexpected value: " + list.syncedListType);
