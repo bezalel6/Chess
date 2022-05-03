@@ -13,6 +13,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Game icons generator - utility class for generating icons of positions.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class GameIconsGenerator {
 
     /**
@@ -20,15 +25,28 @@ public class GameIconsGenerator {
      */
     private final static int maxFenLen = 90;
 
-    public static void main(String[] args) {
-        new JFrame() {{
-            setSize(500, 500);
-            add(new JLabel(GameIconsGenerator.generate("rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - 0 3", PlayerColor.BLACK, new Size(400, 400))));
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setVisible(true);
-        }};
-    }
+//    /**
+//     * The entry point of application.
+//     *
+//     * @param args the input arguments
+//     */
+//    public static void main(String[] args) {
+//        new JFrame() {{
+//            setSize(500, 500);
+//            add(new JLabel(GameIconsGenerator.generate("rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - 0 3", PlayerColor.BLACK, new Size(400, 400))));
+//            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            setVisible(true);
+//        }};
+//    }
 
+    /**
+     * Generate icon for the given position fen, from the orientation of the given color.
+     *
+     * @param fen         the fen
+     * @param orientation the orientation
+     * @param iconSize    the icon size
+     * @return the image icon
+     */
     public static ImageIcon generate(String fen, PlayerColor orientation, Dimension iconSize) {
         if (!RegEx.Fen.check(fen)) {
             return IconManager.scaleImage(IconManager.redX, iconSize);

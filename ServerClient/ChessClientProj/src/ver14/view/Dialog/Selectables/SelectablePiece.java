@@ -8,8 +8,16 @@ import ver14.view.IconManager.IconManager;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * represents a Selectable piece.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public record SelectablePiece(Piece piece) implements Selectable {
 
+    /**
+     * The constant promotionPieces.
+     */
     public static final ArrayList<SelectablePiece>[] promotionPieces;
 
     static {

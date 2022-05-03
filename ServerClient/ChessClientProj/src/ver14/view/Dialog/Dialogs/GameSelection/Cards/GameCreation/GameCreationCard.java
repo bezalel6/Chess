@@ -8,11 +8,29 @@ import ver14.view.Dialog.WinPnl;
 
 import java.awt.*;
 
+/**
+ * represents a Game creation card.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class GameCreationCard extends DialogCard {
+    /**
+     * The Game settings.
+     */
     protected final GameSettings gameSettings;
+    /**
+     * The Checkbox.
+     */
     protected final Checkbox checkbox;
 
 
+    /**
+     * Instantiates a new Game creation card.
+     *
+     * @param cardHeader   the card header
+     * @param parentDialog the parent dialog
+     * @param gameSettings the game settings
+     */
     public GameCreationCard(CardHeader cardHeader, Dialog parentDialog, GameSettings gameSettings) {
         super(cardHeader, parentDialog);
         this.gameSettings = gameSettings;
@@ -23,6 +41,11 @@ public abstract class GameCreationCard extends DialogCard {
         changeState(false);
     }
 
+    /**
+     * Change state.
+     *
+     * @param state the state
+     */
     protected abstract void changeState(boolean state);
 
     @Override

@@ -2,7 +2,17 @@ package ver14.view.MenuBar.MessageItems;
 
 import ver14.Client;
 
+/**
+ * Credits message item.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Credits extends MessageItem {
+    /**
+     * Instantiates a new Credits.
+     *
+     * @param client the client
+     */
     public Credits(Client client) {
         super("Credits", client);
     }

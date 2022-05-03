@@ -8,9 +8,23 @@ import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Selectables.SelectablePlayerColor;
 import ver14.view.Dialog.WinPnl;
 
+/**
+ * Player colors.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class PlayerColors extends ListComponent {
+    /**
+     * The Game settings.
+     */
     private final GameSettings gameSettings;
 
+    /**
+     * Instantiates a new Player colors.
+     *
+     * @param parent       the parent
+     * @param gameSettings the game settings
+     */
     public PlayerColors(Dialog parent, GameSettings gameSettings) {
         super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Player Color"), parent);
         this.gameSettings = gameSettings;

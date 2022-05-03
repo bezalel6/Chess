@@ -12,13 +12,35 @@ import ver14.view.IconManager.Size;
 
 import java.util.ArrayList;
 
+/**
+ * represents a Syncable list component. a list that can be registered to be synced with the server.
+ * after registering, the server will keep this list up-to-date after every change.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class SyncableListComponent extends ListComponent implements SyncableList {
+    /**
+     * The constant listSize.
+     */
     public static final Size listSize = new Size(250);
+    /**
+     * The constant listItemSize.
+     */
     public static final Size listItemSize = new Size(listSize) {{
         multMe(0.7);
     }};
+    /**
+     * The List type.
+     */
     private final SyncedListType listType;
 
+    /**
+     * Instantiates a new Syncable list component.
+     *
+     * @param header   the header
+     * @param listType the list type
+     * @param parent   the parent
+     */
     public SyncableListComponent(Header header, SyncedListType listType, Parent parent) {
         super(WinPnl.MAKE_SCROLLABLE, header, parent);
         this.listType = listType;
@@ -73,7 +95,11 @@ public abstract class SyncableListComponent extends ListComponent implements Syn
         onUpdate();
     }
 
-    //can components have icons
+    /**
+     * can the components of this list have icons
+     *
+     * @return true if the components of this list can use icons, false otherwise.
+     */
     protected boolean canUseIcon() {
         return true;
     }

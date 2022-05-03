@@ -7,8 +7,19 @@ import ver14.view.Dialog.DialogFields.Slider.TimeFormatSlider;
 import ver14.view.Dialog.Dialogs.GameSelection.Cards.GameSelectionCard;
 import ver14.view.Dialog.Dialogs.GameSelection.Components.PlayerColors;
 
+/**
+ * Game creation card.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class GameCreation extends GameSelectionCard {
 
+    /**
+     * Instantiates a new Game creation.
+     *
+     * @param parentDialog the parent dialog
+     * @param gameSettings the game settings
+     */
     public GameCreation(Dialog parentDialog, GameSettings gameSettings) {
         super(new CardHeader("Create New Game"), parentDialog, gameSettings, GameSettings.GameType.CREATE_NEW);
         addDialogComponent(new PlayerColors(parentDialog, gameSettings));

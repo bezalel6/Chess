@@ -21,7 +21,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 
 /**
- * Player net.
+ * Player net - represents a player connected to a client through an {@link AppSocket}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

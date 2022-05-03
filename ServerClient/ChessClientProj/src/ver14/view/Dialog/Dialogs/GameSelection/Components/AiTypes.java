@@ -7,9 +7,23 @@ import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Selectables.AiType;
 import ver14.view.Dialog.WinPnl;
 
+/**
+ * Ai types.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class AiTypes extends ListComponent {
+    /**
+     * The Ai parameters.
+     */
     private final AiParameters aiParameters;
 
+    /**
+     * Instantiates a new Ai types.
+     *
+     * @param parent       the parent
+     * @param aiParameters the ai parameters
+     */
     public AiTypes(Parent parent, AiParameters aiParameters) {
         super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Ai Type"), parent);
         this.aiParameters = aiParameters;

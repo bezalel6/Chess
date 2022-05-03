@@ -14,23 +14,61 @@ import java.util.HashMap;
 import java.util.stream.Stream;
 
 
+/**
+ * Model moves list - represents a list of moves with a few unique features only used on the model.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class ModelMovesList extends MovesList {
+    /**
+     * The Generator.
+     */
     private final MoveGenerator generator;
+    /**
+     * The Generation settings.
+     */
     private final int generationSettings;
+    /**
+     * The Unique moves.
+     */
     private HashMap<Integer, ArrayList<Move>> uniqueMoves = null;
+    /**
+     * The Rejected pseudo legal.
+     */
     private ArrayList<Move> rejectedPseudoLegal = new ArrayList<>();
 
 
+    /**
+     * Instantiates a new Model moves list.
+     *
+     * @param generator          the generator
+     * @param generationSettings the generation settings
+     */
     public ModelMovesList(MoveGenerator generator, int generationSettings) {
         this.generator = generator;
         this.generationSettings = generationSettings;
     }
 
+    /**
+     * Add all.
+     *
+     * @param other     the other
+     * @param pieceType the piece type
+     * @throws FoundLegalMove the found legal move
+     */
     public void addAll(ModelMovesList other, PieceType pieceType) throws FoundLegalMove {
         for (Move move : other)
             add(move, pieceType);
     }
 
+    /**
+     * Add boolean.
+     *
+     * @param adding      the adding
+     * @param movingPiece the moving piece
+     * @return the boolean
+     * @throws FoundLegalMove the found legal move
+     */
     public boolean add(Move adding, PieceType movingPiece) throws FoundLegalMove {
         if (adding == null)
             return false;
@@ -54,10 +92,20 @@ public class ModelMovesList extends MovesList {
         return true;
     }
 
+    /**
+     * Is quiescence boolean.
+     *
+     * @param move   the move
+     * @param moving the moving
+     * @return the boolean
+     */
     private boolean isQuiescence(Move move, PieceType moving) {
         return move.isCapturing();
     }
 
+    /**
+     * Init annotation.
+     */
     public void initAnnotation() {
         uniqueMoves = new HashMap<>();
         Stream.concat(this.stream(), rejectedPseudoLegal.stream()).forEach(move -> {
@@ -103,6 +151,9 @@ public class ModelMovesList extends MovesList {
 
     }
 
+    /**
+     * Pretty print.
+     */
     public void prettyPrint() {
         Bitboard from = genMovingFromBB();
         Bitboard to = genDestinationBB();
@@ -126,12 +177,22 @@ public class ModelMovesList extends MovesList {
         System.out.println("\n" + stringBuilder);
     }
 
+    /**
+     * Gen moving from bb bitboard.
+     *
+     * @return the bitboard
+     */
     public Bitboard genMovingFromBB() {
         Bitboard ret = new Bitboard();
         this.forEach(move -> ret.set(move.getMovingFrom(), true));
         return ret;
     }
 
+    /**
+     * Gen destination bb bitboard.
+     *
+     * @return the bitboard
+     */
     public Bitboard genDestinationBB() {
         Bitboard ret = new Bitboard();
         this.forEach(move -> ret.set(move.getMovingTo(), true));
@@ -143,10 +204,20 @@ public class ModelMovesList extends MovesList {
 //        uniqueMoves.clear();
 //    }
 
+    /**
+     * Gets clean list.
+     *
+     * @return the clean list
+     */
     public MovesList getCleanList() {
         return new MovesList(this);
     }
 
+    /**
+     * Found legal move.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class FoundLegalMove extends Throwable {
     }
 

@@ -471,7 +471,7 @@ public class Minimax {
             if (bestEval == null || eval.isGreaterThan(bestEval) == parms.isMax) {
                 bestEval = eval;
             }
-            
+
             //            alpha beta pruning
             if (parms.prune(bestEval)) {
                 break;

@@ -19,18 +19,56 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Register username field. a field that after verifying the regex requirements for usernames, checks if the username is available.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class RegisterUsernamePnl extends UsernamePnl {
+    /**
+     * The constant minLoadTime.
+     */
     protected static final int minLoadTime = 500;
+    /**
+     * The Availability map.
+     */
     private final Map<String, Boolean> availabilityMap = new HashMap<>();
+    /**
+     * The Suggestions map.
+     */
     private final Map<String, ArrayList<String>> suggestionsMap = new HashMap<>();
+    /**
+     * The Fetch verify pnl.
+     */
     private final FetchVerify fetchVerifyPnl;
+    /**
+     * The Suggestions pnl.
+     */
     private final WinPnl suggestionsPnl;
+    /**
+     * The Executor.
+     */
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    /**
+     * The Last check time.
+     */
     private ZonedDateTime lastCheckTime = null;
+    /**
+     * The Is loading.
+     */
     private volatile boolean isLoading = false;
+    /**
+     * The Last checked str.
+     */
     private String lastCheckedStr = null;
 
 
+    /**
+     * Instantiates a new Register username pnl.
+     *
+     * @param loginInfo the login info
+     * @param parent    the parent
+     */
     public RegisterUsernamePnl(LoginInfo loginInfo, Parent parent) {
         super(true, loginInfo, parent);
         fetchVerifyPnl = new FetchVerify();
@@ -50,6 +88,11 @@ public class RegisterUsernamePnl extends UsernamePnl {
         return checkAvailable();
     }
 
+    /**
+     * Check if the current username is available on the server.
+     *
+     * @return true if the username is available, false otherwise.
+     */
     private boolean checkAvailable() {
         String username = getValue();
 
@@ -79,6 +122,11 @@ public class RegisterUsernamePnl extends UsernamePnl {
         return false;
     }
 
+    /**
+     * Sets username suggestions.
+     *
+     * @param suggestions the suggestions
+     */
     private void setSuggestions(ArrayList<String> suggestions) {
         removeSuggestions();
         Header header;
@@ -108,6 +156,11 @@ public class RegisterUsernamePnl extends UsernamePnl {
         });
     }
 
+    /**
+     * Fetch result from the server.
+     *
+     * @param un the un
+     */
     private void fetch(String un) {
         executor.submit(() -> {
             lastCheckTime = ZonedDateTime.now();
@@ -115,11 +168,20 @@ public class RegisterUsernamePnl extends UsernamePnl {
         });
     }
 
+    /**
+     * Remove suggestions.
+     */
     private void removeSuggestions() {
         suggestionsPnl.removeContent();
         suggestionsPnl.setHeader(null);
     }
 
+    /**
+     * Server responded.
+     *
+     * @param response the response
+     * @param username the username
+     */
     private void serverResponded(Message response, String username) {
         long ms = minLoadTime - lastCheckTime.until(ZonedDateTime.now(), ChronoUnit.MILLIS);
         if (ms > 0) {

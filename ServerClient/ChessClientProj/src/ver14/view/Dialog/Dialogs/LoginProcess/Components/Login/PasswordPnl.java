@@ -12,14 +12,40 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * represents a Password field.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class PasswordPnl extends LoginField {
+    /**
+     * The constant iconRatio.
+     */
     private static final double iconRatio = 1;
+    /**
+     * The Show password btn.
+     */
     private final MyJButton showPasswordBtn;
 
+    /**
+     * Instantiates a new Password pnl.
+     *
+     * @param useDontAddRegex the use dont add regex
+     * @param loginInfo       the login info
+     * @param parent          the parent
+     */
     public PasswordPnl(boolean useDontAddRegex, LoginInfo loginInfo, Parent parent) {
         this("Password", useDontAddRegex, loginInfo, parent);
     }
 
+    /**
+     * Instantiates a new Password pnl.
+     *
+     * @param dialogLabel     the dialog label
+     * @param useDontAddRegex the use dont add regex
+     * @param loginInfo       the login info
+     * @param parent          the parent
+     */
     public PasswordPnl(String dialogLabel, boolean useDontAddRegex, LoginInfo loginInfo, Parent parent) {
         super(dialogLabel, RegEx.Password.get(useDontAddRegex), loginInfo, parent);
         showPasswordBtn = new MyJButton() {{
@@ -45,11 +71,17 @@ public class PasswordPnl extends LoginField {
         hideText();
     }
 
+    /**
+     * Show text.
+     */
     private void showText() {
         getPasswordField().setEchoChar((char) 0);
         setBtnIcon(true);
     }
 
+    /**
+     * Hide text.
+     */
     private void hideText() {
         getPasswordField().setEchoChar('*');
         setBtnIcon(false);
@@ -62,10 +94,20 @@ public class PasswordPnl extends LoginField {
             getPasswordField().setForeground(fg);
     }
 
+    /**
+     * Gets password field.
+     *
+     * @return the password field
+     */
     private JPasswordField getPasswordField() {
         return (JPasswordField) textField;
     }
 
+    /**
+     * Sets btn icon.
+     *
+     * @param showing the showing
+     */
     private void setBtnIcon(boolean showing) {
         ImageIcon icon = showing ? IconManager.hidePassword : IconManager.showPassword;
         int btnSize = (showPasswordBtn.getMinSize());
@@ -87,6 +129,11 @@ public class PasswordPnl extends LoginField {
         super.onUpdate();
     }
 
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
     public String getPassword() {
         return new String(getPasswordField().getPassword());
     }

@@ -5,9 +5,23 @@ import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.PlayerColor;
 
 
+/**
+ * Tables represents all pieces value table.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Tables {
-    private static final int MIDDLE_GAME = 0, ENDGAME = 1;
-    //region tables
+    /**
+     * The constant MIDDLE_GAME.
+     */
+    private static final int MIDDLE_GAME = 0, /**
+     * The Endgame.
+     */
+    ENDGAME = 1;
+    /**
+     * The constant knight.
+     */
+//region tables
     private static final PieceTable knight = new PieceTable(
             new int[][]{
                     {-167, -89, -34, -49, 61, -97, -15, -107,},
@@ -30,6 +44,9 @@ public class Tables {
                     {-29, -51, -23, -15, -22, -18, -50, -64,},
             }
     );
+    /**
+     * The constant pawn.
+     */
     private static final PieceTable pawn = new PieceTable(
             new int[][]{
                     {0, 0, 0, 0, 0, 0, 0, 0,},
@@ -52,6 +69,9 @@ public class Tables {
                     {0, 0, 0, 0, 0, 0, 0, 0,},
             }
     );
+    /**
+     * The constant bishop.
+     */
     private static final PieceTable bishop = new PieceTable(
             new int[][]{
                     {-29, 4, -82, -37, -25, -42, 7, -8,},
@@ -73,6 +93,9 @@ public class Tables {
             {-23, -9, -23, -5, -9, -16, -5, -17,},
     }
     );
+    /**
+     * The constant rook.
+     */
     private static final PieceTable rook = new PieceTable(
             new int[][]{
                     {32, 42, 32, 51, 63, 9, 31, 43,},
@@ -95,6 +118,9 @@ public class Tables {
                     {-9, 2, 3, -1, -5, -13, 4, -20,},
             }
     );
+    /**
+     * The constant queen.
+     */
     private static final PieceTable queen = new PieceTable(
             new int[][]{
                     {-28, 0, 29, 12, 59, 44, 43, 45,},
@@ -117,6 +143,9 @@ public class Tables {
                     {-33, -28, -22, -43, -5, -32, -20, -41,},
             }
     );
+    /**
+     * The constant king.
+     */
     private static final PieceTable king = new PieceTable(
             new int[][]{
                     {-65, 23, 16, -15, -56, -34, 2, 13,},
@@ -139,9 +168,17 @@ public class Tables {
                     {-53, -34, -21, -11, -28, -14, -24, -43},
             }
     );
+    /**
+     * The constant pieceTables.
+     */
     private static final PieceTable[] pieceTables = initPieceTablesArr();
 
-    //endregion
+    /**
+     * Init piece tables arr piece table [ ].
+     *
+     * @return the piece table [ ]
+     */
+//endregion
     private static PieceTable[] initPieceTablesArr() {
         PieceTable[] ret = new PieceTable[PieceType.NUM_OF_PIECE_TYPES];
         ret[PieceType.PAWN.asInt] = pawn;
@@ -149,23 +186,50 @@ public class Tables {
         ret[PieceType.BISHOP.asInt] = bishop;
         ret[PieceType.ROOK.asInt] = rook;
         ret[PieceType.QUEEN.asInt] = queen;
-        ret[PieceType.KING.asInt] = king;
+        ret[PieceType.KING.asInt] =
+                king;
         return ret;
     }
 
+    /**
+     * Gets piece table.
+     *
+     * @param pieceType the piece type
+     * @return the piece table
+     */
     public static PieceTable getPieceTable(PieceType pieceType) {
         return pieceTables[pieceType.asInt];
     }
 
+    /**
+     * represents a Piece table. has a middlegame and endgame value in centipawns for each square on the board.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public static class PieceTable {
+        /**
+         * The Tables.
+         */
         private final int[][][][] tables;
 
+        /**
+         * Instantiates a new Piece table.
+         *
+         * @param middleGame the middle game
+         * @param endGame    the end game
+         */
         public PieceTable(int[][] middleGame, int[][] endGame) {
             tables = new int[PlayerColor.NUM_OF_PLAYERS][][][];
             tables[MIDDLE_GAME] = init(middleGame);
             tables[ENDGAME] = init(endGame);
         }
 
+        /**
+         * Init int [ ] [ ] [ ].
+         *
+         * @param table the table
+         * @return the int [ ] [ ] [ ]
+         */
         private int[][][] init(int[][] table) {
             int[][][] ret = new int[PlayerColor.NUM_OF_PLAYERS][][];
             ret[PlayerColor.WHITE.asInt] = table;
@@ -173,6 +237,12 @@ public class Tables {
             return ret;
         }
 
+        /**
+         * Reverse int [ ] [ ].
+         *
+         * @param arr the arr
+         * @return the int [ ] [ ]
+         */
         private static int[][] reverse(int[][] arr) {
             int[][] ret = new int[arr.length][arr[0].length];
             for (int i = 0; i < ret.length; i++) {
@@ -185,6 +255,14 @@ public class Tables {
             return ret;
         }
 
+        /**
+         * Gets value.
+         *
+         * @param egWeight the eg weight
+         * @param player   the player
+         * @param loc      the loc
+         * @return the value
+         */
         public int getValue(double egWeight, PlayerColor player, Location loc) {
             int mg = tables[MIDDLE_GAME][player.asInt][loc.row][loc.col];
             int eg = egWeight == 0 ? 0 : (int) (egWeight * tables[ENDGAME][player.asInt][loc.row][loc.col]);

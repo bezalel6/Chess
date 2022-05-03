@@ -11,7 +11,7 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 /**
- * Minimax view - .
+ * Minimax view - represents a debugging frame for watching the minimax 'think' in real time .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -17,15 +17,57 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 
+/**
+ * Move log - represents a scrollable list of moves annotations in pgn format that gets built as the game progresses.
+ * at any point, the client can click on any of the previous moves in the game's history, and that position will be loaded.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MoveLog extends JPanel {
-    private final MyJButton forward, back, start, end;
+    /**
+     * The Forward.
+     */
+    private final MyJButton forward, /**
+     * The Back.
+     */
+    back, /**
+     * The Start.
+     */
+    start, /**
+     * The End.
+     */
+    end;
+    /**
+     * The Boards list.
+     */
     private final ArrayList<ViewSavedBoard> boardsList = new ArrayList<>();
+    /**
+     * The Moves btns.
+     */
     private final ArrayList<MyJButton> movesBtns;
-    private final JPanel whiteMoves, blackMoves;
+    /**
+     * The White moves.
+     */
+    private final JPanel whiteMoves, /**
+     * The Black moves.
+     */
+    blackMoves;
+    /**
+     * The Board panel.
+     */
     private BoardPanel boardPanel;
+    /**
+     * The Move log scroll.
+     */
     private Scrollable moveLogScroll;
+    /**
+     * The Current move index.
+     */
     private int currentMoveIndex = 0;
 
+    /**
+     * Instantiates a new Move log.
+     */
     public MoveLog() {
         movesBtns = new ArrayList<>();
         forward = new MyJButton(">", FontManager.sidePanel, this::forward);
@@ -43,6 +85,9 @@ public class MoveLog extends JPanel {
     }
 
 
+    /**
+     * go one move Forward if possible.
+     */
     private void forward() {
         if (currentMoveIndex > lastMoveIndex() - 1) {
         } else {
@@ -51,6 +96,9 @@ public class MoveLog extends JPanel {
         }
     }
 
+    /**
+     * go one move Backwards if possible.
+     */
     private void back() {
         if (currentMoveIndex < 1) {
         } else {
@@ -59,6 +107,9 @@ public class MoveLog extends JPanel {
         }
     }
 
+    /**
+     * Add layout.
+     */
     private void addLayout() {
         setLayout(new GridBagLayout());
 
@@ -86,6 +137,9 @@ public class MoveLog extends JPanel {
         add(moveLogScroll, gbc);
     }
 
+    /**
+     * Create move log pnl.
+     */
     private void createMoveLogPnl() {
 
         JPanel moves = new JPanel(new GridLayout(1, 0));
@@ -101,11 +155,19 @@ public class MoveLog extends JPanel {
         moveLogScroll = new Scrollable(container, new Size(225, 104));
     }
 
+    /**
+     * before adding applying a new move.
+     */
     public void preAdding() {
         if (!isCaughtUp())
             end();
     }
 
+    /**
+     * Create nav adapter for navigating moves with the arrow keys.
+     *
+     * @return the key adapter
+     */
     public KeyAdapter createNavAdapter() {
         return new KeyAdapter() {
             @Override
@@ -130,9 +192,9 @@ public class MoveLog extends JPanel {
     }
 
     /**
-     * CALL AFTER UPDATING BOARD
+     * add new move to the log. should be called after applying the move to the board
      *
-     * @param move
+     * @param move the move
      */
     public synchronized void addMove(Move move) {
         Font font = FontManager.sidePanel;
@@ -176,6 +238,11 @@ public class MoveLog extends JPanel {
         enableNavBtns();
     }
 
+    /**
+     * Switch to a certain move.
+     *
+     * @param index the index
+     */
     private synchronized void switchTo(int index) {
         if (index != currentMoveIndex) {
             currentMoveIndex = index;
@@ -183,6 +250,9 @@ public class MoveLog extends JPanel {
         }
     }
 
+    /**
+     * Enable navigation buttons.
+     */
     public void enableNavBtns() {
         enableForwardNav(!movesBtns.isEmpty() && !isCaughtUp());
         enableBackNav(currentMoveIndex > 0);
@@ -196,6 +266,9 @@ public class MoveLog extends JPanel {
     }
 
 
+    /**
+     * Scroll to the current move index.
+     */
     private void scroll() {
         int row = currentMoveIndex / 2;
         row = (row - 1) * movesBtns.get(0).getHeight();
@@ -204,34 +277,61 @@ public class MoveLog extends JPanel {
 //        moveLogScroll.scrollToBottom();
     }
 
+    /**
+     * Switch to current index.
+     */
     public synchronized void switchToCurrentIndex() {
         boardPanel.lock(!isCaughtUp());
         boardPanel.restoreBoardButtons(boardsList.get(currentMoveIndex));
         enableNavBtns();
     }
 
+    /**
+     * Enable forward navigation.
+     *
+     * @param enable should enable buttons
+     */
     private void enableForwardNav(boolean enable) {
         end.setEnabled(enable);
         forward.setEnabled(enable);
     }
 
+    /**
+     * Is caught up - is the move that this board is looking at the last one.
+     *
+     * @return the boolean
+     */
     public boolean isCaughtUp() {
         return currentMoveIndex == lastMoveIndex();
     }
 
+    /**
+     * Enable back navigation.
+     *
+     * @param enable the enable
+     */
     private void enableBackNav(boolean enable) {
         start.setEnabled(enable);
         back.setEnabled(enable);
     }
 
+    /**
+     * go to Start.
+     */
     private void start() {
         switchTo(0);
     }
 
+    /**
+     * go to End.
+     */
     private void end() {
         switchTo(lastMoveIndex());
     }
 
+    /**
+     * Reset log.
+     */
     public synchronized void reset() {
         whiteMoves.removeAll();
         blackMoves.removeAll();
@@ -244,22 +344,40 @@ public class MoveLog extends JPanel {
     }
 
 
+    /**
+     * Sets board panel.
+     *
+     * @param boardPanel the board panel
+     */
     public void setBoardPanel(BoardPanel boardPanel) {
         boardsList.add(new ViewSavedBoard(boardPanel));
         this.boardPanel = boardPanel;
     }
 
 
+    /**
+     * Reset current board.
+     */
     public void resetCurrentBoard() {
         if (numOfMoves() > 0) {
             boardsList.set(lastMoveIndex(), new ViewSavedBoard(boardPanel));
         }
     }
 
+    /**
+     * Num of moves int.
+     *
+     * @return the int
+     */
     private int numOfMoves() {
         return boardsList.size();
     }
 
+    /**
+     * Last move index int.
+     *
+     * @return the int
+     */
     private int lastMoveIndex() {
         return numOfMoves() - 1;
     }

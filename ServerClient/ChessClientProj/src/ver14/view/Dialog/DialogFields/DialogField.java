@@ -24,18 +24,55 @@ import ver14.view.ErrorPnl;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Dialog field - represents a dialog field for the client to fill.
+ *
+ * @param <T> the type of info this field will hold
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class DialogField<T> extends DialogComponent implements Verified {
+    /**
+     * The constant cols.
+     */
     private static final int cols = 2;
+    /**
+     * The Err lbl.
+     */
     protected final ErrorPnl errLbl;
+    /**
+     * The Not equals to.
+     */
     private final ArrayList<CanError<T>> notEqualsTo;
+    /**
+     * The Config.
+     */
     protected Config<T> config;
+    /**
+     * The On default click ok.
+     */
     private boolean onDefaultClickOk = true;
+    /**
+     * The No res.
+     */
     private boolean noRes = false;
 
+    /**
+     * Instantiates a new Dialog field.
+     *
+     * @param fieldHeader the field header
+     * @param parent      the parent
+     */
     protected DialogField(Header fieldHeader, Parent parent) {
         this(cols, fieldHeader, parent);
     }
 
+    /**
+     * Instantiates a new Dialog field.
+     *
+     * @param cols   the cols
+     * @param header the header
+     * @param parent the parent
+     */
     protected DialogField(int cols, Header header, Parent parent) {
         super(cols, header, parent);
         this.notEqualsTo = new ArrayList<>();
@@ -45,6 +82,13 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     }
 
+    /**
+     * Create field according to an argument. meant to create the required information fields when creating database requests.
+     *
+     * @param arg         the arg
+     * @param fieldParent the field parent
+     * @return the dialog field
+     */
     public static DialogField<?> createField(Arg arg, Parent fieldParent) {
         if (!arg.isUserInput())
             return null;
@@ -66,6 +110,11 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         return field;
     }
 
+    /**
+     * Sets the configuration of this field.
+     *
+     * @param config the config
+     */
     public final void setConfig(Config<T> config) {
         this.config = config;
         if (config != null) {
@@ -81,10 +130,22 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
 
     }
 
+    /**
+     * Create value button.
+     * used for creating default buttons for fields that allow default values.
+     *
+     * @param desc the desc
+     * @return the value btn
+     */
     private ValueBtn<T> createValBtn(Described<T> desc) {
         return new ValueBtn<>(desc.description(), FontManager.Dialogs.dialog, desc.obj(), this::valueBtnPresses);
     }
 
+    /**
+     * Value btn presses.
+     *
+     * @param val the value
+     */
     public void valueBtnPresses(T val) {
         setValue(val);
         if (onDefaultClickOk) {
@@ -92,16 +153,31 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         }
     }
 
+    /**
+     * Sets weather or not clicking a default value button should click the ok button.
+     *
+     * @param onDefaultClickOk the on default click ok
+     */
     public void setOnDefaultClickOk(boolean onDefaultClickOk) {
         this.onDefaultClickOk = onDefaultClickOk;
     }
 
+    /**
+     * Add a secondary component to this field. the component will be added to the side of the main component.
+     *
+     * @param comp the secondary component
+     */
     protected void addSecondaryComp(Component comp) {
         GridBagConstraints gbc = new GridBagConstraints();
 //        gbc.fill = GridBagConstraints.BOTH;
         add(comp, gbc);
     }
 
+    /**
+     * Add a main component.
+     *
+     * @param comp the comp
+     */
     protected void addMainComp(Component comp) {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 2;
@@ -111,6 +187,11 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         add(comp, gbc);
     }
 
+    /**
+     * this value cannot be equals to.
+     *
+     * @param canError the can error
+     */
     public void notEqualsTo(CanError<T> canError) {
         notEqualsTo.add(canError);
     }
@@ -131,24 +212,54 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
         return verified;
     }
 
+    /**
+     * Gets value.
+     *
+     * @return the value
+     */
     protected abstract T getValue();
 
+    /**
+     * Verify field boolean.
+     *
+     * @return the boolean
+     */
     protected abstract boolean verifyField();
 
+    /**
+     * Sets value.
+     *
+     * @param value the value
+     */
     public abstract void setValue(T value);
 
+    /**
+     * Gets result.
+     *
+     * @return the result
+     */
     public T getResult() {
         if (noRes)
             return null;
         return getValue();
     }
 
+    /**
+     * Err.
+     *
+     * @param err the err
+     */
     public void err(String err) {
         err = StrUtils.format(err);
         errLbl.setText(err);
 //        parent.repackWin();
     }
 
+    /**
+     * Create card out of this field.
+     *
+     * @return the dialog card
+     */
     public DialogCard createCard() {
         assert parent instanceof Dialog;
         var ret = SimpleDialogCard.create(this, (Dialog) parent);

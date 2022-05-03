@@ -9,8 +9,19 @@ import ver14.view.Dialog.Dialogs.LoginProcess.Components.Register.RegisterUserna
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.IconManager.Size;
 
+/**
+ * Register card.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Register extends LoginCard {
 
+    /**
+     * Instantiates a new Register.
+     *
+     * @param parentDialog the parent dialog
+     * @param loginInfo    the login info
+     */
     public Register(LoginProcess parentDialog, LoginInfo loginInfo) {
         super(new CardHeader("Register"), parentDialog, loginInfo, LoginType.REGISTER);
 

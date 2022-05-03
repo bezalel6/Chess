@@ -18,28 +18,69 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.stream.IntStream;
 
+/**
+ * represents the Board panel. holding all the buttons.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
+    /**
+     * The constant blackSquareClr.
+     */
     public static final MyColor blackSquareClr = new MyColor("#71828f");
+    /**
+     * The constant whiteSquareClr.
+     */
     public static final MyColor whiteSquareClr = new MyColor("#f2f5f3");
-    //    public static final Color blackSquareClr = new Color(79, 60, 33, 255);
-    //    public static final Color whiteSquareClr = new Color(222, 213, 187);
+    /**
+     * The constant btnDimension.
+     */
     private final static Dimension btnDimension = new Size(50);
+    /**
+     * The constant coordinatesInsets.
+     */
     private final static Insets coordinatesInsets = new Insets(1, 1, 1, 1);
-    private final int rows, cols;
-    private final View view;
-    private final JPanel me;
-    private BoardButton[][] btnMat;
-    private JPanel buttonsPnl;
-    private JPanel colsCoordinatesPnl, rowsCoordinatesPnl;
-    private BoardOverlay boardOverlay;
-    private Size lastResize = new Size(0);
 
+    /**
+     * The View.
+     */
+    private final View view;
+    /**
+     * The Me.
+     */
+    private final JPanel me;
+    /**
+     * The Btn mat.
+     */
+    private BoardButton[][] btnMat;
+    /**
+     * The Buttons pnl.
+     */
+    private JPanel buttonsPnl;
+    /**
+     * The Cols coordinates pnl.
+     */
+    private JPanel colsCoordinatesPnl, /**
+     * The Rows coordinates pnl.
+     */
+    rowsCoordinatesPnl;
+    /**
+     * The Board overlay.
+     */
+    private BoardOverlay boardOverlay;
+
+
+    /**
+     * Instantiates a new Board panel.
+     *
+     * @param rows the rows
+     * @param cols the cols
+     * @param view the view
+     */
     public BoardPanel(int rows, int cols, View view) {
         this.me = new JPanel(new GridBagLayout());
         setLayout(new GridBagLayout());
         add(me, new GridBagConstraints());
-        this.rows = rows;
-        this.cols = cols;
         this.view = view;
         buttonsPnl = new JPanel();
         btnMat = new BoardButton[rows][cols];
@@ -47,10 +88,18 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         setCoordinates();
     }
 
+    /**
+     * Sets coordinates.
+     */
     private void setCoordinates() {
         setCoordinates(true);
     }
 
+    /**
+     * Sets coordinates.
+     *
+     * @param initialize should initialize
+     */
     public void setCoordinates(boolean initialize) {
         if (initialize) {
             colsCoordinatesPnl = new JPanel();
@@ -92,14 +141,33 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 
     }
 
+    /**
+     * Is board flipped boolean.
+     *
+     * @return the boolean
+     */
     private boolean isBoardFlipped() {
         return view != null && view.isBoardFlipped();
     }
 
+    /**
+     * Sets all sizes.
+     *
+     * @param comp the comp
+     * @param w    the w
+     * @param h    the h
+     */
     static void setAllSizes(JComponent comp, double w, double h) {
         setAllSizes(comp, (int) w, (int) h);
     }
 
+    /**
+     * Sets all sizes.
+     *
+     * @param comp the comp
+     * @param w    the w
+     * @param h    the h
+     */
     static void setAllSizes(JComponent comp, int w, int h) {
         Size size = new Size(w, h);
         comp.setSize(size);
@@ -108,34 +176,67 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         comp.setMinimumSize(size);
     }
 
+    /**
+     * Lock all buttons.
+     *
+     * @param lock the lock
+     */
     public void lock(boolean lock) {
         forEachBtnParallel(btn -> btn.setLocked(lock));
         getBoardOverlay().setBlockBoard(lock);
     }
 
+    /**
+     * For each btn parallel.
+     *
+     * @param call the call
+     */
     public void forEachBtnParallel(BtnCallBack call) {
         synchronized (view.boardLock) {
             forEachRowParallel(row -> Arrays.stream(row).parallel().forEach(call::callback));
         }
     }
 
+    /**
+     * Gets board overlay.
+     *
+     * @return the board overlay
+     */
     public BoardOverlay getBoardOverlay() {
         return boardOverlay;
     }
 
+    /**
+     * For each row parallel.
+     *
+     * @param call the call
+     */
     public void forEachRowParallel(BtnRowCallback call) {
         Arrays.stream(btnMat).parallel().forEach(call::callback);
 //        Arrays.stream(btnMat).forEach(call::func);
     }
 
+    /**
+     * For each btn.
+     *
+     * @param call the call
+     */
     public void forEachBtn(BtnCallBack call) {
         forEachRow(row -> Arrays.stream(row).forEach(call::callback));
     }
 
+    /**
+     * For each row.
+     *
+     * @param call the call
+     */
     public void forEachRow(BtnRowCallback call) {
         Arrays.stream(btnMat).forEach(call::callback);
     }
 
+    /**
+     * Board container setup.
+     */
     public void boardContainerSetup() {
         //הוספת הקורדינאטות
         GridBagConstraints gbc;
@@ -165,6 +266,11 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         me.add(colsCoordinatesPnl, gbc);
     }
 
+    /**
+     * Sets board buttons.
+     *
+     * @param board the board
+     */
     public void setBoardButtons(Board board) {
         resetAllButtons(true);
         for (Square square : board) {
@@ -177,6 +283,11 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resizeIcons();
     }
 
+    /**
+     * Create board board.
+     *
+     * @return the board
+     */
     public Board createBoard() {
         Board board = new Board();
         for (var loc : Location.ALL_LOCS) {
@@ -185,18 +296,40 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         return board;
     }
 
+    /**
+     * Gets btn.
+     *
+     * @param loc the loc
+     * @return the btn
+     */
     public BoardButton getBtn(Location loc) {
         return getBtn(new ViewLocation(loc));
     }
 
+    /**
+     * Gets btn.
+     *
+     * @param loc the loc
+     * @return the btn
+     */
     public BoardButton getBtn(ViewLocation loc) {
         return getBtn(loc.viewLocation.row, loc.viewLocation.col);
     }
 
+    /**
+     * Gets btn.
+     *
+     * @param r the r
+     * @param c the c
+     * @return the btn
+     */
     public BoardButton getBtn(int r, int c) {
         return btnMat[r][c];
     }
 
+    /**
+     * Reset orientation.
+     */
     public void resetOrientation() {
         ViewSavedBoard savedBoard = new ViewSavedBoard(this);
         setCoordinates(false);
@@ -208,6 +341,9 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 //        getBoardOverlay().repaintLayer();
     }
 
+    /**
+     * Create mat.
+     */
     public void createMat() {
         buttonsPnl.removeAll();
 
@@ -238,20 +374,41 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         repaint();
     }
 
+    /**
+     * Sets button.
+     *
+     * @param button the button
+     * @param loc    the loc
+     */
     private void setButton(BoardButton button, ViewLocation loc) {
         btnMat[loc.viewLocation.row][loc.viewLocation.col] = button;
     }
 
+    /**
+     * Gets buttons pnl.
+     *
+     * @return the buttons pnl
+     */
     public JPanel getButtonsPnl() {
         return buttonsPnl;
     }
 
+    /**
+     * Restore board buttons.
+     *
+     * @param savedBoard the saved board
+     */
     public void restoreBoardButtons(ViewSavedBoard savedBoard) {
         resetAllButtons(true);
         savedBoard.savedSquares.forEach(square -> square.restore(getBtn(square.getLoc())));
         resizeIcons();
     }
 
+    /**
+     * Reset all buttons.
+     *
+     * @param resetIcons the reset icons
+     */
     public void resetAllButtons(boolean resetIcons) {
         forEachBtnParallel(btn -> {
             btn.resetBackground();
@@ -261,13 +418,15 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         });
     }
 
+    /**
+     * On resize.
+     */
     public void onResize() {
 //        int diff = lastResize.maxDiff(getSize());
 //        if (diff < 5) {
 //            return;
 //        }
         SwingUtilities.invokeLater(() -> {
-            lastResize = new Size(getSize());
             int size = Math.min(getWidth(), getHeight());
             setAllSizes(me, size, size);
 
@@ -281,10 +440,19 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 
     }
 
+    /**
+     * Sets all sizes.
+     *
+     * @param comp the comp
+     * @param d    the d
+     */
     static void setAllSizes(JComponent comp, Dimension d) {
         setAllSizes(comp, d.width, d.height);
     }
 
+    /**
+     * Resize icons.
+     */
     public void resizeIcons() {
         System.out.println("resizing icon. pnl size is = " + getSize());
         forEachBtnParallel(BoardButton::scaleIcon);
@@ -302,6 +470,11 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
             view.repaint();
     }
 
+    /**
+     * Get btn mat board button [ ] [ ].
+     *
+     * @return the board button [ ] [ ]
+     */
     public BoardButton[][] getBtnMat() {
         return btnMat;
     }
@@ -311,9 +484,19 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         return Arrays.stream(btnMat).iterator();
     }
 
+    /**
+     * Btn row callback.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public interface BtnRowCallback extends Callback<BoardButton[]> {
     }
 
+    /**
+     * Btn call back.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public interface BtnCallBack extends Callback<BoardButton> {
     }
 }

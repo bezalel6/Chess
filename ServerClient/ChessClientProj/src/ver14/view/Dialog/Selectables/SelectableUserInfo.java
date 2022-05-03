@@ -6,14 +6,28 @@ import ver14.view.IconManager.IconManager;
 
 import javax.swing.*;
 
-public class SelectableUserInfo implements Selectable, SyncableItem {
-    private final UserInfo userInfo;
-
-    public SelectableUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
+/**
+ * represents a Selectable user info.
+ *
+ * @param userInfo The User info.
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
+public record SelectableUserInfo(UserInfo userInfo) implements Selectable, SyncableItem {
+    /**
+     * Instantiates a new Selectable user info.
+     *
+     * @param userInfo the user info
+     */
+    public SelectableUserInfo {
     }
 
-    public UserInfo getUserInfo() {
+    /**
+     * Gets user info.
+     *
+     * @return the user info
+     */
+    @Override
+    public UserInfo userInfo() {
         return userInfo;
     }
 

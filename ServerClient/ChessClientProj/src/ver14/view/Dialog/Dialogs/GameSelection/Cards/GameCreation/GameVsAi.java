@@ -7,9 +7,23 @@ import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.DialogFields.Slider.TimeFormatSlider;
 import ver14.view.Dialog.Dialogs.GameSelection.Components.AiTypes;
 
+/**
+ * Game vs ai card.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class GameVsAi extends GameCreationCard {
+    /**
+     * The Ai parameters.
+     */
     private final AiParameters aiParameters;
 
+    /**
+     * Instantiates a new Game vs ai.
+     *
+     * @param parentDialog the parent dialog
+     * @param gameSettings the game settings
+     */
     public GameVsAi(Dialog parentDialog, GameSettings gameSettings) {
         super(new CardHeader("Game vs Ai"), parentDialog, gameSettings);
         aiParameters = new AiParameters();

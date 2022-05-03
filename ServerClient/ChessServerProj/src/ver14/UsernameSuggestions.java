@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class UsernameSuggestions {
-//tooptimize O(no)
 
     /**
      * The constant maxSuggestions.

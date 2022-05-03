@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 
 /**
- * The type Server messages handler.
+ * Server messages handler.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

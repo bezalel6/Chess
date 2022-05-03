@@ -9,13 +9,36 @@ import ver14.view.IconManager.Size;
 import java.awt.*;
 import java.util.Date;
 
+/**
+ * a Date field.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class DateField extends DialogField<Date> {
 
+    /**
+     * The J calendar.
+     */
     private final JCalendar jCalendar;
+    /**
+     * The Before.
+     */
     private DateField before;
+    /**
+     * The After.
+     */
     private DateField after;
+    /**
+     * The Err.
+     */
     private String err;
 
+    /**
+     * Instantiates a new Date field.
+     *
+     * @param header the header
+     * @param parent the parent
+     */
     public DateField(Header header, Parent parent) {
         super(header, parent);
         this.jCalendar = new JCalendar() {
@@ -46,10 +69,6 @@ public class DateField extends DialogField<Date> {
             this.jCalendar.setFont(font);
     }
 
-    public static void main(String[] args) {
-//        Arg a = new Arg(ArgType.Date, new Config<>("iuehwdifdhsdhjdoishj neoifcneoiemcoism kpekoms pom\nddwaawaddawdwad", new Date()));
-//        new CustomDialog(null, Properties.example, a, a, a).start();
-    }
 
     @Override
     protected Date getValue() {
@@ -79,6 +98,11 @@ public class DateField extends DialogField<Date> {
         return err == null;
     }
 
+    /**
+     * Gets the selected date.
+     *
+     * @return the date
+     */
     public Date getDate() {
 
         Date date = jCalendar.getDate();
@@ -91,10 +115,20 @@ public class DateField extends DialogField<Date> {
         jCalendar.setDate(value);
     }
 
+    /**
+     * Sets the selected date to be before the provided date field.
+     *
+     * @param before the before
+     */
     public void setBefore(DateField before) {
         this.before = before;
     }
 
+    /**
+     * Sets the selected date to be after the provided date field.
+     *
+     * @param after the after
+     */
     public void setAfter(DateField after) {
         this.after = after;
     }

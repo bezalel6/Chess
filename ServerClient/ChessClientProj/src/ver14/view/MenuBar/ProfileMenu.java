@@ -14,12 +14,32 @@ import ver14.view.ProfilePnl;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Profile menu - represents a menu of a profile.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class ProfileMenu extends Menu {
 
+    /**
+     * The constant menuFont.
+     */
     private final static Font menuFont = FontManager.JMenus.headers;
+    /**
+     * The constant menuItemsFont.
+     */
     private final static Font menuItemsFont = FontManager.JMenus.items;
+    /**
+     * The Profile pnl.
+     */
     private final ProfilePnl profilePnl;
 
+    /**
+     * Instantiates a new Profile menu.
+     *
+     * @param authorizedComponents the authorized components
+     * @param client               the client
+     */
     public ProfileMenu(ArrayList<AuthorizedComponent> authorizedComponents, Client client) {
         super("", AuthSettings.ANY_LOGIN);
         setIcon(IconManager.defaultUserIcon);

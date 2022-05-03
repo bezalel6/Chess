@@ -8,8 +8,19 @@ import ver14.view.Dialog.Dialogs.GameSelection.Components.SyncedGamesList;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Selectables.Selectable;
 
+/**
+ * represents a synchronized list of games that are available to join to.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class JoinExistingGame extends SyncedGamesList {
 
+    /**
+     * Instantiates a new Join existing game.
+     *
+     * @param parent       the parent
+     * @param gameSettings the game settings
+     */
     public JoinExistingGame(Parent parent, GameSettings gameSettings) {
         super(new Header("Join Existing Game"), SyncedListType.JOINABLE_GAMES, parent, gameSettings, GameSettings.GameType.JOIN_EXISTING);
     }

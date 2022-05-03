@@ -1,5 +1,10 @@
 package ver14.view.Dialog.BackOk;
 
+/**
+ * represents a container for a Back ok interface.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public interface BackOkContainer extends BackOkInterface {
 
 
@@ -8,6 +13,11 @@ public interface BackOkContainer extends BackOkInterface {
         return actualInterface().getBackText();
     }
 
+    /**
+     * Actual interface back ok interface.
+     *
+     * @return the back ok interface
+     */
     BackOkInterface actualInterface();
 
     @Override

@@ -18,8 +18,19 @@ import ver14.view.Dialog.SyncableList;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * a synchronized jmenu.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class SyncedJMenu extends SyncableListComponent {
 
+    /**
+     * Instantiates a new Synced j menu.
+     *
+     * @param header   the header
+     * @param listType the list type
+     */
     public SyncedJMenu(Header header, SyncedListType listType) {
         super(header, listType, null);
         setParent(new MyM(header));
@@ -31,6 +42,11 @@ public abstract class SyncedJMenu extends SyncableListComponent {
         return getJMenu().add(comp);
     }
 
+    /**
+     * Gets j menu.
+     *
+     * @return the j menu
+     */
     public JMenu getJMenu() {
         return (MyM) parent;
     }
@@ -52,9 +68,22 @@ public abstract class SyncedJMenu extends SyncableListComponent {
 
     }
 
+    /**
+     * My implementation of a jmenu used for a {@link SyncedJMenu}.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     static class MyM extends JMenu implements Parent {
+        /**
+         * The Header.
+         */
         private final Header header;
 
+        /**
+         * Instantiates a new My m.
+         *
+         * @param header the header
+         */
         public MyM(Header header) {
             super(header.getText());
             setText(header.getText());

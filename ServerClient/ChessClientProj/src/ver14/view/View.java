@@ -29,11 +29,11 @@ import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewLocation;
 import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.Dialog;
+import ver14.view.Dialog.*;
 import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Dialog.Scrollable;
-import ver14.view.Dialog.*;
+import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
 import ver14.view.Graph.Graph;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
@@ -50,7 +50,8 @@ import java.util.List;
 
 
 /**
- * View - represents the GUI manager for the client.
+ * View - represents the GUI manager for the client. the view handles things like:
+ * showing and proper disposal of dialogs, the main game window, window resizes, and more..
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -805,9 +806,9 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             currentRes = currentRes.getAddedRes();
         }
 
-        Properties properties = client.dialogProperties(respondingTo, title + " | " + response.getStatus());
+        DialogProperties dialogProperties = client.dialogProperties(respondingTo, title + " | " + response.getStatus());
 
-        showDialog(new SimpleDialog(properties, pnl));
+        showDialog(new SimpleDialog(dialogProperties, pnl));
     }
 
     /**

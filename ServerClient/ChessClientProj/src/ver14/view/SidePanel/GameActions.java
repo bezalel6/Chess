@@ -6,13 +6,22 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Game actions - .
+ * Game actions - a panel where a player can execute game-related actions. like resigning.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class GameActions extends JPanel {
+    /**
+     * The Side panel.
+     */
     private final SidePanel sidePanel;
+    /**
+     * The Resign btn.
+     */
     private final MyJButton resignBtn;
+    /**
+     * The Offer draw btn.
+     */
     private final MyJButton offerDrawBtn;
 
     /**
@@ -30,11 +39,17 @@ public class GameActions extends JPanel {
         add(resignBtn);
     }
 
+    /**
+     * Resign btn clicked.
+     */
     private void resignBtnClicked() {
         resignBtn.setEnabled(false);
         sidePanel.client.resignBtnClicked();
     }
 
+    /**
+     * Offer draw btn c licked.
+     */
     private void offerDrawBtnCLicked() {
 //        offerDrawBtn.replaceWithCancel(() -> {
 //            sidePanel.client.cancelQuestion(Question.QuestionType.DRAW_OFFER);

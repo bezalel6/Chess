@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 
 /**
- * Pieces b bs.
+ * represents a collection of bitboards of pieces.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

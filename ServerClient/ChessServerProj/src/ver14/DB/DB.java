@@ -35,7 +35,7 @@ import java.util.*;
 
 
 /**
- * DB - utility class for connecting to the database, and .
+ * DB - utility class for communicating with the database.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

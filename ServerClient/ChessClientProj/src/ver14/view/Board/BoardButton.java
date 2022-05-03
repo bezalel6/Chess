@@ -22,26 +22,92 @@ import java.util.Map;
 
 import static ver14.view.Board.BoardButton.State.*;
 
+/**
+ * represents a Board button.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class BoardButton extends MyJButton {
+    /**
+     * The constant ICON_MULTIPLIER.
+     */
     private static final double ICON_MULTIPLIER = .8;
+    /**
+     * The constant CHECK_COLOR.
+     */
     private final static Color CHECK_COLOR = new Color(186, 11, 11, 255);
+    /**
+     * The constant CAPTURE_COLOR.
+     */
     private final static Color CAPTURE_COLOR = new Color(0, 0, 0, 255 / 4);
+    /**
+     * The constant PROMOTING_COLOR.
+     */
     private final static Color PROMOTING_COLOR = new Color(151, 109, 3);
+    /**
+     * The constant HOVERED_CURSOR.
+     */
     private static final Cursor HOVERED_CURSOR = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+    /**
+     * The constant iconSize.
+     */
     private static int iconSize = 50;
+    /**
+     * The Starting background color.
+     */
     private final MyColor startingBackgroundColor;
+    /**
+     * The View.
+     */
     private final View view;
+    /**
+     * The Btn loc.
+     */
     private final ViewLocation btnLoc;
+    /**
+     * The States callbacks.
+     */
     private final Map<Integer, Callback<Graphics>> statesCallbacks = new HashMap<>();
+    /**
+     * The Single gen eff.
+     */
     private final EfficientGen<Integer, ArrayList<Callback<Graphics>>> singleGenEff;
+    /**
+     * The Btn state.
+     */
     private int btnState;
+    /**
+     * The Og quality icon.
+     */
     private Icon ogQualityIcon;
+    /**
+     * The Piece.
+     */
     private Piece piece = null;
+    /**
+     * The Was unlocked.
+     */
     private boolean wasUnlocked = false;
+    /**
+     * The Before lock bg.
+     */
     private Color beforeLockBg;
+    /**
+     * The Selected clr.
+     */
     private Color selectedClr;
+    /**
+     * The Hidden icon.
+     */
     private Icon hiddenIcon = null;
 
+    /**
+     * Instantiates a new Board button.
+     *
+     * @param btnLoc                  the btn loc
+     * @param startingBackgroundColor the starting background color(white or black)
+     * @param view                    the view
+     */
     public BoardButton(ViewLocation btnLoc, MyColor startingBackgroundColor, View view) {
         this.startingBackgroundColor = startingBackgroundColor;
         this.btnLoc = btnLoc;
@@ -114,43 +180,83 @@ public class BoardButton extends MyJButton {
         });
     }
 
+    /**
+     * Sets callback.
+     *
+     * @param state    the state
+     * @param callback the callback
+     */
     private void setCallback(@State int state, Callback<Graphics> callback) {
         statesCallbacks.put(bitIndex(state), callback);
     }
 
+    /**
+     * Hide icon.
+     */
     public void hideIcon() {
         hiddenIcon = getIcon();
         setIcon(null);
     }
 
+    /**
+     * checks if this button's state is on.
+     *
+     * @param state the state
+     * @return true if this state is on, false otherwise
+     */
     public boolean is(@State int state) {
         return (btnState & state) != 0;
     }
 
+    /**
+     * Un hide icon.
+     */
     public void unHideIcon() {
         setIcon(hiddenIcon);
         hiddenIcon = null;
     }
 
+    /**
+     * Bit index int.
+     *
+     * @param powOf2 the pow of 2
+     * @return the int
+     */
     public static int bitIndex(int powOf2) {
         return (int) MathUtils.log(powOf2, 2);
     }
 
+    /**
+     * End hover.
+     */
     public void endHover() {
         removeState(State.HOVERED);
     }
 
+    /**
+     * Remove state.
+     *
+     * @param removing the removing
+     */
     public void removeState(int removing) {
         btnState &= ~(removing);
         repaint();
     }
 
+    /**
+     * Sets states.
+     *
+     * @param states the states
+     */
     public void setStates(int states) {
         resetBackground();
         btnState = (states);
         repaint();
     }
 
+    /**
+     * Reset background.
+     */
     public void resetBackground() {
         resetStates();
         setBackground(startingBackgroundColor);
@@ -158,44 +264,82 @@ public class BoardButton extends MyJButton {
             view.repaint();
     }
 
+    /**
+     * Reset states.
+     */
     private void resetStates() {
         btnState = 0;
         repaint();
     }
 
+    /**
+     * Gets btn state.
+     *
+     * @return the btn state
+     */
     public int getBtnState() {
         return btnState;
     }
 
+    /**
+     * Sets as current.
+     */
     public void setAsCurrent() {
         addState(State.CURRENT);
     }
 
+    /**
+     * Add state.
+     *
+     * @param adding the adding
+     */
     public void addState(int adding) {
         btnState |= (adding);
         repaint();
     }
 
+    /**
+     * Sets as check.
+     */
     public void setAsCheck() {
         addState(CHECK);
     }
 
+    /**
+     * Sets as promotion.
+     */
     public void setAsPromotion() {
         addState(State.PROMOTING);
     }
 
+    /**
+     * Sets as movable.
+     */
     public void setAsMovable() {
         addState(State.CAN_MOVE_TO);
     }
 
+    /**
+     * Sets as capture.
+     */
     public void setAsCapture() {
         addState(State.CAPTURE);
     }
 
+    /**
+     * Gets piece.
+     *
+     * @return the piece
+     */
     public Piece getPiece() {
         return piece;
     }
 
+    /**
+     * Sets piece.
+     *
+     * @param piece the piece
+     */
     public void setPiece(Piece piece) {
         synchronized (view.boardLock) {
             this.piece = piece;
@@ -203,10 +347,20 @@ public class BoardButton extends MyJButton {
         }
     }
 
+    /**
+     * Sets piece.
+     *
+     * @param prevBtn the prev btn
+     */
     public void setPiece(BoardButton prevBtn) {
         setPiece(prevBtn.piece);
     }
 
+    /**
+     * Gets btn loc.
+     *
+     * @return the btn loc
+     */
     public ViewLocation getBtnLoc() {
         return btnLoc;
     }
@@ -228,6 +382,11 @@ public class BoardButton extends MyJButton {
         super.setDisabledIcon(icon);
     }
 
+    /**
+     * Sets locked.
+     *
+     * @param lock the lock
+     */
     public void setLocked(boolean lock) {
         if (lock) {
             beforeLockBg = getBackground();
@@ -239,10 +398,18 @@ public class BoardButton extends MyJButton {
         }
     }
 
+    /**
+     * Start hover.
+     */
     public void startHover() {
         addState(State.HOVERED);
     }
 
+    /**
+     * Gets icon height.
+     *
+     * @return the icon height
+     */
     private int getIconHeight() {
         if (getHeight() > getWidth())
             return getIconWidth();
@@ -252,6 +419,11 @@ public class BoardButton extends MyJButton {
         return iconSize;
     }
 
+    /**
+     * Gets icon width.
+     *
+     * @return the icon width
+     */
     private int getIconWidth() {
         if (getWidth() > getHeight())
             return getIconHeight();
@@ -261,12 +433,20 @@ public class BoardButton extends MyJButton {
         return iconSize;
     }
 
+    /**
+     * Sets og quality icon.
+     *
+     * @param ogQualityIcon the og quality icon
+     */
     private void setOgQualityIcon(Icon ogQualityIcon) {
         this.ogQualityIcon = ogQualityIcon;
         setIcon(ogQualityIcon);
         scaleIcon();
     }
 
+    /**
+     * Scale icon.
+     */
     public synchronized void scaleIcon() {
         if (getIcon() == null || ogQualityIcon == null) return;
 //        if (getIcon().getIconWidth() == getIconWidth() && getIcon().getIconHeight() == getIconHeight()) {
@@ -279,6 +459,11 @@ public class BoardButton extends MyJButton {
         super.setDisabledIcon(newIcon);
     }
 
+    /**
+     * Gets icon size.
+     *
+     * @return the icon size
+     */
     private Size getIconSize() {
         return new Size(getIconWidth(), getIconHeight());
     }
@@ -289,6 +474,9 @@ public class BoardButton extends MyJButton {
         singleGenEff.get(btnState).forEach(callback -> callback.callback(g));
     }
 
+    /**
+     * Toggle selected.
+     */
     public void toggleSelected() {
         if (toggle(SELECTED))
             captureSelectedClr();
@@ -305,10 +493,16 @@ public class BoardButton extends MyJButton {
         return is(state);
     }
 
+    /**
+     * Capture selected clr.
+     */
     private void captureSelectedClr() {
         selectedClr = view.getBoardPnl().getBoardOverlay().currentColor();
     }
 
+    /**
+     * Click me.
+     */
     public void clickMe() {
 //        System.out.println("clicking " + this);
         view.boardButtonPressed(btnLoc);
@@ -323,10 +517,18 @@ public class BoardButton extends MyJButton {
                 '}';
     }
 
+    /**
+     * is this button a button a piece Can move to.
+     *
+     * @return the boolean
+     */
     public boolean canMoveTo() {
         return is(State.CAN_MOVE_TO | State.CAPTURE);
     }
 
+    /**
+     * Reset.
+     */
     public void reset() {
         setIcon(null);
         resetBackground();
@@ -334,10 +536,16 @@ public class BoardButton extends MyJButton {
         piece = null;
     }
 
+    /**
+     * Moving from. sets this button as a 'moving from' btn to highlight the square
+     */
     public void movingFrom() {
         addState(State.MOVING_FROM);
     }
 
+    /**
+     * Moving to.
+     */
     public void movingTo() {
         addState(State.MOVING_TO);
     }
@@ -345,8 +553,9 @@ public class BoardButton extends MyJButton {
     /**
      * allows a button to draw on the global, full board's 'canvas'
      *
-     * @param g2
-     * @param mouseCoordinates
+     * @param g2               the g 2
+     * @param mouseCoordinates the mouse coordinates
+     * @param c                the c
      */
     public void globalPaint(Graphics2D g2, Point mouseCoordinates, Component c) {
         if (is(State.DRAGGING)) {
@@ -357,22 +566,65 @@ public class BoardButton extends MyJButton {
         }
     }
 
+    /**
+     * Gets hidden icon.
+     *
+     * @return the hidden icon
+     */
     public Icon getHiddenIcon() {
         return hiddenIcon;
     }
 
+    /**
+     * State.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     @MagicConstant(flagsFromClass = State.class)
     public @interface State {
+        /**
+         * The constant CHECK.
+         */
         int CHECK = 1;
+        /**
+         * The constant CAPTURE.
+         */
         int CAPTURE = 2;
+        /**
+         * The constant CAN_MOVE_TO.
+         */
         int CAN_MOVE_TO = 4;
+        /**
+         * The constant CURRENT.
+         */
         int CURRENT = 8;
+        /**
+         * The constant PROMOTING.
+         */
         int PROMOTING = 16;
+        /**
+         * The constant MOVING_FROM.
+         */
         int MOVING_FROM = 32;
+        /**
+         * The constant MOVING_TO.
+         */
         int MOVING_TO = 64;
+        /**
+         * The constant HOVERED.
+         */
         int HOVERED = 128;
+        /**
+         * The constant CLICKED_ONCE.
+         */
         int CLICKED_ONCE = 256;
+        /**
+         * The constant DRAGGING.
+         */
         int DRAGGING = 512;
+        /**
+         * The constant SELECTED.
+         */
         int SELECTED = 1024;
 
 

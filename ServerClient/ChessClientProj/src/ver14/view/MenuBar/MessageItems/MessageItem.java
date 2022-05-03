@@ -7,9 +7,23 @@ import ver14.view.Dialog.Cards.MessageCard;
 
 import javax.swing.*;
 
+/**
+ * Message item - represents a message item that will show a static message on click.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class MessageItem extends JMenuItem {
+    /**
+     * The Client.
+     */
     protected final Client client;
 
+    /**
+     * Instantiates a new Message item.
+     *
+     * @param btnText the btn text
+     * @param client  the client
+     */
     public MessageItem(String btnText, Client client) {
         super(btnText);
         this.client = client;
@@ -19,15 +33,35 @@ public abstract class MessageItem extends JMenuItem {
         });
     }
 
+    /**
+     * On click.
+     */
     protected void onClick() {
         client.getView().showMessage(StrUtils.dontCapFull(msg()), title(), MessageCard.MessageType.INFO);
 
     }
 
+    /**
+     * Msg string.
+     *
+     * @return the string
+     */
     protected abstract String msg();
 
+    /**
+     * Title string.
+     *
+     * @return the string
+     */
     protected abstract String title();
 
+    /**
+     * Category string.
+     *
+     * @param name   the name
+     * @param values the values
+     * @return the string
+     */
     public static String category(String name, String... values) {
         StringBuilder bldr = new StringBuilder();
         bldr.append(name).append(":").append("\n\n");

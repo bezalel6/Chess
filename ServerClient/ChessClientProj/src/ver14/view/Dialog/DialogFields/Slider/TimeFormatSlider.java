@@ -1,7 +1,5 @@
 package ver14.view.Dialog.DialogFields.Slider;
 
-import com.formdev.flatlaf.FlatLightLaf;
-import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Game.GameSetup.TimeFormatComponent;
 import ver14.SharedClasses.UI.FontManager;
@@ -14,12 +12,35 @@ import ver14.view.IconManager.Size;
 
 import javax.swing.*;
 
+/**
+ * a Time format slider.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class TimeFormatSlider extends DialogField<TimeFormat> {
+    /**
+     * The constant maxInSec.
+     */
     private final static int maxInSec = 60 * 15;
+    /**
+     * The constant minInSec.
+     */
     private final static int minInSec = 1;
+    /**
+     * The Slider.
+     */
     protected final JSlider slider;
+    /**
+     * The Time lbl.
+     */
     private final MyLbl timeLbl;
 
+    /**
+     * Instantiates a new Time format slider.
+     *
+     * @param parent              the parent
+     * @param timeFormatComponent the time format component
+     */
     public TimeFormatSlider(Parent parent, TimeFormatComponent timeFormatComponent) {
         super(new Header("Choose Time Per Move"), parent);
         this.slider = new JSlider(minInSec, maxInSec);
@@ -39,15 +60,10 @@ public class TimeFormatSlider extends DialogField<TimeFormat> {
         setValue(new TimeFormat(5000));
     }
 
-    public static void main(String[] args) {
-        FlatLightLaf.setup();
-        new JFrame() {{
-            setSize(500, 500);
-            add(new TimeFormatSlider(null, new GameSettings()));
-            setVisible(true);
-        }};
-    }
 
+    /**
+     * Sets to min value.
+     */
     public void setToMinValue() {
         setValue(new TimeFormat(minInSec * 1000));
     }

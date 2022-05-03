@@ -12,7 +12,9 @@ import java.util.Collection;
 import java.util.Random;
 
 /**
- * The type List component.
+ * List component - represents a list component.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class ListComponent extends DialogField<Selectable> {
     /**
@@ -23,6 +25,9 @@ public abstract class ListComponent extends DialogField<Selectable> {
      * The Selected.
      */
     protected Selectable selected = null;
+    /**
+     * The On select.
+     */
     protected final Callback<Selectable> onSelect =
             justSelected -> {
                 //justSelected is null when user unselects button
@@ -60,6 +65,11 @@ public abstract class ListComponent extends DialogField<Selectable> {
         }
     }
 
+    /**
+     * Add component.
+     *
+     * @param item the item
+     */
     public void addComponent(Selectable item) {
         SelectableBtn btn = createButton(item);
         btns.add(btn);

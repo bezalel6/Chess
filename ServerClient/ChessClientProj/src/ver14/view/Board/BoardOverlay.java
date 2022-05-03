@@ -15,23 +15,60 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * represents an Arrow.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 class Arrow {
-    private final Point start, end;
+    /**
+     * The Start.
+     */
+    private final Point start, /**
+     * The End.
+     */
+    end;
+    /**
+     * The Barb.
+     */
     int barb = 50;                   // barb length WAS 50
+    /**
+     * The Phi.
+     */
     double phi = Math.PI / 6;             // 30 degrees barb angle WAS 6
+    /**
+     * The Clr.
+     */
     private Color clr;
 
 
+    /**
+     * Instantiates a new Arrow.
+     *
+     * @param start the start
+     * @param end   the end
+     * @param clr   the clr
+     */
     public Arrow(Point start, Point end, Color clr) {
         this.start = start;
         this.end = end;
         this.clr = clr;
     }
 
+    /**
+     * Sets clr.
+     *
+     * @param clr the clr
+     */
     public void setClr(Color clr) {
         this.clr = clr;
     }
 
+    /**
+     * Draws this arrow.
+     *
+     * @param g2 the g 2
+     */
     public void draw(Graphics2D g2) {
         if (start == null || end == null || start.equals(end)) return;
         g2.setStroke(new BasicStroke(10));
@@ -50,16 +87,42 @@ class Arrow {
     }
 
 
+    /**
+     * Equals boolean.
+     *
+     * @param other the other
+     * @return the boolean
+     */
     public boolean equals(Arrow other) {
         return start.equals(other.start) && end.equals(other.end);
     }
 }
 
+/**
+ * represents the Board's overlay. responsible for drawing arrows, detecting button clicks, and detecting held down buttons for selecting colors.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class BoardOverlay extends LayerUI<JPanel> {
+    /**
+     * The constant defaultColor.
+     */
     final static Color defaultColor = new Color(0, 0, 0, (int) (255 * 0.9));
+    /**
+     * The constant keyClrMap.
+     */
     private static final Map<Integer, Color> keyClrMap;
+    /**
+     * The constant NO_KEY.
+     */
     private final static Integer NO_KEY = null;
-    public static Point mouseCoordinates, startedAt;
+    /**
+     * The constant mouseCoordinates.
+     */
+    public static Point mouseCoordinates, /**
+     * The Started at.
+     */
+    startedAt;
 
     static {
         keyClrMap = new HashMap<>();
@@ -68,14 +131,40 @@ public class BoardOverlay extends LayerUI<JPanel> {
         keyClrMap.put(KeyEvent.VK_ALT, Color.decode("#E8A43F"));
     }
 
+    /**
+     * The View.
+     */
     private final View view;
+    /**
+     * The Is drawing.
+     */
     public boolean isDrawing = false;
+    /**
+     * The Arrows.
+     */
     private ArrayList<Arrow> arrows;
+    /**
+     * The Jlayer.
+     */
     private JLayer<?> jlayer;
+    /**
+     * The Block board.
+     */
     private boolean blockBoard = false;
+    /**
+     * The Pressed key.
+     */
     private Integer pressedKey = NO_KEY;
+    /**
+     * The Current btn.
+     */
     private BoardButton currentBtn = null;
 
+    /**
+     * Instantiates a new Board overlay.
+     *
+     * @param view the view
+     */
     public BoardOverlay(View view) {
         this.view = view;
         arrows = new ArrayList<>();
@@ -83,6 +172,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
 
     }
 
+    /**
+     * Create polygon.
+     *
+     * @param pointPairs the point pairs
+     * @return the polygon
+     */
     public static Polygon createPolygon(int... pointPairs) {
         assert pointPairs.length % 2 == 0;
         Point[] points = new Point[pointPairs.length / 2];
@@ -92,6 +187,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return createPolygon(points);
     }
 
+    /**
+     * Create polygon.
+     *
+     * @param points the points
+     * @return the polygon
+     */
     public static Polygon createPolygon(Point... points) {
         int[] xpoints = new int[points.length];
         int[] ypoints = new int[points.length];
@@ -103,6 +204,11 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return new Polygon(xpoints, ypoints, points.length);
     }
 
+    /**
+     * Create clrs adapters. used for detecting selected colors.
+     *
+     * @return the array list
+     */
     public ArrayList<MyJFrame.MyAdapter.HeldDown> createClrs() {
 
         var list = new ArrayList<MyJFrame.MyAdapter.HeldDown>() {
@@ -112,6 +218,12 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return list;
     }
 
+    /**
+     * create an adapter for a helddown key .
+     *
+     * @param key the key
+     * @return the created adapter
+     */
     private MyJFrame.MyAdapter.HeldDown adapter(int key) {
         return new MyJFrame.MyAdapter.HeldDown() {
             @Override
@@ -133,10 +245,18 @@ public class BoardOverlay extends LayerUI<JPanel> {
         };
     }
 
+    /**
+     * Repaint layer.
+     */
     public void repaintLayer() {
         jlayer.repaint();
     }
 
+    /**
+     * Sets block board.
+     *
+     * @param blockBoard the block board
+     */
     public void setBlockBoard(boolean blockBoard) {
         this.blockBoard = blockBoard;
         repaintLayer();
@@ -170,20 +290,46 @@ public class BoardOverlay extends LayerUI<JPanel> {
         }
     }
 
+    /**
+     * create a New arrow.
+     *
+     * @param start the start
+     * @param end   the end
+     * @return the arrow
+     */
     private Arrow newArrow(Point start, Point end) {
         return newArrow(start, end, currentColor());
     }
 
+    /**
+     * create a New arrow.
+     *
+     * @param start the start
+     * @param end   the end
+     * @param clr   the clr
+     * @return the arrow
+     */
     private Arrow newArrow(Point start, Point end, Color clr) {
         start = centerPoint(start);
         end = centerPoint(end);
         return new Arrow(start, end, clr);
     }
 
+    /**
+     * Current selected color. if no color is selected, the default color is returned.
+     *
+     * @return the color
+     */
     public Color currentColor() {
         return ((pressedKey == NO_KEY) || !keyClrMap.containsKey(pressedKey)) ? defaultColor : keyClrMap.get(pressedKey);
     }
 
+    /**
+     * Center point in the middle of a button.
+     *
+     * @param point the point
+     * @return the point
+     */
     private Point centerPoint(Point point) {
         BoardButton btn = getBtn(point);
         assert btn != null;
@@ -193,15 +339,33 @@ public class BoardOverlay extends LayerUI<JPanel> {
         return point;
     }
 
+    /**
+     * Gets a button that the given point is inside.
+     *
+     * @param point the point
+     * @return the btn
+     */
     private BoardButton getBtn(Point point) {
         return view.getBtn(createPointLoc(point));
     }
 
+    /**
+     * Creates a location from a point on the board.
+     *
+     * @param point the point
+     * @return the location
+     */
     private Location createPointLoc(Point point) {
         Location loc = getLoc(point);
         return loc;
     }
 
+    /**
+     * Gets a location of a square on the board.
+     *
+     * @param point the point
+     * @return the loc
+     */
     public Location getLoc(Point point) {
         if (point != null) {
             int x = point.x;
@@ -248,11 +412,21 @@ public class BoardOverlay extends LayerUI<JPanel> {
         super.uninstallUI(c);
     }
 
+    /**
+     * Is the mouse inside the board pnl.
+     *
+     * @return the boolean
+     */
     private boolean isInsideBoardPnl() {
         return mouseCoordinates != null;
 //        return mouseCoordinates == null || view.getBoardPnl().getBounds().contains(mouseCoordinates);
     }
 
+    /**
+     * Process mouse.
+     *
+     * @param e the event
+     */
     private void processMouse(MouseEvent e) {
         BoardButton btn = (BoardButton) e.getSource();
 //        if (e.getID() != MouseEvent.MOUSE_ENTERED && e.getID() != MouseEvent.MOUSE_EXITED)
@@ -331,6 +505,9 @@ public class BoardOverlay extends LayerUI<JPanel> {
         }
     }
 
+    /**
+     * Stop current button.
+     */
     private void stopCurrent() {
         if (currentBtn != null) {
             boolean clickAfter = currentBtn.is(BoardButton.State.DRAGGING | BoardButton.State.HOVERED);
@@ -341,6 +518,9 @@ public class BoardOverlay extends LayerUI<JPanel> {
         }
     }
 
+    /**
+     * Stop drawing arrows.
+     */
     public void stopDrawingArrows() {
         if (isDrawing) {
             Arrow arrow = newArrow(startedAt, mouseCoordinates);
@@ -359,33 +539,59 @@ public class BoardOverlay extends LayerUI<JPanel> {
         }
     }
 
+    /**
+     * Start drawing arrow.
+     */
     public void startDrawing() {
         startedAt = new Point(mouseCoordinates);
         isDrawing = true;
     }
 
+    /**
+     * is the given button the same one the mouse is over rn.
+     *
+     * @param btn the btn
+     * @return the boolean
+     */
     private boolean isSameBtn(JButton btn) {
         return btn.getBounds().contains(mouseCoordinates);
     }
 
+    /**
+     * Clear all arrows.
+     */
     public void clearAllArrows() {
         arrows = new ArrayList<>();
     }
 
+    /**
+     * Gets jlayer.
+     *
+     * @return the jlayer
+     */
     public JLayer getJlayer() {
         return jlayer;
     }
 
+    /**
+     * Draws an arrow from the source to the destination of a move.
+     *
+     * @param move the move
+     */
     public void drawMove(Move move) {
         Point start = view.getBtn(move.getMovingFrom()).getLocation();
         Point end = view.getBtn(move.getMovingTo()).getLocation();
         arrows.add(newArrow(start, end));
     }
 
-    public Point getPoint() {
-        return mouseCoordinates;
-    }
 
+    /**
+     * Draw arrow.
+     *
+     * @param from the from
+     * @param loc  the loc
+     * @param clr  the clr
+     */
     public void drawArrow(Location from, Location loc, Color clr) {
         Point start = view.getBtn(from).getLocation();
         Point end = view.getBtn(loc).getLocation();

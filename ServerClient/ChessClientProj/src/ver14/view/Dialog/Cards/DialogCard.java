@@ -26,27 +26,84 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
+/**
+ * represents a Dialog card. a panel for displaying and managing {@link DialogComponent}s.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class DialogCard extends WinPnl implements Child, Parent, AncestorListener, BackOkContainer {
+    /**
+     * The constant cardIDs.
+     */
     private final static IDsGenerator cardIDs = new IDsGenerator();
+    /**
+     * The constant navigationBtnsFont.
+     */
     private static final Font navigationBtnsFont = FontManager.normal;
+    /**
+     * The Parent dialog.
+     */
     protected final Dialog parentDialog;
+    /**
+     * The Card header.
+     */
     private final CardHeader cardHeader;
+    /**
+     * The Verified components list.
+     */
     private final ArrayList<Verified> verifiedComponentsList;
+    /**
+     * The Nav btn.
+     */
     private final MyJButton navBtn;
+    /**
+     * The Card id.
+     */
     private final String cardID;
+    /**
+     * The Default value btns.
+     */
     private final ArrayList<MyJButton> defaultValueBtns;
+    /**
+     * The Advanced settings str.
+     */
     private String advancedSettingsStr = "Advanced Settings";
-    //    private BackOkPnl backOkPnl;
+    /**
+     * The Optional header.
+     */
+//    private BackOkPnl backOkPnl;
     private Header optionalHeader = null;
+    /**
+     * The Back ok interface.
+     */
     private BackOkInterface backOkInterface;
+    /**
+     * The Nav text.
+     */
     private String navText = getCardName();
+    /**
+     * The Overrideable size.
+     */
     private boolean overrideableSize = false;
 
+    /**
+     * Instantiates a new Dialog card.
+     *
+     * @param cardHeader   the card header
+     * @param parentDialog the parent dialog
+     */
     public DialogCard(CardHeader cardHeader, Dialog parentDialog) {
         this(cardHeader, parentDialog, null);
         setBackOk(defaultInterface());
     }
 
+    /**
+     * Instantiates a new Dialog card.
+     *
+     * @param cardHeader   the card header
+     * @param parentDialog the parent dialog
+     * @param backOk       the back ok
+     */
     public DialogCard(CardHeader cardHeader, Dialog parentDialog, BackOkInterface backOk) {
         super(1, cardHeader);
         this.cardHeader = cardHeader;
@@ -61,11 +118,21 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         checkVerifiedComponents();
     }
 
+    /**
+     * Sets the back ok interface.
+     *
+     * @param backOk the back ok
+     */
     public void setBackOk(BackOkInterface backOk) {
         backOk = backOk == null ? BackOkInterface.noInterface : backOk;
         backOkInterface = backOk;
     }
 
+    /**
+     * create the default dialog card back ok interface. which is going back to the previous card on clicking "back" and closing the dialog when clicking "ok".
+     *
+     * @return the back ok interface
+     */
     protected BackOkInterface defaultInterface() {
         return new BackOkInterface() {
             @Override
@@ -81,6 +148,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         };
     }
 
+    /**
+     * Gets card name.
+     *
+     * @return the card name
+     */
     public String getCardName() {
         if (cardHeader != null)
             return cardHeader.getCardName();
@@ -88,11 +160,16 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
 
     }
 
+    /**
+     * Navigate to this dialog card.
+     */
     public void navToMe() {
         parentDialog.switchTo(this);
     }
 
     /**
+     * Check verified components.
+     *
      * @return Error message if any not verified, null otherwise
      */
     public String checkVerifiedComponents() {
@@ -109,14 +186,27 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         return ret;
     }
 
+    /**
+     * Sets overrideable size.
+     */
     public void setOverrideableSize() {
         setOverrideableSize(true);
     }
 
+    /**
+     * Is overrideable size boolean.
+     *
+     * @return the boolean
+     */
     public boolean isOverrideableSize() {
         return overrideableSize;
     }
 
+    /**
+     * Sets overrideable size.
+     *
+     * @param overrideableSize the overrideable size
+     */
     public void setOverrideableSize(boolean overrideableSize) {
         this.overrideableSize = overrideableSize;
     }
@@ -126,6 +216,9 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         return backOkInterface;
     }
 
+    /**
+     * called when this card gets Displayed.
+     */
     public void displayed() {
         SwingUtilities.invokeLater(() -> {
             onUpdate();
@@ -133,6 +226,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         });
     }
 
+    /**
+     * Gets card id.
+     *
+     * @return the card id
+     */
     public String getCardID() {
         return cardID;
     }
@@ -176,6 +274,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         setNavText(getCardName() + str);
     }
 
+    /**
+     * Sets navigation text.
+     *
+     * @param s the s
+     */
     private void setNavText(String s) {
         s = StrUtils.fixHtml(s);
         navText = s;
@@ -217,6 +320,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         navBtn.setEnabled(b);
     }
 
+    /**
+     * Add navigation to.
+     *
+     * @param card the card
+     */
     public void addNavigationTo(DialogCard card) {
         parentDialog.addCard(card);
         add(card.createNavPnl());
@@ -232,6 +340,11 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
 
     }
 
+    /**
+     * Create nav pnl win pnl.
+     *
+     * @return the win pnl
+     */
     public WinPnl createNavPnl() {
         WinPnl ret = new WinPnl(navCols());
         if (!defaultValueBtns.isEmpty()) {
@@ -249,22 +362,48 @@ public abstract class DialogCard extends WinPnl implements Child, Parent, Ancest
         return ret;
     }
 
+    /**
+     * Nav cols int.
+     *
+     * @return the int
+     */
     protected int navCols() {
         return 1;
     }
 
+    /**
+     * Sets advanced settings str.
+     *
+     * @param advancedSettingsStr the advanced settings str
+     */
     public void setAdvancedSettingsStr(String advancedSettingsStr) {
         this.advancedSettingsStr = advancedSettingsStr;
     }
 
+    /**
+     * Add default value btn.
+     *
+     * @param txt     the txt
+     * @param onClick the on click
+     */
     public void addDefaultValueBtn(String txt, VoidCallback onClick) {
         this.defaultValueBtns.add(new MyJButton(txt, navigationBtnsFont, onClick));
     }
 
+    /**
+     * should error on this card be treated as Dialog wide errors.
+     *
+     * @return the boolean
+     */
     public boolean dialogWideErrors() {
         return false;
     }
 
+    /**
+     * Add dialog component.
+     *
+     * @param component the component
+     */
     public void addDialogComponent(DialogComponent component) {
         add(component);
     }

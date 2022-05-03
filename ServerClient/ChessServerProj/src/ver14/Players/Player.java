@@ -13,7 +13,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 
 /**
- * Player.
+ * Player - represents a player.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

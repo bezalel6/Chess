@@ -20,11 +20,32 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Menu bar - represents the menu bar of the main {@link View} window.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MenuBar extends JMenuBar {
+    /**
+     * The constant menuFont.
+     */
     private final static Font menuFont = FontManager.JMenus.headers;
+    /**
+     * The constant menuItemsFont.
+     */
     private final static Font menuItemsFont = FontManager.JMenus.items;
+    /**
+     * The Client.
+     */
     private final Client client;
 
+    /**
+     * Instantiates a new Menu bar.
+     *
+     * @param authorizedComponents the authorized components
+     * @param client               the client
+     * @param view                 the view
+     */
     public MenuBar(ArrayList<AuthorizedComponent> authorizedComponents, Client client, View view) {
         this.client = client;
         ArrayList<JComponent> start = new ArrayList<>();
@@ -122,6 +143,13 @@ public class MenuBar extends JMenuBar {
     }
 
 
+    /**
+     * Create request menu item menu item.
+     *
+     * @param preMadeRequest the pre made request
+     * @param menuItemsFont  the menu items font
+     * @return the menu item
+     */
     private MenuItem createRequestMenuItem(PreMadeRequest preMadeRequest, Font menuItemsFont) {
         return new MenuItem(preMadeRequest.createBuilder().getName(), preMadeRequest.authSettings) {{
             addActionListener(l -> {

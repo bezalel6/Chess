@@ -13,15 +13,43 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * a Text based field.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public abstract class TextBasedField<T> extends DialogField<T> {
+    /**
+     * The constant defaultTextFieldSize.
+     */
     protected static final Dimension defaultTextFieldSize = new Dimension(100, 35);
+    /**
+     * The Text field.
+     */
     protected final JTextField textField;
+    /**
+     * The Verify reg ex.
+     */
     protected RegEx verifyRegEx;
 
+    /**
+     * Instantiates a new Text based field.
+     *
+     * @param str         the str
+     * @param parent      the parent
+     * @param verifyRegEx the verify reg ex
+     */
     public TextBasedField(String str, Parent parent, RegEx verifyRegEx) {
         this(new Header(str, false), parent, verifyRegEx);
     }
 
+    /**
+     * Instantiates a new Text based field.
+     *
+     * @param dialogLabel the dialog label
+     * @param parent      the parent
+     * @param verifyRegEx the verify reg ex
+     */
     public TextBasedField(Header dialogLabel, Parent parent, RegEx verifyRegEx) {
         super(dialogLabel, parent);
         this.verifyRegEx = verifyRegEx;
@@ -56,6 +84,12 @@ public abstract class TextBasedField<T> extends DialogField<T> {
 
     }
 
+    /**
+     * Style a provided text field according to this field's settings.
+     *
+     * @param textField the text field
+     * @return the j text field
+     */
     protected static JTextField styleTextField(JTextField textField) {
         textField.setForeground(Color.BLUE);
         textField.setPreferredSize(defaultTextFieldSize);
@@ -65,10 +99,20 @@ public abstract class TextBasedField<T> extends DialogField<T> {
         return textField;
     }
 
+    /**
+     * Create text field.
+     *
+     * @return the created text field
+     */
     protected JTextField createTextField() {
         return new JTextField();
     }
 
+    /**
+     * Gets text field text.
+     *
+     * @return the text field text
+     */
     protected String getTextFieldText() {
         return textField.getText();
     }
@@ -78,6 +122,11 @@ public abstract class TextBasedField<T> extends DialogField<T> {
         return verifyRegEx();
     }
 
+    /**
+     * Verify this field by its regex limitations.
+     *
+     * @return true if the field passed its verification, false otherwise.
+     */
     protected boolean verifyRegEx() {
         return verifyRegEx.check(getValue() + "");
     }

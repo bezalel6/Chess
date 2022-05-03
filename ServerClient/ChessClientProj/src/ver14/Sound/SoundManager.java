@@ -4,7 +4,7 @@ import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
 
 /**
- * Sound manager.
+ * represents a Sound manager.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

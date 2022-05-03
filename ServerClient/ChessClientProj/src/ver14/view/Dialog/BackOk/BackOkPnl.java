@@ -7,10 +7,26 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 import javax.swing.*;
 
+/**
+ * represents a navigation panel for back ok navigating.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class BackOkPnl extends JPanel {
+    /**
+     * The Ok.
+     */
     private MyJButton ok;
+    /**
+     * The Back.
+     */
     private MyJButton back;
 
+    /**
+     * Instantiates a new Back ok pnl.
+     *
+     * @param backOk the back ok
+     */
     public BackOkPnl(BackOkInterface backOk) {
         if (backOk.getBackText() != null) {
             back = createBtn(backOk.getBackText(), backOk::onBack);
@@ -25,20 +41,42 @@ public class BackOkPnl extends JPanel {
 
     }
 
+    /**
+     * Create btn my j button.
+     *
+     * @param str     the str
+     * @param onClick the on click
+     * @return the my j button
+     */
     public static MyJButton createBtn(String str, VoidCallback onClick) {
         return new MyJButton(StrUtils.uppercase(str), FontManager.Dialogs.dialog, onClick) {{
             setFocusable(true);
         }};
     }
 
+    /**
+     * Gets ok.
+     *
+     * @return the ok
+     */
     public MyJButton getOk() {
         return ok;
     }
 
+    /**
+     * Gets back.
+     *
+     * @return the back
+     */
     public MyJButton getBack() {
         return back;
     }
 
+    /**
+     * Enable ok.
+     *
+     * @param enable the enable
+     */
     public void enableOk(boolean enable) {
         if (ok != null)
             ok.setEnabled(enable);
@@ -46,6 +84,11 @@ public class BackOkPnl extends JPanel {
 //            ok.requestFocus();
     }
 
+    /**
+     * Enable back.
+     *
+     * @param enable the enable
+     */
     public void enableBack(boolean enable) {
         if (back != null)
             back.setEnabled(enable);

@@ -20,18 +20,47 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
+/**
+ * Client messages handler - represents a messages' handler that routes desired message types to their destinations.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ * @see ver14.SharedClasses.Networking.MessagesHandler
+ */
 public class ClientMessagesHandler extends MessagesHandler {
+    /**
+     * The Client.
+     */
     private final Client client;
+    /**
+     * The View.
+     */
     private final View view;
+    /**
+     * The Synced lists.
+     */
     private final HashMap<SyncedListType, SyncedItems<?>> syncedLists = new HashMap<>();
+    /**
+     * The Listening lists.
+     */
     private final HashMap<SyncedListType, ArrayList<SyncableList>> listeningLists = new HashMap<>();
 
+    /**
+     * Instantiates a new Client messages handler.
+     *
+     * @param client the client
+     * @param view   the view
+     */
     public ClientMessagesHandler(Client client, View view) {
         super(client.getClientSocket());
         this.client = client;
         this.view = view;
     }
 
+    /**
+     * Register syncable list.
+     *
+     * @param list the list
+     */
     public void registerSyncableList(SyncableList list) {
         synchronized (syncedLists) {
             getListeningList(list.syncedListType()).add(list);
@@ -39,12 +68,23 @@ public class ClientMessagesHandler extends MessagesHandler {
         }
     }
 
+    /**
+     * Gets listening list.
+     *
+     * @param type the type
+     * @return the listening list
+     */
     private ArrayList<SyncableList> getListeningList(SyncedListType type) {
         if (!listeningLists.containsKey(type))
             listeningLists.put(type, new ArrayList<>());
         return listeningLists.get(type);
     }
 
+    /**
+     * Try syncing.
+     *
+     * @param list the list
+     */
     private void trySyncing(SyncableList list) {
         if (syncedLists.containsKey(list.syncedListType())) {
             list.sync(syncedLists.get(list.syncedListType()));

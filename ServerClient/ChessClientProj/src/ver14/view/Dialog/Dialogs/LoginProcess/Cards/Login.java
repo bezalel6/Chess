@@ -12,13 +12,33 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * represents the normal Login card. username and password.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Login extends LoginCard {
 
 
+    /**
+     * The Username pnl.
+     */
     private final UsernamePnl usernamePnl;
+    /**
+     * The Password pnl.
+     */
     private final PasswordPnl passwordPnl;
+    /**
+     * The Remove adapters.
+     */
     private final ArrayList<Set<Integer>> removeAdapters = new ArrayList<>();
 
+    /**
+     * Instantiates a new Login.
+     *
+     * @param parentDialog the parent dialog
+     * @param loginInfo    the login info
+     */
     public Login(LoginProcess parentDialog, LoginInfo loginInfo) {
         super(new CardHeader("Login"), parentDialog, loginInfo, LoginType.LOGIN);
 
@@ -41,6 +61,11 @@ public class Login extends LoginCard {
         }, KeyEvent.VK_CONTROL, KeyEvent.VK_SHIFT, KeyEvent.VK_F));
     }
 
+    /**
+     * Refresh values.
+     *
+     * @param loginProcess the login process
+     */
     protected void refreshValues(LoginProcess loginProcess) {
         usernamePnl.setValue(loginProcess.getLoginInfo().getUsername());
         passwordPnl.setValue(loginProcess.getLoginInfo().getPassword());

@@ -9,18 +9,39 @@ import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
 
 
+/**
+ * represents a Stockfish Player. stockfish is the highest rated chess ai, and i wanted to provide an option to play against it
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class StockfishPlayer extends PlayerAI {
+    /**
+     * The Stockfish.
+     */
     private final Stockfish stockfish;
 
+    /**
+     * Instantiates a new Stockfish player.
+     *
+     * @param aiParameters the ai parameters
+     */
     public StockfishPlayer(AiParameters aiParameters) {
         super(aiParameters);
         this.stockfish = new Stockfish();
     }
 
+    /**
+     * Init game.
+     */
     @Override
     protected void initGame() {
     }
 
+    /**
+     * Gets move.
+     *
+     * @return the move
+     */
     @Override
     public Move getMove() {
         String s = stockfish.getBestMove(FEN.generateFEN(game.getModel()), 100);
@@ -29,31 +50,59 @@ public class StockfishPlayer extends PlayerAI {
         return game.getModel().findMove(move);
     }
 
+    /**
+     * Disconnect.
+     *
+     * @param cause             the cause
+     * @param notifyGameSession the notify game session
+     */
     @Override
     public void disconnect(String cause, boolean notifyGameSession) {
         stockfish.stopEngine();
     }
 
+    /**
+     * Wait turn.
+     */
     @Override
     public void waitTurn() {
 
     }
 
+    /**
+     * Game over.
+     *
+     * @param gameStatus the game status
+     */
     @Override
     public void gameOver(GameStatus gameStatus) {
 
     }
 
+    /**
+     * Update by move.
+     *
+     * @param move the move
+     */
     @Override
     public void updateByMove(Move move) {
 
     }
 
+    /**
+     * Cancel question.
+     *
+     * @param question the question
+     * @param cause    the cause
+     */
     @Override
     public void cancelQuestion(Question question, String cause) {
 
     }
 
+    /**
+     * Wait for match.
+     */
     @Override
     public void waitForMatch() {
 

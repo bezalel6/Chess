@@ -8,11 +8,28 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 
+/**
+ * represents a table that can fit its elements.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class FitWidthTable extends JTable {
+    /**
+     * The constant minWidth.
+     */
     private static final int minWidth = 30;
 
+    /**
+     * The Computed size.
+     */
     private Size computedSize;
 
+    /**
+     * Instantiates a new Fit width table.
+     *
+     * @param rowData     the row data
+     * @param columnNames the column names
+     */
     public FitWidthTable(@NotNull Object[][] rowData, @NotNull Object[] columnNames) {
         super(rowData, columnNames);
     }
@@ -49,11 +66,25 @@ public class FitWidthTable extends JTable {
         System.out.println("table computed size = " + computedSize);
     }
 
+    /**
+     * Calc width int.
+     *
+     * @param renderer the renderer
+     * @param r        the r
+     * @param c        the c
+     * @param currentW the current w
+     * @return the int
+     */
     private int calcWidth(TableCellRenderer renderer, int r, int c, int currentW) {
         Component comp = prepareRenderer(renderer, r, c);
         return Math.max(comp.getPreferredSize().width + 1, currentW);
     }
 
+    /**
+     * Gets computed size.
+     *
+     * @return the computed size
+     */
     public Size getComputedSize() {
         return computedSize;
     }

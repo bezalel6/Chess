@@ -10,7 +10,20 @@ import ver14.view.MyTextArea;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Message card - represents a dialog card used for displaying messages.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class MessageCard extends DialogCard {
+    /**
+     * Instantiates a new Message card.
+     *
+     * @param parentDialog the parent dialog
+     * @param header       the header
+     * @param message      the message
+     * @param messageType  the message type
+     */
     public MessageCard(Dialog parentDialog, CardHeader header, String message, MessageType messageType) {
         super(header, parentDialog);
 //        setMinimumSize(new Size(400));
@@ -28,6 +41,14 @@ public class MessageCard extends DialogCard {
     }
 
 
+    /**
+     * Create msg pnl my text area.
+     *
+     * @param msg  the msg
+     * @param type the type
+     * @param size the size
+     * @return the my text area
+     */
     public static MyTextArea createMsgPnl(String msg, MessageType type, Size... size) {
         return new MyTextArea(StrUtils.format(msg)) {
             {
@@ -55,20 +76,55 @@ public class MessageCard extends DialogCard {
         return null;
     }
 
+    /**
+     * Message type.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
     public enum MessageType {
+        /**
+         * Info message type.
+         */
         INFO(IconManager.infoIcon, FontManager.Dialogs.MessageDialogs.info, Color.BLACK),
+        /**
+         * Error message type.
+         */
         ERROR(IconManager.errorIcon, FontManager.Dialogs.MessageDialogs.error, Color.RED),
+        /**
+         * Server error message type.
+         */
         ServerError(IconManager.serverError, FontManager.Dialogs.MessageDialogs.error, Color.RED);
+        /**
+         * The Icon.
+         */
         public final ImageIcon icon;
+        /**
+         * The Font.
+         */
         public final Font font;
+        /**
+         * The Clr.
+         */
         public final Color clr;
 
+        /**
+         * Instantiates a new Message type.
+         *
+         * @param icon the icon
+         * @param font the font
+         * @param clr  the clr
+         */
         MessageType(ImageIcon icon, Font font, Color clr) {
             this.icon = icon;
             this.font = font;
             this.clr = clr;
         }
 
+        /**
+         * Style.
+         *
+         * @param pnl the pnl
+         */
         public void style(MyTextArea pnl) {
             pnl.setFont(font);
             pnl.setForeground(clr);

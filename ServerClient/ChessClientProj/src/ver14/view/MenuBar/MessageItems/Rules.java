@@ -5,7 +5,17 @@ import ver14.Client;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * Rules message item.
+ *
+ * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ */
 public class Rules extends MessageItem {
+    /**
+     * Instantiates a new Rules.
+     *
+     * @param client the client
+     */
     public Rules(Client client) {
         super("Rules", client);
     }
