@@ -435,10 +435,11 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Run the server - wait for clients to connect and handle them
+     * Run the server - wait for clients to connect and handle them.
+     * all processing from now on is done in a handled code. to prevent catastrophic error throwing for any reason.
      */
     public void runServer() {
-        HandledThread.runInHandledThread(() -> {
+        ThreadsManager.handleErrors(() -> {
             if (serverSetupOK) {
                 String serverAddress = "(" + serverIP + ":" + serverPort + ")";
                 log("SERVER" + serverAddress + " Setup & Running!");
@@ -467,11 +468,10 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Handle client.
+     * Handle client in a separate thread to allow for concurrent client handling.
      *
-     * @param playerSocket the player socket
+     * @param playerSocket the socket to the player
      */
-// handle client in a separate thread
     private void handleClient(AppSocket playerSocket) {
         HandledThread.runInHandledThread(() -> {
 
@@ -497,12 +497,13 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Login player net.
+     * login a new client
      *
-     * @param appSocket the app socket
-     * @return the player net
+     * @param appSocket the app socket to the client
+     * @return the newly created player net
+     * @throws ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError if the player disconnected while logging in
      */
-    public PlayerNet login(AppSocket appSocket) {
+    public PlayerNet login(AppSocket appSocket) throws MyError.DisconnectedError {
         Message request = appSocket.requestMessage(Message.askForLogin());
 
         Message responseMessage = responseToLogin(request.getLoginInfo());
@@ -528,12 +529,13 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Response to login message.
+     * create a Response to a login message attempt.
      *
      * @param loginInfo the login info
-     * @return the message
+     * @return the response message. a welcome message after a successful login, or an error message.
+     * @throws ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError if the player disconnected while logging in
      */
-    private Message responseToLogin(LoginInfo loginInfo) {
+    private Message responseToLogin(LoginInfo loginInfo) throws MyError.DisconnectedError {
         if (loginInfo == null)
             throw new MyError.DisconnectedError();
         String username = loginInfo.getUsername();
@@ -597,7 +599,7 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Game setup.
+     * ask the player for his preferred game settings and sets him up for a game (if possible).
      *
      * @param player the player
      */
@@ -687,10 +689,13 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Player disconnected.
+     * handle a player disconnected event. an attempt will be made to send a bye message to the disconnecting player.<br/>
+     * if the player is mid-game, the game session will be notified.<br/>
+     * if the player is waiting for a match, he will be removed from the queue.<br/>
+     * if the player has a game in the pool (waiting for other players to join to his game) it is removed.<br/>
      *
      * @param player  the player
-     * @param message the message
+     * @param message the disconnection description
      */
     public synchronized void playerDisconnected(Player player, String message) {
         if (player == null || players.stream().noneMatch(p -> p.equals(player)))
@@ -735,11 +740,11 @@ public class Server implements EnvManager {
     }
 
     /**
-     * Start game session.
+     * Start game session between 2 players.
      *
-     * @param gameInfo the game info
-     * @param creator  the creator
-     * @param p2       the p 2
+     * @param gameInfo all the settings for the new game
+     * @param creator  the game creator
+     * @param p2       the 2nd player
      */
     private void startGameSession(GameInfo gameInfo, Player creator, Player p2) {
         GameSession gameSession = new GameSession(gameInfo, creator, p2, this);

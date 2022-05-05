@@ -1,14 +1,13 @@
 
 @startuml
-actor Bob #red
-' The only difference between actor
-'and participant is the drawing
-participant Alice
-participant "I have a really\nlong name" as L #99FF99
-/' You can also declare:
-participant L as "I have a really\nlong name" #99FF99
-'/
-Alice->Bob: Authentication Request
-Bob->Alice: Authentication Response
-Bob->L: Log transaction
+start
+while (is connected?) is(yes)
+  :read message;
+  if (message is a response?) is (yes) then
+    :notify the requesting message's\nresponse handler;
+  else (no)
+    :call the default message handler;
+  endif
+endwhile(disconnected)
+stop
 @enduml

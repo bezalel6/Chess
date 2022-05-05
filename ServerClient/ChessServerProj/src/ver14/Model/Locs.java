@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 /**
- * Locs - represents a list of locations.
+ * represents a list of locations.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -27,7 +27,7 @@ import java.util.Stack;
  */
 public class Model implements Serializable {
     /**
-     * a concatenating string builder of the main (= not searches) game progress.
+     * a concatenating string builder of the main (= not searched) game progress.
      * done in the pgn format(Portable Game Notation).
      * used for searching inside the book
      *
@@ -88,7 +88,7 @@ public class Model implements Serializable {
     private String loadedFen = null;
 
     /**
-     * Instantiates a new Model.
+     * copy constructor.
      *
      * @param other the other
      */
@@ -100,7 +100,7 @@ public class Model implements Serializable {
     }
 
     /**
-     * Instantiates a new Model.
+     * Instantiates a new Model, and setting it up from the {@code fen}.
      *
      * @param fen the fen
      */
@@ -118,9 +118,10 @@ public class Model implements Serializable {
     }
 
     /**
-     * Sets .
+     * initializes the model according to a given position's string representation.
      *
-     * @param fen the fen
+     * @param fen the position's fen
+     * @see FEN
      */
     public void setup(String fen) {
         createNewEmptyLogicBoard();
@@ -355,9 +356,9 @@ public class Model implements Serializable {
     }
 
     /**
-     * Generate all moves model moves list.
+     * Generate all moves for the current player to move.
      *
-     * @return the model moves list
+     * @return a list with all the moves the current player can play
      */
     public ModelMovesList generateAllMoves() {
         return MoveGenerator.generateMoves(this);
@@ -419,10 +420,10 @@ public class Model implements Serializable {
     }
 
     /**
-     * Is in check boolean.
+     * Is {@code playerColor} in check.
      *
      * @param playerColor the player color
-     * @return the boolean
+     * @return true if player is in check, false otherwise.
      */
     public boolean isInCheck(PlayerColor playerColor) {
         return isThreatened(getKing(playerColor), playerColor.getOpponent());
@@ -518,7 +519,7 @@ public class Model implements Serializable {
     }
 
     /**
-     * Apply move.
+     * applies {@code move} to the current position.
      *
      * @param move the move
      */
@@ -598,7 +599,7 @@ public class Model implements Serializable {
     }
 
     /**
-     * Undo move.
+     * Undoes the change made to the board by {@link #applyMove(Move)}. essentially playing the moves in reverse.
      *
      * @param move the move
      */

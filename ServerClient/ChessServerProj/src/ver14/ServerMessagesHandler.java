@@ -1,7 +1,7 @@
 package ver14;
 
 import ver14.DB.DB;
-import ver14.Game.Game;
+import ver14.Game.PlayerDisconnectedError;
 import ver14.Players.PlayerNet.PlayerNet;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Networking.AppSocket;
@@ -76,7 +76,7 @@ public class ServerMessagesHandler extends MessagesHandler {
      */
     @Override
     protected MyError.DisconnectedError createDisconnectedError() {
-        return new Game.PlayerDisconnectedError(player);
+        return new PlayerDisconnectedError(player);
     }
 
     /**

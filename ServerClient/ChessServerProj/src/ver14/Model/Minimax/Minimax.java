@@ -502,16 +502,7 @@ public class Minimax {
     }
 
     /**
-     * Quiet interrupt - an interrupt meant to stop the search quietly. without throwing anything outside the minimax. the returned move will be the best move found until interrupted. it might be null as the search could've found no move yet.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    static class QuietInterrupt extends Throwable {
-
-    }
-
-    /**
-     * The type Cpu usages. (i should've made an object that has a depth and a usage but i dont have time to change this)
+     * The type Cpu usages. (i should've made an object that has a depth and a usage but i dont have time to change this. consider this my official t *
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

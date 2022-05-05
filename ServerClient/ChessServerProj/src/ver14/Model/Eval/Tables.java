@@ -6,9 +6,10 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Tables represents all pieces value table.
+ * represents all pieces value tables. the tables are used to calculate the {@link ver14.SharedClasses.Game.Evaluation.Evaluation} of a position.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ * @see Eval for more information
  */
 public class Tables {
     /**
@@ -192,7 +193,7 @@ public class Tables {
     }
 
     /**
-     * Gets piece table.
+     * Gets a piece's table by piece type.
      *
      * @param pieceType the piece type
      * @return the piece table
@@ -202,9 +203,10 @@ public class Tables {
     }
 
     /**
-     * represents a Piece table. has a middlegame and endgame value in centipawns for each square on the board.
+     * represents a Piece table that has separate middlegame and endgame tables in centipawns for each square on the board.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     * @see Eval for more information
      */
     public static class PieceTable {
         /**
@@ -255,14 +257,17 @@ public class Tables {
             return ret;
         }
 
-        /**
-         * Gets value.
-         *
-         * @param egWeight the eg weight
-         * @param player   the player
-         * @param loc      the loc
-         * @return the value
-         */
+        /*-
+                /**
+                 * Gets a value in centipawns for this piece type on the given location.
+                 * the value is a combination of the middle and end game tables values. the endgame table's influence
+                 * is determined by the egWeight of the position. basically how much is this position an endgame.
+                 *
+                 * @param egWeight the endgame weight
+                 * @param player   the player
+                 * @param loc      the location on which the piece is set.
+                 * @return the value in centipawns
+                 */
         public int getValue(double egWeight, PlayerColor player, Location loc) {
             int mg = tables[MIDDLE_GAME][player.asInt][loc.row][loc.col];
             int eg = egWeight == 0 ? 0 : (int) (egWeight * tables[ENDGAME][player.asInt][loc.row][loc.col]);

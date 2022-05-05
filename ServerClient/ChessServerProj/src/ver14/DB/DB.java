@@ -60,7 +60,7 @@ public class DB {
     }
 
     /**
-     * Run update status response.
+     * Run update.
      *
      * @param sql the sql
      * @return the status response
@@ -71,7 +71,8 @@ public class DB {
     }
 
     /**
-     * Run SQL Update Statement - INSERT, DELETE, UPDATE הפעולה מריצה משפט עדכון
+     * Run a requested update on the db, and return the response for it.
+     * the response can be a success, with the number of updated rows, or an error.
      *
      * @param request the request
      * @return the status response
@@ -92,15 +93,12 @@ public class DB {
     }
 
     /**
-     * הפעולה מבצעת חיבור למסד הנתונים שהנתיב אליו מתקבל כפרמטר
+     * create a connection to the db.
      *
-     * @param dbFileRelativePath הנתיב היחסי למסד הנתונים שאליו רוצים לקבל חיבור
-     * @return מחזיר חיבור למסד הנתונים
+     * @return the created connection to the db.
      */
-    public static Connection getConnection(String... dbFileRelativePath) {
+    public static Connection getConnection() {
         String dbPath = APP_DB_FILE_PATH;
-        if (dbFileRelativePath.length != 0)
-            dbPath = dbFileRelativePath[0];
 
         //#####################################################################
 
@@ -168,7 +166,7 @@ public class DB {
     }
 
     /**
-     * Run query db response.
+     * Run a query on the db, and return the db's response. the response is built by individual requests allowing for maximum flexibility.
      *
      * @param request the request
      * @return the db response
@@ -285,10 +283,11 @@ public class DB {
     }
 
     /**
-     * Request db response.
+     * apply a db request, and return the db's response. a request will be forwarded to either:
+     * {@linkplain #runUpdate(DBRequest)} or {@linkplain #runQuery(DBRequest)}
      *
      * @param request the request
-     * @return the db response
+     * @return the db's response to the request
      */
     public static DBResponse request(DBRequest request) {
         DBResponse response;
@@ -307,11 +306,11 @@ public class DB {
     }
 
     /**
-     * בדיקה האם יוזר ששם המשתמש והסיסמה המתקבלים כפרמטירים קיים בטבלת היוזרים
+     * check if the given username and password match to a saved user in the db.
      *
-     * @param un שם המשתמש של היוזר
-     * @param pw הסיסמה של היוזר
-     * @return מחזיר אמת אם קיים יוזר כזה ושקר אחרת
+     * @param un the username
+     * @param pw the password
+     * @return true if such user exists, false otherwise.
      */
     public static boolean isUserExists(String un, String pw) {
         Condition condition = Condition.equals(Col.Username, un);
@@ -328,7 +327,7 @@ public class DB {
     }
 
     /**
-     * Add users.
+     * fill the db with fake users and games
      */
     private static void addUsers() {
         for (int i = 0; i < 10; i++) {
@@ -340,10 +339,10 @@ public class DB {
     }
 
     /**
-     * Gets unfinished games.
+     * Gets all unfinished games of a player.
      *
-     * @param username the username
-     * @return the unfinished games
+     * @param username the player's username
+     * @return a list of all the unfinished games of this player
      */
     public static SyncedItems<GameInfo> getUnfinishedGames(String username) {
         SyncedItems<GameInfo> gameInfos = new SyncedItems<>(SyncedListType.RESUMABLE_GAMES);
@@ -362,7 +361,7 @@ public class DB {
     }
 
     /**
-     * Unstringify t.
+     * Unstringify a serialized object saved as a string.
      *
      * @param <T> the type parameter
      * @param str the str
@@ -402,29 +401,29 @@ public class DB {
     }
 
     /**
-     * Stringify string.
+     * Stringify an object - convert an object to a string representation of its serialization values.
      *
-     * @param obj the obj
-     * @return the string
+     * @param obj the object to convert
+     * @return the created string
      */
     private static String stringify(Serializable obj) {
         return Arrays.toString(SerializationUtils.serialize(obj));
     }
 
     /**
-     * Add games.
+     * Add fake games.
      *
-     * @param winner the winner
+     * @param winner the winner of the fake games. the loser will always be the player 'bezalel7'
      */
     private static void addGames(String winner) {
         addGames(winner, "bezalel7");
     }
 
     /**
-     * Add games.
+     * Add fake games.
      *
-     * @param winner the winner
-     * @param loser  the loser
+     * @param winner the winner of the games
+     * @param loser  the loser of the games
      */
     private static void addGames(String winner, String loser) {
         for (int i = 0; i < 5; i++) {
@@ -433,7 +432,7 @@ public class DB {
     }
 
     /**
-     * Save game result.
+     * Save a finished game result.
      *
      * @param gameInfo the game info
      */
@@ -444,7 +443,7 @@ public class DB {
     }
 
     /**
-     * Save un finished game.
+     * Save an un-finished game.
      *
      * @param gameInfo the game info
      */
@@ -456,30 +455,30 @@ public class DB {
     }
 
     /**
-     * Is game id exists boolean.
+     * Is game id exists - checks if a game id exists in any of the game tables in the db.
      *
-     * @param gameID the game id
-     * @return the boolean
+     * @param gameID the game id to check
+     * @return true if a game with the given id exists, false otherwise.
      */
     public static boolean isGameIdExists(String gameID) {
         return isGameIdExists(gameID, Table.Games) || isGameIdExists(gameID, Table.UnfinishedGames);
     }
 
     /**
-     * Is game id exists boolean.
+     * Is game id exists in a specific table.
      *
      * @param gameID     the game id
      * @param gamesTable the games table
-     * @return the boolean
+     * @return true if a game with the given id exists in the given table, false otherwise.
      */
     public static boolean isGameIdExists(String gameID, Table gamesTable) {
         return select(gamesTable, Condition.equals(Col.GameID, gameID)).isAnyData();
     }
 
     /**
-     * Load unfinished game unfinished game.
+     * Load an unfinished game by its id.
      *
-     * @param gameID the game id
+     * @param gameID the game's id
      * @return the unfinished game
      */
     public static UnfinishedGame loadUnfinishedGame(String gameID) {
@@ -562,7 +561,7 @@ public class DB {
     }
 
     /**
-     * User details - .
+     * a convenient representation of a user's credentials.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */

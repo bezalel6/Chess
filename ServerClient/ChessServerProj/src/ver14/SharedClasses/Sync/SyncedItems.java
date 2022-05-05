@@ -160,7 +160,7 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
      *
      * @param remover the remover
      */
-    public void batchRemove(Remover<E> remover) {
+    public synchronized void batchRemove(Remover<E> remover) {
         List<E> del = values()
                 .stream()
                 .filter(remover::remove)

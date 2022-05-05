@@ -307,7 +307,7 @@ public class Bitboard implements Serializable {
      * performs a bitwise and with 2's compliment of other. practically setting all other bits to zero
      *
      * @param other the other
-     * @return MY CHANGED SELF
+     * @return this changed bitboard
      */
     public Bitboard exclude(Bitboard other) {
         this.bitBoard &= ~other.bitBoard;

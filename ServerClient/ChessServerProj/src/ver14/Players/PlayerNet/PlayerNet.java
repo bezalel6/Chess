@@ -1,7 +1,7 @@
 package ver14.Players.PlayerNet;
 
 import ver14.DB.DB;
-import ver14.Game.Game;
+import ver14.Game.PlayerDisconnectedError;
 import ver14.Players.Player;
 import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
@@ -124,7 +124,7 @@ public class PlayerNet extends Player implements SyncableItem {
         GameTime gameTime = game.getGameTime().clean();
         Message moveMsg = socketToClient.requestMessage(Message.askForMove(moves, gameTime));
         if (moveMsg == null || moveMsg.getMessageType() == MessageType.INTERRUPT) {
-            throw new Game.PlayerDisconnectedError(this);
+            throw new PlayerDisconnectedError(this);
         }
         assert moveMsg.getMessageType() == MessageType.GET_MOVE;
         return moveMsg.getMove();

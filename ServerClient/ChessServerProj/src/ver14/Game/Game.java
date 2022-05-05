@@ -14,7 +14,6 @@ import ver14.SharedClasses.Game.Moves.MovesList;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.UI.GameView;
 
 import java.util.Arrays;
@@ -26,6 +25,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Game - represents a game between two {@link Player}s.
+ * <br/>
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -181,11 +181,11 @@ public class Game {
     }
 
     /**
-     * Start a new game.
+     * Starts a new game, and eventually returning the game over status.
      *
      * @return the game over status
      */
-    public GameStatus startNewGame() {
+    public GameStatus runNewGame() {
         this.moveStack = new Stack<>();
         this.model = new Model();
         initGame();
@@ -400,7 +400,7 @@ public class Game {
      * @param gameOverStatus the game over status
      */
     void interrupt(GameStatus gameOverStatus) {
-        GameOverError err = new Game.GameOverError(gameOverStatus);
+        GameOverError err = new GameOverError(gameOverStatus);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
         } else throwErr = err;
@@ -491,67 +491,5 @@ public class Game {
         return "%s vs %s".formatted(gameCreator.getUsername(), p2.getUsername());
     }
 
-
-    /**
-     * Player disconnected error.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class PlayerDisconnectedError extends MyError.DisconnectedError {
-        /**
-         * The Disconnected player.
-         */
-        private final Player disconnectedPlayer;
-
-        /**
-         * Instantiates a new Player disconnected error.
-         *
-         * @param disconnectedPlayer the disconnected player
-         */
-        public PlayerDisconnectedError(Player disconnectedPlayer) {
-            this.disconnectedPlayer = disconnectedPlayer;
-        }
-
-        /**
-         * Create game status game status.
-         *
-         * @return the game status
-         */
-        public GameStatus createGameStatus() {
-            return GameStatus.playerDisconnected(disconnectedPlayer.getPlayerColor(), disconnectedPlayer.getPartner().isAi());
-        }
-
-        /**
-         * Gets disconnected player.
-         *
-         * @return the disconnected player
-         */
-        public Player getDisconnectedPlayer() {
-            return disconnectedPlayer;
-        }
-    }
-
-    /**
-     * Game over error.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-//    todo change to throwable
-    public static class GameOverError extends MyError {
-
-        /**
-         * The Game over status.
-         */
-        public final GameStatus gameOverStatus;
-
-        /**
-         * Instantiates a new Game over error.
-         *
-         * @param gameOverStatus the game over status
-         */
-        public GameOverError(GameStatus gameOverStatus) {
-            this.gameOverStatus = gameOverStatus;
-        }
-    }
 
 }

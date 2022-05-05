@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 
 /**
- * Game session - represents a game session between two players
+ * Game session - represents a game session between two players. a session is running as long as both players are connected, and want to keep playing with each other.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -112,7 +112,7 @@ public class GameSession extends HandledThread implements SyncableItem {
         game.forEachPlayer(p -> p.setGameSession(this));
 
         addHandler(MyError.DisconnectedError.class, e -> {
-            if (e instanceof Game.PlayerDisconnectedError playerDisconnected) {
+            if (e instanceof PlayerDisconnectedError playerDisconnected) {
                 game.interrupt(playerDisconnected.createGameStatus());
             } else throw new MyError(e);
         });
@@ -128,12 +128,12 @@ public class GameSession extends HandledThread implements SyncableItem {
     }
 
     /**
-     * Handled run.
+     * run the game inside the {@link HandledThread}'s 'container' with handlers setup for the relevant errors that might get thrown.
      */
     @Override
     public void handledRun() {
         do {
-            GameStatus gameOver = game.startNewGame();
+            GameStatus gameOver = game.runNewGame();
             saveGame(gameOver);
             game.parallelForEachPlayer(player -> player.gameOver(gameOver));
             if (gameOver.isDisconnected())

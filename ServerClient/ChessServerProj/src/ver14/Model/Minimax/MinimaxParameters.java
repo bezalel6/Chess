@@ -6,7 +6,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Minimax parameters.
+ * parameters used by the Minimax.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

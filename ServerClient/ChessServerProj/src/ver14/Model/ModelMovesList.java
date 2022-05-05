@@ -44,7 +44,7 @@ public class ModelMovesList extends MovesList {
      * @param generator          the generator
      * @param generationSettings the generation settings
      */
-    public ModelMovesList(MoveGenerator generator, int generationSettings) {
+    public ModelMovesList(MoveGenerator generator, @GenerationSettings int generationSettings) {
         this.generator = generator;
         this.generationSettings = generationSettings;
     }

@@ -16,13 +16,13 @@ import java.util.ArrayList;
 
 
 /**
- * Generates moves from a given position according to GenerationSettings
+ * Generates moves from a given position and {@link GenerationSettings}
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class MoveGenerator {
     /**
-     * a precalculated matrix of a square, and the number of squares to the edge for every direction from that square
+     * a precalculated matrix of a square, holds the number of squares to the edge for every direction from any square
      */
     public static final int[][] numSquaresToEdge;
     /**
@@ -136,21 +136,21 @@ public class MoveGenerator {
     }
 
     /**
-     * Generate moves model moves list.
+     * Generate moves from a given position for the current player to move. the moves will be legalized.
      *
      * @param model the model
-     * @return the model moves list
+     * @return a list of all the moves for the current player to move
      */
     public static ModelMovesList generateMoves(Model model) {
         return generateMoves(model, GenerationSettings.LEGALIZE);
     }
 
     /**
-     * Generate moves model moves list.
+     * Generate moves according to the given {@link #generationSettings}
      *
      * @param model              the model
      * @param generationSettings the generation settings
-     * @return the model moves list
+     * @return the list of moves generated
      */
     public static ModelMovesList generateMoves(Model model, @GenerationSettings int generationSettings) {
         MoveGenerator mvg = new MoveGenerator(model, generationSettings);

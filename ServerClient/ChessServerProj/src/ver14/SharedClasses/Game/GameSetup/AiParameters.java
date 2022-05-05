@@ -9,6 +9,8 @@ import java.io.Serializable;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class AiParameters implements Serializable, TimeFormatComponent {
+
+
     /**
      * The constant EZ_MY_AI.
      */

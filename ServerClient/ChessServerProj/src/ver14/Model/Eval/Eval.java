@@ -95,9 +95,9 @@ public class Eval implements Serializable {
     }
 
     /**
-     * is game over.
+     * checks if the game is over in the current position.
      *
-     * @return evaluation evaluation
+     * @return if this position is a game over, the game over evaluation. otherwise an empty evaluation.
      */
     private Evaluation checkGameOver() {
 //        if the current player can't make any move

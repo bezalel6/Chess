@@ -11,7 +11,8 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 /**
- * Minimax view - represents a debugging frame for watching the minimax 'think' in real time .
+ * Minimax view - represents a debugging frame for watching the minimax 'think' in real time.
+ * can be activating by passing {@value Minimax#DEBUG_MINIMAX} as an argument when running the server
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -45,7 +46,9 @@ public class MinimaxView extends JFrame {
         reachedDepthTimeLbl = emptyTimeLbl("time to reach current depth");
         numOfThreadsLbl = emptyLbl("Number of threads");
         cpuUsageLbl = emptyLbl("cpu usage");
-        add(new MyJButton("Stop", minimax::quietInterrupt));
+        add(new MyJButton("Stop", minimax::quietInterrupt) {{
+            setToolTipText("(theres like a 99/100 chance this will crash the minimax)");
+        }});
         setSize(800, 200);
         timer = show ? new Timer(150, l -> {
             setTime(minimax.getElapsed());

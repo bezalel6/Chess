@@ -7,7 +7,7 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Attacked squares - calculates which squares are attacked by using bitwise operations on pieces bit boards.
+ * Attacked squares - calculates which squares are attacked by using bitwise operations on pieces {@link Bitboard}s.
  * saving a lot of time by batch calculating for each piece type instead of calculating by individual piece
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
@@ -69,14 +69,14 @@ public class AttackedSquares {
      *
      * @param model                the model
      * @param attackingPlayerColor the attacking player color
-     * @return a bitboard of all the attacked squares
+     * @return a bitboard of all the squares attacked by the {@code attackingPlayerColor}
      */
     public static Bitboard getAttackedSquares(Model model, PlayerColor attackingPlayerColor) {
         return new AttackedSquares(model, attackingPlayerColor).getAttackedSquares();
     }
 
     /**
-     * Gets attacked squares.
+     * Get all attacked squares.
      *
      * @return the attacked squares
      */
@@ -100,11 +100,11 @@ public class AttackedSquares {
     }
 
     /**
-     * Attack -  move the given bb .
+     * Attack -  shift the given {@link Bitboard} according to the attacking directions. resulting in a quick, batch calculation of all the attacked squares by the given piece
      *
      * @param pieceType           the piece type
      * @param attackingPiecesBB   the attacking pieces bb
-     * @param attackingDirections the attacking directions
+     * @param attackingDirections the attacking directions that will be used to calculate the attack. if none will be passed, the directions used will be the piece type's attacking directions
      */
     private void attack(PieceType pieceType, Bitboard attackingPiecesBB, Direction... attackingDirections) {
         if (attackingDirections.length == 0)
@@ -131,12 +131,12 @@ public class AttackedSquares {
     }
 
     /**
-     * Is attacked boolean.
+     * Is the given loc threatened by the {@code attackingPlayerColor}.
      *
-     * @param model                the model
+     * @param model                the model representing the current position
      * @param loc                  the loc
      * @param attackingPlayerColor the attacking player color
-     * @return the boolean
+     * @return true if the loc is attacked by the attacking player, false otherwise.
      */
     public static boolean isAttacked(Model model, Location loc, PlayerColor attackingPlayerColor) {
         return new AttackedSquares(model, attackingPlayerColor).isAttacked(loc);
@@ -161,13 +161,14 @@ public class AttackedSquares {
 
 
     /**
-     * Gets piece attacks from.
+     * Calculate a bitboard of the {@code pieceType} attacks from the {@code pieceBB}. every bit set on the  {@code pieceBB} will be treated
+     * as a {@code pieceType}, and will attack like one.
      *
      * @param pieceType            the piece type
      * @param pieceBB              the piece bb
      * @param attackingPlayerColor the attacking player color
-     * @param model                the model
-     * @return the piece attacks from
+     * @param model                the model representing the current position
+     * @return a {@link Bitboard} representation of all the attacked squares
      */
     public static Bitboard getPieceAttacksFrom(PieceType pieceType, Bitboard pieceBB, PlayerColor attackingPlayerColor, Model model) {
         AttackedSquares attackedSquares = new AttackedSquares(model, attackingPlayerColor);
