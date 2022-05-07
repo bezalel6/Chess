@@ -12,7 +12,6 @@ import ver14.SharedClasses.Networking.Messages.MessageType;
 import ver14.SharedClasses.Networking.MessagesHandler;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.view.Dialog.Cards.MessageCard;
 import ver14.view.Dialog.SyncableList;
 import ver14.view.View;
 
@@ -57,9 +56,9 @@ public class ClientMessagesHandler extends MessagesHandler {
     }
 
     /**
-     * Register syncable list.
+     * Register a list to be updated whenever a server message notifying of an update to that list type is received.
      *
-     * @param list the list
+     * @param list the list to register
      */
     public void registerSyncableList(SyncableList list) {
         synchronized (syncedLists) {
@@ -145,7 +144,7 @@ public class ClientMessagesHandler extends MessagesHandler {
         return message -> {
             super.onInitGame().callback(message);
             client.soundManager.gameStart.play();
-            synchronized (view.boardLock) {
+            view.syncAction(() -> {
                 view.drawFocus();
 
                 PlayerColor myColor = message.getPlayerColor();
@@ -163,7 +162,7 @@ public class ClientMessagesHandler extends MessagesHandler {
 //                    for (Move move : moveStack)
 //                        client.updateByMove(move, false);
 //                }
-            }
+            });
 
         };
     }
@@ -184,12 +183,12 @@ public class ClientMessagesHandler extends MessagesHandler {
 
             client.stopPremoving();
 
-            synchronized (view.boardLock) {
+            view.syncAction(() -> {
                 client.setLatestGetMoveMsg(message);
                 client.unlockMovableSquares(message);
                 view.drawFocus();
                 client.startMyTime();
-            }
+            });
         };
 
     }
@@ -220,7 +219,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onError() {
         return message -> {
             super.onError().callback(message);
-            client.closeClient(message.getSubject(), "Error", MessageCard.MessageType.ServerError);
+            client.closeClient(message.getSubject(), "Error", ver14.view.Dialog.Cards.MessageCard.MessageType.ServerError);
         };
     }
 
@@ -247,7 +246,7 @@ public class ClientMessagesHandler extends MessagesHandler {
     public MessageCallback onBye() {
         return message -> {
             super.onBye().callback(message);
-            client.closeClient(message.getSubject(), "Bye", MessageCard.MessageType.INFO);
+            client.closeClient(message.getSubject(), "Bye", ver14.view.Dialog.Cards.MessageCard.MessageType.INFO);
         };
     }
 

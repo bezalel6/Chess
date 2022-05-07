@@ -107,7 +107,16 @@
         <METHOD>
           <KEY>^.*(public|protected|private)*\s*.*(void|\w(\s*&lt;.+&gt;)*)+\s+set\w+\s*\(.*\).+</KEY>
           <VALUE>/**\n
- * Sets ${partName}.\n
+*
+&lt;#if name==&quot;Setup&quot;&gt;
+\n initializes this
+&lt;#list element.context.name?split(&quot;(?=[A-Z]+)&quot;,&quot;r&quot;) as x&gt;
+${x}
+&lt;/#list&gt;
+&lt;#else&gt;
+Sets ${partName}
+&lt;/#if&gt;
+.\n
 &lt;#if element.typeParameters?has_content&gt;         * \n
 &lt;/#if&gt;
 &lt;#list element.typeParameters as typeParameter&gt;
@@ -151,7 +160,14 @@
         <METHOD>
           <KEY>.+</KEY>
           <VALUE>/**\n
- * ${name}&lt;#if isNotVoid&gt; ${return}&lt;/#if&gt;.\n
+*
+&lt;#if name==&quot;setup&quot;&gt;
+initialize this ${component.class.name}
+&lt;#else&gt;
+${name}
+&lt;/#if&gt;
+&lt;#if isNotVoid&gt; ${return}&lt;/#if&gt;
+ .\n
 &lt;#if element.typeParameters?has_content&gt;         * \n
 &lt;/#if&gt;
 &lt;#list element.typeParameters as typeParameter&gt;
@@ -165,7 +181,13 @@
 &lt;/#list&gt;
 &lt;#if isNotVoid&gt;
          *\n
-         * @return the ${return}\n
+* @return
+&lt;#if return==&quot;boolean&quot;&gt;
+true if ${name}. false otherwise
+&lt;#else&gt;
+the ${return}
+&lt;/#if&gt;
+\n   
 &lt;/#if&gt;
 &lt;#if element.throwsList.referenceElements?has_content&gt;
          *\n

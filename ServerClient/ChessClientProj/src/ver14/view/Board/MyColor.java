@@ -52,7 +52,7 @@ public class MyColor extends Color {
     /**
      * Moved clr color.
      *
-     * @return the color
+     * @return the moved color
      */
     public Color movedClr() {
         return Color.decode("#9fc0a2");

@@ -10,7 +10,7 @@ import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
 import ver14.view.IconManager.Size;
 
 /**
- * Register card.
+ *represents a Register card.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

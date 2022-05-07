@@ -40,16 +40,10 @@ public class LoginProcess extends Dialog {
 
         navigationCardSetup(new Size(300, 350), cards);
     }
-
-    //    @Override
-//    public BackOkPnl backOkPnl() {
-//        return null;
-//    }
-
     /**
-     * Gets login info.
+     * Gets the chosen login info.
      *
-     * @return the login info
+     * @return the chosen login info
      */
     public LoginInfo getLoginInfo() {
         return loginInfo;

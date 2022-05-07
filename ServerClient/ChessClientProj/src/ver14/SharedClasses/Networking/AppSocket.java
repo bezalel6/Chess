@@ -56,6 +56,7 @@ public class AppSocket extends MyThread {
         this.msgSocket = socket;
 
         addHandler(AppSocketError.class, e -> {
+            System.out.println(e);
             didDisconnect = true;
             if (messagesHandler != null) {
                 messagesHandler.onDisconnected();

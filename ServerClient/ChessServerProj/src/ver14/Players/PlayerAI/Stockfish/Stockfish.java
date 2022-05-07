@@ -12,6 +12,7 @@ import java.io.OutputStreamWriter;
 
 
 /**
+ * an api for communicating with the world's highest rated chess bot. stockfish. the actual bot is saved in the /assets/ folder.
  * <a href="https://github.com/rahular/chess-misc/blob/master/JavaStockfish/src/com/rahul/stockfish/Stockfish.java">modified version of</a>
  */
 public class Stockfish {

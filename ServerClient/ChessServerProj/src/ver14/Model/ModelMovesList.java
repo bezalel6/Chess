@@ -15,7 +15,9 @@ import java.util.stream.Stream;
 
 
 /**
- * Model moves list - represents a list of moves with a few unique features only used on the model.
+ * Model moves list - represents a list of moves with a few features unique to the server side.
+ * <br/>
+ * calculating move annotation is done using the {@link Model}. and {@link MoveGenerator}
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -104,7 +106,7 @@ public class ModelMovesList extends MovesList {
     }
 
     /**
-     * Init annotation.
+     * Initializes moves notation.
      */
     public void initAnnotation() {
         uniqueMoves = new HashMap<>();
@@ -211,14 +213,6 @@ public class ModelMovesList extends MovesList {
      */
     public MovesList getCleanList() {
         return new MovesList(this);
-    }
-
-    /**
-     * Found legal move.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class FoundLegalMove extends Throwable {
     }
 
 }

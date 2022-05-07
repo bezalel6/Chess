@@ -6,6 +6,7 @@ import ver14.SharedClasses.Game.GameSetup.GameTime;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.FontManager;
+import ver14.view.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -78,22 +79,21 @@ public class SidePanel extends JPanel {
     /**
      * Instantiates a new Side panel.
      *
-     * @param millis    the millis
      * @param isFlipped the is flipped
      * @param client    the client
      */
-    public SidePanel(long millis, boolean isFlipped, Client client) {
+    public SidePanel(boolean isFlipped, View view, Client client) {
         this.client = client;
         this.currentlyRunningClr = null;
-        this.timeControl = millis;
+        this.timeControl = 0;
         this.gameActions = new GameActions(this);
 
         setLayout(new GridBagLayout());
 
-        bottom = new TimerPnl("White", this);
-        top = new TimerPnl("Black", this);
+        bottom = new TimerPnl(this, PlayerColor.WHITE);
+        top = new TimerPnl(this, PlayerColor.BLACK);
 
-        moveLog = new MoveLog();
+        moveLog = new MoveLog(view);
 
         askPlayerPnl = new AskPlayer();
         setFlipped(isFlipped);
@@ -117,7 +117,7 @@ public class SidePanel extends JPanel {
     }
 
     /**
-     * Enable btns.
+     * Enable actions buttons.
      *
      * @param enable the enable
      */
@@ -126,7 +126,7 @@ public class SidePanel extends JPanel {
     }
 
     /**
-     * Names sync.
+     * sync the names on the timers to they're corresponding colors.
      */
     private void namesSync() {
         for (PlayerColor clr : PlayerColor.PLAYER_COLORS) {
@@ -197,11 +197,30 @@ public class SidePanel extends JPanel {
     }
 
     /**
-     * Sync and start timer.
+     * initialize the side panel for a new game.
+     *
+     * @param myClr    the color this client is playing as
+     * @param myUn     this client's username
+     * @param oppUn    the opponent's username
+     * @param gameTime the game time
+     */
+    public void initGame(PlayerColor myClr, String myUn, String oppUn, GameTime gameTime) {
+        synchronized (usernames) {
+            usernames.put(myClr, myUn);
+            usernames.put(myClr.getOpponent(), oppUn);
+        }
+        namesSync();
+        sync(gameTime);
+        moveLog.reset();
+        enableBtns(true);
+    }
+
+    /**
+     * Sync timers.
      *
      * @param gameTime the game time
      */
-    public void syncAndStartTimer(GameTime gameTime) {
+    public void sync(GameTime gameTime) {
         setBothPlayersClocks(gameTime);
     }
 
@@ -242,47 +261,9 @@ public class SidePanel extends JPanel {
     }
 
     /**
-     * Init game.
-     *
-     * @param myClr    the color this client is playing as
-     * @param myUn     this client's username
-     * @param oppUn    the opponent's username
-     * @param gameTime the game time
-     */
-    public void initGame(PlayerColor myClr, String myUn, String oppUn, GameTime gameTime) {
-        synchronized (usernames) {
-            usernames.put(myClr, myUn);
-            usernames.put(myClr.getOpponent(), oppUn);
-        }
-        namesSync();
-        reset(gameTime);
-        enableBtns(true);
-    }
-
-    /**
-     * Reset side panel.
-     *
-     * @param gameTime the game time
-     */
-    public void reset(GameTime gameTime) {
-        sync(gameTime);
-        moveLog.reset();
-//        askPlayerPnl.showPnl(false);
-    }
-
-    /**
-     * Sync timers.
-     *
-     * @param gameTime the game time
-     */
-    public void sync(GameTime gameTime) {
-        setBothPlayersClocks(gameTime);
-    }
-
-    /**
      * Start running a player's clock.
      *
-     * @param clr the clr
+     * @param clr the clr to start running
      */
     public void startRunning(PlayerColor clr) {
         stopRunningTime();

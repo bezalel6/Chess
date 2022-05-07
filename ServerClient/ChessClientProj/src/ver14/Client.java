@@ -29,14 +29,14 @@ import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.Sound.SoundManager;
 import ver14.view.Board.ViewLocation;
-import ver14.view.Dialog.Cards.MessageCard;
+import ver14.view.Dialog.DialogDetails;
 import ver14.view.Dialog.DialogProperties;
 import ver14.view.Dialog.Dialogs.ChangePassword.ChangePassword;
 import ver14.view.Dialog.Dialogs.GameSelection.GameSelect;
 import ver14.view.Dialog.Dialogs.LoginProcess.LoginProcess;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.CustomDialog;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.InputDialog;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.PromotionDialog;
+import ver14.view.Dialog.Dialogs.OtherDialogs.CustomDialog;
+import ver14.view.Dialog.Dialogs.OtherDialogs.InputDialog;
+import ver14.view.Dialog.Dialogs.Promotion.Promotion;
 import ver14.view.View;
 
 import java.net.InetAddress;
@@ -48,7 +48,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 /**
- * represents a Client that sets up the connection between the client and server and manages the {@link View}, {@link ver14.SharedClasses.DBActions.DBRequest.DBRequest}s, move selection, and a major part of the communication
+ * represents a chess Client that sets up the connection between the client and server and manages the {@link View}, {@link ver14.SharedClasses.DBActions.DBRequest.DBRequest}s, move selection, and a major part of the communication
  * with the server through the {@link AppSocket}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
@@ -176,7 +176,7 @@ public class Client implements EnvManager {
     }
 
     /**
-     * Run client.
+     * start listening to messages from the server.
      */
     public void runClient() {
         if (clientSetupOK) {
@@ -280,7 +280,7 @@ public class Client implements EnvManager {
      * @param title the title
      */
     public void closeClient(String cause, String title) {
-        closeClient(cause, title, MessageCard.MessageType.ERROR);
+        closeClient(cause, title, ver14.view.Dialog.Cards.MessageCard.MessageType.ERROR);
     }
 
     /**
@@ -290,7 +290,7 @@ public class Client implements EnvManager {
      * @param title     the title
      * @param closeType the close type
      */
-    public void closeClient(String cause, String title, MessageCard.MessageType closeType) {
+    public void closeClient(String cause, String title, ver14.view.Dialog.Cards.MessageCard.MessageType closeType) {
         if (isClosing)
             return;
         isClosing = true;
@@ -404,11 +404,11 @@ public class Client implements EnvManager {
     }
 
     /**
-     * Login string.
+     * Login.
      *
-     * @param err          the err
-     * @param loginMessage the login message
-     * @return the string
+     * @param err          the error from an earlier login attempt
+     * @param loginMessage the login request message from the server
+     * @return null if user cancelled the login, otherwise the client's username.
      */
     private String login(String err, Message loginMessage) {
 
@@ -436,9 +436,9 @@ public class Client implements EnvManager {
     }
 
     /**
-     * board button pressed.
+     * handle board button pressed.
      *
-     * @param clickedLoc the clickedLoc
+     * @param clickedLoc the button's location
      */
     public void boardButtonPressed(ViewLocation clickedLoc) {
         if (possibleMoves != null) {
@@ -472,13 +472,13 @@ public class Client implements EnvManager {
     }
 
     /**
-     * Show promotion dialog piece type.
+     * Show promotion dialog and return the selected piece type.
      *
-     * @param clr the clr
-     * @return the piece type
+     * @param clr the color pieces the player can choose from (white pieces for the white player...)
+     * @return the chosen piece type
      */
     public PieceType showPromotionDialog(PlayerColor clr) {
-        return view.showDialog(new PromotionDialog(clr)).getResult().pieceType;
+        return view.showDialog(new Promotion(clr)).getResult().pieceType;
     }
 
     /**
@@ -492,11 +492,6 @@ public class Client implements EnvManager {
         clientSocket.writeMessage(Message.returnMove(move, lastGetMoveMsg));
         this.possibleMoves = null;
     }
-
-//    private void initGame(Message message) {
-//        myColor = message.getPlayerColor();
-//        view.initGame(message.getGameTime(), message.getBoard(), myColor, message.getOtherPlayer());
-//    }
 
     /**
      * Update by move.
@@ -671,7 +666,7 @@ public class Client implements EnvManager {
      * @return the created properties
      */
     public DialogProperties dialogProperties(String... properties) {
-        return new DialogProperties(loginInfo, clientSocket, view.getWin(), new DialogProperties.DialogDetails(properties));
+        return new DialogProperties(loginInfo, clientSocket, view.getWin(), new DialogDetails(properties));
     }
 
     /**
@@ -691,11 +686,13 @@ public class Client implements EnvManager {
     }
 
     /**
-     * Request.
+     * send a db request to the server.
+     * {@link RequestBuilder}s use arguments to create dynamic requests. some arguments are expected to be filled by
+     * the player, and will show a dialog for getting that info, and some are reliant on the environment to provide the value.
      *
-     * @param builder    the builder
-     * @param onResponse the on response
-     * @param args       the args
+     * @param builder    the request builder
+     * @param onResponse a callback to call with a db response
+     * @param args       the arguments for the request
      */
     public void request(RequestBuilder builder, Callback<DBResponse> onResponse, Object... args) {
         if (args == null) {
@@ -748,11 +745,11 @@ public class Client implements EnvManager {
         System.out.println(">> " + new String(new char[title.length()]).replace('\0', '-'));
 
         // popup dialog with the error message
-        closeClient(msg, "Exception Error", MessageCard.MessageType.ERROR);
+        closeClient(msg, "Exception Error", ver14.view.Dialog.Cards.MessageCard.MessageType.ERROR);
     }
 
     /**
-     * Del unf.
+     * Delete unfinished games.
      */
     public void delUnf() {
         request(PreMadeRequest.DeleteUnfGames);

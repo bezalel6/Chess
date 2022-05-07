@@ -4,7 +4,6 @@ import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.Login.LoginInfo;
 import ver14.SharedClasses.Networking.AppSocket;
 import ver14.SharedClasses.UI.MyJFrame;
-import ver14.SharedClasses.Utils.ArrUtils;
 
 import java.awt.*;
 
@@ -143,27 +142,6 @@ public class DialogProperties {
                 "socketToServer=" + socketToServer + ", " +
                 "parentWin=" + parentWin + ", " +
                 "details=" + dialogDetails + ']';
-    }
-
-
-    /**
-     * Dialog Details.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public record DialogDetails(String header, String title, String error) {
-
-        /**
-         * Instantiates a new Details.
-         *
-         * @param details []/[header]/[header,title]/[header,title,error]
-         */
-        public DialogDetails(String... details) {
-            this(ArrUtils.exists(details, 0),
-                    ArrUtils.exists(details, 1),
-                    ArrUtils.exists(details, 2));
-        }
-
     }
 
 

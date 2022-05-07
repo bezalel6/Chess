@@ -5,16 +5,17 @@ import java.awt.*;
 
 /**
  * The utility class Shapes helper.
- * can paint some shapes
+ * can paint some shapes.
  */
 public class ShapesHelper {
 
 
     /**
-     * Paint triangles border.
+     * Paint a triangles border.
+     * paints a triangle at each of the component's corners. (naturally, if the provided component is a circle, your computer will blow up)
      *
-     * @param g         the g
-     * @param color     the color
+     * @param g         the graphics
+     * @param color     the color of the triangles
      * @param size      the size
      * @param component the component
      */
@@ -39,7 +40,7 @@ public class ShapesHelper {
     }
 
     /**
-     * Paint circle.
+     * Paint circle inside a component.
      *
      * @param g             the graphics
      * @param color         the color

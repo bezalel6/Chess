@@ -36,17 +36,17 @@ public abstract class GameCreationCard extends DialogCard {
         this.gameSettings = gameSettings;
         checkbox = new Checkbox("Uncheck To Discard");
         checkbox.addItemListener(l -> {
-            changeState(checkbox.getState());//no infinite loop. item event is only called after a user click, and not setState
+            setEnabledState(checkbox.getState());//no infinite loop. item event is only called after a user click, and not setState
         });
-        changeState(false);
+        setEnabledState(false);
     }
 
     /**
-     * Change state.
+     * set should use the value in this card.
      *
-     * @param state the state
+     * @param state the state. if true the value from this card will be used
      */
-    protected abstract void changeState(boolean state);
+    protected abstract void setEnabledState(boolean state);
 
     @Override
     public WinPnl createNavPnl() {
@@ -62,13 +62,13 @@ public abstract class GameCreationCard extends DialogCard {
 
     @Override
     public void onBack() {
-        changeState(false);
+        setEnabledState(false);
         super.onBack();
     }
 
     @Override
     public void onOk() {
-        changeState(true);
+        setEnabledState(true);
         super.onBack();
     }
 }

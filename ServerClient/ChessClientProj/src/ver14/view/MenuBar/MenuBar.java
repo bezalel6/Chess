@@ -4,7 +4,6 @@ import ver14.Client;
 import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.Login.AuthSettings;
 import ver14.SharedClasses.UI.FontManager;
-import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.AuthorizedComponents.Menu;
 import ver14.view.AuthorizedComponents.MenuItem;
 import ver14.view.IconManager.IconManager;
@@ -42,23 +41,22 @@ public class MenuBar extends JMenuBar {
     /**
      * Instantiates a new Menu bar.
      *
-     * @param authorizedComponents the authorized components
-     * @param client               the client
-     * @param view                 the view
+     * @param client the client
+     * @param view   the view
      */
-    public MenuBar(ArrayList<AuthorizedComponent> authorizedComponents, Client client, View view) {
+    public MenuBar(Client client, View view) {
         this.client = client;
         ArrayList<JComponent> start = new ArrayList<>();
         ArrayList<JComponent> middle = new ArrayList<>();
         ArrayList<JComponent> end = new ArrayList<>();
-        start.add(new ProfileMenu(authorizedComponents, client));
+        start.add(new ProfileMenu(client, view));
 
         Menu settingsMenu = new Menu("settings", AuthSettings.NO_AUTH) {{
             setFont(menuFont);
             setChildrenFont(menuItemsFont);
         }};
         IconManager.dynamicSettingsIcon.set(settingsMenu);
-        authorizedComponents.add(settingsMenu);
+        view.addAuthorizedComponent(settingsMenu);
         end.add(settingsMenu);
 
         Menu aboutMenu = new Menu("About", AuthSettings.NO_AUTH) {{
@@ -89,14 +87,14 @@ public class MenuBar extends JMenuBar {
             setChildrenFont(menuItemsFont);
         }};
         IconManager.dynamicStatisticsIcon.set(statisticsMenu);
-        authorizedComponents.add(statisticsMenu);
+        view.addAuthorizedComponent(statisticsMenu);
         start.add(statisticsMenu);
 
         Menu serverStatusMenu = new Menu("server status", AuthSettings.NO_AUTH) {{
             setFont(menuFont);
             setChildrenFont(menuItemsFont);
         }};
-        authorizedComponents.add(serverStatusMenu);
+        view.addAuthorizedComponent(serverStatusMenu);
         IconManager.dynamicServerIcon.set(serverStatusMenu);
         start.add(serverStatusMenu);
 
@@ -108,18 +106,18 @@ public class MenuBar extends JMenuBar {
             if (variations.length > 0) {
                 Menu newMenu = new Menu(preMadeRequest.createBuilder().getName(), preMadeRequest.authSettings);
                 newMenu.setFont(currentMenu.getFont());
-                authorizedComponents.add(newMenu);
+                view.addAuthorizedComponent(newMenu);
                 currentMenu.add(newMenu);
                 currentMenu = newMenu;
             }
-            MenuItem parentItem = createRequestMenuItem(preMadeRequest, menuItemsFont);
-            authorizedComponents.add(parentItem);
+            MenuItem parentItem = new RequestMenuItem(preMadeRequest, client, menuItemsFont);
+            view.addAuthorizedComponent(parentItem);
             currentMenu.add(parentItem);
 
             Menu finalCurrentMenu = currentMenu;
             Arrays.stream(variations).forEach(req -> {
-                MenuItem requestMenuItem = createRequestMenuItem(req, menuItemsFont);
-                authorizedComponents.add(requestMenuItem);
+                MenuItem requestMenuItem = new RequestMenuItem(req, client, menuItemsFont);
+                view.addAuthorizedComponent(requestMenuItem);
                 finalCurrentMenu.add(requestMenuItem);
             });
 
@@ -142,21 +140,5 @@ public class MenuBar extends JMenuBar {
         end.forEach(this::add);
     }
 
-
-    /**
-     * Create request menu item menu item.
-     *
-     * @param preMadeRequest the pre made request
-     * @param menuItemsFont  the menu items font
-     * @return the menu item
-     */
-    private MenuItem createRequestMenuItem(PreMadeRequest preMadeRequest, Font menuItemsFont) {
-        return new MenuItem(preMadeRequest.createBuilder().getName(), preMadeRequest.authSettings) {{
-            addActionListener(l -> {
-                client.request(preMadeRequest);
-            });
-            setFont(menuItemsFont);
-        }};
-
-    }
+    
 }

@@ -9,6 +9,7 @@ import ver14.view.Board.BoardPanel;
 import ver14.view.Board.ViewSavedBoard;
 import ver14.view.Dialog.Scrollable;
 import ver14.view.IconManager.Size;
+import ver14.view.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,6 +53,7 @@ public class MoveLog extends JPanel {
      * The Black moves.
      */
     blackMoves;
+    private final View view;
     /**
      * The Board panel.
      */
@@ -65,10 +67,26 @@ public class MoveLog extends JPanel {
      */
     private int currentMoveIndex = 0;
 
+    private View.IgnoreIfUnsafe<Integer> switching = new View.IgnoreIfUnsafe<>() {
+        @Override
+        protected void ifSafe(Integer parm) {
+            view.syncAction(() -> {
+//                ThreadsManager.createThread(() -> {
+                boardPanel.lock(!isCaughtUp());
+                if (!isCaughtUp())
+                    boardPanel.loadSaved(boardsList.get(currentMoveIndex));
+                else boardPanel.restoreActualPosition();
+                enableNavBtns();
+//                }, true);
+            });
+        }
+    };
+
     /**
      * Instantiates a new Move log.
      */
-    public MoveLog() {
+    public MoveLog(View view) {
+        this.view = view;
         movesBtns = new ArrayList<>();
         forward = new MyJButton(">", FontManager.sidePanel, this::forward);
         back = new MyJButton("<", FontManager.sidePanel, this::back);
@@ -82,13 +100,15 @@ public class MoveLog extends JPanel {
 
         addLayout();
         enableNavBtns();
+
+        view.addUnsafeOperation(switching);
     }
 
 
     /**
      * go one move Forward if possible.
      */
-    private void forward() {
+    private synchronized void forward() {
         if (currentMoveIndex > lastMoveIndex() - 1) {
         } else {
             currentMoveIndex++;
@@ -99,7 +119,7 @@ public class MoveLog extends JPanel {
     /**
      * go one move Backwards if possible.
      */
-    private void back() {
+    private synchronized void back() {
         if (currentMoveIndex < 1) {
         } else {
             currentMoveIndex--;
@@ -159,8 +179,8 @@ public class MoveLog extends JPanel {
      * before adding applying a new move.
      */
     public void preAdding() {
-        if (!isCaughtUp())
-            end();
+//        if (!isCaughtUp())
+//            end();
     }
 
     /**
@@ -192,11 +212,13 @@ public class MoveLog extends JPanel {
     }
 
     /**
-     * add new move to the log. should be called after applying the move to the board
+     * add new move to the log. called after applying the move to the board
      *
      * @param move the move
      */
     public synchronized void addMove(Move move) {
+//        if (!isCaughtUp())
+//            end();
         Font font = FontManager.sidePanel;
 //        System.out.println("annotations = " + move.getAnnotation());
         MyJButton moveBtn = new MyJButton((move.getAnnotation()), font) {
@@ -207,8 +229,8 @@ public class MoveLog extends JPanel {
         };
 //        moveBtn.setPreferredSize();
         movesBtns.add(moveBtn);
-
-        ViewSavedBoard board = new ViewSavedBoard(boardPanel);
+        ViewSavedBoard board = boardPanel.getActualPosition();
+        System.out.println("saving " + board);
 
         while (move.getMovingColor() != PlayerColor.WHITE && whiteMoves.getComponents().length <= blackMoves.getComponents().length) {
             MyJButton empty = new MyJButton("  ") {
@@ -222,6 +244,8 @@ public class MoveLog extends JPanel {
         }
         moveLogScroll.scrollToBottom();
         (move.getMovingColor() == PlayerColor.WHITE ? whiteMoves : blackMoves).add(moveBtn);
+        new Exception().printStackTrace();
+
         boardsList.add(board);
 
         if (currentMoveIndex == lastMoveIndex() - 1) {
@@ -232,10 +256,19 @@ public class MoveLog extends JPanel {
         moveBtn.addActionListener(e -> {
             switchTo(Integer.parseInt(e.getActionCommand()));
         });
-
+        System.out.println("boards list = " + boardsList);
         if (numOfMoves() > 1)
             boardsList.get(lastMoveIndex() - 1).disableAll();
         enableNavBtns();
+    }
+
+    /**
+     * Last move index int.
+     *
+     * @return the int
+     */
+    private int lastMoveIndex() {
+        return numOfMoves() - 1;
     }
 
     /**
@@ -248,6 +281,15 @@ public class MoveLog extends JPanel {
             currentMoveIndex = index;
             switchToCurrentIndex();
         }
+    }
+
+    /**
+     * Num of moves int.
+     *
+     * @return the int
+     */
+    private int numOfMoves() {
+        return boardsList.size();
     }
 
     /**
@@ -265,25 +307,11 @@ public class MoveLog extends JPanel {
         }
     }
 
-
-    /**
-     * Scroll to the current move index.
-     */
-    private void scroll() {
-        int row = currentMoveIndex / 2;
-        row = (row - 1) * movesBtns.get(0).getHeight();
-        moveLogScroll.getVerticalScrollBar().revalidate();
-        moveLogScroll.getVerticalScrollBar().setValue(row);
-//        moveLogScroll.scrollToBottom();
-    }
-
     /**
      * Switch to current index.
      */
     public synchronized void switchToCurrentIndex() {
-        boardPanel.lock(!isCaughtUp());
-        boardPanel.restoreBoardButtons(boardsList.get(currentMoveIndex));
-        enableNavBtns();
+        switching.run(currentMoveIndex);
     }
 
     /**
@@ -316,6 +344,17 @@ public class MoveLog extends JPanel {
     }
 
     /**
+     * Scroll to the current move index.
+     */
+    private void scroll() {
+        int row = currentMoveIndex / 2;
+        row = (row - 1) * movesBtns.get(0).getHeight();
+        moveLogScroll.getVerticalScrollBar().revalidate();
+        moveLogScroll.getVerticalScrollBar().setValue(row);
+//        moveLogScroll.scrollToBottom();
+    }
+
+    /**
      * go to Start.
      */
     private void start() {
@@ -343,42 +382,26 @@ public class MoveLog extends JPanel {
         boardPanel.lock(false);
     }
 
-
     /**
      * Sets board panel.
      *
      * @param boardPanel the board panel
      */
     public void setBoardPanel(BoardPanel boardPanel) {
-        boardsList.add(new ViewSavedBoard(boardPanel));
+//        new Exception().printStackTrace();
+//        boardsList.add((boardPanel).getActualPosition());
         this.boardPanel = boardPanel;
     }
-
 
     /**
      * Reset current board.
      */
     public void resetCurrentBoard() {
         if (numOfMoves() > 0) {
-            boardsList.set(lastMoveIndex(), new ViewSavedBoard(boardPanel));
+            new Exception().printStackTrace();
+            var b = (boardPanel.getActualPosition());
+            System.out.println("b = " + b);
+            boardsList.set(lastMoveIndex(), b);
         }
-    }
-
-    /**
-     * Num of moves int.
-     *
-     * @return the int
-     */
-    private int numOfMoves() {
-        return boardsList.size();
-    }
-
-    /**
-     * Last move index int.
-     *
-     * @return the int
-     */
-    private int lastMoveIndex() {
-        return numOfMoves() - 1;
     }
 }

@@ -6,7 +6,7 @@ import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Dialog;
 
 /**
- * Cancel and exit.
+ * Cancel and exit card.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

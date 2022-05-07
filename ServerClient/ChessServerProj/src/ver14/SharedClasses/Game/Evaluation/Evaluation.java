@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Evaluation implements Serializable {
+    
     /**
      * The constant TIE_EVAL.
      */

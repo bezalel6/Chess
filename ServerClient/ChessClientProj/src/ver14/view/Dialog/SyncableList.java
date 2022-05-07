@@ -10,14 +10,14 @@ import ver14.SharedClasses.Sync.SyncedListType;
  */
 public interface SyncableList {
     /**
-     * Synced list type synced list type.
+     * get this synced list's type.
      *
      * @return the synced list type
      */
     SyncedListType syncedListType();
 
     /**
-     * Sync.
+     * Sync this list with {@code items}.
      *
      * @param items the items
      */

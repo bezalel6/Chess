@@ -1,7 +1,9 @@
 package ver14.view.SidePanel;
 
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
+import ver14.view.Board.BoardPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +22,7 @@ class TimerPnl extends JPanel {
     /**
      * The constant makeNoise.
      */
-    private static long makeNoise = TimeUnit.SECONDS.toMillis(10);
+    private static final long makeNoise = TimeUnit.SECONDS.toMillis(10);
     /**
      * The Timer lbl.
      */
@@ -32,29 +34,26 @@ class TimerPnl extends JPanel {
      * The Side panel.
      */
     private final SidePanel sidePanel;
+    private final PlayerColor color;
     /**
      * The Played 10 s.
      */
     private boolean played10s = false;
 
-    /**
-     * Instantiates a new Timer pnl.
-     *
-     * @param sidePanel the side panel
-     */
-    public TimerPnl(SidePanel sidePanel) {
-        this("", sidePanel);
-    }
 
     /**
      * Instantiates a new Timer pnl.
      *
-     * @param name      the name
      * @param sidePanel the side panel
+     * @param color the {@link PlayerColor} assigned to this timer panel
      */
-    public TimerPnl(String name, SidePanel sidePanel) {
-        this.nameLbl = new MyLbl(name);
+    public TimerPnl(SidePanel sidePanel, PlayerColor color) {
+        this.nameLbl = new MyLbl(color.getName());
+        this.nameLbl.setOpaque(true);
+//        this.nameLbl.setBackground(BoardPanel.getClr(color));
+//        this.nameLbl.setForeground(BoardPanel.getClr(color.getOpponent()));
         this.sidePanel = sidePanel;
+        this.color = color;
         this.timerLbl = new MyLbl();
         nameLbl.setFont(SidePanel.font);
         timerLbl.setFont(SidePanel.font);

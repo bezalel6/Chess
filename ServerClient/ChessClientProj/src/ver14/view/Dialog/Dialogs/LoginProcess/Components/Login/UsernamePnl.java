@@ -5,7 +5,7 @@ import ver14.SharedClasses.Utils.RegEx;
 import ver14.view.Dialog.Components.Parent;
 
 /**
- * a Username field.
+ * represents a Username field.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /**
- * represents the normal Login card. username and password.
+ * represents the normal Login card. enables a login with a username and a password.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
