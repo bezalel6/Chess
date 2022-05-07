@@ -1,6 +1,5 @@
 package ver14.view.Board;
 
-import org.intellij.lang.annotations.MagicConstant;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Misc.EfficientGen;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ver14.view.Board.BoardButton.State.*;
+import static ver14.view.Board.State.*;
 
 /**
  * represents a Board button.
@@ -341,10 +340,10 @@ public class BoardButton extends MyJButton {
      * @param piece the piece
      */
     public void setPiece(Piece piece) {
-        synchronized (view.boardLock) {
+        view.syncAction(() -> {
             this.piece = piece;
             setOgQualityIcon(IconManager.getPieceIcon(piece));
-        }
+        });
     }
 
     /**
@@ -575,58 +574,4 @@ public class BoardButton extends MyJButton {
         return hiddenIcon;
     }
 
-    /**
-     * State.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    @MagicConstant(flagsFromClass = State.class)
-    public @interface State {
-        /**
-         * The constant CHECK.
-         */
-        int CHECK = 1;
-        /**
-         * The constant CAPTURE.
-         */
-        int CAPTURE = 2;
-        /**
-         * The constant CAN_MOVE_TO.
-         */
-        int CAN_MOVE_TO = 4;
-        /**
-         * The constant CURRENT.
-         */
-        int CURRENT = 8;
-        /**
-         * The constant PROMOTING.
-         */
-        int PROMOTING = 16;
-        /**
-         * The constant MOVING_FROM.
-         */
-        int MOVING_FROM = 32;
-        /**
-         * The constant MOVING_TO.
-         */
-        int MOVING_TO = 64;
-        /**
-         * The constant HOVERED.
-         */
-        int HOVERED = 128;
-        /**
-         * The constant CLICKED_ONCE.
-         */
-        int CLICKED_ONCE = 256;
-        /**
-         * The constant DRAGGING.
-         */
-        int DRAGGING = 512;
-        /**
-         * The constant SELECTED.
-         */
-        int SELECTED = 1024;
-
-
-    }
 }

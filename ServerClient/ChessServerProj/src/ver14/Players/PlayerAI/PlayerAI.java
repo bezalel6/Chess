@@ -17,9 +17,7 @@ import java.util.Map;
 
 
 /**
- * PlayerAI.
- * ---------------------------------------------------------------------------
- * by Ilan Peretz (ilanperets@gmail.com) 10/11/2021
+ * represents a player choosing moves using Artificial Intelligence .
  */
 public abstract class PlayerAI extends Player {
     private final static long safetyNet = 500;

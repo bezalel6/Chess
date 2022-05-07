@@ -33,10 +33,10 @@ public class GameVsAi extends GameCreationCard {
         }});
     }
 
-    protected void changeState(boolean state) {
+    protected void setEnabledState(boolean state) {
         gameSettings.setAiParameters(state ? aiParameters : null);
         checkbox.setState(state);
-        checkbox.setEnabled(state);
+        checkbox.setVisible(state);
     }
 
 

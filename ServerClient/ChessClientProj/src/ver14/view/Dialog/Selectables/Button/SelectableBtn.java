@@ -11,25 +11,25 @@ import java.awt.*;
  */
 public interface SelectableBtn {
     /**
-     * Gets value.
+     * Gets the selectable value of this button.
      *
-     * @return the value
+     * @return the selectable value of this button.
      */
     Selectable getValue();
 
     /**
-     * Select.
+     * set the selection state of this button.
      *
-     * @param e the e
+     * @param select true to select this button and false to unselect it
      */
-    void select(boolean e);
+    void select(boolean select);
 
     /**
-     * Comp component.
+     * get the visual {@link Component} of this button.
      *
      * @return the component
      */
     default Component comp() {
-        return (Component) this;
+        return this instanceof Component c?c :null;
     }
 }

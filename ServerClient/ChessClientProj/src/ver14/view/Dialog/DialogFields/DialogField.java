@@ -213,16 +213,16 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
     }
 
     /**
-     * Gets value.
+     * Gets the current value of this field.
      *
      * @return the value
      */
     protected abstract T getValue();
 
     /**
-     * Verify field boolean.
+     * Verify field.
      *
-     * @return the boolean
+     * @return true if the field has verified successfully, false otherwise.
      */
     protected abstract boolean verifyField();
 
@@ -234,9 +234,9 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
     public abstract void setValue(T value);
 
     /**
-     * Gets result.
+     * Gets the result of this field.
      *
-     * @return the result
+     * @return this field's value if it is verified, null otherwise.
      */
     public T getResult() {
         if (noRes)
@@ -245,9 +245,9 @@ public abstract class DialogField<T> extends DialogComponent implements Verified
     }
 
     /**
-     * Err.
+     * show err.
      *
-     * @param err the err
+     * @param err the error
      */
     public void err(String err) {
         err = StrUtils.format(err);

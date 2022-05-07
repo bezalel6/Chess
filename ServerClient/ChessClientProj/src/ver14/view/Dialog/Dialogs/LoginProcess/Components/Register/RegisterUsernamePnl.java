@@ -79,6 +79,7 @@ public class RegisterUsernamePnl extends UsernamePnl {
         parent.addOnClose(executor::shutdown);
     }
 
+
     @Override
     public boolean verifyField() {
         if (!super.verifyField()) {

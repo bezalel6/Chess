@@ -70,10 +70,12 @@ public class ConfirmPasswordPnl extends PasswordPnl {
         return super.errorDetails();
     }
 
+
+
     /**
      * Is matching with the actual password field.
      *
-     * @return the boolean
+     * @return true if the password is matching with the other field. false otherwise.
      */
     public boolean isMatching() {
         return matchWith != null && getPassword().equals(matchWith.get());

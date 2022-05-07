@@ -5,17 +5,17 @@ import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
 import ver14.SharedClasses.Login.AuthSettings;
 import ver14.SharedClasses.Login.LoginInfo;
 import ver14.SharedClasses.UI.FontManager;
-import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.AuthorizedComponents.Menu;
 import ver14.view.AuthorizedComponents.MenuItem;
 import ver14.view.IconManager.IconManager;
 import ver14.view.ProfilePnl;
+import ver14.view.View;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
- * Profile menu - represents a menu of a profile.
+ * represents the profile menu. showing the username and profile pic, and when clicked will
+ * show all the profile actions available to the current client.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -37,23 +37,23 @@ public class ProfileMenu extends Menu {
     /**
      * Instantiates a new Profile menu.
      *
-     * @param authorizedComponents the authorized components
-     * @param client               the client
+     * @param client the client
+     * @param view   the view
      */
-    public ProfileMenu(ArrayList<AuthorizedComponent> authorizedComponents, Client client) {
+    public ProfileMenu(Client client, View view) {
         super("", AuthSettings.ANY_LOGIN);
         setIcon(IconManager.defaultUserIcon);
         setFont(menuFont);
 
         profilePnl = new ProfilePnl();
         add(profilePnl);
-        authorizedComponents.add(profilePnl);
-        authorizedComponents.add(this);
+        view.addAuthorizedComponent(profilePnl);
+        view.addAuthorizedComponent(this);
         Menu userSettings = new Menu("user settings", AuthSettings.USER) {{
             setFont(menuFont);
             setChildrenFont(menuItemsFont);
         }};
-        authorizedComponents.add(userSettings);
+        view.addAuthorizedComponent(userSettings);
         add(userSettings);
 
         userSettings.add("change profile picture", () -> {

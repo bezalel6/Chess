@@ -18,7 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Icon manager - utility class for loading and storing icons.
+ * Icon manager - utility class for loading icons.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -40,51 +40,51 @@ public class IconManager {
     /**
      * The constant promotionIcon.
      */
-    public static final MyIcon promotionIcon;
+    public static final MyImage promotionIcon;
     /**
      * The constant capturingIcon.
      */
-    public static final MyIcon capturingIcon;
+    public static final MyImage capturingIcon;
     /**
      * The constant loadingIcon.
      */
-    public static final MyIcon loadingIcon;
+    public static final MyImage loadingIcon;
     /**
      * The constant loginIcon.
      */
-    public static final MyIcon loginIcon;
+    public static final MyImage loginIcon;
     /**
      * The constant userIcon.
      */
-    public static final MyIcon userIcon;
+    public static final MyImage userIcon;
     /**
      * The constant defaultUserIcon.
      */
-    public static final MyIcon defaultUserIcon;
+    public static final MyImage defaultUserIcon;
     /**
      * The constant registerIcon.
      */
-    public static final MyIcon registerIcon;
+    public static final MyImage registerIcon;
     /**
      * The constant randomColorIcon.
      */
-    public static final MyIcon randomColorIcon;
+    public static final MyImage randomColorIcon;
     /**
      * The constant greenCheck.
      */
-    public static final MyIcon greenCheck;
+    public static final MyImage greenCheck;
     /**
      * The constant redX.
      */
-    public static final MyIcon redX;
+    public static final MyImage redX;
     /**
      * The constant showPassword.
      */
-    public static final MyIcon showPassword;
+    public static final MyImage showPassword;
     /**
      * The constant hidePassword.
      */
-    public static final MyIcon hidePassword;
+    public static final MyImage hidePassword;
     /**
      * The constant SECONDARY_COMP_SIZE.
      */
@@ -113,11 +113,11 @@ public class IconManager {
     /**
      * The constant infoIcon.
      */
-    public static final MyIcon infoIcon;
+    public static final MyImage infoIcon;
     /**
      * The constant errorIcon.
      */
-    public static final MyIcon errorIcon;
+    public static final MyImage errorIcon;
     /**
      * The constant OG_SIZE.
      */
@@ -125,15 +125,15 @@ public class IconManager {
     /**
      * The constant serverError.
      */
-    public static final MyIcon serverError;
+    public static final MyImage serverError;
     /**
      * The constant gameOverIcons.
      */
-    private static final MyIcon[][] gameOverIcons;
+    private static final MyImage[][] gameOverIcons;
     /**
      * The Pieces icons.
      */
-    private final static MyIcon[][] piecesIcons;
+    private final static MyImage[][] piecesIcons;
     /**
      * The constant WON.
      */
@@ -149,8 +149,8 @@ public class IconManager {
 
     //todo vars for path
     static {
-        piecesIcons = new MyIcon[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
-        gameOverIcons = new MyIcon[PlayerColor.NUM_OF_PLAYERS][3];
+        piecesIcons = new MyImage[PlayerColor.NUM_OF_PLAYERS][PieceType.NUM_OF_PIECE_TYPES];
+        gameOverIcons = new MyImage[PlayerColor.NUM_OF_PLAYERS][3];
 
         for (PlayerColor player : PlayerColor.PLAYER_COLORS) {
 
@@ -195,20 +195,20 @@ public class IconManager {
     }
 
     /**
-     * Copy image image icon.
+     * Copy image.
      *
-     * @param og the og
-     * @return the image icon
+     * @param og the original image
+     * @return the new copy
      */
     public static ImageIcon copyImage(Icon og) {
         return copyImage((ImageIcon) og);
     }
 
     /**
-     * Copy image image icon.
+     * Copy image.
      *
-     * @param og the og
-     * @return the image icon
+     * @param og the original image
+     * @return the new copy
      */
     public static ImageIcon copyImage(ImageIcon og) {
         return new ImageIcon(og.getImage(), og.getDescription());
@@ -231,31 +231,18 @@ public class IconManager {
         return gameOverIcons[player.asInt][index];
     }
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-        new JFrame() {{
-            setSize(500, 500);
-            add(new JLabel(loadOnline("https://cdn.tech.eu/uploads/2022/02/jan-meeus-7LsuYqkvIUM-unsplash-scaled.jpg")));
-
-            setVisible(true);
-        }};
-    }
 
     /**
-     * Load online my icon.
+     * Load image from an online source.
      *
-     * @param relativePath the relative path
-     * @param _size        the size
-     * @return the my icon
+     * @param path the path to the image
+     * @param _size        the optional size of the image
+     * @return the loaded image if it loaded successfully. null otherwise
      */
-    public static MyIcon loadOnline(String relativePath, Size... _size) {
+    public static MyImage loadOnline(String path, Size... _size) {
         URL url = null;
         try {
-            url = new URL(relativePath);
+            url = new URL(path);
         } catch (MalformedURLException e) {
             return null;
         }
@@ -263,17 +250,17 @@ public class IconManager {
         if (ret == null)
             return null;
         ret = scaleImage(ret, _size);
-        return new MyIcon(ret);
+        return new MyImage(ret);
     }
 
     /**
-     * Load no scale my icon.
+     * Load an image without scaling it.
      *
-     * @param url the url
-     * @return the my icon
+     * @param url the url to the image
+     * @return the loaded image if one is loaded successfully. null otherwise.
      */
-    public static MyIcon loadNoScale(URL url) {
-        MyIcon icon = new MyIcon(url, url.toString());
+    public static MyImage loadNoScale(URL url) {
+        MyImage icon = new MyImage(url, url.toString());
 //        new JFrame() {{
 //            setSize(500, 500);
 //            setIconImage(icon.getImage());
@@ -284,10 +271,10 @@ public class IconManager {
     }
 
     /**
-     * Scale image image icon.
+     * Scale an image.
      *
-     * @param img   the img
-     * @param _size the size
+     * @param img   the image to scale
+     * @param _size the optional size. if one is not passed, the image will scale to {@value  Size#DEFAULT_SIZE }
      * @return the image icon
      */
     public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
@@ -309,12 +296,12 @@ public class IconManager {
     }
 
     /**
-     * Load no scale my icon.
+     * Load an image from a relative path.
      *
      * @param relativePath the relative path
-     * @return the my icon
+     * @return the loaded image
      */
-    public static MyIcon loadNoScale(String relativePath) {
+    public static MyImage loadNoScale(String relativePath) {
         relativePath = StrUtils.clean(relativePath);
         boolean isNotComplete = !StrUtils.isAbsoluteUrl(relativePath);
         if (isNotComplete && !RegEx.Icon.check(relativePath)) {
@@ -344,28 +331,28 @@ public class IconManager {
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }
-        } else
-
+        } else{
             path = IconManager.class.getResource(relativePath);
+        }
         assert path != null;
         return loadNoScale(path);
     }
 
     /**
-     * Load image my icon.
+     * Load an image from a relative path.
      *
      * @param relativePath the relative path
-     * @param _size        the size
-     * @return the my icon
+     * @param _size        the optional size
+     * @return the loaded image
      */
-    public static MyIcon loadImage(String relativePath, Size... _size) {
+    public static MyImage loadImage(String relativePath, Size... _size) {
         ImageIcon ret = loadNoScale(relativePath);
         ret = scaleImage(ret, _size);
-        return new MyIcon(ret);
+        return new MyImage(ret);
     }
 
     /**
-     * Gets piece icon.
+     * Gets a piece icon.
      *
      * @param piece the piece
      * @return the piece icon
@@ -473,12 +460,12 @@ public class IconManager {
      * @param _size        the size
      * @return the my icon
      */
-    public static MyIcon loadGif(String relativePath, Dimension... _size) {
+    public static MyImage loadGif(String relativePath, Dimension... _size) {
         if (!relativePath.endsWith(".gif")) {
             relativePath += ".gif";
         }
         Size size = Size.size(_size);
-        MyIcon icon = loadNoScale(relativePath);
+        MyImage icon = loadNoScale(relativePath);
         icon.setImage(icon.getImage().getScaledInstance(size.width, size.height, Image.SCALE_DEFAULT));
         return icon;
     }
@@ -507,76 +494,6 @@ public class IconManager {
             return scaleImage(defaultUserIcon, size);
         }
         return loadOnline(url, size);
-    }
-
-    /**
-     * My icon.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class MyIcon extends ImageIcon {
-        /**
-         * Instantiates a new My icon.
-         *
-         * @param filename    the filename
-         * @param description the description
-         */
-        public MyIcon(String filename, String description) {
-            super(filename, description);
-        }
-
-        /**
-         * Instantiates a new My icon.
-         *
-         * @param location    the location
-         * @param description the description
-         */
-        public MyIcon(URL location, String description) {
-            super(location, description);
-        }
-
-        /**
-         * Instantiates a new My icon.
-         *
-         * @param location the location
-         */
-        public MyIcon(URL location) {
-            super(location);
-        }
-
-        /**
-         * Instantiates a new My icon.
-         *
-         * @param image       the image
-         * @param description the description
-         */
-        public MyIcon(Image image, String description) {
-            super(image, description);
-        }
-
-        /**
-         * Instantiates a new My icon.
-         *
-         * @param image the image
-         */
-        public MyIcon(ImageIcon image) {
-            super(image.getImage(), image.getDescription());
-        }
-
-        /**
-         * Paint in middle.
-         *
-         * @param g the g
-         * @param c the c
-         */
-        public void paintInMiddle(Graphics g, Component c) {
-//            g.setColor(Color.BLACK);
-            Size size = new Size(c.getWidth() / 2, c.getHeight() / 2);
-            int x = (getIconWidth() + size.width) / 2;
-            int y = (getIconHeight() + size.height) / 2;
-            scaleImage(this, size).paintIcon(c, g, x, y);
-        }
-
     }
 
 

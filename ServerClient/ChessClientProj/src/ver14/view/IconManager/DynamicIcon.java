@@ -5,7 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Dynamic icon - represents an icon that changes on hover.
+ * Dynamic icon - represents an icon that changes depending on hover.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -49,9 +49,9 @@ public class DynamicIcon {
     }
 
     /**
-     * Set.
+     * Set a button's icon to be this icon.
      *
-     * @param btn the btn
+     * @param btn the button
      */
     public void set(AbstractButton btn) {
         btn.addMouseListener(new MouseAdapter() {

@@ -8,11 +8,12 @@ import java.awt.*;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Size extends Dimension {
+    public static final int DEFAULT_SIZE = 80;
     /**
      * Instantiates a new Size.
      */
     public Size() {
-        this(80);
+        this(DEFAULT_SIZE);
     }
 
     /**
@@ -131,7 +132,7 @@ public class Size extends Dimension {
     }
 
     /**
-     * Padding size.
+     * create a size that is this size + some padding.
      *
      * @param padding the padding
      * @return the size

@@ -9,7 +9,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 
 /**
- * My ai - represents an ai player using my minimax algorithm to choose moves.
+ * My ai - represents an ai player using the {@link Minimax} algorithm to choose moves.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

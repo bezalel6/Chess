@@ -4,6 +4,7 @@ import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Sync.SyncableItem;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -14,7 +15,8 @@ import java.util.Random;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public abstract class GameInfo implements Serializable, SyncableItem {
-
+    @Serial
+    private static final long serialVersionUID = 42069_000_000L;
     /**
      * The Game id.
      */

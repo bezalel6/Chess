@@ -3,6 +3,7 @@ package ver14.view;
 import com.formdev.flatlaf.FlatLightLaf;
 import ver14.Client;
 import ver14.SharedClasses.Callbacks.AnswerCallback;
+import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
@@ -26,14 +27,15 @@ import ver14.Sound.SoundManager;
 import ver14.view.AuthorizedComponents.AuthorizedComponent;
 import ver14.view.Board.BoardButton;
 import ver14.view.Board.BoardPanel;
+import ver14.view.Board.State;
 import ver14.view.Board.ViewLocation;
-import ver14.view.Dialog.Cards.MessageCard;
+import ver14.view.Dialog.Cards.MessageCard.MessageCard;
+import ver14.view.Dialog.Cards.MessageCard.MessageType;
 import ver14.view.Dialog.Dialog;
 import ver14.view.Dialog.*;
 import ver14.view.Dialog.Dialogs.Header;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.MessageDialog;
 import ver14.view.Dialog.Scrollable;
-import ver14.view.Dialog.Dialogs.SimpleDialogs.SimpleDialog;
+import ver14.view.Dialog.Dialogs.OtherDialogs.MessageDialog;
 import ver14.view.Graph.Graph;
 import ver14.view.IconManager.IconManager;
 import ver14.view.IconManager.Size;
@@ -95,10 +97,6 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      */
     public final Object boardLock = new Object();
     /**
-     * a list for storing all the Displayed dialogs.
-     */
-    private final ArrayList<Dialog> displayedDialogs;
-    /**
      * The Client.
      */
     private final Client client;
@@ -111,9 +109,17 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      */
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
     /**
+     * The Unsafe operations.
+     */
+    private final ArrayList<UnsafeOperation> unsafeOperations;
+    /**
+     * a list for storing all the Displayed dialogs.
+     */
+    private ArrayList<Dialog> displayedDialogs;
+    /**
      * The Side panel.
      */
-    private final SidePanel sidePanel;
+    private SidePanel sidePanel;
     /**
      * The Board panel.
      */
@@ -158,12 +164,10 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param client the client
      */
     public View(Client client) {
-        this.displayedDialogs = new ArrayList<>();
+        unsafeOperations = new ArrayList<>();
         this.client = client;
         this.boardOrientation = PlayerColor.WHITE;
-        sidePanel = new SidePanel(0, isBoardFlipped(), client);
         createGui();
-        sidePanel.moveLog.setBoardPanel(boardPnl);
         enableAllSquares(false);
     }
 
@@ -174,6 +178,16 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      */
     public void addListToRegister(SyncableList list) {
         listsToRegister.add(list);
+    }
+
+    /**
+     * Add an authorized component to the {@link View#authorizedComponents} list, so its state will change as the authorization
+     * status of the client is changed.
+     *
+     * @param authorizedComponent the authorized component
+     */
+    public void addAuthorizedComponent(AuthorizedComponent authorizedComponent) {
+        authorizedComponents.add(authorizedComponent);
     }
 
     /**
@@ -204,12 +218,15 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             }
 
         };
+        this.displayedDialogs = new ArrayList<>();
+
+        sidePanel = new SidePanel(isBoardFlipped(), this, client);
         setIcon(PlayerColor.WHITE);
         boardPnl = new BoardPanel(ROWS, COLS, this);
 
         topPnl = new JPanel();
         bottomPnl = new JPanel(new GridLayout(0, 1));
-        menuBar = new MenuBar(authorizedComponents, client, this);
+        menuBar = new MenuBar(client, this);
 
         statusLbl = new MyLbl();
         statusLbl.setFont(FontManager.statusLbl);
@@ -227,6 +244,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         });
 
         win.setVisible(true);
+
+        sidePanel.moveLog.setBoardPanel(boardPnl);
     }
 
     /**
@@ -252,7 +271,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param title       the title
      * @param messageType the message type
      */
-    public void showMessage(String message, String title, MessageCard.MessageType messageType) {
+    public void showMessage(String message, String title, MessageType messageType) {
         try {
             showDialog(new MessageDialog(client.dialogProperties(), message, title, messageType));
         } catch (IllegalStateException e) {//that font err
@@ -448,7 +467,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param otherPlayer the other player's username
      */
     public void initGame(GameTime gameTime, Board board, PlayerColor playerColor, String otherPlayer) {
-        synchronized (boardLock) {
+        syncAction(() -> {
             setBoardOrientation(playerColor);
             resetStatusLbl();
             resetAllBtns();
@@ -458,7 +477,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             currentGameStr = playerColor.getName() + " vs " + otherPlayer + " " + playerColor.getOpponent();
             setIcon(playerColor);
             updateTitle();
-        }
+            winResized();
+        });
 
     }
 
@@ -642,16 +662,26 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param clr the clr
      */
     public void enablePieces(PlayerColor clr) {
-        synchronized (boardLock) {
+        syncAction(() -> {
             for (var row : this) {
                 for (var btn : row) {
                     btn.setEnabled(btn.getPiece() != null && btn.getPiece().isOnMyTeam(clr));
                 }
             }
             sidePanel.moveLog.resetCurrentBoard();
-        }
+        });
     }
 
+    /**
+     * Sync action .
+     *
+     * @param synchronizedAction the synchronized action
+     */
+    public synchronized void syncAction(VoidCallback synchronizedAction) {
+        unsafeOperations.forEach(UnsafeOperation::block);
+        synchronizedAction.callback();
+        unsafeOperations.forEach(UnsafeOperation::allow);
+    }
 
     /**
      * sets a location In check.
@@ -662,12 +692,11 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         getBtn(kingLoc).setAsCheck();
     }
 
-
     /**
      * unselects all selected buttons.
      */
     public void resetSelectedButtons() {
-        boardPnl.forEachBtnParallel(b -> b.removeState(BoardButton.State.SELECTED));
+        boardPnl.forEachBtnParallel(b -> b.removeState(State.SELECTED));
     }
 
     /**
@@ -701,13 +730,13 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param move the move
      */
     public void updateByMove(Move move) {
-        synchronized (boardLock) {
+        syncAction(() -> {
             enableAllSquares(false);
-            sidePanel.moveLog.preAdding();
+//            sidePanel.moveLog.preAdding();
             makeMove(move);
 //            boardPnl.resizeIcons();
             sidePanel.moveLog.addMove(move);
-        }
+        });
     }
 
     /**
@@ -718,6 +747,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
     public void makeMove(Move move) {
         makeBasicMove(move.getIntermediateMove());
         makeBasicMove(move);
+        boardPnl.newPosition();
     }
 
     /**
@@ -729,13 +759,22 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         if (basicMove == null)
             return;
 
-        synchronized (boardLock) {
+        syncAction(() -> {
             BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
             BoardButton newBtn = getBtn(basicMove.getMovingTo());
             newBtn.setPiece(prevBtn);
             prevBtn.reset();
 
-        }
+        });
+    }
+
+    /**
+     * Add unsafe operation .
+     *
+     * @param unsafeOperation the unsafe operation
+     */
+    public void addUnsafeOperation(UnsafeOperation unsafeOperation) {
+        unsafeOperations.add(unsafeOperation);
     }
 
     /**
@@ -840,7 +879,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         } else if (_response instanceof GraphableDBResponse response) {
             return Graph.createGraph(response);
         } else if (_response instanceof StatusResponse response) {
-            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageCard.MessageType.INFO : MessageCard.MessageType.ERROR, new Size(400));
+            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageType.INFO : MessageType.ERROR, new Size(400));
         }
         return null;
     }
@@ -868,9 +907,65 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param move the move
      */
     public void colorMove(Move move) {
-        synchronized (boardLock) {
+        syncAction(() -> {
             getBtn(move.getMovingFrom()).movingFrom();
             getBtn(move.getMovingTo()).movingTo();
+        });
+    }
+
+    /**
+     * Unsafe operation.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
+    public interface UnsafeOperation {
+        /**
+         * Allow .
+         */
+        void allow();
+
+        /**
+         * Block .
+         */
+        void block();
+    }
+
+    /**
+     * Ignore if unsafe.
+     *
+     * @author Bezalel Avrahami (bezalel3250@gmail.com)
+     */
+    public abstract static class IgnoreIfUnsafe<P> implements UnsafeOperation {
+        private boolean isSafe = true;
+
+        /**
+         * Run.
+         *
+         * @return true if could run. false otherwise
+         */
+        public synchronized boolean run(P parm) {
+            if (isSafe) {
+                System.out.println("safe to run");
+                ifSafe(parm);
+                return true;
+            }
+            System.out.println("unsafe to run");
+            return false;
+        }
+
+        /**
+         * When safe .
+         */
+        protected abstract void ifSafe(P parm);
+
+        @Override
+        public void allow() {
+            isSafe = true;
+        }
+
+        @Override
+        public void block() {
+            isSafe = false;
         }
     }
 }

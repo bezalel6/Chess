@@ -3,6 +3,7 @@ package ver14.SharedClasses.Sync;
 import org.jetbrains.annotations.NotNull;
 import ver14.SharedClasses.Callbacks.Callback;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,7 +16,8 @@ import java.util.stream.Stream;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<String, E> {
-
+    @Serial
+    private static final long serialVersionUID = 42069_000_000L;
     /**
      * The Synced list type.
      */

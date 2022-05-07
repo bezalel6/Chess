@@ -6,7 +6,7 @@ import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.DialogFields.TextBasedFields.TextField;
 
 /**
- * a Fen field. represents a string representation of a string.
+ * a Fen field. a FEN is a string representation of a chess position.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

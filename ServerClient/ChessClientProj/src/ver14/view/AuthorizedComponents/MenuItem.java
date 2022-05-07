@@ -18,7 +18,7 @@ public class MenuItem extends JMenuItem implements AuthorizedComponent {
     int authSettings;
 
     /**
-     * Instantiates a new Menu item.
+     * Instantiates a new Menu item. with no authorization requirements
      *
      * @param s the s
      */
@@ -27,7 +27,7 @@ public class MenuItem extends JMenuItem implements AuthorizedComponent {
     }
 
     /**
-     * Instantiates a new Menu item.
+     * Instantiates a new Menu item  with {@code authSettings} as the requirements.
      *
      * @param s            the s
      * @param authSettings the auth settings

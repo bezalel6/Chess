@@ -68,12 +68,12 @@ public interface Parent {
     }
 
     /**
-     * the dialog is finished and it should close.
+     * the dialog is finished and should close.
      */
     void done();
 
     /**
-     * the Back button has been clicked and the dialog should probably go to the last card.
+     * the Back button has been clicked and the dialog should probably go to the previous card.
      */
     void back();
 

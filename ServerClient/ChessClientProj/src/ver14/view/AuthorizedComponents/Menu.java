@@ -24,7 +24,7 @@ public class Menu extends JMenu implements AuthorizedComponent {
     protected Font childrenFont;
 
     /**
-     * Instantiates a new Menu.
+     * Instantiates a new Menu with {@code authSettings} as the requirements
      *
      * @param s            the s
      * @param authSettings the auth settings

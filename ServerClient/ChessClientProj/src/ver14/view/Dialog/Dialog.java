@@ -333,7 +333,8 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     /**
-     * Verify current card.
+     * Verify the current card.
+     * @see ver14.view.Dialog.Components.Verified
      */
     private void verifyCurrentCard() {
         if (currentCard == null)
@@ -389,16 +390,16 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     /**
-     * Start.
+     * Start showing the dialog.
      */
     public void start() {
         start(null);
     }
 
     /**
-     * Start.
+     * Start showing the dialog.
      *
-     * @param onClose the on close
+     * @param onClose a callback to call after closing the dialog
      */
     public void start(Callback<Dialog> onClose) {
         this.onClose = onClose;
@@ -422,7 +423,7 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     /**
-     * Navigation card set this dialog up as a navigation card for the given cards.
+     * set the current card to as a navigation card for {@code dialogCards}.
      *
      * @param navCardSize the nav card size
      * @param dialogCards the dialog cards
@@ -445,9 +446,9 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     /**
-     * Cards setup.
+     * setup dialog with all its cards.
      *
-     * @param startingCard the starting card
+     * @param startingCard the starting card or null. if null, the first element in the array will replace it
      * @param dialogCards  the dialog cards
      */
     protected void cardsSetup(DialogCard startingCard, DialogCard... dialogCards) {

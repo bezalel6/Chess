@@ -5,6 +5,7 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Square;
 import ver14.SharedClasses.Game.Location;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.IconManager.Size;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 import java.util.stream.IntStream;
 
 /**
- * represents the Board panel. holding all the buttons.
+ * represents the Board panel. holding all the {@link BoardButton}s.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -40,7 +41,6 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * The constant coordinatesInsets.
      */
     private final static Insets coordinatesInsets = new Insets(1, 1, 1, 1);
-
     /**
      * The View.
      */
@@ -68,7 +68,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * The Board overlay.
      */
     private BoardOverlay boardOverlay;
-
+    private ViewSavedBoard actualPosition = null;
 
     /**
      * Instantiates a new Board panel.
@@ -150,6 +150,10 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         return view != null && view.isBoardFlipped();
     }
 
+    public static MyColor getClr(PlayerColor plr) {
+        return plr == PlayerColor.WHITE ? whiteSquareClr : blackSquareClr;
+    }
+
     /**
      * Sets all sizes.
      *
@@ -192,9 +196,9 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * @param call the call
      */
     public void forEachBtnParallel(BtnCallBack call) {
-        synchronized (view.boardLock) {
+        view.syncAction(() -> {
             forEachRowParallel(row -> Arrays.stream(row).parallel().forEach(call::callback));
-        }
+        });
     }
 
     /**
@@ -284,57 +288,13 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     }
 
     /**
-     * Create board board.
-     *
-     * @return the board
-     */
-    public Board createBoard() {
-        Board board = new Board();
-        for (var loc : Location.ALL_LOCS) {
-            board.setPiece(loc, getBtn(loc).getPiece());
-        }
-        return board;
-    }
-
-    /**
-     * Gets btn.
-     *
-     * @param loc the loc
-     * @return the btn
-     */
-    public BoardButton getBtn(Location loc) {
-        return getBtn(new ViewLocation(loc));
-    }
-
-    /**
-     * Gets btn.
-     *
-     * @param loc the loc
-     * @return the btn
-     */
-    public BoardButton getBtn(ViewLocation loc) {
-        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
-    }
-
-    /**
-     * Gets btn.
-     *
-     * @param r the r
-     * @param c the c
-     * @return the btn
-     */
-    public BoardButton getBtn(int r, int c) {
-        return btnMat[r][c];
-    }
-
-    /**
      * Reset orientation.
      */
     public void resetOrientation() {
         ViewSavedBoard savedBoard = new ViewSavedBoard(this);
         setCoordinates(false);
         createMat();
-        restoreBoardButtons(savedBoard);
+        loadSaved(savedBoard);
         repaint();
         SwingUtilities.invokeLater(this::resizeIcons);
 //        getButtonsPnl().repaint();
@@ -393,15 +353,22 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         return buttonsPnl;
     }
 
+    public synchronized void restoreActualPosition() {
+        assert actualPosition != null;
+        loadSaved(actualPosition);
+    }
+
     /**
      * Restore board buttons.
      *
      * @param savedBoard the saved board
      */
-    public void restoreBoardButtons(ViewSavedBoard savedBoard) {
+    public synchronized void loadSaved(ViewSavedBoard savedBoard) {
+        System.out.println("loading " + savedBoard);
         resetAllButtons(true);
         savedBoard.savedSquares.forEach(square -> square.restore(getBtn(square.getLoc())));
-        resizeIcons();
+
+//        resizeIcons();
     }
 
     /**
@@ -410,12 +377,40 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * @param resetIcons the reset icons
      */
     public void resetAllButtons(boolean resetIcons) {
+        System.out.println("reseting");
         forEachBtnParallel(btn -> {
             btn.resetBackground();
             if (resetIcons) {
                 btn.reset();
             }
         });
+    }
+
+    /**
+     * Gets btn.
+     *
+     * @param loc the loc
+     * @return the btn
+     */
+    public BoardButton getBtn(ViewLocation loc) {
+        return getBtn(loc.viewLocation.row, loc.viewLocation.col);
+    }
+
+    /**
+     * Gets btn.
+     *
+     * @param r the r
+     * @param c the c
+     * @return the btn
+     */
+    public BoardButton getBtn(int r, int c) {
+        return btnMat[r][c];
+    }
+
+    public synchronized ViewSavedBoard getActualPosition() {
+        System.out.println("this = " + this);
+        System.out.println("actual position var = " + actualPosition);
+        return actualPosition;
     }
 
     /**
@@ -427,6 +422,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 //            return;
 //        }
         SwingUtilities.invokeLater(() -> {
+            System.out.println("onResize() called");
             int size = Math.min(getWidth(), getHeight());
             setAllSizes(me, size, size);
 
@@ -470,6 +466,34 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
             view.repaint();
     }
 
+    @Override
+    public String toString() {
+        return createBoard().toString();
+    }
+
+    /**
+     * Create board board.
+     *
+     * @return the board
+     */
+    public Board createBoard() {
+        Board board = new Board();
+        for (var loc : Location.ALL_LOCS) {
+            board.setPiece(loc, getBtn(loc).getPiece());
+        }
+        return board;
+    }
+
+    /**
+     * Gets btn.
+     *
+     * @param loc the loc
+     * @return the btn
+     */
+    public BoardButton getBtn(Location loc) {
+        return getBtn(new ViewLocation(loc));
+    }
+
     /**
      * Get btn mat board button [ ] [ ].
      *
@@ -482,6 +506,11 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     @Override
     public Iterator<BoardButton[]> iterator() {
         return Arrays.stream(btnMat).iterator();
+    }
+
+    public void newPosition() {
+        System.out.println("saving new pos " + this);
+        actualPosition = new ViewSavedBoard(this);
     }
 
     /**

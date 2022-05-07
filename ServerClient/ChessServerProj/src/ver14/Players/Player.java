@@ -13,7 +13,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 
 
 /**
- * Player - represents a player.
+ * Player - represents a player capable of generating a selected move, respond to questions, and more.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -125,7 +125,7 @@ public abstract class Player {
     }
 
     /**
-     * Init game.
+     * Initialize a new game.
      *
      * @param game the game
      */
@@ -158,39 +158,37 @@ public abstract class Player {
     }
 
     /**
-     * Error.
+     * alert the player of an Error.
      *
      * @param error the error
      */
     public abstract void error(String error);
 
     /**
-     * Gets move.
+     * ask the player to choose a move.
      *
-     * @return the move
+     * @return the chosen move
      */
     public abstract Move getMove();
 
     /**
-     * Wait turn.
+     * Wait for your opponent to make his turn.
      */
     public abstract void waitTurn();
 
     /**
-     * Game over.
+     * notify player of a Game over.
      *
-     * @param gameStatus the game status
+     * @param gameStatus the game over status
      */
     public abstract void gameOver(GameStatus gameStatus);
 
-//    public abstract void cancelQuestion(Question question, String cancelMsg);
-
 
     /**
-     * Ask question.
+     * Ask player a question. like for example at the end of a game, the players are asked if they want to rematch
      *
      * @param question the question
-     * @param onAns    the on ans
+     * @param onAns    the callback for answering
      */
     public void askQuestion(Question question, AnswerCallback onAns) {
 
@@ -198,22 +196,22 @@ public abstract class Player {
     }
 
     /**
-     * Update by move.
+     * notifies player of a change in the board. so he can Update his board.
      *
      * @param move the move
      */
     public abstract void updateByMove(Move move);
 
     /**
-     * Cancel question.
+     * Cancel a previously asked question.
      *
      * @param question the question
-     * @param cause    the cause
+     * @param cause    the cancellation cause
      */
     public abstract void cancelQuestion(Question question, String cause);
 
     /**
-     * Interrupt.
+     * Interrupt a {@link #getMove()} with an error.
      *
      * @param error the error
      */
@@ -233,10 +231,10 @@ public abstract class Player {
     public abstract void waitForMatch();
 
     /**
-     * Gets game settings.
+     * ask player for his preferred game settings. games that are available for this player are passed to him.
      *
-     * @param joinableGames  the joinable games
-     * @param resumableGames the resumable games
+     * @param joinableGames  the joinable games available for this player to join
+     * @param resumableGames the resumable games available for this player to resume playing
      * @return the game settings
      */
     public abstract GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames);

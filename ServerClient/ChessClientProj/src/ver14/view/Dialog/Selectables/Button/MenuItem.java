@@ -62,8 +62,8 @@ public class MenuItem extends JMenuItem implements SelectableBtn {
 
 
     @Override
-    public void select(boolean e) {
-        if (e) {
+    public void select(boolean select) {
+        if (select) {
             select();
         } else {
             unselect();

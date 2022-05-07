@@ -3,6 +3,7 @@ package ver14.SharedClasses.Game.Moves;
 
 import ver14.SharedClasses.Game.Location;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,6 +14,8 @@ import java.util.Objects;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class BasicMove implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 42069_000_000L;
     /**
      * The Moving from.
      */

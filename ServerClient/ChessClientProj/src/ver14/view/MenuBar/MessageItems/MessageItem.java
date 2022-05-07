@@ -3,7 +3,7 @@ package ver14.view.MenuBar.MessageItems;
 import ver14.Client;
 import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.view.Dialog.Cards.MessageCard;
+import ver14.view.Dialog.Cards.MessageCard.MessageType;
 
 import javax.swing.*;
 
@@ -37,7 +37,7 @@ public abstract class MessageItem extends JMenuItem {
      * On click.
      */
     protected void onClick() {
-        client.getView().showMessage(StrUtils.dontCapFull(msg()), title(), MessageCard.MessageType.INFO);
+        client.getView().showMessage(StrUtils.dontCapFull(msg()), title(), MessageType.INFO);
 
     }
 

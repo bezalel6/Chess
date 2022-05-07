@@ -119,7 +119,7 @@ public class Move extends BasicMove implements Comparable<Move> {
      */
     public Move(Move other) {
         super(other);
-        this.createdListHashSupplier = other.createdListHashSupplier;
+        this.createdListHashSupplier = () -> other.createdListHashSupplier.get();
         this.moveAnnotation = other.moveAnnotation;
         this.disabledCastling = other.disabledCastling;
         this.movingPlayerColor = other.movingPlayerColor;

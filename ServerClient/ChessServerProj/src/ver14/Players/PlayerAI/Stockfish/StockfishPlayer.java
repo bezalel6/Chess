@@ -10,7 +10,7 @@ import ver14.SharedClasses.Misc.Question;
 
 
 /**
- * represents a Stockfish Player. stockfish is the highest rated chess ai, and i wanted to provide an option to play against it
+ * represents a Stockfish Player, that always plays the best moves.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

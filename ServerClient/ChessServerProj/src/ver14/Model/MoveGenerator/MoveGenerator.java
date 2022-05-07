@@ -169,7 +169,7 @@ public class MoveGenerator {
                 generateSlidingMoves();
                 generateKnightMoves();
                 generateKingMoves();
-            } catch (ModelMovesList.FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
+            } catch (FoundLegalMove ex) {//throws when ur looking for any legal move and one is found
                 return generatedMoves;
             }
         } finally {
@@ -194,9 +194,9 @@ public class MoveGenerator {
     /**
      * Generate pawn moves.
      *
-     * @throws ModelMovesList.FoundLegalMove when the generation settings are set to find any legal move in the position and one is found
+     * @throws FoundLegalMove when the generation settings are set to find any legal move in the position and one is found
      */
-    public void generatePawnMoves() throws ModelMovesList.FoundLegalMove {
+    public void generatePawnMoves() throws FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.PAWN);
         int mult = movingPlayerColor.diff;
         Locs setLocs = bitboard.getSetLocs();
@@ -248,9 +248,9 @@ public class MoveGenerator {
     /**
      * Generate sliding moves.
      *
-     * @throws ModelMovesList.FoundLegalMove the found legal move
+     * @throws FoundLegalMove the found legal move
      */
-    public void generateSlidingMoves() throws ModelMovesList.FoundLegalMove {
+    public void generateSlidingMoves() throws FoundLegalMove {
         for (Location rookLoc : myPieces.getBB(PieceType.ROOK).getSetLocs()) {
             generateSlidingPieceMoves(rookLoc, PieceType.ROOK);
         }
@@ -265,9 +265,9 @@ public class MoveGenerator {
     /**
      * Generate knight moves.
      *
-     * @throws ModelMovesList.FoundLegalMove the found legal move
+     * @throws FoundLegalMove the found legal move
      */
-    public void generateKnightMoves() throws ModelMovesList.FoundLegalMove {
+    public void generateKnightMoves() throws FoundLegalMove {
         Bitboard bitboard = myPieces.getBB(PieceType.KNIGHT);
         for (Location knightLoc : bitboard.getSetLocs()) {
             for (Location loc : knightMoves[knightLoc.asInt]) {
@@ -284,9 +284,9 @@ public class MoveGenerator {
     /**
      * Generate king moves.
      *
-     * @throws ModelMovesList.FoundLegalMove the found legal move
+     * @throws FoundLegalMove the found legal move
      */
-    public void generateKingMoves() throws ModelMovesList.FoundLegalMove {
+    public void generateKingMoves() throws FoundLegalMove {
         Location kingLoc = myPieces.getBB(PieceType.KING).getLastSetLoc();
         if (kingLoc == null)
             return;
@@ -353,9 +353,9 @@ public class MoveGenerator {
      *
      * @param pieceLocation   the piece location
      * @param movingPieceType the moving piece type
-     * @throws ModelMovesList.FoundLegalMove the found legal move
+     * @throws FoundLegalMove the found legal move
      */
-    public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) throws ModelMovesList.FoundLegalMove {
+    public void generateSlidingPieceMoves(Location pieceLocation, PieceType movingPieceType) throws FoundLegalMove {
         for (Direction direction : movingPieceType.getAttackingDirections()) {
             for (int n = 1; n <= numSquaresToEdge[pieceLocation.asInt][direction.asInt]; n++) {
                 Location targetSquare = Location.getLoc(pieceLocation, n, direction);

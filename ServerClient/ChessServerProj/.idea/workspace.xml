@@ -13,38 +13,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x">
-      <change afterPath="$PROJECT_DIR$/src/ver14/Game/GameOverError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Game/PlayerDisconnectedError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/QuietInterrupt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Login.puml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/src/ver14/Login.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Shared/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/Shared/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/View/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/View/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ServerAssets/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessServerProj_jar/ServerAssets/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/DB/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Game/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Game/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/AttackedSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Bitboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Bitboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Eval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Eval/Tables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Eval/Tables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Locs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Locs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/Minimax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/MinimaxParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/MinimaxParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Minimax/MinimaxView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Minimax/MinimaxView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/ModelMovesList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/GenerationSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/GenerationSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Model/MoveGenerator/MoveGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Players/PlayerNet/PlayerNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/ServerMessagesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/AiParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Game/GameSetup/AiParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Sync/SyncedItems.java" afterDir="false" />
-    </list>
+    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,11 +146,11 @@
       <recent name="ver5.server.DB.DB.Table" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="ver14.Model" />
       <recent name="ver14.Model.Minimax" />
       <recent name="ver14.Game" />
       <recent name="ver14.SharedClasses.DBActions.Statements" />
       <recent name="ver14.SharedClasses.Threads" />
-      <recent name="ver14.SharedClasses.Threads.ErrorHandling" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ver10.SharedClasses.DBActions.Statements" />
@@ -195,14 +164,14 @@
       <recent name="ver3.model_classes" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.ide-scripting.js">
-    <configuration name="MinimaxTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ver14.Tests.MinimaxTests" />
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ver14.DB.DB" />
       <module name="ChessServerProj" />
       <option name="VM_PARAMETERS" value="-ea" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ver14.Tests.*" />
+          <option name="PATTERN" value="ver14.DB.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -276,7 +245,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.MinimaxTests" />
+      <item itemvalue="Application.DB" />
       <item itemvalue="Node.js.ide-scripting.js" />
       <item itemvalue="TestNG.MoveGenerationTest.perft" />
       <item itemvalue="TestNG.Tests" />
@@ -286,11 +255,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DB" />
         <item itemvalue="Node.js.ide-scripting.js" />
         <item itemvalue="TestNG.Tests.genExample" />
         <item itemvalue="TestNG.MinimaxTests.t" />
         <item itemvalue="TestNG.EvalTests.perspective" />
-        <item itemvalue="Application.MinimaxTests" />
       </list>
     </recent_temporary>
   </component>
@@ -333,7 +302,8 @@
       <workItem from="1651736902937" duration="388000" />
       <workItem from="1651737306704" duration="931000" />
       <workItem from="1651738911535" duration="19073000" />
-      <workItem from="1651775688760" duration="7319000" />
+      <workItem from="1651775688760" duration="16321000" />
+      <workItem from="1651867098278" duration="3005000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>

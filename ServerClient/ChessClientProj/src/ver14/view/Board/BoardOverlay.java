@@ -16,89 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * represents an Arrow.
- *
- * @author Bezalel Avrahami (bezalel3250@gmail.com)
- */
-class Arrow {
-    /**
-     * The Start.
-     */
-    private final Point start, /**
-     * The End.
-     */
-    end;
-    /**
-     * The Barb.
-     */
-    int barb = 50;                   // barb length WAS 50
-    /**
-     * The Phi.
-     */
-    double phi = Math.PI / 6;             // 30 degrees barb angle WAS 6
-    /**
-     * The Clr.
-     */
-    private Color clr;
-
-
-    /**
-     * Instantiates a new Arrow.
-     *
-     * @param start the start
-     * @param end   the end
-     * @param clr   the clr
-     */
-    public Arrow(Point start, Point end, Color clr) {
-        this.start = start;
-        this.end = end;
-        this.clr = clr;
-    }
-
-    /**
-     * Sets clr.
-     *
-     * @param clr the clr
-     */
-    public void setClr(Color clr) {
-        this.clr = clr;
-    }
-
-    /**
-     * Draws this arrow.
-     *
-     * @param g2 the g 2
-     */
-    public void draw(Graphics2D g2) {
-        if (start == null || end == null || start.equals(end)) return;
-        g2.setStroke(new BasicStroke(10));
-        g2.setColor(clr);
-        g2.draw(new Line2D.Double(start.x, start.y, end.x, end.y));
-//        g2.draw(new Line2D.Double(start.x, start.y, end.x - 1, end.y - 1));
-        double theta = Math.atan2(end.y - start.y, end.x - start.x);
-        int x0 = end.x, y0 = end.y;
-        double x = x0 - barb * Math.cos(theta + phi);
-        double y = y0 - barb * Math.sin(theta + phi);
-
-        g2.draw(new Line2D.Double(x0, y0, x, y));
-        x = x0 - barb * Math.cos(theta - phi);
-        y = y0 - barb * Math.sin(theta - phi);
-        g2.draw(new Line2D.Double(x0, y0, x, y));
-    }
-
-
-    /**
-     * Equals boolean.
-     *
-     * @param other the other
-     * @return the boolean
-     */
-    public boolean equals(Arrow other) {
-        return start.equals(other.start) && end.equals(other.end);
-    }
-}
-
-/**
  * represents the Board's overlay. responsible for drawing arrows, detecting button clicks, and detecting held down buttons for selecting colors.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
@@ -361,7 +278,7 @@ public class BoardOverlay extends LayerUI<JPanel> {
     }
 
     /**
-     * Gets a location of a square on the board.
+     * converts a {@link Point} (x,y) to a {@link Location}
      *
      * @param point the point
      * @return the loc
@@ -448,10 +365,10 @@ public class BoardOverlay extends LayerUI<JPanel> {
                     if (btn.isEnabled()) {
                         currentBtn = btn;
 
-                        if (!currentBtn.is(BoardButton.State.CLICKED_ONCE)) {
+                        if (!currentBtn.is(State.CLICKED_ONCE)) {
                             currentBtn.clickMe();
                         }
-                        if (!currentBtn.is(BoardButton.State.MOVING_TO)) {
+                        if (!currentBtn.is(State.MOVING_TO)) {
 //                            currentBtn.addState(BoardButton.State.DRAGGING);
                         } else stopCurrent();
                     } else {
@@ -471,22 +388,22 @@ public class BoardOverlay extends LayerUI<JPanel> {
                     case MouseEvent.BUTTON1 -> {
 
                         if (currentBtn != null) {
-                            if (currentBtn.is(BoardButton.State.CLICKED_ONCE)) {
+                            if (currentBtn.is(State.CLICKED_ONCE)) {
                                 if (currentBtn == currentlyAbove || !currentlyAbove.canMoveTo()) {
                                     currentBtn.clickMe();
                                 } else {
                                     currentlyAbove.clickMe();
                                 }
-                                currentBtn.removeState(BoardButton.State.CLICKED_ONCE);
-                            } else if (currentBtn.is(BoardButton.State.DRAGGING)) {
+                                currentBtn.removeState(State.CLICKED_ONCE);
+                            } else if (currentBtn.is(State.DRAGGING)) {
                                 if (currentlyAbove != currentBtn && !currentlyAbove.canMoveTo()) {
                                     currentBtn.clickMe();
                                 } else if (currentlyAbove.canMoveTo()) {
                                     currentlyAbove.clickMe();
                                 }
-                                currentBtn.removeState(BoardButton.State.DRAGGING);
+                                currentBtn.removeState(State.DRAGGING);
                                 if (currentBtn == currentlyAbove) {
-                                    currentBtn.addState(BoardButton.State.CLICKED_ONCE);
+                                    currentBtn.addState(State.CLICKED_ONCE);
                                 }
                             }
                         }
@@ -510,8 +427,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
      */
     private void stopCurrent() {
         if (currentBtn != null) {
-            boolean clickAfter = currentBtn.is(BoardButton.State.DRAGGING | BoardButton.State.HOVERED);
-            currentBtn.removeState(BoardButton.State.CLICKED_ONCE | BoardButton.State.DRAGGING | BoardButton.State.HOVERED);
+            boolean clickAfter = currentBtn.is(State.DRAGGING | State.HOVERED);
+            currentBtn.removeState(State.CLICKED_ONCE | State.DRAGGING | State.HOVERED);
             if (clickAfter)
                 currentBtn.clickMe();
             currentBtn = null;
