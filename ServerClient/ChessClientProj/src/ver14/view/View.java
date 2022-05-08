@@ -95,7 +95,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
     /**
      * The Board lock. used for synchronization of certain actions
      */
-    public final Object boardLock = new Object();
+    private final Object boardLock = new Object();
     /**
      * The Client.
      */
@@ -108,10 +108,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * The Lists to register. as synchronized lists with the server
      */
     private final ArrayList<SyncableList> listsToRegister = new ArrayList<>();
-    /**
-     * The Unsafe operations.
-     */
-    private final ArrayList<UnsafeOperation> unsafeOperations;
+
     /**
      * a list for storing all the Displayed dialogs.
      */
@@ -164,7 +161,6 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      * @param client the client
      */
     public View(Client client) {
-        unsafeOperations = new ArrayList<>();
         this.client = client;
         this.boardOrientation = PlayerColor.WHITE;
         createGui();
@@ -677,10 +673,11 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      *
      * @param synchronizedAction the synchronized action
      */
-    public synchronized void syncAction(VoidCallback synchronizedAction) {
-        unsafeOperations.forEach(UnsafeOperation::block);
-        synchronizedAction.callback();
-        unsafeOperations.forEach(UnsafeOperation::allow);
+    public void syncAction(VoidCallback synchronizedAction) {
+        synchronized (boardLock) {
+            synchronizedAction.callback();
+
+        }
     }
 
     /**
@@ -766,15 +763,6 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             prevBtn.reset();
 
         });
-    }
-
-    /**
-     * Add unsafe operation .
-     *
-     * @param unsafeOperation the unsafe operation
-     */
-    public void addUnsafeOperation(UnsafeOperation unsafeOperation) {
-        unsafeOperations.add(unsafeOperation);
     }
 
     /**
@@ -913,59 +901,5 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         });
     }
 
-    /**
-     * Unsafe operation.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public interface UnsafeOperation {
-        /**
-         * Allow .
-         */
-        void allow();
 
-        /**
-         * Block .
-         */
-        void block();
-    }
-
-    /**
-     * Ignore if unsafe.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public abstract static class IgnoreIfUnsafe<P> implements UnsafeOperation {
-        private boolean isSafe = true;
-
-        /**
-         * Run.
-         *
-         * @return true if could run. false otherwise
-         */
-        public synchronized boolean run(P parm) {
-            if (isSafe) {
-                System.out.println("safe to run");
-                ifSafe(parm);
-                return true;
-            }
-            System.out.println("unsafe to run");
-            return false;
-        }
-
-        /**
-         * When safe .
-         */
-        protected abstract void ifSafe(P parm);
-
-        @Override
-        public void allow() {
-            isSafe = true;
-        }
-
-        @Override
-        public void block() {
-            isSafe = false;
-        }
-    }
 }

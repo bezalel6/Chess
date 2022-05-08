@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Statements;
 
 import ver14.SharedClasses.DBActions.Condition;
-import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -36,7 +36,7 @@ public class Update extends SQLStatement {
      * @param newValues the new values
      */
     public Update(Table updating, Condition condition, NewValue... newValues) {
-        super(DBRequest.Type.Update);
+        super(Type.Update);
         assert newValues.length > 0;
         this.updating = updating;
         this.condition = condition;

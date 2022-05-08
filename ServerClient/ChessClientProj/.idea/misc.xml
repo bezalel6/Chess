@@ -8,7 +8,7 @@
     <option name="OPTION_INDEX" value="false" />
     <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
     <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="false" />
-    <option name="OTHER_OPTIONS" value="-encoding ISO-8859-1 -Xdoclint:none --ignore-source-errors " />
+    <option name="OTHER_OPTIONS" value="-encoding ISO-8859-1 -Xdoclint:none --ignore-source-errors -classpath &quot;E:\SharedCo\Chess\ServerClient\ChessServerProj\src\ver14\SharedClasses&quot;" />
     <option name="OPTION_INCLUDE_LIBS" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">

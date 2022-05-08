@@ -13,7 +13,7 @@ public interface Callback<T> {
     /**
      * Callback.
      *
-     * @param obj the obj
+     * @param obj the parameter of type {@link T}
      */
     void callback(T obj);
 }

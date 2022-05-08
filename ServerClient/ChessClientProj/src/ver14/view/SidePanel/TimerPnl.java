@@ -3,7 +3,6 @@ package ver14.view.SidePanel;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
-import ver14.view.Board.BoardPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +44,7 @@ class TimerPnl extends JPanel {
      * Instantiates a new Timer pnl.
      *
      * @param sidePanel the side panel
-     * @param color the {@link PlayerColor} assigned to this timer panel
+     * @param color     the {@link PlayerColor} assigned to this timer panel
      */
     public TimerPnl(SidePanel sidePanel, PlayerColor color) {
         this.nameLbl = new MyLbl(color.getName());
@@ -69,7 +68,7 @@ class TimerPnl extends JPanel {
     /**
      * Sets timer time.
      *
-     * @param ms the ms
+     * @param ms the time to set in milliseconds
      */
     public void setTimer(long ms) {
         timerLbl.setText(StrUtils.createTimeStr(ms));

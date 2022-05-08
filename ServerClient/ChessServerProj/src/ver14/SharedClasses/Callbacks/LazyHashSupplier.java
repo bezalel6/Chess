@@ -9,5 +9,5 @@ import java.util.function.Supplier;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public interface LazyHashSupplier<T> extends Supplier<T>, Serializable {
-    
+    long serialVersionUID = 1000L;
 }

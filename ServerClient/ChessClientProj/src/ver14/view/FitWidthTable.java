@@ -35,7 +35,7 @@ public class FitWidthTable extends JTable {
     }
 
     /**
-     * <a href="https://stackoverflow.com/questions/17627431/auto-resizing-the-jtable-column-widths#:~:text=public%20void%20resizeColumnWidth,column).setPreferredWidth(width)%3B%0A%20%20%20%20%7D%0A%7D">slightly modified version of</a>
+     * calculates the optimal size for the contents of this table
      */
     public void fit() {
         setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -81,7 +81,7 @@ public class FitWidthTable extends JTable {
     }
 
     /**
-     * Gets computed size.
+     * Gets the computed size of the table.
      *
      * @return the computed size
      */

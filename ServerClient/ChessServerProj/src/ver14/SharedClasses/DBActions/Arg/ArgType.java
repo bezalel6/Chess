@@ -2,7 +2,7 @@ package ver14.SharedClasses.DBActions.Arg;
 
 
 /**
- * Arg type - argument type.
+ * argument type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

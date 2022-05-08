@@ -220,7 +220,7 @@ public class Client implements EnvManager {
         serverIP = InetAddress.getLocalHost().getHostAddress(); // IP of this computer
         DialogProperties dialogProperties = dialogProperties("Server Address");
         String desc = "Enter SERVER Address";
-        Described<String> defaultValue = Described.d(serverIP + " : " + serverPort, "Local Host");
+        Described<String> defaultValue = new Described<>(serverIP + " : " + serverPort, "Local Host");
         Config<String> config = new Config<>(desc, defaultValue);
         config.addSuggestion(Described.d(teacherAddress, "teacher address"));
         dialogProperties.setArgConfig(config);

@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Statements;
 
 import org.intellij.lang.annotations.Language;
-import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 
 
 /**
@@ -22,7 +22,7 @@ public class CustomStatement extends SQLStatement {
      * @param type      the type
      * @param statement the statement
      */
-    public CustomStatement(DBRequest.Type type, @Language("SQL") String statement) {
+    public CustomStatement(Type type, @Language("SQL") String statement) {
         super(type);
         this.statement = statement;
     }

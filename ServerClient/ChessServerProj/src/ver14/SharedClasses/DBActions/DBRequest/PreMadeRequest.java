@@ -11,9 +11,14 @@ import java.util.function.Supplier;
 
 
 /**
- * Pre made request - represents  a premade db request .
+ * represents a db request with a {@link Supplier<RequestBuilder>} able to generate unique request builders.
+ * a remade request also has an {@link AuthSettings} for limiting access to the requests.
+ * some {@link PreMadeRequest}s might want to provide some variations of an existing {@link PreMadeRequest},
+ * and may implement the {@link VariationCreator} interface.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ * @see Variation
+ * @see VariationCreator
  */
 public class PreMadeRequest {
 
@@ -91,7 +96,7 @@ public class PreMadeRequest {
     }
 
     /**
-     * Create builder request builder.
+     * Create a
      *
      * @return the request builder
      */
@@ -99,51 +104,4 @@ public class PreMadeRequest {
         return builderBuilder.get();
     }
 
-    /**
-     * Variation creator - represents a creator of a variation.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public interface VariationCreator {
-        /**
-         * Create variation.
-         *
-         * @param actualBuilder the actual builder
-         * @return the variation
-         */
-        Variation create(RequestBuilder actualBuilder);
-    }
-
-    /**
-     * Variation - represents a variation of a premade request.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class Variation {
-        /**
-         * The Variation name.
-         */
-        public final String variationName;
-        /**
-         * The Building args.
-         */
-        public final Object[] buildingArgs;
-        /**
-         * The Variation args.
-         */
-        public final Arg[] variationArgs;
-
-        /**
-         * Instantiates a new Variation.
-         *
-         * @param variationName the variation name
-         * @param buildingArgs  the building args
-         * @param variationArgs the variation args
-         */
-        Variation(String variationName, Object[] buildingArgs, Arg[] variationArgs) {
-            this.variationName = variationName;
-            this.buildingArgs = buildingArgs;
-            this.variationArgs = variationArgs;
-        }
-    }
 }

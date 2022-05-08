@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Statements;
 
 import ver14.SharedClasses.DBActions.Condition;
-import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 import ver14.SharedClasses.DBActions.Table.Table;
 
 /**
@@ -27,7 +27,7 @@ public class Delete extends SQLStatement {
      * @param condition    the condition
      */
     public Delete(Table deletingFrom, Condition condition) {
-        super(DBRequest.Type.Update);
+        super(Type.Update);
         this.condition = condition;
         this.deletingFrom = deletingFrom;
     }

@@ -5,9 +5,12 @@ import java.util.ArrayList;
 
 
 /**
- * Config - an argument's configuration.
+ * an {@link Arg}'s configuration consisting of:<br/>
+ * a description: describing the argument's requirements.<br/>
+ * a default {@link Described<V>} value (optional)<br/>
+ * a list of {@link Described<V>} suggestions (optional)<br/>
  *
- * @param <V> the type
+ * @param <V> the type of the argument
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Config<V> implements Serializable {

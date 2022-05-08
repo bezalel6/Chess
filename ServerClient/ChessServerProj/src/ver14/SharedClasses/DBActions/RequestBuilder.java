@@ -4,7 +4,8 @@ import ver14.SharedClasses.DBActions.Arg.Arg;
 import ver14.SharedClasses.DBActions.Arg.ArgType;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
-import ver14.SharedClasses.DBActions.DBRequest.PreMadeRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Variation;
+import ver14.SharedClasses.DBActions.DBRequest.VariationCreator;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
@@ -30,7 +31,7 @@ import java.util.function.Supplier;
 
 
 /**
- * Request builder - creates builders capable of generating complete sql statements. after building with the required arguments .
+ * Request builder - creates builders capable of generating complete sql statements. after building with they're required arguments .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -78,7 +79,7 @@ public class RequestBuilder implements Serializable {
      * @param request   the request
      * @param variation the variation
      */
-    public RequestBuilder(DBRequest request, PreMadeRequest.Variation variation) {
+    public RequestBuilder(DBRequest request, Variation variation) {
         this(new CustomStatement(request.type, request.getRequest()), variation.variationName, variation.variationArgs);
         RequestBuilder builder = request.getBuilder();
         postDescription = builder.postDescription;
@@ -133,9 +134,9 @@ public class RequestBuilder implements Serializable {
      * @param variationCreator the variation creator
      * @return the request builder
      */
-    public static RequestBuilder createVariation(Supplier<RequestBuilder> og, PreMadeRequest.VariationCreator variationCreator) {
+    public static RequestBuilder createVariation(Supplier<RequestBuilder> og, VariationCreator variationCreator) {
         RequestBuilder builder = og.get();
-        PreMadeRequest.Variation variation = variationCreator.create(builder);
+        Variation variation = variationCreator.create(builder);
         DBRequest req = builder.build(variation.buildingArgs);
         RequestBuilder ret = new RequestBuilder(req, variation);
         RequestBuilder sub = builder.subBuilder;

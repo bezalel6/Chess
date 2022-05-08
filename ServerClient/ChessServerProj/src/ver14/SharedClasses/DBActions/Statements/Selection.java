@@ -2,7 +2,7 @@ package ver14.SharedClasses.DBActions.Statements;
 
 import org.intellij.lang.annotations.MagicConstant;
 import ver14.SharedClasses.DBActions.Condition;
-import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -55,7 +55,7 @@ public class Selection extends SQLStatement {
      * @param select     the select
      */
     public Selection(Object selectFrom, Condition condition, Object[] select) {
-        super(DBRequest.Type.Query);
+        super(Type.Query);
         this.selectFrom = selectFrom.toString();
         this.select = Arrays.stream(select)
                 .map(s -> s instanceof Col col ? col.as() : s.toString())

@@ -9,7 +9,10 @@ import java.io.Serializable;
 
 
 /**
- * Db request - a database request.
+ * represents a database request. a db request can have a {@code subRequest} for
+ * requests that need to use the db separately, but are still contained under one request.
+ * like a summary line at the end of a games request. the summary is calculated on a separate
+ * db call after the main stat has finished, but both should show up as one to the client.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -107,22 +110,6 @@ public class DBRequest implements Serializable {
      */
     public String getRequest() {
         return request;
-    }
-
-    /**
-     * Type - db request type.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum Type {
-        /**
-         * Query type.
-         */
-        Query,
-        /**
-         * Update type.
-         */
-        Update
     }
 
 }

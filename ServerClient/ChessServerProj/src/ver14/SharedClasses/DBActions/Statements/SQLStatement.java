@@ -1,7 +1,7 @@
 package ver14.SharedClasses.DBActions.Statements;
 
 import org.intellij.lang.annotations.Language;
-import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 
 import java.io.Serializable;
 
@@ -16,7 +16,7 @@ public abstract class SQLStatement implements Serializable {
     /**
      * The request Type.
      */
-    public final DBRequest.Type type;
+    public final Type type;
     /**
      * The Statement.
      */
@@ -27,7 +27,7 @@ public abstract class SQLStatement implements Serializable {
      *
      * @param type the type
      */
-    public SQLStatement(DBRequest.Type type) {
+    public SQLStatement(Type type) {
         this.type = type;
     }
 

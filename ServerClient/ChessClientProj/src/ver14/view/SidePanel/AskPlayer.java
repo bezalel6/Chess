@@ -2,8 +2,6 @@ package ver14.view.SidePanel;
 
 import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Misc.Question;
-import ver14.SharedClasses.UI.Buttons.MyJButton;
-import ver14.view.Dialog.Dialogs.Header;
 import ver14.view.Dialog.Scrollable;
 import ver14.view.Dialog.WinPnl;
 import ver14.view.IconManager.Size;
@@ -170,7 +168,7 @@ public class AskPlayer extends Scrollable {
      * @param callback the callback to call once the player clicked an answer
      */
     public void ask(Question question, AnswerCallback callback) {
-        QuestionPnl pnl = new QuestionPnl(question, callback);
+        QuestionPnl pnl = new QuestionPnl(this, question, callback);
         shownQuestions.add(pnl);
         content.add(pnl);
         justAdded = true;
@@ -226,71 +224,4 @@ public class AskPlayer extends Scrollable {
         shownQuestions.stream().filter(p -> p.question.equals(question)).findAny().ifPresent(this::removeQuestion);
     }
 
-    /**
-     * Question pnl - represents a single question panel.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public class QuestionPnl extends WinPnl {
-        /**
-         * The Question.
-         */
-        private final Question question;
-
-        /**
-         * Instantiates a new Question pnl.
-         *
-         * @param question the question
-         * @param callback the callback
-         */
-        public QuestionPnl(Question question, AnswerCallback callback) {
-            super(1, new Header(question.questionStr));
-            this.question = question;
-            for (Question.Answer answer : question.getPossibleAnswers()) {
-                add(createBtn(answer, callback));
-            }
-        }
-
-        /**
-         * Create btn my j button.
-         *
-         * @param answer the answer
-         * @param onAns  the on ans
-         * @return the my j button
-         */
-        private MyJButton createBtn(Question.Answer answer, AnswerCallback onAns) {
-            return new MyJButton(answer.answerStr(), SidePanel.font, () -> {
-                removeQuestion(this);
-                onAns.callback(answer);
-//                    showPnl(false);
-            });
-        }
-
-        @Override
-        public Dimension getPreferredSize() {
-            return Size.add(new Size(AskPlayer.this.getPreferredSize().width, super.getPreferredSize().height), -10);
-        }
-
-        /**
-         * Sets replacement for this question's message.
-         *
-         * @param headerMsg the header msg
-         */
-        public void setReplacement(String headerMsg) {
-            header.setText(headerMsg);
-            removeContent();
-            add(createBtn(Question.Answer.OK));
-        }
-
-        /**
-         * Create button.
-         *
-         * @param answer the answer
-         * @return the button
-         */
-        private MyJButton createBtn(Question.Answer answer) {
-            return createBtn(answer, ans -> {
-            });
-        }
-    }
 }
