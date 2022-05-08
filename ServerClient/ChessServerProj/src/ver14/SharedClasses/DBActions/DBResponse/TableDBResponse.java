@@ -5,7 +5,7 @@ import ver14.SharedClasses.DBActions.Table.Col;
 
 
 /**
- * Table db response - represents a db response holding info in a table.
+ * represents a db response with the requested data structured in a table.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

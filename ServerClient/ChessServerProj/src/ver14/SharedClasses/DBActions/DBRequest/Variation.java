@@ -25,8 +25,8 @@ public class Variation {
      * Instantiates a new Variation.
      *
      * @param variationName the variation name
-     * @param buildingArgs  the building args
-     * @param variationArgs the variation args
+     * @param buildingArgs  the arguments that will be used to build the original request
+     * @param variationArgs the arguments required by the variation
      */
     Variation(String variationName, Object[] buildingArgs, Arg[] variationArgs) {
         this.variationName = variationName;

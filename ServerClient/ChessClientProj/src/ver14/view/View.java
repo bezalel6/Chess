@@ -6,6 +6,7 @@ import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Status;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
@@ -867,7 +868,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         } else if (_response instanceof GraphableDBResponse response) {
             return Graph.createGraph(response);
         } else if (_response instanceof StatusResponse response) {
-            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == DBResponse.Status.SUCCESS ? MessageType.INFO : MessageType.ERROR, new Size(400));
+            return MessageCard.createMsgPnl(response.getDetails(), response.getStatus() == Status.SUCCESS ? MessageType.INFO : MessageType.ERROR, new Size(400));
         }
         return null;
     }

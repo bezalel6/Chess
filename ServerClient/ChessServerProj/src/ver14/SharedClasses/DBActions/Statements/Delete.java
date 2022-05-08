@@ -5,7 +5,7 @@ import ver14.SharedClasses.DBActions.DBRequest.Type;
 import ver14.SharedClasses.DBActions.Table.Table;
 
 /**
- * Delete - deletion statement.
+ * represents a deletion statement.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -21,9 +21,11 @@ public class Delete extends SQLStatement {
     private final Condition condition;
 
     /**
-     * Instantiates a new Delete.
+     * Instantiates a new Deletion statement.
+     * <p>
+     * any record in the {@code deletingFrom} that matches the {@code condition} will be deleted.
      *
-     * @param deletingFrom the deleting from
+     * @param deletingFrom the table this statement will delete from
      * @param condition    the condition
      */
     public Delete(Table deletingFrom, Condition condition) {

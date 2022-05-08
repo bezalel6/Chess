@@ -10,13 +10,17 @@ import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElement;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphElementType;
 import ver14.SharedClasses.DBActions.DBResponse.Graphable.GraphableDBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Status;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
-import ver14.SharedClasses.DBActions.Statements.*;
-import ver14.SharedClasses.DBActions.Table.Col;
+import ver14.SharedClasses.DBActions.Statements.CustomStatement;
+import ver14.SharedClasses.DBActions.Statements.Delete;
+import ver14.SharedClasses.DBActions.Statements.SQLStatement;
+import ver14.SharedClasses.DBActions.Statements.Selection;
+import ver14.SharedClasses.DBActions.Statements.Update.NewValue;
+import ver14.SharedClasses.DBActions.Statements.Update.Update;
 import ver14.SharedClasses.DBActions.Table.Math;
-import ver14.SharedClasses.DBActions.Table.SwitchCase;
-import ver14.SharedClasses.DBActions.Table.Table;
+import ver14.SharedClasses.DBActions.Table.*;
 import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -158,7 +162,7 @@ public class RequestBuilder implements Serializable {
         Arg pw = new Arg(ArgType.Password);
         pw.setUserInput(false);
 
-        Update update = new Update(Table.Users, Condition.equals(Col.Username, username.repInStr), new Update.NewValue(Col.Password, pw.repInStr));
+        Update update = new Update(Table.Users, Condition.equals(Col.Username, username.repInStr), new NewValue(Col.Password, pw.repInStr));
 
         return new RequestBuilder(update, "change password", "", username, pw);
     }
@@ -172,7 +176,7 @@ public class RequestBuilder implements Serializable {
         Arg username = new Arg(ArgType.Username);
         Arg url = new Arg(ArgType.PictureUrl, true, new Config<>("Enter link to the new profile picture"));
 
-        Update update = new Update(Table.Users, Condition.equals(Col.Username, username), new Update.NewValue(Col.ProfilePic, url));
+        Update update = new Update(Table.Users, Condition.equals(Col.Username, username), new NewValue(Col.ProfilePic, url));
 
         return new RequestBuilder(update, "change profile picture", "", username, url) {{
             addShouldSync(SyncedListType.CONNECTED_USERS);
@@ -201,6 +205,7 @@ public class RequestBuilder implements Serializable {
     }
 
     /**
+     * if the {@code un} is in one of
      * P 1 or p 2 condition.
      *
      * @param un        the un
@@ -209,7 +214,7 @@ public class RequestBuilder implements Serializable {
      */
     private static Condition p1_OR_p2(Object un, Table playersOf) {
         Condition condition = Condition.equals(Col.Player1.of(playersOf), un);
-        condition.add(Condition.equals(Col.Player2.of(playersOf), un), Condition.Relation.OR, true);
+        condition.add(Condition.equals(Col.Player2.of(playersOf), un), Relation.OR, true);
         return condition;
     }
 
@@ -243,7 +248,7 @@ public class RequestBuilder implements Serializable {
                         date
                 }
         );
-        games.orderBy(date, Selection.Order.DESC);
+        games.orderBy(date, "DESC");
 
         Selection selection = gamesStats(username.repInStr, condition);
         RequestBuilder sub = new RequestBuilder(selection, "Games Stats", username, start, end);
@@ -272,6 +277,7 @@ public class RequestBuilder implements Serializable {
 
     /**
      * <a href="https://sciencing.com/calculate-win-loss-average-8167765.html">Win loss tie ratio formula</a>
+     * game statistics for a player.
      *
      * @param username  the username
      * @param condition the condition
@@ -292,7 +298,7 @@ public class RequestBuilder implements Serializable {
 
         Col gamesPlayed = Col.sum("total games played", countWins, countLosses, countTies);
 
-        Col winLossTieRatio = new Col.CustomCol(countTies.label(), "Win-Loss-Tie Ratio");
+        Col winLossTieRatio = new CustomCol(countTies.label(), "Win-Loss-Tie Ratio");
         winLossTieRatio.math(Math.Mult, 0.5);
         winLossTieRatio.math(Math.Plus, countWins);
         winLossTieRatio.math(Math.Div, gamesPlayed.colName());
@@ -381,11 +387,11 @@ public class RequestBuilder implements Serializable {
         };
 
         Selection selection = new Selection(Table.Users, cols);
-        selection.join(Selection.Join.LEFT, Table.Games, p1_OR_p2(username), username);
+        selection.join("LEFT JOIN", Table.Games, p1_OR_p2(username), username);
 
         Col gamesPlayed = Col.sum("num of games played", countWins, countLosses, countTies);
 
-        Col winLossTieRatio = new Col.CustomCol(countTies.label(), "Win-Loss-Tie Ratio");
+        Col winLossTieRatio = new CustomCol(countTies.label(), "Win-Loss-Tie Ratio");
         winLossTieRatio.math(Math.Mult, 0.5);
         winLossTieRatio.math(Math.Plus, countWins);
         winLossTieRatio.math(Math.Div, gamesPlayed.colName());
@@ -394,7 +400,7 @@ public class RequestBuilder implements Serializable {
 
         selection = selection.nestMe(Col.Username, winLossTieRatio, gamesPlayed);
         selection.top(topNum.repInStr);
-        selection.orderBy(winLossTieRatio, Selection.Order.DESC);
+        selection.orderBy(winLossTieRatio, "DESC");
 
         Col numOfGames = Col.count("Total Games");
         Selection summery = new Selection(Table.Games, new Object[]{numOfGames});
@@ -466,7 +472,7 @@ public class RequestBuilder implements Serializable {
             return new TableDBResponse(columns, rows, request);
         } catch (SQLException e) {
             e.printStackTrace();
-            return new StatusResponse(DBResponse.Status.ERROR, request, 0);
+            return new StatusResponse(Status.ERROR, request, 0);
         }
     }
 
@@ -583,7 +589,7 @@ public class RequestBuilder implements Serializable {
                 e.printStackTrace();
             }
 
-            return new GraphableDBResponse(DBResponse.Status.SUCCESS, request) {
+            return new GraphableDBResponse(Status.SUCCESS, request) {
                 @Override
                 public boolean isAnyData() {
                     return true;

@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 
 /**
- * Col - represents a column. either existing column in the db (the constant columns {@link #GameID},
+ * represents a column. either existing column in the db (the constant columns {@link #GameID},
  * {@link #SavedGame} ...) or created columns.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
@@ -70,7 +70,7 @@ public class Col implements Serializable {
     private boolean isWrapped = false;
 
     /**
-     * Instantiates a new Col.
+     * Instantiates a new Column.
      *
      * @param col the col
      */
@@ -80,7 +80,7 @@ public class Col implements Serializable {
     }
 
     /**
-     * Instantiates a new Col.
+     * Instantiates a new Column.
      *
      * @param colName the col name
      * @param alias   the alias
@@ -100,10 +100,9 @@ public class Col implements Serializable {
     }
 
     /**
-     * Count col.
-     * counts every row (*)
+     * count every row match
      *
-     * @param as the alias
+     * @param as an alias for the counting function. will show up as the column's name in the result.
      * @return the col
      */
     public static Col count(String as) {
@@ -111,34 +110,34 @@ public class Col implements Serializable {
     }
 
     /**
-     * Count col.
+     * a column that will show the number of times {@code countWhat} evaluates to true
      *
-     * @param as        the alias
-     * @param countWhat the count what
-     * @return the col
+     * @param as        an alias for the counting function. will show up as the column's name in the result.
+     * @param countWhat after each record match with {@code countWhat} the counter will increment by 1.
+     * @return the counting column
      */
     public static Col count(String as, Object countWhat) {
         return new Col("COUNT(%s)".formatted(countWhat), as);
     }
 
     /**
-     * Count if col.
-     * only counts if the given condition is true
+     * Count by a certain condition. unlike {@link #count(String, Object)}, that counts matches with records, this counts times a condition
+     * was true. offering more flexibility. the tradeoff is some performance.
      *
-     * @param as        the as
+     * @param as        an alias. will show up as the column's name in the result.
      * @param condition the condition
-     * @return the col
+     * @return the counting col
      */
     public static Col countIf(String as, Condition condition) {
         return new Col("SUM(IIf(\n\t%s,1,0\n))".formatted(condition), as);
     }
 
     /**
-     * Sum cols.
+     * a summary column of numeric columns.
      *
-     * @param as        the alias
+     * @param as        an alias. will show up as the column's name in the result.
      * @param colsToSum the cols to sum
-     * @return the custom col
+     * @return the summing col
      */
     public static CustomCol sum(String as, Col... colsToSum) {
         return new CustomCol(StrUtils.splitArr("+", Arrays.stream(colsToSum).map(Col::label).toArray()), as);
@@ -154,11 +153,12 @@ public class Col implements Serializable {
     }
 
     /**
-     * Switch case col.
+     * represents a Switch case column
      *
-     * @param as    the as
+     * @param as    an alias. will show up as the column's name in the result.
      * @param cases the cases
-     * @return the col
+     * @return the switch case col
+     * @see SwitchCase
      */
     public static Col switchCase(String as, SwitchCase... cases) {
         assert cases.length > 0;
@@ -218,10 +218,10 @@ public class Col implements Serializable {
     }
 
     /**
-     * creates a new column with the given alias as its alias
+     * creates a new column with the {@code alias} as its alias
      *
      * @param alias the alias
-     * @return the col
+     * @return the new col
      */
     public Col as(String alias) {
         return new Col(colName, alias);
@@ -246,7 +246,12 @@ public class Col implements Serializable {
     }
 
     /**
-     * new col like this that belongs to the given table
+     * get this column, but 'belong' to a {@link Table}. meaning it's path will show with
+     * the normal col. for example:
+     * both {@link Table#Games} and {@link Table#UnfinishedGames} have the column {@link #GameID}.
+     * should the need present itself, both tables might find themselves in the same statement. and specifying
+     * Which of the available {@link #GameID}s is accessed will be necessary.
+     * sure enough, by using {@link #of(Table)} specifying the parent table is possible.
      *
      * @param table the table
      * @return the col
@@ -256,9 +261,9 @@ public class Col implements Serializable {
     }
 
     /**
-     * new col like this that belongs to the given owner
+     * like {@link #of(Table)}
      *
-     * @param ofWhom the of whom
+     * @param ofWhom of whom
      * @return the col
      */
     public Col of(String ofWhom) {
@@ -321,40 +326,4 @@ public class Col implements Serializable {
         return isWrapped ? "(%s)".formatted(str) : str;
     }
 
-    /**
-     * a Custom col.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class CustomCol extends Col {
-
-        /**
-         * Instantiates a new Custom col.
-         *
-         * @param colName the col name
-         */
-        public CustomCol(String colName) {
-            super(colName);
-        }
-
-        /**
-         * Instantiates a new Custom col.
-         *
-         * @param colName the col name
-         * @param alias   the alias
-         */
-        public CustomCol(String colName, String alias) {
-            super(colName, alias);
-        }
-
-        /**
-         * Nested string.
-         *
-         * @return the string
-         */
-        @Override
-        public String nested() {
-            return toString();
-        }
-    }
 }

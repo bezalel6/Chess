@@ -2,6 +2,7 @@ package ver14.SharedClasses.DBActions.DBResponse.Graphable;
 
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Status;
 
 import java.util.Arrays;
 

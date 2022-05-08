@@ -6,35 +6,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="dragging and overlay">
-      <change afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/QuestionPnl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ver14/view/SyncedJMenus/MyMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/Variation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/VariationCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Relation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update/NewValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/CustomCol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/FitWidthTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/FitWidthTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/AskPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/AskPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/MoveLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/SidePanel/TimerPnl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SidePanel/TimerPnl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ver14/view/SyncedJMenus/SyncedJMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/SyncedJMenus/SyncedJMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ver14/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/JavaDoc/View/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/JavaDoc/View/element-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Callbacks/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Callbacks/Callback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Callbacks/LazyHashSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/Callbacks/LazyHashSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/ArgType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Described.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Arg/Described.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Condition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/Variation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/Variation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/VariationCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/VariationCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/DBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphableDBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/Graphable/GraphableDBResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/StatusResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/DBResponse/TableDBResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/CustomStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/CustomStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Delete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/SQLStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/SQLStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Selection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Selection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Statements/Update/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Col.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Col.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Math.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Math.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/SwitchCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/SwitchCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/SharedClasses/DBActions/Table/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,11 +100,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="ver14.SharedClasses.DBActions" />
+      <recent name="ver14.SharedClasses.DBActions.Table" />
+      <recent name="ver14.SharedClasses.DBActions.Statements" />
+      <recent name="ver14.SharedClasses.DBActions.DBResponse" />
       <recent name="ver14.SharedClasses.DBActions.DBRequest" />
-      <recent name="ver14.view.SyncedJMenus" />
-      <recent name="ver14.view.SidePanel" />
-      <recent name="ver14.view.IconManager" />
-      <recent name="ver14.view.Dialog.Dialogs.SimpleDialogs" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ver14.view.Board" />

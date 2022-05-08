@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 
 /**
- * Table - represents a table in the db.
+ * represents a table in the db.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -33,7 +33,7 @@ public enum Table {
     /**
      * Instantiates a new Table.
      *
-     * @param cols the cols
+     * @param cols the columns in this table
      */
     Table(Col... cols) {
         this.cols = new ArrayList<>(Arrays.asList(cols)) {{

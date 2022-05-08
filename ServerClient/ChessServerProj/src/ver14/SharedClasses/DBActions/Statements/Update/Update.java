@@ -1,16 +1,14 @@
-package ver14.SharedClasses.DBActions.Statements;
+package ver14.SharedClasses.DBActions.Statements.Update;
 
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.Type;
-import ver14.SharedClasses.DBActions.Table.Col;
+import ver14.SharedClasses.DBActions.Statements.SQLStatement;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Utils.StrUtils;
 
-import java.io.Serializable;
-
 
 /**
- * Update - a sql update statement.
+ * represents an update statement.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -31,7 +29,7 @@ public class Update extends SQLStatement {
     /**
      * Instantiates a new Update.
      *
-     * @param updating  the updating
+     * @param updating  the {@link Table} to be updated
      * @param condition the condition
      * @param newValues the new values
      */
@@ -53,40 +51,4 @@ public class Update extends SQLStatement {
         return "UPDATE %s\nSET %s\nWHERE %s".formatted(updating, StrUtils.splitArr(newValues), condition);
     }
 
-    /**
-     * New value - a new value for a certain column.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class NewValue implements Serializable {
-        /**
-         * The Col.
-         */
-        public final Col col;
-        /**
-         * The Value.
-         */
-        public final Object value;
-
-        /**
-         * Instantiates a new New value.
-         *
-         * @param col   the col
-         * @param value the value
-         */
-        public NewValue(Col col, Object value) {
-            this.col = col;
-            this.value = value;
-        }
-
-        /**
-         * To string string.
-         *
-         * @return the string
-         */
-        @Override
-        public String toString() {
-            return col.colName() + " = " + value;
-        }
-    }
 }

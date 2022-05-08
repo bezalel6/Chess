@@ -4,46 +4,37 @@ import ver14.SharedClasses.DBActions.Condition;
 
 
 /**
- * Switch case - represents a case that is meant to be used inside a switch case col.
+ * Switch case - represents a case that is meant to be used inside a switch case column.
  * if the {@link #condition} is true, the {@link #ifTrue} col will display in the switch case col
  *
+ * @param condition The Condition.
+ * @param ifTrue    The If true.
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public class SwitchCase {
-    /**
-     * The Condition.
-     */
-    private final Condition condition;
-    /**
-     * The If true.
-     */
-    private final Col ifTrue;
-
+public record SwitchCase(Condition condition, Col ifTrue) {
     /**
      * Instantiates a new Switch case.
      *
      * @param condition the condition
-     * @param ifTrue    the if true
+     * @param ifTrue    the column that will show if the condition is true
      */
-    public SwitchCase(Condition condition, Col ifTrue) {
-        this.condition = condition;
-        this.ifTrue = ifTrue;
+    public SwitchCase {
     }
 
     /**
-     * Equals switch case.
+     * if the passed {@code col} is equal to {@code value}, the {@code ifTrue} column will display.
      *
      * @param col    the col
      * @param value  the value
      * @param ifTrue the if true
-     * @return the switch case
+     * @return the created switch case
      */
     public static SwitchCase equals(Col col, String value, Col ifTrue) {
         return new SwitchCase(Condition.equals(col, value), ifTrue);
     }
 
     /**
-     * Default case switch case.
+     * if none of the previous cases matched, this column will show.
      *
      * @param ifTrue the if true
      * @return the switch case
@@ -53,10 +44,11 @@ public class SwitchCase {
     }
 
     /**
-     * Condition condition.
+     * Condition.
      *
      * @return the condition
      */
+    @Override
     public Condition condition() {
         return condition;
     }
@@ -66,6 +58,7 @@ public class SwitchCase {
      *
      * @return the col
      */
+    @Override
     public Col ifTrue() {
         return ifTrue;
     }

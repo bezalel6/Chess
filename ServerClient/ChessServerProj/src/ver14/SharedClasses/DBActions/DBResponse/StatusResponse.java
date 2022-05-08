@@ -4,7 +4,7 @@ import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 
 
 /**
- * Status response - represents a db status response.
+ * represents a db status response with a {@link Status} and the number of rows updated as a result of the request.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

@@ -2,13 +2,13 @@ package ver14.SharedClasses.DBActions.Table;
 
 
 /**
- * Math - allows for math actions on columns and some math-related utilities for columns.
+ * Math - allows for math operations on columns and some math-related utilities for columns.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public enum Math {
     /**
-     * The Plus.
+     * add
      */
     Plus {
         @Override
@@ -17,7 +17,7 @@ public enum Math {
         }
     },
     /**
-     * The Mult.
+     * multiply
      */
     Mult {
         @Override
@@ -26,7 +26,7 @@ public enum Math {
         }
     },
     /**
-     * The Div.
+     * divide
      */
     Div {
         @Override
@@ -41,7 +41,8 @@ public enum Math {
     Col col;
 
     /**
-     * Null if 0 string.
+     * to avoid dividing by 0, if the value is equal to 0, it will be replaced with null, and then (if setup correctly) will be handled.
+     * one way of handling with nulls is by using {@link #zeroIfNull()}
      *
      * @param val the val
      * @return the string
@@ -51,7 +52,7 @@ public enum Math {
     }
 
     /**
-     * Format num string.
+     * Format a num with a default 3 decimal places.
      *
      * @param num the num
      * @return the string
@@ -71,11 +72,11 @@ public enum Math {
     }
 
     /**
-     * Format num string.
+     * cast col to be in a number format.
      *
      * @param num    the num
      * @param format the format
-     * @return the string
+     * @return the formatted string
      */
     public static String formatNum(Object num, String format) {
         String prep = "CAST(%s AS %s)".formatted("%s", format);
@@ -93,17 +94,17 @@ public enum Math {
     }
 
     /**
-     * As float string.
+     * cast value as float.
      *
      * @param num the num
-     * @return the string
+     * @return the formatted value
      */
     public static String asFloat(Object num) {
         return formatNum(num, "float");
     }
 
     /**
-     * Zero if null.
+     * if the col's value is null, it will be replaced with a 0.
      */
     protected void zeroIfNull() {
         col.setColName("IFNULL(%s,0)".formatted(col.colName()));
@@ -122,12 +123,12 @@ public enum Math {
     }
 
     /**
-     * Execute col.
+     * Execute this operation on the passed col, or on a copy of it.
      *
      * @param col        the col
-     * @param value      the value
-     * @param changeSelf the change self
-     * @return the col
+     * @param value      the value for the right side of this operation
+     * @param changeSelf {@code true} to change the column passed as a parameter.
+     * @return the changed column
      */
     public Col execute(Col col, Object value, boolean changeSelf) {
         this.col = changeSelf ? col : new Col(col);

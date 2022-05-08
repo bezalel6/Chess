@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 
 /**
- * Selection - a selection sql statement.
+ * represents a selection sql statement.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -40,19 +40,19 @@ public class Selection extends SQLStatement {
     /**
      * Instantiates a new Selection.
      *
-     * @param selectFrom the select from
-     * @param select     the select
+     * @param selectFrom select from
+     * @param select     what to select
      */
     public Selection(Object selectFrom, Object[] select) {
         this(selectFrom, null, select);
     }
 
     /**
-     * Instantiates a new Selection.
+     * Instantiates a new Selection
      *
-     * @param selectFrom the select from
-     * @param condition  the condition
-     * @param select     the select
+     * @param selectFrom where to select from
+     * @param condition  the condition for selecting
+     * @param select     select what
      */
     public Selection(Object selectFrom, Condition condition, Object[] select) {
         super(Type.Query);
@@ -67,10 +67,10 @@ public class Selection extends SQLStatement {
     }
 
     /**
-     * Nest me selection.
+     * create a {@link Selection} with this selection statement nested inside.
      *
-     * @param outerSelect the outer select
-     * @return the selection
+     * @param outerSelect the columns to select from the now nested selection
+     * @return the new nested selection
      */
     public Selection nestMe(Col... outerSelect) {
         return new Selection("(%s)".formatted(getStatement()), Arrays.stream(outerSelect).map(Col::nested).toArray());
@@ -94,24 +94,31 @@ public class Selection extends SQLStatement {
 
 
     /**
-     * Top.
+     * get a certain number of results from the top.
      *
-     * @param top the top
+     * @param top the number of results
      */
     public void top(Object top) {
         selectPrefix += " TOP " + top;
     }
 
     /**
-     * Join.
+     * Join this selection with another {@link Table}.
      *
-     * @param joinType  the join type
-     * @param joinWith  the join with
-     * @param condition the condition
-     * @param groupBy   the group by
+     * @param joinType  the join type. left or right. a left join represents a join operation
+     *                  where every record is selected from the original selection,
+     *                  and any matching record from the {@code joinWith} table.
+     *                  <p>
+     *                  a right join represents a join operation
+     *                  where every record is selected from the {@code joinWith} table
+     *                  and any matching record from the original selection,
+     * @param joinWith  the table to join with
+     * @param condition the condition to join by
+     * @param groupBy   the columns to group both tables by
      */
     public void join(
-            @Join String joinType,
+            @MagicConstant(stringValues = {"LEFT JOIN", "RIGHT JOIN"})
+            String joinType,
             Table joinWith,
             Condition condition,
             Col... groupBy) {
@@ -119,42 +126,14 @@ public class Selection extends SQLStatement {
     }
 
     /**
-     * Order by.
+     * Order this selection in an ascending or descending order.
      *
-     * @param col   the col
+     * @param col   the col to order by
      * @param order the order
      */
-    public void orderBy(Col col, @Order String order) {
+    public void orderBy(Col col, @MagicConstant(stringValues = {"ASC", "DESC"}) String order) {
         postFix += " ORDER BY " + col.colName() + " " + order;
     }
 
-    /**
-     * Join - selection join.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    @MagicConstant(stringValues = {Join.LEFT})
-    public @interface Join {
-        /**
-         * The constant LEFT.
-         */
-        String LEFT = "LEFT JOIN";
-    }
 
-    /**
-     * Order - selection order by.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    @MagicConstant(stringValues = {Order.ASC, Order.DESC})
-    public @interface Order {
-        /**
-         * The constant DESC.
-         */
-        String DESC = "DESC";
-        /**
-         * The constant ASC.
-         */
-        String ASC = "ASC";
-    }
 }

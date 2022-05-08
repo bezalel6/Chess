@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 
 /**
- * Sql statement - represents an sql statement.
+ * represents an sql statement. with a {@link Type}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -25,14 +25,14 @@ public abstract class SQLStatement implements Serializable {
     /**
      * Instantiates a new Sql statement.
      *
-     * @param type the type
+     * @param type the sql statement type
      */
     public SQLStatement(Type type) {
         this.type = type;
     }
 
     /**
-     * Replace.
+     * Replace string in the statement. used to replace argument's placeholders with actual values.
      *
      * @param replacing   the replacing
      * @param replaceWith the replace with
@@ -42,9 +42,9 @@ public abstract class SQLStatement implements Serializable {
     }
 
     /**
-     * Create if not created string.
+     * Create the statement if you haven't already.
      *
-     * @return the string
+     * @return the statement
      */
     private String createIfNotCreated() {
         if (statement == null) {
@@ -56,13 +56,13 @@ public abstract class SQLStatement implements Serializable {
     /**
      * Create statement string.
      *
-     * @return the string
+     * @return the created sql string
      */
     protected abstract @Language("SQL")
     String createStatement();
 
     /**
-     * Gets statement.
+     * Gets the statement.
      *
      * @return the statement
      */

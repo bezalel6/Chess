@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 
 /**
- * Condition - represents a condition.
+ * represents a condition.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -52,6 +52,7 @@ public class Condition implements Serializable {
 
     /**
      * Equals condition.
+     * matches the toString of both objects.
      *
      * @param col   the col
      * @param value the value
@@ -62,7 +63,12 @@ public class Condition implements Serializable {
     }
 
     /**
-     * No nulls condition.
+     * returns a condition that will add a not null condition for any columns included in this condition.
+     * example for when some columns' values will be null:
+     * say a general list of games and statistics is generated for any registered user. if there are
+     * registered users who haven't played a game yet, a join with the {@link ver14.SharedClasses.DBActions.Table.Table#Games} table
+     * will produce a null value. since the player has never played a game.
+     * using a {@link #noNulls()} condition will save a lot of headache by failing immediately.
      *
      * @return the condition
      */
@@ -80,21 +86,21 @@ public class Condition implements Serializable {
     }
 
     /**
-     * Add condition.
+     * Add a condition to this condition.
      *
      * @param condition the condition
      * @param relation  the relation
-     * @return the condition
+     * @return THIS condition
      */
     public Condition add(Condition condition, Relation relation) {
         return add(condition, relation, true);
     }
 
     /**
-     * Add condition.
+     * Add a condition to this condition.
      *
      * @param condition the condition
-     * @param relation  the relation
+     * @param relation  the relation between the conditions
      * @param wrap      the wrap
      * @return THIS condition
      */
@@ -196,22 +202,6 @@ public class Condition implements Serializable {
     @Override
     public String toString() {
         return str;
-    }
-
-    /**
-     * Relation - relations between conditions.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum Relation {
-        /**
-         * And relation.
-         */
-        AND,
-        /**
-         * Or relation.
-         */
-        OR
     }
 
 

@@ -76,9 +76,9 @@ public class PreMadeRequest {
     /**
      * Instantiates a new Pre made request.
      *
-     * @param builderBuilder the builder builder
-     * @param authSettings   the auth settings
-     * @param variations     the variations
+     * @param builderBuilder the supplier of builders
+     * @param authSettings   the auth requirements for this request
+     * @param variations     the variations for this request
      */
     PreMadeRequest(Supplier<RequestBuilder> builderBuilder, @AuthSettings int authSettings, VariationCreator... variations) {
         this.builderBuilder = builderBuilder;
@@ -87,16 +87,16 @@ public class PreMadeRequest {
     }
 
     /**
-     * Get request variations pre made request [ ].
+     * Get the variations for this request
      *
-     * @return the pre made request [ ]
+     * @return the variations for this request
      */
     public PreMadeRequest[] getRequestVariations() {
         return requestVariations;
     }
 
     /**
-     * Create a
+     * Create a new unique request builder
      *
      * @return the request builder
      */
