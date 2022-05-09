@@ -22,7 +22,7 @@ public class JoinExistingGame extends SyncedGamesList {
      * @param gameSettings the game settings
      */
     public JoinExistingGame(Parent parent, GameSettings gameSettings) {
-        super(new Header("Join Existing Game"), SyncedListType.JOINABLE_GAMES, parent, gameSettings, GameSettings.GameType.JOIN_EXISTING);
+        super(new Header("Join Existing Game"), SyncedListType.JOINABLE_GAMES, parent, gameSettings, ver14.SharedClasses.Game.GameSetup.GameType.JOIN_EXISTING);
     }
 
     @Override

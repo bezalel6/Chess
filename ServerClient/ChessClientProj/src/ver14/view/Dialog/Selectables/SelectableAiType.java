@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Selectables;
 
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @param aiType The Ai type.
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public record SelectableAiType(AiParameters.AiType aiType) implements Selectable {
+public record SelectableAiType(AISettings.AiType aiType) implements Selectable {
 
     /**
      * Instantiates a new Ai type.
@@ -28,7 +28,7 @@ public record SelectableAiType(AiParameters.AiType aiType) implements Selectable
      */
     public static ArrayList<Selectable> selectableAiTypes() {
         ArrayList<Selectable> ret = new ArrayList<>();
-        for (AiParameters.AiType aiType : AiParameters.AiType.values()) {
+        for (AISettings.AiType aiType : AISettings.AiType.values()) {
             ret.add(new SelectableAiType(aiType));
         }
         return ret;

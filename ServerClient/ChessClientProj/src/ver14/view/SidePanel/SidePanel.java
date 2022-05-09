@@ -93,7 +93,7 @@ public class SidePanel extends JPanel {
         bottom = new TimerPnl(this, PlayerColor.WHITE);
         top = new TimerPnl(this, PlayerColor.BLACK);
 
-        moveLog = new MoveLog(view);
+        moveLog = new MoveLog();
 
         askPlayerPnl = new AskPlayer();
         setFlipped(isFlipped);
@@ -232,7 +232,7 @@ public class SidePanel extends JPanel {
     public void setBothPlayersClocks(GameTime gameTime) {
         if (gameTime == null)
             return;
-        timeControl = gameTime.getRunningTime(PlayerColor.WHITE).getTimeInMillis();
+        timeControl = gameTime.getTimeLeft(PlayerColor.WHITE);
         for (PlayerColor player : PlayerColor.PLAYER_COLORS) {
             setTimerLabel(player, gameTime.getTimeLeft(player));
         }

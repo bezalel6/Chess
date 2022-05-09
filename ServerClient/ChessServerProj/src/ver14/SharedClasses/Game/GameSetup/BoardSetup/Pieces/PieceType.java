@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 
 /**
- * Piece type - represents the Piece Type.
+ * represents the Piece Type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -39,7 +39,7 @@ public enum PieceType implements Serializable {
      */
     BISHOP("♗", "♝", 320),
     /**
-     * The Knight.
+     * Knight piece type.
      */
     KNIGHT("♘", "♞", 310, false) {
         @Override
@@ -52,7 +52,7 @@ public enum PieceType implements Serializable {
      */
     QUEEN("♕", "♛", 900),
     /**
-     * The King.
+     * King piece type.
      */
     KING("♔", "♚", 200000, false) {
         @Override
@@ -217,6 +217,16 @@ public enum PieceType implements Serializable {
     }
 
     /**
+     * Is line piece boolean.
+     *
+     * @param pieceType the piece type
+     * @return the boolean
+     */
+    public static boolean isLinePiece(PieceType pieceType) {
+        return pieceType == PieceType.ROOK || pieceType == PieceType.QUEEN;
+    }
+
+    /**
      * Gets white piece fen.
      *
      * @return the white piece fen
@@ -236,49 +246,6 @@ public enum PieceType implements Serializable {
     }
 
     /**
-     * Compare movement type boolean.
-     *
-     * @param compareTo the compare to
-     * @return the boolean
-     */
-    public boolean compareMovementType(PieceType compareTo) {
-        return compareMovementType(this, compareTo);
-    }
-
-    /**
-     * Compare movement type boolean.
-     *
-     * @param piece1Type the piece 1 type
-     * @param piece2Type the piece 2 type
-     * @return the boolean
-     */
-    public static boolean compareMovementType(PieceType piece1Type, PieceType piece2Type) {
-        return piece1Type == piece2Type ||
-                (isDiagonalPiece(piece1Type) && isDiagonalPiece(piece2Type)) ||
-                (isLinePiece(piece1Type) && isLinePiece(piece2Type));
-    }
-
-    /**
-     * Is diagonal piece boolean.
-     *
-     * @param pieceType the piece type
-     * @return the boolean
-     */
-    public static boolean isDiagonalPiece(PieceType pieceType) {
-        return pieceType == PieceType.BISHOP || pieceType == PieceType.QUEEN;
-    }
-
-    /**
-     * Is line piece boolean.
-     *
-     * @param pieceType the piece type
-     * @return the boolean
-     */
-    public static boolean isLinePiece(PieceType pieceType) {
-        return pieceType == PieceType.ROOK || pieceType == PieceType.QUEEN;
-    }
-
-    /**
      * Gets piece name.
      *
      * @return the piece name
@@ -288,13 +255,12 @@ public enum PieceType implements Serializable {
     }
 
     /**
-     * Is attack boolean.
+     * Is this piece type attacking a square a {@code maxDistance} away in a {@code direction}.
      *
      * @param direction   the direction
-     * @param maxDistance the max distance
-     * @return the boolean
+     * @param maxDistance the max distance to the square
+     * @return <code>true</code> if this piece can attack the square
      */
-//tooptimize
     public boolean isAttack(Direction direction, int maxDistance) {
         return Arrays.stream(getAttackingDirections()).anyMatch(dir -> dir == direction);
     }

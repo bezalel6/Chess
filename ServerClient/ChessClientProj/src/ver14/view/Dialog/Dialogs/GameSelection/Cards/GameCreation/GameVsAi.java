@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Cards.GameCreation;
 
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.view.Dialog.Cards.CardHeader;
 import ver14.view.Dialog.Dialog;
@@ -16,7 +16,7 @@ public class GameVsAi extends GameCreationCard {
     /**
      * The Ai parameters.
      */
-    private final AiParameters aiParameters;
+    private final AISettings aiParameters;
 
     /**
      * Instantiates a new Game vs ai.
@@ -26,7 +26,7 @@ public class GameVsAi extends GameCreationCard {
      */
     public GameVsAi(Dialog parentDialog, GameSettings gameSettings) {
         super(new CardHeader("Game vs Ai"), parentDialog, gameSettings);
-        aiParameters = new AiParameters();
+        aiParameters = new AISettings();
         addDialogComponent(new AiTypes(this, aiParameters));
         addDialogComponent(new TimeFormatSlider(this, aiParameters) {{
             setToMinValue();
@@ -34,7 +34,7 @@ public class GameVsAi extends GameCreationCard {
     }
 
     protected void setEnabledState(boolean state) {
-        gameSettings.setAiParameters(state ? aiParameters : null);
+        gameSettings.setAISettings(state ? aiParameters : null);
         checkbox.setState(state);
         checkbox.setVisible(state);
     }

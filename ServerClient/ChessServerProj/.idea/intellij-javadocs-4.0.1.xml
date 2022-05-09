@@ -149,7 +149,32 @@
  */</VALUE>
         </METHOD>
         <METHOD>
-          <KEY>.+</KEY>
+          <KEY>boolean</KEY>
+          <VALUE>/**\njhgv
+ *${partName}.\n
+&lt;#if element.typeParameters?has_content&gt;         * \n
+&lt;/#if&gt;
+&lt;#list element.typeParameters as typeParameter&gt;
+         * @param &lt;${typeParameter.name}&gt; the type parameter\n
+&lt;/#list&gt;
+&lt;#if element.parameterList.parameters?has_content&gt;
+         *\n
+&lt;/#if&gt;
+&lt;#list element.parameterList.parameters as parameter&gt;
+         * @param ${parameter.name} the ${paramNames[parameter.name]}\n
+&lt;/#list&gt;
+         *\n
+         * @return {@ true} if ${partName}\n
+&lt;#if element.throwsList.referenceElements?has_content&gt;
+         *\n
+&lt;/#if&gt;
+&lt;#list element.throwsList.referenceElements as exception&gt;
+         * @throws ${exception.referenceName} the ${exceptionNames[exception.referenceName]}\n
+&lt;/#list&gt;
+ */</VALUE>
+        </METHOD>
+        <METHOD>
+          <KEY>(.+)</KEY>
           <VALUE>/**\n
  * ${name}&lt;#if isNotVoid&gt; ${return}&lt;/#if&gt;.\n
 &lt;#if element.typeParameters?has_content&gt;         * \n

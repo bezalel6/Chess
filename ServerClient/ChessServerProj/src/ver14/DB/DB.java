@@ -6,15 +6,18 @@ import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.SerializationUtils;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
+import ver14.SharedClasses.DBActions.DBRequest.Type;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
+import ver14.SharedClasses.DBActions.DBResponse.Status;
 import ver14.SharedClasses.DBActions.DBResponse.StatusResponse;
 import ver14.SharedClasses.DBActions.DBResponse.TableDBResponse;
+import ver14.SharedClasses.DBActions.Relation;
 import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.DBActions.Statements.CustomStatement;
 import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
@@ -67,7 +70,7 @@ public class DB {
      */
     public static synchronized StatusResponse runUpdate(String sql) {
         sql = StrUtils.clean(sql);
-        return runUpdate(new DBRequest(new CustomStatement(DBRequest.Type.Update, sql)));
+        return runUpdate(new DBRequest(new CustomStatement(Type.Update, sql)));
     }
 
     /**
@@ -79,15 +82,15 @@ public class DB {
      */
     public static synchronized StatusResponse runUpdate(DBRequest request) {
         Connection con = getConnection();
-        DBResponse.Status status;
+        Status status;
         int updatedRows = 0;
         try {
             Statement st = con.createStatement();
             updatedRows = st.executeUpdate(request.getRequest());
-            status = DBResponse.Status.SUCCESS;
+            status = Status.SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
-            status = DBResponse.Status.ERROR;
+            status = Status.ERROR;
         }
         return new StatusResponse(status, request, updatedRows);
     }
@@ -314,7 +317,7 @@ public class DB {
      */
     public static boolean isUserExists(String un, String pw) {
         Condition condition = Condition.equals(Col.Username, un);
-        condition.add(Condition.equals(Col.Password, pw), Condition.Relation.AND);
+        condition.add(Condition.equals(Col.Password, pw), Relation.AND);
         return select(Table.Users, condition).isAnyData();
     }
 
@@ -349,7 +352,7 @@ public class DB {
         if (RegEx.DontSaveGame.check(username))
             return gameInfos;
         Condition condition = Condition.equals(Col.Player1, username);
-        condition.add(Condition.equals(Col.Player2, username), Condition.Relation.OR);
+        condition.add(Condition.equals(Col.Player2, username), Relation.OR);
 
         TableDBResponse rs = (TableDBResponse) select(Table.UnfinishedGames, condition, Col.SavedGame.colName());
         String[][] rows = rs.getRows();
@@ -519,7 +522,7 @@ public class DB {
             GameSettings gameSettings = new GameSettings();
             String oppUn, winner;
             if (isVsAi) {
-                oppUn = AiParameters.AiType.MyAi.toString();
+                oppUn = AISettings.AiType.MyAi.toString();
                 gameSettings.initDefault1vAi();
             } else {
                 int index;

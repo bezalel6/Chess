@@ -222,7 +222,7 @@ public class Client implements EnvManager {
         String desc = "Enter SERVER Address";
         Described<String> defaultValue = new Described<>(serverIP + " : " + serverPort, "Local Host");
         Config<String> config = new Config<>(desc, defaultValue);
-        config.addSuggestion(Described.d(teacherAddress, "teacher address"));
+        config.addSuggestion(new Described<>(teacherAddress, "teacher address"));
         dialogProperties.setArgConfig(config);
 
         InputDialog inputDialog = view.showDialog(new InputDialog(dialogProperties, ArgType.ServerAddress));
@@ -646,7 +646,7 @@ public class Client implements EnvManager {
             if (answer.equals(quickMatchVsReal)) {
                 GameSettings settings = new GameSettings();
                 settings.initDefault1v1();
-                settings.setGameType(GameSettings.GameType.QUICK_MATCH);
+                settings.setGameType(ver14.SharedClasses.Game.GameSetup.GameType.QUICK_MATCH);
                 return settings;
 
             }

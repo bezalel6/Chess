@@ -25,17 +25,26 @@ import ver14.SharedClasses.Sync.SyncedListType;
 import ver14.SharedClasses.Utils.ArrUtils;
 import ver14.SharedClasses.Utils.StrUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.function.Supplier;
+import java.util.stream.IntStream;
 
 
 /**
- * Request builder - creates builders capable of generating complete sql statements. after building with they're required arguments .
+ * represents a {@link DBRequest} that needs some context to be complete. for example: say there is a
+ * db request for getting how many times a user has won. that request will need to get a specific user as context.
+ * a request has an array of {@link Arg}s, with every argument it requires. when an actual {@link DBRequest} is built,
+ * all the values for the {@link Arg}s are passed to {@link #build(Object...)}, and it will create a request with all the arguments replaced with their values.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -88,6 +97,8 @@ public class RequestBuilder implements Serializable {
         RequestBuilder builder = request.getBuilder();
         postDescription = builder.postDescription;
         preDescription = builder.preDescription;
+
+
     }
 
     /**
@@ -101,7 +112,6 @@ public class RequestBuilder implements Serializable {
         this(statement, name, name, args);
     }
 
-
     /**
      * Instantiates a new Request builder.
      *
@@ -114,14 +124,16 @@ public class RequestBuilder implements Serializable {
         this(statement, name, desc, desc, args);
     }
 
+
     /**
      * Instantiates a new Request builder.
      *
      * @param statement       the statement
-     * @param name            the name
-     * @param postDescription the post description
-     * @param preDescription  the pre description
-     * @param args            the args
+     * @param name            the name of the request
+     * @param postDescription a description for after building. values may be depended on the arguments, since they will
+     *                        be replaced with their actual values by then.
+     * @param preDescription  a description for before building the request. should not depend on arguments.
+     * @param args            the arguments required to build this request.
      */
     public RequestBuilder(SQLStatement statement, String name, String postDescription, String preDescription, Arg... args) {
         this.statement = statement;
@@ -131,10 +143,37 @@ public class RequestBuilder implements Serializable {
         this.args = args;
     }
 
+    public static void main(String[] args) throws IOException {
+        PrintWriter writer = new PrintWriter("test.txt", StandardCharsets.UTF_8);
+        for (int i = 0; i < 100; i++) {
+            writer.println(i);
+        }
+        writer.close();
+
+        Scanner s = new Scanner(new File("test.txt"));
+
+        IntStream.range(0, 10).parallel().forEach(i -> {
+            String myLine = null;
+            for (; ; ) {
+                synchronized (s) {
+                    if (s.hasNextLine()) {
+                        myLine = s.nextLine();
+                    } else {
+                        break;
+                    }
+                }
+                System.out.println(myLine);
+            }
+
+        });
+
+        System.out.println("done");
+    }
+
     /**
-     * Create variation request builder.
+     * create a variation of another {@link RequestBuilder}.
      *
-     * @param og               the og
+     * @param og               a supplier of the original request builder. a supplier is used to make sure all values are different.
      * @param variationCreator the variation creator
      * @return the request builder
      */
@@ -184,7 +223,7 @@ public class RequestBuilder implements Serializable {
     }
 
     /**
-     * Add should sync.
+     * some requests change values that should be reflected in synced lists.
      *
      * @param listType the list type
      */
@@ -205,11 +244,12 @@ public class RequestBuilder implements Serializable {
     }
 
     /**
-     * if the {@code un} is in one of
-     * P 1 or p 2 condition.
+     * creates a condition that will evaluate to <code>true</code> if the {@code un} is
+     * {@link Col#Player1} or {@link Col#Player2} of {@code playersOf} (specifying which {@link Table}
+     * is necessary to avoid ambiguity)
      *
-     * @param un        the un
-     * @param playersOf the players of
+     * @param un        the username
+     * @param playersOf the table
      * @return the condition
      */
     private static Condition p1_OR_p2(Object un, Table playersOf) {
@@ -266,9 +306,10 @@ public class RequestBuilder implements Serializable {
     }
 
     /**
-     * P 1 or p 2 condition.
+     * creates a condition that will evaluate to <code>true</code> if the {@code un} is
+     * {@link Col#Player1} or {@link Col#Player2} of {@link Table#Games}
      *
-     * @param un the un
+     * @param un the username
      * @return the condition
      */
     private static Condition p1_OR_p2(Object un) {
@@ -513,10 +554,11 @@ public class RequestBuilder implements Serializable {
     }
 
     /**
-     * Build db request.
+     * Build a full {@link DBRequest} by replacing all the temporary argument values with their
+     * actual values.
      *
      * @param argsVals the args vals
-     * @return the db request
+     * @return the created db request
      */
     public DBRequest build(Object... argsVals) {
         assert this.args.length == argsVals.length;

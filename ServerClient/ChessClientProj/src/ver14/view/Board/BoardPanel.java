@@ -279,7 +279,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         resetAllButtons(true);
         for (Square square : board) {
             if (!square.isEmpty()) {
-                BoardButton btn = getBtn(square.getLoc());
+                BoardButton btn = getBtn(square.loc);
                 Piece piece = square.getPiece();
                 btn.setPiece(piece);
             }

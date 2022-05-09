@@ -1,7 +1,7 @@
 package ver14.view.Dialog.DialogFields.Slider;
 
 import ver14.SharedClasses.Game.GameSetup.TimeFormat;
-import ver14.SharedClasses.Game.GameSetup.TimeFormatComponent;
+import ver14.SharedClasses.Misc.ParentOf;
 import ver14.SharedClasses.UI.FontManager;
 import ver14.SharedClasses.UI.MyLbl;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -41,7 +41,7 @@ public class TimeFormatSlider extends DialogField<TimeFormat> {
      * @param parent              the parent
      * @param timeFormatComponent the time format component
      */
-    public TimeFormatSlider(Parent parent, TimeFormatComponent timeFormatComponent) {
+    public TimeFormatSlider(Parent parent, ParentOf<TimeFormat> timeFormatComponent) {
         super(new Header("Choose Time Per Move"), parent);
         this.slider = new JSlider(minInSec, maxInSec);
         slider.setMajorTickSpacing(10);
@@ -53,7 +53,7 @@ public class TimeFormatSlider extends DialogField<TimeFormat> {
         timeLbl.setFont(FontManager.Dialogs.dialogInput);
         slider.addChangeListener(l -> {
             timeLbl.setText(StrUtils.createTimeStr(slider.getValue() * 1000L));
-            timeFormatComponent.setTimeFormat(getResult());
+            timeFormatComponent.set(getResult());
         });
         addInNewLine(timeLbl);
         addInNewLine(slider);

@@ -2,47 +2,40 @@ package ver14.SharedClasses.Game.Evaluation;
 
 
 /**
- * Evaluation parameters - all evaluation parameters. (some are unused).
+ * represents an evaluation parameter. a metric on which a position might get evaluated by.
+ * an evaluation parameter has a weight, that decides how much influence it has on the final evaluation of a position.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public enum EvaluationParameters {
     /**
-     * Material evaluation parameters.
+     * pieces values evaluation parameter.
      */
     MATERIAL(1.5),
     /**
-     * Piece tables evaluation parameters.
+     * piece tables evaluation parameter.
      */
     PIECE_TABLES(1.3),
+//    /**
+//     * King safety evaluation parameter.
+//     */
+//    KING_SAFETY(.1),
+//    /**
+//     * Hanging pieces evaluation parameter.
+//     */
+//    HANGING_PIECES,
+//    /**
+//     * Square control evaluation parameter.
+//     */
+//    SQUARE_CONTROL,
+//    /**
+//     * Movement ability evaluation parameter.
+//     */
+//    MOVEMENT_ABILITY,
     /**
-     * King safety evaluation parameters.
+     * Force king to corner evaluation parameter.
      */
-    KING_SAFETY(.1),
-    /**
-     * Hanging pieces evaluation parameters.
-     */
-    HANGING_PIECES,
-    /**
-     * Square control evaluation parameters.
-     */
-    SQUARE_CONTROL,
-    /**
-     * Movement ability evaluation parameters.
-     */
-    MOVEMENT_ABILITY,
-    /**
-     * Force king to corner evaluation parameters.
-     */
-    FORCE_KING_TO_CORNER(.8),
-    /**
-     * Eg weight evaluation parameters.
-     */
-    EG_WEIGHT,
-    /**
-     * Stockfish says evaluation parameters.
-     */
-    STOCKFISH_SAYS;
+    FORCE_KING_TO_CORNER(.8);
     /**
      * The parameter's weight
      */

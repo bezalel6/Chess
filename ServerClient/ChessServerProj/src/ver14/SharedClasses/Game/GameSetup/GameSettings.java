@@ -1,22 +1,23 @@
 package ver14.SharedClasses.Game.GameSetup;
 
 import ver14.SharedClasses.Game.PlayerColor;
+import ver14.SharedClasses.Misc.ParentOf;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 
 /**
- * Game settings.
+ * represents Game settings. the starting position, which {@link PlayerColor} turn is it to move, the {@link TimeFormat},
+ * the {@link AISettings} and the {@link GameType}
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public class GameSettings implements Serializable, TimeFormatComponent {
-    /**
-     * The constant EXAMPLE.
-     */
-    public static final GameSettings EXAMPLE = new GameSettings(PlayerColor.WHITE, TimeFormat.ULTRA_BULLET, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", AiParameters.EZ_MY_AI, GameType.RESUME);
+public class GameSettings implements Serializable, ParentOf<TimeFormat> {
 
+    @Serial
+    private static final long serialVersionUID = 100L;
     /**
      * The Player to move.
      */
@@ -36,7 +37,7 @@ public class GameSettings implements Serializable, TimeFormatComponent {
     /**
      * The Ai parameters.
      */
-    private AiParameters aiParameters;
+    private AISettings AISettings;
     /**
      * The Game type.
      */
@@ -52,17 +53,17 @@ public class GameSettings implements Serializable, TimeFormatComponent {
         this.timeFormat = new TimeFormat(other.timeFormat);
         this.fen = other.fen;
         this.gameID = other.gameID;
-        this.aiParameters = new AiParameters(other.aiParameters);
+        this.AISettings = new AISettings(other.AISettings);
         this.gameType = other.gameType;
     }
 
     /**
      * Instantiates a new Game settings.
      *
-     * @param aiParameters the ai parameters
+     * @param AISettings the ai parameters
      */
-    public GameSettings(AiParameters aiParameters) {
-        this(PlayerColor.NO_PLAYER, TimeFormat.ULTRA_BULLET, aiParameters, GameType.CREATE_NEW);
+    public GameSettings(AISettings AISettings) {
+        this(PlayerColor.NO_PLAYER, TimeFormat.ULTRA_BULLET, AISettings, GameType.CREATE_NEW);
     }
 
     /**
@@ -70,11 +71,11 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      *
      * @param playerToMove the player to move
      * @param timeFormat   the time format
-     * @param aiParameters the ai parameters
+     * @param AISettings   the ai parameters
      * @param gameType     the game type
      */
-    public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, AiParameters aiParameters, GameType gameType) {
-        this(playerToMove, timeFormat, null, aiParameters, gameType);
+    public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, AISettings AISettings, GameType gameType) {
+        this(playerToMove, timeFormat, null, AISettings, gameType);
     }
 
     /**
@@ -83,14 +84,14 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      * @param playerToMove the player to move
      * @param timeFormat   the time format
      * @param fen          the fen
-     * @param aiParameters the ai parameters
+     * @param AISettings   the ai parameters
      * @param gameType     the game type
      */
-    public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, String fen, AiParameters aiParameters, GameType gameType) {
+    public GameSettings(PlayerColor playerToMove, TimeFormat timeFormat, String fen, AISettings AISettings, GameType gameType) {
         this.playerToMove = playerToMove;
         this.timeFormat = timeFormat;
         this.fen = fen;
-        this.aiParameters = aiParameters;
+        this.AISettings = AISettings;
         this.gameType = gameType;
     }
 
@@ -98,7 +99,7 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      * Instantiates a new Game settings.
      */
     public GameSettings() {
-        aiParameters = new AiParameters();
+        AISettings = new AISettings();
     }
 
 
@@ -147,7 +148,7 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      * @return the boolean
      */
     public boolean isVsAi() {
-        return aiParameters != null && !aiParameters.isEmpty();
+        return AISettings != null && !AISettings.isEmpty();
     }
 
     /**
@@ -155,17 +156,17 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      *
      * @return the ai parameters
      */
-    public AiParameters getAiParameters() {
-        return aiParameters;
+    public AISettings getAISettings() {
+        return AISettings;
     }
 
     /**
      * Sets ai parameters.
      *
-     * @param aiParameters the ai parameters
+     * @param AISettings the ai parameters
      */
-    public void setAiParameters(AiParameters aiParameters) {
-        this.aiParameters = aiParameters;
+    public void setAISettings(AISettings AISettings) {
+        this.AISettings = AISettings;
     }
 
 
@@ -210,7 +211,7 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      */
     public void initDefault1vAi() {
         initDefault1v1();
-        setAiParameters(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(3500)));
+        setAISettings(new AISettings(ver14.SharedClasses.Game.GameSetup.AISettings.AiType.MyAi, new TimeFormat(3500)));
     }
 
     /**
@@ -218,10 +219,20 @@ public class GameSettings implements Serializable, TimeFormatComponent {
      */
     public void initDefault1v1() {
         setPlayerToMove(PlayerColor.WHITE);
-        setTimeFormat(TimeFormat.RAPID);
-        setGameType(GameSettings.GameType.CREATE_NEW);
-        setAiParameters(null);
+        set(TimeFormat.RAPID);
+        setGameType(GameType.CREATE_NEW);
+        setAISettings(null);
         setFen(null);
+    }
+
+    /**
+     * Sets time format.
+     *
+     * @param timeFormat the time format
+     */
+    @Override
+    public void set(TimeFormat timeFormat) {
+        this.timeFormat = timeFormat;
     }
 
     /**
@@ -234,23 +245,13 @@ public class GameSettings implements Serializable, TimeFormatComponent {
     }
 
     /**
-     * Sets time format.
-     *
-     * @param timeFormat the time format
-     */
-    @Override
-    public void setTimeFormat(TimeFormat timeFormat) {
-        this.timeFormat = timeFormat;
-    }
-
-    /**
      * Hash code int.
      *
      * @return the int
      */
     @Override
     public int hashCode() {
-        return Objects.hash(playerToMove, timeFormat, fen, gameID, aiParameters, gameType);
+        return Objects.hash(playerToMove, timeFormat, fen, gameID, AISettings, gameType);
     }
 
     /**
@@ -264,7 +265,7 @@ public class GameSettings implements Serializable, TimeFormatComponent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameSettings that = (GameSettings) o;
-        return playerToMove == that.playerToMove && Objects.equals(timeFormat, that.timeFormat) && Objects.equals(fen, that.fen) && Objects.equals(gameID, that.gameID) && Objects.equals(aiParameters, that.aiParameters) && gameType == that.gameType;
+        return playerToMove == that.playerToMove && Objects.equals(timeFormat, that.timeFormat) && Objects.equals(fen, that.fen) && Objects.equals(gameID, that.gameID) && Objects.equals(AISettings, that.AISettings) && gameType == that.gameType;
     }
 
     /**
@@ -279,33 +280,9 @@ public class GameSettings implements Serializable, TimeFormatComponent {
                 ", timeFormat=" + timeFormat +
                 ", fen='" + fen + '\'' +
                 ", gameID='" + gameID + '\'' +
-                ", aiParameters=" + aiParameters +
+                ", aiParameters=" + AISettings +
                 ", gameType=" + gameType +
                 '}';
     }
 
-    /**
-     * Game type.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum GameType {
-        /**
-         * Join existing game type.
-         */
-        JOIN_EXISTING,
-        /**
-         * Resume game type.
-         */
-        RESUME,
-        /**
-         * Create new game type.
-         */
-        CREATE_NEW,
-        /**
-         * Quick match game type.
-         */
-        QUICK_MATCH;
-
-    }
 }

@@ -51,7 +51,6 @@ public class GameIconsGenerator {
         if (!RegEx.Fen.check(fen)) {
             return IconManager.scaleImage(IconManager.redX, iconSize);
         }
-
         fen = StrUtils.isEmpty(fen) ? Board.startingFen : fen;
         orientation = (orientation == null || orientation == PlayerColor.NO_PLAYER) ? PlayerColor.WHITE : orientation;
         iconSize = Size.minSquare(iconSize);
@@ -77,7 +76,7 @@ public class GameIconsGenerator {
         Board board = new Board(fen);
 
         for (Square square : board) {
-            Location loc = square.getLoc();
+            Location loc = square.loc;
             if (orientation != PlayerColor.WHITE) {
                 int r = Location.flip(loc.row);
                 int c = Location.flip(loc.col);

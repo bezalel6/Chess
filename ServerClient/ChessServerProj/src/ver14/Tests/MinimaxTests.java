@@ -7,8 +7,9 @@ import ver14.Game.Game;
 import ver14.Model.Minimax.Minimax;
 import ver14.Players.PlayerAI.MyAi;
 import ver14.Server;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameType;
 import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.BasicMove;
@@ -26,10 +27,10 @@ public class MinimaxTests extends Tests {
 
     @Test(testName = "minimax vs stockfish")
     private void minimaxVsStockfish() {
-        MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(3000))) {
+        MyAi ai = new MyAi(new AISettings(AISettings.AiType.MyAi, new TimeFormat(3000))) {
             @Override
             public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
-                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AiParameters(AiParameters.AiType.Stockfish, new TimeFormat(1000)), GameSettings.GameType.CREATE_NEW);
+                return new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, null, new AISettings(AISettings.AiType.Stockfish, new TimeFormat(1000)), GameType.CREATE_NEW);
             }
         };
 
@@ -49,12 +50,12 @@ public class MinimaxTests extends Tests {
 
     @Test(testName = "minimax vs minimax")
     private void minimaxVsMinimax() {
-        AiParameters parms = new AiParameters(AiParameters.AiType.MyAi, new TimeFormat(2000));
+        AISettings parms = new AISettings(AISettings.AiType.MyAi, new TimeFormat(2000));
         MyAi ai = new MyAi(parms) {
 
             @Override
             public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
-                return new GameSettings(PlayerColor.WHITE, TimeFormat.RAPID, null, parms, GameSettings.GameType.CREATE_NEW);
+                return new GameSettings(PlayerColor.WHITE, TimeFormat.RAPID, null, parms, GameType.CREATE_NEW);
             }
         };
 

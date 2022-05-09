@@ -7,7 +7,8 @@ import ver14.SharedClasses.Game.Location;
 import java.io.Serializable;
 
 /**
- * Square represents a square on the logic board.
+ * represents a square on the logic board.
+ * with a {@link Location} and a {@link Piece}
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -23,8 +24,7 @@ public class Square implements Serializable {
     /**
      * The constant loc.
      */
-//    private static final String EMPTY_PIECE_STR = "   ";
-    private final Location loc;
+    public final Location loc;
     /**
      * The Piece.
      */
@@ -33,7 +33,7 @@ public class Square implements Serializable {
     /**
      * Instantiates a new Square.
      *
-     * @param loc the loc
+     * @param loc the location of the square
      */
     public Square(Location loc) {
         this.loc = loc;
@@ -41,48 +41,29 @@ public class Square implements Serializable {
     }
 
     /**
-     * Sets empty.
+     * Set this square to be empty.
      */
     public void setEmpty() {
         setPiece(EMPTY_PIECE);
     }
 
-    /**
-     * Instantiates a new Square.
-     *
-     * @param piece the piece
-     * @param loc   the loc
-     */
-    public Square(Piece piece, Location loc) {
-        this.piece = piece;
-        this.loc = loc;
-    }
 
     /**
-     * Gets piece.
+     * Gets the piece on this square.
      *
-     * @return the piece
+     * @return the piece if this square isn't empty, or {@link #EMPTY_PIECE} if it is.
      */
     public Piece getPiece() {
         return piece;
     }
 
     /**
-     * Sets piece.
+     * Sets a piece on this square.
      *
      * @param piece the piece
      */
     public void setPiece(Piece piece) {
         this.piece = piece;
-    }
-
-    /**
-     * Gets loc.
-     *
-     * @return the loc
-     */
-    public Location getLoc() {
-        return loc;
     }
 
     /**
@@ -97,7 +78,7 @@ public class Square implements Serializable {
     }
 
     /**
-     * Gets fen.
+     * Gets the fen representation of this square.
      *
      * @return the fen
      */
@@ -108,10 +89,11 @@ public class Square implements Serializable {
         return ret;
     }
 
+
     /**
-     * Is empty boolean.
+     * Is this square empty.
      *
-     * @return the boolean
+     * @return <code>true</code> is this square is empty
      */
     public boolean isEmpty() {
         return piece == EMPTY_PIECE;

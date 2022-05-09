@@ -10,6 +10,7 @@ import ver14.Players.PlayerNet.PlayerNet;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameType;
 import ver14.SharedClasses.Game.SavedGames.CreatedGame;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
@@ -617,17 +618,17 @@ public class Server implements EnvManager {
             playerDisconnected(player, "");
             return;
         }
-        if (gameSettings.getGameType() == GameSettings.GameType.QUICK_MATCH) {
+        if (gameSettings.getGameType() == GameType.QUICK_MATCH) {
             if (gameSettings.isVsAi())
-                gameSettings.setGameType(GameSettings.GameType.CREATE_NEW);
+                gameSettings.setGameType(GameType.CREATE_NEW);
             else {
                 synchronized (gamePool) {
                     if (!gamePool.values().isEmpty()) {
-                        gameSettings.setGameType(GameSettings.GameType.JOIN_EXISTING);
+                        gameSettings.setGameType(GameType.JOIN_EXISTING);
                         gameSettings.setGameID(((GameInfo) gamePool.values().toArray()[0]).gameId);
                     } else {
                         waitingPlayer.set(player);
-                        gameSettings.setGameType(GameSettings.GameType.CREATE_NEW);
+                        gameSettings.setGameType(GameType.CREATE_NEW);
                     }
                 }
             }
@@ -724,14 +725,14 @@ public class Server implements EnvManager {
      */
     private void startGameVsAi(Player player, GameSettings gameSettings) {
         GameSession gameSession;
-        if (gameSettings.getGameType() == GameSettings.GameType.CREATE_NEW) {
-            PlayerAI ai = PlayerAI.createPlayerAi(gameSettings.getAiParameters());
+        if (gameSettings.getGameType() == GameType.CREATE_NEW) {
+            PlayerAI ai = PlayerAI.createPlayerAi(gameSettings.getAISettings());
             gameSession = new GameSession(gameIDGenerator.generate(), player, ai, gameSettings, this);
         } else {
             String resumingId = gameSettings.getGameID();
             UnfinishedGame resumingGame = DB.loadUnfinishedGame(resumingId);
             DB.deleteUnfinishedGame(resumingGame);
-            PlayerAI ai = PlayerAI.createPlayerAi(resumingGame.gameSettings.getAiParameters());
+            PlayerAI ai = PlayerAI.createPlayerAi(resumingGame.gameSettings.getAISettings());
             gameSession = new GameSession(resumingGame, player, ai, this);
         }
         player.setCreatedGameID(gameSession.gameID);

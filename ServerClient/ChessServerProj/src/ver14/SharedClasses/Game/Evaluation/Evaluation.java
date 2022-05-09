@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 
 
 /**
- * Evaluation - represents a position's evaluation relative to a player color.
+ * represents a position's evaluation relative to a {@link PlayerColor}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Evaluation implements Serializable {
-    
+
     /**
      * The constant TIE_EVAL.
      */
@@ -32,16 +32,16 @@ public class Evaluation implements Serializable {
     /**
      * The constant gameStatusEvalMap.
      */
-    private static final Map<GameStatus.GameStatusType, Integer> gameStatusEvalMap;
+    private static final Map<GameStatusType, Integer> gameStatusEvalMap;
     /**
      * The constant MAKE_DETAILED.
      */
-    private final static boolean MAKE_DETAILED = true;
+    private final static boolean MAKE_DETAILED = false;
 
     static {
         gameStatusEvalMap = new HashMap<>();
 
-        for (var type : GameStatus.GameStatusType.values()) {
+        for (var type : GameStatusType.values()) {
             gameStatusEvalMap.put(type, switch (type) {
                 case WIN_OR_LOSS -> LOSS_EVAL;
                 case TIE -> TIE_EVAL;
@@ -64,9 +64,9 @@ public class Evaluation implements Serializable {
      */
     private int eval;
     /**
-     * The Evaluation for.
+     * The player this evaluation is for.
      */
-    private PlayerColor evaluationFor;
+    private PlayerColor perspective;
     /**
      * The Evaluation depth.
      */
@@ -75,37 +75,35 @@ public class Evaluation implements Serializable {
     /**
      * Instantiates a new Evaluation.
      *
-     * @param gameStatus    the game status
-     * @param evaluationFor the evaluation for
+     * @param gameStatus  the game status
+     * @param perspective the evaluation for
      */
-    public Evaluation(GameStatus gameStatus, PlayerColor evaluationFor) {
-        this(gameStatusEvalMap.get(gameStatus.getGameStatusType()), gameStatus, evaluationFor);
+    public Evaluation(GameStatus gameStatus, PlayerColor perspective) {
+        this(gameStatusEvalMap.get(gameStatus.getGameStatusType()), gameStatus, perspective);
 
     }
 
     /**
      * Instantiates a new Evaluation.
      *
-     * @param eval          the eval
-     * @param gameStatus    the game status
-     * @param evaluationFor the evaluation for
+     * @param eval        the eval
+     * @param gameStatus  the game status
+     * @param perspective the evaluation for
      */
-    public Evaluation(int eval, GameStatus gameStatus, PlayerColor evaluationFor) {
+    public Evaluation(int eval, GameStatus gameStatus, PlayerColor perspective) {
         this.eval = eval;
         this.gameStatus = gameStatus;
-        this.evaluationFor = evaluationFor;
+        this.perspective = perspective;
         detailedEval = MAKE_DETAILED ? new ArrayList<>() : null;
     }
 
-    ;
-
     /**
      * Instantiates a new Evaluation.
      *
-     * @param evaluationFor the evaluation for
+     * @param perspective the evaluation for
      */
-    public Evaluation(PlayerColor evaluationFor) {
-        this(0, GameStatus.gameGoesOn(), evaluationFor);
+    public Evaluation(PlayerColor perspective) {
+        this(0, GameStatus.gameGoesOn(), perspective);
     }
 
     /**
@@ -114,7 +112,7 @@ public class Evaluation implements Serializable {
      * @param other the other
      */
     public Evaluation(Evaluation other) {
-        this(other.eval, new GameStatus(other.gameStatus), other.evaluationFor);
+        this(other.eval, new GameStatus(other.gameStatus), other.perspective);
         this.evaluationDepth = other.evaluationDepth;
         if (MAKE_DETAILED)
 
@@ -129,14 +127,14 @@ public class Evaluation implements Serializable {
     public static Evaluation book() {
         //fixme
         return new Evaluation(PlayerColor.WHITE) {{
-            addDetail(EvaluationParameters.STOCKFISH_SAYS, 1000000);
+            addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, 1000000);
         }};
     }
 
     /**
-     * Add detail.
+     * Add a detail to the evaluation.
      *
-     * @param parm  the parm
+     * @param parm  the kind of detail
      * @param value the value
      */
     public void addDetail(EvaluationParameters parm, int value) {
@@ -145,13 +143,6 @@ public class Evaluation implements Serializable {
             detailedEval.add(new EvaluationDetail(parm, (int) value));
     }
 
-    /**
-     * Assert not game over.
-     */
-    public void assertNotGameOver() {
-        if (eval <= LOSS_EVAL || eval >= WIN_EVAL)
-            throw new AssertionError("evaluation %d is not within limits".formatted(eval));
-    }
 
     /**
      * Gets evaluation depth.
@@ -182,23 +173,28 @@ public class Evaluation implements Serializable {
     }
 
     /**
-     * Is check boolean.
+     * Is this evaluation a check.
      *
-     * @return the boolean
+     * @return <code>true</code> if this evaluation is a check
      */
     public boolean isCheck() {
         return gameStatus.isCheck();
     }
 
+    /**
+     * is this evaluation a check or mate.
+     *
+     * @return <code>true</code> if this evaluation is a check or a checkmate
+     */
     public boolean isCheckOrMate() {
         return gameStatus.isCheckOrMate();
     }
 
     /**
-     * Is greater than boolean.
+     * Is this evaluation is better than <code>other</code>.
      *
-     * @param other the other
-     * @return the boolean
+     * @param other the other evaluation
+     * @return <code>true</code> if this evaluation is better
      */
     public boolean isGreaterThan(Evaluation other) {
         return other.eval < this.eval || (eval == other.eval && ((eval > 0 && evaluationDepth < other.evaluationDepth) || (eval < 0 && evaluationDepth > other.evaluationDepth)));
@@ -256,7 +252,7 @@ public class Evaluation implements Serializable {
                 "eval=" + convertFromCentipawns() +
                 ", detailedEval=" + detailedEval +
                 ", gameStatus=" + gameStatus +
-                ", evaluationFor=" + evaluationFor +
+                ", evaluationFor=" + perspective +
                 ", evaluationDepth=" + evaluationDepth +
                 '}';
     }
@@ -270,6 +266,12 @@ public class Evaluation implements Serializable {
         return convertFromCentipawns(eval);
     }
 
+    /**
+     * Convert from centipawns float.
+     *
+     * @param centipawns the centipawns
+     * @return the float
+     */
     public static float convertFromCentipawns(int centipawns) {
         return ((float) centipawns) / 100;
     }
@@ -288,34 +290,26 @@ public class Evaluation implements Serializable {
     }
 
     /**
-     * Gets evaluation for.
-     *
-     * @return the evaluation for
-     */
-    public PlayerColor getEvaluationFor() {
-        return evaluationFor;
-    }
-
-    /**
-     * Sets perspective.
+     * Sets the perspective the evaluation should be in. if this evaluation
+     * was made for the opponent, it is flipped.
      *
      * @param playerColor the player color
-     * @return the perspective
+     * @return this changed evaluation
      */
     public Evaluation setPerspective(PlayerColor playerColor) {
-        if (evaluationFor != playerColor)
+        if (perspective != playerColor)
             flipEval();
-        evaluationFor = playerColor;
+        perspective = playerColor;
         return this;
     }
 
     /**
-     * Flip eval.
+     * Flip the evaluation. will multiply the eval by -1.
      */
     public void flipEval() {
         eval = -eval;
         if (MAKE_DETAILED) {
-            detailedEval = detailedEval.stream().map(d -> new EvaluationDetail(d.parm, -d.eval)).collect(Collectors.toList());
+            detailedEval = detailedEval.stream().map(d -> new EvaluationDetail(d.parm(), -d.eval())).collect(Collectors.toList());
         }
     }
 
@@ -326,20 +320,4 @@ public class Evaluation implements Serializable {
         System.out.println(this);
     }
 
-    /**
-     * Evaluation detail.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public record EvaluationDetail(EvaluationParameters parm, int eval) implements Serializable {
-        /**
-         * To string string.
-         *
-         * @return the string
-         */
-        @Override
-        public String toString() {
-            return parm + ": " + convertFromCentipawns(eval) + " * " + parm.weight;
-        }
-    }
 }

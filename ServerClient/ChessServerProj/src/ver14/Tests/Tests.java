@@ -15,9 +15,10 @@ import ver14.Players.PlayerAI.Stockfish.Stockfish;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.PieceType;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.GameSetup.GameType;
 import ver14.SharedClasses.Game.GameSetup.TimeFormat;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -56,7 +57,7 @@ public class Tests implements ITest {
         Game.showGameView = true;
         Server server = new Server();
         server.runServer();
-        MyAi ai = new MyAi(new AiParameters(AiParameters.AiType.MyAi, TimeFormat.BULLET)) {
+        MyAi ai = new MyAi(new AISettings(AISettings.AiType.MyAi, TimeFormat.BULLET)) {
             int num = 0;
 
             {
@@ -65,7 +66,7 @@ public class Tests implements ITest {
 
             @Override
             public GameSettings getGameSettings(SyncedItems<?> joinableGames, SyncedItems<?> resumableGames) {
-                return num++ != 0 ? null : new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, "rnb1k1nr/pppppppp/5q2/2b5/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", new AiParameters(AiParameters.AiType.Stockfish, TimeFormat.BULLET), GameSettings.GameType.CREATE_NEW);
+                return num++ != 0 ? null : new GameSettings(PlayerColor.WHITE, TimeFormat.BULLET, "rnb1k1nr/pppppppp/5q2/2b5/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", new AISettings(AISettings.AiType.Stockfish, TimeFormat.BULLET), GameType.CREATE_NEW);
             }
         };
         server.gameSetup(ai);

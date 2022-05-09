@@ -1,6 +1,6 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Components;
 
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.view.Dialog.Components.ListComponent;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
@@ -16,7 +16,7 @@ public class AiTypes extends ListComponent {
     /**
      * The Ai parameters.
      */
-    private final AiParameters aiParameters;
+    private final AISettings aiParameters;
 
     /**
      * Instantiates a new Ai types.
@@ -24,7 +24,7 @@ public class AiTypes extends ListComponent {
      * @param parent       the parent
      * @param aiParameters the ai parameters
      */
-    public AiTypes(Parent parent, AiParameters aiParameters) {
+    public AiTypes(Parent parent, AISettings aiParameters) {
         super(WinPnl.ALL_IN_ONE_ROW, new Header("Select Ai Type"), parent);
         this.aiParameters = aiParameters;
         addComponents(SelectableAiType.selectableAiTypes());
@@ -32,7 +32,7 @@ public class AiTypes extends ListComponent {
 
     @Override
     protected void onSelected() {
-        AiParameters.AiType type = null;
+        AISettings.AiType type = null;
         if (selected != null) {
             type = ((SelectableAiType) selected).aiType();
         }

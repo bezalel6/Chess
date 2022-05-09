@@ -18,7 +18,7 @@ public abstract class GameSelectionCard extends DialogCard {
     /**
      * The Game type.
      */
-    protected final GameSettings.GameType gameType;
+    protected final ver14.SharedClasses.Game.GameSetup.GameType gameType;
 
     /**
      * Instantiates a new Game selection card.
@@ -28,7 +28,7 @@ public abstract class GameSelectionCard extends DialogCard {
      * @param gameSettings the game settings
      * @param gameType     the game type
      */
-    public GameSelectionCard(CardHeader cardHeader, Dialog parentDialog, GameSettings gameSettings, GameSettings.GameType gameType) {
+    public GameSelectionCard(CardHeader cardHeader, Dialog parentDialog, GameSettings gameSettings, ver14.SharedClasses.Game.GameSetup.GameType gameType) {
         super(cardHeader, parentDialog);
         this.gameSettings = gameSettings;
         this.gameType = gameType;

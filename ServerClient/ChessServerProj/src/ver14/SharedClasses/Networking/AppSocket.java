@@ -60,7 +60,7 @@ public class AppSocket extends MyThread {
             if (messagesHandler != null) {
                 messagesHandler.onDisconnected();
             }
-            close();
+            close(e);
         });
 
         // Create MESSAGE streams. Output Stream must be created FIRST!
@@ -68,13 +68,6 @@ public class AppSocket extends MyThread {
         msgOS = new ObjectOutputStream(socket.getOutputStream());
         msgOS.flush();
         msgIS = new ObjectInputStream(socket.getInputStream());
-    }
-
-    /**
-     * Close.
-     */
-    public void close() {
-        close(messagesHandler.createDisconnectedError());
     }
 
     /**
@@ -96,6 +89,13 @@ public class AppSocket extends MyThread {
      */
     public void interruptListener(MyError err) {
         messagesHandler.interruptBlocking(err);
+    }
+
+    /**
+     * Close.
+     */
+    public void close() {
+        close(messagesHandler.createDisconnectedError());
     }
 
     /**

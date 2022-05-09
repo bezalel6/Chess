@@ -252,6 +252,7 @@ public class Col implements Serializable {
      * should the need present itself, both tables might find themselves in the same statement. and specifying
      * Which of the available {@link #GameID}s is accessed will be necessary.
      * sure enough, by using {@link #of(Table)} specifying the parent table is possible.
+     * the generated column is in the format: {@link Table}.{@link Col}
      *
      * @param table the table
      * @return the col

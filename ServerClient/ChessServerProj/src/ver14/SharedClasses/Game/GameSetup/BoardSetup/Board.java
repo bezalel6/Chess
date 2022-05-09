@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
- * Board - represents the logic board of the model
+ * represents a logic board with 64 {@link Square}s
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -19,15 +19,8 @@ public class Board implements Iterable<Square>, Serializable {
     /**
      * The constant startingFen.
      */
-//    todo turn into a hashmap
     public final static String startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-    /**
-     * The constant example.
-     */
-    public static final Board example = new Board() {{
-        fenSetup("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-    }};
-//    private final Square[] board;
+
 
     private final Map<Location, Square> boardMap;
 
@@ -39,12 +32,12 @@ public class Board implements Iterable<Square>, Serializable {
     public Board(Board other) {
         this();
         for (Square square : other) {
-            setPiece(square.getLoc(), square.getPiece());
+            setPiece(square.loc, square.getPiece());
         }
     }
 
     /**
-     * Instantiates a new Board.
+     * Instantiates a new empty Board.
      */
     public Board() {
         this.boardMap = new HashMap<>();
@@ -54,9 +47,9 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     /**
-     * Sets piece.
+     * Sets a piece on a square.
      *
-     * @param loc   the loc
+     * @param loc   the square's loc
      * @param piece the piece
      */
     public void setPiece(Location loc, Piece piece) {
@@ -65,17 +58,17 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     /**
-     * Gets square.
+     * Get a square.
      *
-     * @param loc the loc
-     * @return the square
+     * @param loc the location
+     * @return the square in that location
      */
     public Square getSquare(Location loc) {
         return boardMap.get(loc);
     }
 
     /**
-     * Instantiates a new Board.
+     * Instantiates a new Board and sets it up with a fen.
      *
      * @param fen the fen
      */
@@ -85,7 +78,7 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     /**
-     * Fen setup.
+     * setup this board by a fen.
      *
      * @param fen the fen
      */
@@ -165,10 +158,10 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     /**
-     * Gets piece.
+     * Gets piece from a square.
      *
-     * @param loc the loc
-     * @return the piece
+     * @param loc the square's loc
+     * @return the piece or null if no piece is on that square
      */
     public Piece getPiece(Location loc) {
         return getSquare(loc).getPiece();
@@ -201,10 +194,10 @@ public class Board implements Iterable<Square>, Serializable {
     }
 
     /**
-     * Is square empty boolean.
+     * Is a square empty.
      *
      * @param loc the loc
-     * @return the boolean
+     * @return <code>true</code> if the square is empty
      */
     public boolean isSquareEmpty(Location loc) {
         return getSquare(loc).isEmpty();

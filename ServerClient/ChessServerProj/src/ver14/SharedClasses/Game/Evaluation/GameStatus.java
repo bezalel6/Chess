@@ -9,7 +9,10 @@ import java.util.Map;
 
 
 /**
- * Game status - represents a game status.
+ * represents a game status.
+ * a game status has a {@link SpecificStatus} for all the details about the specific game status
+ * and a {@link GameStatusType} for the general info about the game status. is it game over?
+ * and if so, is it a tie.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -40,6 +43,11 @@ public class GameStatus implements Serializable {
     private String customStr = null;
 
 
+    /**
+     * Instantiates a new Game status.
+     *
+     * @param other the other
+     */
     public GameStatus(GameStatus other) {
         this.winningPlayerColor = other.winningPlayerColor;
         this.specificStatus = other.specificStatus;
@@ -245,6 +253,11 @@ public class GameStatus implements Serializable {
         setCheckedKingLoc(checkedKingLoc);
     }
 
+    /**
+     * Is check or mate boolean.
+     *
+     * @return the boolean
+     */
     public boolean isCheckOrMate() {
         return isCheck() || specificStatus == SpecificStatus.Checkmate;
     }
@@ -321,186 +334,4 @@ public class GameStatus implements Serializable {
         return specificStatus;
     }
 
-    /**
-     * Specific status - specific game status .
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum SpecificStatus {
-        /**
-         * Checkmate.
-         */
-        Checkmate,
-        /**
-         * Timed out.
-         */
-        TimedOut {
-            @Override
-            public String toString() {
-                return "Time Out";
-            }
-        },
-        /**
-         * Timed out vs insufficient material.
-         */
-        TimedOutVsInsufficientMaterial(GameStatusType.TIE) {
-            @Override
-            public String toString() {
-                return "Time Out vs Insufficient Material";
-            }
-        },
-        /**
-         * Resignation.
-         */
-        Resignation,
-        /**
-         * Game goes on .
-         */
-        GameGoesOn(GameStatusType.GAME_GOES_ON),
-        /**
-         * Three fold repetition.
-         */
-        ThreeFoldRepetition(GameStatusType.TIE),
-        /**
-         * Stalemate.
-         */
-        Stalemate(GameStatusType.TIE),
-        /**
-         * Insufficient material.
-         */
-        InsufficientMaterial(GameStatusType.TIE),
-        /**
-         * Fifty move rule.
-         */
-        FiftyMoveRule(GameStatusType.TIE),
-        /**
-         * The Tie by agreement.
-         */
-        TieByAgreement(GameStatusType.TIE) {
-            @Override
-            public String toString() {
-                return "Agreement";
-            }
-        },
-        /**
-         * The Player disconnected vs ai.
-         */
-        PlayerDisconnectedVsAi(GameStatusType.UNFINISHED) {
-            @Override
-            public String toString() {
-                return "Player Disconnected";
-            }
-        },
-        /**
-         * The Player disconnected vs real.
-         */
-        PlayerDisconnectedVsReal {
-            @Override
-            public String toString() {
-                return "Other Player Disconnected";
-            }
-        },
-        /**
-         * Server stopped game.
-         */
-        ServerStoppedGame(GameStatusType.TIE);
-        /**
-         * The Game status type.
-         */
-        public final GameStatusType gameStatusType;
-
-        /**
-         * Instantiates a new Specific status.
-         */
-        SpecificStatus() {
-            this(GameStatusType.WIN_OR_LOSS);
-        }
-
-        /**
-         * Instantiates a new Specific status.
-         *
-         * @param gameStatusType the game status type
-         */
-        SpecificStatus(GameStatusType gameStatusType) {
-            this.gameStatusType = gameStatusType;
-        }
-
-
-        /**
-         * To string string.
-         *
-         * @return the string
-         */
-        @Override
-        public String toString() {
-            return StrUtils.format(name());
-        }
-    }
-
-    /**
-     * Game status type .
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum GameStatusType implements Serializable {
-        /**
-         * Tie game status type.
-         */
-        TIE("½½", "Tie"),
-        /**
-         * Check game status type.
-         */
-        CHECK("+"),
-        /**
-         * Game goes on game status type.
-         */
-        GAME_GOES_ON(""),
-        /**
-         * Win or loss game status type.
-         */
-        WIN_OR_LOSS("#", "Won"),
-        /**
-         * Unfinished game status type.
-         */
-        UNFINISHED("...");
-
-        /**
-         * The game status annotation.
-         */
-        public final String annotation;
-        /**
-         * game over str
-         */
-        public final String gameOverStr;
-
-        /**
-         * Instantiates a new Game status type.
-         *
-         * @param annotation the annotation
-         */
-        GameStatusType(String annotation) {
-            this(annotation, annotation);
-        }
-
-        /**
-         * Instantiates a new Game status type.
-         *
-         * @param annotation  the annotation
-         * @param gameOverStr the game over str
-         */
-        GameStatusType(String annotation, String gameOverStr) {
-            this.annotation = annotation;
-            this.gameOverStr = gameOverStr;
-        }
-
-
-        /**
-         * Is game over.
-         *
-         * @return true if is game over. false otherwise
-         */
-        public boolean isGameOver() {
-            return this == TIE || this == WIN_OR_LOSS || this == UNFINISHED;
-        }
-    }
 }

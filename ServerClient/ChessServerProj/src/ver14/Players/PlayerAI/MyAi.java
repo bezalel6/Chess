@@ -2,7 +2,7 @@ package ver14.Players.PlayerAI;
 
 import ver14.Model.Minimax.Minimax;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
@@ -22,10 +22,10 @@ public class MyAi extends PlayerAI {
     /**
      * Instantiates a new My ai.
      *
-     * @param aiParameters the ai parameters
+     * @param AISettings the ai parameters
      */
-    public MyAi(AiParameters aiParameters) {
-        super(aiParameters);
+    public MyAi(AISettings AISettings) {
+        super(AISettings);
     }
 
     /**

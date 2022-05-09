@@ -21,7 +21,7 @@ public class ResumeUnfinishedGame extends SyncedGamesList implements BackOkInter
      * @param gameSettings the game settings
      */
     public ResumeUnfinishedGame(Parent parent, GameSettings gameSettings) {
-        super(new Header("Resume Unfinished Game vs Ai"), SyncedListType.RESUMABLE_GAMES, parent, gameSettings, GameSettings.GameType.RESUME);
+        super(new Header("Resume Unfinished Game vs Ai"), SyncedListType.RESUMABLE_GAMES, parent, gameSettings, ver14.SharedClasses.Game.GameSetup.GameType.RESUME);
     }
 
     @Override

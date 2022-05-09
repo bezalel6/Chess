@@ -21,7 +21,7 @@ public abstract class SyncedGamesList extends SyncableListComponent implements B
     /**
      * The Game type.
      */
-    protected final GameSettings.GameType gameType;
+    protected final ver14.SharedClasses.Game.GameSetup.GameType gameType;
 
     /**
      * Instantiates a new Synced games list.
@@ -32,7 +32,7 @@ public abstract class SyncedGamesList extends SyncableListComponent implements B
      * @param gameSettings the game settings
      * @param gameType     the game type
      */
-    public SyncedGamesList(Header header, SyncedListType listType, Parent parent, GameSettings gameSettings, GameSettings.GameType gameType) {
+    public SyncedGamesList(Header header, SyncedListType listType, Parent parent, GameSettings gameSettings, ver14.SharedClasses.Game.GameSetup.GameType gameType) {
         super(header, listType, parent);
         this.gameSettings = gameSettings;
         this.gameType = gameType;

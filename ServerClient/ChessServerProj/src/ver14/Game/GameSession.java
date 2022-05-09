@@ -5,6 +5,7 @@ import ver14.Players.Player;
 import ver14.Server;
 import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
+import ver14.SharedClasses.Game.Evaluation.GameStatusType;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Game.PlayerColor;
@@ -156,7 +157,7 @@ public class GameSession extends HandledThread implements SyncableItem {
         String un = creator.getUsername();
         String opp = creator.getPartner().getUsername();
         Stack<Move> moveStack = game.getMoveStack();
-        if (gameResult.getGameStatusType() == GameStatus.GameStatusType.UNFINISHED) {
+        if (gameResult.getGameStatusType() == GameStatusType.UNFINISHED) {
             //if reached this point there's no need to verify vs ai. would've returned already if it isnt
             UnfinishedGame unfinishedGame = new UnfinishedGame(
                     gameID,
@@ -249,7 +250,7 @@ public class GameSession extends HandledThread implements SyncableItem {
      * @return the boolean
      */
     public boolean isSaveWorthy(GameStatus gameResult) {
-        if (gameResult.getGameStatusType() == GameStatus.GameStatusType.UNFINISHED) {
+        if (gameResult.getGameStatusType() == GameStatusType.UNFINISHED) {
             return creator.isSaveWorthy() && p2.isAi();
         }
         return creator.isSaveWorthy() || p2.isSaveWorthy();

@@ -3,7 +3,7 @@ package ver14.Players.PlayerAI.Stockfish;
 import ver14.Model.FEN;
 import ver14.Players.PlayerAI.PlayerAI;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.Moves.BasicMove;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
@@ -23,10 +23,10 @@ public class StockfishPlayer extends PlayerAI {
     /**
      * Instantiates a new Stockfish player.
      *
-     * @param aiParameters the ai parameters
+     * @param AISettings the ai parameters
      */
-    public StockfishPlayer(AiParameters aiParameters) {
-        super(aiParameters);
+    public StockfishPlayer(AISettings AISettings) {
+        super(AISettings);
         this.stockfish = new Stockfish();
     }
 

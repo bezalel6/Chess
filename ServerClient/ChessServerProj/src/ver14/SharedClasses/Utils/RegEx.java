@@ -1,7 +1,7 @@
 package ver14.SharedClasses.Utils;
 
 import org.intellij.lang.annotations.Language;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -59,7 +59,7 @@ public class RegEx implements Serializable {
     /**
      * The constant DontSaveGame.
      */
-    public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX + "|" + AiParameters.AiType.MyAi + "|" + AiParameters.AiType.Stockfish, "");
+    public static final RegEx DontSaveGame = new RegEx(Prefixes.GUEST_PREFIX + "|" + AISettings.AiType.MyAi + "|" + AISettings.AiType.Stockfish, "");
 
 
     /**
@@ -147,9 +147,9 @@ public class RegEx implements Serializable {
      * @return the reg ex
      */
     public RegEx get(boolean useDontMatch) {
-        return new RegEx(regEx, details, dontMatch) {{
-            setUseDontMatch(useDontMatch);
-        }};
+        var r = new RegEx(regEx, details, dontMatch);
+        r.setUseDontMatch(useDontMatch);
+        return r;
     }
 
     /**

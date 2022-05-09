@@ -416,14 +416,14 @@ public class Game {
         return MoveGenerator.generateMoves(model, GenerationSettings.ANNOTATE).getCleanList();
     }
 
-    /**
-     * Check time out boolean.
-     *
-     * @return the boolean
-     */
-    private boolean checkTimeOut() {
-        return gameTime.getRunningTime(currentPlayer.getPlayerColor()).didRunOut();
-    }
+//    /**
+//     * Check time out boolean.
+//     *
+//     * @return the boolean
+//     */
+//    private boolean checkTimeOut() {
+//        return gameTime.getRunningTime(currentPlayer.getPlayerColor()).didRunOut();
+//    }
 
     /**
      * Gets creator color.

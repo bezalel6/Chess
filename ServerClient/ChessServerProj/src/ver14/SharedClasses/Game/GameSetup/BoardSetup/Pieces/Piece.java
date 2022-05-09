@@ -4,16 +4,14 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Piece - represents a combination of a piece type and color.
+ * represents a combination of a {@link PieceType} and {@link PlayerColor}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
- * @see PieceType
- * @see PlayerColor
  */
 public enum Piece {
 
     /**
-     * represents a White p piece.
+     * represents a White Pawn.
      */
     W_P(PieceType.PAWN, PlayerColor.WHITE),
     /**
@@ -38,7 +36,7 @@ public enum Piece {
     W_K(PieceType.KING, PlayerColor.WHITE),
 
     /**
-     * represents a Black p piece.
+     * represents a Black pawn.
      */
     B_P(PieceType.PAWN, PlayerColor.BLACK),
     /**

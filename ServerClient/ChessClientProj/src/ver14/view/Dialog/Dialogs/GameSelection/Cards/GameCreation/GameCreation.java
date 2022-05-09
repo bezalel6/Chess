@@ -22,7 +22,7 @@ public class GameCreation extends GameSelectionCard {
      * @param gameSettings the game settings
      */
     public GameCreation(Dialog parentDialog, GameSettings gameSettings) {
-        super(new CardHeader("Create New Game"), parentDialog, gameSettings, GameSettings.GameType.CREATE_NEW);
+        super(new CardHeader("Create New Game"), parentDialog, gameSettings, ver14.SharedClasses.Game.GameSetup.GameType.CREATE_NEW);
         addDialogComponent(new PlayerColors(parentDialog, gameSettings));
         addDialogComponent(new TimeFormatSlider(parentDialog, gameSettings));
         addNavigationTo(new StartFromPosition(parentDialog, gameSettings));

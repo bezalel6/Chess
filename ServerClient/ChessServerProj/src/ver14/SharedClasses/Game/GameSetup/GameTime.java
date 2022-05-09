@@ -7,19 +7,15 @@ import java.util.Arrays;
 
 
 /**
- * Game time.
+ * represents the current state of both player's time.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class GameTime implements Serializable {
     /**
-     * The constant delay.
-     */
-    private static final int delay = 100;
-    /**
      * The Game time.
      */
-    private final RunningTime[] gameTime;
+    private final long[] gameTime;
     /**
      * The Time formats.
      */
@@ -28,6 +24,7 @@ public class GameTime implements Serializable {
      * The Currently running.
      */
     private PlayerColor currentlyRunning = null;
+    private long lastStart = 0;
 
     /**
      * Instantiates a new Game time.
@@ -47,14 +44,14 @@ public class GameTime implements Serializable {
      */
     public GameTime(TimeFormat... timeFormats) {
         this.timeFormats = timeFormats;
-        gameTime = new RunningTime[PlayerColor.NUM_OF_PLAYERS];
+        gameTime = new long[PlayerColor.NUM_OF_PLAYERS];
         if (timeFormats.length == 1) {
             for (int i = 0; i < PlayerColor.NUM_OF_PLAYERS; i++) {
-                gameTime[i] = new RunningTime(timeFormats[0]);
+                gameTime[i] = (timeFormats[0].timeInMillis);
             }
         } else if (timeFormats.length == PlayerColor.NUM_OF_PLAYERS) {
             for (int i = 0; i < timeFormats.length; i++) {
-                gameTime[i] = new RunningTime(timeFormats[i]);
+                gameTime[i] = (timeFormats[i].timeInMillis);
             }
         }
 
@@ -71,33 +68,13 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Start running.
+     * Start running a player's clock.
      *
      * @param playerColor the player color
      */
-    public void startRunning(PlayerColor playerColor) {
-        getRunningTime(playerColor).startRunning();
+    public synchronized void startRunning(PlayerColor playerColor) {
+        lastStart = System.currentTimeMillis();
         this.currentlyRunning = playerColor;
-    }
-
-    /**
-     * Gets running time.
-     *
-     * @param playerColor the player color
-     * @return the running time
-     */
-    public RunningTime getRunningTime(PlayerColor playerColor) {
-        return gameTime[playerColor.ordinal()];
-    }
-
-    /**
-     * Stop running.
-     *
-     * @param playerColor the player color
-     */
-    public void stopRunning(PlayerColor playerColor) {
-        getRunningTime(playerColor).stopRunning();
-        this.currentlyRunning = null;
     }
 
     /**
@@ -126,7 +103,8 @@ public class GameTime implements Serializable {
      * @return the time left
      */
     public long getTimeLeft(PlayerColor playerColor) {
-        return getRunningTime(playerColor).getTimeInMillis();
+        var f = timeFormats[playerColor.asInt];
+        return playerColor == currentlyRunning ? System.currentTimeMillis() - lastStart : f.timeInMillis;
     }
 
     /**
@@ -151,73 +129,5 @@ public class GameTime implements Serializable {
                 '}';
     }
 
-    /**
-     * Running time.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    static public class RunningTime implements Serializable {
-        /**
-         * The Time in millis.
-         */
-        private long timeInMillis;
-        /**
-         * The Last started.
-         */
-        private long lastStarted;
-
-        /**
-         * Instantiates a new Running time.
-         *
-         * @param timeFormat the time format
-         */
-        public RunningTime(TimeFormat timeFormat) {
-            this.timeInMillis = timeFormat.timeInMillis;
-        }
-
-        /**
-         * Start running.
-         */
-        public void startRunning() {
-            lastStarted = System.currentTimeMillis();
-        }
-
-        /**
-         * Stop running.
-         */
-        public void stopRunning() {
-            timeInMillis -= System.currentTimeMillis() - lastStarted;
-        }
-
-        /**
-         * Gets time in millis.
-         *
-         * @return the time in millis
-         */
-        public long getTimeInMillis() {
-            return timeInMillis;
-        }
-
-        /**
-         * Did run out boolean.
-         *
-         * @return the boolean
-         */
-        public boolean didRunOut() {
-            return timeInMillis <= 0;
-        }
-
-        /**
-         * To string string.
-         *
-         * @return the string
-         */
-        @Override
-        public String toString() {
-            return "RunningTime{" +
-                    ", timeInMillis=" + timeInMillis +
-                    '}';
-        }
-    }
 }
 

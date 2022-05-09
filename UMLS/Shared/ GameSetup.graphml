@@ -599,7 +599,7 @@
             </y:Label.Style>
           </y:Label>
           <y:Label>
-            <y:Label.Text>aiParameters</y:Label.Text>
+            <y:Label.Text>AISettings</y:Label.Text>
             <y:Label.LayoutParameter>
               <y:SmartEdgeLabelModelParameter Model="{y:GraphMLReference 3}" SegmentRatio="1" Distance="6" />
             </y:Label.LayoutParameter>

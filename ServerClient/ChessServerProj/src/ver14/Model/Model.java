@@ -151,7 +151,7 @@ public class Model implements Serializable {
         for (Square square : board) {
             if (!square.isEmpty()) {
                 Piece piece = square.getPiece();
-                addPiece(piece, square.getLoc());
+                addPiece(piece, square.loc);
             }
         }
     }

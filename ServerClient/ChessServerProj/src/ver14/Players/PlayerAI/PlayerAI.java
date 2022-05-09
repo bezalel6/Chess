@@ -5,7 +5,7 @@ import ver14.Players.Player;
 import ver14.Players.PlayerAI.Stockfish.StockfishPlayer;
 import ver14.SharedClasses.Callbacks.AnswerCallback;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
-import ver14.SharedClasses.Game.GameSetup.AiParameters;
+import ver14.SharedClasses.Game.GameSetup.AISettings;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.Moves.Move;
 import ver14.SharedClasses.Misc.Question;
@@ -21,13 +21,13 @@ import java.util.Map;
  */
 public abstract class PlayerAI extends Player {
     private final static long safetyNet = 500;
-    private final AiParameters aiParameters;
+    private final AISettings AISettings;
     protected Map<Question.QuestionType, Question.Answer> qNa = new HashMap<>();
     long moveSearchTimeout;
 
-    public PlayerAI(AiParameters aiParameters) {
-        super(aiParameters.getAiType().toString());
-        this.aiParameters = aiParameters;
+    public PlayerAI(AISettings AISettings) {
+        super(AISettings.getAiType().toString());
+        this.AISettings = AISettings;
         setAnswer(Question.QuestionType.REMATCH, Question.Answer.YES);
         setAnswer(Question.QuestionType.DRAW_OFFER, Question.Answer.DO_NOT_ACCEPT);
     }
@@ -36,16 +36,16 @@ public abstract class PlayerAI extends Player {
         qNa.put(questionType, answer);
     }
 
-    public static PlayerAI createPlayerAi(AiParameters aiParameters) {
-        return switch (aiParameters.getAiType()) {
-            case MyAi -> new MyAi(aiParameters);
-            case Stockfish -> new StockfishPlayer(aiParameters);
+    public static PlayerAI createPlayerAi(AISettings AISettings) {
+        return switch (AISettings.getAiType()) {
+            case MyAi -> new MyAi(AISettings);
+            case Stockfish -> new StockfishPlayer(AISettings);
         };
     }
 
     @Override
     public void initGame(Game game) {
-        long time = Math.min(game.getGameTime().getTimeFormat(getPlayerColor()).timeInMillis, aiParameters.getMoveSearchTimeout().timeInMillis);
+        long time = Math.min(game.getGameTime().getTimeFormat(getPlayerColor()).timeInMillis, AISettings.getMoveSearchTimeout().timeInMillis);
         time -= safetyNet;
         time = Math.max(0, time);
         this.moveSearchTimeout = time;

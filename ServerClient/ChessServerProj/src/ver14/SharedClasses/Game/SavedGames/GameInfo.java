@@ -6,7 +6,6 @@ import ver14.SharedClasses.Sync.SyncableItem;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Random;
 
 
 /**
@@ -41,15 +40,6 @@ public abstract class GameInfo implements Serializable, SyncableItem {
         this.gameId = gameId;
         this.creatorUsername = creatorUsername;
         this.gameSettings = gameSettings;
-    }
-
-    /**
-     * Example game info.
-     *
-     * @return the game info
-     */
-    public static GameInfo example() {
-        return new CreatedGame(new Random().nextInt() + "", "creator", GameSettings.EXAMPLE);
     }
 
     /**

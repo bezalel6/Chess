@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * represents a database request. a db request can have a {@code subRequest} for
  * requests that need to use the db separately, but are still contained under one request.
- * like a summary line at the end of a games request. the summary is calculated on a separate
+ * like a summary line at the end of a games request for example. the summary is calculated on a separate
  * db call after the main stat has finished, but both should show up as one to the client.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
