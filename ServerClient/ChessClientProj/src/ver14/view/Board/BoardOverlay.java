@@ -10,7 +10,6 @@ import javax.swing.plaf.LayerUI;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -496,8 +495,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
      * @param move the move
      */
     public void drawMove(Move move) {
-        Point start = view.getBtn(move.getMovingFrom()).getLocation();
-        Point end = view.getBtn(move.getMovingTo()).getLocation();
+        Point start = view.getBtn(move.getSource()).getLocation();
+        Point end = view.getBtn(move.getDestination()).getLocation();
         arrows.add(newArrow(start, end));
     }
 

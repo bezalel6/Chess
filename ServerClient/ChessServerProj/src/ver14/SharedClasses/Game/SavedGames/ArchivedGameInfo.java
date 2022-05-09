@@ -1,5 +1,6 @@
 package ver14.SharedClasses.Game.SavedGames;
 
+import ver14.SharedClasses.DBActions.RequestBuilder;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.Moves.Move;
 
@@ -7,7 +8,7 @@ import java.util.Stack;
 
 
 /**
- * Archived game info.
+ * represents a game that was finished, and is intended to be archived in the db.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -33,9 +34,9 @@ public class ArchivedGameInfo extends EstablishedGameInfo {
     }
 
     /**
-     * Gets winner.
+     * Gets the winner of this game.
      *
-     * @return the winner
+     * @return the winner's username if the game is decisive. {@value RequestBuilder#TIE_STR} otherwise
      */
     public String getWinner() {
         return winner;

@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/ver14/SharedClasses/Utils/sqlformatter" />
       <excludeFolder url="file://$MODULE_DIR$/JavaDoc" />
       <excludeFolder url="file://$MODULE_DIR$/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <content url="file://$MODULE_DIR$/../../UMLS" />
     <orderEntry type="inheritedJdk" />

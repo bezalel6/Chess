@@ -9,11 +9,11 @@ import java.io.Serializable;
 
 
 /**
- * Game info.
+ * represents a Game info.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public abstract class GameInfo implements Serializable, SyncableItem {
+public class GameInfo implements Serializable, SyncableItem {
     @Serial
     private static final long serialVersionUID = 42069_000_000L;
     /**
@@ -36,7 +36,7 @@ public abstract class GameInfo implements Serializable, SyncableItem {
      * @param creatorUsername the creator username
      * @param gameSettings    the game settings
      */
-    protected GameInfo(String gameId, String creatorUsername, GameSettings gameSettings) {
+    public GameInfo(String gameId, String creatorUsername, GameSettings gameSettings) {
         this.gameId = gameId;
         this.creatorUsername = creatorUsername;
         this.gameSettings = gameSettings;
@@ -91,7 +91,11 @@ public abstract class GameInfo implements Serializable, SyncableItem {
      *
      * @return the game desc
      */
-    public abstract String getGameDesc();
+    public String getGameDesc() {
+        return "%s %s (%s)".formatted(creatorUsername, getJoiningPlayerColor() == PlayerColor.NO_PLAYER ? "Random" : getJoiningPlayerColor(), gameId);
+    }
+
+    ;
 
     /**
      * Gets joining player color.

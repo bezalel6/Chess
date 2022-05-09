@@ -17,13 +17,13 @@ public class BasicMove implements Serializable {
     @Serial
     private static final long serialVersionUID = 42069_000_000L;
     /**
-     * The Moving from.
+     * The source.
      */
-    Location movingFrom;
+    Location source;
     /**
-     * The Moving to.
+     * The destination.
      */
-    Location movingTo;
+    Location destination;
 
 
     /**
@@ -32,18 +32,18 @@ public class BasicMove implements Serializable {
      * @param other the other
      */
     public BasicMove(BasicMove other) {
-        this(other.movingFrom, other.movingTo);
+        this(other.source, other.destination);
     }
 
     /**
      * Instantiates a new Basic move.
      *
-     * @param movingFrom the moving from
-     * @param movingTo   the moving to
+     * @param source      the source
+     * @param destination the destination
      */
-    public BasicMove(Location movingFrom, Location movingTo) {
-        this.movingFrom = movingFrom;
-        this.movingTo = movingTo;
+    public BasicMove(Location source, Location destination) {
+        this.source = source;
+        this.destination = destination;
     }
 
     /**
@@ -94,45 +94,45 @@ public class BasicMove implements Serializable {
      * Flips the source and destination.
      */
     public void flip() {
-        Location t = movingFrom;
-        movingFrom = movingTo;
-        movingTo = t;
+        Location t = source;
+        source = destination;
+        destination = t;
     }
 
     /**
-     * Gets moving from. aka source
+     * Gets source. aka source
      *
-     * @return the moving from
+     * @return the source
      */
-    public Location getMovingFrom() {
-        return movingFrom;
+    public Location getSource() {
+        return source;
     }
 
     /**
-     * Sets moving from.
+     * Sets source.
      *
-     * @param movingFrom the moving from
+     * @param source the source
      */
-    public void setMovingFrom(Location movingFrom) {
-        this.movingFrom = movingFrom;
+    public void setSource(Location source) {
+        this.source = source;
     }
 
     /**
-     * Gets moving to.
+     * Gets destination.
      *
-     * @return the moving to
+     * @return the destination
      */
-    public Location getMovingTo() {
-        return movingTo;
+    public Location getDestination() {
+        return destination;
     }
 
     /**
-     * Sets moving to.
+     * Sets destination.
      *
-     * @param movingTo the moving to
+     * @param destination the destination
      */
-    public void setMovingTo(Location movingTo) {
-        this.movingTo = movingTo;
+    public void setDestination(Location destination) {
+        this.destination = destination;
     }
 
     /**
@@ -142,7 +142,7 @@ public class BasicMove implements Serializable {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(movingFrom, movingTo);
+        return Objects.hash(source, destination);
     }
 
     /**
@@ -155,7 +155,7 @@ public class BasicMove implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BasicMove basicMove)) return false;
-        return Objects.equals(movingFrom, basicMove.movingFrom) && Objects.equals(movingTo, basicMove.movingTo);
+        return Objects.equals(source, basicMove.source) && Objects.equals(destination, basicMove.destination);
     }
 
     /**

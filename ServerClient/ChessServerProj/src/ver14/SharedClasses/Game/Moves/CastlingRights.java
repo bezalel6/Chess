@@ -10,8 +10,19 @@ import java.util.Locale;
 
 
 /**
- * Castling rights - represents castling rights for both players in a position using a byte. two bits for each side for each player. 4 bits total
- * (a byte is the smallest you can get).
+ * represents castling rights for both players in a position, using a byte. two bits for each side for each player. 4 bits total.
+ * (a byte is the smallest available. so 4 bytes go to waist).
+ * examples:<br/>
+ * white and black can castle both sides:<br/>
+ * 1    1   1   1<br/>
+ * white can castle king side and black can queen side:<br/>
+ * 1    0   0   1<br/>
+ * white can't castle black can both:<br/>
+ * 1    1   0   0<br/>
+ * white can both black can't:<br/>
+ * 0    0   1   1<br/>
+ * white can king side black can't:<br/>
+ * 0    0   0   1<br/>
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -35,6 +46,7 @@ public class CastlingRights implements Serializable {
     private final static String[] FENS = new String[4];
 
     static {
+
         for (PlayerColor playerColor : PlayerColor.PLAYER_COLORS) {
             for (Side side : Side.SIDES) {
                 int index = getPlayerAndSideIndex(playerColor, side);
@@ -63,7 +75,8 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Instantiates a new Castling rights.
+     * Instantiates a new Castling rights. with a default value of 0.
+     * (no one can castle)
      */
     public CastlingRights() {
         rights = 0;
@@ -100,7 +113,7 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Enable castling.
+     * Enable castling for a player on a side.
      *
      * @param playerColor the player color
      * @param side        the side
@@ -110,7 +123,7 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Gets rights.
+     * Gets a byte with a bit set on the corresponding index.
      *
      * @param playerColor the player color
      * @param side        the side
@@ -131,17 +144,9 @@ public class CastlingRights implements Serializable {
         return playerColor.indexOf2 + side.asInt;
     }
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-
-    }
 
     /**
-     * Whos castling player color.
+     * Who's castling player color.
      *
      * @param castlingRights the castling rights
      * @return the player color
@@ -175,20 +180,21 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Is enabled boolean.
+     * Is a player's castling right enabled.
      *
      * @param playerColor the player color
      * @param side        the side
-     * @return the boolean
+     * @return <code>true</code> if the player can castle
      */
     public boolean isEnabled(PlayerColor playerColor, Side side) {
         return (rights & getRights(playerColor, side)) != 0;
     }
 
-    /***
+    /**
+     * disable a player's castling ability  to both sides.
      *
      * @param playerColor the player color
-     * @return disabled bytes
+     * @return a byte with bits set where the disabling changed
      */
     public byte disableCastling(PlayerColor playerColor) {
         return (byte) (disableCastling(playerColor, Side.SIDES[0]) |
@@ -196,11 +202,11 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Disable castling byte.
+     * set the corresponding bit to the clr and side to 0.
      *
      * @param playerColor the player color
      * @param side        the side
-     * @return the byte
+     * @return a byte with bits set where the value changed
      */
     public byte disableCastling(PlayerColor playerColor, Side side) {
         byte old = rights;
@@ -218,19 +224,19 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Enable.
+     * Enable bits in.
      *
-     * @param b the b
+     * @param b the byte
      */
     public void enable(byte b) {
         rights |= b;
     }
 
     /**
-     * Has any boolean.
+     * can a player castle in any direction
      *
      * @param playerColor the player color
-     * @return the boolean
+     * @return <code>true</code> if the player can castle king/queen side
      */
     public boolean hasAny(PlayerColor playerColor) {
         return getPlayersCastling(playerColor) != 0;
@@ -247,7 +253,7 @@ public class CastlingRights implements Serializable {
     }
 
     /**
-     * Side - Castling side.
+     * Castling side.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
@@ -334,7 +340,7 @@ public class CastlingRights implements Serializable {
         }
 
         /**
-         * King final loc location.
+         * calculate the King's final castled location.
          *
          * @param currentKingLoc the current king loc
          * @return the location

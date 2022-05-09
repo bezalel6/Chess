@@ -17,7 +17,7 @@ import ver14.SharedClasses.DBActions.Statements.CustomStatement;
 import ver14.SharedClasses.DBActions.Statements.Selection;
 import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
-import ver14.SharedClasses.Game.GameSetup.AISettings;
+import ver14.SharedClasses.Game.GameSetup.AiType;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
@@ -522,7 +522,7 @@ public class DB {
             GameSettings gameSettings = new GameSettings();
             String oppUn, winner;
             if (isVsAi) {
-                oppUn = AISettings.AiType.MyAi.toString();
+                oppUn = AiType.MyAi.toString();
                 gameSettings.initDefault1vAi();
             } else {
                 int index;

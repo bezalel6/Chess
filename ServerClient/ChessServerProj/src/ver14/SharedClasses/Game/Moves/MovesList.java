@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /**
- * Moves list.
+ * represents a list of moves, with a calculated hash used to find threefold repetitions.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -143,7 +143,7 @@ public class MovesList extends ArrayList<Move> implements Serializable {
 //        int mult = castling.getSide() == CastlingRights.Side.KING ? 1 : -1;
 //
 //        for (int i = 1; i <= 2; i++) {
-//            if (attacked.anyMatch(Location.getLoc(castling.getMovingFrom(), i * mult))) {
+//            if (attacked.anyMatch(Location.getLoc(castling.getSource(), i * mult))) {
 //                return false;
 //            }
 //        }

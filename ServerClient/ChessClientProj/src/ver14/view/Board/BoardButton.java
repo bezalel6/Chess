@@ -536,16 +536,16 @@ public class BoardButton extends MyJButton {
     }
 
     /**
-     * Moving from. sets this button as a 'moving from' btn to highlight the square
+     * source. sets this button as a 'source' btn to highlight the square
      */
-    public void movingFrom() {
+    public void source() {
         addState(State.MOVING_FROM);
     }
 
     /**
-     * Moving to.
+     * destination.
      */
-    public void movingTo() {
+    public void destination() {
         addState(State.MOVING_TO);
     }
 

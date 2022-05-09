@@ -10,7 +10,9 @@ import ver14.SharedClasses.Game.PlayerColor;
 
 
 /**
- * Move - represents a "heavy" move. with a lot of info.
+ * represents a "heavy" move. with a lot of info.
+ * one of the fields it has is {@code intermediateMove} (aka Zwischenzug) which is a move to play before this move.
+ * like moving the king in castling, or moving a pawn once in a double pawn push.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -18,7 +20,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     /**
      * The constant NOT_CAPTURING.
      */
-    private static final PieceType NOT_CAPTURING = null;
+    public static final PieceType NOT_CAPTURING = null;
     /**
      * an Intermediate move, like moving the rook in a castling.
      */
@@ -76,23 +78,23 @@ public class Move extends BasicMove implements Comparable<Move> {
     /**
      * Instantiates a new Move.
      *
-     * @param movingFrom         the moving from
-     * @param movingTo           the moving to
+     * @param source             the source
+     * @param destination        the destination
      * @param capturingPieceType the capturing piece type
      */
-    public Move(Location movingFrom, Location movingTo, PieceType capturingPieceType) {
-        this(movingFrom, movingTo);
+    public Move(Location source, Location destination, PieceType capturingPieceType) {
+        this(source, destination);
         this.capturingPieceType = capturingPieceType;
     }
 
     /**
      * Instantiates a new Move.
      *
-     * @param movingFrom the moving from
-     * @param movingTo   the moving to
+     * @param source      the source
+     * @param destination the destination
      */
-    public Move(Location movingFrom, Location movingTo) {
-        super(movingFrom, movingTo);
+    public Move(Location source, Location destination) {
+        super(source, destination);
         this.movingPlayerColor = null;
         this.capturingPieceType = NOT_CAPTURING;
         this.intermediateMove = null;
@@ -142,16 +144,16 @@ public class Move extends BasicMove implements Comparable<Move> {
     /**
      * creates a Castling move.
      *
-     * @param movingFrom the moving from
-     * @param movingTo   the moving to
-     * @param side       the castling side
-     * @return the move
+     * @param source      the source
+     * @param destination the destination
+     * @param side        the castling side
+     * @return the castling move
      */
-    public static Move castling(Location movingFrom, Location movingTo, CastlingRights.Side side) {
-        Move move = new Move(movingFrom, movingTo);
+    public static Move castling(Location source, Location destination, CastlingRights.Side side) {
+        Move move = new Move(source, destination);
         move.setMoveFlag(MoveFlag.CASTLING_FLAGS[side.asInt]);
-        Location rookOrigin = Location.getLoc(movingFrom.row, side.rookStartingCol);
-        Location rookDestination = Location.getLoc(movingFrom.row, side.castledRookCol);
+        Location rookOrigin = Location.getLoc(source.row, side.rookStartingCol);
+        Location rookDestination = Location.getLoc(source.row, side.castledRookCol);
         assert rookOrigin != null && rookDestination != null;
         move.intermediateMove = new BasicMove(rookOrigin, rookDestination);
         return move;
@@ -210,7 +212,7 @@ public class Move extends BasicMove implements Comparable<Move> {
 
 
     /**
-     * Gets disabled castling.
+     * Gets a byte with the bits of the castling it disabled set.
      *
      * @return the disabled castling
      */
@@ -334,18 +336,18 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Is check boolean.
+     * Is this move a check.
      *
-     * @return the boolean
+     * @return <code>true</code> if this move is a check
      */
     public boolean isCheck() {
         return moveEvaluation != null && moveEvaluation.isCheck();
     }
 
     /**
-     * Gets move evaluation.
+     * Gets this move's evaluation.
      *
-     * @return the move evaluation
+     * @return the move evaluation if one is set, null otherwise
      */
     public Evaluation getMoveEvaluation() {
         if (threefoldStatus == ThreefoldStatus.CLAIMED) {
@@ -357,7 +359,7 @@ public class Move extends BasicMove implements Comparable<Move> {
     //endregion
 
     /**
-     * Sets move evaluation.
+     * Sets the evaluation of this move
      *
      * @param moveEvaluation the move evaluation
      */
@@ -370,18 +372,19 @@ public class Move extends BasicMove implements Comparable<Move> {
     }
 
     /**
-     * Gets capturing piece type.
+     * Gets the type of piece this move captures.
      *
-     * @return the capturing piece type
+     * @return the piece if one is captured, null otherwise.
      */
     public PieceType getCapturingPieceType() {
         return capturingPieceType;
     }
 
     /**
-     * Is reversible boolean.
+     * Is this move reversible.
      *
-     * @return the boolean
+     * @return <code>true</code> if this move is reversible
+     * @see <a href="https://www.chessprogramming.org/Reversible_Moves">chessprogramming.org/Reversible_Moves</a>
      */
     public boolean isReversible() {
         return isReversible;
@@ -399,9 +402,9 @@ public class Move extends BasicMove implements Comparable<Move> {
 
 
     /**
-     * Is capturing boolean.
+     * is this move a capturing move.
      *
-     * @return the boolean
+     * @return {@code true} if this is move captures a piece
      */
     public boolean isCapturing() {
         return capturingPieceType != NOT_CAPTURING;
@@ -500,7 +503,8 @@ public class Move extends BasicMove implements Comparable<Move> {
 
     /**
      * Guess eval double.
-     * used to estimate how good (or bad) a move can be, in order to sort the moves before making any of them, in some situations in the minimax
+     * used to estimate how good (or bad) a move can be,
+     * in order to sort the moves before making any of them in some situations in the minimax
      *
      * @return the double
      */

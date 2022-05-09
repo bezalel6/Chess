@@ -11,16 +11,6 @@ import java.io.Serializable;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class AISettings implements Serializable, ParentOf<TimeFormat> {
-
-
-    /**
-     * The constant EZ_MY_AI.
-     */
-    public static final AISettings EZ_MY_AI = new AISettings(AiType.MyAi, TimeFormat.ULTRA_BULLET);
-    /**
-     * The constant EZ_STOCKFISH.
-     */
-    public static final AISettings EZ_STOCKFISH = new AISettings(AiType.Stockfish, TimeFormat.ULTRA_BULLET);
     /**
      * The Ai type.
      */
@@ -129,20 +119,4 @@ public class AISettings implements Serializable, ParentOf<TimeFormat> {
         setMoveSearchTimeout(timeFormat);
     }
 
-    /**
-     * Ai type.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public enum AiType {
-        /**
-         * Stockfish ai type.
-         */
-        Stockfish,
-        /**
-         * My ai type.
-         */
-        MyAi;
-
-    }
 }

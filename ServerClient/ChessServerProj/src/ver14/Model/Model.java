@@ -524,10 +524,10 @@ public class Model implements Serializable {
      * @param move the move
      */
     public void applyMove(Move move) {
-        Location movingFrom = move.getMovingFrom();
-        Location movingTo = move.getMovingTo();
+        Location source = move.getSource();
+        Location destination = move.getDestination();
 
-        Piece piece = board.getPiece(movingFrom, true);
+        Piece piece = board.getPiece(source, true);
         PlayerColor piecePlayerColor = piece.playerColor;
 
         move.setPrevFullMoveClock(fullMoveCounter);
@@ -537,16 +537,16 @@ public class Model implements Serializable {
 
         if (move.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
             enPassantTargetLoc = (move.getEnPassantLoc());
-            enPassantActualLoc = (movingTo);
+            enPassantActualLoc = (destination);
         } else {
             enPassantTargetLoc = enPassantActualLoc = null;
         }
 
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             PieceType promotingTo = move.getPromotingTo();
-            delPiece(piece, movingFrom);
+            delPiece(piece, source);
             Piece newPiece = Piece.getPiece(promotingTo, piecePlayerColor);
-            addPiece(newPiece, movingFrom);
+            addPiece(newPiece, source);
             piece = newPiece;
         }
 
@@ -558,26 +558,26 @@ public class Model implements Serializable {
             if (piece.pieceType == PieceType.KING) {
                 disabled |= castlingRights.disableCastling(piecePlayerColor);
             } else if (piece.pieceType == PieceType.ROOK) {
-                CastlingRights.Side side = getSideRelativeToKing(this, piecePlayerColor, movingTo);
+                CastlingRights.Side side = getSideRelativeToKing(this, piecePlayerColor, destination);
                 disabled |= castlingRights.disableCastling(piecePlayerColor, side);
             }
         }
 
         if (move.isCapturing()) {
-            Piece otherPiece = board.getPiece(movingTo);
+            Piece otherPiece = board.getPiece(destination);
 //            Assert(otherPiece != null, "eating on empty stomach", move);
 //            Location lastSet = getKing(otherPiece.playerColor);
 //            Assert(otherPiece.pieceType != PieceType.KING, "eating a freaking king", move);
             if (otherPiece.pieceType == PieceType.ROOK) {
                 PlayerColor capClr = otherPiece.playerColor;
-                CastlingRights.Side side = getSideRelativeToKing(this, capClr, movingTo);
+                CastlingRights.Side side = getSideRelativeToKing(this, capClr, destination);
                 if (castlingRights.isEnabled(capClr, side)) {
                     disabled |= castlingRights.disableCastling(otherPiece.playerColor, side);
                 }
             }
-            delPiece(otherPiece, movingTo);
+            delPiece(otherPiece, destination);
         }
-        updatePieceLoc(piece, movingFrom, movingTo);
+        updatePieceLoc(piece, source, destination);
 
         move.setDisabledCastling(disabled);
         boolean incHalfMoveClock = !(move.isCapturing() || (piece.pieceType == PieceType.PAWN || move.getMoveFlag() == Move.MoveFlag.Promotion));
@@ -611,15 +611,15 @@ public class Model implements Serializable {
 
         castlingRights.enable(move.getDisabledCastling());
 
-        Location movingFrom = move.getMovingTo();
-        Location movingTo = move.getMovingFrom();
+        Location source = move.getDestination();
+        Location destination = move.getSource();
 
-        Piece piece = board.getPiece(movingFrom, true);
+        Piece piece = board.getPiece(source, true);
         PlayerColor piecePlayerColor = piece.playerColor;
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
-            delPiece(piece, movingFrom);
+            delPiece(piece, source);
             Piece oldPiece = Piece.getPiece(PieceType.PAWN, piecePlayerColor);
-            addPiece(oldPiece, movingFrom);
+            addPiece(oldPiece, source);
             piece = oldPiece;
         }
         enPassantActualLoc = null;
@@ -628,16 +628,16 @@ public class Model implements Serializable {
             Move prevMove = moveStack.peek();
             if (prevMove.getMoveFlag() == Move.MoveFlag.DoublePawnPush) {
                 setEnPassantTargetLoc(prevMove.getEnPassantLoc());
-                setEnPassantActualLoc(prevMove.getMovingTo());
+                setEnPassantActualLoc(prevMove.getDestination());
             }
         } else {
             setEnPassantTargetLoc(FEN.extractEnPassantTargetLoc(loadedFen));
         }
-        updatePieceLoc(piece, movingFrom, movingTo);
+        updatePieceLoc(piece, source, destination);
 
         if (move.isCapturing()) {
             Piece otherPiece = Piece.getPiece(move.getCapturingPieceType(), piecePlayerColor.getOpponent());
-            addPiece(otherPiece, movingFrom);
+            addPiece(otherPiece, source);
         }
         makeIntermediateMove(move, true);
 
@@ -647,14 +647,14 @@ public class Model implements Serializable {
 //        setAttackedSquares();
     }
 
-    private void updatePieceLoc(Piece piece, Location movingFrom, Location movingTo) {
+    private void updatePieceLoc(Piece piece, Location source, Location destination) {
         Bitboard bitboard = getPieceBitBoard(piece);
 
-        bitboard.set(movingFrom, false);
-        bitboard.set(movingTo, true);
+        bitboard.set(source, false);
+        bitboard.set(destination, true);
 
-        board.setPiece(movingTo, piece);
-        board.setSquareEmpty(movingFrom);
+        board.setPiece(destination, piece);
+        board.setSquareEmpty(source);
     }
 
     private void delPiece(Piece piece, Location currentLoc) {
@@ -704,13 +704,13 @@ public class Model implements Serializable {
     }
 
     private void movePiece(BasicMove basicMove) {
-        movePiece(basicMove.getMovingFrom(), basicMove.getMovingTo());
+        movePiece(basicMove.getSource(), basicMove.getDestination());
     }
 
-    private void movePiece(Location movingFrom, Location movingTo) {
-//        Assert(isSquareEmpty(movingTo), "move piece is not intended for captures. prob smn wrong with castling", getSquare(movingFrom), getSquare(movingTo));//not intended for captures
-        Piece piece = board.getPiece(movingFrom, true);
-        updatePieceLoc(piece, movingFrom, movingTo);
+    private void movePiece(Location source, Location destination) {
+//        Assert(isSquareEmpty(destination), "move piece is not intended for captures. prob smn wrong with castling", getSquare(source), getSquare(destination));//not intended for captures
+        Piece piece = board.getPiece(source, true);
+        updatePieceLoc(piece, source, destination);
     }
 
     /**

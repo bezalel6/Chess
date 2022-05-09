@@ -82,7 +82,7 @@ public class Zobrist {
 
     public static long hash(Move move) {
 
-        return combineHashes(hash(move.getMovingFrom()), hash(move.getMovingTo()));
+        return combineHashes(hash(move.getSource()), hash(move.getDestination()));
     }
 
     public static long combineHashes(long h1, long h2) {

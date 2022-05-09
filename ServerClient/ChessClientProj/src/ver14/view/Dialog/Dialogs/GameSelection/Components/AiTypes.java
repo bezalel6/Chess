@@ -1,6 +1,7 @@
 package ver14.view.Dialog.Dialogs.GameSelection.Components;
 
 import ver14.SharedClasses.Game.GameSetup.AISettings;
+import ver14.SharedClasses.Game.GameSetup.AiType;
 import ver14.view.Dialog.Components.ListComponent;
 import ver14.view.Dialog.Components.Parent;
 import ver14.view.Dialog.Dialogs.Header;
@@ -32,7 +33,7 @@ public class AiTypes extends ListComponent {
 
     @Override
     protected void onSelected() {
-        AISettings.AiType type = null;
+        AiType type = null;
         if (selected != null) {
             type = ((SelectableAiType) selected).aiType();
         }

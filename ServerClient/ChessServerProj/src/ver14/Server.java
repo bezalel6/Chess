@@ -11,7 +11,6 @@ import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBResponse.DBResponse;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
 import ver14.SharedClasses.Game.GameSetup.GameType;
-import ver14.SharedClasses.Game.SavedGames.CreatedGame;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Login.LoginInfo;
@@ -640,7 +639,7 @@ public class Server implements EnvManager {
                 } else {
                     String id = gameIDGenerator.generate();
                     player.setCreatedGameID(id);
-                    CreatedGame gameInfo = new CreatedGame(id, player.getUsername(), gameSettings);
+                    var gameInfo = new GameInfo(id, player.getUsername(), gameSettings);
                     synchronized (gamePool) {
                         if (waitingPlayer.get() != null && waitingPlayer.get() != player) {
                             startGameSession(gameInfo, player, waitingPlayer.get());

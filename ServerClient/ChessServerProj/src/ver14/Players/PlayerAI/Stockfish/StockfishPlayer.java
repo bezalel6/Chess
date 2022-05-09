@@ -46,7 +46,7 @@ public class StockfishPlayer extends PlayerAI {
     public Move getMove() {
         String s = stockfish.getBestMove(FEN.generateFEN(game.getModel()), 100);
         BasicMove move = new BasicMove(s);
-//        move = new BasicMove(Location.getLoc(move.getMovingFrom().row, Location.getFlipped(move.getMovingFrom().col)), Location.getLoc(move.getMovingTo().row, Location.getFlipped(move.getMovingTo().col)));
+//        move = new BasicMove(Location.getLoc(move.getsource().row, Location.getFlipped(move.getsource().col)), Location.getLoc(move.getdestination().row, Location.getFlipped(move.getdestination().col)));
         return game.getModel().findMove(move);
     }
 

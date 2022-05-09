@@ -595,8 +595,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      */
     public void highlightPath(List<Move> movableSquares) {
         for (Move move : movableSquares) {
-            Location movingTo = move.getMovingTo();
-            BoardButton btn = getBtn(movingTo);
+            Location destination = move.getDestination();
+            BoardButton btn = getBtn(destination);
             if (move.isCapturing())
                 btn.setAsCapture();
             else
@@ -606,10 +606,10 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
                 btn.setAsPromotion();
 
 //            if (move.getMoveFlag().isCastling) {
-//                Location rookLoc = Location.getLoc(movingTo.row, move.getMoveFlag().castlingSide.rookStartingCol);
+//                Location rookLoc = Location.getLoc(destination.row, move.getMoveFlag().castlingSide.rookStartingCol);
 //                getBtn(rookLoc)();
 //            }
-            enableSquare(movingTo, true);
+            enableSquare(destination, true);
         }
         boardPnl.repaint();
     }
@@ -633,8 +633,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
         enableAllSquares(false);
         if (movableSquares != null) {
             for (Move move : movableSquares) {
-                Location movingTo = move.getMovingTo();
-                enableSquare(movingTo, true);
+                Location destination = move.getDestination();
+                enableSquare(destination, true);
             }
         }
     }
@@ -758,8 +758,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
             return;
 
         syncAction(() -> {
-            BoardButton prevBtn = getBtn(basicMove.getMovingFrom());
-            BoardButton newBtn = getBtn(basicMove.getMovingTo());
+            BoardButton prevBtn = getBtn(basicMove.getSource());
+            BoardButton newBtn = getBtn(basicMove.getDestination());
             newBtn.setPiece(prevBtn);
             prevBtn.reset();
 
@@ -897,8 +897,8 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
      */
     public void colorMove(Move move) {
         syncAction(() -> {
-            getBtn(move.getMovingFrom()).movingFrom();
-            getBtn(move.getMovingTo()).movingTo();
+            getBtn(move.getSource()).source();
+            getBtn(move.getDestination()).destination();
         });
     }
 

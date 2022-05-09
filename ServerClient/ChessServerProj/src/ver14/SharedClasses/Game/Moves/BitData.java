@@ -2,8 +2,7 @@ package ver14.SharedClasses.Game.Moves;
 
 
 /**
- * Bit data - utility class meant for storing useful board constants.
- * (in bitboard format of course)
+ * utility class for storing useful board constants in bitboard format
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

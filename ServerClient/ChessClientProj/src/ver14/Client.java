@@ -465,7 +465,7 @@ public class Client implements EnvManager {
                 view.setCurrentPiece(firstClickLoc.originalLocation);
                 unlockPossibleMoves();
                 view.highlightPath(possibleMoves.stream()
-                        .filter(move -> move.getMovingFrom().equals(clickedLoc.originalLocation))
+                        .filter(move -> move.getSource().equals(clickedLoc.originalLocation))
                         .toList());
             }
         }
@@ -512,7 +512,7 @@ public class Client implements EnvManager {
         view.resetBackground();
         if (move.getMoveFlag() == Move.MoveFlag.Promotion) {
             Piece piece = Piece.getPiece(move.getPromotingTo(), move.getMovingColor());
-            view.setBtnPiece(move.getMovingFrom(), piece);
+            view.setBtnPiece(move.getSource(), piece);
         }
         processGameStatus(move.getMoveEvaluation().getGameStatus());
 

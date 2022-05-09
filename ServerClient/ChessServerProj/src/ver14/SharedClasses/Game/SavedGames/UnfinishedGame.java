@@ -8,7 +8,7 @@ import java.util.Stack;
 
 
 /**
- * The type Unfinished game.
+ * represents an Unfinished game.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

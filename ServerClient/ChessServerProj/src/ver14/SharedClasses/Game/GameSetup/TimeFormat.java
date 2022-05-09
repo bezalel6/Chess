@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * Time format.
+ * represents a player's Time format. how much time does he have for each move.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

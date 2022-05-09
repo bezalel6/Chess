@@ -14,7 +14,7 @@ import java.net.Socket;
 
 
 /**
- * App socket - represents a communications socket able to send and receive  messages from the client to the server and vice versa.
+ * represents a communications socket able to send and receive {@link Message}s to and from another {@link AppSocket}.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -36,7 +36,7 @@ public class AppSocket extends MyThread {
     private boolean didDisconnect = false;
 
     /**
-     * Instantiates a new App socket.
+     * Instantiates a new App socket to a specified address
      *
      * @param ip   the ip
      * @param port the port
@@ -47,7 +47,7 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Instantiates a new App socket.
+     * Instantiates a new App socket to a socket
      *
      * @param socket the socket
      * @throws IOException the io exception
@@ -71,9 +71,9 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Close.
+     * Close this socket, and interrupt every method waiting for a message.
      *
-     * @param err the error
+     * @param err the error to interrupt with
      */
     public void close(MyError err) {
         ErrorHandler.ignore(() -> {
@@ -83,26 +83,26 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Interrupt listener.
+     * interrupt every method waiting for a message.
      *
-     * @param err the err to interrupt with
+     * @param err the error to interrupt with
      */
     public void interruptListener(MyError err) {
         messagesHandler.interruptBlocking(err);
     }
 
     /**
-     * Close.
+     * Close this socket and send a disconnected error to every method waiting for a message.
      */
     public void close() {
         close(messagesHandler.createDisconnectedError());
     }
 
     /**
-     * Request message.
+     * send a Request and call a {@link MessageCallback} when a response message is received.
      *
-     * @param requestMsg the request msg
-     * @param onRes      the on res
+     * @param requestMsg the request message
+     * @param onRes      the callback to call when a response is received
      */
     public void requestMessage(Message requestMsg, MessageCallback onRes) {
         assert messagesHandler != null;
@@ -110,7 +110,7 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Handled run.
+     * run this thread with handlers to deal with any exception that might occur.
      */
     @Override
     protected void handledRun() {
@@ -144,10 +144,10 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Respond.
+     * Respond to a request message.
      *
-     * @param msg          the msg
-     * @param respondingTo the responding to
+     * @param msg          the response
+     * @param respondingTo the request message
      */
     public void respond(Message msg, Message respondingTo) {
         msg.setRespondingTo(respondingTo);
@@ -155,9 +155,9 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Write message.
+     * Write a message.
      *
-     * @param msg the msg
+     * @param msg the message
      */
     public synchronized void writeMessage(Message msg) {
         if (!isConnected())
@@ -173,9 +173,9 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * Is connected boolean.
+     * Is this socket connected to the destination socket.
      *
-     * @return the boolean
+     * @return <code>true</code> if connected
      */
     public boolean isConnected() {
         return !didDisconnect && msgSocket != null && !msgSocket.isClosed() && msgSocket.isConnected();
@@ -209,10 +209,10 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * sending request and blocking til res
+     * send a request and block this thread until a response is read. then return the response.
      *
-     * @param requestMsg = "can i have x message?"
-     * @return response
+     * @param requestMsg the request message
+     * @return the response
      */
     public Message requestMessage(Message requestMsg) {
         assert messagesHandler != null;
@@ -229,13 +229,13 @@ public class AppSocket extends MyThread {
     }
 
     /**
-     * App socket error .
+     * represents an error thrown in, or related to, the App socket.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
     public static class AppSocketError extends MyError.DisconnectedError {
         /**
-         * @param err err
+         * @param err the cause
          */
         public AppSocketError(Exception err) {
             super(err);

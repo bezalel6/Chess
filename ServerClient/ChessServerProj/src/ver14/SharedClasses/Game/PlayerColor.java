@@ -4,7 +4,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 
 /**
- * Player color - represents a player color.
+ * represents a player color.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

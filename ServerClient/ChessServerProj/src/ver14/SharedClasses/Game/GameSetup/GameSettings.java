@@ -211,7 +211,7 @@ public class GameSettings implements Serializable, ParentOf<TimeFormat> {
      */
     public void initDefault1vAi() {
         initDefault1v1();
-        setAISettings(new AISettings(ver14.SharedClasses.Game.GameSetup.AISettings.AiType.MyAi, new TimeFormat(3500)));
+        setAISettings(new AISettings(AiType.MyAi, new TimeFormat(3500)));
     }
 
     /**

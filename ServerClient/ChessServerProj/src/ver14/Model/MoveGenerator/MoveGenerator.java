@@ -290,11 +290,11 @@ public class MoveGenerator {
         Location kingLoc = myPieces.getBB(PieceType.KING).getLastSetLoc();
         if (kingLoc == null)
             return;
-        for (Location movingTo : kingMoves[kingLoc.asInt]) {
-            Piece dest = logicBoard.getPiece(movingTo);
-            Move move = new Move(kingLoc, movingTo);
+        for (Location destination : kingMoves[kingLoc.asInt]) {
+            Piece dest = logicBoard.getPiece(destination);
+            Move move = new Move(kingLoc, destination);
             if (dest != null) {
-                if (!model.isSamePlayer(kingLoc, movingTo)) {
+                if (!model.isSamePlayer(kingLoc, destination)) {
                     move.setCapturing(dest.pieceType);
                 } else {
                     move = null;
@@ -325,17 +325,17 @@ public class MoveGenerator {
     /**
      * Check pawn capture move.
      *
-     * @param movingFrom the moving from
-     * @param capLoc     the cap loc
+     * @param source the source
+     * @param capLoc the cap loc
      * @return the move
      */
-    private Move checkPawnCapture(Location movingFrom, Location capLoc) {
-        if (capLoc == null || movingFrom.getMaxDistance(capLoc) > 1)
+    private Move checkPawnCapture(Location source, Location capLoc) {
+        if (capLoc == null || source.getMaxDistance(capLoc) > 1)
             return null;
         Piece dest = logicBoard.getPiece(capLoc);
         if (dest == null) {
             if (model.getEnPassantTargetLoc() == capLoc)
-                return new Move(movingFrom, capLoc) {{
+                return new Move(source, capLoc) {{
                     setCapturing(PieceType.PAWN);
                     setMoveFlag(MoveFlag.EnPassant);
                     setIntermediateMove(new BasicMove(model.getEnPassantActualLoc(), capLoc));
@@ -345,7 +345,7 @@ public class MoveGenerator {
         if (dest.isOnMyTeam(movingPlayerColor)) {
             return null;
         }
-        return new Move(movingFrom, capLoc, dest.pieceType);
+        return new Move(source, capLoc, dest.pieceType);
     }
 
     /**
@@ -421,7 +421,7 @@ public class MoveGenerator {
             if (move.getMoveFlag().isCastling && !canCastle(move)) {
                 return false;
             }
-//            return !AttackedSquares.isAttacked(model, move.getMovingTo(), movingPlayerColor.getOpponent());
+//            return !AttackedSquares.isAttacked(model, move.getdestination(), movingPlayerColor.getOpponent());
         }
 
         model.applyMove(move);
@@ -443,7 +443,7 @@ public class MoveGenerator {
         CastlingRights.Side side = castling.getMoveFlag().castlingSide;
 
         for (int i = 1; i <= side.kingTravelDistance; i++) {
-            if (model.isThreatened(Location.getLoc(castling.getMovingFrom(), i * side.mult), movingPlayerColor.getOpponent())) {
+            if (model.isThreatened(Location.getLoc(castling.getSource(), i * side.mult), movingPlayerColor.getOpponent())) {
                 return false;
             }
         }

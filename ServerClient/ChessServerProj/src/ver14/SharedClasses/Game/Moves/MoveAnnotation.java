@@ -6,7 +6,7 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 
 /**
- * Move annotation - utility class that annotates moves.
+ * utility class for annotating moves.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -18,7 +18,7 @@ public class MoveAnnotation {
 
 
     /**
-     * Annotate move.
+     * Annotate move in the PGN format
      *
      * @param move        the move
      * @param movingPiece the moving piece
@@ -30,6 +30,7 @@ public class MoveAnnotation {
 
     /**
      * Annotate move with a unique string.
+     * in the PGN format
      *
      * @param move        the move
      * @param movingPiece the moving piece
@@ -40,9 +41,9 @@ public class MoveAnnotation {
         if (movingPiece.pieceType == PieceType.PAWN) {
             String promotionStr = move.getMoveFlag() == Move.MoveFlag.Promotion ? "=" + move.getPromotingTo().getWhitePieceFen() : "";
             if (move.isCapturing()) {
-                return StrUtils.dontCapFull(move.getMovingFrom().getColString().toLowerCase() + CAPTURE_ANN + move.getMovingTo() + promotionStr);
+                return StrUtils.dontCapFull(move.getSource().getColString().toLowerCase() + CAPTURE_ANN + move.getDestination() + promotionStr);
             }
-            return StrUtils.dontCapFull(move.getMovingTo().toString() + promotionStr);
+            return StrUtils.dontCapFull(move.getDestination().toString() + promotionStr);
         }
         String pieceTypeNotation = movingPiece.pieceType.getWhitePieceFen();
         String completeButStatus;
@@ -50,20 +51,21 @@ public class MoveAnnotation {
         if (move.getMoveFlag().isCastling) {
             completeButStatus = move.getMoveFlag().castlingSide.castlingNotation;
         } else {
-            completeButStatus = pieceTypeNotation + unique + (move.isCapturing() ? CAPTURE_ANN : "") + move.getMovingTo();
+            completeButStatus = pieceTypeNotation + unique + (move.isCapturing() ? CAPTURE_ANN : "") + move.getDestination();
         }
 
         return StrUtils.dontCapFull(completeButStatus + move.getGameStatusStr());
     }
 
     /**
-     * Basic annotate a move. just the source and destination.
+     * Basic annotate a move.
+     * format:[source:destination]
      *
      * @param move the move
      * @return the string
      */
     public static String basicAnnotate(BasicMove move) {
-        return StrUtils.dontCapWord(move.getMovingFrom() + "" + move.getMovingTo());
+        return StrUtils.dontCapWord(move.getSource() + "" + move.getDestination());
 
     }
 

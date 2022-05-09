@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * Login info.
+ * represents Login info .
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

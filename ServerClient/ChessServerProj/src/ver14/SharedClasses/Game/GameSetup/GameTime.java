@@ -38,11 +38,14 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Instantiates a new Game time.
+     * Instantiates a new Game time with the formats for both players.
+     * possible inputs: [{@link TimeFormat}] will set both players' times to that time.
+     * [{@link TimeFormat}, {@link TimeFormat}] will set white player's time to the first one and black's to the second.
      *
      * @param timeFormats the time formats
      */
     public GameTime(TimeFormat... timeFormats) {
+        assert timeFormats.length > 0;
         this.timeFormats = timeFormats;
         gameTime = new long[PlayerColor.NUM_OF_PLAYERS];
         if (timeFormats.length == 1) {
@@ -58,7 +61,7 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Gets time format.
+     * Gets the time format for a player.
      *
      * @param clr the clr
      * @return the time format
@@ -97,10 +100,10 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Gets time left.
+     * Gets the time left for a player.
      *
      * @param playerColor the player color
-     * @return the time left
+     * @return the time left in milliseconds
      */
     public long getTimeLeft(PlayerColor playerColor) {
         var f = timeFormats[playerColor.asInt];
@@ -108,9 +111,9 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Gets currently running.
+     * Gets the player that is currently running.
      *
-     * @return the currently running
+     * @return the player whose time is currently running
      */
     public PlayerColor getCurrentlyRunning() {
         return currentlyRunning;

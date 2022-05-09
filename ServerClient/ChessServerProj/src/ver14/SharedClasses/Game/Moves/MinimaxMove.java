@@ -64,7 +64,7 @@ public class MinimaxMove implements Comparable<MinimaxMove>, Serializable {
      * Is deeper and better than given minimax move.
      *
      * @param other the other
-     * @return the boolean
+     * @return <code>true</code> if this evaluation is better
      */
     public boolean isDeeperAndBetterThan(MinimaxMove other) {
         return other == null || (moveEvaluation != null && (moveEvaluation.isGreaterThan(other.moveEvaluation)) && moveDepth >= other.moveDepth);

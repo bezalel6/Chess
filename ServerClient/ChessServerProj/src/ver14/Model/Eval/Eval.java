@@ -400,7 +400,7 @@ public class Eval implements Serializable {
 //        for (PieceInterface piece : model.getPlayersPieces(player)) {
 //            ArrayList<Move> moves = piece.getPseudoMovesBitboard();
 //            for (Move move : moves) {
-//                ret += close2EnemyScore(move.getMovingTo(), player);
+//                ret += close2EnemyScore(move.getdestination(), player);
 //            }
 //        }
         return ret;

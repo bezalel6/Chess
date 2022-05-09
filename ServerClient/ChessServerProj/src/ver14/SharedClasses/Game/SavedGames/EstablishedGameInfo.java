@@ -8,11 +8,11 @@ import java.util.Stack;
 
 
 /**
- * Established game info.
+ * represents a game that was established between two players.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public abstract class EstablishedGameInfo extends GameInfo {
+public class EstablishedGameInfo extends GameInfo {
     /**
      * The Opponent username.
      */

@@ -2,7 +2,7 @@ package ver14.SharedClasses.Login;
 
 
 /**
- * Login Type.
+ * represents a Login Type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -29,9 +29,9 @@ public enum LoginType {
     NOT_SET_YET;
 
     /**
-     * As user boolean.
+     * is this login type of user. not a guest.
      *
-     * @return the boolean
+     * @return <code>true</code> if this login type is of a user
      */
     public boolean asUser() {
         return this == LOGIN || this == REGISTER;

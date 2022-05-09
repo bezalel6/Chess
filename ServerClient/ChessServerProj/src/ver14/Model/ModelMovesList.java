@@ -111,34 +111,34 @@ public class ModelMovesList extends MovesList {
     public void initAnnotation() {
         uniqueMoves = new HashMap<>();
         Stream.concat(this.stream(), rejectedPseudoLegal.stream()).forEach(move -> {
-            Piece movingPiece = generator.getModel().getSquare(move.getMovingFrom()).getPiece();
+            Piece movingPiece = generator.getModel().getSquare(move.getSource()).getPiece();
             assert movingPiece != null;
 //            if (movingPiece.pieceType == PieceType.PAWN) {
 //                return;
 //            }
-            int hash = move.getMovingTo().hash(movingPiece.pieceType);
+            int hash = move.getDestination().hash(movingPiece.pieceType);
             if (movingPiece.pieceType != PieceType.PAWN && uniqueMoves.containsKey(hash)) {
                 ArrayList<Move> moves = uniqueMoves.get(hash);
                 moves.add(move);
                 for (Move unUniqueMove : moves) {
-                    Location movingFrom = unUniqueMove.getMovingFrom();
-                    String uniqueStr = movingFrom.toString();
+                    Location source = unUniqueMove.getSource();
+                    String uniqueStr = source.toString();
                     boolean uniqueRow = true;
                     boolean uniqueCol = true;
                     for (Move other : moves.stream().filter(m -> !m.equals(unUniqueMove)).toList()) {
-                        Location otherMovingFrom = other.getMovingFrom();
-                        if (otherMovingFrom.row == movingFrom.row) {
+                        Location othersource = other.getSource();
+                        if (othersource.row == source.row) {
                             uniqueRow = false;
                         }
-                        if (otherMovingFrom.col == movingFrom.col) {
+                        if (othersource.col == source.col) {
                             uniqueCol = false;
                         }
                     }
 
                     if (uniqueCol) {
-                        uniqueStr = movingFrom.getColString();
+                        uniqueStr = source.getColString();
                     } else if (uniqueRow) {
-                        uniqueStr = movingFrom.getRowString();
+                        uniqueStr = source.getRowString();
                     }
                     uniqueStr = uniqueStr.toLowerCase();
                     unUniqueMove.setMoveAnnotation(MoveAnnotation.annotate(unUniqueMove, movingPiece, uniqueStr));
@@ -157,7 +157,7 @@ public class ModelMovesList extends MovesList {
      * Pretty print.
      */
     public void prettyPrint() {
-        Bitboard from = genMovingFromBB();
+        Bitboard from = gensourceBB();
         Bitboard to = genDestinationBB();
         StringBuilder stringBuilder = new StringBuilder();
         String RESET = "\033[0m";
@@ -180,13 +180,13 @@ public class ModelMovesList extends MovesList {
     }
 
     /**
-     * Gen moving from bb bitboard.
+     * Gen source bb bitboard.
      *
      * @return the bitboard
      */
-    public Bitboard genMovingFromBB() {
+    public Bitboard gensourceBB() {
         Bitboard ret = new Bitboard();
-        this.forEach(move -> ret.set(move.getMovingFrom(), true));
+        this.forEach(move -> ret.set(move.getSource(), true));
         return ret;
     }
 
@@ -197,7 +197,7 @@ public class ModelMovesList extends MovesList {
      */
     public Bitboard genDestinationBB() {
         Bitboard ret = new Bitboard();
-        this.forEach(move -> ret.set(move.getMovingTo(), true));
+        this.forEach(move -> ret.set(move.getDestination(), true));
         return ret;
     }
 //
