@@ -13,7 +13,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x" />
+    <list default="true" id="c8b696c4-dc4a-459e-b95c-014fc448a61e" name="Changes" comment="x">
+      <change beforePath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessClientProj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/db.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/FontManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/FontManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/MyLbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/UI/MyLbl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArgsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArgsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/ArrUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/MathUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/RegEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/RegEx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ver14/SharedClasses/Utils/StrUtils.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -311,6 +323,7 @@
       <workItem from="1652077253458" duration="1303000" />
       <workItem from="1652081586029" duration="1523000" />
       <workItem from="1652083810864" duration="16683000" />
+      <workItem from="1652176390943" duration="4148000" />
     </task>
     <task id="LOCAL‎00001" summary="created error handling">
       <created>1647589157621</created>

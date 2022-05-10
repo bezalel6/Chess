@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * Reg ex.
+ * Regex.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

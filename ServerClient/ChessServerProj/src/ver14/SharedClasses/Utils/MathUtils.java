@@ -7,10 +7,10 @@ package ver14.SharedClasses.Utils;
  */
 public class MathUtils {
     /**
-     * Log 2 double.
+     * Log in base 2.
      *
-     * @param num the num
-     * @return the double
+     * @param num the number
+     * @return the result
      */
     public static double log2(double num) {
         return log(num, 2);
@@ -19,9 +19,9 @@ public class MathUtils {
     /**
      * Log.
      *
-     * @param num  the num
+     * @param num  the number
      * @param base the base
-     * @return the double
+     * @return the result
      */
     public static double log(double num, int base) {
         return Math.log(num) / Math.log(base);
