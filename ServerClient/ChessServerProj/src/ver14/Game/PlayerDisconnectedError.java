@@ -2,7 +2,7 @@ package ver14.Game;
 
 import ver14.Players.Player;
 import ver14.SharedClasses.Game.Evaluation.GameStatus;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 
 /**
  * an error that is thrown when a player is disconnected.<br />
@@ -10,7 +10,7 @@ import ver14.SharedClasses.Threads.ErrorHandling.MyError;
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
-public class PlayerDisconnectedError extends MyError.DisconnectedError {
+public class PlayerDisconnectedError extends DisconnectedError {
     /**
      * The Disconnected player.
      */

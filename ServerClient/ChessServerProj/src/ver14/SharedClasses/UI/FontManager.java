@@ -1,11 +1,10 @@
 package ver14.SharedClasses.UI;
 
-import javax.swing.*;
 import java.awt.*;
 
 
 /**
- * Font manager.
+ * represents a Font manager.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -19,10 +18,12 @@ public class FontManager {
      * The constant dbResponseTable.
      */
     public static final Font dbResponseTable = Base.normal;
+
     /**
      * The constant dbResponseTableHeader.
      */
     public static final Font dbResponseTableHeader = Base.normal;
+
     /**
      * The constant sidePanel.
      */
@@ -31,17 +32,15 @@ public class FontManager {
      * The constant coordinates.
      */
     public static final Font coordinates = Base.normal;
+
     /**
      * The constant boardButtons.
      */
-//    public static final Font menuFont = Base.normal;
-//    public static final Font menuItemsFont = Base.small;
     public static final Font boardButtons = Base.normal;
+
     /**
      * The constant statistics.
      */
-//    public static final Font loginProcess = Base.normal;
-//    public static final Font defaultSelectableBtn = Base.normal;
     public static final Font statistics = Base.normal;
     /**
      * The constant backOk.
@@ -72,29 +71,6 @@ public class FontManager {
      */
     public static final Font defaultLinkLbl = Base.normal;
 
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-        JLabel lbl = new JLabel();
-        lbl.setFont(Base.xLarge.get("Verdana"));
-        lbl.setText(lbl.getFont().getFontName());
-        new JFrame() {{
-            setSize(500, 500);
-            add(lbl);
-            setVisible(true);
-        }};
-        JLabel lbl2 = new JLabel();
-        lbl2.setFont(Base.xLarge.get("Didot"));
-        lbl2.setText(lbl2.getFont().getFontName());
-        new JFrame() {{
-            setSize(500, 500);
-            add(lbl2);
-            setVisible(true);
-        }};
-    }
 
     /**
      * J menus.

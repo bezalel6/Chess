@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 
 /**
- * Link label.
+ * represents a link label.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

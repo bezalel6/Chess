@@ -4,41 +4,41 @@ import ver14.SharedClasses.Utils.StrUtils;
 
 
 /**
- * My error.
+ * represents my implementation of an error.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class MyError extends Error {
 
     /**
-     * Instantiates a new My error.
+     * Instantiates a new error.
      */
     public MyError() {
     }
 
     /**
-     * Instantiates a new My error.
+     * Instantiates a new error with a cause.
      *
-     * @param throwable the throwable
+     * @param cause the cause
      */
-    public MyError(Throwable throwable) {
-        super(throwable);
+    public MyError(Throwable cause) {
+        super(cause);
     }
 
 
     /**
-     * Instantiates a new My error.
+     * Instantiates a new error with an error message.
      *
-     * @param message the message
+     * @param message the error message
      */
     public MyError(String message) {
         super(message);
     }
 
     /**
-     * Instantiates a new My error.
+     * Instantiates a new error.
      *
-     * @param message the message
+     * @param message the error message
      * @param cause   the cause
      */
     public MyError(String message, Throwable cause) {
@@ -47,13 +47,13 @@ public class MyError extends Error {
 
 
     /**
-     * Gets handled str.
+     * Gets a short description of this error.
      *
      * @return the handled str
      */
-    public String getHandledStr() {
+    public String getShortDesc() {
 //        return toString();
-        return StrUtils.isEmpty(this.getMessage()) ? getClass().getName() : this.getMessage() + (getCause() == null ? "" : "  " + getCause().getMessage());
+        return StrUtils.isEmpty(this.getMessage()) ? getClass().getName() : this.getMessage() + (getCause() == null ? "" : "  " + getCause());
     }
 
 
@@ -98,64 +98,6 @@ public class MyError extends Error {
      */
     private String superToString() {
         return super.toString();
-    }
-
-    /**
-     * Db err - represents a database error.
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class DBErr extends MyError {
-        /**
-         * Instantiates a new Db err.
-         *
-         * @param throwable the throwable
-         */
-        public DBErr(Throwable throwable) {
-            super(throwable);
-        }
-
-        /**
-         * Instantiates a new Db err.
-         *
-         * @param message the message
-         * @param cause   the cause
-         */
-        public DBErr(String message, Throwable cause) {
-            super(message, cause);
-        }
-    }
-
-    /**
-     * a Disconnected error .
-     *
-     * @author Bezalel Avrahami (bezalel3250@gmail.com)
-     */
-    public static class DisconnectedError extends MyError {
-        /**
-         * Instantiates a new Disconnected error.
-         */
-        public DisconnectedError() {
-            this("");
-        }
-
-        /**
-         * Instantiates a new Disconnected error.
-         *
-         * @param message the message
-         */
-        public DisconnectedError(String message) {
-            super(message);
-        }
-
-        /**
-         * Instantiates a new Disconnected error.
-         *
-         * @param throwable the throwable
-         */
-        public DisconnectedError(Throwable throwable) {
-            super(throwable);
-        }
     }
 
 }

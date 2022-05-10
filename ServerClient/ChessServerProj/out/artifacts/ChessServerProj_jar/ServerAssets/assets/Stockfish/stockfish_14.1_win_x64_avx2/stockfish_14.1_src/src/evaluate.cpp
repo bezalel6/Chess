@@ -617,7 +617,7 @@ namespace {
     if (!(pos.pieces(PAWN) & KingFlank[file_of(ksq)]))
         score -= PawnlessFlank;
 
-    // Penalty if king flank is under attack, potentially moving toward the king
+    // Penalty if king flank is under attack, potentially destinationward the king
     score -= FlankAttacks * kingFlankAttack;
 
     if constexpr (T)

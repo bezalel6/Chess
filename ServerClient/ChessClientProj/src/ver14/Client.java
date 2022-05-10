@@ -723,7 +723,7 @@ public class Client implements EnvManager {
 
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err.getHandledStr());
+        log("handled: " + err.getShortDesc());
     }
 
     @Override

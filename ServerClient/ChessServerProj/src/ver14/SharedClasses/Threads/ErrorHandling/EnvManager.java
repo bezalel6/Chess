@@ -2,7 +2,8 @@ package ver14.SharedClasses.Threads.ErrorHandling;
 
 
 /**
- * Env manager - represents an object that can handle errors as they occur.
+ * represents an object that acts as an Environment Manager. logging handled errors as they occur,
+ * and safely shutting down if an unhandled error is thrown.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -15,7 +16,7 @@ public interface EnvManager {
     void handledErr(MyError err);
 
     /**
-     * notifies manager of an un-handleable error. the manager must shut down everything
+     * notifies manager of an un-handleable error. triggering a shutdown
      *
      * @param err the error thrown
      */

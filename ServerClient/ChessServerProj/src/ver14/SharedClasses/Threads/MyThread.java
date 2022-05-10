@@ -10,7 +10,13 @@ import java.util.Map;
 
 
 /**
- * The type My thread.
+ * represents My implementation of an error handling thread.
+ * when an error is thrown inside a {@link MyThread}, a map of
+ * error handlers is searched to find a handler set to deal with the type of error thrown.
+ * if one is found, it is called. and the {@link EnvManager} will be notified of a
+ * handled error.
+ * if a handler is not found, the {@link EnvManager} will be notified that an unhandled error has occurred,
+ * and he will then begin shutting down.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -22,7 +28,7 @@ public abstract class MyThread extends Thread {
     /**
      * The Error handlers.
      */
-    private final Map<Class<? extends MyError>, ErrorHandler<? extends MyError>> errorHandlers = new HashMap<>();
+    private final Map<Class<? extends MyError>, ErrorHandler> errorHandlers = new HashMap<>();
     /**
      * The Ignore errs.
      */
@@ -42,7 +48,6 @@ public abstract class MyThread extends Thread {
     }
 
     /**
-     * Current thread.
      * will only execute code if inside a MyThread
      *
      * @param run the run
@@ -54,7 +59,7 @@ public abstract class MyThread extends Thread {
     }
 
     /**
-     * Sets env manager.
+     * Sets the manager of this environment.
      *
      * @param manager the manager
      */
@@ -74,18 +79,19 @@ public abstract class MyThread extends Thread {
     }
 
     /**
-     * Add handler.
+     * Add an error handler.
      *
-     * @param <E>      the type parameter
-     * @param errClass the err class
-     * @param onErr    the on err
+     * @param <E>      the type of errors this handler will handle
+     * @param errClass the class of the error
+     * @param onErr    the error handler
      */
-    public <E extends MyError> void addHandler(Class<E> errClass, ErrorHandler<E> onErr) {
+    public <E extends MyError> void addHandler(Class<E> errClass, ErrorHandler onErr) {
         errorHandlers.put(errClass, onErr);
     }
 
     /**
-     * Stop run.
+     * Stop the run of this thread. if this thread's state is set to {@link ThreadStatus#RUNNING}
+     * it will be interrupted.
      */
     public void stopRun() {
         if (threadStatus == ThreadStatus.RUNNING) {
@@ -120,7 +126,7 @@ public abstract class MyThread extends Thread {
         } catch (MyError e) {
             Class<?> c = findClosestHandler(e.getClass());
             if (c != null && errorHandlers.containsKey(c)) {
-                ErrorHandler<?> handler = errorHandlers.get(c);
+                ErrorHandler handler = errorHandlers.get(c);
                 handler.handle(e);
                 envManager.handledErr(e);
             } else {
@@ -148,14 +154,14 @@ public abstract class MyThread extends Thread {
     }
 
     /**
-     * Handled run.
+     * run this thread in a handled manner.
      *
-     * @throws Throwable the throwable
+     * @throws Throwable the error that might get thrown
      */
     protected abstract void handledRun() throws Throwable;
 
     /**
-     * Find closest handler class.
+     * Find the closest handler set to the thrown error.
      *
      * @param clazz the clazz
      * @return the class
@@ -177,7 +183,7 @@ public abstract class MyThread extends Thread {
      */
     public enum ThreadStatus {
         /**
-         * The Not started.
+         * Not started.
          */
         NOT_STARTED {
             @Override
@@ -186,7 +192,7 @@ public abstract class MyThread extends Thread {
             }
         },
         /**
-         * The Running.
+         * Running.
          */
         RUNNING {
             @Override
@@ -195,7 +201,7 @@ public abstract class MyThread extends Thread {
             }
         },
         /**
-         * The Done.
+         * Done.
          */
         DONE {
             @Override

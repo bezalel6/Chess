@@ -2,7 +2,7 @@ package ver14.SharedClasses.Networking.Messages;
 
 
 /**
- * Message type.
+ * represents a Message type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -20,7 +20,7 @@ public enum MessageType {
      */
     ADD_TIME,
     /**
-     * Welcome message message type.
+     * Welcome message type.
      */
     WELCOME_MESSAGE,
     /**
@@ -111,16 +111,6 @@ public enum MessageType {
     MessageType(boolean chronologicalImportance) {
         this.chronologicalImportance = chronologicalImportance;
     }
-
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
-    public static void main(String[] args) {
-        for (MessageType t : values())
-            System.out.print(t.name() + ",");
-    }
-
+    
 
 }

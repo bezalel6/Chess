@@ -3,7 +3,7 @@ package ver14.view.Dialog.Components;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Networking.Messages.Message;
-import ver14.SharedClasses.UI.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.MyAdapter;
 import ver14.view.Dialog.BackOk.BackOkPnl;
 import ver14.view.Dialog.BackOk.CancelOk;
 import ver14.view.Dialog.Cards.DialogCard;
@@ -22,7 +22,7 @@ public interface Parent {
      *
      * @return the adapter
      */
-    default MyJFrame.MyAdapter keyAdapter() {
+    default MyAdapter keyAdapter() {
         throw new Error("key adapter not implemented");
     }
 

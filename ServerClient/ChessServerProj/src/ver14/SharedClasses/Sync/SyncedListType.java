@@ -1,25 +1,25 @@
 package ver14.SharedClasses.Sync;
 
 /**
- * Synced list type.
+ * represents a Synced list type.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public enum SyncedListType {
     /**
-     * Resumable games synced list type.
+     * games that have been paused and may be resumed.
      */
     RESUMABLE_GAMES,
     /**
-     * Joinable games synced list type.
+     * games a player can join.
      */
     JOINABLE_GAMES,
     /**
-     * Connected users synced list type.
+     * the connected users to the server.
      */
     CONNECTED_USERS,
     /**
-     * Ongoing games synced list type.
+     * the games that are being played on the server.
      */
     ONGOING_GAMES;
 

@@ -10,7 +10,7 @@ public interface ThrowingRunnable {
     /**
      * Run.
      *
-     * @throws Throwable the throwable
+     * @throws Throwable the throwable that might get thrown
      */
     void run() throws Throwable;
 }

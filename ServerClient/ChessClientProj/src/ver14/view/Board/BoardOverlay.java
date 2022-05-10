@@ -2,7 +2,7 @@ package ver14.view.Board;
 
 import ver14.SharedClasses.Game.Location;
 import ver14.SharedClasses.Game.Moves.Move;
-import ver14.SharedClasses.UI.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.MyAdapter;
 import ver14.view.View;
 
 import javax.swing.*;
@@ -125,9 +125,9 @@ public class BoardOverlay extends LayerUI<JPanel> {
      *
      * @return the array list
      */
-    public ArrayList<MyJFrame.MyAdapter.HeldDown> createClrs() {
+    public ArrayList<MyAdapter.HeldDown> createClrs() {
 
-        var list = new ArrayList<MyJFrame.MyAdapter.HeldDown>() {
+        var list = new ArrayList<MyAdapter.HeldDown>() {
         };
 
         keyClrMap.forEach((k, clr) -> list.add(adapter(k)));
@@ -140,8 +140,8 @@ public class BoardOverlay extends LayerUI<JPanel> {
      * @param key the key
      * @return the created adapter
      */
-    private MyJFrame.MyAdapter.HeldDown adapter(int key) {
-        return new MyJFrame.MyAdapter.HeldDown() {
+    private MyAdapter.HeldDown adapter(int key) {
+        return new MyAdapter.HeldDown() {
             @Override
             public void startPress() {
                 pressedKey = key();

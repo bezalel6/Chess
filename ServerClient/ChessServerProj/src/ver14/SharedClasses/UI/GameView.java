@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 /**
- * Game view - represents a debugging window for viewing a game's status.
+ * represents a debugging window for viewing a game's status.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -38,7 +38,7 @@ public class GameView extends JFrame {
     }
 
     /**
-     * Update.
+     * Update the view with a new board position.
      *
      * @param board the board
      */

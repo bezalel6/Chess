@@ -3,7 +3,7 @@ package ver14.view.Dialog;
 import ver14.SharedClasses.DBActions.Arg.Config;
 import ver14.SharedClasses.Login.LoginInfo;
 import ver14.SharedClasses.Networking.AppSocket;
-import ver14.SharedClasses.UI.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.MyJFrame;
 
 import java.awt.*;
 

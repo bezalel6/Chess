@@ -15,6 +15,7 @@ import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.Misc.Question;
 import ver14.SharedClasses.Sync.SyncableItem;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.HandledThread;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -112,7 +113,7 @@ public class GameSession extends HandledThread implements SyncableItem {
         game = new Game(creator, p2, gameSettings, this);
         game.forEachPlayer(p -> p.setGameSession(this));
 
-        addHandler(MyError.DisconnectedError.class, e -> {
+        addHandler(DisconnectedError.class, e -> {
             if (e instanceof PlayerDisconnectedError playerDisconnected) {
                 game.interrupt(playerDisconnected.createGameStatus());
             } else throw new MyError(e);

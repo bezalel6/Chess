@@ -3,6 +3,7 @@ package ver14.SharedClasses.Networking;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.Networking.Messages.MessageType;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.ThreadsManager;
 
@@ -111,17 +112,19 @@ public abstract class MessagesHandler {
 
 
     /**
-     * @param err
+     * interrupt every thread waiting for a response with an error.
+     *
+     * @param err the error
      */
     public void interruptBlocking(MyError err) {
         waiting.forEach(w -> w.complete(Message.throwError(err)));
     }
 
     /**
-     * Blocking this thread until a response is received
+     * send a request and Block this thread until a response is received
      *
      * @param request the request
-     * @return the message
+     * @return the response
      */
     public Message blockTilRes(Message request) {
 
@@ -139,7 +142,7 @@ public abstract class MessagesHandler {
         waiting.remove(future);
 
         if (msg == null)
-            throw new MyError.DisconnectedError();
+            throw new DisconnectedError();
 
         if (msg.getMessageType() == MessageType.THROW_ERROR) {
             onThrowError().callback(msg);
@@ -149,10 +152,10 @@ public abstract class MessagesHandler {
     }
 
     /**
-     * No block request.
+     * send a non-blocking request.
      *
      * @param request the request
-     * @param onRes   the on res
+     * @param onRes   the callback to call once a response is received
      */
     public void noBlockRequest(Message request, MessageCallback onRes) {
         customCallbacks.put(request.messageID, onRes);
@@ -206,7 +209,7 @@ public abstract class MessagesHandler {
     }
 
     /**
-     * Process message.
+     * Process a message read from the socket.
      *
      * @param message the message
      */
@@ -289,8 +292,8 @@ public abstract class MessagesHandler {
      *
      * @return the my error . disconnected error
      */
-    protected MyError.DisconnectedError createDisconnectedError() {
-        return new MyError.DisconnectedError();
+    protected DisconnectedError createDisconnectedError() {
+        return new DisconnectedError();
     }
 
     /**

@@ -6,7 +6,8 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Callbacks.VoidCallback;
 import ver14.SharedClasses.Networking.AppSocket;
 import ver14.SharedClasses.Networking.Messages.Message;
-import ver14.SharedClasses.UI.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.MyAdapter;
+import ver14.SharedClasses.UI.MyJframe.MyJFrame;
 import ver14.SharedClasses.Utils.StrUtils;
 import ver14.view.Dialog.BackOk.BackOkInterface;
 import ver14.view.Dialog.BackOk.BackOkPnl;
@@ -108,7 +109,7 @@ public abstract class Dialog extends JDialog implements Parent {
     /**
      * The My adapter.
      */
-    private MyJFrame.MyAdapter myAdapter;
+    private MyAdapter myAdapter;
 
     /**
      * Instantiates a new Dialog.
@@ -181,7 +182,7 @@ public abstract class Dialog extends JDialog implements Parent {
     }
 
     @Override
-    public MyJFrame.MyAdapter keyAdapter() {
+    public MyAdapter keyAdapter() {
         return myAdapter;
     }
 
@@ -334,6 +335,7 @@ public abstract class Dialog extends JDialog implements Parent {
 
     /**
      * Verify the current card.
+     *
      * @see ver14.view.Dialog.Components.Verified
      */
     private void verifyCurrentCard() {

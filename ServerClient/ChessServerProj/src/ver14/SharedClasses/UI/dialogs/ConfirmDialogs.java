@@ -8,11 +8,11 @@ import java.awt.*;
 
 
 /**
- * The utility class Confirm dialogs.
+ * a utility class for showing confirm dialogs.
  */
 public class ConfirmDialogs {
     /**
-     * Confirm boolean.
+     * Confirm.
      *
      * @param parent  the parent
      * @param title   the title

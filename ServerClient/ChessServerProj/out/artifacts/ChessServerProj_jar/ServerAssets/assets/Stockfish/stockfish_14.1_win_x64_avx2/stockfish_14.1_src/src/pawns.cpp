@@ -58,7 +58,7 @@ namespace {
     { V(-39), V(-12), V(-29), V(-50), V(-43), V(-68), V(-164) }
   };
 
-  // Danger of enemy pawns moving toward our king by [distance from edge][rank].
+  // Danger of enemy pawns destinationward our king by [distance from edge][rank].
   // RANK_1 = 0 is used for files where the enemy has no pawn, or their pawn
   // is behind our king. Note that UnblockedStorm[0][1-2] accommodate opponent pawn
   // on edge, likely blocked by our king.

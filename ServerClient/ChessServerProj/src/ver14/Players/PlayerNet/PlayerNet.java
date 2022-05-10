@@ -33,7 +33,7 @@ public class PlayerNet extends Player implements SyncableItem {
     /**
      * The Profile pic.
      */
-    private final String profilePic;
+    private String profilePic;
     /**
      * The Socket to client.
      */
@@ -61,6 +61,15 @@ public class PlayerNet extends Player implements SyncableItem {
         this.loginInfo = loginInfo;
         this.socketToClient = socketToClient;
         this.profilePic = isGuest() ? null : DB.getProfilePic(id);
+    }
+
+    /**
+     * Sets profile pic.
+     *
+     * @param profilePic the profile pic
+     */
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     /**

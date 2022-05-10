@@ -23,10 +23,10 @@ import java.util.Stack;
 
 
 /**
- * Message.
- * ---------------------------------------------------------------------------
+ * represents a Message that is used to carry information over the network.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
+ * @see ver14.SharedClasses.Networking.AppSocket
  */
 public class Message implements Serializable {
     /**
@@ -158,10 +158,10 @@ public class Message implements Serializable {
     }
 
     /**
-     * Instantiates a new Message.
+     * Instantiates a new response Message.
      *
      * @param messageType  the message type
-     * @param respondingTo the responding to
+     * @param respondingTo the request message this message is responding to
      */
     public Message(MessageType messageType, Message respondingTo) {
         this(messageType, null, respondingTo.messageID);
@@ -178,7 +178,7 @@ public class Message implements Serializable {
     }
 
     /**
-     * Ask for login message.
+     * create a request for a login message.
      *
      * @return the message
      */
@@ -187,7 +187,7 @@ public class Message implements Serializable {
     }
 
     /**
-     * Return login message.
+     * respond to a login request.
      *
      * @param loginInfo    the login info
      * @param respondingTo the responding to
@@ -214,7 +214,7 @@ public class Message implements Serializable {
     }
 
     /**
-     * Welcome message message.
+     * Welcome message.
      *
      * @param str       the str
      * @param loginInfo the login info

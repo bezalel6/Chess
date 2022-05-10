@@ -11,8 +11,9 @@ import java.util.stream.Stream;
 
 
 /**
- * represents a list of Synced items.
+ * represents a collection of Synced items.
  *
+ * @param <E> the type of syncable elements in this collection
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<String, E> {
@@ -40,7 +41,7 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
      * Instantiates a new Synced items.
      *
      * @param syncedListType the synced list type
-     * @param onUpdate       the on update
+     * @param onUpdate       the callback to call when a change is made to the collection (removal or adding of elements)
      */
     public SyncedItems(SyncedListType syncedListType, Callback<SyncedItems<E>> onUpdate) {
         this.syncedListType = syncedListType;
@@ -57,7 +58,7 @@ public class SyncedItems<E extends SyncableItem> extends ConcurrentHashMap<Strin
     }
 
     /**
-     * Stream stream.
+     * Stream.
      *
      * @return the stream
      */

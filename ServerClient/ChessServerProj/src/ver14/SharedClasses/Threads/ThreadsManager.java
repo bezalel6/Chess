@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 /**
- * represents a Threads manager.
+ * represents a manager that manages all the threads in the enviornment.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -52,7 +52,7 @@ public class ThreadsManager {
     }
 
     /**
-     * Handle errors for a runnable.
+     * Handle errors for a runnable
      *
      * @param runnable the runnable
      */
