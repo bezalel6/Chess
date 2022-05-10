@@ -7,7 +7,7 @@ import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Networking.AppSocket;
 import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.Networking.MessagesHandler;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 
 import java.util.ArrayList;
 
@@ -75,7 +75,7 @@ public class ServerMessagesHandler extends MessagesHandler {
      * @return the my error . disconnected error
      */
     @Override
-    protected MyError.DisconnectedError createDisconnectedError() {
+    protected DisconnectedError createDisconnectedError() {
         return new PlayerDisconnectedError(player);
     }
 

@@ -4,17 +4,13 @@ import ver14.SharedClasses.Threads.MyThread;
 
 
 /**
- * an Error handler.
- *
- * @param <E> the error type parameter
+ * represents a callback that can handle a certain type of errors.
  */
-public interface ErrorHandler<E extends MyError> {
-
-
+public interface ErrorHandler {
     /**
-     * Ignore boolean.
+     * Ignore any error that might get thrown while running the runnable.
      *
-     * @param runnable the runnable
+     * @param runnable the runnable to run
      * @return true if the runnable threw, false otherwise
      */
     static boolean ignore(ThrowingRunnable runnable) {
@@ -41,9 +37,9 @@ public interface ErrorHandler<E extends MyError> {
     }
 
     /**
-     * Handle.
+     * handle an error that was thrown.
      *
-     * @param err the err
+     * @param err the error thrown
      */
     void handle(MyError err);
 }

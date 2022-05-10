@@ -61,16 +61,6 @@ public class GameTime implements Serializable {
     }
 
     /**
-     * Gets the time format for a player.
-     *
-     * @param clr the clr
-     * @return the time format
-     */
-    public TimeFormat getTimeFormat(PlayerColor clr) {
-        return timeFormats.length > 1 ? timeFormats[clr.asInt] : timeFormats[0];
-    }
-
-    /**
      * Start running a player's clock.
      *
      * @param playerColor the player color
@@ -106,8 +96,18 @@ public class GameTime implements Serializable {
      * @return the time left in milliseconds
      */
     public long getTimeLeft(PlayerColor playerColor) {
-        var f = timeFormats[playerColor.asInt];
+        var f = getTimeFormat(playerColor);
         return playerColor == currentlyRunning ? System.currentTimeMillis() - lastStart : f.timeInMillis;
+    }
+
+    /**
+     * Gets the time format for a player.
+     *
+     * @param clr the clr
+     * @return the time format
+     */
+    public TimeFormat getTimeFormat(PlayerColor clr) {
+        return timeFormats.length > 1 ? timeFormats[clr.asInt] : timeFormats[0];
     }
 
     /**

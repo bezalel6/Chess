@@ -3,6 +3,7 @@ package ver14.SharedClasses.Networking;
 import ver14.SharedClasses.Callbacks.MessageCallback;
 import ver14.SharedClasses.Networking.Messages.Message;
 import ver14.SharedClasses.Networking.Messages.MessageType;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
 import ver14.SharedClasses.Threads.MyThread;
@@ -233,7 +234,7 @@ public class AppSocket extends MyThread {
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
-    public static class AppSocketError extends MyError.DisconnectedError {
+    public static class AppSocketError extends DisconnectedError {
         /**
          * @param err the cause
          */

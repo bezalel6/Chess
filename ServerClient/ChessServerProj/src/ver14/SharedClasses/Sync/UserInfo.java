@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * User info.
+ * represents syncable User information.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

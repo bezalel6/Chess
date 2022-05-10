@@ -22,6 +22,7 @@ import ver14.SharedClasses.Networking.Messages.MessageType;
 import ver14.SharedClasses.Sync.SyncableItem;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
+import ver14.SharedClasses.Threads.ErrorHandling.DisconnectedError;
 import ver14.SharedClasses.Threads.ErrorHandling.EnvManager;
 import ver14.SharedClasses.Threads.ErrorHandling.ErrorHandler;
 import ver14.SharedClasses.Threads.ErrorHandling.MyError;
@@ -29,7 +30,8 @@ import ver14.SharedClasses.Threads.HandledThread;
 import ver14.SharedClasses.Threads.MyThread;
 import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
-import ver14.SharedClasses.UI.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.MyJFrame;
+import ver14.SharedClasses.UI.MyJframe.StringClosing;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -476,7 +478,7 @@ public class Server implements EnvManager {
         HandledThread.runInHandledThread(() -> {
 
             MyThread.currentThread(t -> {
-                t.addHandler(MyError.DisconnectedError.class, playerSocket::close);
+                t.addHandler(DisconnectedError.class, playerSocket::close);
             });
             ServerMessagesHandler messagesHandler = new ServerMessagesHandler(this, playerSocket);
             playerSocket.setMessagesHandler(messagesHandler);
@@ -501,9 +503,9 @@ public class Server implements EnvManager {
      *
      * @param appSocket the app socket to the client
      * @return the newly created player net
-     * @throws ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError if the player disconnected while logging in
+     * @throws DisconnectedError if the player disconnected while logging in
      */
-    public PlayerNet login(AppSocket appSocket) throws MyError.DisconnectedError {
+    public PlayerNet login(AppSocket appSocket) throws DisconnectedError {
         Message request = appSocket.requestMessage(Message.askForLogin());
 
         Message responseMessage = responseToLogin(request.getLoginInfo());
@@ -520,7 +522,7 @@ public class Server implements EnvManager {
         LoginInfo loginInfo = request.getLoginInfo();
 
         if (loginInfo.getLoginType() == LoginType.CANCEL)
-            throw new MyError.DisconnectedError();
+            throw new DisconnectedError();
 
         if (responseMessage.getMessageType() != MessageType.ERROR) {
             return new PlayerNet(appSocket, loginInfo);
@@ -533,17 +535,17 @@ public class Server implements EnvManager {
      *
      * @param loginInfo the login info
      * @return the response message. a welcome message after a successful login, or an error message.
-     * @throws ver14.SharedClasses.Threads.ErrorHandling.MyError.DisconnectedError if the player disconnected while logging in
+     * @throws DisconnectedError if the player disconnected while logging in
      */
-    private Message responseToLogin(LoginInfo loginInfo) throws MyError.DisconnectedError {
+    private Message responseToLogin(LoginInfo loginInfo) throws DisconnectedError {
         if (loginInfo == null)
-            throw new MyError.DisconnectedError();
+            throw new DisconnectedError();
         String username = loginInfo.getUsername();
         String password = loginInfo.getPassword();
 
         return switch (loginInfo.getLoginType()) {
             case NOT_SET_YET -> {
-                throw new MyError.DisconnectedError("Received empty login info");
+                throw new DisconnectedError("Received empty login info");
             }
             case LOGIN -> {
                 if (DB.isUserExists(username, password)) {
@@ -611,7 +613,7 @@ public class Server implements EnvManager {
         GameSettings gameSettings = null;
         try {
             gameSettings = player.getGameSettings(joinable, resumable);
-        } catch (MyError.DisconnectedError e) {
+        } catch (DisconnectedError e) {
         }
         if (gameSettings == null) {
             playerDisconnected(player, "");
@@ -793,7 +795,7 @@ public class Server implements EnvManager {
      */
     @Override
     public void handledErr(MyError err) {
-        log("handled: " + err.getHandledStr());
+        log("handled: " + err.getShortDesc());
 
     }
 

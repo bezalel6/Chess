@@ -26,7 +26,7 @@ import ver14.SharedClasses.Misc.Environment;
 import ver14.SharedClasses.Misc.IDsGenerator;
 import ver14.SharedClasses.Sync.SyncedItems;
 import ver14.SharedClasses.Sync.SyncedListType;
-import ver14.SharedClasses.Threads.ErrorHandling.MyError;
+import ver14.SharedClasses.Threads.ErrorHandling.DBError;
 import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
 
@@ -183,7 +183,7 @@ public class DB {
             return request.getBuilder().createResponse(rs, request);
         } catch (SQLException e) {
 //            e.printStackTrace();
-            throw new MyError.DBErr(e);
+            throw new DBError(e);
         }
 
     }
@@ -381,7 +381,7 @@ public class DB {
         try {
             return (T) SerializationUtils.deserialize(arr);
         } catch (SerializationException e) {
-            throw new MyError.DBErr("Serialization Exception!", e);
+            throw new DBError("Serialization Exception!", e);
         }
     }
 

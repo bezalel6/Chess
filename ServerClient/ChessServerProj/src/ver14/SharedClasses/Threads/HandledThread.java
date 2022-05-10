@@ -27,7 +27,7 @@ public class HandledThread extends MyThread {
     }
 
     /**
-     * Run in handled thread handled thread.
+     * Run in a handled thread
      *
      * @param runnable the runnable
      * @return the handled thread
