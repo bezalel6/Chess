@@ -96,8 +96,8 @@ public class GameTime implements Serializable {
      * @return the time left in milliseconds
      */
     public long getTimeLeft(PlayerColor playerColor) {
-        var f = getTimeFormat(playerColor);
-        return playerColor == currentlyRunning ? System.currentTimeMillis() - lastStart : f.timeInMillis;
+        var f = gameTime[playerColor.asInt];
+        return playerColor == currentlyRunning ? System.currentTimeMillis() - lastStart : f;
     }
 
     /**
