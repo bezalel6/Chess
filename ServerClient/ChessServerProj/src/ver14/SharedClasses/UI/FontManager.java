@@ -4,7 +4,7 @@ import java.awt.*;
 
 
 /**
- * represents a Font manager.
+ * fonts manager
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */

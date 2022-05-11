@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 
 /**
- * Args utils.
+ * represents a utility for integrating with {@link String}[] arguments
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -36,7 +36,6 @@ public class ArgsUtil {
     }
 
     /**
-     * Equals sign optional arg.
      * for any arg of this format: preEqualStr=%argval%
      *
      * @param preEqualStr the pre equal str
@@ -61,16 +60,16 @@ public class ArgsUtil {
     }
 
     /**
-     * Optional arg.
+     * represents an argument that might have been passed.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
     public record OptionalArg(String str) {
 
         /**
-         * Gets string.
+         * Gets the string value of this argument.
          *
-         * @return the string
+         * @return the string value of the argument if it was found, null otherwise.
          */
         public String getString() {
             return str;
@@ -79,15 +78,15 @@ public class ArgsUtil {
         /**
          * Gets boolean.
          *
-         * @param ifErr the if err
+         * @param defVal if it doesn't exist
          * @return the boolean
          */
-        public Boolean getBoolean(Boolean ifErr) {
+        public Boolean getBoolean(Boolean defVal) {
             try {
                 checkExists();
                 return Boolean.parseBoolean(str);
             } catch (Exception e) {
-                return ifErr;
+                return defVal;
             }
         }
 
@@ -102,12 +101,12 @@ public class ArgsUtil {
         }
 
         /**
-         * Exists boolean.
+         * was this argument found
          *
-         * @return the boolean
+         * @return <code>true</code> if the argument was found
          */
         public boolean exists() {
-            return !StrUtils.isEmpty(str);
+            return (str != null);
         }
 
         /**
@@ -122,15 +121,15 @@ public class ArgsUtil {
         /**
          * Gets int.
          *
-         * @param ifErr the if err
+         * @param defVal the if err
          * @return the int
          */
-        public int getInt(int ifErr) {
+        public int getInt(int defVal) {
             try {
                 checkExists();
                 return Integer.parseInt(str);
             } catch (Exception e) {
-                return ifErr;
+                return defVal;
             }
         }
     }

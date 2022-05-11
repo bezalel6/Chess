@@ -5,7 +5,7 @@ import java.awt.*;
 
 
 /**
- * My lbl.
+ * represents a label.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
@@ -83,7 +83,7 @@ public class MyLbl extends JLabel {
 
 
     /**
-     * Underline.
+     * make the text in this label <u>underlined</u>
      */
     public void underline() {
         modifier = "<html><u>%s</u></html>"::formatted;
@@ -104,7 +104,7 @@ public class MyLbl extends JLabel {
     }
 
     /**
-     * String modifier.
+     * represents a string modifier.
      *
      * @author Bezalel Avrahami (bezalel3250@gmail.com)
      */
@@ -112,7 +112,7 @@ public class MyLbl extends JLabel {
         /**
          * Modify string.
          *
-         * @param modifying the modifying
+         * @param modifying the string to modify
          * @return the modified string
          */
         String modify(String modifying);

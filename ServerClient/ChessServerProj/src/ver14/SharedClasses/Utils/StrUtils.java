@@ -14,12 +14,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * utility class for String related utilities
+ * utility class for {@link String} related utilities
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class StrUtils {
 
+    /**
+     * Bits str string.
+     *
+     * @param num the num
+     * @return the string
+     */
     public static String bitsStr(long num) {
         if (num == 0)
             return "no bit is set";
@@ -38,10 +44,10 @@ public class StrUtils {
 
 
     /**
-     * Is absolute url boolean.
+     * Is the given string an absolute url.
      *
      * @param urlString the url string
-     * @return the boolean
+     * @return <code>true</code> if the string is an absolute url
      */
     public static boolean isAbsoluteUrl(String urlString) {
         boolean result = false;
@@ -57,7 +63,7 @@ public class StrUtils {
     }
 
     /**
-     * Dont cap full string.
+     * Don't cap full string.
      *
      * @param str the str
      * @return the string
@@ -96,14 +102,14 @@ public class StrUtils {
     }
 
     /**
-     * Count matches int.
+     * Count number of matches in a string.
      *
      * @param str   the str
-     * @param match the match
-     * @return the int
+     * @param regex the
+     * @return the number of matches
      */
-    public static int countMatches(String str, @Language("RegExp") String match) {
-        Pattern pattern = Pattern.compile(match);
+    public static int countMatches(String str, @Language("RegExp") String regex) {
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         int count = 0;
         while (matcher.find()) {
@@ -133,10 +139,10 @@ public class StrUtils {
     }
 
     /**
-     * Format string.
+     * Format a string.
      *
      * @param str the str
-     * @return the string
+     * @return the formatted string
      */
     public static String format(String str) {
         if (isEmpty(str)) return str;
@@ -171,10 +177,10 @@ public class StrUtils {
     }
 
     /**
-     * Is empty boolean.
+     * Is a string empty.
      *
-     * @param str the str
-     * @return the boolean
+     * @param str the string
+     * @return <code>true</code> if the string is empty
      */
     public static boolean isEmpty(String str) {
         return str == null || str.trim().equals("");
@@ -285,7 +291,7 @@ public class StrUtils {
     }
 
     /**
-     * Gets port.
+     * Gets the port from a {@link SocketAddress}.
      *
      * @param socketAddress the socket address
      * @return the port
@@ -346,7 +352,7 @@ public class StrUtils {
 //    }
 
     /**
-     * Str inn string.
+     * create a string of the {@link Object#toString()} of any object that isn't null.
      *
      * @param objs the objs
      * @return the string
@@ -413,7 +419,7 @@ public class StrUtils {
         String str = "good " + TimeRange.getTimeRange(hour) + "!";
         return format(str);
     }
-    
+
     /**
      * Create time str string.
      *
