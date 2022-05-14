@@ -220,6 +220,7 @@ public class View extends SoundManager implements Iterable<BoardButton[]> {
 
         sidePanel = new SidePanel(isBoardFlipped(), this, client);
         setIcon(PlayerColor.WHITE);
+//        win.setIconImage(IconManager.logo.getImage());
         boardPnl = new BoardPanel(ROWS, COLS, this);
 
         topPnl = new JPanel();

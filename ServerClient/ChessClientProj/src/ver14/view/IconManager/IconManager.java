@@ -77,6 +77,8 @@ public class IconManager {
      * The constant redX.
      */
     public static final MyImage redX;
+
+    public static final MyImage logo;
     /**
      * The constant showPassword.
      */
@@ -163,6 +165,8 @@ public class IconManager {
             gameOverIcons[player.asInt][TIE] = loadImage("GameOverIcons/Tie/" + player.getName());
         }
 
+        logo = loadImage("logo.png");
+
         serverError = loadImage("StatusIcons/serverError", MESSAGES_ICONS);
 
         infoIcon = loadImage("StatusIcons/Info", MESSAGES_ICONS);
@@ -235,8 +239,8 @@ public class IconManager {
     /**
      * Load image from an online source.
      *
-     * @param path the path to the image
-     * @param _size        the optional size of the image
+     * @param path  the path to the image
+     * @param _size the optional size of the image
      * @return the loaded image if it loaded successfully. null otherwise
      */
     public static MyImage loadOnline(String path, Size... _size) {
@@ -251,91 +255,6 @@ public class IconManager {
             return null;
         ret = scaleImage(ret, _size);
         return new MyImage(ret);
-    }
-
-    /**
-     * Load an image without scaling it.
-     *
-     * @param url the url to the image
-     * @return the loaded image if one is loaded successfully. null otherwise.
-     */
-    public static MyImage loadNoScale(URL url) {
-        MyImage icon = new MyImage(url, url.toString());
-//        new JFrame() {{
-//            setSize(500, 500);
-//            setIconImage(icon.getImage());
-//            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            setVisible(true);
-//        }};
-        return icon.getIconWidth() == -1 ? null : icon;
-    }
-
-    /**
-     * Scale an image.
-     *
-     * @param img   the image to scale
-     * @param _size the optional size. if one is not passed, the image will scale to {@value  Size#DEFAULT_SIZE }
-     * @return the image icon
-     */
-    public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
-        Size size = Size.size(_size);
-        if (size instanceof Size.RatioSize)
-            size.keepRatio(new Size(img.getIconWidth(), img.getIconHeight()));
-
-        if (size == OG_SIZE)
-            return img;
-        ImageIcon noScale;
-        try {
-            noScale = loadNoScale(img.getDescription());
-            assert noScale != null && noScale.getIconWidth() != 0;
-            img = noScale;
-        } catch (Exception | AssertionError e) {
-        }
-
-        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
-    }
-
-    /**
-     * Load an image from a relative path.
-     *
-     * @param relativePath the relative path
-     * @return the loaded image
-     */
-    public static MyImage loadNoScale(String relativePath) {
-        relativePath = StrUtils.clean(relativePath);
-        boolean isNotComplete = !StrUtils.isAbsoluteUrl(relativePath);
-        if (isNotComplete && !RegEx.Icon.check(relativePath)) {
-            relativePath += ".png";
-        }
-        if (isNotComplete && !relativePath.contains("/assets/"))
-            relativePath = "/assets/" + relativePath;
-        URL path;
-        if (Environment.IS_JAR) {
-            try {
-                if (isNotComplete && !relativePath.contains("./")) {
-                    relativePath = "./ClientAssets/" + relativePath;
-                }
-                if (!isNotComplete && relativePath.contains("./")) {
-                    relativePath = relativePath.replaceAll("\\./", "");
-                }
-                relativePath = relativePath.replaceFirst("file:/", "");
-                if (isNotComplete) {
-                    File file = new File(relativePath);
-                    if (!file.exists())
-                        System.out.println("didnt find file " + relativePath);
-                    path = file.toURI().toURL();
-
-                } else {
-                    path = new URL(relativePath);
-                }
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
-        } else{
-            path = IconManager.class.getResource(relativePath);
-        }
-        assert path != null;
-        return loadNoScale(path);
     }
 
     /**
@@ -407,6 +326,91 @@ public class IconManager {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Scale an image.
+     *
+     * @param img   the image to scale
+     * @param _size the optional size. if one is not passed, the image will scale to {@value  Size#DEFAULT_SIZE }
+     * @return the image icon
+     */
+    public static ImageIcon scaleImage(ImageIcon img, Dimension... _size) {
+        Size size = Size.size(_size);
+        if (size instanceof Size.RatioSize)
+            size.keepRatio(new Size(img.getIconWidth(), img.getIconHeight()));
+
+        if (size == OG_SIZE)
+            return img;
+        ImageIcon noScale;
+        try {
+            noScale = loadNoScale(img.getDescription());
+            assert noScale != null && noScale.getIconWidth() != 0;
+            img = noScale;
+        } catch (Exception | AssertionError e) {
+        }
+
+        return new ImageIcon(img.getImage().getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH), img.getDescription());
+    }
+
+    /**
+     * Load an image from a relative path.
+     *
+     * @param relativePath the relative path
+     * @return the loaded image
+     */
+    public static MyImage loadNoScale(String relativePath) {
+        relativePath = StrUtils.clean(relativePath);
+        boolean isNotComplete = !StrUtils.isAbsoluteUrl(relativePath);
+        if (isNotComplete && !RegEx.Icon.check(relativePath)) {
+            relativePath += ".png";
+        }
+        if (isNotComplete && !relativePath.contains("/assets/"))
+            relativePath = "/assets/" + relativePath;
+        URL path;
+        if (Environment.IS_JAR) {
+            try {
+                if (isNotComplete && !relativePath.contains("./")) {
+                    relativePath = "./ClientAssets/" + relativePath;
+                }
+                if (!isNotComplete && relativePath.contains("./")) {
+                    relativePath = relativePath.replaceAll("\\./", "");
+                }
+                relativePath = relativePath.replaceFirst("file:/", "");
+                if (isNotComplete) {
+                    File file = new File(relativePath);
+                    if (!file.exists())
+                        System.out.println("didnt find file " + relativePath);
+                    path = file.toURI().toURL();
+
+                } else {
+                    path = new URL(relativePath);
+                }
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            path = IconManager.class.getResource(relativePath);
+        }
+        assert path != null;
+        return loadNoScale(path);
+    }
+
+    /**
+     * Load an image without scaling it.
+     *
+     * @param url the url to the image
+     * @return the loaded image if one is loaded successfully. null otherwise.
+     */
+    public static MyImage loadNoScale(URL url) {
+        MyImage icon = new MyImage(url, url.toString());
+//        new JFrame() {{
+//            setSize(500, 500);
+//            setIconImage(icon.getImage());
+//            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            setVisible(true);
+//        }};
+        return icon.getIconWidth() == -1 ? null : icon;
     }
 
     /**
