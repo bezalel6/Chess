@@ -167,7 +167,7 @@ public class Client implements EnvManager {
      */
 // main
     public static void main(String[] args) {
-
+        
         ArgsUtil util = ArgsUtil.create(args);
         START_AT_ADDRESS = util.equalsSign("address").getString();
         START_FULLSCREEN = util.plainTextIgnoreCase("-f").exists();

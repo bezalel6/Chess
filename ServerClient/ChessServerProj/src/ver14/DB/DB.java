@@ -46,7 +46,15 @@ public class DB {
     /**
      * The constant APP_DB_FILE_PATH.
      */
-    public static final String APP_DB_FILE_PATH = "/assets/db.accdb";
+    public static final String APP_DB_FILE_PATH = (Environment.IS_JAR ? "" : "src/assets/") + "db.accdb";
+
+//            if (Environment.IS_JAR) {
+////            dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
+//        dbPath = "./ServerAssets" + dbPath;
+//    } else {
+//        dbPath = "src" + dbPath;
+//    }
+
     /**
      * The constant TIE_STR.
      */
@@ -105,17 +113,10 @@ public class DB {
 
         //#####################################################################
 
-        if (Environment.IS_JAR) {
-//            dbPath = dbPath.substring(dbPath.lastIndexOf("/") + 1); //TurnON for JAR
-            dbPath = "./ServerAssets" + dbPath;
-        } else {
-            dbPath = "src" + dbPath;
-        }
-
         //#####################################################################
 
         // dbURL: Access DB Driver Name + dbPath
-        String dbURL = "jdbc:ucanaccess://" + new File(dbPath).getAbsolutePath();
+        String dbURL = "jdbc:ucanaccess://" + new File(APP_DB_FILE_PATH).getAbsolutePath();
 
         // create the connection object to db
 

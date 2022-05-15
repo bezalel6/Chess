@@ -10,3 +10,5 @@ ServerClient/ChessServerProj/JavaDoc/Shared/html/*
 *html
 *.xml
 ServerClient/ChessServerProj/.idea/workspace.xml
+/ServerClient/ChessServerProjNB/
+/ServerClient/ChessClientProjNB/

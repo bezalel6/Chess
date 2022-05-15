@@ -32,6 +32,7 @@ public class GameTime implements Serializable {
      * @param other the other
      */
     public GameTime(GameTime other) {
+        this.lastStart = other.lastStart;
         this.gameTime = other.gameTime;
         this.currentlyRunning = other.currentlyRunning;
         this.timeFormats = other.timeFormats;
@@ -56,7 +57,7 @@ public class GameTime implements Serializable {
             for (int i = 0; i < timeFormats.length; i++) {
                 gameTime[i] = (timeFormats[i].timeInMillis);
             }
-        }
+        } else throw new RuntimeException("aaaaa");
 
     }
 
@@ -97,7 +98,7 @@ public class GameTime implements Serializable {
      */
     public long getTimeLeft(PlayerColor playerColor) {
         var f = gameTime[playerColor.asInt];
-        return playerColor == currentlyRunning ? System.currentTimeMillis() - lastStart : f;
+        return playerColor == currentlyRunning ? f : getTimeFormat(playerColor).timeInMillis;
     }
 
     /**

@@ -32,6 +32,7 @@ import ver14.SharedClasses.Threads.ThreadsManager;
 import ver14.SharedClasses.UI.Buttons.MyJButton;
 import ver14.SharedClasses.UI.MyJframe.MyJFrame;
 import ver14.SharedClasses.UI.MyJframe.StringClosing;
+import ver14.SharedClasses.UI.OptionalPanel;
 import ver14.SharedClasses.Utils.ArgsUtil;
 import ver14.SharedClasses.Utils.RegEx;
 import ver14.SharedClasses.Utils.StrUtils;
@@ -191,13 +192,18 @@ public class Server implements EnvManager {
         JPanel bottomPnl = new JPanel();
         MyJButton connectedUsersBtn = new MyJButton("Connected Users", () -> {
             log("Connected Users:");
-            players.forEachItem(plr -> {
-                log(StrUtils.dontCapWord(plr.getUsername()));
-            });
+            if (players.isEmpty()) {
+                log("no users are connected");
+            } else
+                players.forEachItem(plr -> {
+                    log(StrUtils.dontCapWord(plr.getUsername()));
+                });
         });
         MyJButton gameSessionsBtn = new MyJButton("Game Sessions", () -> {
             log("Game Sessions:");
-            gameSessions.forEachItem(session -> {
+            if (gameSessions.isEmpty()) {
+                log("there are no sessions");
+            } else gameSessions.forEachItem(session -> {
                 log(session.sessionsDesc());
             });
         });
@@ -263,13 +269,23 @@ public class Server implements EnvManager {
             if (serverPort == -1) {
 
                 JTextField portField = new JTextField(SERVER_DEFAULT_PORT + "", 30);
+
                 JTextField threadsField = new JTextField(Minimax.NUMBER_OF_THREADS + "", 30);
-                Object[] messageObj = {"Enter Server PORT Number:", portField, "Enter Number of threads for the minimax:", threadsField};
+
+                var opt = new OptionalPanel("Advanced");
+                opt.addToOptional(new JLabel("Number of minimax threads (per ai instance):"));
+                opt.addToOptional(threadsField);
+
+                Object[] messageObj = {"Enter Server PORT Number:", portField, opt};
+
                 int dialog = JOptionPane.showConfirmDialog(frmWin, messageObj, "Server Setup", JOptionPane.OK_CANCEL_OPTION);
                 if (dialog == JOptionPane.CANCEL_OPTION)
                     return;
                 serverPort = Integer.parseInt(portField.getText());
                 Minimax.NUMBER_OF_THREADS = Integer.parseInt(threadsField.getText());
+                if (Minimax.NUMBER_OF_THREADS <= 0) {
+                    throw new Exception("the minimax cannot run on " + Minimax.NUMBER_OF_THREADS + " threads");
+                }
                 System.out.println("threads = " + Minimax.NUMBER_OF_THREADS);
             }
 

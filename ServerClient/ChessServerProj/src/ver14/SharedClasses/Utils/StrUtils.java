@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
  */
 public class StrUtils {
 
+
     /**
      * Bits str string.
      *

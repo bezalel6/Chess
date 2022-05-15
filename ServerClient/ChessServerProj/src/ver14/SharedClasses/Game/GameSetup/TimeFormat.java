@@ -31,10 +31,6 @@ public class TimeFormat implements Serializable {
      */
     public static final TimeFormat[] PRESETS = {RAPID, ULTRA_BULLET, BULLET, BULLET2};
     /**
-     * The constant numOfFields.
-     */
-    public static final int numOfFields = 2;
-    /**
      * The Time in millis.
      */
     public final long timeInMillis;
