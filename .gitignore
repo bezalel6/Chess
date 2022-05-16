@@ -12,3 +12,7 @@ ServerClient/ChessServerProj/JavaDoc/Shared/html/*
 ServerClient/ChessServerProj/.idea/workspace.xml
 /ServerClient/ChessServerProjNB/
 /ServerClient/ChessClientProjNB/
+/ServerClient/NetBeans/ChessServerProject/nbproject/private/
+/ServerClient/NetBeans/ChessClientProj_/build/
+/ServerClient/NetBeans/ChessClientProj_/nbproject/private/
+/ServerClient/NetBeans/ChessClientProj_/dist/
