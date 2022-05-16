@@ -35,7 +35,7 @@ public record SelectablePiece(Piece piece) implements Selectable {
 
     @Override
     public ImageIcon getIcon() {
-        return IconManager.getPieceIcon(piece);
+        return IconManager.scaleImage(IconManager.getPieceIcon(piece), .8);
     }
 
     @Override

@@ -273,7 +273,8 @@ public abstract class Dialog extends JDialog implements Parent {
             addCard(card);
         setBackOk(card);
         Size cardSize = new Size(card.getPreferredSize());
-        Size dialogSize = new Size(cardSize).padding(-30);
+        Size dialogSize = new Size(cardSize).padding(-40);
+//        Size dialogSize = new Size(cardSize).padding(-30);
         cardsScrollPane.mySetSize(dialogSize);
         cardsPnl.setPreferredSize(cardSize);
         dialogSize = Size.min(dialogSize, MAX_DIALOG_SIZE);

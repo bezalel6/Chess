@@ -413,6 +413,10 @@ public class IconManager {
         return icon.getIconWidth() == -1 ? null : icon;
     }
 
+    public static ImageIcon scaleImage(ImageIcon img, double ratio) {
+        return scaleImage(img, new Size(img.getIconWidth(), img.getIconHeight()).mult(ratio));
+    }
+
     /**
      * Screenshot image icon.
      *

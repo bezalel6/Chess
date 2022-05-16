@@ -4,8 +4,13 @@ import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
 import ver14.SharedClasses.Game.PlayerColor;
 import ver14.view.Dialog.DialogDetails;
 import ver14.view.Dialog.DialogProperties;
-import ver14.view.Dialog.SimpleDialog;
 import ver14.view.Dialog.Selectables.SelectablePiece;
+import ver14.view.Dialog.SimpleDialog;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * represents a Promotion dialog for choosing a piece to promote to.
@@ -28,8 +33,30 @@ public class Promotion extends SimpleDialog {
 //        MyJFrame.debugAdapter(this);
         list = new PromotionList(this, playerColor);
         setup(null, list);
+
     }
 
+    public static void main(String[] args) {
+//        FlatLightLaf.setup();
+//        new Promotion(PlayerColor.WHITE).start();
+
+        JLabel lbl = new JLabel("jhsadhia");
+        lbl.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println(e);
+            }
+        });
+        new JFrame() {{
+            setSize(500, 500);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLayout(new GridLayout(0, 1));
+            add(new JButton("dw"));
+            add(lbl);
+            setVisible(true);
+        }};
+    }
 //    /**
 //     * The entry point of application.
 //     *
