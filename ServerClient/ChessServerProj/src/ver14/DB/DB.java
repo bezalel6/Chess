@@ -4,6 +4,7 @@ package ver14.DB;
 
 import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.SerializationUtils;
+import ver14.Model.FEN;
 import ver14.SharedClasses.DBActions.Condition;
 import ver14.SharedClasses.DBActions.DBRequest.DBRequest;
 import ver14.SharedClasses.DBActions.DBRequest.Type;
@@ -19,6 +20,7 @@ import ver14.SharedClasses.DBActions.Table.Col;
 import ver14.SharedClasses.DBActions.Table.Table;
 import ver14.SharedClasses.Game.GameSetup.AiType;
 import ver14.SharedClasses.Game.GameSetup.GameSettings;
+import ver14.SharedClasses.Game.PlayerColor;
 import ver14.SharedClasses.Game.SavedGames.ArchivedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.GameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
@@ -109,7 +111,6 @@ public class DB {
      * @return the created connection to the db.
      */
     public static Connection getConnection() {
-        String dbPath = APP_DB_FILE_PATH;
 
         //#####################################################################
 
@@ -215,7 +216,8 @@ public class DB {
      */
     public static void main(String[] args) {
         try {
-            clearGames();
+//            clearGames();
+            createRndUnfinished(30);
 //            System.out.println(request(PreMadeRequest.Games.createBuilder().build("bezalel6", new Date(0), new Date())));
 //            createRndGames(30);
 //            System.out.println(request(new DBRequest(new Delete(Table.UnfinishedGames, null))));
@@ -550,6 +552,30 @@ public class DB {
             saveGameResult(gameInfo);
         }
 
+
+    }
+
+
+    public static void createRndUnfinished(int numOfGames) {
+        ArrayList<UserDetails> details = getAllUserDetails();
+        IDsGenerator generator = new IDsGenerator();
+        Random rnd = new Random();
+        for (int i = 0; i < numOfGames; i++) {
+            String un = details.get(rnd.nextInt(details.size())).username;
+            GameSettings gameSettings = new GameSettings();
+            String oppUn;
+            oppUn = AiType.MyAi.toString();
+            gameSettings.initDefault1vAi();
+            gameSettings.setFen(FEN.rndFen());
+            UnfinishedGame unfinishedGame = new UnfinishedGame(generator.generate(), un, gameSettings, oppUn, rnd.nextBoolean() ? PlayerColor.WHITE : PlayerColor.BLACK, rnd.nextBoolean() ? un : oppUn, new Stack<>());
+
+            long now = new Date().getTime();
+            long start = new Date(0).getTime();
+            long d = (Math.abs(rnd.nextLong()) % (now - start)) + start;
+            unfinishedGame.setCreatedAt(new Date(d));
+
+            saveUnFinishedGame(unfinishedGame);
+        }
 
     }
 
