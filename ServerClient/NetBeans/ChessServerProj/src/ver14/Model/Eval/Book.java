@@ -19,7 +19,7 @@ public class Book {
     /**
      * The constant pathToBook.
      */
-    private final static String pathToBook = (!Environment.IS_JAR ? "src/assets" : "./ServerAssets") + "/GameInfo/Book/Games.txt";
+    private final static String pathToBook = (!Environment.IS_JAR ? "src" : "./ServerAssets") + "/assets/GameInfo/Book/Games.txt";
     /**
      * The constant book.
      */

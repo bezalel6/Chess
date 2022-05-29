@@ -25,6 +25,7 @@ import java.util.stream.IntStream;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
+
     /**
      * The constant blackSquareClr.
      */
@@ -124,6 +125,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
             Collections.reverse(cols);
         }
         class Lbl extends MyLbl {
+
             public Lbl(String text) {
                 super(text);
                 setPreferredSize(getMinimumSize());
@@ -308,8 +310,9 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         buttonsPnl.removeAll();
 
         for (Location loc : Location.ALL_LOCS) {
-            if (view.isBoardFlipped())
+            if (view.isBoardFlipped()) {
                 loc = loc.flip();
+            }
             ViewLocation btnLoc = new ViewLocation(loc);
 
             BoardButton currentBtn = new BoardButton(btnLoc, loc.isBlackSquare() ? blackSquareClr : whiteSquareClr, view) {
@@ -422,7 +425,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 //            return;
 //        }
         SwingUtilities.invokeLater(() -> {
-            System.out.println("onResize() called");
+//            System.out.println("onResize() called");
             int size = Math.min(getWidth(), getHeight());
             setAllSizes(me, size, size);
 
@@ -450,7 +453,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Resize icons.
      */
     public void resizeIcons() {
-        System.out.println("resizing icon. pnl size is = " + getSize());
+//        System.out.println("resizing icon. pnl size is = " + getSize());
         forEachBtnParallel(BoardButton::scaleIcon);
         repaint();
     }
@@ -458,12 +461,15 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     @Override
     public void repaint() {
         super.repaint();
-        if (buttonsPnl != null)
+        if (buttonsPnl != null) {
             buttonsPnl.repaint();
-        if (boardOverlay != null)
+        }
+        if (boardOverlay != null) {
             boardOverlay.repaintLayer();
-        if (view != null)
+        }
+        if (view != null) {
             view.repaint();
+        }
     }
 
     @Override
