@@ -7,13 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="dragging and overlay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChessClientProj_jar/ChessClientProj.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/ChessServerProj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/ServerAssets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/ServerAssets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/out/artifacts/ChessServerProj_jar/db.accdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/ver14/DB/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/ver14/DB/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.laccdb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +164,7 @@
       <workItem from="1652599048985" duration="3632000" />
       <workItem from="1652676621526" duration="61000" />
       <workItem from="1652723477620" duration="1687000" />
+      <workItem from="1653197990997" duration="1369000" />
     </task>
     <servers />
   </component>
