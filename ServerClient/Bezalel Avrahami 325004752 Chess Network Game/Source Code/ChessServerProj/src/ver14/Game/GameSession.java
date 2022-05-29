@@ -169,7 +169,7 @@ public class GameSession extends HandledThread implements SyncableItem {
                     game.getCurrentPlayer().getUsername(),
                     moveStack
             );
-            log("saving unfinished game" + unfinishedGame.getGameDesc());
+            log("saving unfinished game: " + unfinishedGame);
             DB.saveUnFinishedGame(unfinishedGame);
         } else {
             String winner = switch (gameResult.getGameStatusType()) {
@@ -187,7 +187,7 @@ public class GameSession extends HandledThread implements SyncableItem {
                     winner,
                     moveStack
             );
-            log("saving game result: " + archivedGameInfo.getGameDesc());
+            log("saving game result: " + archivedGameInfo);
             DB.saveGameResult(archivedGameInfo);
 
         }
@@ -201,7 +201,7 @@ public class GameSession extends HandledThread implements SyncableItem {
     public boolean askForRematch() {
         if (getPlayers().stream().anyMatch(p -> !p.isConnected()))
             return false;
-//        System.out.println("both players are still connected");
+        System.out.println("both players are still connected");
         AtomicBoolean atomicBoolean = new AtomicBoolean(true);
 
         AtomicInteger numOfRes = new AtomicInteger(0);
@@ -209,10 +209,10 @@ public class GameSession extends HandledThread implements SyncableItem {
         CompletableFuture<Boolean> rematch = new CompletableFuture<>();
 
         AtomicReference<Player> canceledPlayer = new AtomicReference<>();
-//        log("asking rematch");
+        log("asking rematch");
         getPlayers().forEach(player -> {
             player.askQuestion(Question.Rematch, ans -> {
-//                log(player + " ans = " + ans);
+                log(player + " ans = " + ans);
                 synchronized (atomicBoolean) {
                     if (!player.isConnected() || !player.getPartner().isConnected() || (!ans.equals(Question.Answer.YES))) {
                         atomicBoolean.set(false);
@@ -231,7 +231,7 @@ public class GameSession extends HandledThread implements SyncableItem {
 
         try {
             boolean res = rematch.get();
-//            log("rematch = " + res);
+            log("rematch = " + res);
             if (!res) {
                 getPlayers().forEach(player ->
                         player.cancelQuestion(Question.Rematch, canceledPlayer.get().getUsername() + " didnt want to rematch")
@@ -339,9 +339,9 @@ public class GameSession extends HandledThread implements SyncableItem {
      * @param question the question
      */
     public void askedQuestion(Player player, Question question) {
-//        log(player.getUsername() + " asked " + question);
+        log(player.getUsername() + " asked " + question);
         player.getPartner().askQuestion(question, ans -> {
-//            log(player.getPartner() + " responded with a " + ans + " to " + question);
+            log(player.getPartner() + " responded with a " + ans + " to " + question);
             getAnswerHandler(question).callback(ans);
         });
     }

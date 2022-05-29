@@ -350,7 +350,7 @@ public class Game {
             Move finalMove = move;
             move = getMoves().stream().filter(m -> m.strictEquals(finalMove)).findAny().orElse(null);
 
-//            session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
+            session.log("move(%d) from %s: %s".formatted(moveStack.size() + 1, currentPlayer, move));//+1 bc current one isnt pushed yet
 
             return move;
         } catch (PlayerDisconnectedError error) {
@@ -376,7 +376,7 @@ public class Game {
         model.makeMove(move);
         moveStack.push(move);
 
-//        session.log(model.getMoveStack().toString());
+        session.log(model.getMoveStack().toString());
 
         currentPlayer.getPartner().updateByMove(move);
 
