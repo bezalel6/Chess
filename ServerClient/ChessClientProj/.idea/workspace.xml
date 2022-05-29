@@ -6,10 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2b132dc-6d84-44dd-b331-6216fc04c4e9" name="Changes" comment="dragging and overlay">
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChessServerProj/src/assets/db.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/src/ver14/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj/ChessClientProj_/src/ver14/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessClientProj_/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessClientProj_/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NetBeans/ChessServerProj/nbproject/project.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +171,7 @@
       <workItem from="1652676621526" duration="61000" />
       <workItem from="1652723477620" duration="1687000" />
       <workItem from="1653197990997" duration="1369000" />
+      <workItem from="1653810425934" duration="1255000" />
     </task>
     <servers />
   </component>
@@ -212,12 +219,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChessClientProj$Client.ic" NAME="Client Coverage Results" MODIFIED="1649662473470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ChessClientProj$IconManager.ic" NAME="IconManager Coverage Results" MODIFIED="1649399580060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ver14.view.IconManager.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ChessClientProj$TimeFormatSlider.ic" NAME="TimeFormatSlider Coverage Results" MODIFIED="1650199694545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ver14.view.Dialog.DialogFields.Slider.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/ChessClientProj$Client.ic" NAME="Client Coverage Results" MODIFIED="1649662473470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
