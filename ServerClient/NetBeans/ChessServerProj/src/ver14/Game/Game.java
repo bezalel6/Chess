@@ -1,5 +1,10 @@
 package ver14.Game;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Stack;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import ver14.Model.Eval.Eval;
 import ver14.Model.Model;
 import ver14.Model.MoveGenerator.GenerationSettings;
@@ -16,13 +21,6 @@ import ver14.SharedClasses.Game.SavedGames.EstablishedGameInfo;
 import ver14.SharedClasses.Game.SavedGames.UnfinishedGame;
 import ver14.SharedClasses.UI.GameView;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Stack;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-
 /**
  * Game - represents a game between two {@link Player}s.
  * <br/>
@@ -30,6 +28,7 @@ import java.util.concurrent.Executors;
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class Game {
+
     /**
      * The constant ROWS.
      */
@@ -102,10 +101,10 @@ public class Game {
     /**
      * Instantiates a new Game.
      *
-     * @param gameCreator  the game creator
-     * @param p2           the p 2
+     * @param gameCreator the game creator
+     * @param p2 the p 2
      * @param gameSettings the game settings
-     * @param session      the session
+     * @param session the session
      */
     public Game(Player gameCreator, Player p2, GameSettings gameSettings, GameSession session) {
         this.session = session;
@@ -196,10 +195,11 @@ public class Game {
      * Initializes a game.
      */
     private void initGame() {
-        if (clearMoveStack)
+        if (clearMoveStack) {
             moveStack.clear();
-        else
+        } else {
             clearMoveStack = true;
+        }
         gameSettings = new GameSettings(originalSettings);
         model.setup(gameSettings.getFen());
         assignColors();
@@ -272,9 +272,10 @@ public class Game {
     }
 
     /**
-     * gets the current player's move, makes it, and returns the game status after making the move.
-     * might stop and not finish all those steps if it gets interrupted by a disconnected player or a the current player timing out.
-     * in which case the appropriate game status will be returned.
+     * gets the current player's move, makes it, and returns the game status
+     * after making the move. might stop and not finish all those steps if it
+     * gets interrupted by a disconnected player or a the current player timing
+     * out. in which case the appropriate game status will be returned.
      *
      * @return the game status
      */
@@ -337,8 +338,9 @@ public class Game {
             gameTimeExecutor.submit(() -> {
                 try {
                     Thread.sleep(gameTime.getTimeLeft(currentPlayer.getPlayerColor()));
-                    if (!gameTimeExecutor.isShutdown())
+                    if (!gameTimeExecutor.isShutdown()) {
                         interrupt(GameStatus.timedOut(currentPlayer.getPlayerColor(), Eval.isSufficientMaterial(currentPlayer.getPlayerColor().getOpponent(), model)));
+                    }
                 } catch (InterruptedException e) {
                 }
             });
@@ -376,8 +378,7 @@ public class Game {
         model.makeMove(move);
         moveStack.push(move);
 
-        session.log(model.getMoveStack().toString());
-
+//        session.log(model.getMoveStack().toString());
         currentPlayer.getPartner().updateByMove(move);
 
         return move.getMoveEvaluation().getGameStatus();
@@ -403,7 +404,9 @@ public class Game {
         GameOverError err = new GameOverError(gameOverStatus);
         if (isReadingMove) {
             currentPlayer.interrupt(err);
-        } else throwErr = err;
+        } else {
+            throwErr = err;
+        }
 
     }
 
@@ -424,7 +427,6 @@ public class Game {
 //    private boolean checkTimeOut() {
 //        return gameTime.getRunningTime(currentPlayer.getPlayerColor()).didRunOut();
 //    }
-
     /**
      * Gets creator color.
      *
@@ -471,7 +473,6 @@ public class Game {
         Arrays.stream(getPlayers()).parallel().forEach(callback::callback);
     }
 
-
     /**
      * Get players player [ ].
      *
@@ -490,6 +491,5 @@ public class Game {
     public String toString() {
         return "%s vs %s".formatted(gameCreator.getUsername(), p2.getUsername());
     }
-
 
 }

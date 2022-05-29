@@ -376,7 +376,7 @@ public class Game {
         model.makeMove(move);
         moveStack.push(move);
 
-        session.log(model.getMoveStack().toString());
+//        session.log(model.getMoveStack().toString());
 
         currentPlayer.getPartner().updateByMove(move);
 
