@@ -1,5 +1,12 @@
 package ver14.view.Board;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.stream.IntStream;
+import javax.swing.*;
 import ver14.SharedClasses.Callbacks.Callback;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Board;
 import ver14.SharedClasses.Game.GameSetup.BoardSetup.Pieces.Piece;
@@ -11,20 +18,13 @@ import ver14.SharedClasses.UI.MyLbl;
 import ver14.view.IconManager.Size;
 import ver14.view.View;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.stream.IntStream;
-
 /**
  * represents the Board panel. holding all the {@link BoardButton}s.
  *
  * @author Bezalel Avrahami (bezalel3250@gmail.com)
  */
 public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
+
     /**
      * The constant blackSquareClr.
      */
@@ -61,9 +61,9 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * The Cols coordinates pnl.
      */
     private JPanel colsCoordinatesPnl, /**
-     * The Rows coordinates pnl.
-     */
-    rowsCoordinatesPnl;
+             * The Rows coordinates pnl.
+             */
+            rowsCoordinatesPnl;
     /**
      * The Board overlay.
      */
@@ -124,6 +124,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
             Collections.reverse(cols);
         }
         class Lbl extends MyLbl {
+
             public Lbl(String text) {
                 super(text);
                 setPreferredSize(getMinimumSize());
@@ -158,8 +159,8 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Sets all sizes.
      *
      * @param comp the comp
-     * @param w    the w
-     * @param h    the h
+     * @param w the w
+     * @param h the h
      */
     static void setAllSizes(JComponent comp, double w, double h) {
         setAllSizes(comp, (int) w, (int) h);
@@ -169,8 +170,8 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Sets all sizes.
      *
      * @param comp the comp
-     * @param w    the w
-     * @param h    the h
+     * @param w the w
+     * @param h the h
      */
     static void setAllSizes(JComponent comp, int w, int h) {
         Size size = new Size(w, h);
@@ -308,8 +309,9 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
         buttonsPnl.removeAll();
 
         for (Location loc : Location.ALL_LOCS) {
-            if (view.isBoardFlipped())
+            if (view.isBoardFlipped()) {
                 loc = loc.flip();
+            }
             ViewLocation btnLoc = new ViewLocation(loc);
 
             BoardButton currentBtn = new BoardButton(btnLoc, loc.isBlackSquare() ? blackSquareClr : whiteSquareClr, view) {
@@ -338,7 +340,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Sets button.
      *
      * @param button the button
-     * @param loc    the loc
+     * @param loc the loc
      */
     private void setButton(BoardButton button, ViewLocation loc) {
         btnMat[loc.viewLocation.row][loc.viewLocation.col] = button;
@@ -422,7 +424,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
 //            return;
 //        }
         SwingUtilities.invokeLater(() -> {
-            System.out.println("onResize() called");
+//            System.out.println("onResize() called");
             int size = Math.min(getWidth(), getHeight());
             setAllSizes(me, size, size);
 
@@ -440,7 +442,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Sets all sizes.
      *
      * @param comp the comp
-     * @param d    the d
+     * @param d the d
      */
     static void setAllSizes(JComponent comp, Dimension d) {
         setAllSizes(comp, d.width, d.height);
@@ -450,7 +452,7 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
      * Resize icons.
      */
     public void resizeIcons() {
-        System.out.println("resizing icon. pnl size is = " + getSize());
+//        System.out.println("resizing icon. pnl size is = " + getSize());
         forEachBtnParallel(BoardButton::scaleIcon);
         repaint();
     }
@@ -458,12 +460,15 @@ public class BoardPanel extends JPanel implements Iterable<BoardButton[]> {
     @Override
     public void repaint() {
         super.repaint();
-        if (buttonsPnl != null)
+        if (buttonsPnl != null) {
             buttonsPnl.repaint();
-        if (boardOverlay != null)
+        }
+        if (boardOverlay != null) {
             boardOverlay.repaintLayer();
-        if (view != null)
+        }
+        if (view != null) {
             view.repaint();
+        }
     }
 
     @Override
