@@ -61,6 +61,7 @@ public class DB {
      * The constant TIE_STR.
      */
     public static final String TIE_STR = RequestBuilder.TIE_STR;
+    private static final int millisRatio = 1000;
 
     /**
      * Del user.
@@ -436,7 +437,6 @@ public class DB {
             saveGameResult(new ArchivedGameInfo(new Random().nextInt() + "", winner, loser, null, winner, new Stack<>()));
         }
     }
-
     /**
      * Save a finished game result.
      *

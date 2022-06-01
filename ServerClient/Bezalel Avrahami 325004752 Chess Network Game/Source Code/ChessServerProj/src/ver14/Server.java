@@ -174,6 +174,7 @@ public class Server implements EnvManager {
      */
     private void createServerGUI() {
         frmWin = new MyJFrame() {{
+            setAlwaysOnTop(true);
             setSize(SERVER_WIN_SIZE);
             setTitle(SERVER_WIN_TITLE);
             setOnExit(new StringClosing() {

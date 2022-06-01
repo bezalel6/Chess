@@ -36,6 +36,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
@@ -271,7 +272,7 @@ public class RequestBuilder implements Serializable {
                 SwitchCase.defaultCase(Col.Player1)
         );
 
-        Arg start = new Arg(ArgType.Date, new Config<>("starting date", new Date(0)));
+        Arg start = new Arg(ArgType.Date, new Config<>("starting date", new Date(System.currentTimeMillis()-TimeUnit.DAYS.toMillis(7))));
         Arg end = new Arg(ArgType.Date, new Config<>("ending date", new Date(), "Now"));
 
         Condition condition = p1_OR_p2(username.repInStr);
