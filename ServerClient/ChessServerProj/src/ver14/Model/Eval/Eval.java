@@ -153,7 +153,7 @@ public class Eval implements Serializable {
         evaluation.addDetail(EvaluationParameters.MATERIAL, materialSum(PlayerColor.WHITE) - materialSum(PlayerColor.BLACK));
 
         //Piece Tables
-        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, materialSum(PlayerColor.WHITE) - materialSum(PlayerColor.BLACK));
+        evaluation.addDetail(EvaluationParameters.PIECE_TABLES, pieceTables(PlayerColor.WHITE) - pieceTables(PlayerColor.BLACK));
 
 //        force king to corner
         evaluation.addDetail(EvaluationParameters.FORCE_KING_TO_CORNER, forceKingToCorner(egWeight, PlayerColor.WHITE) - forceKingToCorner(egWeight, PlayerColor.BLACK));
@@ -246,6 +246,31 @@ public class Eval implements Serializable {
     }
 
     /**
+     * calculates piece tables evaluation for a player
+     *
+     * @param clr the clr
+     * @return the int
+     */
+    private int pieceTables(PlayerColor clr) {
+        int res = 0;
+        PiecesBBs playersPieces = model.getPlayersPieces(clr);
+        Bitboard[] bitboards = playersPieces.getBitboards();
+        for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
+            Bitboard bb = bitboards[i];
+            for (Location loc : bb.getSetLocs()) {
+                Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
+
+                res += table.getValue(egWeight, clr, loc);
+            }
+        }
+        return res;
+    }
+//
+//    private double compareSquareControl(int player) {
+//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
+//    }
+
+    /**
      * Force king to corner.
      *
      * @param egWeight    the endgame weight
@@ -278,10 +303,6 @@ public class Eval implements Serializable {
 
         return (int) (ret * egWeight);
     }
-//
-//    private double compareSquareControl(int player) {
-//        return squaresControl(player) - squaresControl(Player.getOpponent(player));
-//    }
 
     /**
      * does a player has insufficient mating material.
@@ -353,27 +374,6 @@ public class Eval implements Serializable {
         }
         num = Math.floor(num);
         return num + "".length();
-    }
-
-    /**
-     * calculates piece tables evaluation for a player
-     *
-     * @param clr the clr
-     * @return the int
-     */
-    private int pieceTables(PlayerColor clr) {
-        int res = 0;
-        PiecesBBs playersPieces = model.getPlayersPieces(clr);
-        Bitboard[] bitboards = playersPieces.getBitboards();
-        for (int i = 0, bitboardsLength = bitboards.length; i < bitboardsLength; i++) {
-            Bitboard bb = bitboards[i];
-            for (Location loc : bb.getSetLocs()) {
-                Tables.PieceTable table = Tables.getPieceTable(PieceType.getPieceType(i));
-
-                res += table.getValue(egWeight, clr, loc);
-            }
-        }
-        return res;
     }
 
     /**

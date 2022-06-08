@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bezal/Documents/GitHub/Chess/ServerClient/NetBeans/ChessServerProj/src/ver14/Model/Model.java</file>
-            <file>file:/C:/Users/bezal/Documents/GitHub/Chess/ServerClient/NetBeans/ChessServerProj/src/ver14/Model/Eval/Book.java</file>
-            <file>file:/C:/Users/bezal/Documents/GitHub/Chess/ServerClient/NetBeans/ChessServerProj/src/ver14/Game/Game.java</file>
-            <file>file:/C:/Users/bezal/Documents/GitHub/Chess/ServerClient/NetBeans/ChessServerProj/src/ver14/Server.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/DBRequest.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/Piece.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/Game/GameSetup/BoardSetup/Pieces/PieceType.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/DB/DB.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/DBActions/RequestBuilder.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/Server.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/Model/Eval/Eval.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/Model/Minimax/Minimax.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/Model/Eval/Book.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/Game/SavedGames/EstablishedGameInfo.java</file>
+            <file>file:/E:/SharedCo/Chess/ServerClient/Bezalel%20Avrahami%20325004752%20Chess%20Network%20Game/Source%20Code/ChessServerProj/src/ver14/SharedClasses/DBActions/DBRequest/PreMadeRequest.java</file>
         </group>
     </open-files>
 </project-private>
