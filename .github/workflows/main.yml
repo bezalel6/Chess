@@ -1,0 +1,41 @@
+name: Create Chess Artifacts
+
+on:
+  workflow_dispatch:
+    # This makes the workflow triggerable manually from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Create artifact directory
+        run: mkdir -p chess-artifacts
+      
+      - name: Copy server artifacts
+        run: |
+          if [ -d "ServerClient/ChessServerProj/out/artifacts/ChessServerProj_jar" ]; then
+            cp -r ServerClient/ChessServerProj/out/artifacts/ChessServerProj_jar/* chess-artifacts/
+          else
+            echo "Server artifacts directory not found"
+            exit 1
+          fi
+      
+      - name: Copy client artifacts
+        run: |
+          if [ -d "ServerClient/ChessClientProj/out/artifacts/ChessClientProj_jar" ]; then
+            cp -r ServerClient/ChessClientProj/out/artifacts/ChessClientProj_jar/* chess-artifacts/
+          else
+            echo "Client artifacts directory not found"
+            exit 1
+          fi
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: chess-application
+          path: chess-artifacts/
+          retention-days: 7
